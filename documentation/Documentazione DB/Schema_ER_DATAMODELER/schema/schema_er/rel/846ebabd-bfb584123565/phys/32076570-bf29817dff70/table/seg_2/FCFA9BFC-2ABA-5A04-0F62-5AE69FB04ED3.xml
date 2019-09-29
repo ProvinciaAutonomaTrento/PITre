@@ -1,0 +1,99 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="DPA_CHECKIN_CHECKOUT" id="FCFA9BFC-2ABA-5A04-0F62-5AE69FB04ED3" directorySegmentName="seg_2">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:30:59 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>01C269A7-E548-A726-A2EA-91C54D0C2BC0</segment>
+<tableSpace>17BB0B62-C33B-CBD0-6CDC-922E0DE3574A</tableSpace>
+<columnProxies>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="DOCUMENT_NUMBER" id="65F37EE1-7E82-D16D-DE34-822C444F11B3">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:07 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="ID_ROLE" id="9D1192E6-3CE2-08C6-9482-F6A8A272AF95">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:07 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="ID_USER" id="9E711C86-8A01-4C4B-7D7E-5E8BFA63779A">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:07 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="SYSTEM_ID" id="CBD1D0E1-9E65-0A1E-10E2-CD4FFA56D65D">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:07 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="MACHINE_NAME" id="CDBBEC20-F5B6-3129-0090-972A6014915B">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:07 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="CHECK_OUT_DATE" id="D1955896-BF35-2982-4D5A-D4CD4F36366C">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:07 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="DOCUMENT_LOCATION" id="E3776B56-EDCB-984D-8398-7E9E6CC2DB21">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:07 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="ID_DOCUMENT" id="E64CFC4D-3DFB-5FA3-4D18-5EA381B9ECDA">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:07 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="CHECKIN_CHECKOUT_PROFILE_R02" id="5176C8E6-41DA-F87D-71C4-75058AE8A3F3">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="CHECKIN_CHECKOUT_PROFILE_R01" id="755FA7D5-54A4-B4E1-5987-B81A43A485F3">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="CHECKIN_CHECKOUT_CORR_GLOB_R04" id="9F9EF04E-CE85-176E-F9E7-84590FCC81F4">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="CHECKIN_CHECKOUT_PEOPLE_R03" id="BC07C79C-D6E6-DE0D-7C88-3A8176E9FCFB">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_DPA_CHECKIN_CHECKOUT" id="FDBA57E3-F672-E30A-F11B-99670AD7485F">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:46 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<sortedRows>SORTED</sortedRows>
+<tableSpace>59E1EAF8-88C9-CB2B-C77F-87733ACEBD22</tableSpace>
+<indexSegment>0837EF07-AEED-2489-C6DB-80E5E306EFDA</indexSegment>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

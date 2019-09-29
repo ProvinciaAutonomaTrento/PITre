@@ -1,0 +1,138 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" id="88C3EFAE-44C6-25E3-57EF-CC1970BD4F87" directorySegmentName="seg_0" name="DPA_ASS_INDX_SIS">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>DPA_ASS_INDX_SIS</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:30:59 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<schemaObject>DD90ABE9-F09C-01FB-CAC6-1C595D89499F</schemaObject>
+<pkName>PK_DPA_ASS_INDX_SIS</pkName>
+<fonts itemClass="oracle.dbtools.crest.model.design.FontObjectWr">
+<FontObject>
+<foType>Titolo</foType>
+<fontStyle>1</fontStyle>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Colonna</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Tipo di dati</foType>
+<colorRGB>-16744448</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave privata</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave esterna</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave univoca</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Non nullo</foType>
+<colorRGB>-65536</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Chiave</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+</fonts>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SYSTEM_ID" id="23DA2818-4FF7-E84C-F4BA-97B0F51E3AFB">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_ASS_INDX_SIS</sourceObjSchema>
+<sourceObjName>SYSTEM_ID</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:06 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeSize>22</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_PROJECT" id="772B24CB-71FA-E91C-50E5-1B068B764CD0">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_ASS_INDX_SIS</sourceObjSchema>
+<sourceObjName>ID_PROJECT</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:06 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<delegate>941CA670-3516-3400-6762-8F0211B5CE8A</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A50D661F-8687-4796-7AC7-9D267BB28781" referredColumn="941CA670-3516-3400-6762-8F0211B5CE8A"/>
+</associations>
+</Column>
+<Column name="ID_INDICE_SIS" id="FC3D561C-82FD-7AE7-A52B-63C024F963B7">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_ASS_INDX_SIS</sourceObjSchema>
+<sourceObjName>ID_INDICE_SIS</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:06 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeSize>22</dataTypeSize>
+<delegate>98DC717A-D647-E571-69C5-F2CFEBF5C8FC</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="028F708B-8A35-61A5-4056-9B3C5988E3AB" referredColumn="98DC717A-D647-E571-69C5-F2CFEBF5C8FC"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A306129E-0281-F537-9EAB-A630700A768D" name="PK_DPA_ASS_INDX_SIS">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>PK_DPA_ASS_INDX_SIS</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:34 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<schemaObject>DD90ABE9-F09C-01FB-CAC6-1C595D89499F</schemaObject>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="23DA2818-4FF7-E84C-F4BA-97B0F51E3AFB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="20A4A6FB-9D5D-1F2E-7F0A-AB721816D2EC" name="DPA_ASS_INDX_SIS_PROJ_R01">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="772B24CB-71FA-E91C-50E5-1B068B764CD0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A19AE28D-DE3C-A48F-8A4D-1AD0D3D34026" name="SYS_C00116503">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="FC3D561C-82FD-7AE7-A52B-63C024F963B7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,88 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="DPA_EVENT_TYPE_ASSERTIONS" id="53B530C9-EEFC-493B-CAFE-3A3D0E5DB374" directorySegmentName="seg_0">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:00 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>01C269A7-E548-A726-A2EA-91C54D0C2BC0</segment>
+<tableSpace>17BB0B62-C33B-CBD0-6CDC-922E0DE3574A</tableSpace>
+<columnProxies>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="ID_AUR" id="3825FD3B-B448-85BA-7142-A069C955DB14">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:12 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="TYPE_AUR" id="56F816AD-BE80-B0C1-EBDF-374132805D33">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:12 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="TYPE_NOTIFY" id="61679A35-167A-5F93-E1AD-C869927EAF69">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:12 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="SYSTEM_ID" id="79967B6A-0309-B2D6-761B-8531123338E2">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:12 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="DESC_TYPE_EVENT" id="9932EB32-9810-CCC6-9F02-C7B97F29BBF2">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:12 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="DESC_AUR" id="D848D11A-A3C8-8A68-7034-4E5421293219">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:12 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="ID_TYPE_EVENT" id="EFDE2B90-F7D6-EDFC-6CAA-1D8E7CEF2852">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:12 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="IS_EXERCISE" id="F2A8BE34-2D28-6E01-D4A5-184736581DFE">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:12 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<defaultValue>&apos;0&apos;</defaultValue>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="ID_AMM" id="F80846DA-7640-C257-A72E-F9440E82639C">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:13 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="EVENT_TYPE_ASSERTIONS_AMM_R01" id="07FE3E7C-3604-F5C9-5983-0A295891A92E">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="DPA_EVENT_TYPE_ASSERTIONS_PK" id="B3C8A574-3A45-8BF4-F2D0-59FEEC83F49A">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:49 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<sortedRows>SORTED</sortedRows>
+<tableSpace>17BB0B62-C33B-CBD0-6CDC-922E0DE3574A</tableSpace>
+<indexSegment>0837EF07-AEED-2489-C6DB-80E5E306EFDA</indexSegment>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

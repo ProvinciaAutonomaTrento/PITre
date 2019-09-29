@@ -1,0 +1,256 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" id="40AB51CB-5586-4494-FCE9-73AD802A1655" directorySegmentName="seg_0" name="DPA_CONTATORI_FASC">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>DPA_CONTATORI_FASC</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:30:59 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<schemaObject>DD90ABE9-F09C-01FB-CAC6-1C595D89499F</schemaObject>
+<pkName>DPA_CONTATORI_FASC_PK</pkName>
+<fonts itemClass="oracle.dbtools.crest.model.design.FontObjectWr">
+<FontObject>
+<foType>Titolo</foType>
+<fontStyle>1</fontStyle>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Colonna</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Tipo di dati</foType>
+<colorRGB>-16744448</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave privata</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave esterna</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave univoca</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Non nullo</foType>
+<colorRGB>-65536</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Chiave</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+</fonts>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SYSTEM_ID" id="B7BB109A-9065-17E7-4846-1E32ED989ABD">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_CONTATORI_FASC</sourceObjSchema>
+<sourceObjName>SYSTEM_ID</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeSize>22</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_OGG" id="A46AE7B2-9F7A-4BC4-4E09-AD1D9F76B2DA">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_CONTATORI_FASC</sourceObjSchema>
+<sourceObjName>ID_OGG</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeSize>22</dataTypeSize>
+<delegate>1387F11E-31C1-6A2A-F65F-17E5B28E3A38</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="98B22CBB-279B-8F66-C55D-B563232B2565" referredColumn="1387F11E-31C1-6A2A-F65F-17E5B28E3A38"/>
+</associations>
+</Column>
+<Column name="ID_TIPOLOGIA" id="F48D5972-1D06-D129-AC07-9C9C5664CF6D">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_CONTATORI_FASC</sourceObjSchema>
+<sourceObjName>ID_TIPOLOGIA</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeSize>22</dataTypeSize>
+<delegate>74CAAA83-9C83-9D79-8246-870045BF7E4C</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="83E01980-815C-270F-4FD3-1BF87866A00B" referredColumn="74CAAA83-9C83-9D79-8246-870045BF7E4C"/>
+</associations>
+</Column>
+<Column name="ID_AOO" id="50FBFE3F-4D6E-2AB8-6DB3-DE0F51F0C68B">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_CONTATORI_FASC</sourceObjSchema>
+<sourceObjName>ID_AOO</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<delegate>6EE8EC82-A136-3176-4D52-DE1815B25093</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F1EFB00A-7E7F-8F4A-62CB-42C8D77528F5" referredColumn="6EE8EC82-A136-3176-4D52-DE1815B25093"/>
+</associations>
+</Column>
+<Column name="ID_RF" id="2C6D3B90-7A7D-1987-D730-86F1B67F4E5D">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_CONTATORI_FASC</sourceObjSchema>
+<sourceObjName>ID_RF</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<delegate>6EE8EC82-A136-3176-4D52-DE1815B25093</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A60123F8-CBF3-C61C-932C-B5FBD0431546" referredColumn="6EE8EC82-A136-3176-4D52-DE1815B25093"/>
+</associations>
+</Column>
+<Column name="VALORE" id="8A51CA03-5A17-5E5B-E6AD-E4766D690B98">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_CONTATORI_FASC</sourceObjSchema>
+<sourceObjName>VALORE</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeSize>22</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ABILITATO" id="6B8E4ED5-2995-3E8E-41D7-F6C1665B7239">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_CONTATORI_FASC</sourceObjSchema>
+<sourceObjName>ABILITATO</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeSize>22</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ANNO" id="18A748AB-9162-7E80-745C-4262E5CBCABF">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_CONTATORI_FASC</sourceObjSchema>
+<sourceObjName>ANNO</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeSize>22</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VALORE_SC" id="DD382592-0149-2AC4-6644-F3F3D2D5D99A">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_CONTATORI_FASC</sourceObjSchema>
+<sourceObjName>VALORE_SC</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeSize>22</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="40FC05FF-2A42-694D-9B3A-3CE6DFF906E6" name="DPA_CONTATORI_FASC_PK">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>DPA_CONTATORI_FASC_PK</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:35 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<schemaObject>DD90ABE9-F09C-01FB-CAC6-1C595D89499F</schemaObject>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="B7BB109A-9065-17E7-4846-1E32ED989ABD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2C2A706E-4D91-E8EF-83F7-D29F34D5F4F0" name="CONTATORI_FASC_REG_R03">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="50FBFE3F-4D6E-2AB8-6DB3-DE0F51F0C68B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="12009C6D-EE60-B336-5195-59BE310BD2A1" name="CONTATORI_FASC_REG_R04">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="2C6D3B90-7A7D-1987-D730-86F1B67F4E5D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8638A623-7245-0EDC-02B2-1BFCADA4C0CE" name="CONTATORI_FASC_TIPO_FASC_R02">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="F48D5972-1D06-D129-AC07-9C9C5664CF6D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4844046A-6538-F0DF-251D-AC7704994469" name="CONT_FASC_OGG_CUST_FASC_R01">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="A46AE7B2-9F7A-4BC4-4E09-AD1D9F76B2DA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

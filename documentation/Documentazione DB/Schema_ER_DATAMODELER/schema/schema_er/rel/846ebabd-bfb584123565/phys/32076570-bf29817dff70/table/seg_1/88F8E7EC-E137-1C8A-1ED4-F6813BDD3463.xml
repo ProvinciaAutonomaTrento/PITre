@@ -1,0 +1,81 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="DPA_FOLLOW_OBJECT" id="88F8E7EC-E137-1C8A-1ED4-F6813BDD3463" directorySegmentName="seg_1">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:00 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>8DA655B0-55B3-1C8D-7EF5-667C1D118F9A</segment>
+<tableSpace>1CF78A19-774B-8D5D-323C-0156B8BD83AD</tableSpace>
+<columnProxies>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="ID_OBJECT" id="6A230CE0-3420-C736-8FFA-2AAE33E63738">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:13 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="DOMAINOBJECT" id="71C024E1-AFF8-AAF9-F1A3-68B6E48AA11F">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:13 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="ID_ROLE_FOLLOW" id="A15F5E75-AE0E-D8F7-28C6-31EDC09FFF0C">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:13 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="APP" id="CE2106E8-8B8F-169C-5397-981C4532EDCC">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:13 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="ID_PEOPLE_FOLLOW" id="EEEAC0FF-F9B7-B277-DFE9-3FE5AB855AF6">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:13 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="ID_AMM" id="FB24EFED-27D3-BE13-EC97-B5C51A1C74B1">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:13 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="DPA_FOLLOW_OBJECT_PROJECT_R02" id="8EB69876-20F0-CC39-C775-8BEE2E95D182">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="DPA_FOLLOW_OBJECT_PEOPLE_R04" id="A486E68B-291B-E7A0-89C7-E071847BA8BA">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="DPA_FOLLOW_OBJECT_PROFILE_R01" id="AE54A7AC-F145-2CE1-6ED6-858ACED2F62A">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="DPA_FOLLOW_OBJECT_AMM_R05" id="BCE377E5-5EC8-4684-0BE2-28B38189622A">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="DPA_FOLLOW_OBJECT_GROUPS_R03" id="C3176D9D-6949-460D-D9C3-1B2CA06A20E9">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+</TableProxyOraclev11g>

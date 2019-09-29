@@ -1,0 +1,236 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" id="A6282087-0D3C-C7E9-D0C2-C6E72EB6FE8C" directorySegmentName="seg_0" name="DPA_COLL_MSPEDIZ_DOCUMENTO">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>DPA_COLL_MSPEDIZ_DOCUMENTO</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:30:59 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<schemaObject>DD90ABE9-F09C-01FB-CAC6-1C595D89499F</schemaObject>
+<pkName>DPA_COLL_MSPEDIZ_DOCUMENTO_PK</pkName>
+<fonts itemClass="oracle.dbtools.crest.model.design.FontObjectWr">
+<FontObject>
+<foType>Titolo</foType>
+<fontStyle>1</fontStyle>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Colonna</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Tipo di dati</foType>
+<colorRGB>-16744448</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave privata</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave esterna</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave univoca</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Non nullo</foType>
+<colorRGB>-65536</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Chiave</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+</fonts>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SYSTEM_ID" id="F9DA4FBB-4D4C-C3D6-20E9-8C80D20B96ED">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_COLL_MSPEDIZ_DOCUMENTO</sourceObjSchema>
+<sourceObjName>SYSTEM_ID</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:08 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeSize>22</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDAMM" id="A9A48823-26CF-16CB-125F-CB560DA34329">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_COLL_MSPEDIZ_DOCUMENTO</sourceObjSchema>
+<sourceObjName>IDAMM</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:08 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<delegate>02CD6B85-955F-3986-5435-A84EAF6E82EE</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2A4DF476-CA7C-ACF4-9283-AA9635562178" referredColumn="02CD6B85-955F-3986-5435-A84EAF6E82EE"/>
+</associations>
+</Column>
+<Column name="ID_RUOLO" id="DC2A5069-6EF7-351D-BCC9-19599C53F168">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_COLL_MSPEDIZ_DOCUMENTO</sourceObjSchema>
+<sourceObjName>ID_RUOLO</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:08 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<delegate>0984E31C-887E-828F-ECCE-893A14383070</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="AA15D220-EDB1-18D9-4426-6708BCA6FBB6" referredColumn="0984E31C-887E-828F-ECCE-893A14383070"/>
+</associations>
+</Column>
+<Column name="ID_UTENTE" id="B7CF8C7B-73F9-1E9D-0F71-37809D82BF26">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_COLL_MSPEDIZ_DOCUMENTO</sourceObjSchema>
+<sourceObjName>ID_UTENTE</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:08 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<delegate>631DE306-B455-5063-20F8-7CBA41E14740</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="77646969-000D-338B-5AA8-66C5C6CA340F" referredColumn="631DE306-B455-5063-20F8-7CBA41E14740"/>
+</associations>
+</Column>
+<Column name="ID_DOCUMENTTYPES" id="87E9AD37-99FF-991F-89CD-06781A9FE6E3">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_COLL_MSPEDIZ_DOCUMENTO</sourceObjSchema>
+<sourceObjName>ID_DOCUMENTTYPES</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:08 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<delegate>2E419312-6958-0DD7-0E87-3E03299FE305</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CC477E7F-B5B7-FA19-BBC9-4766C1236944" referredColumn="2E419312-6958-0DD7-0E87-3E03299FE305"/>
+</associations>
+</Column>
+<Column name="ID_PROFILE" id="65A6ECCD-F738-4BE1-0CDA-7E7C1EA25B04">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_COLL_MSPEDIZ_DOCUMENTO</sourceObjSchema>
+<sourceObjName>ID_PROFILE</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:08 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<delegate>9CCBF86E-F0F9-DBC1-A289-E838EE52007E</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4A899CCB-7B9F-78B4-60A0-82E5D44F2DE3" referredColumn="9CCBF86E-F0F9-DBC1-A289-E838EE52007E"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="710D8E8C-1C21-3650-6846-FB72617D4EBF" name="DPA_COLL_MSPEDIZ_DOCUMENTO_PK">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>DPA_COLL_MSPEDIZ_DOCUMENTO_PK</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:35 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<schemaObject>DD90ABE9-F09C-01FB-CAC6-1C595D89499F</schemaObject>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="F9DA4FBB-4D4C-C3D6-20E9-8C80D20B96ED"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="94E49CB0-2A4C-F420-0CD4-6D0FCE2710A2" name="IDX_COLL_MSPEDIZ_DOC_1">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>IDX_COLL_MSPEDIZ_DOC_1</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:35 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<schemaObject>DD90ABE9-F09C-01FB-CAC6-1C595D89499F</schemaObject>
+<indexColumnUsage>
+<colUsage columnID="87E9AD37-99FF-991F-89CD-06781A9FE6E3"/>
+<colUsage columnID="65A6ECCD-F738-4BE1-0CDA-7E7C1EA25B04"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="23CC038D-880A-E024-02D1-6E6B5A656941" name="COLL_MSPEDIZ_DOC_CORR_GLOB_R02">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="DC2A5069-6EF7-351D-BCC9-19599C53F168"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="578CD7E6-8AF8-1FB7-542F-B5AD2421F5A7" name="COLL_MSPEDIZ_DOC_DOCTYPES_R04">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="87E9AD37-99FF-991F-89CD-06781A9FE6E3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0D2EFE6D-0E81-357E-3E09-7F58B7838278" name="COLL_MSPEDIZ_DOC_PEOPLE_R03">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="B7CF8C7B-73F9-1E9D-0F71-37809D82BF26"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="03B9CE78-CB37-42B4-47EC-A95232B24427" name="COLL_MSPEDIZ_DOC_PROFILE_R05">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="65A6ECCD-F738-4BE1-0CDA-7E7C1EA25B04"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A8DC9A7E-6FAA-988A-DB99-E4ECBD8E19A0" name="DPA_COLL_MSPEDIZ_DOC_AMM_R01">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="A9A48823-26CF-16CB-125F-CB560DA34329"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

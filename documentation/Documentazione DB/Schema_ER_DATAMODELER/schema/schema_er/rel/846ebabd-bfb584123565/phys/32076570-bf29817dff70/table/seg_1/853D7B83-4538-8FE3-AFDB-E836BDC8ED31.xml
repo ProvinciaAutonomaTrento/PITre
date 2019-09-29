@@ -1,0 +1,109 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="DPA_STAMPA_CONSERVAZIONE" id="853D7B83-4538-8FE3-AFDB-E836BDC8ED31" directorySegmentName="seg_1">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:01 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>8DA655B0-55B3-1C8D-7EF5-667C1D118F9A</segment>
+<tableSpace>1CF78A19-774B-8D5D-323C-0156B8BD83AD</tableSpace>
+<columnProxies>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="SYSTEM_ID" id="08169C4D-26F7-DABA-8847-04DE2821F26D">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:21 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="ID_LAST_PRINTED_EVENT" id="4F548718-DB01-41EC-51D9-68EA30986981">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:21 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="ID_FIRST_PRINTED_EVENT" id="5B143BCF-7E32-AE48-B074-BB3B3D84DC79">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:21 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="ID_PROFILE" id="5E39FDD4-3C0B-ED1D-53A3-B3ED59F5415D">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:21 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="ID_AMM" id="DCB04E46-19F8-4CFB-C3DD-74CA7AF10FBC">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:21 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="PRINT_DATE" id="FF36D1C7-F063-6358-5BD9-8115A2C5A2D2">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:21 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="DPA_STAMPA_CONSERVAZIONE_R02" id="01CFA7C0-05C3-FD74-2F6E-E4040CB97183">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="DPA_STAMPA_CONSERVAZIONE_R03" id="2DEE7EDA-1A2A-00C3-25AD-C088D4B0D22A">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="DPA_STAMPA_CONSERVAZIONE_R01" id="533FEF94-3F4C-4771-D2F6-8C7E0D2FDDE7">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="DPA_STAMPA_CONSERVAZIONE_R04" id="E00A87CA-801D-B3D0-32F7-46AE9E6CCE24">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="DPA_STAMPA_CONSERVAZIONE_PK" id="0A37FC8D-3207-1330-6655-A79EAA04EAA5">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:57 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<sortedRows>SORTED</sortedRows>
+<tableSpace>1CF78A19-774B-8D5D-323C-0156B8BD83AD</tableSpace>
+<indexSegment>0830F6D5-A35B-A672-7E18-7A1F08C31F79</indexSegment>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+<uniqueKeys>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="DPA_STAMPA_CONSERVAZIONE_U2" id="635F08BE-1D1C-6F25-9B40-61EF0A83DFB0">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:57 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<sortedRows>SORTED</sortedRows>
+<tableSpace>1CF78A19-774B-8D5D-323C-0156B8BD83AD</tableSpace>
+<indexSegment>0830F6D5-A35B-A672-7E18-7A1F08C31F79</indexSegment>
+<indexSort>SORTED</indexSort>
+</UniqueKey>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="DPA_STAMPA_CONSERVAZIONE_U" id="E6B96F92-7F65-91BB-ED90-B6918E8CBA6A">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:57 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<sortedRows>SORTED</sortedRows>
+<tableSpace>1CF78A19-774B-8D5D-323C-0156B8BD83AD</tableSpace>
+<indexSegment>0830F6D5-A35B-A672-7E18-7A1F08C31F79</indexSegment>
+<indexSort>SORTED</indexSort>
+</UniqueKey>
+</uniqueKeys>
+</TableProxyOraclev11g>

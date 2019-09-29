@@ -1,0 +1,93 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="DPA_EXTERNAL_SYSTEMS" id="912E8AC1-4DDD-783A-A600-CE9733ECAD8D" directorySegmentName="seg_1">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:00 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>01C269A7-E548-A726-A2EA-91C54D0C2BC0</segment>
+<tableSpace>17BB0B62-C33B-CBD0-6CDC-922E0DE3574A</tableSpace>
+<columnProxies>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="VAR_USER_ID" id="25646053-6589-427D-16E0-DCFCEDD828B1">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:13 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="SYSTEM_ID" id="2934FDDC-8B78-F4A6-7A74-CD6938C01071">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:13 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="VAR_TKN_TIME" id="62F17329-2748-5902-4205-71247A811D71">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:13 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="VAR_PIS_METHODS_ALLOWED" id="6D30363C-B2C2-C95F-D87C-C911B324ACEF">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:13 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="ID_AMM" id="74373665-4155-336F-FBC2-781218D044A3">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:13 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="VAR_CODE_APPLICATION" id="91F37A8C-31FD-1C8F-9551-7918500945A9">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:13 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="ID_SYSTEM_ROLE" id="A0AFDC3D-C964-9759-01A1-49EC810A7678">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:13 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="VAR_DESCRIZIONE" id="AE80A7E9-D124-E161-AE71-A72DF2CB565C">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:13 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="VAR_DESC_ESTESA" id="ED3D3253-A201-E03F-ABF5-616F472E4DD4">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:13 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="EXTERNAL_SYSTEMS_AMM_R02" id="1E35A12D-A24D-85DA-8A09-096D05CFAED1">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="EXTERNAL_SYSTEMS_CORR_GLOB_R01" id="2FC98553-ECF3-3339-A370-64FE17CE2239">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="DPA_EXTERNAL_SYSTEMS_PK" id="CEFC1CDD-C2BB-6A3F-2516-F5896930F4D1">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:49 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<sortedRows>SORTED</sortedRows>
+<tableSpace>17BB0B62-C33B-CBD0-6CDC-922E0DE3574A</tableSpace>
+<indexSegment>0837EF07-AEED-2489-C6DB-80E5E306EFDA</indexSegment>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

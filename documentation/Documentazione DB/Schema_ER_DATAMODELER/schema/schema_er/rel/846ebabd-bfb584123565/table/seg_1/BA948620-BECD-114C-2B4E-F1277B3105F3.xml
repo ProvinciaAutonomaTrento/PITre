@@ -1,0 +1,395 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" id="BA948620-BECD-114C-2B4E-F1277B3105F3" directorySegmentName="seg_1" name="DPA_REGISTRI_REPERTORIO">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>DPA_REGISTRI_REPERTORIO</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:01 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<schemaObject>DD90ABE9-F09C-01FB-CAC6-1C595D89499F</schemaObject>
+<fonts itemClass="oracle.dbtools.crest.model.design.FontObjectWr">
+<FontObject>
+<foType>Titolo</foType>
+<fontStyle>1</fontStyle>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Colonna</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Tipo di dati</foType>
+<colorRGB>-16744448</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave privata</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave esterna</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave univoca</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Non nullo</foType>
+<colorRGB>-65536</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Chiave</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+</fonts>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="TIPOLOGYID" id="36D49E92-2E6F-38C6-05C6-D46964BAB1F8">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_REGISTRI_REPERTORIO</sourceObjSchema>
+<sourceObjName>TIPOLOGYID</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:20 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<delegate>4D3DAC07-012C-F23D-249E-FF36C4509751</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1015203E-39DF-3848-425A-DEB1E32660C3" referredColumn="4D3DAC07-012C-F23D-249E-FF36C4509751"/>
+<colAssociation fkAssociation="FF966B24-C843-DDFF-7623-727580113A01" referredColumn="74CAAA83-9C83-9D79-8246-870045BF7E4C"/>
+</associations>
+</Column>
+<Column name="COUNTERID" id="CD83C574-23D7-9883-CE62-0F879FD52A9E">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_REGISTRI_REPERTORIO</sourceObjSchema>
+<sourceObjName>COUNTERID</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:20 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeSize>22</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="COUNTERSTATE" id="4D09E39C-5B45-4F84-002F-DE5AEAD26BAD">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_REGISTRI_REPERTORIO</sourceObjSchema>
+<sourceObjName>COUNTERSTATE</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:20 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SETTINGSTYPE" id="51629DEA-FD9F-44A9-D9CD-A26BF7DC4823">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_REGISTRI_REPERTORIO</sourceObjSchema>
+<sourceObjName>SETTINGSTYPE</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:20 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="REGISTRYID" id="0EFB3A8C-32F2-A868-1472-273126BE27FD">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_REGISTRI_REPERTORIO</sourceObjSchema>
+<sourceObjName>REGISTRYID</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:20 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<delegate>6EE8EC82-A136-3176-4D52-DE1815B25093</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="30DC06E6-E146-442B-D19C-2AEDBFB371AE" referredColumn="6EE8EC82-A136-3176-4D52-DE1815B25093"/>
+</associations>
+</Column>
+<Column name="RFID" id="46E1C748-6238-E00D-7250-5499FD75F6FE">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_REGISTRI_REPERTORIO</sourceObjSchema>
+<sourceObjName>RFID</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:20 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<delegate>6EE8EC82-A136-3176-4D52-DE1815B25093</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C677E080-275A-9D0A-8C4D-2479EA836C67" referredColumn="6EE8EC82-A136-3176-4D52-DE1815B25093"/>
+</associations>
+</Column>
+<Column name="ROLERESPID" id="34FF0186-24DB-2B75-E25F-1BE3ECA24D9B">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_REGISTRI_REPERTORIO</sourceObjSchema>
+<sourceObjName>ROLERESPID</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:20 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<delegate>0984E31C-887E-828F-ECCE-893A14383070</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0ACC93E7-624A-3683-4F59-81E84D4027BD" referredColumn="0984E31C-887E-828F-ECCE-893A14383070"/>
+</associations>
+</Column>
+<Column name="PRINTERROLERESPID" id="CFFA5F14-BE15-2A41-2E21-9F112A8BE047">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_REGISTRI_REPERTORIO</sourceObjSchema>
+<sourceObjName>PRINTERROLERESPID</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:20 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<delegate>0984E31C-887E-828F-ECCE-893A14383070</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="70BB79D9-AABB-FFE3-82A4-12E840D6F811" referredColumn="0984E31C-887E-828F-ECCE-893A14383070"/>
+</associations>
+</Column>
+<Column name="PRINTERUSERRESPID" id="502D0720-8B8F-90A0-77D8-A34B5BB7BE9C">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_REGISTRI_REPERTORIO</sourceObjSchema>
+<sourceObjName>PRINTERUSERRESPID</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:20 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<delegate>631DE306-B455-5063-20F8-7CBA41E14740</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A50ABA77-2329-851B-4206-B850CD557FF8" referredColumn="631DE306-B455-5063-20F8-7CBA41E14740"/>
+</associations>
+</Column>
+<Column name="PRINTFREQ" id="E05EC95F-ACCA-9741-61C9-71A022EE18B2">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_REGISTRI_REPERTORIO</sourceObjSchema>
+<sourceObjName>PRINTFREQ</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:20 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TIPOLOGYKIND" id="91A751F7-8EE8-2819-1970-B20D6C4C888C">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_REGISTRI_REPERTORIO</sourceObjSchema>
+<sourceObjName>TIPOLOGYKIND</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:20 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DTASTART" id="9AF434B8-CAA3-F7F6-C72D-CCDB7BC90A5A">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_REGISTRI_REPERTORIO</sourceObjSchema>
+<sourceObjName>DTASTART</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:20 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DTAFINISH" id="DE4653CD-906D-786C-654A-237A6BB1B32C">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_REGISTRI_REPERTORIO</sourceObjSchema>
+<sourceObjName>DTAFINISH</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:20 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DTANEXTAUTOMATICPRINT" id="43FBA8CD-F88E-30A5-EAC2-2C4A9E90E109">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_REGISTRI_REPERTORIO</sourceObjSchema>
+<sourceObjName>DTANEXTAUTOMATICPRINT</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:20 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DTALASTPRINT" id="E09EDA35-8A28-E454-EB96-C9B688E0F5A8">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_REGISTRI_REPERTORIO</sourceObjSchema>
+<sourceObjName>DTALASTPRINT</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:20 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LASTPRINTEDNUMBER" id="3C685F81-0217-54E6-B971-94F81D0A864E">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_REGISTRI_REPERTORIO</sourceObjSchema>
+<sourceObjName>LASTPRINTEDNUMBER</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:20 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeSize>22</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RESPRIGHTS" id="7CF1BF1E-D545-444E-563B-71A214465B94">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_REGISTRI_REPERTORIO</sourceObjSchema>
+<sourceObjName>RESPRIGHTS</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:20 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4599EAEA-49C3-3F4E-3FDB-748B546B9703" name="DPA_REGISTRI_REPERTORIO_R01">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="36D49E92-2E6F-38C6-05C6-D46964BAB1F8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="32B01181-AA72-92E8-6456-A67BD01D0FA3" name="DPA_REGISTRI_REPERTORIO_R02">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="36D49E92-2E6F-38C6-05C6-D46964BAB1F8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3D07E67C-8749-3409-FE84-77B8F72E35EB" name="DPA_REGISTRI_REPERTORIO_R03">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="0EFB3A8C-32F2-A868-1472-273126BE27FD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="76CFCB38-DEAA-A3A6-AA51-AF6C1D2FDE18" name="DPA_REGISTRI_REPERTORIO_R04">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="46E1C748-6238-E00D-7250-5499FD75F6FE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="211C5C8B-5120-46FF-707C-70488A1AD2F3" name="DPA_REGISTRI_REPERTORIO_R05">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="34FF0186-24DB-2B75-E25F-1BE3ECA24D9B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EB318586-035F-820A-0BD3-44FE99AE865B" name="DPA_REGISTRI_REPERTORIO_R06">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="CFFA5F14-BE15-2A41-2E21-9F112A8BE047"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A1279839-B07A-EE48-FC47-DDB8C9EA4F60" name="DPA_REGISTRI_REPERTORIO_R07">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="502D0720-8B8F-90A0-77D8-A34B5BB7BE9C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

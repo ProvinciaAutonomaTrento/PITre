@@ -1,0 +1,199 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" id="B178532E-277E-0B4C-2A96-C7B52AB16643" directorySegmentName="seg_0" name="DPA_COPY_LOG">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>DPA_COPY_LOG</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:30:59 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<schemaObject>DD90ABE9-F09C-01FB-CAC6-1C595D89499F</schemaObject>
+<pkName>DPA_COPY_LOG_PK</pkName>
+<fonts itemClass="oracle.dbtools.crest.model.design.FontObjectWr">
+<FontObject>
+<foType>Titolo</foType>
+<fontStyle>1</fontStyle>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Colonna</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Tipo di dati</foType>
+<colorRGB>-16744448</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave privata</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave esterna</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave univoca</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Non nullo</foType>
+<colorRGB>-65536</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Chiave</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+</fonts>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="THING" id="E641CF41-AE49-0FC9-7684-C1665CEB0B73">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_COPY_LOG</sourceObjSchema>
+<sourceObjName>THING</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeSize>22</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_RUOLO_DEST" id="8FB41791-11FB-2268-A803-FC445E7FB87D">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_COPY_LOG</sourceObjSchema>
+<sourceObjName>ID_RUOLO_DEST</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<delegate>52B0D35C-95DE-F462-7121-77F7D29853A7</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="06541C15-62AF-5FB4-EE91-31C528373F9A" referredColumn="52B0D35C-95DE-F462-7121-77F7D29853A7"/>
+</associations>
+</Column>
+<Column name="ID_RUOLO_ORIG" id="E8299FEF-326A-5AF1-BE9E-A2E3FD112087">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_COPY_LOG</sourceObjSchema>
+<sourceObjName>ID_RUOLO_ORIG</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<delegate>52B0D35C-95DE-F462-7121-77F7D29853A7</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="019EFDC6-8D58-77C3-7894-49E72659B427" referredColumn="52B0D35C-95DE-F462-7121-77F7D29853A7"/>
+</associations>
+</Column>
+<Column name="ACCESSRIGHTS" id="31FDA5A5-FA29-33F5-0A9F-0597B0F7E5FC">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_COPY_LOG</sourceObjSchema>
+<sourceObjName>ACCESSRIGHTS</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeSize>22</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CHA_TIPO_DIRITTO" id="C1B2A6FA-5B88-0A68-7DB3-673A58E64935">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_COPY_LOG</sourceObjSchema>
+<sourceObjName>CHA_TIPO_DIRITTO</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VAR_NOTE_SEC" id="E8E9DBBB-9AE0-7193-58D5-A08A1F96DACC">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_COPY_LOG</sourceObjSchema>
+<sourceObjName>VAR_NOTE_SEC</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>256 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TS_COPY" id="8FE360E5-D3AB-3F97-7825-4840ACC816E5">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_COPY_LOG</sourceObjSchema>
+<sourceObjName>TS_COPY</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<defaultValue>SYSTIMESTAMP</defaultValue>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3977BAE5-2041-D8C7-C2E2-D5BC7545BED7" name="DPA_COPY_LOG_PK">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>DPA_COPY_LOG_PK</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:35 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<schemaObject>DD90ABE9-F09C-01FB-CAC6-1C595D89499F</schemaObject>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="E641CF41-AE49-0FC9-7684-C1665CEB0B73"/>
+<colUsage columnID="8FB41791-11FB-2268-A803-FC445E7FB87D"/>
+<colUsage columnID="31FDA5A5-FA29-33F5-0A9F-0597B0F7E5FC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E94D78D3-D745-0657-AE4C-2578633710D5" name="DPA_COPY_LOG_GROUPS_R01">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="8FB41791-11FB-2268-A803-FC445E7FB87D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B65C8757-00F0-94BA-08BD-6C39AD74F537" name="DPA_COPY_LOG_GROUPS_R02">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="E8299FEF-326A-5AF1-BE9E-A2E3FD112087"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

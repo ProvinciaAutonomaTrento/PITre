@@ -1,0 +1,168 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" id="C0D34C0E-D59F-9170-FC23-200A5231280D" directorySegmentName="seg_0" name="DPA_ASS_RUOLO_OGG_CUSTOM">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>DPA_ASS_RUOLO_OGG_CUSTOM</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:30:59 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<schemaObject>DD90ABE9-F09C-01FB-CAC6-1C595D89499F</schemaObject>
+<pkName>PK_DPA_ASS_RUOLO_OGG_CUSTOM</pkName>
+<fonts itemClass="oracle.dbtools.crest.model.design.FontObjectWr">
+<FontObject>
+<foType>Titolo</foType>
+<fontStyle>1</fontStyle>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Colonna</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Tipo di dati</foType>
+<colorRGB>-16744448</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave privata</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave esterna</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave univoca</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Non nullo</foType>
+<colorRGB>-65536</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Chiave</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+</fonts>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SYSTEM_ID" id="B83FBD18-AB97-44DC-D4FB-34F2961FA66B">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_ASS_RUOLO_OGG_CUSTOM</sourceObjSchema>
+<sourceObjName>SYSTEM_ID</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:07 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_OGGETTO_CUSTOM" id="2EEFFA46-7BAF-F115-4B02-162BABE7B234">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_ASS_RUOLO_OGG_CUSTOM</sourceObjSchema>
+<sourceObjName>ID_OGGETTO_CUSTOM</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:07 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeSize>22</dataTypeSize>
+<delegate>E5FF7B7D-7881-E69B-2E3F-B6922B48BE17</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F8D8DF93-5DAE-F1FE-3198-C8F65F125F0B" referredColumn="E5FF7B7D-7881-E69B-2E3F-B6922B48BE17"/>
+</associations>
+</Column>
+<Column name="ID_RUOLO" id="7BEF25C0-B10D-C385-ADFF-5A3F59BB267A">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_ASS_RUOLO_OGG_CUSTOM</sourceObjSchema>
+<sourceObjName>ID_RUOLO</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:07 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<delegate>52B0D35C-95DE-F462-7121-77F7D29853A7</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7E9EE475-FC05-484A-BFF2-16630F78C980" referredColumn="52B0D35C-95DE-F462-7121-77F7D29853A7"/>
+</associations>
+</Column>
+<Column name="INSERIMENTO" id="B63C256A-24AB-58F0-1F82-9D5E477C5B56">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DPA_ASS_RUOLO_OGG_CUSTOM</sourceObjSchema>
+<sourceObjName>INSERIMENTO</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:07 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CDD45DE4-D67D-BD65-C791-86E3FC7CBB39" name="PK_DPA_ASS_RUOLO_OGG_CUSTOM">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>PK_DPA_ASS_RUOLO_OGG_CUSTOM</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:35 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<schemaObject>DD90ABE9-F09C-01FB-CAC6-1C595D89499F</schemaObject>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="B83FBD18-AB97-44DC-D4FB-34F2961FA66B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8423A720-432C-D4FF-ED24-2D18AA3DC6CC" name="INDX_DPA_ASS_RUOLO_OGG_CUSTOM">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>INDX_DPA_ASS_RUOLO_OGG_CUSTOM</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:35 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<schemaObject>DD90ABE9-F09C-01FB-CAC6-1C595D89499F</schemaObject>
+<indexState>Unique Plain Index</indexState>
+<indexColumnUsage>
+<colUsage columnID="2EEFFA46-7BAF-F115-4B02-162BABE7B234"/>
+<colUsage columnID="7BEF25C0-B10D-C385-ADFF-5A3F59BB267A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BEBDD35C-05D1-1A47-39BB-7A28418204DC" name="DPA_ASS_RUOLO_OGG_CUSTOM_R01">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="2EEFFA46-7BAF-F115-4B02-162BABE7B234"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0478543B-256A-E466-BD65-75F5D5EFCD4A" name="DPA_ASS_RUOLO_OGG_CUSTOM_R02">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="7BEF25C0-B10D-C385-ADFF-5A3F59BB267A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

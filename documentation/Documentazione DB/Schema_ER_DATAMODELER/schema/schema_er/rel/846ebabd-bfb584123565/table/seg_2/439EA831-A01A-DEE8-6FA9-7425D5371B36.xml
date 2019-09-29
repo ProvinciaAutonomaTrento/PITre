@@ -1,0 +1,199 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" id="439EA831-A01A-DEE8-6FA9-7425D5371B36" directorySegmentName="seg_2" name="SUBSCRIBER_INSTANCES">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>SUBSCRIBER_INSTANCES</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:02 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<schemaObject>DD90ABE9-F09C-01FB-CAC6-1C595D89499F</schemaObject>
+<pkName>PUBLISH_INSTANCES_PK</pkName>
+<fonts itemClass="oracle.dbtools.crest.model.design.FontObjectWr">
+<FontObject>
+<foType>Titolo</foType>
+<fontStyle>1</fontStyle>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Colonna</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Tipo di dati</foType>
+<colorRGB>-16744448</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave privata</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave esterna</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave univoca</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Non nullo</foType>
+<colorRGB>-65536</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Chiave</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+</fonts>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="80BBF1D4-849E-125C-A28D-FEBA05D07278">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>SUBSCRIBER_INSTANCES</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:33 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAME" id="23E768A2-2E60-B3FE-FC23-897FFFE747BD">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>SUBSCRIBER_INSTANCES</sourceObjSchema>
+<sourceObjName>NAME</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:33 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DESCRIPTION" id="0FA5BEA2-22E7-4799-56F0-A5D0FCA661AE">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>SUBSCRIBER_INSTANCES</sourceObjSchema>
+<sourceObjName>DESCRIPTION</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:33 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SMTPHOST" id="0D97DA0E-E756-B016-C086-01A11F07D1BC">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>SUBSCRIBER_INSTANCES</sourceObjSchema>
+<sourceObjName>SMTPHOST</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:33 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SMTPPORT" id="E3834F8A-6886-77C1-78A8-093E23CBDC03">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>SUBSCRIBER_INSTANCES</sourceObjSchema>
+<sourceObjName>SMTPPORT</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:33 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeSize>22</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SMTPSSL" id="D2B71925-E1B3-FDD6-8886-373F9B07B503">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>SUBSCRIBER_INSTANCES</sourceObjSchema>
+<sourceObjName>SMTPSSL</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:33 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SMTPUSERNAME" id="C8547F74-2DAE-30D9-66E6-83E5B1667212">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>SUBSCRIBER_INSTANCES</sourceObjSchema>
+<sourceObjName>SMTPUSERNAME</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:33 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SMTPPASSWORD" id="18023127-0620-0786-0ED1-9D471FBAA4A1">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>SUBSCRIBER_INSTANCES</sourceObjSchema>
+<sourceObjName>SMTPPASSWORD</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:33 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SMTPMAIL" id="61413F12-D124-1DB0-62D6-D16E2CA8B299">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>SUBSCRIBER_INSTANCES</sourceObjSchema>
+<sourceObjName>SMTPMAIL</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:33 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="723A0E67-1F35-E0B8-A53B-3B0872DE0E71" name="PUBLISH_INSTANCES_PK">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>PUBLISH_INSTANCES_PK</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:42 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<schemaObject>DD90ABE9-F09C-01FB-CAC6-1C595D89499F</schemaObject>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="80BBF1D4-849E-125C-A28D-FEBA05D07278"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

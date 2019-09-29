@@ -1,0 +1,82 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="DPA_COPY_LOG" id="B178532E-277E-0B4C-2A96-C7B52AB16643" directorySegmentName="seg_2">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:30:59 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>6D7703BF-779B-4F3E-9BFB-936A4BD40D7A</segment>
+<tableSpace>17BB0B62-C33B-CBD0-6CDC-922E0DE3574A</tableSpace>
+<columnProxies>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="ACCESSRIGHTS" id="31FDA5A5-FA29-33F5-0A9F-0597B0F7E5FC">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="ID_RUOLO_DEST" id="8FB41791-11FB-2268-A803-FC445E7FB87D">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="TS_COPY" id="8FE360E5-D3AB-3F97-7825-4840ACC816E5">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<defaultValue>SYSTIMESTAMP</defaultValue>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="CHA_TIPO_DIRITTO" id="C1B2A6FA-5B88-0A68-7DB3-673A58E64935">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="THING" id="E641CF41-AE49-0FC9-7684-C1665CEB0B73">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="ID_RUOLO_ORIG" id="E8299FEF-326A-5AF1-BE9E-A2E3FD112087">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="VAR_NOTE_SEC" id="E8E9DBBB-9AE0-7193-58D5-A08A1F96DACC">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="DPA_COPY_LOG_GROUPS_R02" id="B65C8757-00F0-94BA-08BD-6C39AD74F537">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="DPA_COPY_LOG_GROUPS_R01" id="E94D78D3-D745-0657-AE4C-2578633710D5">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="DPA_COPY_LOG_PK" id="3977BAE5-2041-D8C7-C2E2-D5BC7545BED7">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:47 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<sortedRows>SORTED</sortedRows>
+<tableSpace>59E1EAF8-88C9-CB2B-C77F-87733ACEBD22</tableSpace>
+<indexSegment>4AADDF69-9094-DAC3-A1B2-B49FE6A4B84B</indexSegment>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

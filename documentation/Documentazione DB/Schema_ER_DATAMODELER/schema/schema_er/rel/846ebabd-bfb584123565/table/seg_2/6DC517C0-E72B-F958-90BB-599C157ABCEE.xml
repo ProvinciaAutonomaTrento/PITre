@@ -1,0 +1,169 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" id="6DC517C0-E72B-F958-90BB-599C157ABCEE" directorySegmentName="seg_2" name="PUBLISHER_ERRORS">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>PUBLISHER_ERRORS</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:02 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<schemaObject>DD90ABE9-F09C-01FB-CAC6-1C595D89499F</schemaObject>
+<pkName>PUBLISH_ERRORS_PK</pkName>
+<fonts itemClass="oracle.dbtools.crest.model.design.FontObjectWr">
+<FontObject>
+<foType>Titolo</foType>
+<fontStyle>1</fontStyle>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Colonna</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Tipo di dati</foType>
+<colorRGB>-16744448</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave privata</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave esterna</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave univoca</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Non nullo</foType>
+<colorRGB>-65536</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Chiave</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+</fonts>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="FE06105F-908E-0D5D-5018-B5A707764481">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PUBLISHER_ERRORS</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeSize>22</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PUBLISHINSTANCEID" id="C0C468D5-3CE8-0DF9-F08B-451AA2B0E534">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PUBLISHER_ERRORS</sourceObjSchema>
+<sourceObjName>PUBLISHINSTANCEID</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeSize>22</dataTypeSize>
+<delegate>4CB179A0-244B-4783-B88F-599943D0F03B</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="87299B71-092F-6B68-CEE2-024A2880C04F" referredColumn="4CB179A0-244B-4783-B88F-599943D0F03B"/>
+</associations>
+</Column>
+<Column name="ERRORCODE" id="C3083D1C-B2B6-6619-C855-F71DACF216E0">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PUBLISHER_ERRORS</sourceObjSchema>
+<sourceObjName>ERRORCODE</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ERRORDESCRIPTION" id="15FE49F8-2EFF-9C07-0EF4-4C5DF7ACBB74">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PUBLISHER_ERRORS</sourceObjSchema>
+<sourceObjName>ERRORDESCRIPTION</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>2000</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ERRORSTACK" id="7ABCE467-00F8-7C07-5389-4A61E6FD14DC">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PUBLISHER_ERRORS</sourceObjSchema>
+<sourceObjName>ERRORSTACK</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>2000</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ERRORDATE" id="1A07B356-EA87-68C4-A56B-4F9F114FF5F1">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PUBLISHER_ERRORS</sourceObjSchema>
+<sourceObjName>ERRORDATE</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5D192C59-00FD-25AE-9929-525380542593" name="PUBLISH_ERRORS_PK">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>PUBLISH_ERRORS_PK</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:42 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<schemaObject>DD90ABE9-F09C-01FB-CAC6-1C595D89499F</schemaObject>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="FE06105F-908E-0D5D-5018-B5A707764481"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4190512A-8213-DC76-CB8E-26017DCF4B86" name="FK_PUBLISHER_ERRORS">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="C0C468D5-3CE8-0DF9-F08B-451AA2B0E534"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

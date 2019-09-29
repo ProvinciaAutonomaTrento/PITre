@@ -1,0 +1,82 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="DPA_COUNT_TODOLIST" id="D32AC0B6-146E-D85A-8F48-E31F8DB5FAE0" directorySegmentName="seg_2">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:00 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>01C269A7-E548-A726-A2EA-91C54D0C2BC0</segment>
+<tableSpace>17BB0B62-C33B-CBD0-6CDC-922E0DE3574A</tableSpace>
+<columnProxies>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="TOT_DOC_NO_LETTI" id="15861E55-A317-86C9-8B49-24F89C77CE09">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:10 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<defaultValue>0</defaultValue>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="TOT_DOC" id="3F186BF9-F22C-8EC5-BF92-8308E8A7C312">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:10 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<defaultValue>0</defaultValue>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="TOT_FASC" id="4150D243-7DD4-08CA-D4C6-D964ECBE87DC">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:10 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<defaultValue>0</defaultValue>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="TOT_DOC_NO_ACCETTATI" id="7388BBBA-8CFF-C995-32A0-402B5E96C130">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:10 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<defaultValue>0</defaultValue>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="TOT_DOC_PREDISPOSTI" id="743A1B0B-71E5-1303-4292-FB2541E0BDC6">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:10 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<defaultValue>0</defaultValue>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="TS_STAMPA" id="BB9967D1-9951-56B3-2A1E-FD63B749B59D">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:10 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="TOT_FASC_NO_LETTI" id="D88B9905-EA0A-182D-FC6E-17BEF2C624C6">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:10 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<defaultValue>0</defaultValue>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="TOT_FASC_NO_ACCETTATI" id="F7F779FB-98AB-4B22-514B-31AA208BA049">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:10 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<defaultValue>0</defaultValue>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="ID_PEOPLE" id="FCE99AB5-D6F3-5032-3155-FC93E25646AC">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:10 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="DPA_COUNT_TODOLIST_PEOPLE_R01" id="AC4BBB4A-E8A2-F6F9-3545-94671BF7D202">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+</TableProxyOraclev11g>

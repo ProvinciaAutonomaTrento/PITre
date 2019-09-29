@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="MODCOUNTDOCINMNGRTBL" id="F496AAE4-FAAC-AFB1-A081-A01D2C678DB4" directorySegmentName="seg_0">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>MODCOUNTDOCINMNGRTBL</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:05 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<actions>UPDATE</actions>
+<body>Declare &lt;br/&gt;  idTipologia number;&lt;br/&gt;BEGIN&lt;br/&gt;  /******************************************************************************&lt;br/&gt;    AUTHOR:    Samuele Furnari&lt;br/&gt;&lt;br/&gt;    NAME:      ModCountInMngrTbl&lt;br/&gt;&lt;br/&gt;    PURPOSE:   Ogni volta che viene modificato il flag repertorio o il valore &lt;br/&gt;               che indica la tipologia di repertorio, bisogna agire sull&apos;anagrafica&lt;br/&gt; &lt;br/&gt;  ******************************************************************************/&lt;br/&gt;  &lt;br/&gt;  -- Eliminazione dei riferimenti del repertorio dall&apos;anagrafica&lt;br/&gt;  DeleteRegistroRepertorio(:new.system_id);&lt;br/&gt;  &lt;br/&gt;  Select ta.system_id Into idTipologia &lt;br/&gt;  From dpa_tipo_atto ta &lt;br/&gt;  Inner Join dpa_ogg_custom_comp occ &lt;br/&gt;  On ta.system_id = occ.id_template&lt;br/&gt;  Where occ.id_ogg_custom = :new.system_id;&lt;br/&gt;  &lt;br/&gt;  -- Se e stato cambiato lo stato del flag repertorio, viene ed e stato passato&lt;br/&gt;  -- ad 1, viene eseguito l&apos;inserimento di un riferimento nell&apos;anagrafica&lt;br/&gt;  If :new.repertorio = &apos;1&apos; Then&lt;br/&gt;    InsertRegistroRepertorio(idTipologia, :new.system_id, :new.cha_tipo_tar, &apos;D&apos;);&lt;br/&gt;  End If;&lt;br/&gt;  &lt;br/&gt;End;</body>
+<triggerTime>BEFORE</triggerTime>
+<condition>new.repertorio != old.repertorio Or new.cha_tipo_tar != old.cha_tipo_tar</condition>
+<owner>695B8809-E92B-A363-7727-CAD83203B851</owner>
+<table>23F61EEB-622B-9F7E-8482-11A9F32D3B0F</table>
+</TriggerOraclev10g>

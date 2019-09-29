@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="DPA_VIS_MAIL_REGISTRI" id="86743636-487E-D585-F6F4-4552AEB3606B" directorySegmentName="seg_1">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:01 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>34B027C7-FBA3-7B83-6C0E-F921FB95EB02</segment>
+<tableSpace>17BB0B62-C33B-CBD0-6CDC-922E0DE3574A</tableSpace>
+<columnProxies>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="SYSTEM_ID" id="50AD5C8C-DA73-8E70-1B92-E697AD232F5A">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:25 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="CHA_SPEDISCI" id="674F5132-ECA4-45C9-BEE4-B213E9152440">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:25 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<defaultValue>&apos;1&apos;</defaultValue>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="CHA_NOTIFICA" id="77FF63B6-8296-599E-D00B-42EA3F1499C1">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:25 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<defaultValue>&apos;1&apos;</defaultValue>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="ID_RUOLO_IN_UO" id="7CDAB6D4-CCFD-ABC1-AB19-438C5B428AFC">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:25 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="VAR_EMAIL_REGISTRO" id="A8747042-B633-1E82-F877-4C1FE6D4207D">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:25 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="ID_REGISTRO" id="CA44C377-48F0-61E8-2B87-34FA8D0815C2">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:25 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="CHA_CONSULTA" id="FF8CA2C8-4FDF-80B5-9260-D3267127EC0C">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:25 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<defaultValue>&apos;1&apos;</defaultValue>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="DPA_VIS_MAIL_REGISTRI_R02" id="86213904-EDB0-B61C-5A52-EEC9FB19C4EB">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="DPA_VIS_MAIL_REGISTRI_R01" id="C6D66473-D3B5-906F-2061-53291644077B">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="DPA_VIS_MAIL_REGISTRI_PK" id="8AC719B0-98D1-B1CB-6D88-8C6AC5394A5A">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:00 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<sortedRows>SORTED</sortedRows>
+<tableSpace>1CF78A19-774B-8D5D-323C-0156B8BD83AD</tableSpace>
+<indexSegment>0830F6D5-A35B-A672-7E18-7A1F08C31F79</indexSegment>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

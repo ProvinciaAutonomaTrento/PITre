@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="ROLEHISTORYDELETE" id="15B48457-23D3-1606-D5E5-F4C09D7C9B7E" directorySegmentName="seg_0">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>ROLEHISTORYDELETE</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:04 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<actions>DELETE</actions>
+<body>BEGIN&lt;br/&gt;  /******************************************************************************&lt;br/&gt;  &lt;br/&gt;    AUTHOR:    Samuele Furnari&lt;br/&gt;&lt;br/&gt;    NAME:      RoleHistoryDelete&lt;br/&gt;&lt;br/&gt;    PURPOSE:   Ogni volta che viene eliminato un record dalla dpa_corr_globali&lt;br/&gt;               vengono cancellati dallo storico tutti i record relativi alla &lt;br/&gt;               storia del ruolo eliminati&lt;br/&gt; &lt;br/&gt;  ******************************************************************************/&lt;br/&gt;&lt;br/&gt;   DELETE FROM dpa_role_hisTory &lt;br/&gt;         WHERE original_corr_id = :OLD.original_id;&lt;br/&gt;EXCEPTION&lt;br/&gt;   WHEN OTHERS&lt;br/&gt;   THEN&lt;br/&gt;      -- Consider logging the error and then re-raise&lt;br/&gt;      RAISE;&lt;br/&gt;END;</body>
+<triggerTime>BEFORE</triggerTime>
+<condition>OLD.cha_tipo_urp = &apos;R&apos;</condition>
+<owner>695B8809-E92B-A363-7727-CAD83203B851</owner>
+<table>0317F2DB-364C-1088-B6E0-C1AB95F1D212</table>
+</TriggerOraclev10g>

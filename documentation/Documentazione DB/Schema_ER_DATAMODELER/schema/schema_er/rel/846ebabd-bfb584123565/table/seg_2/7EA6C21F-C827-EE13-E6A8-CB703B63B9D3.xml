@@ -1,0 +1,344 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" id="7EA6C21F-C827-EE13-E6A8-CB703B63B9D3" directorySegmentName="seg_2" name="PUBLISHER_INSTANCES">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>PUBLISHER_INSTANCES</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:02 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<schemaObject>DD90ABE9-F09C-01FB-CAC6-1C595D89499F</schemaObject>
+<pkName>PUBLISHER_INSTANCES_PK</pkName>
+<fonts itemClass="oracle.dbtools.crest.model.design.FontObjectWr">
+<FontObject>
+<foType>Titolo</foType>
+<fontStyle>1</fontStyle>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Colonna</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Tipo di dati</foType>
+<colorRGB>-16744448</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave privata</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave esterna</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave univoca</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Non nullo</foType>
+<colorRGB>-65536</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Chiave</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+</fonts>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="4CB179A0-244B-4783-B88F-599943D0F03B">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PUBLISHER_INSTANCES</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeSize>22</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="INSTANCENAME" id="B14AE628-9FE2-2EFF-E9A6-E23C49900BBA">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PUBLISHER_INSTANCES</sourceObjSchema>
+<sourceObjName>INSTANCENAME</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDADMIN" id="4B32CAB7-B8A8-9BF1-7BB0-0DB14BF7248C">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PUBLISHER_INSTANCES</sourceObjSchema>
+<sourceObjName>IDADMIN</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<delegate>02CD6B85-955F-3986-5435-A84EAF6E82EE</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4C72799B-3031-6244-4C03-64010FEFC2A6" referredColumn="02CD6B85-955F-3986-5435-A84EAF6E82EE"/>
+</associations>
+</Column>
+<Column name="SUBSCRIBERSERVICEURL" id="F8FF600A-E17D-9882-5CAC-EEECD6C4CF33">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PUBLISHER_INSTANCES</sourceObjSchema>
+<sourceObjName>SUBSCRIBERSERVICEURL</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>1000</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LASTEXECUTIONDATE" id="B386AEBB-33E1-9938-512F-1D36B62CD8CB">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PUBLISHER_INSTANCES</sourceObjSchema>
+<sourceObjName>LASTEXECUTIONDATE</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EXECUTIONCOUNT" id="B65A5544-4FB3-F525-11A7-0F909BC56C97">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PUBLISHER_INSTANCES</sourceObjSchema>
+<sourceObjName>EXECUTIONCOUNT</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeSize>22</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PUBLISHEDOBJECTS" id="90B70D96-5471-DB6E-03F6-459697ADE564">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PUBLISHER_INSTANCES</sourceObjSchema>
+<sourceObjName>PUBLISHEDOBJECTS</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeSize>22</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STARTEXECUTIONDATE" id="0E6C9A86-A6AD-6468-F323-BD85719D4998">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PUBLISHER_INSTANCES</sourceObjSchema>
+<sourceObjName>STARTEXECUTIONDATE</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ENDEXECUTIONDATE" id="659811C9-7F98-DAA1-36BE-BC7A48802152">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PUBLISHER_INSTANCES</sourceObjSchema>
+<sourceObjName>ENDEXECUTIONDATE</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LASTLOGID" id="416CBDB8-AC81-5B78-AB6A-9D627F1F5BEB">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PUBLISHER_INSTANCES</sourceObjSchema>
+<sourceObjName>LASTLOGID</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeSize>22</dataTypeSize>
+<delegate>7871AFE4-80B2-10BC-3A10-A748A97ED856</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8F20A25D-CE2D-91C2-156C-98FDC36AE483" referredColumn="7871AFE4-80B2-10BC-3A10-A748A97ED856"/>
+</associations>
+</Column>
+<Column name="STARTLOGDATE" id="F762AB5A-130F-3051-573B-8CF039DC23E9">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PUBLISHER_INSTANCES</sourceObjSchema>
+<sourceObjName>STARTLOGDATE</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EXECUTIONTYPE" id="F2F5956D-705B-69A5-7022-8E4D5D656482">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PUBLISHER_INSTANCES</sourceObjSchema>
+<sourceObjName>EXECUTIONTYPE</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EXECUTIONTICKS" id="D5980BA8-57C0-0BE3-FA19-B3AFA58FDFC1">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PUBLISHER_INSTANCES</sourceObjSchema>
+<sourceObjName>EXECUTIONTICKS</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TOTALEXECUTIONCOUNT" id="ED9440B9-DF10-36AD-BDD3-CCA11813007D">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PUBLISHER_INSTANCES</sourceObjSchema>
+<sourceObjName>TOTALEXECUTIONCOUNT</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeSize>22</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TOTALPUBLISHEDOBJECTS" id="13912D20-11BB-97D0-18FA-BB2F37999713">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PUBLISHER_INSTANCES</sourceObjSchema>
+<sourceObjName>TOTALPUBLISHEDOBJECTS</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeSize>22</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MACHINENAME" id="1391C12D-140F-E788-366C-76E570142616">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PUBLISHER_INSTANCES</sourceObjSchema>
+<sourceObjName>MACHINENAME</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PUBLISHERSERVICEURL" id="5F8C36E8-88DF-8832-16FC-0F274DEB4B3C">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PUBLISHER_INSTANCES</sourceObjSchema>
+<sourceObjName>PUBLISHERSERVICEURL</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>1000</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F609A25E-A996-F038-0DA4-D553604252CC" name="PUBLISHER_INSTANCES_PK">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>PUBLISHER_INSTANCES_PK</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:42 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<schemaObject>DD90ABE9-F09C-01FB-CAC6-1C595D89499F</schemaObject>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="4CB179A0-244B-4783-B88F-599943D0F03B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2D426C1B-4998-34F9-0CA1-1AD0BD88EEC3" name="FK_IDADMIN">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="4B32CAB7-B8A8-9BF1-7BB0-0DB14BF7248C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="93A4139C-BDE6-3747-E7DC-6AE1C52A30DC" name="PUBLISHER_INSTANCES_R01">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="416CBDB8-AC81-5B78-AB6A-9D627F1F5BEB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

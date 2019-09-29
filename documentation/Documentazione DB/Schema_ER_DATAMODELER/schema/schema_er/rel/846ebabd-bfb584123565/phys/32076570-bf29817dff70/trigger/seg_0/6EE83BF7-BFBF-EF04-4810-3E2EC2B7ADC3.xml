@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="TR_INSERT_DPA_TODOLIST" id="6EE83BF7-BFBF-EF04-4810-3E2EC2B7ADC3" directorySegmentName="seg_0">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>TR_INSERT_DPA_TODOLIST</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:05 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<actions>UPDATE</actions>
+<body>BEGIN&lt;br/&gt;INSERT INTO dpa_todolist&lt;br/&gt;SELECT :NEW.system_id, dtu.id_trasm_singola, dtu.system_id,&lt;br/&gt;:NEW.dta_invio, :NEW.id_people, :NEW.id_ruolo_in_uo,&lt;br/&gt;dtu.id_people, dts.id_ragione, :NEW.var_note_generali,&lt;br/&gt;dts.var_note_sing, dts.dta_scadenza, :NEW.id_profile,&lt;br/&gt;:NEW.id_project,&lt;br/&gt;TO_NUMBER (vardescribe (dts.id_corr_globale, &apos;ID_GRUPPO&apos;)&lt;br/&gt;) AS id_ruolo_dest,&lt;br/&gt;TO_NUMBER (vardescribe (:NEW.id_profile, &apos;PROF_IDREG&apos;)&lt;br/&gt;) AS id_registro,&lt;br/&gt;dts.cha_tipo_trasm,&lt;br/&gt;CASE&lt;br/&gt;WHEN dtu.dta_vista IS NULL&lt;br/&gt;THEN TO_DATE (&apos;01/01/1753&apos;, &apos;dd/mm/yyyy&apos;)&lt;br/&gt;ELSE dtu.dta_vista&lt;br/&gt;END,&lt;br/&gt;:NEW.ID_PEOPLE_DELEGATO&lt;br/&gt;FROM dpa_trasm_singola dts, dpa_trasm_utente dtu&lt;br/&gt;WHERE dtu.id_trasm_singola = dts.system_id&lt;br/&gt;AND dts.id_trasmissione = :NEW.system_id&lt;br/&gt;AND dtu.cha_in_todolist = 1;&lt;br/&gt;END;</body>
+<triggerTime>AFTER</triggerTime>
+<columns>4E5941C0-DCB4-42DA-8951-82DA92A903C9</columns>
+<owner>695B8809-E92B-A363-7727-CAD83203B851</owner>
+<table>50E33FD0-EB1B-C853-3B92-3640DA2D8D75</table>
+</TriggerOraclev10g>

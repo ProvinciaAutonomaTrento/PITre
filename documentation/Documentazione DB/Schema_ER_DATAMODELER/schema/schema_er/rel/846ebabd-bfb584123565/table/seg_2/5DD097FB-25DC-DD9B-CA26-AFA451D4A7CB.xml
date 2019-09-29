@@ -1,0 +1,255 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" id="5DD097FB-25DC-DD9B-CA26-AFA451D4A7CB" directorySegmentName="seg_2" name="PROJECT_COMPONENTS">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>PROJECT_COMPONENTS</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:02 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<schemaObject>DD90ABE9-F09C-01FB-CAC6-1C595D89499F</schemaObject>
+<fonts itemClass="oracle.dbtools.crest.model.design.FontObjectWr">
+<FontObject>
+<foType>Titolo</foType>
+<fontStyle>1</fontStyle>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Colonna</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Tipo di dati</foType>
+<colorRGB>-16744448</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave privata</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave esterna</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave univoca</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Non nullo</foType>
+<colorRGB>-65536</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Chiave</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+</fonts>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="DESCRIPTION" id="C4CAED2A-E573-30BA-8F75-90499B6D171E">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PROJECT_COMPONENTS</sourceObjSchema>
+<sourceObjName>DESCRIPTION</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>60 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LIBRARY" id="397F26B0-F1F8-31CC-BE46-6D6D059DB5E8">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PROJECT_COMPONENTS</sourceObjSchema>
+<sourceObjName>LIBRARY</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TYPE" id="05AD1797-54DD-C435-8E35-16ECF665EC4E">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PROJECT_COMPONENTS</sourceObjSchema>
+<sourceObjName>TYPE</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PROJECT_ID" id="831B5FEF-EB07-15D7-6103-EC4239F806D9">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PROJECT_COMPONENTS</sourceObjSchema>
+<sourceObjName>PROJECT_ID</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<delegate>941CA670-3516-3400-6762-8F0211B5CE8A</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="17ABC4D7-3886-9551-7882-D12F2778FFF6" referredColumn="941CA670-3516-3400-6762-8F0211B5CE8A"/>
+</associations>
+</Column>
+<Column name="LINK" id="66CA0A79-CE65-FE6D-AAD2-5F250E80AF3C">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PROJECT_COMPONENTS</sourceObjSchema>
+<sourceObjName>LINK</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<delegate>9CCBF86E-F0F9-DBC1-A289-E838EE52007E</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="50910B6E-7406-121E-69AE-AFEA2497D04D" referredColumn="9CCBF86E-F0F9-DBC1-A289-E838EE52007E"/>
+</associations>
+</Column>
+<Column name="COMP_ORDER" id="A22CD042-96EB-1210-3ABD-205381F94F3E">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PROJECT_COMPONENTS</sourceObjSchema>
+<sourceObjName>COMP_ORDER</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VAR_CODICE_COMP" id="2A4498CF-2D55-6F9D-6911-A9F8AD9AE140">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PROJECT_COMPONENTS</sourceObjSchema>
+<sourceObjName>VAR_CODICE_COMP</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PROT_TIT" id="1B8A3C94-1068-6A23-A42F-C059A63261C9">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PROJECT_COMPONENTS</sourceObjSchema>
+<sourceObjName>PROT_TIT</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DTA_CLASS" id="FEA9DC48-B853-6DFA-D732-573ECF421F76">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PROJECT_COMPONENTS</sourceObjSchema>
+<sourceObjName>DTA_CLASS</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CHA_FASC_PRIMARIA" id="6DBB5B65-7E8E-BF15-D36C-E9962EA4D3FB">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PROJECT_COMPONENTS</sourceObjSchema>
+<sourceObjName>CHA_FASC_PRIMARIA</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:32 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<defaultValue>(&apos;0&apos;)</defaultValue>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CC09F40D-9937-9137-7B1A-905FCEB402CB" name="INDX_PROJECTCOMP1">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>INDX_PROJECTCOMP1</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:42 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<schemaObject>DD90ABE9-F09C-01FB-CAC6-1C595D89499F</schemaObject>
+<indexColumnUsage>
+<colUsage columnID="66CA0A79-CE65-FE6D-AAD2-5F250E80AF3C"/>
+<colUsage columnID="831B5FEF-EB07-15D7-6103-EC4239F806D9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9D63345F-278F-62D6-A29A-027FA358DFF3" name="INDX_PROJECTCOMP2">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>INDX_PROJECTCOMP2</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:42 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<schemaObject>DD90ABE9-F09C-01FB-CAC6-1C595D89499F</schemaObject>
+<indexColumnUsage>
+<colUsage columnID="831B5FEF-EB07-15D7-6103-EC4239F806D9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="37303D69-3FF9-077D-211F-2FB47ACA4D99" name="PROJECT_COMPONENTS_R01">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="831B5FEF-EB07-15D7-6103-EC4239F806D9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="22BDD5B2-3E04-E902-00F5-5F27433AFA67" name="PROJECT_COMPONENTS_R02">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="66CA0A79-CE65-FE6D-AAD2-5F250E80AF3C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="TMP_TRACK_RUOLORESP_REGISTRI" id="3CCC34B5-F427-D01E-2544-A155A10D76D4" directorySegmentName="seg_0">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>TMP_TRACK_RUOLORESP_REGISTRI</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:04 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<actions>UPDATE</actions>
+<body>Declare &lt;br/&gt;PRAGMA AUTONOMOUS_TRANSACTION ;&lt;br/&gt;ID INT; &lt;br/&gt;Begin&lt;br/&gt;  Insert Into Utl_Track_Aooruoloresp ( Id_registro&lt;br/&gt;  , Old_Aooruoloresp  &lt;br/&gt;  , New_Aooruoloresp  &lt;br/&gt;  , Cha_Changed_Notyet_Processed &lt;br/&gt;  , Dta_Changed ) &lt;br/&gt;Values ( :old.system_id&lt;br/&gt;  ,:Old.Id_Ruolo_Resp &lt;br/&gt;  ,:New.Id_Ruolo_Resp &lt;br/&gt;  ,&apos;y&apos; -- will be changed to &apos;n&apos; upon processing&lt;br/&gt;  , Sysdate);&lt;br/&gt;Commit; &lt;br/&gt;END;</body>
+<triggerTime>AFTER</triggerTime>
+<columns>9C1487F9-7A92-28D1-1336-B20926511954</columns>
+<owner>695B8809-E92B-A363-7727-CAD83203B851</owner>
+<table>B8688DBF-D1A6-5506-382B-170B4751F1FC</table>
+</TriggerOraclev10g>

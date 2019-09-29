@@ -1,0 +1,1059 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" id="6B1C40D3-16B5-7D08-568B-509551D78194" directorySegmentName="seg_2" name="PEOPLE">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>PEOPLE</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:02 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<schemaObject>DD90ABE9-F09C-01FB-CAC6-1C595D89499F</schemaObject>
+<pkName>INDX_PEOPLE_PK</pkName>
+<fonts itemClass="oracle.dbtools.crest.model.design.FontObjectWr">
+<FontObject>
+<foType>Titolo</foType>
+<fontStyle>1</fontStyle>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Colonna</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Tipo di dati</foType>
+<colorRGB>-16744448</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave privata</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave esterna</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Elemento chiave univoca</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Non nullo</foType>
+<colorRGB>-65536</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Chiave</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+</fonts>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SYSTEM_ID" id="631DE306-B455-5063-20F8-7CBA41E14740">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>SYSTEM_ID</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USER_ID" id="F1F7FC28-910B-87F8-9A37-47000AEED28B">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>USER_ID</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FULL_NAME" id="EDA60B3C-F2F0-817C-FDAA-4F5D101BA60E">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>FULL_NAME</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>64 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DISABLED" id="BCB15D9A-EFA8-E7C1-82C7-2EE8C3AFF88E">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>DISABLED</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USER_PASSWORD" id="62D68327-D4B6-DDAE-1BBB-8FE8277A4649">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>USER_PASSWORD</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USER_LOCATION" id="E8CA7B09-29F3-3BC3-E778-84D663908AA7">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>USER_LOCATION</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>60 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PHONE" id="8E0F3995-7E73-6732-B574-19ED7FC51245">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>PHONE</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EXTENSION" id="7FE63BD1-356A-8334-84A0-8ED3191B2CE0">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>EXTENSION</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LAST_LOGIN_DATE" id="960A04B5-A2F6-1B0F-B7B7-9505CA130C53">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>LAST_LOGIN_DATE</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LAST_LOGIN_TIME" id="07C6C165-59A6-01AD-AEDE-CD5F7FD22214">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>LAST_LOGIN_TIME</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ALLOW_LOGIN" id="DB3A3519-6ABE-A7F7-4945-231633DC36D6">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>ALLOW_LOGIN</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FAX" id="8490AF83-256A-5F4E-85B2-FCB2124A11AA">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>FAX</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DID" id="30ABF5F7-746D-8643-0209-6A63485A7FE5">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>DID</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TARGET_DOCSRVR" id="8F412427-1AB9-A6DB-4E40-A7029A69C745">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>TARGET_DOCSRVR</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRIMARY_GROUP" id="8AC69497-1CD4-ABA4-F574-07A5C91050CA">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>PRIMARY_GROUP</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRIMARY_LIB" id="F8780B21-81B7-9AE3-475E-FBFF16F5EB17">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>PRIMARY_LIB</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PROFILE_DEFAULTS" id="B643CF55-478C-6C4B-553E-4D3B356AF028">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>PROFILE_DEFAULTS</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LogDes-1768A872-F385-FDBA-D95E-0CB63F5908E2@LOGDT10045</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CONNECT_BRIDGED" id="E846493C-A3B3-7147-0A7C-DAA61A85423B">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>CONNECT_BRIDGED</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BUTTON_BAR" id="9F4902D6-42AA-2DFB-39F6-49C2A57E1AC2">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>BUTTON_BAR</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>254 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NETWORK_ID" id="9B6FAA3A-0CE9-27B1-3DB9-49385ED30B87">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>NETWORK_ID</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>254 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ACL_DEFAULTS" id="4D74A929-77A9-99DB-5209-432A925A2C1F">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>ACL_DEFAULTS</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>254 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SHOW_RESTORED" id="40D77DFA-DC12-FE07-5C82-3E13E8FE55D6">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>SHOW_RESTORED</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PASS_EXP_DATE" id="C0BDC52B-D372-F3B2-DBFB-308F0673E93B">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>PASS_EXP_DATE</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LOGINS_REMAINING" id="13C99EB9-078E-3AA1-B703-50BED64C9208">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>LOGINS_REMAINING</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PSWORD_VALID_FOR" id="4CF3EC1A-DCC8-625E-57FE-6385EE55CEF9">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>PSWORD_VALID_FOR</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NO_EXP_DATE" id="4E87D78C-CC70-D175-438B-05EB9F3B5868">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>NO_EXP_DATE</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DR_USER" id="9BBF812A-04B1-E55B-A5C5-887C465DB192">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>DR_USER</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SEARCH_FORM_ID" id="0EF5EFA9-32BB-567A-8339-EC467124C1B6">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>SEARCH_FORM_ID</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EMAIL_ADDRESS" id="784B92E7-24C4-E254-AD9F-88874C4A4B3D">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>EMAIL_ADDRESS</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>128 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CHA_AMMINISTRATORE" id="D1CF6F2E-F5DD-F1D1-BDFF-10899B9AA96A">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>CHA_AMMINISTRATORE</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CHA_NOTIFICA" id="14197863-4B8C-AD60-B325-584A4FFE10EE">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>CHA_NOTIFICA</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VAR_TELEFONO" id="AAE59C54-B84D-9608-0722-D0C36004124D">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>VAR_TELEFONO</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>16 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_AMM" id="271EA815-A819-3DB4-4875-66350E9AE4A7">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>ID_AMM</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<delegate>02CD6B85-955F-3986-5435-A84EAF6E82EE</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C55B6388-DA6E-26E0-4F52-006CD40234E1" referredColumn="02CD6B85-955F-3986-5435-A84EAF6E82EE"/>
+</associations>
+</Column>
+<Column name="CHA_RESP_ASS" id="EB720140-40FB-4DFF-345B-4FD09CB5AF8B">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>CHA_RESP_ASS</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CHA_ASSEGNATARIO" id="3843619E-0FAE-71A4-1E70-588F7EB67AB8">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>CHA_ASSEGNATARIO</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VAR_COGNOME" id="55BBD957-422E-1493-186E-AAC4BECBF0F2">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>VAR_COGNOME</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VAR_NOME" id="40167ADE-4037-31BB-3860-7DAB05166B23">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>VAR_NOME</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CHA_NOTIFICA_CON_ALLEGATO" id="2F501EE7-2272-1B8E-CEF5-BC45DB76E6CD">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>CHA_NOTIFICA_CON_ALLEGATO</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VAR_SEDE" id="1519A0A6-01F7-C6AA-938C-33949DFF0822">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>VAR_SEDE</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>64 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ENCRYPTED_PASSWORD" id="77F22CAE-8839-B546-2B6D-B34A2FBD29C1">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>ENCRYPTED_PASSWORD</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PASSWORD_CREATION_DATE" id="04A2636D-BB41-FE2F-A7DF-A82D6322C435">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>PASSWORD_CREATION_DATE</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PASSWORD_NEVER_EXPIRE" id="EA559279-B4BA-E6FF-84E5-9E6CDD5702AE">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>PASSWORD_NEVER_EXPIRE</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeSize>22</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FROM_EMAIL_ADDRESS" id="752E7784-8147-DF1B-87EB-3614D34A2028">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>FROM_EMAIL_ADDRESS</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>128 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LDAP_NEVER_SYNC" id="651588A9-4F5E-4187-FCE0-E30BE4E84A39">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>LDAP_NEVER_SYNC</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LDAP_ID_SYNC" id="C1C2859D-10DF-C4FF-6D89-24F52B8C67ED">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>LDAP_ID_SYNC</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_CLIENT_MODEL_PROCESSOR" id="A9477293-8E5B-5941-D9B6-AB3B38D6B9C1">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>ID_CLIENT_MODEL_PROCESSOR</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeSize>22</dataTypeSize>
+<delegate>67CE0067-2BEA-7B14-9860-749B52A9992E</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0D956852-F370-C271-0A18-703830E7793B" referredColumn="67CE0067-2BEA-7B14-9860-749B52A9992E"/>
+</associations>
+</Column>
+<Column name="CHA_SUPERADMIN" id="25D50174-6CA8-2F0E-BF52-DE4709C78014">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>CHA_SUPERADMIN</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<defaultValue>0</defaultValue>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FACTORY_USER" id="B110B60B-73D4-8262-E4C2-463FA4765F71">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>FACTORY_USER</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IS_ENABLED_SMART_CLIENT" id="2AA277B6-7FA2-2297-E1E8-BDB1DFD49E68">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>IS_ENABLED_SMART_CLIENT</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SMART_CLIENT_PDF_CONV_ON_SCAN" id="12B386C2-291C-8CF9-F80D-D84AA49DFC4F">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>SMART_CLIENT_PDF_CONV_ON_SCAN</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LDAP_AUTHENTICATED" id="7DAC83AF-3A39-77FA-BC82-921CC854A595">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>LDAP_AUTHENTICATED</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ACCETTAZIONE_DISSERV" id="5AF33C39-7C17-891D-7354-D6F569A5F24D">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>ACCETTAZIONE_DISSERV</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_DISPOSITIVO_STAMPA" id="4E73581C-CC52-9E95-37EB-B3F6BE1A3098">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>ID_DISPOSITIVO_STAMPA</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<delegate>C3331F8C-415F-4255-74F8-19851C1F72C2</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="72C80A10-4605-AD0A-A0F1-F24F9A3F2697" referredColumn="C3331F8C-415F-4255-74F8-19851C1F72C2"/>
+</associations>
+</Column>
+<Column name="ABILITATO_CENTRO_SERVIZI" id="41B9C486-338A-4A5E-4257-E04585307A72">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>ABILITATO_CENTRO_SERVIZI</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MATRICOLA" id="1BB901EB-C535-4810-1B7B-A3B826DAB175">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>MATRICOLA</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ABILITATO_CHIAVI_CONFIG" id="9A5992D2-96A4-2E52-707F-736A65984F26">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>ABILITATO_CHIAVI_CONFIG</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<defaultValue>0</defaultValue>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeSize>22</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CHA_TIPO_COMPONENTI" id="51D91BF8-8C20-9E68-E40C-783006766A9E">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>CHA_TIPO_COMPONENTI</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<defaultValue>0</defaultValue>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<delegate>6EFCE114-9FB5-8790-BBD5-362489FEF029</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="222BF8B0-E950-038B-21E6-5AC800468DB3" referredColumn="6EFCE114-9FB5-8790-BBD5-362489FEF029"/>
+</associations>
+</Column>
+<Column name="CHA_SYSTEM_USER" id="4D0699B0-F37E-E0AA-C900-58DF91506B34">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>CHA_SYSTEM_USER</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<defaultValue>&apos;0&apos;</defaultValue>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VAR_MEMENTO" id="34A5884C-47E2-2339-64C4-932FE4BA3804">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>VAR_MEMENTO</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ABILITATO_ESIBIZIONE" id="BAC57C10-0D09-0524-BDD8-9EE39F13EAB9">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>PEOPLE</sourceObjSchema>
+<sourceObjName>ABILITATO_ESIBIZIONE</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:28 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<defaultValue>&apos;0&apos;</defaultValue>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E743A2D8-7CBF-3687-4A17-F40359281F5C" name="INDX_PEOPLE_PK">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>INDX_PEOPLE_PK</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:40 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<schemaObject>DD90ABE9-F09C-01FB-CAC6-1C595D89499F</schemaObject>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="631DE306-B455-5063-20F8-7CBA41E14740"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2B45B168-18B2-0D86-9567-AA891778306F" name="IDX_PEOPLE">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>IDX_PEOPLE</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:40 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<schemaObject>DD90ABE9-F09C-01FB-CAC6-1C595D89499F</schemaObject>
+<indexExpression>UPPER(&quot;FULL_NAME&quot;)</indexExpression>
+</ind_PK_UK>
+<ind_PK_UK id="E4103114-072D-BEA5-010E-CA8C4B6A19DE" name="INDX_PEOPLE3">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>INDX_PEOPLE3</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:40 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<schemaObject>DD90ABE9-F09C-01FB-CAC6-1C595D89499F</schemaObject>
+<indexExpression>UPPER(&quot;USER_ID&quot;)</indexExpression>
+</ind_PK_UK>
+<ind_PK_UK id="78AD36D2-D242-E3C0-E936-B7D88624A419" name="INDX_PEOPLE2">
+<sourceConnName>DOCSPA_MASTER</sourceConnName>
+<sourceObjSchema>DOCSPA_MASTER</sourceObjSchema>
+<sourceObjName>INDX_PEOPLE2</sourceObjName>
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:31:40 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<schemaObject>DD90ABE9-F09C-01FB-CAC6-1C595D89499F</schemaObject>
+<indexColumnUsage>
+<colUsage columnID="F1F7FC28-910B-87F8-9A37-47000AEED28B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E88F352F-2B84-74B4-6B99-DC543BB554A2" name="FK_PEOPLEID_DISPOSITIVO_STAMPA">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="4E73581C-CC52-9E95-37EB-B3F6BE1A3098"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="708D7073-4334-DAC7-C644-C0E6B0E68858" name="K57_T127854REF_P127854">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="51D91BF8-8C20-9E68-E40C-783006766A9E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9BB17DE7-7422-E646-6BB3-27196FC75852" name="PEOPLE_R01">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="A9477293-8E5B-5941-D9B6-AB3B38D6B9C1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8EBD59E7-E30E-2383-5AFA-664F7AE79848" name="PEOPLE_R02">
+<createdBy>mw</createdBy>
+<createdTime>2014-06-06 11:32:09 UTC</createdTime>
+<generatorID>Generato dall&apos;utente</generatorID>
+<ownerDesignName>Schema_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="271EA815-A819-3DB4-4875-66350E9AE4A7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
