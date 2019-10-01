@@ -6,6 +6,8 @@ PITre è un applicativo web che consente la tenuta del registro di protocollo, l
 
 ### (Pubblicazione in corso)
 
+## Versione: 
+3.2.16
 
 ## Descrizione
 I sistemi di Protocollo Informatico e Gestione Documentale in Trentino mirano a  
@@ -54,8 +56,6 @@ Fatturazione Elettronica; dal Sistema di conservazione a norma alla
 Modulistica Interattiva sino al Portale dei servizi al cittadino.
 
 
-
-
 ## Altri riferimenti
 
 Per maggiori informazioni è possibile consultare: 
@@ -73,19 +73,6 @@ Per maggiori informazioni è possibile consultare:
 Il prodotto è *stabile* e *production ready* e usato in produzione in numerosi enti pubblici. 
 Lo sviluppo avviene in modo costante su richiesta degli Ente Titolare utilizzatori
 
-## Informazioni tecniche
-
-
-### Struttura del Repository
-
-
-
-### Requisiti
-
-Lo stack minimo di PiTre è il seguente:
- 
-
-
 ## Copyright (C)
 
 Il titolare del software è il [Provincia autonoma di Trento](https://www.provincia.trento.it)
@@ -94,7 +81,7 @@ Il software è rilasciato con licenza aperta ai sensi dell'art. 69 comma 1 del [
 
 ### Maintainer
 
-[Trentino Digitale Spa](https://www.trentinodigitale.it/), è responsabile della progettazione, realizzazione e manutenzione tecnica, tramite il supporto di fornitori di PiTre
+[Trentino Digitale Spa](https://www.trentinodigitale.it/), è responsabile della progettazione, realizzazione e manutenzione tecnica, tramite il supporto di fornitori esterni
 
 
 
