@@ -7,6 +7,9 @@ PITre è un applicativo web che consente la tenuta del registro di protocollo, l
 ## Versione: 
 3.2.16
 
+## Licenza: 
+EUPL 1.2
+
 ## Descrizione
 
 I sistemi di Protocollo Informatico e Gestione Documentale in Trentino mirano a
