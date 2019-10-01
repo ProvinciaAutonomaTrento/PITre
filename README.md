@@ -6,6 +6,8 @@ PITre è un applicativo web che consente la tenuta del registro di protocollo, l
 
 ### (Pubblicazione in corso)
 
+## Versione: 
+3.2.16
 
 ## Descrizione
 I sistemi di Protocollo Informatico e Gestione Documentale in Trentino mirano a  
@@ -52,8 +54,6 @@ di firma digitale e PEC, si integra con i vari sottosistemi informativi,
 dai servizi del Mandato Informatico e della Liquidazione Informatica alla
 Fatturazione Elettronica; dal Sistema di conservazione a norma alla
 Modulistica Interattiva sino al Portale dei servizi al cittadino.
-
-
 
 
 ## Altri riferimenti
