@@ -1,0 +1,955 @@
+using System;
+using System.Collections;
+using System.Web.SessionState;
+using System.Xml;
+using SAAdminTool.DocsPaWR;
+using System.Collections.Generic;
+
+namespace Amministrazione.Manager
+{
+	/// <summary>
+	/// Summary description for OrganigrammaManager.
+	/// </summary>
+	public class OrganigrammaManager
+	{
+		#region Declaration
+
+		private string _idAmministrazione = null;
+
+		private ArrayList _listaUO = null;
+
+        private ArrayList _listaUOInReg = null;
+
+		private ArrayList _listaRuoliUO = null;
+
+		private ArrayList _listaUtenti = null;
+
+		private ArrayList _listaRegistri = null;
+
+		private ArrayList _listaFunzioni = null;
+
+		private ArrayList _listaTipiRuolo = null;	
+
+		private ArrayList _listaIDParentRicerca = null;
+	
+		private ArrayList _listaRisultatoRicerca = null;
+
+        private ArrayList _listaRuoliAOO = null;
+
+		private SAAdminTool.DocsPaWR.OrgUtente _datiUtente = null;
+
+		private SAAdminTool.DocsPaWR.OrgDettagliGlobali _datiUOStampaBuste = null;
+
+		private SAAdminTool.DocsPaWR.EsitoOperazione _esitoOperazione = null;
+
+		private SAAdminTool.DocsPaWR.OrgUO _datiUO = null;
+
+		private SAAdminTool.DocsPaWR.FileDocumento _filePDF = null;
+
+        private ArrayList _listaRuoli = null;
+	
+		#endregion
+
+		#region public
+
+		public OrganigrammaManager()
+		{
+						
+		}		
+
+		public string getIDAmministrazione()
+		{
+			return this._idAmministrazione;
+		}
+
+		public ArrayList getListaUO()
+		{
+			return this._listaUO;
+		}
+
+		public ArrayList getListaRuoliUO()
+		{
+			return this._listaRuoliUO;
+		}
+
+        public ArrayList getListaUOInReg()
+        {
+            return this._listaUOInReg;
+        }
+
+		public ArrayList getListaUtenti()
+		{
+			return this._listaUtenti;
+		}
+
+        public ArrayList getListaRuoli()
+        {
+            return this._listaRuoli;
+        }
+
+        public ArrayList getListaRuoliAOO()
+        {
+            return this._listaRuoliAOO;
+        }
+
+		public ArrayList getListaRegistri()
+		{
+			return this._listaRegistri;
+		}
+
+		public ArrayList getListaFunzioni()
+		{
+			return this._listaFunzioni;
+		}		
+
+		public ArrayList getListaTipiRuolo()
+		{
+			return this._listaTipiRuolo;
+		}
+
+		public ArrayList getListaIDParentRicerca()
+		{
+			return this._listaIDParentRicerca;
+		}
+
+		public ArrayList getRisultatoRicerca()
+		{
+			return this._listaRisultatoRicerca;
+		}
+		
+		public void CurrentIDAmm(string codAmm)
+		{
+			this.GetIDAmm(codAmm);
+		}
+
+		public SAAdminTool.DocsPaWR.OrgUO getDatiUO()
+		{
+			return this._datiUO;
+		}
+
+		public SAAdminTool.DocsPaWR.OrgUtente getDatiUtente()
+		{
+			return this._datiUtente;
+		}
+
+		public SAAdminTool.DocsPaWR.OrgDettagliGlobali getDatiUOStampaBuste()
+		{
+			return this._datiUOStampaBuste;
+		}
+
+		public SAAdminTool.DocsPaWR.EsitoOperazione getEsitoOperazione()
+		{
+			return this._esitoOperazione;
+		}
+
+		public void DatiUOCorrente(string idUO)
+		{
+			this.AmmGetDatiUOCorrente(idUO);
+		}
+
+		public void ListaUOLivelloZero(string idAmm)
+		{
+			this.AmmGetListUO("0","0",idAmm);		
+		}
+
+		public void ListaUO(string idParent, string livello, string idAmm)
+		{
+			this.AmmGetListUO(idParent, livello, idAmm);
+		}
+
+        public void ListaUOInReg(string idRegistro, string tipoRicerca, string ricerca)
+        {
+            this.AmmGetListUOInReg(idRegistro, tipoRicerca, ricerca);
+        }
+
+        public void ListaRuoliUO(string idUO)
+		{
+			this.AmmGetListRuoliUO(idUO);
+		}
+        public void ListaRuoliUORic(string idUO,bool ricorsivo)
+        {
+            this.AmmGetListRuoliUORic(idUO,ricorsivo);
+        }
+
+		public void ListaUtenti(string idRuolo)
+		{
+			this.AmmGetListUtentiRuolo(idRuolo);
+		}
+
+		public void ListaUtenti(string idAmm, string ricercaPer, string testoDaRicercare, string IDesclusi)
+		{
+			this.AmmGetListUtenti(idAmm,ricercaPer,testoDaRicercare,IDesclusi);
+		}
+
+        public void ListaRuoli(string idAmm, string ricercaPer, string testoDaRicercare, string idRegistro, string IDesclusi)
+        {
+            this.AmmGetListRuoli(idAmm, ricercaPer, testoDaRicercare, idRegistro, IDesclusi);
+        }
+
+		public void ListaRegistriRF(string idAmm, string idRuolo, string chaRF)
+		{
+			this.AmmGetListRegistri(idAmm,idRuolo, chaRF);
+		}
+
+		public void ListaRegistriAssRuolo(string idAmm, string idRuolo)
+		{
+			this.AmmGetListRegistriAssRuolo(idAmm,idRuolo);
+		}
+
+		public void ListaFunzioni(string idAmm, string idRuolo)
+		{
+			this.AmmGetListFunzioni(idAmm,idRuolo);
+		}
+
+		public void ListaTipiRuolo(string idAmm)
+		{
+			this.AmmGetListTipiRuolo(idAmm);
+		}
+
+		public void DatiUtente(string idCorrGlob)
+		{
+			this.AmmGetDatiUtente(idCorrGlob);
+		}
+
+		public void InsNuovaUO(SAAdminTool.DocsPaWR.OrgUO newUO)
+		{
+			this.AmmInsNuovaUO(newUO);
+		}
+
+		public void ModUO(SAAdminTool.DocsPaWR.OrgUO theUO, bool StoricizzUO)
+		{
+			this.AmmModUO(theUO, StoricizzUO);
+		}
+
+        public SAAdminTool.DocsPaWR.Amministrazione ModificaUoTIBCO(string oldCodiceUO, SAAdminTool.DocsPaWR.OrgUO theUO, out bool result)
+        {
+            return this.AmmModificaUoTIBCO(oldCodiceUO, theUO, out result);
+        }
+
+        public void inviaNotificaMail(SAAdminTool.DocsPaWR.OrgUO theUO, SAAdminTool.DocsPaWR.Amministrazione amm, string descrizioneAOO, string tipoOperazione, string oldCodiceUO)
+        {
+            this.AmmInviaNotificaMail(theUO, amm, descrizioneAOO, tipoOperazione, oldCodiceUO);
+        }
+
+
+        public SAAdminTool.DocsPaWR.Amministrazione eliminaUoTIBCO(SAAdminTool.DocsPaWR.OrgUO theUO, out bool result)
+        {
+            return this.AmmEliminaUoTIBCO(theUO, out result);
+        }
+
+
+		public void EliminaUO(SAAdminTool.DocsPaWR.InfoUtenteAmministratore infoUtente, string idCorrGlob)
+		{
+            this.AmmEliminaUO(infoUtente, idCorrGlob);
+		}
+
+		public void InsNuovoRuolo(SAAdminTool.DocsPaWR.OrgRuolo newRuolo, bool computeAtipicita)
+		{
+			this.AmmInsNuovoRuolo(newRuolo, computeAtipicita);
+		}
+
+		public void ModRuolo(SAAdminTool.DocsPaWR.OrgRuolo ruolo)
+		{
+			this.AmmModRuolo(ruolo);
+		}
+
+        public void OnlyDisabledRole(SAAdminTool.DocsPaWR.OrgRuolo ruolo)
+        {
+            this.AmmOnlyDisabledRole(ruolo);
+        }
+
+		public int EliminaRuolo(SAAdminTool.DocsPaWR.OrgRuolo ruolo)
+		{
+			this.AmmEliminaRuolo(ruolo);
+            return 0;
+		}
+
+		public void InsRegistri(SAAdminTool.DocsPaWR.OrgRegistro[] listaRegistri, string idUO, string idCorrGlobRuolo)
+		{
+			this.AmmInsRegistri(listaRegistri,idUO,idCorrGlobRuolo);
+		}
+
+        public void AssociazioneRFRuolo(string idRf, string idCorrGlobRuolo)
+        {
+            this.AmmAssociazioneRFRuolo(idRf, idCorrGlobRuolo);
+        }
+
+        public void DeleteAssociazioneRFRuolo(string idRf, string idCorrGlobRuolo)
+        {
+            this.AmmDeleteAssociazioneRFRuolo(idRf, idCorrGlobRuolo);
+        }
+
+		public void InsTipoFunzioni(SAAdminTool.DocsPaWR.OrgTipoFunzione[] listaFunzioni)
+		{
+			this.AmmInsTipoFunzioni(listaFunzioni);
+		}
+
+		public void InsUtenteInRuolo(string idPeople, string idGruppo,string idAmm, string type)
+		{
+			this.AmmInsUtenteInRuolo(idPeople,idGruppo, idAmm, type);
+		}
+
+		public void EliminaUtenteInRuolo(string idPeople, string idGruppo, string idAmm)
+		{
+			this.AmmEliminaUtenteInRuolo(idPeople,idGruppo, idAmm);
+		}
+
+		public void EliminaADLUtente(string idPeople, string idCorrGlobGruppo)
+		{
+			this.AmmEliminaADLUtente(idPeople,idCorrGlobGruppo);
+		}
+
+		public void VerificaUtenteLoggato(string userId, string idAmm)
+		{
+			this.AmmVerificaUtenteLoggato(userId, idAmm);
+		}
+
+        public void VerificaUtenteRespStampeRep(string userId, string roleId, string idAmm)
+        {
+            this.AmmVerificaUtenteRespStampeRep(userId, roleId, idAmm);
+        }
+
+		public void VerificaTrasmRuolo(string idCorrGlobRuolo)
+		{
+			this.AmmVerificaTrasmRuolo(idCorrGlobRuolo);
+		}
+
+		public void RifiutaTrasmConWF(string idCorrGlobRuolo)
+		{
+			this.AmmRifiutaTrasmConWF(idCorrGlobRuolo);
+		}
+
+		public void SostituzioneUtente(string idPeopleNewUT, string idCorrGlobRuolo)
+		{
+			this.AmmSostituzioneUtente(idPeopleNewUT,idCorrGlobRuolo);
+		}
+
+		public void InsTrasmUtente(string idPeople, string idCorrGlobRuolo)
+		{
+			this.AmmInsTrasmUtente(idPeople,idCorrGlobRuolo);
+		}
+
+        public void RicercaInOrg(string tipo, string codice, string descrizione, string idAmm, bool searchHistoricized, bool searchByCodeExact)
+		{
+            this.AmmRicercaInOrg(tipo, codice, descrizione, idAmm, searchHistoricized, searchByCodeExact);
+		}
+
+		public void ListaIDParentRicerca(string IDPartenza, string tipo)
+		{
+			this.AmmListaIDParentRicerca(IDPartenza,tipo);
+		}
+
+		public void EstendeVisibRuolo(string idRegistro, string idCorrGlobRuolo, string idGruppo, string idCorrGlobUO, string idAmm, string livelloRuolo, bool escludiAtipicita)
+		{
+            this.AmmEstendeVisibRuolo(idRegistro, idCorrGlobRuolo, idGruppo, idCorrGlobUO, idAmm, livelloRuolo, escludiAtipicita);
+		}
+
+		public string GetLivelloRuolo(string idCorrGlobRuolo)
+		{
+			return this.AmmGetLivelloRuolo(idCorrGlobRuolo);
+		}
+
+		public void DettagliUOStampaBuste(string idCorrGlob)
+		{
+			this.AmmGetDatiUOStampaBuste(idCorrGlob);
+		}
+
+		public void SpostaRuolo(SAAdminTool.DocsPaWR.OrgRuolo ruolo)
+		{
+			this.AmmSpostaRuolo(ruolo);
+		}
+
+		public void SpostaUO(SAAdminTool.DocsPaWR.OrgUO uoDaSpostare, SAAdminTool.DocsPaWR.OrgUO uoPadre)
+		{
+			this.AmmSpostaUO(uoDaSpostare,uoPadre);
+		}
+		
+		public ArrayList GetListaUoFiglie(SAAdminTool.DocsPaWR.OrgUO uo)
+		{
+			ArrayList list= new ArrayList();
+
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+			list = ws.AmmGetListaUoFiglie(uo);	
+			ws = null;
+			return list;
+		}
+
+		public void StampaOrganigramma (XmlDocument xmlDoc)
+		{
+			this.AmmStampaOrganigramma(xmlDoc);
+		}
+
+		public SAAdminTool.DocsPaWR.FileDocumento getFilePDF()
+		{
+			return this._filePDF;
+		}
+
+		public void setSessionFilePDF(SAAdminTool.DocsPaWR.FileDocumento filePdf)
+		{
+			if (System.Web.HttpContext.Current.Session["SESSION_PDF"]==null)
+			{			
+				System.Web.HttpContext.Current.Session.Add("SESSION_PDF",filePdf);
+			}
+		}
+
+		public SAAdminTool.DocsPaWR.FileDocumento getSessionFilePDF()
+		{
+            SAAdminTool.DocsPaWR.FileDocumento filePdf = new SAAdminTool.DocsPaWR.FileDocumento();
+
+			if (System.Web.HttpContext.Current.Session["SESSION_PDF"]!=null)
+			{			
+				filePdf = (SAAdminTool.DocsPaWR.FileDocumento) System.Web.HttpContext.Current.Session["SESSION_PDF"];
+			}
+			return filePdf;
+		}
+
+		public void releaseSessionFilePDF()
+		{
+			System.Web.HttpContext.Current.Session.Remove("SESSION_PDF");
+		}
+
+        public void PerformUpDown(string idCorrGlobDaSpostare, string idPesoDaSpostare, string idCorrGlobSubisce, string idPesoSubisce)
+        {
+            this.AmmPerformUpDown(idCorrGlobDaSpostare, idPesoDaSpostare, idCorrGlobSubisce, idPesoSubisce);
+        }
+
+		#endregion
+
+		#region private
+
+		/// <summary>
+		/// Prende ID Amministrazione
+		/// </summary>
+		/// <param name="codAmm"></param>
+		private void GetIDAmm(string codAmm)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();			
+			this._idAmministrazione = ws.AmmGetIDAmm(codAmm);			
+			ws = null;
+		}
+
+		/// <summary>
+		/// Reperimento dei dati della UO corrente
+		/// </summary>
+		/// <param name="idUO">system_id della UO</param>
+		private void AmmGetDatiUOCorrente(string idUO)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+
+			this._datiUO = ws.AmmGetDatiUOCorrente(idUO);
+
+			ws = null;
+		}
+
+		/// <summary>
+		/// Lista UO
+		/// </summary>
+		/// <param name="idParent"></param>
+		/// <param name="livello"></param>
+		/// <param name="idAmm"></param>
+		private void AmmGetListUO(string idParent, string livello, string idAmm)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+
+			ArrayList lista = ws.AmmGetListUO(idParent,livello,idAmm);			
+
+			if(lista.Count>0)
+				this._listaUO = new ArrayList(lista);
+
+			lista = null;
+
+			ws = null;
+		}
+
+        /// <summary>
+        /// Lista UO in registro
+        /// </summary>
+        /// <param name="idRegistro"></param>
+        private void AmmGetListUOInReg(string idRegistro, string tipoRicerca, string ricerca)
+        {
+            ArrayList lista = new ArrayList();
+            AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+
+            lista = ws.AmmGetListUOInReg(idRegistro, tipoRicerca, ricerca);
+            
+            if (lista.Count > 0)
+                this._listaUOInReg = new ArrayList(lista);
+
+            lista = null;
+
+            ws = null;
+        }
+
+		/// <summary>
+		/// Lista Ruoli
+		/// </summary>
+		/// <param name="idUO"></param>
+		private void AmmGetListRuoliUO(string idUO)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+
+			ArrayList lista = ws.AmmGetListRuoliUO(idUO);			
+
+			if(lista.Count>0)
+				this._listaRuoliUO = new ArrayList(lista);
+
+			lista = null;
+
+			ws = null;
+		}
+
+        private void AmmGetListRuoliUORic(string idUO,bool ricorsivo)
+        {
+            AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+
+            ArrayList lista = ws.AmmGetListRuoliUORic(idUO, ricorsivo);
+
+            if (lista.Count > 0)
+                this._listaRuoliUO = new ArrayList(lista);
+
+            lista = null;
+
+            ws = null;
+        }
+
+		/// <summary>
+		/// Lista utenti del ruolo
+		/// </summary>
+		/// <param name="idAmm"></param>
+		/// <param name="idRuolo"></param>
+		private void AmmGetListUtentiRuolo(string idRuolo)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+
+			ArrayList lista = ws.AmmGetListUtentiRuolo(idRuolo);			
+
+			if(lista.Count>0)
+				this._listaUtenti = new ArrayList(lista);
+
+			lista = null;
+
+			ws = null;
+		}
+
+		private void AmmGetListUtenti(string idAmm, string ricercaPer, string testoDaRicercare, string IDesclusi)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+
+			ArrayList lista = ws.AmmGetListUtenti(idAmm,ricercaPer,testoDaRicercare,IDesclusi);			
+
+			if(lista.Count>0)
+				this._listaUtenti = new ArrayList(lista);
+
+			lista = null;
+
+			ws = null;
+		}
+
+        private void AmmGetListRuoli(string idAmm, string ricercaPer, string testoDaRicercare, string idRegistro, string IDesclusi)
+        {
+            AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+
+            ArrayList lista = ws.AmmGetListRuoli(idAmm, ricercaPer, testoDaRicercare, idRegistro, IDesclusi);
+
+            if (lista.Count > 0)
+                this._listaRuoli = new ArrayList(lista);
+
+            lista = null;
+
+            ws = null;
+        }
+
+		/// <summary>
+		/// Lista Registri
+		/// </summary>
+		/// <param name="idAmm"></param>
+		/// <param name="idRuolo"></param>
+        private void AmmGetListRegistri(string idAmm, string idRuolo, string chaRF)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+
+			ArrayList lista = ws.AmmGetListRegistriRF(idAmm, idRuolo, chaRF);
+
+			if(lista.Count>0)
+				this._listaRegistri = new ArrayList(lista);
+
+			lista = null;
+
+			ws = null;
+		}
+
+		/// <summary>
+		/// Lista Registri associati al ruolo
+		/// </summary>
+		/// <param name="idAmm"></param>
+		/// <param name="idRuolo"></param>
+		private void AmmGetListRegistriAssRuolo(string idAmm, string idRuolo)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+
+			ArrayList lista = ws.AmmGetListRegistriAssRuolo(idAmm, idRuolo);
+
+			if(lista.Count>0)
+				this._listaRegistri = new ArrayList(lista);
+
+			lista = null;
+
+			ws = null;
+		}
+
+		/// <summary>
+		/// Lista Funzioni
+		/// </summary>
+		/// <param name="idAmm"></param>
+		/// <param name="idRuolo"></param>
+		private void AmmGetListFunzioni(string idAmm, string idRuolo)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+
+			ArrayList lista = ws.AmmGetListFunzioni(idAmm, idRuolo);
+
+			if(lista.Count>0)
+				this._listaFunzioni = new ArrayList(lista);
+
+			lista = null;
+
+			ws = null;
+		}
+
+		/// <summary>
+		/// Lista Tipi Ruolo
+		/// </summary>
+		/// <param name="idAmm"></param>
+		private void AmmGetListTipiRuolo(string idAmm)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+
+            this._listaTipiRuolo = ws.AmmGetListTipiRuolo(idAmm);
+
+			ws = null;
+		}
+
+		private void AmmGetDatiUtente(string idCorrGlob)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+
+			this._datiUtente = ws.AmmGetDatiUtente(idCorrGlob);
+
+			ws = null;
+		}
+
+		private void AmmInsNuovaUO(SAAdminTool.DocsPaWR.OrgUO newUO)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+			this._esitoOperazione = ws.AmmInsNuovaUO(newUO);
+
+			ws = null;
+		}
+
+		private void AmmModUO(SAAdminTool.DocsPaWR.OrgUO theUO, bool StoricizzUO)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+			this._esitoOperazione = ws.AmmModUO(theUO, StoricizzUO);
+
+			ws = null;
+		}
+
+        private SAAdminTool.DocsPaWR.Amministrazione AmmModificaUoTIBCO(string oldCodiceUO, SAAdminTool.DocsPaWR.OrgUO theUO, out bool result)
+        {
+            AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+            SAAdminTool.DocsPaWR.Amministrazione amm = new SAAdminTool.DocsPaWR.Amministrazione();   
+            amm = ws.AmmModificaUoTIBCO(oldCodiceUO, theUO, out result);
+            ws = null;
+            return amm;
+        }
+
+        private SAAdminTool.DocsPaWR.Amministrazione AmmEliminaUoTIBCO(SAAdminTool.DocsPaWR.OrgUO theUO, out bool result)
+        {
+            AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+            SAAdminTool.DocsPaWR.Amministrazione amm = new SAAdminTool.DocsPaWR.Amministrazione();
+            amm = ws.AmmEliminaUoTIBCO(theUO, out result);
+            ws = null;
+            return amm;
+        }
+
+
+
+        private void AmmInviaNotificaMail(SAAdminTool.DocsPaWR.OrgUO theUO, SAAdminTool.DocsPaWR.Amministrazione amm, string descrizioneAOO, string tipoOperazione, string oldCodiceUO)
+        {
+            AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+            ws.inviaNotificaMail(theUO, amm, descrizioneAOO, tipoOperazione, oldCodiceUO);
+            ws = null;
+        }
+
+		private void AmmEliminaUO(SAAdminTool.DocsPaWR.InfoUtente infoUtente, string idCorrGlob)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+            this._esitoOperazione = ws.AmmEliminaUO(infoUtente, idCorrGlob);
+
+			ws = null;
+		}
+
+		private void AmmInsNuovoRuolo(SAAdminTool.DocsPaWR.OrgRuolo newRuolo, bool computeAtipicita)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+			this._esitoOperazione = ws.AmmInsNuovoRuolo(newRuolo, computeAtipicita);
+			ws = null;
+		}
+
+		private void AmmModRuolo(SAAdminTool.DocsPaWR.OrgRuolo ruolo)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+			this._esitoOperazione = ws.AmmModRuolo(ruolo);
+			ws = null;
+		}
+
+        private void AmmOnlyDisabledRole(SAAdminTool.DocsPaWR.OrgRuolo ruolo)
+        {
+            AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+            this._esitoOperazione = ws.AmmOnlyDisabledRole(ruolo);
+            ws = null;
+        }
+
+		private void AmmEliminaRuolo(SAAdminTool.DocsPaWR.OrgRuolo ruolo)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+			this._esitoOperazione = ws.AmmEliminaRuolo(ruolo);
+			ws = null;
+		}
+
+		private void AmmInsRegistri(SAAdminTool.DocsPaWR.OrgRegistro[] listaRegistri, string idUO, string idCorrGlobRuolo)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+			this._esitoOperazione = ws.AmmInsRegistri(listaRegistri, idUO, idCorrGlobRuolo);
+			ws = null;
+		}
+
+        private void AmmAssociazioneRFRuolo(string idRf,  string idCorrGlobRuolo)
+        {
+            AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+            this._esitoOperazione = ws.AmmAssociazioneRFRuolo(idRf,idCorrGlobRuolo);
+            ws = null;
+        }
+
+        private void AmmDeleteAssociazioneRFRuolo(string idRf, string idCorrGlobRuolo)
+        {
+            AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+            this._esitoOperazione = ws.AmmDeleteAssociazioneRFRuolo(idRf, idCorrGlobRuolo);
+            ws = null;
+        }
+
+
+		private void AmmInsTipoFunzioni(SAAdminTool.DocsPaWR.OrgTipoFunzione[] listaFunzioni)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+			this._esitoOperazione = ws.AmmInsTipoFunzioni(listaFunzioni);
+			ws = null;
+		}
+
+		private void AmmInsUtenteInRuolo(string idPeople, string idGruppo, string idAmm, string type)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+			this._esitoOperazione = ws.AmmInsUtenteInRuolo(idPeople, idGruppo, idAmm, type);
+			ws = null;
+		}
+
+		private void AmmInsTrasmUtente(string idPeople, string idCorrGlobRuolo)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+			this._esitoOperazione = ws.AmmInsTrasmUtente(idPeople, idCorrGlobRuolo);
+			ws = null;
+		}
+
+		private void AmmEliminaUtenteInRuolo(string idPeople, string idGruppo, string idAmm)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+			this._esitoOperazione = ws.AmmEliminaUtenteInRuolo(idPeople, idGruppo, idAmm);
+			ws = null;
+		}
+
+		private void AmmVerificaUtenteLoggato(string userId, string idAmm)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+			this._esitoOperazione = ws.AmmVerificaUtenteLoggato(userId,idAmm);
+			ws = null;
+		}
+
+        private void AmmVerificaUtenteRespStampeRep(string userId, string roleId, string idAmm)
+        {
+            AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+            this._esitoOperazione = ws.AmmVerificaUtenteRespStampeRep(userId, roleId, idAmm);
+            ws = null;
+        }
+		
+		private void AmmEliminaADLUtente(string idPeople, string idCorrGlobGruppo)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+			this._esitoOperazione = ws.AmmEliminaADLUtente(idPeople,idCorrGlobGruppo);
+			ws = null;
+		}
+
+		private void AmmVerificaTrasmRuolo(string idCorrGlobRuolo)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+			this._esitoOperazione = ws.AmmVerificaTrasmRuolo(idCorrGlobRuolo);
+			ws = null;
+		}
+
+		private void AmmRifiutaTrasmConWF(string idCorrGlobRuolo)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+			this._esitoOperazione = ws.AmmRifiutaTrasmConWF(idCorrGlobRuolo);
+			ws = null;
+		}
+
+		private void AmmSostituzioneUtente(string idPeopleNewUT, string idCorrGlobRuolo)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+			this._esitoOperazione = ws.AmmSostituzioneUtente(idPeopleNewUT, idCorrGlobRuolo);
+			ws = null;
+		}
+
+        private void AmmRicercaInOrg(string tipo, string codice, string descrizione, string idAmm, bool searchHistoricized, bool searchByCodeExact)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+
+            ArrayList lista = ws.AmmRicercaInOrg(tipo, codice, descrizione, idAmm, searchHistoricized, searchByCodeExact);			
+
+			if(lista.Count>0)
+				this._listaRisultatoRicerca = new ArrayList(lista);
+
+			lista = null;
+
+			ws = null;
+		}
+
+		private void AmmListaIDParentRicerca(string IDPartenza, string tipo)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+
+			ArrayList list = ws.AmmListaIDParentRicerca(IDPartenza,tipo);			
+
+			if(list.Count>0)
+				this._listaIDParentRicerca = list;
+
+			list = null;
+
+			ws = null;
+		}
+
+		private void AmmEstendeVisibRuolo(string idRegistro, string idCorrGlobRuolo, string idGruppo, string idCorrGlobUO, string idAmm, string livelloRuolo, bool escludiAtipicita)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+            this._esitoOperazione = ws.AmmEstendeVisibRuolo(idRegistro, idCorrGlobRuolo, idGruppo, idCorrGlobUO, idAmm, livelloRuolo, escludiAtipicita);
+			ws = null;			
+		}
+
+		private string AmmGetLivelloRuolo(string idCorrGlobRuolo)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+			return ws.GetLivelloTipoRuolo(idCorrGlobRuolo);
+		}
+
+		private void AmmGetDatiUOStampaBuste(string idCorrGlob)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+
+			this._datiUOStampaBuste = ws.AmmGetDatiUOStampaBuste(idCorrGlob);
+
+			ws = null;
+		}
+
+		private void AmmSpostaRuolo(SAAdminTool.DocsPaWR.OrgRuolo ruolo)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+			this._esitoOperazione = ws.AmmSpostaRuolo(ruolo);
+			ws = null;
+		}
+
+		private void AmmSpostaUO(SAAdminTool.DocsPaWR.OrgUO uoDaSpostare, SAAdminTool.DocsPaWR.OrgUO uoPadre)
+		{
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+			this._esitoOperazione = ws.AmmSpostaUO(uoDaSpostare,uoPadre);
+			ws = null;
+		}
+
+		private void AmmStampaOrganigramma(XmlDocument xmlDoc)
+		{			
+			AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+			this._filePDF = ws.AmmStampaOrganigramma(xmlDoc);
+			ws = null;
+		}
+        
+        public void GetListaRuoliAOO(string idRegistro)
+        {
+            this.AmmGetListaRuoliAOO(idRegistro);
+        }
+
+       /// <summary>
+        /// Ritorna tutti i ruoli associati ad una determinata AOO (Registro o RF)
+       /// </summary>
+       /// <param name="idRegistro"></param>
+        private void AmmGetListaRuoliAOO(string idRegistro)
+        {
+            AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+
+            ArrayList lista = ws.AmmGetListaRuoliAOO(idRegistro);
+
+            if (lista.Count > 0)
+                this._listaRuoliAOO = new ArrayList(lista);
+
+            lista = null;
+
+            ws = null;
+        }
+
+        private void AmmPerformUpDown(string idCorrGlobDaSpostare, string idPesoDaSpostare, string idCorrGlobSubisce, string idPesoSubisce)
+        {
+            AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+            this._esitoOperazione = ws.AmmOrdinamento(idCorrGlobDaSpostare, idPesoDaSpostare, idCorrGlobSubisce, idPesoSubisce);
+            ws = null;
+        }
+
+		#endregion
+
+        public SaveChangesToRoleResponse SaveChangesToRole(SaveChangesToRoleRequest request)
+        {
+            AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+            return ws.SaveChangesToRole(request);
+        }
+
+        public OrgRuolo GetRole(String idCorrGlobali)
+        {
+            try
+            {
+                AmmUtils.WebServiceLink ws = new AmmUtils.WebServiceLink();
+                return ws.GetRole(idCorrGlobali);
+                
+            }
+            catch (Exception e)
+            {
+                return null;
+                
+            }
+        }
+
+        public bool CheckCodiceUODuplicato(string id, string codice, string idAmm)
+        {
+            try
+            {
+                bool result = false;
+                DocsPaWebService wws = new DocsPaWebService();
+                result = wws.ammCheckCodiceUODuplicato(id, codice, idAmm);
+                return result;
+
+            }
+            catch (Exception e)
+            {
+                return false;
+
+            }
+
+        }
+
+	}
+}

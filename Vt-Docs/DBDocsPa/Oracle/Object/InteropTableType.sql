@@ -1,0 +1,2 @@
+CREATE OR REPLACE TYPE @db_user.InteropTableType IS OBJECT         (var_cod_amm varchar(100),         var_cod_aoo varchar(100),         gennaio varchar(20),         febbraio varchar(20),         marzo varchar(20),         aprile varchar(20),         maggio varchar(20),         giugno varchar(20),         luglio varchar(20),         agosto varchar(20),         settembre varchar(20),         ottobre varchar(20),         novembre varchar(20),         dicembre varchar(20),         tot_m_sped varchar(20),         tot_sped varchar(20))
+/

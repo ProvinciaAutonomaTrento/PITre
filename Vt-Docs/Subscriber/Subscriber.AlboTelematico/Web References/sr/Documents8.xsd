@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://nttdata.com/2012/Pi3/Template" elementFormDefault="qualified" targetNamespace="http://nttdata.com/2012/Pi3/Template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://vt-ferlitoca.valueteam.com/Vt-Docs/DocsPaWS/VtDocsWS/WebServices/Documents.svc?xsd=xsd12" namespace="http://nttdata.com/2012/Pi3/Field" />
+  <xs:import schemaLocation="http://vt-ferlitoca.valueteam.com/Vt-Docs/DocsPaWS/VtDocsWS/WebServices/Documents.svc?xsd=xsd14" namespace="http://nttdata.com/2012/Pi3/StateDiagram" />
+  <xs:complexType name="Template">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://nttdata.com/2012/Pi3/Field" minOccurs="0" name="Fields" nillable="true" type="q1:ArrayOfField" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://nttdata.com/2012/Pi3/StateDiagram" minOccurs="0" name="StateDiagram" nillable="true" type="q2:StateDiagram" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Template" nillable="true" type="tns:Template" />
+  <xs:complexType name="ArrayOfTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Template" nillable="true" type="tns:Template" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTemplate" nillable="true" type="tns:ArrayOfTemplate" />
+</xs:schema>

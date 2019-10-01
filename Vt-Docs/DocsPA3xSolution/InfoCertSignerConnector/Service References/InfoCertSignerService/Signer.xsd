@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://infocertsigner.nttdata.com/" targetNamespace="http://infocertsigner.nttdata.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="CADESSingleSigner" type="tns:CADESSingleSigner" />
+  <xs:element name="CADESSingleSignerResponse" type="tns:CADESSingleSignerResponse" />
+  <xs:complexType name="CADESSingleSigner">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="alias" type="xs:string" />
+      <xs:element minOccurs="0" name="dominio" type="xs:string" />
+      <xs:element minOccurs="0" name="pin" type="xs:string" />
+      <xs:element minOccurs="0" name="tsaURL" type="xs:string" />
+      <xs:element minOccurs="0" name="tsaUser" type="xs:string" />
+      <xs:element minOccurs="0" name="tsaPassword" type="xs:string" />
+      <xs:element minOccurs="0" name="userApplicativa" type="xs:string" />
+      <xs:element minOccurs="0" name="passwordApplicativa" type="xs:string" />
+      <xs:element minOccurs="0" name="pathFileDaFirmare" type="xs:string" />
+      <xs:element minOccurs="0" name="pathFileFirmato" type="xs:string" />
+      <xs:element minOccurs="0" name="serverURL" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CADESSingleSignerResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

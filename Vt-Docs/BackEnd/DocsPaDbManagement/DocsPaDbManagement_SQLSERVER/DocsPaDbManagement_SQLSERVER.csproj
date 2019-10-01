@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8A8D6FCC-95FA-4F81-B827-E2A160BBA9D3}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>DocsPaDbManagement_SQLSERVER</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>DocsPaDbManagement</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <PublishUrl>http://localhost/DocsPaDbManagement_SQLSERVER/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\DLL_TERZE_PARTI\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <ProjectReference Include="..\..\DocsPaDB.Transactions\DocsPaDB.Transactions.csproj">
+      <Project>{9797A7A0-D014-4176-A411-306DB1A915C6}</Project>
+      <Name>DocsPaDB.Transactions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DocsPaUtils\DocsPaUtils.csproj">
+      <Name>DocsPaUtils</Name>
+      <Project>{942AD652-BCF7-44CA-AE38-CF0CDA8E0D16}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DocsPaVO\DocsPaVO.csproj">
+      <Project>{A8BA40A6-AB86-4DF7-8C0F-8A9BBB7EE885}</Project>
+      <Name>DocsPaVO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\VersionInfo.cs">
+      <Link>VersionInfo.cs</Link>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Database\Database.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Database\SqlTransactionContext.cs" />
+    <Compile Include="Functions\Functions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Functions\SqlFullTextUtils.cs" />
+    <Content Include="StoredProc\classcat.sql" />
+    <Content Include="StoredProc\corrcat.sql" />
+    <Content Include="StoredProc\createDocSP.sql" />
+    <Content Include="StoredProc\CREATE_NEW_NODO_TITOLARIO.sql" />
+    <Content Include="StoredProc\Del_Rec_Dupl_In_Security.sql" />
+    <Content Include="StoredProc\I_Smistamento_DocVisto.sql" />
+    <Content Include="StoredProc\I_Smistamento_Setvisibsup.sql" />
+    <Content Include="StoredProc\I_SMISTAMENTO_SMISTADOC.sql" />
+    <Content Include="StoredProc\I_SMISTAMENTO_SMISTADOC_R.sql" />
+    <Content Include="StoredProc\I_Smistamento_Smistadoc_R_2.sql" />
+    <Content Include="StoredProc\I_Smistamento_SmistaDoc_U.sql" />
+    <Content Include="StoredProc\SPSetDataVista.sql" />
+    <Content Include="StoredProc\SPSetDataVistaSmistamento.sql" />
+    <Content Include="StoredProc\SP_CLEAN_DPA_T_CANALE_CORR.sql" />
+    <Content Include="StoredProc\SP_DELETE_CORR_ESTERNO.sql" />
+    <Content Include="StoredProc\Sp_Dpa_Uo_Reg.sql" />
+    <Content Include="StoredProc\SP_EREDITA_VIS_DOC.sql" />
+    <Content Include="StoredProc\SP_EREDITA_VIS_DOC_E1.sql" />
+    <Content Include="StoredProc\SP_EREDITA_VIS_DOC_E2.sql" />
+    <Content Include="StoredProc\SP_EREDITA_VIS_FASC.sql" />
+    <Content Include="StoredProc\SP_EREDITA_VIS_FASC_E1.sql" />
+    <Content Include="StoredProc\SP_EREDITA_VIS_FASC_E2.sql" />
+    <Content Include="StoredProc\SP_EREDITA_VIS_FASC_E3.sql" />
+    <Content Include="StoredProc\SP_FILL_DPA_UO_REG.sql" />
+    <Content Include="StoredProc\SP_IMPOSTA_UO_CONTENITORE.sql" />
+    <Content Include="StoredProc\SP_INSERT_DPA_DETT_GLOBALI.sql" />
+    <Content Include="StoredProc\SP_MODIFY_CORR_ESTERNO.sql" />
+    <Content Include="StoredProc\SP_RIMUOVI_DOCUMENTI.sql" />
+    <Content Include="StoredProc\SP_TRASM_RIF_TORNA_MITT.sql" />
+    <Content Include="StoredProc\update_liv1.sql" />
+    <Content Include="StoredProc\update_liv1_SQL.sql" />
+    <Content Include="StoredProc\update_liv_SQL.sql" />
+    <EmbeddedResource Include="StoredProc\dpa3_get_children.sql" />
+    <EmbeddedResource Include="StoredProc\dpa3_get_hierarchy.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

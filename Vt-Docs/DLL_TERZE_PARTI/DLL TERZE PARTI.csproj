@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2F34BD2D-A1DB-4CCB-A30F-D2A350F660D3}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DLL_TERZE_PARTI</RootNamespace>
+    <AssemblyName>DLL TERZE PARTI</AssemblyName>
+    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\DLL TERZE PARTI.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\DLL TERZE PARTI.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="ADODB.dll" />
+    <Content Include="AjaxControlToolkit.dll" />
+    <Content Include="AODL.dll" />
+    <Content Include="ApacheFop.Net.dll" />
+    <Content Include="Aspose.Pdf.dll" />
+    <Content Include="Aspose.Slides.dll" />
+    <Content Include="Aspose.Words.dll" />
+    <Content Include="BouncyCastle.Crypto.dll" />
+    <Content Include="ChilKat\9.3.1\32\ChilkatDotNet2.dll" />
+    <Content Include="ChilKat\9.3.1\32\ChilkatDotNet4.dll" />
+    <Content Include="ChilKat\9.3.1\64\ChilkatDotNet2.dll" />
+    <Content Include="ChilKat\9.3.1\64\ChilkatDotNet4.dll" />
+    <Content Include="ChilKat\9.3.1\ChilkatDotNet2.exe" />
+    <Content Include="ChilKat\9.5.0\ChilkatDotNet2.dll" />
+    <Content Include="DLL_EMC\Emc.Documentum.FS.DataModel.Core.dll" />
+    <Content Include="DLL_EMC\Emc.Documentum.FS.DataModel.Core.xml" />
+    <Content Include="DLL_EMC\Emc.Documentum.FS.DataModel.Shared.dll" />
+    <Content Include="DLL_EMC\Emc.Documentum.FS.DataModel.Shared.xml" />
+    <Content Include="DLL_EMC\Emc.Documentum.FS.Runtime.dll" />
+    <Content Include="DLL_EMC\Emc.Documentum.FS.Runtime.xml" />
+    <Content Include="DLL_EMC\Emc.Documentum.FS.Services.Core.dll" />
+    <Content Include="DLL_EMC\Emc.Documentum.FS.Services.Core.xml" />
+    <Content Include="DLL_EMC\Emc.Documentum.FS.Services.Search.dll" />
+    <Content Include="DLL_EMC\Emc.Documentum.FS.Services.Search.xml" />
+    <Content Include="DocsPaWebCtrlLibrary.dll" />
+    <Content Include="DPA.Acrobat7.PdfConverter.dll" />
+    <Content Include="DPA.Common.dll" />
+    <Content Include="DPA.EZTwain.PdfConverter.dll" />
+    <Content Include="DPA.ITextSharp.PdfConverter.dll" />
+    <Content Include="DPA.PdfSharp.PdfConverter.dll" />
+    <Content Include="DPA.UI.Scanner.EZTwain.dll" />
+    <Content Include="ExcelXmlWriter.dll" />
+    <Content Include="EzTwainDll\EzTwain3_32\EZGif.dll" />
+    <Content Include="EzTwainDll\EzTwain3_32\EZJpeg.dll" />
+    <Content Include="EzTwainDll\EzTwain3_32\EZPdf.dll" />
+    <Content Include="EzTwainDll\EzTwain3_32\EZPng.dll" />
+    <Content Include="EzTwainDll\EzTwain3_32\EZTiff.dll" />
+    <Content Include="EzTwainDll\EzTwain3_32\eztwain3.dll" />
+    <Content Include="EzTwainDll\EzTwain4_32\EZT4Curl.dll" />
+    <Content Include="EzTwainDll\EzTwain4_32\EZT4Dcx.dll" />
+    <Content Include="EzTwainDll\EzTwain4_32\EZT4Gif.dll" />
+    <Content Include="EzTwainDll\EzTwain4_32\EZT4Jpeg.dll" />
+    <Content Include="EzTwainDll\EzTwain4_32\EZT4Ocr.dll" />
+    <Content Include="EzTwainDll\EzTwain4_32\EZT4Pdf.dll" />
+    <Content Include="EzTwainDll\EzTwain4_32\EZT4Png.dll" />
+    <Content Include="EzTwainDll\EzTwain4_32\EZT4Symbol.dll" />
+    <Content Include="EzTwainDll\EzTwain4_32\EZT4Tiff.dll" />
+    <Content Include="EzTwainDll\EzTwain4_32\Eztwain4.dll" />
+    <Content Include="EzTwainDll\EzTwain4_64\EZT4Curl.dll" />
+    <Content Include="EzTwainDll\EzTwain4_64\EZT4Dcx.dll" />
+    <Content Include="EzTwainDll\EzTwain4_64\EZT4Gif.dll" />
+    <Content Include="EzTwainDll\EzTwain4_64\EZT4Jpeg.dll" />
+    <Content Include="EzTwainDll\EzTwain4_64\EZT4Ocr.dll" />
+    <Content Include="EzTwainDll\EzTwain4_64\EZT4Pdf.dll" />
+    <Content Include="EzTwainDll\EzTwain4_64\EZT4Png.dll" />
+    <Content Include="EzTwainDll\EzTwain4_64\EZT4Symbol.dll" />
+    <Content Include="EzTwainDll\EzTwain4_64\EZT4Tiff.dll" />
+    <Content Include="EzTwainDll\EzTwain4_64\Eztwain4.dll" />
+    <Content Include="FileTypeFinder.dll" />
+    <Content Include="gsdll32.dll" />
+    <Content Include="ICSharpCode.SharpZipLib.dll" />
+    <Content Include="Interop.CAPICOM.dll" />
+    <Content Include="Interop.DocsPaWrapperFilenet.dll" />
+    <Content Include="Interop.IDMError.dll" />
+    <Content Include="Interop.IDMObjects.dll" />
+    <Content Include="Interop.PCDCLIENTLib.dll" />
+    <Content Include="Interop.ZfLib.dll" />
+    <Content Include="Interoperabilita_Semplificata\Interoperability.Controller.dll" />
+    <Content Include="Interoperabilita_Semplificata\Interoperability.Controller.pdb" />
+    <Content Include="Interoperabilita_Semplificata\Interoperability.Domain.dll" />
+    <Content Include="Interoperabilita_Semplificata\Interoperability.Domain.pdb" />
+    <Content Include="Interoperabilita_Semplificata\Interoperability.Interfaces.dll" />
+    <Content Include="Interoperabilita_Semplificata\Interoperability.Interfaces.pdb" />
+    <Content Include="Interoperabilita_Semplificata\Interoperability.ProofGenerator.dll" />
+    <Content Include="Interoperabilita_Semplificata\Interoperability.ProofGenerator.pdb" />
+    <Content Include="Interoperabilita_Semplificata\Interoperability.Service.Library.dll" />
+    <Content Include="Interoperabilita_Semplificata\Interoperability.Service.Library.pdb" />
+    <Content Include="itextsharp.dll" />
+    <Content Include="itextsharp_lite.dll" />
+    <Content Include="Linearizzazione\AnyCPU\msvcp120.dll" />
+    <Content Include="Linearizzazione\AnyCPU\msvcr120.dll" />
+    <Content Include="Linearizzazione\AnyCPU\PDFLinearizator.dll" />
+    <Content Include="Linearizzazione\AnyCPU\qpdfdll.dll" />
+    <Content Include="Linearizzazione\AnyCPU\vccorlib120.dll" />
+    <Content Include="Linearizzazione\AnyCPU\zlib1.dll" />
+    <Content Include="Linearizzazione\x64\msvcp120.dll" />
+    <Content Include="Linearizzazione\x64\msvcr120.dll" />
+    <Content Include="Linearizzazione\x64\PDFLinearizator.dll" />
+    <Content Include="Linearizzazione\x64\qpdfdll.dll" />
+    <Content Include="Linearizzazione\x64\vccorlib120.dll" />
+    <Content Include="Linearizzazione\x64\zlib1.dll" />
+    <Content Include="Linearizzazione\x86\msvcp120.dll" />
+    <Content Include="Linearizzazione\x86\msvcr120.dll" />
+    <Content Include="Linearizzazione\x86\PDFLinearizator.dll" />
+    <Content Include="Linearizzazione\x86\qpdfdll.dll" />
+    <Content Include="Linearizzazione\x86\vccorlib120.dll" />
+    <Content Include="Linearizzazione\x86\zlib1.dll" />
+    <Content Include="log4net.dll" />
+    <Content Include="MailSystem.net\ActiveUp.Net.Common.dll" />
+    <Content Include="MailSystem.net\ActiveUp.Net.Dns.dll" />
+    <Content Include="MailSystem.net\ActiveUp.Net.Imap4.dll" />
+    <Content Include="MailSystem.net\ActiveUp.Net.Mail.dll" />
+    <Content Include="MailSystem.net\ActiveUp.Net.Nntp.dll" />
+    <Content Include="MailSystem.net\ActiveUp.Net.OpenPGP.dll" />
+    <Content Include="MailSystem.net\ActiveUp.Net.Pop3.dll" />
+    <Content Include="MailSystem.net\ActiveUp.Net.Smtp.dll" />
+    <Content Include="MessageBox.dll" />
+    <Content Include="Microsoft.Data.Odbc.dll" />
+    <Content Include="Microsoft.Web.Services2.dll" />
+    <Content Include="Newtonsoft.Json.dll" />
+    <Content Include="Newtonsoft.Json.xml" />
+    <Content Include="PdfSharp\MigraDoc.DocumentObjectModel.dll" />
+    <Content Include="PdfSharp\MigraDoc.Rendering.dll" />
+    <Content Include="PdfSharp\PdfSharp.Charting.dll" />
+    <Content Include="PdfSharp\PdfSharp.dll" />
+    <Content Include="RJS.Web.WebControl.PopCalendar.dll" />
+    <Content Include="ScannerPatch\Imaging_patch.exe" />
+    <Content Include="ScannerPatch\SelectScanner.exe" />
+    <Content Include="UniSA.FLC.Web.UI.WebControls.AccessibleDataGrid.dll" />
+    <Content Include="UniSA.FLC.Web.UI.WebControls.AccessibleDataGrid.xml" />
+    <Content Include="vic.dll" />
+    <Content Include="WCFExtras.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MSWORD.OLB" />
+    <None Include="ScannerPatch\EmulatorePerTest.msi" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="dummycs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

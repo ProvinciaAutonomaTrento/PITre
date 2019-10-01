@@ -1,0 +1,22 @@
+CREATE OR REPLACE FUNCTION @db_user.GetCountNote(tipoOggetto CHAR, idOggetto NUMBER, note NVARCHAR2, idUtente NUMBER, idGruppo NUMBER)
+RETURN NUMBER IS retValue NUMBER;
+
+noteCompl VARCHAR2(2000);
+
+BEGIN
+
+noteCompl := '%' || note || '%';
+
+SELECT COUNT(SYSTEM_ID) INTO retValue
+FROM   DPA_NOTE N
+WHERE  N.TIPOOGGETTOASSOCIATO = tipoOggetto AND
+N.IDOGGETTOASSOCIATO = idOggetto AND
+N.TESTO LIKE noteCompl AND
+(N.TIPOVISIBILITA = 'T' OR
+(N.TIPOVISIBILITA = 'P' AND N.IDUTENTECREATORE = idUtente) OR
+(N.TIPOVISIBILITA = 'R' AND N.IDRUOLOCREATORE = idGruppo));
+
+
+RETURN retValue;
+END GetCountNote;
+/

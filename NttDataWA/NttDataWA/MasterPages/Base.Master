@@ -1,0 +1,549 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Base.Master.cs" Inherits="NttDataWA.MasterPages.Base" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="uc1" %>
+<%@ Register Assembly="NttDatalLibrary" Namespace="NttDatalLibrary" TagPrefix="cc2" %>
+<%@ Register Src="~/UserControls/ajaxpopup2.ascx" TagPrefix="uc" TagName="ajaxpopup2" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="Html" runat="server">
+<head id="Head1" runat="server">
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <title>Pi.Tre.</title>
+    <link href="<%=Page.ResolveClientUrl("~/Css/Left/Layout.css?v=1") %>" type="text/css" rel="stylesheet" id="CssLayout"/>
+    <link href="<%=Page.ResolveClientUrl("~/Css/tipsy.css") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=Page.ResolveClientUrl("~/css/redmond/jquery-ui-1.8.24.custom.css") %>"
+        rel="stylesheet" type="text/css" />
+    <link href="<%=Page.ResolveClientUrl("~/css/messager.css") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=Page.ResolveClientUrl("~/css/FileUpload/jquery.fileupload-ui.css") %>" rel="stylesheet" type="text/css" />
+
+
+
+    <script src="<%=Page.ResolveClientUrl("~/Scripts/jquery-1.8.1.min.js") %>" type="text/javascript"></script>
+    <script src="<%=Page.ResolveClientUrl("~/Scripts/jquery-ui-1.8.23.custom.min.js") %>"
+        type="text/javascript"></script>
+    <script src="<%=Page.ResolveClientUrl("~/Scripts/jquery.ui.datepicker-it.js") %>"
+        type="text/javascript"></script>
+    <script src="<%=Page.ResolveClientUrl("~/Scripts/jquery.jdMenu.js") %>" type="text/javascript"></script>
+    <script src="<%=Page.ResolveClientUrl("~/Scripts/jquery.positionBy.js") %>" type="text/javascript"></script>
+    <script src="<%=Page.ResolveClientUrl("~/Scripts/Functions.js") %>" type="text/javascript"></script>
+    <script src="<%=Page.ResolveClientUrl("~/Scripts/datetimebylang.js") %>" type="text/javascript"></script>
+    <script src="<%=Page.ResolveClientUrl("~/Scripts/jquery.tipsy.js") %>" type="text/javascript"></script>
+    <script src="<%=Page.ResolveClientUrl("~/Scripts/jquery.inlineedit.js") %>" type="text/javascript"></script>
+    <script src="<%=Page.ResolveClientUrl("~/Scripts/jquery.cookie.js") %>" type="text/javascript"></script>
+    <script src="<%=Page.ResolveClientUrl("~/Scripts/DYMO.Label.Framework.latest.js?v3") %>" type="text/javascript"></script>
+    <script src="<%=Page.ResolveClientUrl("~/Scripts/webclientconnector.js?v=11116") %>" type="text/javascript"></script>
+
+    
+    <script src="<%=Page.ResolveClientUrl("~/Scripts/UploadFile/jquery.tmpl.js?v=3") %>" type="text/javascript"></script>
+    <script src="<%=Page.ResolveClientUrl("~/Scripts/UploadFile/jquery.tmplPlus.js") %>" type="text/javascript"></script>
+    <script src="<%=Page.ResolveClientUrl("~/Scripts/UploadFile/jquery.iframe-transport.js") %>" type="text/javascript"></script>
+    <script src="<%=Page.ResolveClientUrl("~/Scripts/UploadFile/jquery.fileupload.js") %>" type="text/javascript"></script>
+    <script src="<%=Page.ResolveClientUrl("~/Scripts/UploadFile/jquery.fileupload-ui.js") %>" type="text/javascript"></script>
+    <script src="<%=Page.ResolveClientUrl("~/Scripts/UploadFile/application.js?v=7") %>" type="text/javascript"></script>
+
+
+    <script type="text/javascript">
+
+        //        $(document).click(function (event) {
+        //            if (event.target.id != "showHistory") {
+        //                $('#divHistory:visible').hide();
+        //            }
+        //            else {
+        //                $('.bullet').toggle();
+        //            }
+        //        });
+
+        $(function () {
+            Tipsy();
+            reallowOp();
+            noBack();
+            //            window.onload=noBack;
+            //            window.onpageshow=function(evt){if(evt.persisted)noBack()}
+            window.onunload = function () { void (0) }
+        });
+
+        function noBack() { window.history.forward(); }
+
+
+
+
+        function sessionend() {
+            var frs = parent.frames.fra_sessionend;
+            if (frs.document.getElementById('user_id') != null)
+                frs.document.getElementById('user_id').value = '';
+        }
+
+        function Tipsy() {
+            $(".tipsy").remove();
+            $('.tooltip').tipsy();
+            $('.clickable').tipsy({ gravity: 's', fade: false, opacity: 1, delayIn: 0, delayOut: 0, html: true });
+            $('.clickableLeft').tipsy({ gravity: 'e', fade: false, opacity: 1, delayIn: 0, delayOut: 0 });
+            $('.redStrike').tipsy({ gravity: 's', fade: false, opacity: 1, delayIn: 0, delayOut: 0 });
+            $('.clickableUnderline').tipsy({ gravity: 's', fade: false, opacity: 1, delayIn: 0, delayOut: 0 });
+            $('.referenceCode').tipsy({ className: 'reference-tip', gravity: 'n', fade: false, opacity: 1, delayIn: 0, delayOut: 0 });
+            $('.clickableLeftN').tipsy({ gravity: 'e', fade: false, opacity: 1, delayIn: 0, delayOut: 0 });
+            $('.clickableRight').tipsy({ gravity: 'w', fade: false, opacity: 1, delayIn: 0, delayOut: 0, html: true });
+            $('.clickableNE').tipsy({ gravity: 'ne', fade: false, opacity: 1, delayIn: 0, delayOut: 0 });
+
+            var isIEmin9 = false;
+            if ($.browser.msie && $.browser.version < 10) isIEmin9 = true;
+            if (!isIEmin9) {
+                $('.tooltip-no-ie').tipsy();
+                $('.clickable-no-ie').tipsy({ gravity: 's', fade: false, opacity: 1, delayIn: 0, delayOut: 0 });
+                $('.clickableLeft-no-ie').tipsy({ gravity: 'e', fade: false, opacity: 1, delayIn: 0, delayOut: 0 });
+                $('.redStrike-no-ie').tipsy({ gravity: 's', fade: false, opacity: 1, delayIn: 0, delayOut: 0 });
+            }
+        }
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        <%--Controllo della sessione e della multisessione utenza--%>
+        <script runat="server">       
+            override protected void OnInit(EventArgs e)
+            {
+                NttDataWA.UIManager.AdministrationManager.CheckSession();
+                base.OnInit(e);
+            }
+        </script>
+    </asp:ContentPlaceHolder>
+</head>
+<body id="IdMasterBody" runat="server">
+    <script type="text/javascript">        disallowOp('IdMasterBody');</script>
+    <form id="FrmMaster" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server" AsyncPostBackTimeout="3600"
+            EnablePartialRendering="true" ScriptMode="Release">
+            <Scripts>
+                <asp:ScriptReference Path="~/Scripts/webkit.js" />
+            </Scripts>
+        </asp:ScriptManager>
+        <script language="javascript" type="text/javascript">
+            if (Sys != null) {
+                Sys.WebForms.PageRequestManager.getInstance().add_beginRequest(beginRequest);
+                Sys.WebForms.PageRequestManager.getInstance().add_endRequest(endRequest);
+            }
+        </script>
+        <uc:ajaxpopup2 Id="ManageAddressBook" runat="server" Url="~/Popup/AddressBook.aspx"
+            PermitClose="false" PermitScroll="false" IsFullScreen="true" />
+        <!-- PEC 4 requisito 4 - report spedizioni -->
+        <uc:ajaxpopup2 Id="SendingReport" runat="server" Url="~/Popup/ReportSpedizioni.aspx"
+            PermitClose="false" PermitScroll="false" IsFullScreen="true" CloseFunction="function (event, ui) {__doPostBack('upPnlInfoUser', '');}" />
+        <uc:ajaxpopup2 Id="Guide" runat="server" ForceDontClose="true" PermitClose="false"
+            PermitScroll="false" IsFullScreen="true" CloseFunction="function (event, ui) {$('#Guide_panel iframe').hide();}" />
+        <uc:ajaxpopup2 Id="ClientBigfile" runat="server" ForceDontClose="true" PermitClose="false" Url="~/ClientBigfile/DownloadClientBigfile.aspx"
+            PermitScroll="false" IsFullScreen="false" Width="400" Height="300" CloseFunction="function (event, ui) {__doPostBack('upPnlInfoUser', '');}" />
+        <div id="header">
+            <div id="headerSx">
+                <a href="<%=Page.ResolveClientUrl("~/Index.aspx")%>">
+                    <asp:Image runat="server" AlternateText="" ID="headerLogo" />
+                    <%-- <img id="headerLogo" src="<%=Page.ResolveClientUrl("~/Images/Common/logo.jpg")%>"
+                    alt="" />--%></a>
+                <asp:UpdatePanel ID="UpdateDescriptionOfOrganization" runat="server" UpdateMode="Conditional"
+                    ClientIDMode="static">
+                    <ContentTemplate>
+                        <p id="pDescriptionOfOrganization" runat="server">
+                            <asp:Label ID="LblDescriptionOfOrganization" runat="server"></asp:Label>
+                        </p>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+            </div>
+            <div id="headerDx">
+                <h2>
+                    <asp:UpdatePanel ID="upPnlInfoUser" runat="server" UpdateMode="Conditional" ClientIDMode="static">
+                        <ContentTemplate>
+                            <img src="<%=Page.ResolveClientUrl("~/Images/Common/ico_user.jpg")%>" alt="" />
+                            <%=GetFullName() %>
+                        - <span class="italic">
+                            <%=GetRoleUser() %></span>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </h2>
+                <asp:UpdatePanel ID="upPnlTextSize" runat="server">
+                    <ContentTemplate>
+                        <p>
+                            <asp:Label ID="LblTextSize" runat="server"></asp:Label>
+                            <asp:LinkButton Text="A" runat="server" OnClick="LnkSize1_Click" ID="LnkSize1"></asp:LinkButton>
+                            <asp:LinkButton Text="A" runat="server" OnClick="LnkSize2_Click" ID="LnkSize2"></asp:LinkButton>
+                            <asp:LinkButton Text="A" runat="server" OnClick="LnkSize3_Click" ID="LnkSize3"></asp:LinkButton>
+                            <span id="spanLanguage" runat="server"></span><span id="spanris"></span>
+                        </p>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+            </div>
+            <div id="menuTop">
+                <div id="menuTopSx">
+                    <ul class='level_0 jd_menu' id="Menu" runat="server">
+                        <li id="LiMenuHome" class="menuHome" runat="server"><a href="<%=Page.ResolveClientUrl("~/Index.aspx")%>"
+                            onclick="disallowOp('menuTop');" accesskey="H">
+                            <asp:Label ID="BaseMasterLblHome" runat="server"></asp:Label></a></li>
+                        <li id="LiMenuDocument" class="menuDocument" runat="server"><a href="#" accesskey="o">
+                            <asp:Label ID="BaseMasterLblDocument" runat="server"></asp:Label></a>
+                            <ul class="level_1">
+                                <li id="LiNewInboundRecord" runat="server"><a href="<%=Page.ResolveClientUrl("~/Document/Document.aspx?t=a")%>"
+                                    onclick="disallowOp('menuTop')" accesskey="a">
+                                    <asp:Label ID="BaseMasterLblNewRecordInBound" runat="server"></asp:Label></a></li>
+                                <li id="LiNewOutBoundRecord" runat="server"><a href="<%=Page.ResolveClientUrl("~/Document/Document.aspx?t=p")%>"
+                                    onclick="disallowOp('menuTop')" accesskey="p">
+                                    <asp:Label ID="BaseMasterLblNewRecordOutBound" runat="server"></asp:Label></a></li>
+                                <li id="LiNewInternalRecord" runat="server"><a href="<%=Page.ResolveClientUrl("~/Document/Document.aspx?t=i")%>"
+                                    onclick="disallowOp('menuTop')" accesskey="n">
+                                    <asp:Label ID="BaseMasterLblNewRecordInternal" runat="server"></asp:Label></a></li>
+                                <li id="LiNewDocument" runat="server"><a href="<%=Page.ResolveClientUrl("~/Document/Document.aspx?t=n")%>"
+                                    onclick="disallowOp('menuTop')">
+                                    <asp:Label ID="BaseMasterLblNewDocument" runat="server"></asp:Label></a></li>
+                                <li id="LiMenuImport" class="accessible" runat="server"><a href="#">
+                                    <asp:Label ID="BaseMasterLblImport" runat="server"></asp:Label>
+                                    &raquo;</a>
+                                    <ul class="level_2">
+                                        <!--[if !IE]><!-->
+                                        <li class="li_2" id="LiMenuImportDoc" runat="server"><a href="<%=Page.ResolveClientUrl("~/ImportDati/ImportDocuments.aspx")%>"
+                                            onclick="disallowOp('menuTop')">
+                                            <asp:Label ID="BaseMasterLblImportDoc" runat="server"></asp:Label></a></li>
+                                        <!--<![endif]-->
+                                        <li class="li_2" runat="server" id="LiMenuImportDocPre"><a href="<%=Page.ResolveClientUrl("~/ImportDati/ImportPrevious.aspx")%>"
+                                            onclick="disallowOp('menuTop')">
+                                            <asp:Label ID="BaseMasterLblImportDocPre" runat="server"></asp:Label></a></li>
+                                        <li class="li_2" runat="server" id="LiMenuImportRDE"><a href="<%=Page.ResolveClientUrl("~/ImportDati/ImportRDE.aspx")%>"
+                                            onclick="disallowOp('menuTop')">
+                                            <asp:Label ID="BaseMasterLblImportRDE" runat="server"></asp:Label></a></li>
+                                        <li class="li_2" runat="server" id="LiMenuImportMailMerge"><a href="<%=Page.ResolveClientUrl("~/ImportDati/ImportDocuments.aspx?MailMerge=true")%>"
+                                            onclick="disallowOp('menuTop')">
+                                            <asp:Label ID="BaseMasterLblImportMailMerge" runat="server"></asp:Label></a></li>
+                                        <li class="li_2" id="LiMenuImportInvoice" runat="server"><a href="<%=Page.ResolveClientUrl("~/ImportDati/ImportInvoice.aspx")%>"
+                                            onclick="disallowOp('menuTop')">
+                                            <asp:Label ID="BaseMasterLblImportInvoice" runat="server"></asp:Label></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li id="lifascicolo" class="menuFascicolo" runat="server"><a href="#">
+                            <asp:Label ID="lblMenuFascicolo" runat="server"></asp:Label></a>
+                            <ul class="level_1">
+                                <li id="liNuovoFascicolo" runat="server"><a href="<%=Page.ResolveClientUrl("~/Project/Project.aspx?t=p")%>"
+                                    onclick="disallowOp('menuTop')">
+                                    <asp:Label ID="lblNuovoFascicolo" runat="server"></asp:Label></a></li>
+                                <li runat="server" id="LiMenuImportProject"><a href="<%=Page.ResolveClientUrl("~/ImportDati/ImportProjects.aspx")%>"
+                                    onclick="disallowOp('menuTop')">
+                                    <asp:Label ID="BaseMasterLblImportProject" runat="server"></asp:Label></a></li>
+                            </ul>
+                        </li>
+                        <li id="LiMenuSearch" class="menuSearch" runat="server"><a href="#">
+                            <asp:Label ID="BaseMasterLblSearch" runat="server"></asp:Label></a>
+                            <ul class="level_1">
+                                <li id="LiMenuSearchDoc" runat="server"><a runat="server" id="LinkSearchDoc">
+                                    <asp:Label ID="BaseMasterLblSearchDoc" runat="server"></asp:Label></a></li>
+                                <li id="LitLastDocumentsView" class="accessible" runat="server" visible="false"><a
+                                    href="#">
+                                    <asp:Label ID="BaseMasterLblLastDocumentsView" runat="server"></asp:Label>
+                                    &raquo;</a>
+                                    <%--<asp:UpdatePanel ID="UpnlLastDocumentView" runat="server" UpdateMode="Conditional"
+                                    ClientIDMode="static">
+                                    <ContentTemplate>--%>
+                                    <ul id="lastDocumentsView" class="level_2" runat="server">
+                                        <asp:HiddenField ID="HiddenIdProfile" runat="server" />
+                                    </ul>
+                                    <%--
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>--%>
+                                </li>
+                                <li id="LiMenuSearchProject" runat="server"><a href="<%=Page.ResolveClientUrl("~/Search/SearchProject.aspx")%>"
+                                    onclick="disallowOp('menuTop')">
+                                    <asp:Label ID="BaseMasterLblSearchProject" runat="server"></asp:Label></a></li>
+                                <li id="LiMenuSearchTransmissions" runat="server"><a href="<%=Page.ResolveClientUrl("~/Search/SearchTransmission.aspx")%>"
+                                    onclick="disallowOp('menuTop')">
+                                    <asp:Label ID="BaseMasterLblSearchTransmissions" runat="server"></asp:Label></a></li>
+                                <li id="LiMenuSearchVisibility" runat="server"><a href="<%=Page.ResolveClientUrl("~/Search/SearchVisibility.aspx")%>"
+                                    onclick="disallowOp('menuTop')">
+                                    <asp:Label ID="BaseMasterLblSearchVisibility" runat="server"></asp:Label></a></li>
+                                <li id="LiMenuSearchAdlDoc" runat="server"><a href="<%=Page.ResolveClientUrl("~/Search/SearchDocumentAdvanced.aspx?IsAdl=true")%>"
+                                    onclick="disallowOp('menuTop')">
+                                    <asp:Label ID="BaseMasterLblSearchAdlDoc" runat="server"></asp:Label></a></li>
+                                <li id="LiMenuSearchAdlProject" runat="server"><a href="<%=Page.ResolveClientUrl("~/Search/SearchProject.aspx?IsAdl=true")%>"
+                                    onclick="disallowOp('menuTop')">
+                                    <asp:Label ID="BaseMasterLblSearchAdlProject" runat="server"></asp:Label></a></li>
+                                <li id="LiMenuSearchCommonFields" runat="server"><a href="#">
+                                    <asp:Label ID="BaseMasterLblSearchCommonFields" runat="server"></asp:Label></a></li>
+                                <!--  Deposito -->
+                                <li id="LiMenuSearchVersamenti" runat="server"><a href="<%=Page.ResolveClientUrl("~/Search/SearchTransfer.aspx")%>">
+                                    <asp:Label ID="BaseMasterLblSearchVersamenti" runat="server"></asp:Label></a></li>
+                                <li id="LiMenuSearchScarti" runat="server"><a href="<%=Page.ResolveClientUrl("~/Search/SearchDisposal.aspx")%>">
+                                    <asp:Label ID="BaseMasterLblSearchScarti" runat="server"></asp:Label></a> </li>
+                                <!-- Fine  Deposito -->
+                            </ul>
+                        </li>
+                        <li id="LiMenuManagement" class="menuManagement" runat="server"><a href="#">
+                            <asp:Label ID="BaseMasterLblManagement" runat="server"></asp:Label></a>
+                            <ul class="level_1">
+                                <li id="LiMenuRegistry" runat="server"><a href="<%=Page.ResolveClientUrl("~/Management/Registers.aspx")%>"
+                                    onclick="disallowOp('menuTop')">
+                                    <asp:Label ID="BaseMasterLblRegistry" runat="server"></asp:Label></a></li>
+                                <li id="LiMenuRepertory" runat="server"><a href="<%=Page.ResolveClientUrl("~/Management/RegisterRepertories.aspx")%>"
+                                    onclick="disallowOp('menuTop')">
+                                    <asp:Label ID="BaseMasterLblRepertoires" runat="server"></asp:Label></a></li>
+                                <li id="LiMenuPrints" runat="server"><a href="<%=Page.ResolveClientUrl("~/Management/Prints.aspx")%>"
+                                    onclick="disallowOp('menuTop');">
+                                    <asp:Label ID="BaseMasterPrints" runat="server"></asp:Label></a></li>
+                                <li id="LiMenuProspects" runat="server"><a href="<%=Page.ResolveClientUrl("~/Summaries/Summeries.aspx")%>"
+                                    onclick="disallowOp('menuTop')">
+                                    <asp:Label ID="BaseMasterProspects" runat="server"></asp:Label></a></li>
+                                <li id="LiMenuAddressBook" runat="server"><a href="#addressbook" onclick="return ajaxModalPopupManageAddressBook();">
+                                    <asp:Label ID="BaseMasterAddressBook" runat="server"></asp:Label></a></li>
+                                <li id="LiMenuList" runat="server"><a href="<%=Page.ResolveClientUrl("~/Management/DistributionList.aspx")%>"
+                                    onclick="disallowOp('menuTop')">
+                                    <asp:Label ID="BaseMasterList" runat="server"></asp:Label></a></li>
+                                <li id="LiMenuDelegate" runat="server"><a href="<%=Page.ResolveClientUrl("~/Mandate/Mandate.aspx")%>"
+                                    onclick="disallowOp('menuTop')">
+                                    <asp:Label ID="BaseMasterDelegate" runat="server"></asp:Label></a></li>
+                                <li id="LiMenuManagementTransmission" runat="server"><a href="<%=Page.ResolveClientUrl("~/Management/GestioneModelliTrasm.aspx")%>"
+                                    onclick="disallowOp('menuTop')">
+                                    <asp:Label ID="BaseMasterManagementTransmission" runat="server"></asp:Label></a></li>
+                                <li id="LiMenuNotes" runat="server"><a href="<%=Page.ResolveClientUrl("~/Management/Notes.aspx")%>"
+                                    onclick="disallowOp('menuTop')">
+                                    <asp:Label ID="BaseMasterNotes" runat="server"></asp:Label></a></li>
+                                <!-- PEC 4 requisito 4 - report spedizioni -->
+                                <li id="LiMenuSendingReport" runat="server"><a href="#sendingReport" onclick="return ajaxModalPopupSendingReport();">
+                                    <asp:Label ID="BaseMasterSendingReport" runat="server"></asp:Label></a></li>
+                                <!--Deposito -->
+                                <asp:Label ID="baseMasterDepositoInizio" runat="server" Visible="false"></asp:Label>
+                                <li id="LiMenuPreDeposito" runat="server"><a href="<%=Page.ResolveClientUrl("~/Deposito/Versamento.aspx?PAGESTATE=NEW")%>">
+                                    <asp:Label ID="BaseMasterDeposito" runat="server"></asp:Label></a></li>
+                                <li id="LiMenuAutorizzazioneConsultazione" runat="server"><a href="<%=Page.ResolveClientUrl("~/Deposito/AutorizzazioniVersamento.aspx?PAGESTATE=NEW")%>">
+                                    <asp:Label ID="BaseMasterAutorizzazioneConsultazione" runat="server"></asp:Label></a></li>
+                                <li id="LiMenuScarto" runat="server"><a href="<%=Page.ResolveClientUrl("~/Deposito/Scarto.aspx?PAGESTATE=NEW")%>">
+                                    <asp:Label ID="BaseMasterScarto" runat="server"></asp:Label></a></li>
+                                <!--Fine Deposito -->
+                                <li id="LiMenuConservationArea" runat="server"><a href="<%=Page.ResolveClientUrl("~/Management/ConservationArea.aspx")%>"
+                                    onclick="disallowOp('menuTop')">
+                                    <asp:Label ID="BaseMasterLblConservationArea" runat="server"></asp:Label></a></li>
+                                <li id="LiMenuDocumentsRemoved" runat="server"><a href="<%=Page.ResolveClientUrl("~/Management/DocumentsRemoved.aspx")%>"
+                                    onclick="disallowOp('menuTop')">
+                                    <asp:Label ID="BaseMasterLblDocumentsRemoved" runat="server"></asp:Label></a></li>
+                                <li id="LiMenuOrganizationChart" runat="server"><a href="<%=Page.ResolveClientUrl("~/Management/OrganizationChart.aspx")%>"
+                                    onclick="disallowOp('menuTop')">
+                                    <asp:Label ID="BaseMasterLblOrganizationChart" runat="server"></asp:Label></a></li>
+                                <li id="LiMenuCodeIpa" runat="server"><a href="<%=Page.ResolveClientUrl("~/Management/CodiciIpa/Codici_IPA_per_Pitre.xls")%>"
+                                    target="_blank">
+                                    <asp:Label ID="BaseMasterLblpaCode" runat="server"></asp:Label></a></li>
+                                <li id="LiMenuInstAcc" runat="server"><a href="<%=Page.ResolveClientUrl("~/Management/InstanceAccess.aspx")%>"
+                                    onclick="disallowOp('menuTop');">
+                                    <asp:Label ID="BaseMasterLblInstAcc" runat="server"></asp:Label></a></li>
+                                <li id="LiMenuSignatureProcesses" runat="server"><a href="<%=Page.ResolveClientUrl("~/Management/SignatureProcesses.aspx")%>"
+                                    onclick="disallowOp('menuTop');">
+                                    <asp:Label ID="BaseMasterLblSignatureProcesses" runat="server"></asp:Label></a></li>
+                                <li id="LiMenuMonitoringProcesses" runat="server"><a href="<%=Page.ResolveClientUrl("~/Management/MonitoringProcesses.aspx")%>"
+                                    onclick="disallowOp('menuTop');">
+                                    <asp:Label ID="BaseMasterLblMonitoringProcesses" runat="server"></asp:Label></a></li>
+                                <li id="LiMenuProceedings" runat="server"><a href="<%=Page.ResolveClientUrl("~/Management/Proceedings.aspx")%>"
+                                    onclick="disallowOp('menuTop');">
+                                    <asp:Label ID="BaseMasterLblProceedings" runat="server"></asp:Label></a></li>
+                                <li id="LiMenuReportAccessi" runat="server"><a href="<%=Page.ResolveClientUrl("~/Management/ReportAccessi.aspx")%>"
+                                    onclick="disallowOp('menuTop');">
+                                    <asp:Label ID="BaseMasterLblReportAccessi" runat="server"></asp:Label></a></li>
+                                <li id="LiMenuClientBigfile" runat="server"><a href="#bigfile" onclick="return ajaxModalPopupClientBigfile();">
+                                    <asp:Label ID="BaseMasterLblClientBigfile" runat="server"></asp:Label></a></li>
+                            </ul>
+                        </li>
+                        <li id="LiMenuOptions" class="menuOptions" runat="server"><a href="#">
+                            <asp:Label ID="BaseMasterOptions" runat="server"></asp:Label></a>
+                            <ul class="level_1">
+                                <li id="LiMenuChangePassword" runat="server"><a href="<%=Page.ResolveClientUrl("~/Options/ChangePassword.aspx")%>"
+                                    onclick="disallowOp('menuTop')">
+                                    <asp:Label ID="BaseMasterChangePassword" runat="server"></asp:Label></a></li>
+                            </ul>
+                        </li>
+                        <li id="LiMenuHelp" class="menuHelp" runat="server" ><a href="#guide" onclick="$.cookie('guide_cookie', 'ko', { expires: 7, path: '/' }); return ajaxModalPopupGuide();">
+                            <asp:Label ID="BaseMasterHelp" runat="server" CssClass="clickableRight"></asp:Label></a></li>
+                    </ul>
+                </div>
+                <div id="menuTopDx">
+                    <ul>
+                        <li class="menuSearch" id="LiSearchEngine" runat="server" visible="false">
+                            <cc2:CustomTextArea runat="server" CssClass="txt_search" ID="BaseMasterTxtSearch"
+                                Text="BaseMasterTxtSearch" onfocus="if (this.value=='Cerca') this.value = ''"></cc2:CustomTextArea></li>
+                        <li class="menuLogOut"><a href="<%=Page.ResolveClientUrl("~/LogOut.aspx")%>" onclick="sessionend();">
+                            <asp:Label ID="BaseMasterLogOut" runat="server"></asp:Label></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="menuNavigation">
+                <div id="menuNavigationSx">
+                    <div id="menuNavigationSxBottom">
+                        <p>
+                            <cc2:CustomImageButton runat="server" ID="LinkUrlNavigation" OnClick="LinkUrlNavigation_Click"
+                                CssClass="clickableRight" />
+                        </p>
+                        <p>
+                            &nbsp;&nbsp;<asp:Label ID="NamePage" runat="server" Text=""></asp:Label>
+                        </p>
+                    </div>
+                </div>
+                <div id="menuNavigationDx">
+                    <asp:PlaceHolder runat="server" ID="PlhMasterNavigationDx" Visible="false">
+                        <p>
+                            <cc2:CustomImageButton runat="server" ID="LinkButtonNextMaster" CssClass="clickableLeft"
+                                OnClick="NextNavigation_Click" />
+                        </p>
+                        <p>
+                            <asp:Label ID="LblPaginationDx" runat="server"></asp:Label>
+                        </p>
+                        <p>
+                            <cc2:CustomImageButton runat="server" ID="LinkButtonPreMaster" CssClass="clickableRight"
+                                OnClick="BackNavigation_Click" />
+                        </p>
+                    </asp:PlaceHolder>
+                </div>
+            </div>
+        </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolderContent" runat="server">
+        </asp:ContentPlaceHolder>
+        <div id="footer">
+            <div id="footerTop">
+                <asp:ContentPlaceHolder ID="ContentPlaceOldersButtons" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div id="footerBottom">
+                <p>
+                    <asp:Label runat="server" ID="LblIP"></asp:Label>
+                    -
+                <asp:Label runat="server" ID="LblVersion"></asp:Label>
+                    <asp:Label runat="server" ID="LblCopyright"></asp:Label>
+                    <img runat="server" id="ImgItalianLaw" />
+                    <img runat="server" id="ImgEuropeFlag" />
+                </p>
+            </div>
+            <div id="footerBottomLeft">
+                <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+                	<asp:Label runat="server" ID="LblBanner"></asp:Label>
+            	</marquee>
+            </div>
+        </div>
+        <!-- PopUp Wait-->
+        <uc1:ModalPopupExtender ID="mdlPopupWait" runat="server" TargetControlID="Wait" PopupControlID="Wait"
+            BackgroundCssClass="modalBackground" BehaviorID="mdlWait" />
+        <div id="Wait" runat="server" class="wait">
+            <asp:UpdatePanel ID="pnlUP" runat="server">
+                <ContentTemplate>
+                    <div class="modalPopup">
+                        <asp:Label ID="Loading" runat="server" Visible="false"></asp:Label>
+                        <br />
+                        <img id="imgLoading" src="<%=Page.ResolveClientUrl("~/Images/common/loading.gif")%>"
+                            alt="" />
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
+        <!-- Popup modal check/error/info/question/warning -->
+        <script type="text/javascript">
+            var dialogModalAlreadyOpened = false;
+            function ajaxDialogModal(msg, type) {
+                var titleW = null;
+                var input = null;
+                var popupWidth = 500;
+                var popupHeight = 350;
+                var closeFunction = null;
+                if (arguments.length > 2 && arguments[2] != null) titleW = arguments[2];
+                if (arguments.length > 3 && arguments[3] != null) input = arguments[3];
+                if (arguments.length > 4 && arguments[4] != null) popupWidth = arguments[4];
+                if (arguments.length > 5 && arguments[5] != null) popupHeight = arguments[5];
+                if (arguments.length > 6 && arguments[6] != null) closeFunction = arguments[6];
+                if (closeFunction != null) { closeFunction = "$('#frame').css('visibility', 'visible');dialogModalAlreadyOpened = false;" + closeFunction; } else { closeFunction = "$('#frame').css('visibility', 'visible');dialogModalAlreadyOpened = false;"; }
+
+
+                if (titleW == null || titleW == '') {
+                    switch (type) {
+                        case 'check':
+                            titleW = '<asp:Literal id="litDialogCheck" runat="server" />';
+                            break;
+                        case 'error':
+                            titleW = '<asp:Literal id="litDialogError" runat="server" />';
+                            break;
+                        case 'info':
+                            titleW = '<asp:Literal id="litDialogInfo" runat="server" />';
+                            break;
+                        case 'question':
+                            titleW = '<asp:Literal id="litDialogQuestion" runat="server" />';
+                            break;
+                        case 'warning':
+                            titleW = '<asp:Literal id="litDialogWarning" runat="server" />';
+                            break;
+                    }
+                }
+
+                $('#dialog_modal').empty();
+                var d = $('#dialog_modal').html($('<iframe id="ifrm_dialog" frameborder="0" />'));
+                d.dialog({
+                    open: function (event, ui) { $('.ui-dialog-titlebar-close').hide(); },
+                    close: function (event, ui) { if (closeFunction != null) eval(closeFunction); },
+                    position: { my: "center", at: "center", of: window },
+                    resizable: false,
+                    draggable: true,
+                    modal: true,
+                    show: 'puff',
+                    hide: 'clip',
+                    stack: true,
+                    title: titleW,
+                    width: popupWidth,
+                    height: popupHeight
+                });
+                $("#dialog_modal #ifrm_dialog").attr({ src: '<%=Page.ResolveClientUrl("~/Popup/dialog.aspx") %>?type=' + type + '&msg=' + msg + '&input=' + input, width: '99%', height: '99%', marginwidth: '0', marginheight: '0', scrolling: 'auto' });
+
+            $('#frame').css("visibility", "hidden");
+        };
+        </script>
+        <div id="dialog_modal">
+        </div>
+        <!-- Popup modal confirm -->
+        <script type="text/javascript">
+            function ajaxConfirmModal(msg, hiddenToValorize) {
+                var titleW = null;
+                var input = null;
+                var popupWidth = 500;
+                var popupHeight = 350;
+                var closeFunction = null;
+                if (arguments.length > 2 && arguments[2] != null) titleW = arguments[2];
+                if (arguments.length > 3 && arguments[3] != null) input = arguments[3];
+                if (arguments.length > 4 && arguments[4] != null) popupWidth = arguments[4];
+                if (arguments.length > 5 && arguments[5] != null) popupHeight = arguments[5];
+                if (arguments.length > 6 && arguments[6] != null) closeFunction = arguments[6];
+                if (closeFunction != null) { closeFunction = "$('#frame').css('visibility', 'visible');" + closeFunction; } else { closeFunction = "$('#frame').css('visibility', 'visible');"; }
+                if (titleW == null || titleW == '') titleW = '<asp:Literal id="litConfirm" runat="server" />';
+
+                $('#confirm_modal').empty();
+                var d = $('#confirm_modal').html($('<iframe id="ifrm_confirm" frameborder="0" />'));
+                d.dialog({
+                    open: function (event, ui) { $('.ui-dialog-titlebar-close').hide(); },
+                    close: function (event, ui) { if (closeFunction != null) eval(closeFunction); },
+                    position: { my: "center", at: "center", of: window },
+                    resizable: false,
+                    draggable: true,
+                    modal: true,
+                    show: 'puff',
+                    hide: 'clip',
+                    stack: true,
+                    title: titleW,
+                    width: popupWidth,
+                    height: popupHeight
+                });
+                $("#confirm_modal #ifrm_confirm").attr({ src: '<%=Page.ResolveClientUrl("~/Popup/confirm.aspx") %>?hidden=' + hiddenToValorize + '&msg=' + msg + '&input=' + input, width: '99%', height: '99%', marginwidth: '0', marginheight: '0', scrolling: 'auto' });
+
+            $('#frame').css("visibility", "hidden");
+        };
+        </script>
+        <div id="confirm_modal">
+        </div>
+        <asp:HiddenField ID="hfRequestVerifier" runat="server" />
+    </form>
+
+   
+    <!-- Form per l'upload dei documenti e degli allegati -->
+    <form id="frmUploadDocuments" action="DocumentsUploadHandler.ashx" method="post" enctype="multipart/form-data" style="display:none;">
+        <input id="inputFileDocumentsToUpload" type="file" name="files[]" multiple="multiple" />
+    </form>
+
+    <form id="frmUploadAttachments" action="AttachmentsHandler.ashx" method="post" enctype="multipart/form-data" style="display:none;">
+        <input id="inputFileAttachmentsToUpload" type="file" name="files[]" multiple="multiple" />
+    </form>
+
+</body>
+</html>

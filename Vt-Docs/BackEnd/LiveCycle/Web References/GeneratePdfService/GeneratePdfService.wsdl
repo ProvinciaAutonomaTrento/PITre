@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:intf="http://adobe.com/idp/services" xmlns:impl="http://adobe.com/idp/services" targetNamespace="http://adobe.com/idp/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://adobe.com/idp/services">
+      <xsd:import namespace="http://xml.apache.org/xml-soap" />
+      <xsd:element name="CreatePDF">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="inputDocument" type="impl:BLOB" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="fileName" type="xsd:string" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="fileTypeSettings" type="xsd:string" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="pdfSettings" type="xsd:string" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="securitySettings" type="xsd:string" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="settingsDocument" type="impl:BLOB" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="xmpDocument" type="impl:BLOB" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="BLOB">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="contentType" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="binaryData" type="xsd:base64Binary" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="attachmentID" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="remoteURL" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CreatePDFResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Result" type="apachesoap:Map" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InvalidParameterException" type="xsd:anyType" />
+      <xsd:element name="ConversionException" type="xsd:anyType" />
+      <xsd:element name="FileFormatNotSupportedException" type="xsd:anyType" />
+      <xsd:element name="HtmlToPDF">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="inputURL" type="xsd:string" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="fileTypeSettings" type="xsd:string" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="securitySettings" type="xsd:string" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="settingsDocument" type="impl:BLOB" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="xmpDocument" type="impl:BLOB" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="HtmlToPDFResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Result" type="apachesoap:Map" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExportPDF">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="inputDocument" type="impl:BLOB" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="fileName" type="xsd:string" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="formatType" type="xsd:string" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="settingsDocument" type="impl:BLOB" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExportPDFResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Result" type="apachesoap:Map" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="HtmlToPdfResult">
+        <xsd:sequence>
+          <xsd:element name="createdDocument" nillable="true" type="impl:BLOB" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CreatePDFResult">
+        <xsd:sequence>
+          <xsd:element name="createdDocument" nillable="true" type="impl:BLOB" />
+          <xsd:element name="logDocument" nillable="true" type="impl:BLOB" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ExportPDFResult">
+        <xsd:sequence>
+          <xsd:element name="convertedDocument" nillable="true" type="impl:BLOB" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://xml.apache.org/xml-soap">
+      <xsd:import namespace="http://adobe.com/idp/services" />
+      <xsd:complexType name="mapItem">
+        <xsd:sequence>
+          <xsd:element name="key" nillable="true" type="xsd:anyType" />
+          <xsd:element name="value" nillable="true" type="xsd:anyType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Map">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="apachesoap:mapItem" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="HtmlToPDFResponse">
+    <wsdl:part name="parameters" element="impl:HtmlToPDFResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvalidParameterException">
+    <wsdl:part name="InvalidParameterException" element="impl:InvalidParameterException" />
+  </wsdl:message>
+  <wsdl:message name="CreatePDFResponse">
+    <wsdl:part name="parameters" element="impl:CreatePDFResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportPDFResponse">
+    <wsdl:part name="parameters" element="impl:ExportPDFResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportPDFRequest">
+    <wsdl:part name="parameters" element="impl:ExportPDF" />
+  </wsdl:message>
+  <wsdl:message name="CreatePDFRequest">
+    <wsdl:part name="parameters" element="impl:CreatePDF" />
+  </wsdl:message>
+  <wsdl:message name="FileFormatNotSupportedException">
+    <wsdl:part name="FileFormatNotSupportedException" element="impl:FileFormatNotSupportedException" />
+  </wsdl:message>
+  <wsdl:message name="HtmlToPDFRequest">
+    <wsdl:part name="parameters" element="impl:HtmlToPDF" />
+  </wsdl:message>
+  <wsdl:message name="ConversionException">
+    <wsdl:part name="ConversionException" element="impl:ConversionException" />
+  </wsdl:message>
+  <wsdl:portType name="GeneratePDFService">
+    <wsdl:operation name="CreatePDF">
+      <wsdl:input name="CreatePDFRequest" message="impl:CreatePDFRequest" />
+      <wsdl:output name="CreatePDFResponse" message="impl:CreatePDFResponse" />
+      <wsdl:fault name="FileFormatNotSupportedException" message="impl:FileFormatNotSupportedException" />
+      <wsdl:fault name="ConversionException" message="impl:ConversionException" />
+      <wsdl:fault name="InvalidParameterException" message="impl:InvalidParameterException" />
+    </wsdl:operation>
+    <wsdl:operation name="HtmlToPDF">
+      <wsdl:input name="HtmlToPDFRequest" message="impl:HtmlToPDFRequest" />
+      <wsdl:output name="HtmlToPDFResponse" message="impl:HtmlToPDFResponse" />
+      <wsdl:fault name="FileFormatNotSupportedException" message="impl:FileFormatNotSupportedException" />
+      <wsdl:fault name="ConversionException" message="impl:ConversionException" />
+      <wsdl:fault name="InvalidParameterException" message="impl:InvalidParameterException" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportPDF">
+      <wsdl:input name="ExportPDFRequest" message="impl:ExportPDFRequest" />
+      <wsdl:output name="ExportPDFResponse" message="impl:ExportPDFResponse" />
+      <wsdl:fault name="FileFormatNotSupportedException" message="impl:FileFormatNotSupportedException" />
+      <wsdl:fault name="ConversionException" message="impl:ConversionException" />
+      <wsdl:fault name="InvalidParameterException" message="impl:InvalidParameterException" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GeneratePdfServiceSoapBinding" type="impl:GeneratePDFService">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreatePDF">
+      <wsdlsoap:operation soapAction="CreatePDF" />
+      <wsdl:input name="CreatePDFRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CreatePDFResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FileFormatNotSupportedException">
+        <wsdlsoap:fault use="literal" name="FileFormatNotSupportedException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ConversionException">
+        <wsdlsoap:fault use="literal" name="ConversionException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InvalidParameterException">
+        <wsdlsoap:fault use="literal" name="InvalidParameterException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="HtmlToPDF">
+      <wsdlsoap:operation soapAction="HtmlToPDF" />
+      <wsdl:input name="HtmlToPDFRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="HtmlToPDFResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FileFormatNotSupportedException">
+        <wsdlsoap:fault use="literal" name="FileFormatNotSupportedException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ConversionException">
+        <wsdlsoap:fault use="literal" name="ConversionException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InvalidParameterException">
+        <wsdlsoap:fault use="literal" name="InvalidParameterException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ExportPDF">
+      <wsdlsoap:operation soapAction="ExportPDF" />
+      <wsdl:input name="ExportPDFRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ExportPDFResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FileFormatNotSupportedException">
+        <wsdlsoap:fault use="literal" name="FileFormatNotSupportedException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ConversionException">
+        <wsdlsoap:fault use="literal" name="ConversionException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InvalidParameterException">
+        <wsdlsoap:fault use="literal" name="InvalidParameterException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GeneratePDFServiceService">
+    <wsdl:port name="GeneratePdfService" binding="impl:GeneratePdfServiceSoapBinding">
+      <wsdlsoap:address location="http://ets3111:8080/soap/services/GeneratePdfService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

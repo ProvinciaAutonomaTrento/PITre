@@ -1,0 +1,7 @@
+--------------------------------------------------------
+--  Constraints for Table DPA_RISCONTRI_CLASSIFICA
+--------------------------------------------------------
+
+  ALTER TABLE "ITCOLL_6GIU12"."DPA_RISCONTRI_CLASSIFICA" ADD CONSTRAINT "PK_DPA_RISCONTRI_CLASSIFICA" PRIMARY KEY ("SYSTEM_ID") ENABLE;
+ 
+  ALTER TABLE "ITCOLL_6GIU12"."DPA_RISCONTRI_CLASSIFICA" MODIFY ("SYSTEM_ID" NOT NULL ENABLE);

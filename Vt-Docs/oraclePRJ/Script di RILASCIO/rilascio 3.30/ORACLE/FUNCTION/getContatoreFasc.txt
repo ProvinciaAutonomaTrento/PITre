@@ -1,0 +1,92 @@
+CREATE OR REPLACE FUNCTION getContatoreFasc (systemId INT, tipoContatore CHAR)
+RETURN VARCHAR IS risultato VARCHAR(255);
+
+valoreContatore VARCHAR(255);
+annoContatore VARCHAR(255);
+annoAccademico VARCHAR(255);
+formatoContatore VARCHAR(255);
+codiceRegRf VARCHAR(255);
+
+
+BEGIN
+
+select
+valore_oggetto_db, anno,anno_acc,formato_contatore
+into valoreContatore, annoContatore,annoAccademico,formatoContatore
+from
+dpa_ass_templates_fasc, dpa_oggetti_custom_fasc, dpa_tipo_oggetto_fasc
+where
+dpa_ass_templates_fasc.id_project = to_char(systemId)
+and
+dpa_ass_templates_fasc.id_oggetto = dpa_oggetti_custom_fasc.system_id
+and
+dpa_oggetti_custom_fasc.id_tipo_oggetto = dpa_tipo_oggetto_fasc.system_id
+and
+dpa_tipo_oggetto_fasc.descrizione = 'Contatore'
+and
+dpa_oggetti_custom_fasc.cha_tipo_tar = tipoContatore;
+
+
+
+if (tipocontatore <> 'T') then
+begin
+
+select
+dpa_el_registri.var_codice
+into codiceRegRf
+from
+dpa_ass_templates_fasc, dpa_oggetti_custom_fasc, dpa_tipo_oggetto_fasc, dpa_el_registri
+where
+dpa_ass_templates_fasc.id_project = to_char(systemId)
+and
+dpa_ass_templates_fasc.id_oggetto = dpa_oggetti_custom_fasc.system_id
+and
+dpa_oggetti_custom_fasc.id_tipo_oggetto = dpa_tipo_oggetto_fasc.system_id
+and
+dpa_tipo_oggetto_fasc.descrizione = 'Contatore'
+and
+dpa_oggetti_custom_fasc.cha_tipo_tar = tipoContatore
+and
+dpa_ass_templates_fasc.id_aoo_rf = dpa_el_registri.system_id;
+IF( annoAccademico is not null )
+  THEN
+  annoContatore := annoAccademico;
+        IF (instr(formatoContatore,'a.s.' )!=0)
+        THEN
+            risultato :=  nvl(codiceRegRf,'') ||'-'|| nvl(annoContatore,'') ||' - a.s. '|| nvl(valoreContatore,'');
+        ELSE
+            risultato :=  nvl(codiceRegRf,'') ||'-'|| nvl(annoContatore,'') ||'-'|| nvl(valoreContatore,'');
+        END IF;
+           
+END IF;
+
+IF(annoAccademico is null)
+    THEN
+        risultato :=  nvl(codiceRegRf,'') ||'-'|| nvl(annoContatore,'') ||'-'|| nvl(valoreContatore,'');
+END IF;
+
+END;
+else
+
+IF( annoAccademico is not null )
+   THEN
+   annoContatore := annoAccademico;
+        IF (instr(formatoContatore,'a.s.' )!=0)
+        THEN
+            risultato :=    nvl(valoreContatore,'')||' - a.s. '||nvl(annoContatore,'') ;
+        ELSE
+        risultato :=    nvl(valoreContatore,'')||'-'||nvl(annoContatore,'') ;
+        END IF;
+END IF;
+ 
+IF(annoAccademico is null)
+    THEN
+       risultato :=    nvl(valoreContatore,'')||'-'||nvl(annoContatore,'') ;
+END IF;
+
+
+END IF;
+
+RETURN risultato;
+END getContatoreFasc;
+/

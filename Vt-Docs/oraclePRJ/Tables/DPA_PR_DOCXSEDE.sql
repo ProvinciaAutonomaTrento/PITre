@@ -1,0 +1,17 @@
+--------------------------------------------------------
+--  DDL for Table DPA_PR_DOCXSEDE
+--------------------------------------------------------
+
+  CREATE TABLE "ITCOLL_6GIU12"."DPA_PR_DOCXSEDE" 
+   (	"ID_PEOPLE" NUMBER, 
+	"TS_STAMPA" DATE, 
+	"ANNO" VARCHAR2(100 BYTE), 
+	"SEDE" VARCHAR2(100 BYTE), 
+	"TOT_DOC" NUMBER DEFAULT 0, 
+	"GRIGI" NUMBER DEFAULT 0, 
+	"PROT" NUMBER DEFAULT 0, 
+	"ANNULL" NUMBER DEFAULT 0, 
+	"ARRIVO" NUMBER DEFAULT 0, 
+	"PARTENZA" NUMBER DEFAULT 0, 
+	"INTERNI" NUMBER DEFAULT 0
+   ) ;

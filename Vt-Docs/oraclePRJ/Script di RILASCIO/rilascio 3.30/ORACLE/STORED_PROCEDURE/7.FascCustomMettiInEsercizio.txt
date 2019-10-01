@@ -1,0 +1,53 @@
+CREATE OR REPLACE PROCEDURE FascCustomMettiInEsercizio IS
+today DATE:= SYSDATE;
+custom DPA_CONT_CUSTOM_FASC%ROWTYPE;
+CURSOR c_custom IS
+SELECT * FROM DPA_CONT_CUSTOM_FASC;
+BEGIN
+   OPEN c_custom;
+            LOOP
+
+                FETCH c_custom into custom;
+                EXIT WHEN c_custom%NOTFOUND;
+                IF (today > custom.DATA_INIZIO AND today < custom.DATA_FINE+1 AND ((custom.SOSPESO='NO') OR (custom.SOSPESO IS NULL)) ) THEN
+                    DECLARE
+                    idtemplate DPA_ASS_TEMPLATES_FASC.ID_TEMPLATE%TYPE;
+                    CURSOR c_template IS
+                    SELECT DISTINCT ID_TEMPLATE FROM DPA_ASS_TEMPLATES_FASC WHERE ID_OGGETTO = custom.ID_OGG_FASC;   
+                            BEGIN
+                            
+                                OPEN c_template;
+                                
+                                LOOP
+                                
+                                FETCH c_template into idtemplate;
+                                EXIT WHEN c_template%NOTFOUND;
+                                    UPDATE DPA_TIPO_FASC
+                                    SET IN_ESERCIZIO = 'SI'
+                                    WHERE SYSTEM_ID = idtemplate;
+                                    commit work;
+                                    dbms_output.put_line(' la tipologia con idtemplate ' ||idtemplate|| ' ed id_oggetto : ' ||custom.ID_OGG_FASC||  '  è in esercizio :' );
+                                
+                                
+                                END LOOP;
+                                
+                            END;
+                
+
+                   
+
+                END IF;
+                
+                
+
+            END LOOP;
+
+CLOSE c_custom;
+   EXCEPTION
+     WHEN NO_DATA_FOUND THEN
+       NULL;
+     WHEN OTHERS THEN
+       -- Consider logging the error and then re-raise
+       RAISE;
+END FascCustomMettiInEsercizio;
+/

@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://vt-faillaceal/Vt-Docs/DocsPaWS/Mobile/VTDocsWSMobile.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://vt-faillaceal/Vt-Docs/DocsPaWS/Mobile/VTDocsWSMobile.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/DocsPaVO.documento" />
+  <xs:complexType name="UserInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:LightUserInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DelegatoInfo" nillable="true" type="tns:UserInfo" />
+          <xs:element minOccurs="0" name="Dst" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IdAmministrazione" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Ruoli" nillable="true" type="tns:ArrayOfRuoloInfo" />
+          <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UserInfo" nillable="true" type="tns:UserInfo" />
+  <xs:complexType name="LightUserInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descrizione" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdPeople" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LightUserInfo" nillable="true" type="tns:LightUserInfo" />
+  <xs:complexType name="ArrayOfRuoloInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RuoloInfo" nillable="true" type="tns:RuoloInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRuoloInfo" nillable="true" type="tns:ArrayOfRuoloInfo" />
+  <xs:complexType name="RuoloInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Codice" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Descrizione" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdGruppo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdUO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Livello" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Registri" nillable="true" type="tns:ArrayOfRegistroInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RuoloInfo" nillable="true" type="tns:RuoloInfo" />
+  <xs:complexType name="ArrayOfRegistroInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RegistroInfo" nillable="true" type="tns:RegistroInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRegistroInfo" nillable="true" type="tns:ArrayOfRegistroInfo" />
+  <xs:complexType name="RegistroInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SystemId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegistroInfo" nillable="true" type="tns:RegistroInfo" />
+  <xs:complexType name="ArrayOfToDoListElement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ToDoListElement" nillable="true" type="tns:ToDoListElement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfToDoListElement" nillable="true" type="tns:ArrayOfToDoListElement" />
+  <xs:complexType name="ToDoListElement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataDoc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HasWorkflow" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdTrasm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mittente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Oggetto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ragione" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Segnatura" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tipo" type="tns:ElementType" />
+      <xs:element minOccurs="0" name="TipoProto" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ToDoListElement" nillable="true" type="tns:ToDoListElement" />
+  <xs:simpleType name="ElementType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DOCUMENTO" />
+      <xs:enumeration value="FOLDER" />
+      <xs:enumeration value="FASCICOLO" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ElementType" nillable="true" type="tns:ElementType" />
+  <xs:complexType name="ArrayOfDocInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DocInfo" nillable="true" type="tns:DocInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDocInfo" nillable="true" type="tns:ArrayOfDocInfo" />
+  <xs:complexType name="DocInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccessRights" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CanTransmit" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DataDoc" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DataProto" type="xs:dateTime" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DescrFasc" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Destinatari" nillable="true" type="q2:ArrayOfstring" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Fascicoli" nillable="true" type="q3:ArrayOfArrayOfstring" />
+      <xs:element minOccurs="0" name="HasPreview" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IdDoc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdDocPrincipale" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsAcquisito" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsProtocollato" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Mittente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Oggetto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OriginalFileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Segnatura" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoProto" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocInfo" nillable="true" type="tns:DocInfo" />
+  <xs:complexType name="TrasmInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Accettata" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Data" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HasWorkflow" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IdTrasm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdTrasmUtente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mittente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NoteGenerali" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NoteIndividuali" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ragione" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rifiutata" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrasmInfo" nillable="true" type="tns:TrasmInfo" />
+  <xs:complexType name="FileInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="ContentType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EstensioneFile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Length" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OriginalFileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Path" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileInfo" nillable="true" type="tns:FileInfo" />
+  <xs:complexType name="FascInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccessRights" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CanTransmit" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Codice" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DataApertura" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DataChiusura" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Descrizione" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdFasc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FascInfo" nillable="true" type="tns:FascInfo" />
+  <xs:simpleType name="RicercaType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RIC_DOCUMENTO" />
+      <xs:enumeration value="RIC_FASCICOLO" />
+      <xs:enumeration value="RIC_DOC_FASC" />
+      <xs:enumeration value="RIC_DOCUMENTO_ADL" />
+      <xs:enumeration value="RIC_FASCICOLO_ADL" />
+      <xs:enumeration value="RIC_DOC_FASC_ADL" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RicercaType" nillable="true" type="tns:RicercaType" />
+  <xs:simpleType name="RicercaSalvataType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RIC_DOCUMENTO" />
+      <xs:enumeration value="RIC_FASCICOLO" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RicercaSalvataType" nillable="true" type="tns:RicercaSalvataType" />
+  <xs:complexType name="ArrayOfRicercaElement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RicercaElement" nillable="true" type="tns:RicercaElement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRicercaElement" nillable="true" type="tns:ArrayOfRicercaElement" />
+  <xs:complexType name="RicercaElement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Extension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Oggetto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Segnatura" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tipo" type="tns:ElementType" />
+      <xs:element minOccurs="0" name="TipoProto" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RicercaElement" nillable="true" type="tns:RicercaElement" />
+  <xs:complexType name="ArrayOfRicercaSalvata">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RicercaSalvata" nillable="true" type="tns:RicercaSalvata" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRicercaSalvata" nillable="true" type="tns:ArrayOfRicercaSalvata" />
+  <xs:complexType name="RicercaSalvata">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descrizione" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" type="tns:RicercaSalvataType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RicercaSalvata" nillable="true" type="tns:RicercaSalvata" />
+  <xs:simpleType name="StatoDelega">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ATTIVA" />
+      <xs:enumeration value="IMPOSTATA" />
+      <xs:enumeration value="SCADUTA" />
+      <xs:enumeration value="TUTTI" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="StatoDelega" nillable="true" type="tns:StatoDelega" />
+  <xs:simpleType name="TipoDelega">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ASSEGNATA" />
+      <xs:enumeration value="RICEVUTA" />
+      <xs:enumeration value="ESERCIZIO" />
+      <xs:enumeration value="TUTTI" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TipoDelega" nillable="true" type="tns:TipoDelega" />
+  <xs:complexType name="ArrayOfDelega">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Delega" nillable="true" type="tns:Delega" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDelega" nillable="true" type="tns:ArrayOfDelega" />
+  <xs:complexType name="Delega">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DelegaInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DataDecorrenza" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DataScadenza" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Delegato" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IdDelegato" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InEsercizio" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RuoloDelegato" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Stato" type="tns:StatoDelega" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Delega" nillable="true" type="tns:Delega" />
+  <xs:complexType name="DelegaInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodiceDelegante" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Delegante" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdRuoloDelegante" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DelegaInfo" nillable="true" type="tns:DelegaInfo" />
+  <xs:complexType name="ArrayOfModelloDelegaInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ModelloDelegaInfo" nillable="true" type="tns:ModelloDelegaInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfModelloDelegaInfo" nillable="true" type="tns:ArrayOfModelloDelegaInfo" />
+  <xs:complexType name="ModelloDelegaInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataFineDelega" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DataInizioDelega" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DescrRuoloDelegante" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DescrUtenteDelegato" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ModelloDelegaInfo" nillable="true" type="tns:ModelloDelegaInfo" />
+  <xs:complexType name="ArrayOfLightUserInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LightUserInfo" nillable="true" type="tns:LightUserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLightUserInfo" nillable="true" type="tns:ArrayOfLightUserInfo" />
+  <xs:complexType name="ArrayOfTipoRuoloInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TipoRuoloInfo" nillable="true" type="tns:TipoRuoloInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTipoRuoloInfo" nillable="true" type="tns:ArrayOfTipoRuoloInfo" />
+  <xs:complexType name="TipoRuoloInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Codice" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Descrizione" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TipoRuoloInfo" nillable="true" type="tns:TipoRuoloInfo" />
+  <xs:complexType name="ArrayOfUserInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserInfo" nillable="true" type="tns:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserInfo" nillable="true" type="tns:ArrayOfUserInfo" />
+  <xs:complexType name="ArrayOfModelloTrasm">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ModelloTrasm" nillable="true" type="tns:ModelloTrasm" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfModelloTrasm" nillable="true" type="tns:ArrayOfModelloTrasm" />
+  <xs:complexType name="ModelloTrasm">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Codice" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ModelloTrasm" nillable="true" type="tns:ModelloTrasm" />
+  <xs:simpleType name="SmistamentoNodeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="UO" />
+      <xs:enumeration value="RUOLO" />
+      <xs:enumeration value="UTENTE" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SmistamentoNodeType" nillable="true" type="tns:SmistamentoNodeType" />
+  <xs:complexType name="SmistamentoTree">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AltreUO" nillable="true" type="tns:ArrayOfSmistamentoUONode" />
+      <xs:element minOccurs="0" name="UOAppartenenza" nillable="true" type="tns:SmistamentoUONode" />
+      <xs:element minOccurs="0" name="idParent" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SmistamentoTree" nillable="true" type="tns:SmistamentoTree" />
+  <xs:complexType name="ArrayOfSmistamentoUONode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SmistamentoUONode" nillable="true" type="tns:SmistamentoUONode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSmistamentoUONode" nillable="true" type="tns:ArrayOfSmistamentoUONode" />
+  <xs:complexType name="SmistamentoUONode">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SmistamentoNode">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Ruoli" nillable="true" type="tns:ArrayOfSmistamentoRuoloNode" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SmistamentoUONode" nillable="true" type="tns:SmistamentoUONode" />
+  <xs:complexType name="SmistamentoNode">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CheckType" type="tns:SmistamentoCheckType" />
+      <xs:element minOccurs="0" name="Descrizione" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SmistamentoNode" nillable="true" type="tns:SmistamentoNode" />
+  <xs:simpleType name="SmistamentoCheckType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="COMPETENZA" />
+      <xs:enumeration value="CONOSCENZA" />
+      <xs:enumeration value="UNCHECKED" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SmistamentoCheckType" nillable="true" type="tns:SmistamentoCheckType" />
+  <xs:complexType name="ArrayOfSmistamentoRuoloNode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SmistamentoRuoloNode" nillable="true" type="tns:SmistamentoRuoloNode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSmistamentoRuoloNode" nillable="true" type="tns:ArrayOfSmistamentoRuoloNode" />
+  <xs:complexType name="SmistamentoRuoloNode">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SmistamentoNode">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Utenti" nillable="true" type="tns:ArrayOfSmistamentoUtenteNode" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SmistamentoRuoloNode" nillable="true" type="tns:SmistamentoRuoloNode" />
+  <xs:complexType name="ArrayOfSmistamentoUtenteNode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SmistamentoUtenteNode" nillable="true" type="tns:SmistamentoUtenteNode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSmistamentoUtenteNode" nillable="true" type="tns:ArrayOfSmistamentoUtenteNode" />
+  <xs:complexType name="SmistamentoUtenteNode">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SmistamentoNode">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SmistamentoUtenteNode" nillable="true" type="tns:SmistamentoUtenteNode" />
+  <xs:complexType name="ArrayOfSmistamentoElement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SmistamentoElement" nillable="true" type="tns:SmistamentoElement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSmistamentoElement" nillable="true" type="tns:ArrayOfSmistamentoElement" />
+  <xs:complexType name="SmistamentoElement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataDoc" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Destinatario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdTrasmissione" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdTrasmissioneSingola" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdTrasmissioneUtente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mittente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NoteGenerali" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NoteIndividuali" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Oggetto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RagioneTrasmissione" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Segnatura" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SmistamentoElement" nillable="true" type="tns:SmistamentoElement" />
+  <xs:complexType name="InfoDocFirmato">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Firme" nillable="true" type="tns:ArrayOfNodoFirma" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InfoDocFirmato" nillable="true" type="tns:InfoDocFirmato" />
+  <xs:complexType name="ArrayOfNodoFirma">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NodoFirma" nillable="true" type="tns:NodoFirma" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNodoFirma" nillable="true" type="tns:ArrayOfNodoFirma" />
+  <xs:complexType name="NodoFirma">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ChildNodiFirma" nillable="true" type="tns:ArrayOfNodoFirma" />
+      <xs:element minOccurs="0" name="DetailFirma" nillable="true" type="tns:InfoDetailFirma" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NodoFirma" nillable="true" type="tns:NodoFirma" />
+  <xs:complexType name="InfoDetailFirma">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CertificatoAlgoritmo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CertificatoEnte" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CertificatoFirmatario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CertificatoSN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CertificatoThumbprint" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CertificatoValidoAl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CertificatoValidoDal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InfoFirmaAlgoritmo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InfoFirmaControfirmatario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InfoFirmaData" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InfoFirmaImpronta" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Livello" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NomeFile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SoggettoCodiceFiscale" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SoggettoCognome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SoggettoDataNascita" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SoggettoIdTitolare" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SoggettoNome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SoggettoOrganizzazione" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SoggettoPaese" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SoggettoRuolo" nillable="true" type="xs:string" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DocsPaVO.documento" minOccurs="0" name="TimeStampInfo" nillable="true" type="q4:TSInfo" />
+      <xs:element minOccurs="0" name="VerificaCRL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VerificaDataValiditaDocumento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VerificaStatoCertificato" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VerificaStatoFirma" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VerificaStatusCode" type="tns:InfoDetailFirma.StatusCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InfoDetailFirma" nillable="true" type="tns:InfoDetailFirma" />
+  <xs:simpleType name="InfoDetailFirma.StatusCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NOT_DEFINED" />
+      <xs:enumeration value="ERROR_SERVICE_CRL" />
+      <xs:enumeration value="ERROR" />
+      <xs:enumeration value="VERIFY_OK" />
+      <xs:enumeration value="REVOKED_CERT" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="InfoDetailFirma.StatusCode" nillable="true" type="tns:InfoDetailFirma.StatusCode" />
+</xs:schema>

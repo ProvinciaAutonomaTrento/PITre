@@ -1,0 +1,220 @@
+﻿/*-------------------------------*/
+/*Body and HTML supported classes*/
+/*-------------------------------*/
+body
+{
+	font-family: Verdana, Helvetica, sans-serif;
+	font-size: 11px;
+	height: 100%;
+	min-height: 100%;
+}
+html
+{
+	height: 100%;
+	min-height: 100%;
+	width: 100%; /* Full width and height */
+	margin: 0px; /* No space between browser edge and content */
+	padding: 0px;
+}
+*
+{
+	margin: 0px;
+	padding: 0px;
+	font-family: inherit;
+	font-style: inherit;
+	font-size: 100%;
+}
+
+/*-------------------------------*/
+/*Container supported classes*/
+/*-------------------------------*/
+/*Main wrapper class*/
+.ContainerWrapper
+{
+	background-color: #DFE8F6;
+	border-right: 1px solid #9ABBE8;
+	border-bottom: 1px solid #9ABBE8;
+	border-left: 1px solid #9ABBE8;
+	width: 100%;
+}
+/*Gap between wrapper and container*/
+.ContainerMargin
+{
+	padding: 4px;
+}
+/*Container*/
+.Container
+{
+	border: 1px solid #99BBE8;
+	background-color: White;
+}
+/*Header of each container*/
+.ContainerHeader
+{
+	background-image: url(../Images/Uploader/Container_Header.gif);
+	height: 23px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #133047;
+}
+/*Margin of Header of each container*/
+.ContainerHeader td
+{
+	padding: 4px;
+}
+
+/*-------------------------------*/
+/*Messages Status supported classes*/
+/*-------------------------------*/
+/*General class for Message*/
+#tblMessage
+{
+	height: 23px;
+	width: 100%;
+}
+/*Message for Successful*/
+#tblMessage.Success
+{
+	border: solid 1px #5AAD0D;
+	background-color: #E5F7D5;
+}
+/*Message for Information*/
+#tblMessage.Information
+{
+	border: solid 1px #88B5E9;
+	background-color: #E2EDF8;
+}
+/*Message for Warning*/
+#tblMessage.Warning
+{
+	border: solid 1px #FD7B04;
+	background-color: #FFF7E7;
+}
+/*Message for Error*/
+#tblMessage.Error
+{
+	border: solid 1px #FF0001;
+	background-color: #FFEAEA;
+}
+
+/*-------------------------------*/
+/*Messages Status Icon supported classes*/
+/*-------------------------------*/
+/*General class for Message Icon*/
+#dvIcon
+{
+	line-height: 23px;
+	background-repeat: no-repeat;
+	background-position: 2px 2px;
+	padding-left: 38px;
+}
+/*Message Icon for Successful*/
+#dvIcon.Success
+{
+	/*background-image: url('../Images/Uploader/Message_Success.png');*/
+}
+/*Message Icon for Information*/
+#dvIcon.Information
+{
+	/*background-image: url('../Images/Uploader/Message_Information.png');*/
+}
+/*Message Icon for Warning*/
+#dvIcon.Warning
+{
+	/*background-image: url('../Images/Uploader/Message_Warning.png');*/
+}
+/*Message Icon for Error*/
+#dvIcon.Error
+{
+	/*background-image: url('../Images/Uploader/Message_Error.png');*/
+}
+
+/*-------------------------------*/
+/*Progressbar supported classes*/
+/*-------------------------------*/
+/*Progressbar container wrapper*/
+#dvProgressContainer
+{
+	border-left: solid 1px #CFCFCF;
+	border-right: solid 1px #CFCFCF;
+	width: 300px;
+	height: 12px;
+	background-image: url(../Images/Uploader/Progressbar_Wrapper.gif);
+}
+/*Progressbar container*/
+#dvProgress
+{
+	background-image: url(../Images/Uploader/Progressbar_Content.gif);
+	height: 100%;
+	width: 0px;
+}
+
+/*-------------------------------*/
+/*Grid supported classes*/
+/*-------------------------------*/
+/*Grid Header Row*/
+.GridHeader
+{
+	background-image: url(../Images/Uploader/Grid_Header.gif);
+	height: 25px;
+}
+/*Grid Header row separator */
+.GridHeader td.Separator
+{
+	border-right: solid 1px #C9CACA;
+	padding: 0px 2px 0px 2px;
+}
+/*Grid row height for empty, normal, selected and hovered */
+.GridRow, .GridEmptyRow, .GridNumberRow, .GridNormalRow, .GridAlternate, .GridHoverRow
+{
+	height: 20px;
+}
+/*Grid Empty row */
+.GridEmptyRow
+{
+	vertical-align: middle;
+	text-align: center;
+	color: Gray;
+}
+/*Grid Numbered row */
+.GridNumberRow
+{
+	background-image: url(../Images/Uploader/Grid_RowNumber.gif);
+}
+/*Grid Normal row */
+.GridNormalRow
+{
+	background-image: url(../Images/Uploader/Grid_RowNormal.gif);
+}
+/*Grid Alternate row */
+.GridAlternate
+{
+	background-image: url(../Images/Uploader/Grid_RowAlternate.gif);
+}
+/*Grid Hover row */
+.GridHoverRow
+{
+	background-image: url(../Images/Uploader/Grid_RowHover.gif);
+}
+/*Grid Footer row*/
+.GridFooter
+{
+	background-image: url(../Images/Uploader/Grid_Footer.gif);
+	height: 25px;
+}
+/*Grid Footer row left and right margin*/
+.GridFooter td
+{
+	padding: 0px 3px 0px 3px;
+}
+.StartUpload
+{
+	/* for IE */
+	filter:alpha(opacity=20);
+	/* CSS3 standard */
+	opacity:0.2;
+}
+
+
+table.checklist td {padding: 0 0 15px 0;}
+table.checklist label {display: inline; padding: 0 0 0 5px;}

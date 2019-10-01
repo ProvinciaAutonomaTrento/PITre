@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetRubrica" targetNamespace="http://tempuri.org/DataSetRubrica.xsd" xmlns:mstns="http://tempuri.org/DataSetRubrica.xsd" xmlns="http://tempuri.org/DataSetRubrica.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetRubrica" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetRubrica" msprop:Generator_UserDSName="DataSetRubrica">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="contenitore" msprop:Generator_TableClassName="contenitoreDataTable" msprop:Generator_TableVarName="tablecontenitore" msprop:Generator_TablePropName="contenitore" msprop:Generator_RowDeletingName="contenitoreRowDeleting" msprop:Generator_UserTableName="contenitore" msprop:Generator_RowChangingName="contenitoreRowChanging" msprop:Generator_RowEvHandlerName="contenitoreRowChangeEventHandler" msprop:Generator_RowDeletedName="contenitoreRowDeleted" msprop:Generator_RowEvArgName="contenitoreRowChangeEvent" msprop:Generator_RowChangedName="contenitoreRowChanged" msprop:Generator_RowClassName="contenitoreRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="chiave" msprop:Generator_ColumnVarNameInTable="columnchiave" msprop:Generator_ColumnPropNameInRow="chiave" msprop:Generator_ColumnPropNameInTable="chiaveColumn" msprop:Generator_UserColumnName="chiave" type="xs:int" />
+              <xs:element name="tipo" msprop:Generator_ColumnVarNameInTable="columntipo" msprop:Generator_ColumnPropNameInRow="tipo" msprop:Generator_ColumnPropNameInTable="tipoColumn" msprop:Generator_UserColumnName="tipo" type="xs:string" minOccurs="0" />
+              <xs:element name="descrizione" msprop:Generator_ColumnVarNameInTable="columndescrizione" msprop:Generator_ColumnPropNameInRow="descrizione" msprop:Generator_ColumnPropNameInTable="descrizioneColumn" msprop:Generator_UserColumnName="descrizione" type="xs:string" minOccurs="0" />
+              <xs:element name="codice" msprop:Generator_ColumnVarNameInTable="columncodice" msprop:Generator_ColumnPropNameInRow="codice" msprop:Generator_ColumnPropNameInTable="codiceColumn" msprop:Generator_UserColumnName="codice" type="xs:string" minOccurs="0" />
+              <xs:element name="idcont" msprop:Generator_ColumnVarNameInTable="columnidcont" msprop:Generator_ColumnPropNameInRow="idcont" msprop:Generator_ColumnPropNameInTable="idcontColumn" msprop:Generator_UserColumnName="idcont" type="xs:string" minOccurs="0" />
+              <xs:element name="systemId" msprop:Generator_ColumnVarNameInTable="columnsystemId" msprop:Generator_ColumnPropNameInRow="systemId" msprop:Generator_ColumnPropNameInTable="systemIdColumn" msprop:Generator_UserColumnName="systemId" type="xs:string" minOccurs="0" />
+              <xs:element name="tipoIE" msprop:Generator_ColumnVarNameInTable="columntipoIE" msprop:Generator_ColumnPropNameInRow="tipoIE" msprop:Generator_ColumnPropNameInTable="tipoIEColumn" msprop:Generator_UserColumnName="tipoIE" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="DataSetRubricaKey1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:contenitore" />
+      <xs:field xpath="mstns:chiave" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

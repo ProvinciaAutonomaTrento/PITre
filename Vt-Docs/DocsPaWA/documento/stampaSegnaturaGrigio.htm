@@ -1,0 +1,107 @@
+<html>
+	<head>
+		<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+        <META HTTP-EQUIV="Expires" CONTENT="-1">	
+	    <title></title>
+		<OBJECT ID="ctrlPrintPen"
+				CLASSID="CLSID:2860F27F-FC9F-4CDA-B0CB-55A5BD09C52E"
+				CODEBASE="../activex/DocsPa_PrintPen.CAB#version=1,1,0,0" VIEWASTEXT>
+		</OBJECT>
+		<OBJECT ID="Timbro"
+				CLASSID="CLSID:082E84B3-1315-4729-8F0D-8E93658E02DA"
+				CODEBASE="../activex/DocsPa_PrintPen.CAB#version=1,1,0,0" VIEWASTEXT>
+		</OBJECT>
+
+		<script type="text/javascript">
+		function body_onLoad()
+		{
+			if(parent.document.docProfilo.hd_num_doc.value != "")
+			{
+				pf_printSignatureWithPenna();	
+			} 
+			else 
+			{
+				alert('Numero documento non assegnato');
+			}
+		}
+
+		function pf_printSignatureWithPenna()
+		{
+			try 
+			{
+			    ctrlPrintPen.Dispositivo = parent.document.docProfilo.hd_dispositivo.value;
+			    ctrlPrintPen.Classifica = parent.document.docProfilo.hd_classifica.value;
+			    ctrlPrintPen.Fascicolo = parent.document.docProfilo.hd_fascicolo.value;
+			    ctrlPrintPen.Amministrazione_Etichetta = parent.document.docProfilo.hd_amministrazioneEtichetta.value;
+			    ctrlPrintPen.NumeroDocumento = parent.document.docProfilo.hd_num_doc.value;
+			}
+			catch (e) {
+			}
+			
+			try
+			{
+                //NB: attributi presente a partire dalla versione 3.5.0 dell'ocx printpen
+			    ctrlPrintPen.NumeroAllegati = parent.document.docProfilo.hd_numero_allegati.value;
+			}
+			catch (e) {
+			}
+			
+			try 
+			{
+			    ctrlPrintPen.UrlFileIni = parent.document.docProfilo.hd_UrlIniFileDispositivo.value;
+			    ctrlPrintPen.Amministrazione = parent.document.docProfilo.hd_descrizioneAmministrazione.value;
+			} 
+			catch(e) {
+			}
+			
+		    try
+		    {   
+		        // NB: attributo presente a partire dalla versione 3.6.1 dell'ocx printpen
+		        ctrlPrintPen.DataCreazione = parent.document.docProfilo.hd_dataCreazione.value;
+		        ctrlPrintPen.CodiceUoCreatore = parent.document.docProfilo.hd_codiceUoCreatore.value;
+		        ctrlPrintPen.ModelloDispositivo = parent.document.docProfilo.hd_modello_dispositivo.value;
+
+		        var UrlFileIniGrigio = "";
+		        if (ctrlPrintPen.ModelloDispositivo == "DYMO_LABEL_WRITER_400") {
+		            UrlFileIniGrigio = ctrlPrintPen.UrlFileIni.replace(".LWL", "_NP.LWL");
+		            ctrlPrintPen.UrlFileIni = UrlFileIniGrigio;
+		        }
+
+		        // Campi mancanti - Non necessari
+//		        ctrlPrintPen.CodiceUoProtocollatore = "";
+//		        ctrlPrintPen.CodiceRegistroProtocollo = "";
+//		        ctrlPrintPen.TipoProtocollo = "";
+//		        ctrlPrintPen.NumeroProtocollo = "";
+//		        ctrlPrintPen.AnnoProtocollo = "";
+//		        ctrlPrintPen.DataProtocollo = parent.document.docProfilo.hd_dataCreazione.value;
+//		        
+//		        ctrlPrintPen.DescrizioneRegistroProtocollo = "";
+//		        ctrlPrintPen.DataArrivo = "";
+//              ctrlPrintPen.DataArrivoEstesa = "";
+//		        ctrlPrintPen.OraCreazione = "";
+//		        ctrlPrintPen.Text = "";
+                
+                // Campi necessari
+		        ctrlPrintPen.NumeroStampe = "1";
+		        ctrlPrintPen.NumeroStampeEffettuate = "1";
+		        ctrlPrintPen.NumeroStampaCorrente = "1";
+
+		    }
+		    catch (ex) {
+                }
+			
+			try 
+			{
+				ctrlPrintPen.StampaGrigio();
+			} 
+			catch(e) 
+			{
+				alert("Stampa documento grigio non supportata");
+			}
+		}
+		
+		</script>
+	</head>
+	<body onload="body_onLoad()">
+	</body>
+</html>

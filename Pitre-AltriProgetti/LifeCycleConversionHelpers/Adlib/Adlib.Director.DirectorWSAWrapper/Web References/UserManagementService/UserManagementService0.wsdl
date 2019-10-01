@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://schemas.adlibsoftware.com/UserManagement/ServiceContract/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.adlibsoftware.com/UserManagement/ServiceContract/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://schemas.adlibsoftware.com/UserManagement/ServiceContract/Imports">
+      <xsd:import schemaLocation="http://localhost/Adlib/Services/UserManagement/UserManagementService.svc?xsd=xsd4" namespace="http://schemas.adlibsoftware.com/UserManagement/ServiceContract/" />
+      <xsd:import schemaLocation="http://localhost/Adlib/Services/UserManagement/UserManagementService.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/Adlib/Services/UserManagement/UserManagementService.svc?xsd=xsd1" namespace="http://schemas.adlibsoftware.com/UserManagement/" />
+      <xsd:import schemaLocation="http://localhost/Adlib/Services/UserManagement/UserManagementService.svc?xsd=xsd2" namespace="http://schemas.adlibsoftware.com/Common/" />
+      <xsd:import schemaLocation="http://localhost/Adlib/Services/UserManagement/UserManagementService.svc?xsd=xsd3" namespace="http://schemas.adlibsoftware.com/GlobalClasses/" />
+      <xsd:import schemaLocation="http://localhost/Adlib/Services/UserManagement/UserManagementService.svc?xsd=xsd5" namespace="http://schemas.adlibsoftware.com/SystemAnalytics/" />
+      <xsd:import schemaLocation="http://localhost/Adlib/Services/UserManagement/UserManagementService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IUserManagementService_LoginUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginUser" />
+  </wsdl:message>
+  <wsdl:message name="IUserManagementService_LoginUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserManagementService_LogoutUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutUser" />
+  </wsdl:message>
+  <wsdl:message name="IUserManagementService_LogoutUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserManagementService_RefreshUserCredentials_InputMessage">
+    <wsdl:part name="parameters" element="tns:RefreshUserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="IUserManagementService_RefreshUserCredentials_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RefreshUserCredentialsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserManagementService_CreateUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUsers" />
+  </wsdl:message>
+  <wsdl:message name="IUserManagementService_CreateUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserManagementService_GetUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsers" />
+  </wsdl:message>
+  <wsdl:message name="IUserManagementService_GetUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserManagementService_GetUsersByAdministrativeScope_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersByAdministrativeScope" />
+  </wsdl:message>
+  <wsdl:message name="IUserManagementService_GetUsersByAdministrativeScope_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersByAdministrativeScopeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserManagementService_UpdateUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUsers" />
+  </wsdl:message>
+  <wsdl:message name="IUserManagementService_UpdateUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserManagementService_DeleteUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUsers" />
+  </wsdl:message>
+  <wsdl:message name="IUserManagementService_DeleteUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserManagementService_GetUserRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserRoles" />
+  </wsdl:message>
+  <wsdl:message name="IUserManagementService_GetUserRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserManagementService_GetAdministrativeScopes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdministrativeScopes" />
+  </wsdl:message>
+  <wsdl:message name="IUserManagementService_GetAdministrativeScopes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdministrativeScopesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IUserManagementService">
+    <wsdl:operation name="LoginUser">
+      <wsdl:input wsaw:Action="http://schemas.adlibsoftware.com/UserManagement/ServiceContract/IUserManagementService/LoginUser" message="tns:IUserManagementService_LoginUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.adlibsoftware.com/UserManagement/ServiceContract/IUserManagementService/LoginUserResponse" message="tns:IUserManagementService_LoginUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogoutUser">
+      <wsdl:input wsaw:Action="http://schemas.adlibsoftware.com/UserManagement/ServiceContract/IUserManagementService/LogoutUser" message="tns:IUserManagementService_LogoutUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.adlibsoftware.com/UserManagement/ServiceContract/IUserManagementService/LogoutUserResponse" message="tns:IUserManagementService_LogoutUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RefreshUserCredentials">
+      <wsdl:input wsaw:Action="http://schemas.adlibsoftware.com/UserManagement/ServiceContract/IUserManagementService/RefreshUserCredentials" message="tns:IUserManagementService_RefreshUserCredentials_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.adlibsoftware.com/UserManagement/ServiceContract/IUserManagementService/RefreshUserCredentialsResponse" message="tns:IUserManagementService_RefreshUserCredentials_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUsers">
+      <wsdl:input wsaw:Action="http://schemas.adlibsoftware.com/UserManagement/ServiceContract/IUserManagementService/CreateUsers" message="tns:IUserManagementService_CreateUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.adlibsoftware.com/UserManagement/ServiceContract/IUserManagementService/CreateUsersResponse" message="tns:IUserManagementService_CreateUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <wsdl:input wsaw:Action="http://schemas.adlibsoftware.com/UserManagement/ServiceContract/IUserManagementService/GetUsers" message="tns:IUserManagementService_GetUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.adlibsoftware.com/UserManagement/ServiceContract/IUserManagementService/GetUsersResponse" message="tns:IUserManagementService_GetUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersByAdministrativeScope">
+      <wsdl:input wsaw:Action="http://schemas.adlibsoftware.com/UserManagement/ServiceContract/IUserManagementService/GetUsersByAdministrativeScope" message="tns:IUserManagementService_GetUsersByAdministrativeScope_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.adlibsoftware.com/UserManagement/ServiceContract/IUserManagementService/GetUsersByAdministrativeScopeResponse" message="tns:IUserManagementService_GetUsersByAdministrativeScope_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUsers">
+      <wsdl:input wsaw:Action="http://schemas.adlibsoftware.com/UserManagement/ServiceContract/IUserManagementService/UpdateUsers" message="tns:IUserManagementService_UpdateUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.adlibsoftware.com/UserManagement/ServiceContract/IUserManagementService/UpdateUsersResponse" message="tns:IUserManagementService_UpdateUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUsers">
+      <wsdl:input wsaw:Action="http://schemas.adlibsoftware.com/UserManagement/ServiceContract/IUserManagementService/DeleteUsers" message="tns:IUserManagementService_DeleteUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.adlibsoftware.com/UserManagement/ServiceContract/IUserManagementService/DeleteUsersResponse" message="tns:IUserManagementService_DeleteUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRoles">
+      <wsdl:input wsaw:Action="http://schemas.adlibsoftware.com/UserManagement/ServiceContract/IUserManagementService/GetUserRoles" message="tns:IUserManagementService_GetUserRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.adlibsoftware.com/UserManagement/ServiceContract/IUserManagementService/GetUserRolesResponse" message="tns:IUserManagementService_GetUserRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdministrativeScopes">
+      <wsdl:input wsaw:Action="http://schemas.adlibsoftware.com/UserManagement/ServiceContract/IUserManagementService/GetAdministrativeScopes" message="tns:IUserManagementService_GetAdministrativeScopes_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.adlibsoftware.com/UserManagement/ServiceContract/IUserManagementService/GetAdministrativeScopesResponse" message="tns:IUserManagementService_GetAdministrativeScopes_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

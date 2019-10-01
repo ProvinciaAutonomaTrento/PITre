@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.EditDocStateDiagram" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.EditDocStateDiagram" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://vt-ferlitoca.valueteam.com/Vt-Docs/DocsPaWS/VtDocsWS/WebServices/Documents.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" />
+  <xs:complexType name="EditDocStateDiagramRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q1:Request">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IdDocument" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Signature" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StateOfDiagram" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EditDocStateDiagramRequest" nillable="true" type="tns:EditDocStateDiagramRequest" />
+  <xs:complexType name="EditDocStateDiagramResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q2:Response">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EditDocStateDiagramResponse" nillable="true" type="tns:EditDocStateDiagramResponse" />
+</xs:schema>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://schemas.adlibsoftware.com/ComponentManagement/ServiceContract/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.adlibsoftware.com/ComponentManagement/ServiceContract/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://schemas.adlibsoftware.com/ComponentManagement/ServiceContract/Imports">
+      <xsd:import schemaLocation="http://localhost/Adlib/Services/ComponentManagement/ComponentManagementService.svc?xsd=xsd5" namespace="http://schemas.adlibsoftware.com/ComponentManagement/ServiceContract/" />
+      <xsd:import schemaLocation="http://localhost/Adlib/Services/ComponentManagement/ComponentManagementService.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/Adlib/Services/ComponentManagement/ComponentManagementService.svc?xsd=xsd1" namespace="http://schemas.adlibsoftware.com/GlobalClasses/" />
+      <xsd:import schemaLocation="http://localhost/Adlib/Services/ComponentManagement/ComponentManagementService.svc?xsd=xsd2" namespace="http://schemas.adlibsoftware.com/Common/Types/" />
+      <xsd:import schemaLocation="http://localhost/Adlib/Services/ComponentManagement/ComponentManagementService.svc?xsd=xsd3" namespace="http://schemas.adlibsoftware.com/UserManagement/" />
+      <xsd:import schemaLocation="http://localhost/Adlib/Services/ComponentManagement/ComponentManagementService.svc?xsd=xsd4" namespace="http://schemas.adlibsoftware.com/Common/" />
+      <xsd:import schemaLocation="http://localhost/Adlib/Services/ComponentManagement/ComponentManagementService.svc?xsd=xsd6" namespace="http://schemas.adlibsoftware.com/ComponentManagement/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IComponentManagementService_GetComponentsByRepositoryTypeAndAdministrativeScope_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetComponentsByRepositoryTypeAndAdministrativeScope" />
+  </wsdl:message>
+  <wsdl:message name="IComponentManagementService_GetComponentsByRepositoryTypeAndAdministrativeScope_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetComponentsByRepositoryTypeAndAdministrativeScopeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IComponentManagementService_GetComponentsByRepositoryTypeAndWorkspace_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetComponentsByRepositoryTypeAndWorkspace" />
+  </wsdl:message>
+  <wsdl:message name="IComponentManagementService_GetComponentsByRepositoryTypeAndWorkspace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetComponentsByRepositoryTypeAndWorkspaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IComponentManagementService_GetAssignedComponents_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssignedComponents" />
+  </wsdl:message>
+  <wsdl:message name="IComponentManagementService_GetAssignedComponents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssignedComponentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IComponentManagementService_GetUnassignedComponents_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnassignedComponents" />
+  </wsdl:message>
+  <wsdl:message name="IComponentManagementService_GetUnassignedComponents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnassignedComponentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IComponentManagementService_RegisterComponents_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterComponents" />
+  </wsdl:message>
+  <wsdl:message name="IComponentManagementService_RegisterComponents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterComponentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IComponentManagementService_UnregisterComponents_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnregisterComponents" />
+  </wsdl:message>
+  <wsdl:message name="IComponentManagementService_UnregisterComponents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnregisterComponentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IComponentManagementService_GetComponentTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetComponentTypes" />
+  </wsdl:message>
+  <wsdl:message name="IComponentManagementService_GetComponentTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetComponentTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IComponentManagementService_GetAllInstalledComponents_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllInstalledComponents" />
+  </wsdl:message>
+  <wsdl:message name="IComponentManagementService_GetAllInstalledComponents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllInstalledComponentsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IComponentManagementService">
+    <wsdl:operation name="GetComponentsByRepositoryTypeAndAdministrativeScope">
+      <wsdl:input wsaw:Action="http://schemas.adlibsoftware.com/ComponentManagement/ServiceContract/IComponentManagementService/GetComponentsByRepositoryTypeAndAdministrativeScope" message="tns:IComponentManagementService_GetComponentsByRepositoryTypeAndAdministrativeScope_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.adlibsoftware.com/ComponentManagement/ServiceContract/IComponentManagementService/GetComponentsByRepositoryTypeAndAdministrativeScopeResponse" message="tns:IComponentManagementService_GetComponentsByRepositoryTypeAndAdministrativeScope_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetComponentsByRepositoryTypeAndWorkspace">
+      <wsdl:input wsaw:Action="http://schemas.adlibsoftware.com/ComponentManagement/ServiceContract/IComponentManagementService/GetComponentsByRepositoryTypeAndWorkspace" message="tns:IComponentManagementService_GetComponentsByRepositoryTypeAndWorkspace_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.adlibsoftware.com/ComponentManagement/ServiceContract/IComponentManagementService/GetComponentsByRepositoryTypeAndWorkspaceResponse" message="tns:IComponentManagementService_GetComponentsByRepositoryTypeAndWorkspace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssignedComponents">
+      <wsdl:input wsaw:Action="http://schemas.adlibsoftware.com/ComponentManagement/ServiceContract/IComponentManagementService/GetAssignedComponents" message="tns:IComponentManagementService_GetAssignedComponents_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.adlibsoftware.com/ComponentManagement/ServiceContract/IComponentManagementService/GetAssignedComponentsResponse" message="tns:IComponentManagementService_GetAssignedComponents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnassignedComponents">
+      <wsdl:input wsaw:Action="http://schemas.adlibsoftware.com/ComponentManagement/ServiceContract/IComponentManagementService/GetUnassignedComponents" message="tns:IComponentManagementService_GetUnassignedComponents_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.adlibsoftware.com/ComponentManagement/ServiceContract/IComponentManagementService/GetUnassignedComponentsResponse" message="tns:IComponentManagementService_GetUnassignedComponents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterComponents">
+      <wsdl:input wsaw:Action="http://schemas.adlibsoftware.com/ComponentManagement/ServiceContract/IComponentManagementService/RegisterComponents" message="tns:IComponentManagementService_RegisterComponents_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.adlibsoftware.com/ComponentManagement/ServiceContract/IComponentManagementService/RegisterComponentsResponse" message="tns:IComponentManagementService_RegisterComponents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterComponents">
+      <wsdl:input wsaw:Action="http://schemas.adlibsoftware.com/ComponentManagement/ServiceContract/IComponentManagementService/UnregisterComponents" message="tns:IComponentManagementService_UnregisterComponents_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.adlibsoftware.com/ComponentManagement/ServiceContract/IComponentManagementService/UnregisterComponentsResponse" message="tns:IComponentManagementService_UnregisterComponents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetComponentTypes">
+      <wsdl:input wsaw:Action="http://schemas.adlibsoftware.com/ComponentManagement/ServiceContract/IComponentManagementService/GetComponentTypes" message="tns:IComponentManagementService_GetComponentTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.adlibsoftware.com/ComponentManagement/ServiceContract/IComponentManagementService/GetComponentTypesResponse" message="tns:IComponentManagementService_GetComponentTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllInstalledComponents">
+      <wsdl:input wsaw:Action="http://schemas.adlibsoftware.com/ComponentManagement/ServiceContract/IComponentManagementService/GetAllInstalledComponents" message="tns:IComponentManagementService_GetAllInstalledComponents_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.adlibsoftware.com/ComponentManagement/ServiceContract/IComponentManagementService/GetAllInstalledComponentsResponse" message="tns:IComponentManagementService_GetAllInstalledComponents_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

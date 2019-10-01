@@ -1,0 +1,9 @@
+--------------------------------------------------------
+--  Constraints for Table DPA_DISPOSITIVI_STAMPA
+--------------------------------------------------------
+
+  ALTER TABLE "ITCOLL_6GIU12"."DPA_DISPOSITIVI_STAMPA" MODIFY ("CODE" NOT NULL ENABLE);
+ 
+  ALTER TABLE "ITCOLL_6GIU12"."DPA_DISPOSITIVI_STAMPA" MODIFY ("DESCRIPTION" NOT NULL ENABLE);
+ 
+  ALTER TABLE "ITCOLL_6GIU12"."DPA_DISPOSITIVI_STAMPA" ADD PRIMARY KEY ("ID") ENABLE;

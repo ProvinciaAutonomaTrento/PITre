@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.adlibsoftware.com/UserManagement/ServiceContract/" elementFormDefault="qualified" targetNamespace="http://schemas.adlibsoftware.com/UserManagement/ServiceContract/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/Adlib/Services/UserManagement/UserManagementService.svc?xsd=xsd1" namespace="http://schemas.adlibsoftware.com/UserManagement/" />
+  <xs:element name="LoginUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="request" nillable="true" type="q1:LoginUserRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="LoginUserResult" nillable="true" type="q2:LoginUserResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoutUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="request" nillable="true" type="q3:LogoutUserRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoutUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="LogoutUserResult" nillable="true" type="q4:LogoutUserResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RefreshUserCredentials">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="request" nillable="true" type="q5:RefreshUserCredentialsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RefreshUserCredentialsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="RefreshUserCredentialsResult" nillable="true" type="q6:RefreshUserCredentialsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateUsers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="requests" nillable="true" type="q7:ArrayOfCreateUsersRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="CreateUsersResult" nillable="true" type="q8:ArrayOfCreateUsersResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="requests" nillable="true" type="q9:ArrayOfGetUsersRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="GetUsersResult" nillable="true" type="q10:ArrayOfGetUsersResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsersByAdministrativeScope">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="requests" nillable="true" type="q11:ArrayOfGetUsersByAdministrativeScopeRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsersByAdministrativeScopeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="GetUsersByAdministrativeScopeResult" nillable="true" type="q12:ArrayOfGetUsersByAdministrativeScopeResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUsers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="requests" nillable="true" type="q13:ArrayOfUpdateUsersRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="UpdateUsersResult" nillable="true" type="q14:ArrayOfUpdateUsersResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUsers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="requests" nillable="true" type="q15:ArrayOfDeleteUsersRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="DeleteUsersResult" nillable="true" type="q16:ArrayOfDeleteUsersResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserRoles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="requests" nillable="true" type="q17:ArrayOfGetUserRolesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserRolesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="GetUserRolesResult" nillable="true" type="q18:ArrayOfGetUserRolesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdministrativeScopes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="requests" nillable="true" type="q19:ArrayOfGetAdministrativeScopesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdministrativeScopesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="GetAdministrativeScopesResult" nillable="true" type="q20:ArrayOfGetAdministrativeScopesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

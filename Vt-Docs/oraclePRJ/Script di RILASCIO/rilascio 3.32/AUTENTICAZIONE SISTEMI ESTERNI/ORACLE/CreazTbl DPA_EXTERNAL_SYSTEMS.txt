@@ -1,0 +1,24 @@
+begin
+	declare cnt int;
+    begin
+        
+        select count(*) into cnt from user_tables where table_name='DPA_EXTERNAL_SYSTEMS';
+        if (cnt = 0) then
+          execute immediate    
+			'CREATE TABLE DPA_EXTERNAL_SYSTEMS
+			(
+				SYSTEM_ID          		NUMBER(10, 0) NOT NULL ,
+				VAR_CODE_APPLICATION    VARCHAR2(32 CHAR) NOT NULL ,
+				VAR_DESCRIZIONE      	VARCHAR2(512 CHAR),
+				VAR_USER_ID 			VARCHAR2(255 CHAR) NOT NULL ,
+				VAR_PIS_METHODS_ALLOWED VARCHAR2(3000 CHAR),
+				ID_SYSTEM_ROLE        	NUMBER(10, 0) NOT NULL ,
+				ID_AMM					NUMBER(10, 0) NOT NULL ,
+				VAR_DESC_ESTESA			VARCHAR2(2000 CHAR),
+				VAR_TKN_TIME			VARCHAR2(20 CHAR),
+				CONSTRAINT "DPA_EXTERNAL_SYSTEMS_PK" PRIMARY KEY ("SYSTEM_ID") ENABLE
+			)';
+		end if;
+	end;
+end;
+/

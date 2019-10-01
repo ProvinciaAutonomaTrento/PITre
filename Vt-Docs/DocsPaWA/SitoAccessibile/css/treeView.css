@@ -1,0 +1,92 @@
+/* DocsPA Accessibile - css del treeview */
+
+.tvcontainer {
+	border: 1px solid #999999;
+	color: #333333;
+	background: #EFEFEF;
+	padding: 0.8em;
+	font: normal 120% Verdana,Tahoma,sans-serif;
+}
+
+.tvcontainer.fascicoli {
+	position: absolute;
+	top: 6.7em;
+	right: 1em;
+	width: 33%;
+	height: 20em;
+	overflow: auto;
+}
+
+
+.tvcontainer h2 {
+	margin: 0em 0em 0.5em 0em;
+	padding: 0;
+	color: #810D06;
+	background: #EFEFEF;
+	font-size: 90%;
+}
+
+.tvcontainer h3 {
+	margin: 0;
+	padding:0;
+	font-size: 80%;
+}
+
+.tvcontainer noscript {
+	color: #810D06;
+	background: #EFEFEF;	
+}
+
+.treeview { margin: 0.5em;padding: 0;}
+
+.treeview ul {
+	margin: 0;
+	padding: 0;
+}
+
+/* Stile generale dei LI (escluso LI che contengono sottomenu)*/
+.treeview li {
+	color: #333366;
+	background: #EFEFEF url("../Images/tree-item.gif") no-repeat 0px 0px;
+	list-style-type: none;
+	padding-left: 18px;
+	margin-bottom: 0px;
+	line-height: 120%;
+}
+
+
+.treeview li.closednode {
+	color: #333366;
+	background: #EFEFEF url("../Images/tree-folder.gif") no-repeat 0px 0px;
+}
+
+.treeview li.openednode {
+	color: #333366;
+	background: #EFEFEF url("../Images/tree-folder-open.gif") no-repeat 0px 0px;
+}
+
+/* Stile degli UL figli dei LI (sottomenu) */
+.treeview li.closednode ul {
+	display: none; /* Nascosto di default. Importante */
+}
+
+.treeview .closednode ul li{ /* Stile dei LI che contengono sottomenu) */
+	cursor: default;
+}
+
+.treeview li input.openFolder {
+	width: 1px;
+	height: 1px;
+	background-color: inherit;
+	color: #FFE47F;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+.treeview li a:link,
+.treeview li a:visited,
+.treeview li a:hover {
+	font-size: 85%;
+	margin-left: 17px;
+}

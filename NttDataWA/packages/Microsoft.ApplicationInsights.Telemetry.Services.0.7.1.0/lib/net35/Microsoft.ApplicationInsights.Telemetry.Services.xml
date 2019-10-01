@@ -1,0 +1,565 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.ApplicationInsights.Telemetry.Services</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.ApplicationInsights.ConfigurationReader">
+            <summary>
+            This class reads the ApplicationInsights.config file and provides read access to
+            the configuration for the active profile.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.ConfigurationReader.LoadConfigurationFile(System.String)">
+            <summary>
+            Loads the specified configuration file.
+            </summary>
+            <param name="configFile">The full path to the ApplicationInsights.config file.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.ConfigurationReader.GetConfiguration(Microsoft.ApplicationInsights.ConfigurationSections)">
+            <summary>
+            Gets the configuration for the corresponding configuration section.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.ConfigurationReader.GetProfileNames">
+            <summary>
+            Get the names of the configuration profiles.
+            </summary>
+            <returns>A collection of configuration names.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.ConfigurationReader.GetActiveProfileValue">
+            <summary>
+            Get the value specified in the ActiveProfile element.
+            </summary>
+            <returns>The name of the active profile.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.ConfigurationReader.GetDebugBuildProfileValue">
+            <summary>
+            Gets the value specified in the DebugBuildProfile element.
+            </summary>
+            <returns>The name of the profile to be used for debug builds.</returns>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.ConfigurationSections">
+            <summary>
+            ConfigurationSections enumeration used to access ApplicationInsights.config file.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.ConfigurationSections.None">
+            <summary>
+            Accessing None.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.ConfigurationSections.ServerAnalytics">
+            <summary>
+            Accessing ServerAnalytics section.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.ConfigurationSections.MMAOutputChannels">
+            <summary>
+            Accessing MMAOutputChannels section.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.ConfigurationSections.APMSettings">
+            <summary>
+            Accessing APMSettings section.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.ConfigurationSections.MemoryEventSettings">
+            <summary>
+            Accessing MemoryEventSettings section.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.ConfigurationSections.PerformanceCounters">
+            <summary>
+            Accessing PerformanceCounters section.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.ConfigurationSections.ClientAnalytics">
+            <summary>
+            Accessing ClientAnalytics section.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.ConfigurationSections.MonitoringAgent">
+            <summary>
+            Accessing MonitoringAgent section.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.Telemetry.Services.IAnalyticsRequest">
+            <summary>
+            Log events and get and set properties of the Application Insights session.
+            </summary>
+            <remarks>For more information see <a href="http://msdn.microsoft.com/library/dn481100.aspx">this</a>.</remarks>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.Services.IAnalyticsRequest.LogEvent(System.String)">
+            <summary>
+            Report an event to the Application Insights service.
+            </summary>
+            <param name="eventPath">Name of the event. To arrange events in a hierarchy in the reports, use names like 'parent/child'.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.Services.IAnalyticsRequest.LogEvent(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}})">
+            <summary>
+            Report an event to the Application Insights service.
+            </summary>
+            <param name="eventPath">Name of the event. To arrange events in a hierarchy in the reports, use names like 'parent/child'.</param>
+            <param name="properties">Named values of your choice. Properties can be used to filter events in the reports. One property can have a numeric value.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.Services.IAnalyticsRequest.StartTimedEvent(System.String)">
+            <summary>
+            Create an event timer. Use the returned object to log the end of the event.
+            </summary>
+            <param name="eventPath">Name of the timed event. To arrange events in a hierarchy in the reports, use names like 'parent/child'.</param>
+            <returns>Use the object to log the end of the event.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.Services.IAnalyticsRequest.StartTimedEvent(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}})">
+            <summary>
+            Create an event timer. Use the returned object to log the end of the event.
+            </summary>
+            <param name="eventPath">Name of the timed event. To arrange events in a hierarchy in the reports, use names like 'parent/child'.</param>
+            <param name="properties">Named values of your choice. Properties can be used to filter events in the reports. One property can have a numeric value.</param>
+            <returns>Use the object to log the end of the event.</returns>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.IAnalyticsRequest.AnonymousId">
+            <summary>
+            The unique id of a user. You can set this to track the behavior of your user. The default value is a unique Id generated by the SDK.
+            </summary>        
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.IAnalyticsRequest.SessionId">
+            <summary>
+            The session id of a user. Use the Session Id to track the session of a user. The default value is based on the date and the hour of the day.
+            </summary>        
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.IAnalyticsRequest.ClientIPAddress">
+            <summary>
+            Client's IP address, extracted from the HTTP request. The value is null in Azure worker roles or if the IP address cannot be extracted.
+            </summary>  
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.IAnalyticsRequest.ClientBrowser">
+            <summary>
+            Client's browser type, extracted from the HTTP request. The value is "Unknown" in Azure worker roles or if the browser type cannot be extracted.
+            </summary>  
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.IAnalyticsRequest.ClientOperatingSystem">
+            <summary>
+            Client's operating system, extracted from the HTTP request. The value is "Unknown" in Azure worker roles or if the operating system cannot be extracted.
+            </summary>  
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.IAnalyticsRequest.ClientLanguage">
+            <summary>
+            Client's browser language. Extracted from the Http request. You can override it. The default value is "Unknown".
+            </summary>  
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.IAnalyticsRequest.AccountId">
+            <summary>
+            Set this if you know the account id of a user, such as Contoso. Default is null.
+            </summary>  
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.IAnalyticsRequest.AppUserId">
+            <summary>
+            Set this if you know the id of a user, such as mike@contoso.com. Default is null.
+            </summary>  
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.Telemetry.Services.HighResolutionDateTime">
+            <summary>
+            DateTime is only accurate to 16 milliseconds. We need more granularity for our timestamps,
+            so get an initial timestamp and then use the high accuracy Stopwatch to calculate high
+            accuracy timestamps.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.AccountId">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Account Id set to [{0}]..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.ActiveProfile">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Active configuration profile is [{0}]..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.AnonymousId">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Anonymous Id set to [{0}]..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.AppUserId">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: App User Id set to [{0}]..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.AutoCollectionFromUserAgent">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Client browser and operating system extracted from the HTTP request are [{0}]..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.AutoFillClientPropertiesFromRequestDisabled">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Server Analytics auto-collection of data from client&apos;s request is disabled..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.AutoFillClientPropertiesFromRequestEnabled">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Server Analytics auto-collection of data from client&apos;s request is enabled..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.BeginRequestSuccess">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Server Analytics started tracing incoming request..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.BeginRequestWhenComponentIdIsInvalid">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Cannot begin the request because component ID is missing or invalid..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.BeginRequestWhenDisabled">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Cannot begin the request because Server Analytics is disabled..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.ClientBrowser">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Client browser set to [{0}]..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.ClientIPAddress">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Client IP address set to [{0}]..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.ClientIPAddressAutoCollected">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Client IP address auto-collected and set to [{0}]..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.ClientLanguage">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Client language set to [{0}]..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.ClientLanguageAutoCollected">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Client language auto-collected and set to [{0}]..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.ClientOperatingSystem">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Client operating system set to [{0}]..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.CollectClientIPAddressDisabled">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Server Analytics auto-collection of client&apos;s IP address is disabled..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.CollectClientIPAddressEnabled">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Server Analytics auto-collection of client&apos;s IP address is enabled..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.Comma">
+            <summary>
+              Looks up a localized string similar to ,.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.ConfigurationCouldNotBeLoaded">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Configuration could not be loaded from {0}..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.DataCenter">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Data center set to [{0}]..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.DataUploadFailedAndDataCached">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Server Analytics data upload to the Application Insights service failed. The data has been written to a file and the data upload will be tried again..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.DataUploadIntervalInSeconds">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Server Analytics data upload interval set to [{0}] seconds..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.DataUploadOnDemand">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Data is being uploaded to the Application Insights service on demand..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.DataUploadSuccess">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Server Analytics data successfully uploaded to Application Insights service..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.DeploymentId">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Deployment Id set to [{0}]..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.DeploymentIdAutoCollected">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Deployment Id auto-collected and set to [{0}]..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.InvalidEventName">
+            <summary>
+              Looks up a localized string similar to Provide a valid event name: alphanumeric name or names separated by &apos;/&apos;..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.KeyValuePairFormat">
+            <summary>
+              Looks up a localized string similar to {0}{{{1}:{2}}}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.LogEventWhenComponentIdIsInvalid">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Event [{0}] not logged because component ID is missing or invalid..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.LogEventWhenDisabled">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Event [{0}] not logged because Server Analytics is disabled..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.LogEventWithoutProperties">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Event [{0}] logged..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.LogEventWithProperties">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Event [{0}] logged with Properties [{1}]..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.RoleInstanceAutoCollected">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Role Instance auto-collected and set to [{0}]..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.RoleInstanceOrMachineName">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Role Instance/Machine name set to [{0}]..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.RoleNameAutoCollected">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Role name auto-collected and set to [{0}]..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.RoleOrClusterName">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Role/Cluster name set to [{0}]..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.RoleOrClusterType">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Role/Machine type set to [{0}]..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.ServerAnalyticsDisabled">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Server Analytics collection and transfer of data is disabled..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.ServerAnalyticsEnabled">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Server Analytics collection and transfer of data is enabled..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.SessionId">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Session Id is set to [{0}]..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.StartFailed">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Server Analytics cannot be started. No ApplicationInsightsId specified..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.StartSuccess">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Server Analytics started with ApplicationInsightsId [{0}] using SDK Version [{1}]..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.StartTimedEventWhenComponentIdIsInvalid">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Timed Analytics Event [{0}] not logged because component ID is missing or invalid..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.StartTimedEventWhenDisabled">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Timed Analytics Event [{0}] not started because Server Analytics is disabled..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.TimedAnalyticsEventCancelledWithoutProperties">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Timed Analytics Event [{0}] cancelled..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.TimedAnalyticsEventCancelledWithProperties">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Timed Analytics Event [{0}] cancelled with Properties [{1}]..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.TimedAnalyticsEventLoggedWithoutProperties">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Timed Analytics Event [{0}] logged with Duration [{1}] milliseconds..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.TimedAnalyticsEventLoggedWithProperties">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Timed Analytics Event [{0}] logged with Duration [{1}] milliseconds with Properties [{2}]..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.TimedAnalyticsEventStartedWithoutProperties">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Timed Analytics Event [{0}] started..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.DebugOutputFormatStrings.TimedAnalyticsEventStartedWithProperties">
+            <summary>
+              Looks up a localized string similar to Application Insights Telemetry: Timed Analytics Event [{0}] started with Properties [{1}]..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.Configurations.IsDeveloperMode">
+            <summary>
+            True if the application is running in developer mode (e.g., F5), false otherwise.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.RequestPayload.IsDeveloperData">
+            <summary>
+            Indicates that the event data is from a developer's session and therefore "fast-tracked"
+            in the data pipeline.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.RequestPayload.DevName">
+            <summary>
+            The name of the current user.
+            </summary>
+            <remarks>This is only included when <see cref="P:Microsoft.ApplicationInsights.Telemetry.Services.RequestPayload.IsDeveloperData"/> is true.</remarks>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.RequestPayload.DevMachine">
+            <summary>
+            The name of the current machine.
+            </summary>
+            <remarks>This is only included when <see cref="P:Microsoft.ApplicationInsights.Telemetry.Services.RequestPayload.IsDeveloperData"/> is true.</remarks>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.Telemetry.Services.ITimedAnalyticsEvent">
+            <summary>
+            Returned from StartTimedEvent. Use it to end or cancel the timed event or to set properties on it.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.Services.ITimedAnalyticsEvent.End">
+            <summary>
+            Ends the timed analytics event and logs its total duration.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.Services.ITimedAnalyticsEvent.Cancel">
+            <summary>
+            Cancels the timed analytics event. Data will not be logged on End or disposal.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.ITimedAnalyticsEvent.Properties">
+            <summary>
+            Key-value pairs that can be used to filter the events in the insights reports. 
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.ITimedAnalyticsEvent.Name">
+            <summary>
+            Read only name of the timed analytics event.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.Telemetry.Services.ServerAnalytics">
+            <summary>
+            Sends data to Application Insights.
+            </summary>
+            <remarks>For more information see <a href="http://msdn.microsoft.com/library/dn481100.aspx">this</a>.</remarks>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.Services.ServerAnalytics.Start(System.String)">
+            <summary>
+            If you use this, it must be called before any other call to Application Insights methods.
+            If you provide the application key in ApplicationInsights.config, you don't need to use this method. 
+            </summary>
+            <param name="applicationInsightsId">Your application key, which you obtained from the Application Insights service.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.Services.ServerAnalytics.BeginRequest">
+            <summary>
+            Get a new object that you can use to log events.
+            </summary>
+            <returns>An object that you can use to log events.</returns>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.ServerAnalytics.CurrentRequest">
+            <summary>
+            The most recent request object you obtained from BeginRequest().
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.ServerAnalytics.DataCenter">
+            <summary>
+            Data center where your server is running. Set this if you want to include the information in your event logs. Default is "Unknown".
+            </summary> 
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.ServerAnalytics.DeploymentId">
+            <summary>
+            DeploymentId for the app. Set this if you want to include the information in your event logs. Auto-collected on Azure else the default is "Unknown".
+            </summary> 
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.ServerAnalytics.RoleOrClusterName">
+            <summary>
+            Name of the role for Azure app or the name of the cluster for on-premises app.
+            Set this if you want to include the information in your event logs. Auto-collected on Azure else the default is "Unknown".
+            </summary> 
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.ServerAnalytics.RoleOrClusterType">
+            <summary>
+            Type of the role where the app is running, such as web, worker, or VM. Set this if you want to include the information in your event logs. Default is "Unknown".
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.ServerAnalytics.RoleInstanceOrMachineName">
+            <summary>
+            Name of the instance. For on-premises it can be the name of the particular machine where the app is running. 
+            Set this if you want to include the information in your event logs. Auto-collected on Azure else the default is "Unknown".
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.ServerAnalytics.ApplicationInsightsId">
+            <summary>
+            (Read only) The Application Insights ID, which you provided to Start().
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.ServerAnalytics.Enabled">
+            <summary>
+            Set false to stop data collection, true to restart collection. 
+            Default is true.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.ServerAnalytics.DataUploadIntervalInSeconds">
+            <summary>
+            Sets the data upload time interval. Default is 1 minute. Set this before calling Start().
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.ServerAnalytics.AutoFillClientPropertiesFromRequest">
+            <summary>
+            Set false to collect no data from the HTTP request. Set this before calling Start().
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Services.ServerAnalytics.CollectClientIPAddress">
+            <summary>
+            Set false to omit the IP address from data collected from the HTTP request. Set this before calling Start().
+            </summary>
+        </member>
+    </members>
+</doc>

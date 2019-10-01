@@ -1,0 +1,16 @@
+<!-- Aggiungere le seguenti chiavi al web.config del Frontend -->
+<!--Chiavi protocollazione semplificata-->
+<!--	"PROTO_SEMPLIFICATO_ENABLED" che può essere valorizzata a "true" o "false"     -->
+	<add key="PROTO_SEMPLIFICATO_ENABLED" value="true"/>
+
+<!-- Visualizza la sezione note nella protocollazione semplificata-->
+    <add key="VISUAL_NOTE_PROT_SEMPL" value="1"/>
+<!-- Visualizza la sezione tipologia nella protocollazione semplificata-->	
+    <add key="VISUAL_TIPOLOGIA_DOC_PROT_SEMPL" value="1"/>
+    
+<!-- 
+	Aggiunta per ricerca duplicati protocollo
+	Abilitare in base alla configurazione desiderata
+-->
+    <add key="CERCA_DUPLICATI_PROTOCOLLO_2" value="true"/>
+

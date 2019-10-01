@@ -1,0 +1,26 @@
+-- =============================================
+-- Author:		FRANCESCO FONZO
+-- Create date: 21/02/2013
+-- Description:	CONVERSIONE DA ORACLE A SQL SERVER
+-- =============================================
+
+DECLARE @db_user	VARCHAR(1024)
+SET @db_user = 'DOCSADM'
+
+
+-- INSERIMENTO NELLA DPA_LOGIN DI UNA NUOVA COLONNA IP_ADDRESS 
+-- 64 byte will be enough for IPv6
+
+DECLARE @COUNT INT
+
+SET @COUNT = (SELECT COUNT(*) FROM SYS.columns WHERE name = 'IP_ADDRESS'  AND OBJECT_ID = (SELECT OBJECT_ID FROM SYS.tables WHERE name = 'DPA_LOGIN'))
+
+IF (@COUNT = 0)
+BEGIN              
+	EXECUTE DOCSADM.Utl_Add_Column '3.23','@db_user','DPA_LOGIN','IP_ADDRESS','VARCHAR(64)',NULL, NULL,NULL,NULL
+END
+ELSE
+BEGIN
+	ALTER TABLE DOCSADM.DPA_LOGIN ALTER COLUMN IP_ADDRESS VARCHAR(64) 
+	PRINT 'GIA'' ESISTENTE'
+END

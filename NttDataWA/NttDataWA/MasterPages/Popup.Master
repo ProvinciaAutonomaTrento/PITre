@@ -1,0 +1,251 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Popup.master.cs" Inherits="NttDataWA.MasterPages.Popup" %>
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="Html" runat="server">
+<head id="Head1" runat="server">
+    <title></title>
+    <link runat="server" type="text/css" rel="stylesheet" id="CssLayout" />
+    <link href="<%=Page.ResolveClientUrl("~/Css/tipsy.css") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=Page.ResolveClientUrl("~/css/redmond/jquery-ui-1.8.24.custom.css") %>"
+        rel="stylesheet" type="text/css" />
+    <link href="<%=Page.ResolveClientUrl("~/css/messager.css") %>" rel="stylesheet" type="text/css" />
+    <script src="<%=Page.ResolveClientUrl("~/Scripts/jquery-1.8.1.min.js") %>" type="text/javascript"></script>
+
+    <script src="<%=Page.ResolveClientUrl("~/Scripts/jquery-ui-1.8.23.custom.min.js") %>" type="text/javascript"></script>
+<%--    <script src="<%=Page.ResolveClientUrl("~/libs/jquery-ui-1.9.2.custom/js/jquery-ui-1.9.2.custom.min.js") %>" type="text/javascript"></script>--%>
+
+
+
+    <script src="<%=Page.ResolveClientUrl("~/Scripts/Functions.js") %>" type="text/javascript"></script>
+    <script src="<%=Page.ResolveClientUrl("~/Scripts/expand.js") %>" type="text/javascript"></script>
+    <script src="<%=Page.ResolveClientUrl("~/Scripts/jquery.ui.datepicker-it.js") %>"
+        type="text/javascript"></script>
+    <script src="<%=Page.ResolveClientUrl("~/Scripts/jquery.tipsy.js") %>" type="text/javascript"></script>
+    <script src="<%=Page.ResolveClientUrl("~/Scripts/jquery.cookie.js") %>" type="text/javascript"></script>
+    <script src="<%=Page.ResolveClientUrl("~/Scripts/webclientconnector.js?v=11115") %>" type="text/javascript"></script>
+    <script src="<%=Page.ResolveClientUrl("~/Scripts/json2.js") %>" type="text/javascript"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    <%--Controllo della sessione e della multisessione utenza--%>
+        <script runat="server">       
+            override protected void OnInit(EventArgs e)
+            {
+                NttDataWA.UIManager.AdministrationManager.CheckSession();               
+                base.OnInit(e);
+            }
+        </script>      
+    </asp:ContentPlaceHolder>
+    <script type="text/javascript">
+        $(document).click(function (event) {
+            if (event.target.id != "showHistory") {
+                $('#divHistory:visible').hide();
+            }
+            else {
+                $('.bullet').toggle();
+            }
+        });
+
+        $(function () {
+            Tipsy();
+            reallowOp();
+         
+        });
+
+        function sessionend() {
+            var frs = parent.frames.fra_sessionend;
+            if (frs.document.getElementById('user_id') != null)
+                frs.document.getElementById('user_id').value = '';
+        }
+
+        function Tipsy() {
+            $(".tipsy").remove();
+            $('.tooltip').tipsy();
+            $('.clickable').tipsy({ gravity: 's', fade: false, opacity: 1, delayIn: 0, delayOut: 0 });
+            $('.clickableLeft').tipsy({ gravity: 'e', fade: false, opacity: 1, delayIn: 0, delayOut: 0 });
+            $('.redStrike').tipsy({ gravity: 's', fade: false, opacity: 1, delayIn: 0, delayOut: 0 });
+            $('.clickableUnderline').tipsy({ gravity: 's', fade: false, opacity: 1, delayIn: 0, delayOut: 0 });
+            $('.referenceCode').tipsy({ className: 'reference-tip', gravity: 'n', fade: false, opacity: 1, delayIn: 0, delayOut: 0 });
+            $('.repSpedLongTxt').tipsy({ className: 'repsped_longtxt', gravity: 'n', fade: false, opacity: 1, delayIn: 0, delayOut: 0 });
+            $('.clickableLeftN').tipsy({ gravity: 'e', fade: false, opacity: 1, delayIn: 0, delayOut: 0 });
+            $('.clickableRight').tipsy({ gravity: 'w', fade: false, opacity: 1, delayIn: 0, delayOut: 0, html: true });
+            $('.clickableNE').tipsy({ gravity: 'ne', fade: false, opacity: 1, delayIn: 0, delayOut: 0 });
+
+            var isIEmin9 = false;
+            if ($.browser.msie && $.browser.version < 10) isIEmin9 = true;
+            if (!isIEmin9) {
+                $('.tooltip-no-ie').tipsy();
+                $('.clickable-no-ie').tipsy({ gravity: 's', fade: false, opacity: 1, delayIn: 0, delayOut: 0 });
+                $('.clickableLeft-no-ie').tipsy({ gravity: 'e', fade: false, opacity: 1, delayIn: 0, delayOut: 0 });
+                $('.redStrike-no-ie').tipsy({ gravity: 's', fade: false, opacity: 1, delayIn: 0, delayOut: 0 });
+            }
+        }
+
+        function CheckSocketIE() {
+            var isIEmin9 = false;
+            if ($.browser.msie && $.browser.version < 10) isIEmin9 = true;
+            if (isIEmin9) {
+                var socketMessage = "<%=this.SocketErrorIE%>";
+                alert(socketMessage);
+            }
+        }
+    </script>
+
+       <%-- <script type="text/javascript">
+
+            //*** Intercetto il tasto F5 ****
+            var fn = function (e) {
+
+                if (!e)
+                    var e = window.event;
+
+                var keycode = e.keyCode;
+                if (e.which)
+                    keycode = e.which;
+
+                var src = e.srcElement;
+                if (e.target)
+                    src = e.target;
+               
+                if (116 == keycode) {
+                    //alert('hai pigiato F5 + con codice ' + keucode)
+                    // Firefox and other non IE browsers
+                    if (e.preventDefault) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        window.event.cancelBubble = true;
+                        e.cancelBubble = true;
+                    }
+
+                    // Internet Explorer
+                    else if (e.keyCode) {
+                        e.keyCode = 0;
+                        e.returnValue = false;
+                        e.cancelBubble = true;
+                    }
+                    return false;
+                }
+            }
+            document.onkeypress = document.onkeydown = document.onkeyup = fn
+    </script>  --%>
+</head>
+<body id="IdMasterBody" runat="server">
+    <script type="text/javascript">
+        showPopupContent();
+    </script>
+    <form id="FrmMaster" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" AsyncPostBackTimeout="3600"
+        EnablePageMethods="true" ScriptMode="Release">
+        <Scripts>
+            <asp:ScriptReference Path="~/Scripts/webkit.js" />
+        </Scripts>
+    </asp:ScriptManager>
+    <div id="container">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolderContent" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <div id="footer">
+        <div id="footerButtons">
+            <asp:ContentPlaceHolder ID="ContentPlaceOldersButtons" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <!-- PopUp Wait-->
+    <script type="text/javascript">
+        var dialogModalAlreadyOpened = false;
+        function ajaxDialogModal(msg, type) {
+            var titleW = null;
+            var input = null;
+            var popupWidth = 500;
+            var popupHeight = 350;
+            var closeFunction = null;
+            if (arguments.length > 2 && arguments[2] != null) titleW = arguments[2];
+            if (arguments.length > 3 && arguments[3] != null) input = arguments[3];
+            if (arguments.length > 4 && arguments[4] != null) popupWidth = arguments[4];
+            if (arguments.length > 5 && arguments[5] != null) popupHeight = arguments[5];
+            if (arguments.length > 6 && arguments[6] != null) closeFunction = arguments[6];
+            if (closeFunction != null) { closeFunction = "$('#frame').css('visibility', 'visible');dialogModalAlreadyOpened = false;" + closeFunction; } else { closeFunction = "$('#frame').css('visibility', 'visible');dialogModalAlreadyOpened = false;"; }
+
+
+            if (titleW == null || titleW == '') {
+                switch (type) {
+                    case 'check':
+                        titleW = '<asp:Literal id="litDialogCheck" runat="server" />';
+                        break;
+                    case 'error':
+                        titleW = '<asp:Literal id="litDialogError" runat="server" />';
+                        break;
+                    case 'info':
+                        titleW = '<asp:Literal id="litDialogInfo" runat="server" />';
+                        break;
+                    case 'question':
+                        titleW = '<asp:Literal id="litDialogQuestion" runat="server" />';
+                        break;
+                    case 'warning':
+                        titleW = '<asp:Literal id="litDialogWarning" runat="server" />';
+                        break;
+                }
+            }
+
+            $('#dialog_modal').empty();
+            var d = $('#dialog_modal').html($('<iframe id="ifrm_dialog" frameborder="0" />'));
+            d.dialog({
+                close: function (event, ui) { if (closeFunction != null) eval(closeFunction); },
+                position: { my: "center", at: "center", of: window },
+                resizable: false,
+                draggable: true,
+                modal: true,
+                show: 'puff',
+                hide: 'clip',
+                stack: true,
+                title: titleW,
+                width: popupWidth,
+                height: popupHeight
+            });
+            $("#dialog_modal #ifrm_dialog").attr({ src: '<%=Page.ResolveClientUrl("~/Popup/dialog.aspx") %>?type=' + type + '&msg=' + msg + '&input=' + input, width: '99%', height: '99%', marginwidth: '0', marginheight: '0', scrolling: 'auto' });
+
+            $('#frame').css("visibility", "hidden");
+        };
+    </script>
+    <div id="dialog_modal">
+    </div>
+    <!-- Popup modal confirm -->
+    <script type="text/javascript">
+        function ajaxConfirmModal(msg, hiddenToValorize) {
+            var titleW = null;
+            var input = null;
+            var popupWidth = 500;
+            var popupHeight = 350;
+            var closeFunction = null;
+            if (arguments.length > 2 && arguments[2] != null) titleW = arguments[2];
+            if (arguments.length > 3 && arguments[3] != null) input = arguments[3];
+            if (arguments.length > 4 && arguments[4] != null) popupWidth = arguments[4];
+            if (arguments.length > 5 && arguments[5] != null) popupHeight = arguments[5];
+            if (arguments.length > 6 && arguments[6] != null) closeFunction = arguments[6];
+            if (closeFunction != null) { closeFunction = "$('#frame').show();" + closeFunction; } else { closeFunction = "$('#frame').show();"; }
+            if (titleW == null || titleW == '') titleW = '<asp:Literal id="litConfirm" runat="server" />';
+
+            $('#confirm_modal').empty();
+            var d = $('#confirm_modal').html($('<iframe id="ifrm_confirm" frameborder="0" />'));
+            d.dialog({
+                close: function (event, ui) { if (closeFunction != null) eval(closeFunction); },
+                position: { my: "center", at: "center", of: window },
+                resizable: false,
+                draggable: true,
+                modal: true,
+                show: 'puff',
+                hide: 'clip',
+                stack: true,
+                title: titleW,
+                width: popupWidth,
+                height: popupHeight
+            });
+            $("#confirm_modal #ifrm_confirm").attr({ src: '<%=Page.ResolveClientUrl("~/Popup/ConfirmPopUp.aspx") %>?hidden=' + hiddenToValorize + '&msg=' + msg + '&input=' + input, width: '99%', height: '99%', marginwidth: '0', marginheight: '0', scrolling: 'auto' });
+
+            $('#frame').css("visibility", "hidden");
+        };
+    </script>
+    <div id="confirm_modal">
+    </div>
+    </form>
+</body>
+</html>

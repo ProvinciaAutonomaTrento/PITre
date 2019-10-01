@@ -1,0 +1,4791 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProductVersion>4.112.3.20</ProductVersion>
+    <ProjectGuid>{5dd96afd-62e6-4ed7-b9b8-962e698b9c3d}</ProjectGuid>
+    <AssemblyName>oraclePRJ</AssemblyName>
+    <Name>oraclePRJ</Name>
+    <RootNamespace>oraclePRJ</RootNamespace>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <DBRefs Include="Database References\" />
+    <Folder Include="Altri clienti\CDC" />
+    <Folder Include="Altri clienti\CDC\ALERT" />
+    <Folder Include="Altri clienti\CDC\ALERT\ORACLE" />
+    <Folder Include="Altri clienti\CDC\ALERT\ORACLE\TABLE" />
+    <Folder Include="Altri clienti\CDC\ALERT\ORACLE\STORED_PROCEDURE" />
+    <Folder Include="Altri clienti\CDC\DOCSPA" />
+    <Folder Include="Altri clienti\CDC\DOCSPA\ORACLE" />
+    <Folder Include="Altri clienti\CDC\DOCSPA\ORACLE\MATERIALIZED VIEWS" />
+    <Folder Include="Altri clienti\CDC\DOCSPA\ORACLE\VIEWS" />
+    <Folder Include="Altri clienti\CDC\DOCSPA\ORACLE\TABLE" />
+    <Folder Include="Altri clienti\CDC\DOCSPA\ORACLE\STORED_PROCEDURE" />
+    <Folder Include="Altri clienti\PCM" />
+    <Folder Include="CARTELLE da creare per ogni nuova Service Pack\rilascio x.y.z" />
+    <Folder Include="CARTELLE da creare per ogni nuova Service Pack\rilascio x.y.z\ORACLE\TEST" />
+    <Folder Include="CARTELLE da creare per ogni nuova Service Pack\rilascio x.y.z\SQL SERVER" />
+    <Folder Include="CARTELLE da creare per ogni nuova Service Pack\rilascio x.y.z\ORACLE" />
+    <Folder Include="CARTELLE da creare per ogni nuova Service Pack\rilascio x.y.z\ORACLE\FUNCTION" />
+    <Folder Include="CARTELLE da creare per ogni nuova Service Pack\rilascio x.y.z\ORACLE\INSERT_UPDATE_DATA" />
+    <Folder Include="CARTELLE da creare per ogni nuova Service Pack\rilascio x.y.z\ORACLE\SEQUENCE" />
+    <Folder Include="CARTELLE da creare per ogni nuova Service Pack\rilascio x.y.z\ORACLE\STORED_PROCEDURE" />
+    <Folder Include="CARTELLE da creare per ogni nuova Service Pack\rilascio x.y.z\ORACLE\TABLE" />
+    <Folder Include="CARTELLE da creare per ogni nuova Service Pack\rilascio x.y.z\ORACLE\VERSIONE" />
+    <Folder Include="CARTELLE da creare per ogni nuova Service Pack\rilascio x.y.z\SQL SERVER\FUNCTION" />
+    <Folder Include="CARTELLE da creare per ogni nuova Service Pack\rilascio x.y.z\SQL SERVER\INSERT_UPDATE_DATA" />
+    <Folder Include="CARTELLE da creare per ogni nuova Service Pack\rilascio x.y.z\SQL SERVER\STORED_PROCEDURE" />
+    <Folder Include="CARTELLE da creare per ogni nuova Service Pack\rilascio x.y.z\SQL SERVER\TABLE" />
+    <Folder Include="CARTELLE da creare per ogni nuova Service Pack\rilascio x.y.z\SQL SERVER\VERSIONE" />
+    <Folder Include="Functions\" />
+    <Folder Include="Functions\Elenco" />
+    <Folder Include="CARTELLE da creare per ogni nuova Service Pack" />
+    <Folder Include="Metadati_ YET not in TFS" />
+    <Folder Include="Altri clienti" />
+    <Folder Include="QUERY" />
+    <Folder Include="Packages\" />
+    <Folder Include="Packages\Elenco" />
+    <Folder Include="Procedures\" />
+    <Folder Include="Procedures\Elenco" />
+    <Folder Include="QUERY\CopiaVisibilità" />
+    <Folder Include="QUERY\QueryStatoDB" />
+    <Folder Include="Security__not in TFS" />
+    <Folder Include="Security__not in TFS\Permissions" />
+    <Folder Include="Security__not in TFS\Roles" />
+    <Folder Include="Security__not in TFS\Users" />
+    <Folder Include="Sequences\" />
+    <Folder Include="Sequences\Elenco" />
+    <Folder Include="Sequences\NEW" />
+    <Folder Include="Synonyms__not in TFS" />
+    <Folder Include="Tables\" />
+    <Folder Include="Tables\Constraints\Elenco" />
+    <Folder Include="Tables\Indexes" />
+    <Folder Include="Tables\Constraints" />
+    <Folder Include="Tables\Elenco" />
+    <Folder Include="Tables\Indexes\Elenco" />
+    <Folder Include="Tables\NEW" />
+    <Folder Include="Tables\Triggers\" />
+    <Folder Include="Tables\Triggers\Elenco" />
+    <Folder Include="Tables\VERSIONE\" />
+    <Folder Include="User Defined Types\" />
+    <Folder Include="User Defined Types\Nested Tables\" />
+    <Folder Include="User Defined Types\Objects\" />
+    <Folder Include="User Defined Types\VARRAYs\" />
+    <Folder Include="Views\" />
+    <Folder Include="Views\Elenco" />
+    <Folder Include="Views\Materialized View" />
+    <Folder Include="Views\Triggers\" />
+    <Folder Include="XML Schemas__not in TFS" />
+    <Folder Include="AQ___not_in_TFS" />
+    <Folder Include="AQ___not_in_TFS\Queues" />
+    <Folder Include="AQ___not_in_TFS\Queue Tables" />
+    <DBRefs Include="Database References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <DBRef Include="Database References\ITCOLL_6GIU12.VTDOC11G\">
+      <ConnectionString>DATA SOURCE=VTDOC11G;PERSIST SECURITY INFO=True;USER ID=ITCOLL_6GIU12</ConnectionString>
+      <IsDefault>true</IsDefault>
+    </DBRef>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="0.CREATE_DPA_ASS_PREGRESSI.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="0.CREATE_DPA_ASS_PREGRESSI.SQLSERVER.SQL">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="0.CREATE_DPA_PREGRESSI.MSSQL.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="0.CREATE_DPA_PREGRESSI.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="0.CREATE_DPA_PREGRESSI.SQLSERVER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="0.TIPO_COMPONENTI.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="0.UTL_backup_plsql.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="0.Utl_Backup_Sp.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="1.ALTER_DPA_AMMINISTRA.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="1.Utl_Get_Titolo_Pitre.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="2.ALTER_PEOPLE.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="2.UTL_backup_plsql_code.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="alter DPA_PASSO_DI_FIRMA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_COMPONENTS.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_AMMINISTRA.MSSQL.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_AMMINISTRA.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_AMMINISTRA.SQLSERVER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_AREA_CONSERVAZIONE.MSSQL.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_AREA_CONSERVAZIONE.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_AREA_CONSERVAZIONE.SQLSERVER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_ASS_PREGRESSI.MSSQL.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_ASS_PREGRESSI.SQLSERVER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_DETT_GLOBALI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_EL_REGISTRI.MSSQL.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_EL_REGISTRI.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_EL_REGISTRI.SQLSERVER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_LOG.MSSQL.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_LOG.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_LOG.SQLSERVER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_LOGIN.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_LOGIN.SQLSERVER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_LOG_STORICO.MSSQL.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_LOG_STORICO.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_LOG_STORICO.SQLSERVER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_MAIL_CORR_ESTERNI.MSSQL.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_MAIL_CORR_ESTERNI.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_MAIL_CORR_ESTERNI.SQLSERVER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_MODELLI_TRASM.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_PREGRESSI.MSSQL.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_PREGRESSI.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_PREGRESSI.SQLSERVER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_RAGIONE_TRASM.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_STATI.MSSQL.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_STATI.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_DPA_STATI.SQLSERVER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_PROFILE.MSSQL.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_PROFILE.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_PROFILE.SQLSERVER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="alter_Profile_Project.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_TABLE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_TABLE_COMPONENTS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_TABLE_DPA_MAIL_ELABORATE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_TABLE_PROFILE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_VERSIONS.MSSQL.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_VERSIONS.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ALTER_VERSIONS.SQLSERVER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Altri clienti\CDC\ALERT\ORACLE\STORED_PROCEDURE\CREATE_CDC_SP_ALERT_GETDESTINROLE.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Altri clienti\CDC\ALERT\ORACLE\STORED_PROCEDURE\CREATE_CDC_SP_ALERT_GET_DOCSMPS.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Altri clienti\CDC\ALERT\ORACLE\STORED_PROCEDURE\CREATE_CDC_SP_ALERT_GET_DOC_A.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Altri clienti\CDC\ALERT\ORACLE\STORED_PROCEDURE\CREATE_CDC_SP_ALERT_GET_DOC_B.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Altri clienti\CDC\ALERT\ORACLE\STORED_PROCEDURE\CREATE_CDC_SP_ALERT_GET_IDGRUPPO.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Altri clienti\CDC\ALERT\ORACLE\STORED_PROCEDURE\CREATE_CDC_SP_ALERT_GET_STATE.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Altri clienti\CDC\ALERT\ORACLE\STORED_PROCEDURE\CREATE_CDC_SP_ALERT_GET_UO.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Altri clienti\CDC\ALERT\ORACLE\STORED_PROCEDURE\CREATE_CDC_SP_ALERT_INSERT_STATE.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Altri clienti\CDC\ALERT\ORACLE\STORED_PROCEDURE\CREATE_CDC_SP_ALERT_UPDATE_STATE.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Altri clienti\CDC\ALERT\ORACLE\TABLE\CREATE_CDC_ALERT_STATE.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Altri clienti\CDC\ALERT\ORACLE\TABLE\CREATE_CDC_ALERT_UO.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Altri clienti\CDC\DOCSPA\ORACLE\MATERIALIZED VIEWS\CREATE_V_CONTROLLO_SUCCESSIVO.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Altri clienti\CDC\DOCSPA\ORACLE\STORED_PROCEDURE\CREATE_CDC_SP_CONTROLLO_SUCC.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Altri clienti\CDC\DOCSPA\ORACLE\TABLE\CREATE_CDC_CONTROLLO_SUCC.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Altri clienti\CDC\DOCSPA\ORACLE\VIEWS\CREATE_V_CDC_LTIPI_CONTROLLI_SUCC.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="calculateatipdelrole.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="CHECKPROFILEDATA.MSSQL.sql_old">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="CHECKPROFILEDATA.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="CHECKPROFILEDATA.SQLSERVER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="CHECKPROTODATA.MSSQL.sql_old">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="CHECKPROTODATA.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="CHECKPROTODATA.SQLSERVER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="chiave_FE_TIPO_RUOLO_LIBRO_FIRMA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="computeatipicita.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="COMPUTEATIPICITAINSROLE.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="CopySecurityWithoutAtipici.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="CREATE_DPA_ASS_ALLEGATO.MSSQL.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="CREATE_DPA_ASS_ALLEGATO.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="CREATE_DPA_ASS_ALLEGATO.SQLSERVER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="CREATE_DPA_ASS_PREGRESSI.MSSQL.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="CREATE_DPA_ASS_RUOLO_STATI_DIAGRAMMA.MSSQL.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="CREATE_DPA_ASS_RUOLO_STATI_DIAGRAMMA.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="CREATE_DPA_ASS_RUOLO_STATI_DIAGRAMMA.SQLSERVER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="CREATE_DPA_DATI_FATTURAZIONE.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="CREATE_IDX_DPA_TIPO_FASC_UPPERK2.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="CREATE_idx_PROJECT_K39.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="CREATE_INDEX_DPA_LOGINK2k1k6.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="CREATE_MV_PROSPETTI_R3.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="create_new_nodo_titolario.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="create_SP_MODIFY_UO_FATTURAZIONE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="create_table_DPA_EXT_APPS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="create_table_DPA_REL_PEOPLE_EXTAPPS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="CreazioneTabelle_e_popolamento.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="da_lanciare_initpec3.sql.txt">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="da_lanciare_initpec3.txt">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="DOCCLASSCOMPTABLEFUNCTION_NEW.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="DOCCLASSTABLEFUNCTION_NEW.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="DocUoTableFunction.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="DOMAIN_INDEX_ON_PROJECT_description.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="DOMAIN_INDEX_ON_VAR_PROTO_IN.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="dpa_ins_ut_ruolo_in_mod_trasm.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\ANNUALEDOCTABLEFUNCTION.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\ATLEASTONECARTACEO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\ATLEASTONEFIRMATO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\CHECKGESTIONEARCHIVIO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\CHECKPROFILEDATA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\CHECKPROTODATA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\CHECKSECURITY.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\CHECKSECURITYDOCUMENTO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\CHECKSECURITYPROPRIETARIO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\CHECKSECURITYUO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\CHECKVISIBILITAARCHIVIO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\CLASSCAT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\CODFASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\CODRFAPPARTENZA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\CODRFAPPARTENZARUOLO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\CODRFAPPARTENZARUOLOCORRGLOB.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\CORRCAT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\CORRCATBYTIPO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\CORRCAT_ADDRESS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\COUNTALLEGATI_BY_DOCNUMBER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\DESCUO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\DEST_IN_LISTA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\DEST_IN_RF.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\DOCCLASSCOMPTABLEFUNCTION.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\DOCCLASSCOMPTABLEFUNCTION_NEW.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\DOCCLASSTABLEFUNCTION.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\DOCCLASSTABLEFUNCTION_NEW.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\DOCSEDETABLEFUNCTION.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\DOCUOTABLEFUNCTION.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\DPA_GETMAXDTAINVIOFASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\DPA_VALORE_OGGETTO_TIPO_ATTO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\Elenco\Generato-20120606145731.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\ESISTENOTAVISIBILE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\FASCICOLITABLEFUNCTION.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\FASCICOLIVTETABLEFUNCTION.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\FASCICOLIVTTABLEFUNCTION.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\FULLTEXT_ONVAR_DESC_CORR.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\FULLTEXT_ONVAR_PROF_OGG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\FULLTEXT_ONVAR_PROF_OGGETTO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\FULLTEXT_ONVAR_PROF_OGGETTO_1.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\FULLTEXT_ONVAR_PROF_OGG_NEW.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GENUMDOCINFASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GENUMDOCINFASC2.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GENUMDOCPROTINFASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GENUMDOCPROTINFASCRF.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETACCESSRIGHTS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETCHACARTACEO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETCHACONSENTICLASS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETCHAFIRMATO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETCHAIMCONVPDF.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETCHAIMG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETCODAMM.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETCODFASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETCODFIS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETCODREG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETCODREGCORCAT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETCODRUBRICACORR.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETCODRUBRICAIDPAREMT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETCODRUBRICARUOLO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETCODRUOLO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETCODRUOLOBYIDCORR.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETCODRUOLORIF.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETCODTIPOFUNZ.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETCODTIPORUOLO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETCODTIT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETCODUO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETCONTATOREDOC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETCONTATOREDOCIDOBJ.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETCONTATOREDOCORDINAMENTO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETCONTATOREFASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETCONTATOREFASCCONTATORE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETCORRDESCRIPTION.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETCOUNTNOTE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETDATAARRIVODOC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETDATEONLY.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETDESCCORR.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETDESCRUOLO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETDESCTIPODOC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETDESCTIPOFASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETDESCTITOLARIO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETDIAGRAMMISTATO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETDOCFASCICOLATO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETDOCNAMEORCODFASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETDOCPRINCIPALE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETDTAINVIO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETESITOPUBBLICAZIONE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETFASCPRIMARIA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETFLAGNOTIFICA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETFOLDERGEN.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETFUNCTCORCAT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETGIACENZADDTODOLIST.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETIDAMM.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETIDRUOLORIF.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETIFMODELLOAUTORIZZATO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETIFMODELLOAUTORIZZATO_OLD.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETIMG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETIMPRONTA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETINADL.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETINCONSERVAZIONE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETINCONSERVAZIONENOSEC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETLONG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETMAXVER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETMAXVER_MENO1.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETNOMERUOLOBYSYSID.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETNOTEOLD.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETNUMLIVRUOLO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETNUMMITTENTIMODELLITRASM.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETNUMPROTOSTAMPA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETPEOPLENAME.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETPEOPLENAMEBYUSERID.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETPEOPLEUSERID.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETPROTOCOLLATO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETREGDESCR.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETREGISTROSTAMPA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETROLETYPEDESCRIPTION.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETSEDOCFASCICOLATO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETSEDOCTRASMCONRAG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETSEMITTDEST.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETSEOGGATTIVO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETSERIMUOVIBILE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETSESOLOMITTDESTOCC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETSTATODELEGA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETTESTOULTIMANOTA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETTIPORUOLO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETTRANSREASONDESC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETUO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETUTENTICORCAT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETVALCAMPOPROFDOC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETVALCAMPOPROFDOCORDER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETVALPROFOBJPRJ.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETVALPROFOBJPRJORDER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GETVISIBILITA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\HASVERSIONSFULLVISIBILITY.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\HAS_CHILDREN.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\INTEROPTABLEFUNCTION.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\ISALLEGATO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\ISCORRISPONDENTEINTERNO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\ISNONPROT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\ISPREDISPOSTO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\ISPROTOCOLLO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\ISPROTOCOLLOARRIVO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\ISPROTOCOLLOINTERNO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\ISPROTOCOLLOPARTENZA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\ISSTAMPAREG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\ISVALIDMODELLOTRASMISSIONE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\ISVERSIONVISIBLE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\MENSILEDOCTABLEFUNCTION.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\MENSILEFASCICOLITABLEFUNCTION.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\NOALLEGATI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\OGG_SEARCH.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\POP.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\POPDPAASSRUOLOOGGCUSTOMFASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\POPOLATEDPAASSRUOLOOGGCUSTOM.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\TEMPIMEDICOMPATTATABLEFUNCTION.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\TEMPIMEDITABLEFUNCTION.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\TMP_GET_ELAPSED.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\UTENTEHASQUALIFICA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\UTL_ISVALORE_LT_COLUMN.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\VARDESCRIBE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="function_GETROLESUPBYIDROLEANDTYPEROLE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="funct_getNummittentiModelliTrasm.txt">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="getContatoreDoc.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="getesitopubblicazione.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="getfascprimaria.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Getgerarchia.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="getGerarchia.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="getnomeOriginale.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="getnomeRuolobysysid.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="getstatodelega.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gettiporuolo.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="getuo.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Getvalcampoprofdoc.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Hasrolemacro.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="hasVersionsFullVisibility.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="HistoricizeRole.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="insertdatainhistoryprof.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="insert_anagrafica_funzioni.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="insert_anagrafica_funzioni.SQLSERVER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="INSERT_DPA_ANAGRAFICA_FUNZIONI.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="INSERT_DPA_ANAGRAFICA_FUNZIONI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="INSERT_DPA_ANAGRAFICA_LOG.MSSQL.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="INSERT_DPA_ANAGRAFICA_LOG.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="INSERT_DPA_ANAGRAFICA_LOG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="INSERT_DPA_ANAGRAFICA_LOG.SQLSERVER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="INSERT_DPA_CHIAVI_CONFIGURAZIONE.MSSQL.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="INSERT_DPA_CHIAVI_CONFIGURAZIONE.ORA - Copia.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="INSERT_DPA_CHIAVI_CONFIGURAZIONE.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="INSERT_DPA_CHIAVI_CONFIGURAZIONE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="INSERT_DPA_CHIAVI_CONFIGURAZIONE.SQLSERVER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="insert_dpa_docspa.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="INSERT_DPA_DOCSPA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="insert_dpa_elenco_note.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="insert_dpa_elenco_note.SQLSERVER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="INSERT_DPA_TIPO_ATTO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="INS_OCC_2.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="interoptablefunction.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="isvalidmodellotrasmissione.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="IS_InsertDataInReceivedMsg.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="IS_LoadSimpInteropRecordInfo.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="i_smistamento_smistadoc.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="MAIL_E_NOTE_CORR_ESTERNI.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="mensiledoctablefunction.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="MODIFYASSRUOLOSTATODIAGRAMMA.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Packages\CURTYPES.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Packages\Elenco\Generato-20120606153205.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Packages\LONG_HELP.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Packages\NC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Packages\PGU.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Packages\PKGRUBRICA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Packages\PUBLISHER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Packages\R.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Packages\SUBSCRIBER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="package_NC.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\ADDNUOVAVERSIONE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\ADD_REGISTRO_IN_DPA_REG_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\BLOCCA_DA_CONV_PDF.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\CALCULATEATIPDELROLE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\CARICA_DOCUMENTI_RISERVATI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\CARICA_DPA_REG_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\CARICA_FORMATO_DOCUMENTI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\CARICA_TIPO_DOC_RIS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\CLEAR_SECURITY.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\COMPUTEATIPICITA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\COMPUTEATIPICITAINSROLE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\COPYSECURITY.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\COPYSECURITYWITHOUTATIPICI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\COUNT_UTENTI_LOGGATI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\CREATEALLEGATO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\CREATEDOCSP.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\CREATEPROJECTSP.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\CREATE_NEW_NODO_TITOLARIO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\CREA_KEYS_AMMINISTRA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\DELETEREGISTROREPERTORIO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\DEL_REC_DUPL_SECURITY.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\DPA3_GET_CHILDREN.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\DPA3_GET_HIERARCHY.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\DPA_DEL_UT_RUOLO_IN_MOD_TRASM.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\DPA_INS_TX_NEW_UT_RUOLO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\DPA_INS_UT_RUOLO_IN_MOD_TRASM.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\DPA_SETDIRITTORUOLOPROP.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\DPA_SETNUMFASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\DPA_UPD_TODOLIST_DOC_CESTINO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\Elenco\Generato-20120606144939.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\EXTENDVISIBILITYTOHIGHERROLES.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\HISTORICIZEROLE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\INITIALIZEROLEHISTORY.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\INITPEC3.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\INITREGREPERTORIO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\INSERTDATAINHISTORYPROF.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\INSERTREGISTROREPERTORIO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\INSERTREPERTORIOFROMCODE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\INS_OCC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\IS_INSERTDATAINRECEIVEDMSG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\IS_INSERTDATAINSIMPINTEROPLOG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\IS_ISELEMENTINTEROPERABLE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\IS_LOADRECEIVEDPRIVATEFLAG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\IS_LOADSETTINGS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\IS_LOADSIMPINTEROPRECORDINFO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\IS_SAVESETTINGS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\IS_SETIDPROFFORSIMPINTEROPMSG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\I_SMISTAMENTO_DOCVISTO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\I_SMISTAMENTO_SETVISIBSUP.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\I_SMISTAMENTO_SMISTADOC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\I_SMISTAMENTO_SMISTADOC_R_2.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\I_SMISTAMENTO_SMISTADOC_U.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\LIBERA_ACL_DOC_TRASMESSI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\MIGRA_TEMPLATE_TRASM.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\MODIFYASSRUOLOSTATODIAGRAMMA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\MOD_ANAGRAFICA_FUNZIONI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\OPTIMIZE_TEXT_INDEX.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\PUTFILE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\REMOVETRANSMODELVISIBILETOROLE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\REORG_TEXT_INDEX.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SAVECOUNTERSETTINGS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\Script1.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SETDATAREG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SETRIGHTSFORROLE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SETSECURITYRUOLOREG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SET_MEZZO_INTEROP_FOR_RC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SPSETDATAVISTA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SPSETDATAVISTASMISTAMENTO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SPSETDATAVISTA_TV.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SPSETDATAVISTA_V2.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_CLEAN_DPA_T_CANALE_CORR.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_DELETE_CORR_ESTERNO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_DPA_COUNT_TODOLIST.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_DPA_COUNT_TODOLIST_NO_REG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_DPA_PR_DOCXSEDE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_DPA_SETLARGETEXT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_DPA_UO_REG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_EREDITA_VIS_DOC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_EREDITA_VIS_DOC_ATIPICITA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_EREDITA_VIS_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_EREDITA_VIS_FASC_ATIPICITA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_FILL_DPA_UO_REG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_GET_RUOLO_RESP_UO_FROM_UO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_INSERT_AREA_CONS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_INSERT_DOC_ARCHIVIO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_INSERT_DPA_DETT_GLOBALI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_INSERT_DPA_SUPPORTO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_INSERT_ORDINAMENTO_ORG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_INS_AUTHOR_IN_PROJECT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_INS_DOCUMENTYPE_IN_PROFILE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_INS_DPA_STATO_INVIO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_INS_EXT_IN_COMPONENTS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_INS_MODELLI_DEST_NOTIFICA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_INS_RUOLO_CREATORE_PROJECT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_INS_UO_CREATORE_PROJECT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_MODIFY_CORR_ESTERNO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_MODIFY_CORR_ESTERNO_IS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_MODIFY_CORR_ESTERNO_V1.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_MODIFY_UO_INTERNA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_RIMUOVI_DOCUMENTI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_STORICIZZA_LOG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\SP_TRASM_RIF_TORNA_MITT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\TMP_DEBUGANNUALEDOCTABLEF.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\TMP_DOCUOTABLEFUNCTION.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\TMP_PRINT_DOCCLASSCOMPTABLEF.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\UPDATE_CODLIV1.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\UPDATE_MOD_DEST_CON_NOTIFICA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\UTL_ADD_COLUMN.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\UTL_ADD_FOREIGN_KEY.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\UTL_ADD_INDEX.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\UTL_ADD_PRIMARY_KEY.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\UTL_DROP_COLUMN.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\UTL_INSERT_CHIAVE_CONFIG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\Utl_insert_chiave_log.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\Utl_Insert_Chiave_Microfunz.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\UTL_INSERT_LOG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\UTL_MODIFY_COLUMN.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\UTL_RENAME_COLUMN.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\VIS_DOC_ANOMALA_CUSTOM.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\VIS_DOC_ANOMALA_DOC_NUMBER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\VIS_DOC_ANOMALA_INT_DATE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\VIS_FASC_ANOMALA_CUSTOM.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\VIS_FASC_ANOMALA_ID_PROJECT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\VIS_FASC_ANOMALA_INT_DATE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\WRITE_DATE_IN_LOG_FILE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\WRITE_STAT_IN_LOG_FILE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="PUTFILE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="QUERY\CopiaVisibilità\Query_copy_con_log.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="QUERY\CopiaVisibilità\Query_copy_con_log_doc_inFASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="QUERY\CopiaVisibilità\Query_copy_con_log_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="QUERY\Documenti_Creati_da_UO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="QUERY\CopiaVisibilitàdaRuoloaRuolo.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="QUERY\QueryStatoDB\showsql.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="QUERY\QueryStatoDB\tab0.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="QUERY\QueryStatoDB\tab1_CPU Time Ratio.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="QUERY\QueryStatoDB\tab2.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="QUERY\QueryStatoDB\tab3.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="QUERY\QueryStatoDB\tab4.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="QUERY\QueryStatoDB\tab5_tempo w_per_classe.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="QUERY\QueryStatoDB\tab6_Sessioni in attesa_COMUNI_PROD.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="QUERY\QueryStatoDB\tab6_Sessioni in attesa_PAT_PROD.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="QUERY\QueryStatoDB\tab7.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="QUERY\QueryStatoDB\tab8_top 5 stats w highest uIO waits.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="QUERY\BuchiProtocollo.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="QUERY\TitolarioTuttoATutti.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="README.txt">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="removetransmodelvisibiletorole.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="replace_DEST_IN_RF.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="replace_dpa_setNumFasc.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="replace_getcontatoredoc2.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="replace_getvalcampoprofdoc.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="replace_INS_OCC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="replace_INTEROPTABLEFUNCTION.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="replace_interoptablerow.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="replace_i_smistamento_smistadoc.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="replace_PACKAGE_R.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="replace_PACKAGE_R.ORA.sql.RC">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="replace_putfile.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="replace_SP_MODIFY_CORR_ESTERNO_IS.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="risoluzione_bug_modifica_corr_esterno.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SCAMBIACHAIMG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\Elenco\Generato-20120606152840.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\NEW\SEQ_DPA_EXT_APPS.ORA.SQL">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\NEW\SEQ_DPA_REL_PEOPLE_EXTAPPS.ORA.SQL">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQROLEHISTORY.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_AMMINISRAZIONI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_AMMINISTRAZIONI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_APPS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_CONSERVAZIONE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DISPOSITIVI_STAMPA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_ASSOCIAZIONE_TEMPLATES.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_ASSOCIAZIONE_VALORI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_ASS_ALLEGATO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_ASS_DIAGRAMMI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_ASS_DOC_MAIL_INTEROP.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_ASS_INDX_SIS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_ASS_PREGRESSI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_ASS_TEMPLATES_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_ASS_VALORI_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_A_R_OGG_CUSTOM_DOC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_A_R_OGG_CUSTOM_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_CHIAVI_CONFIG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_CHIAVI_CONFIG_TEMPLATE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_CONS_VERIFICA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_CONTATORI_DOC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_CONTATORI_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_CONV_PDF_SERVER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_CORR_ABILITATI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_DATA_ARRIVO_STO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_DETT_POLICY_ESECUZIONE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_DIAGRAMMI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_DIAGRAMMI_STATO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_DIAGRAMMI_STO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_DISSERVIZI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_FRIEND_APPLICATION.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_GRIDS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_INDX_SIS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_ITEMS_CONSERVAZIONE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_LDAP_SYNC_HISTORY.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_LETTERE_DOCUMENTI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_LISTE_DISTR.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_MAIL_CORR_ESTERNI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_MAIL_REGISTRI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_MODELLI_MITT_DEST.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_MODELLI_TRASM.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_NOTIFICA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_OGGETTI_CUSTOM.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_OGGETTI_CUSTOM_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_OGG_CUSTOM_COMP.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_OGG_CUSTOM_COMP_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_PASSI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_PEOPLEGROUPS_QUALIF.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_POLICY_ESECUZIONE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_PREGRESSI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_PROFIL_FASC_STO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_PROFIL_STO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_PROTO_TIT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_QUALIFICHE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_RISCONTRI_CLASSIFICA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_SALVA_RICERCHE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_STAMPA_REPERTORI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_STATI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_TEMPLATES.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_TEMPLATES_COMPONENT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_TIMESTAMP_DOC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_TIPO_ATTO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_TIPO_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_TIPO_NOTIFICA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_TIPO_OGGETTO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_TIPO_OGGETTO_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_TRASM_DIAGR.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_VIS_MAIL_REGISTRI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_VIS_TIPO_DOC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_VIS_TIPO_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_DPA_VOCI_MENU_ADMIN.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_ER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_INSTALL_LOG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_NOTIFICATIONCHANNEL.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_NOTIFICATIONINSTANCES.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_NOTIFICATIONITEM.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_NOTIFICATIONITEMCATEGORIES.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_PGU.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_POLICY_CONSERVAZIONE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_PUBBLICAZIONI_DOCUMENTI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_PUBLISHER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_SUBSCRIBER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_SUPPORTO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_UT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\SEQ_UTL_SYSTEM_LOG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SEQ_DATI_FATTURAZIONE.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SEQ_DPA_PROFIL_FASC_STO.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SEQ_NOTIFICATION_INSTANCE.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="setsecurityRuoloReg.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="set_mezzo_interop_for_rc.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="spsetdatavistasmistamento.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="sp_eredita_vis_doc.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="sp_eredita_vis_fasc.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SP_RIMUOVI_DOCUMENTI.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SP_UPDATE_EXT_IN_PROFILE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\AAA ESEMPIO ALTER TABELLA.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\AMMINISTRAZIONI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\APPS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\COMPONENTS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\AMMINISTRAZIONI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\AMMINISTRAZIONI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\APPS_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\APPS_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\COMPONENTS_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\COMPONENTS_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DELETED_SECURITY_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DELETED_SECURITY_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DETT_DOPPI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DETT_DOPPI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DOCS_UNIQUE_KEYS_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DOCS_UNIQUE_KEYS_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DOCUMENTTYPES_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DOCUMENTTYPES_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_AMMINISTRA_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_AMMINISTRA_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ANAGRAFICA_FUNZIONI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ANAGRAFICA_FUNZIONI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ANAGRAFICA_LOG_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ANAGRAFICA_LOG_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_AREA_CONSERVAZIONE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_AREA_CONSERVAZIONE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_AREA_LAVORO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_AREA_LAVORO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ASSOCIAZIONE_TEMPLATES_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ASSOCIAZIONE_TEMPLATES_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ASSOCIAZIONE_VALORI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ASSOCIAZIONE_VALORI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ASS_DIAGRAMMI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ASS_DIAGRAMMI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ASS_DOC_MAIL_INTEROP_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ASS_DOC_MAIL_INTEROP_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ASS_GRIDS_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ASS_GRIDS_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ASS_INDX_SIS_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ASS_INDX_SIS_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ASS_LETTERE_DOCUMENTI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ASS_LETTERE_DOCUMENTI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ASS_POLICY_PROFILAZIONE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ASS_POLICY_PROFILAZIONE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ASS_POLICY_TYPE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ASS_POLICY_TYPE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ASS_RUOLO_OGG_CUSTOM_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ASS_RUOLO_OGG_CUSTOM_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ASS_TEMPLATES_FASC_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ASS_TEMPLATES_FASC_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ASS_VALORI_FASC_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ASS_VALORI_FASC_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_A_R_OGG_CUSTOM_DOC_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_A_R_OGG_CUSTOM_DOC_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_A_R_OGG_CUSTOM_FASC_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_A_R_OGG_CUSTOM_FASC_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CACHE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CACHE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CANALI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CANALI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CANALI_REG_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CANALI_REG_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CARAT_TIMBRO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CARAT_TIMBRO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CHECKIN_CHECKOUT_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CHECKIN_CHECKOUT_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CHIAVI_CONFIGURAZIONE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CHIAVI_CONFIGURAZIONE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CHIAVI_CONFIG_TEMPLATE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CHIAVI_CONFIG_TEMPLATE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CHIAVI_CONF_BKP20110909_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CHIAVI_CONF_BKP20110909_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CLIENT_MODEL_PROCESSORS_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CLIENT_MODEL_PROCESSORS_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_COLL_MSPEDIZ_DOCUMENTO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_COLL_MSPEDIZ_DOCUMENTO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_COLORE_TIMBRO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_COLORE_TIMBRO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CONFIG_ANAGRAFICA_ESTERNA_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CONFIG_ANAGRAFICA_ESTERNA_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CONFIG_CACHE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CONFIG_CACHE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CONSOLIDATED_DOCS_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CONSOLIDATED_DOCS_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CONS_VERIFICA_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CONS_VERIFICA_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CONTATORI_DOC_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CONTATORI_DOC_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CONTATORI_FASC_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CONTATORI_FASC_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CONV_PDF_SERVER_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CONV_PDF_SERVER_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_COPY_LOG_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_COPY_LOG_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CORR_ABILITATI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CORR_ABILITATI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CORR_GLOBALI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CORR_GLOBALI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CORR_GLO_X_INT_TIPI_RUO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CORR_GLO_X_INT_TIPI_RUO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CORR_GRUPPO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CORR_GRUPPO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CORR_STO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_CORR_STO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_COUNT_TODOLIST_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_COUNT_TODOLIST_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_DATA_ARRIVO_STO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_DATA_ARRIVO_STO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_DATI_SCARICATI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_DATI_SCARICATI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_DELEGHE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_DELEGHE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_DETT_GLOBALI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_DETT_GLOBALI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_DETT_POLICY_ESECUZIONE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_DETT_POLICY_ESECUZIONE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_DIAGRAMMI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_DIAGRAMMI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_DIAGRAMMI_STATO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_DIAGRAMMI_STATO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_DIAGRAMMI_STO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_DIAGRAMMI_STO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_DISPOSITIVI_STAMPA_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_DISPOSITIVI_STAMPA_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_DISSERVIZI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_DISSERVIZI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_DOCSPA_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_DOCSPA_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_DOC_ARRIVO_PAR_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_DOC_ARRIVO_PAR_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_DOC_AR_PAR_AP_S112_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_DOC_AR_PAR_AP_S112_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_DOC_COLLEGAMENTI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_DOC_COLLEGAMENTI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ELENCO_NOTE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ELENCO_NOTE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_EL_REGISTRI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_EL_REGISTRI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_FASCICOLAZIONE_CARTACEA_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_FASCICOLAZIONE_CARTACEA_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_FIRMATARI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_FIRMATARI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_FIRMA_VERS_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_FIRMA_VERS_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_FORMATI_DOCUMENTO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_FORMATI_DOCUMENTO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_FORMATTA_FASC_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_FORMATTA_FASC_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_FORMATTA_SEGN_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_FORMATTA_SEGN_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_FRIEND_APPLICATION_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_FRIEND_APPLICATION_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_FUNZIONI_20120309_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_FUNZIONI_20120309_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_FUNZIONI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_FUNZIONI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_GRIDS_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_GRIDS_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_INDX_SIS_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_INDX_SIS_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ITEMS_CONSERVAZIONE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ITEMS_CONSERVAZIONE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_LDAP_CONFIG_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_LDAP_CONFIG_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_LDAP_SYNC_HISTORY_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_LDAP_SYNC_HISTORY_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_LEGISLATURE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_LEGISLATURE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_LETTERE_DOCUMENTI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_LETTERE_DOCUMENTI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_LISTE_DISTR_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_LISTE_DISTR_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_LOCK_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_LOCK_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_LOGIN_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_LOGIN_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_LOG_ATTIVATI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_LOG_ATTIVATI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_LOG_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_LOG_INSTALL_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_LOG_INSTALL_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_LOG_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_LOG_STORICO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_LOG_STORICO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_L_AOO_UO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_L_AOO_UO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_L_RUOLO_REG_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_L_RUOLO_REG_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_MAIL_CORR_ESTERNI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_MAIL_CORR_ESTERNI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_MAIL_ELABORATE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_MAIL_ELABORATE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_MAIL_REGISTRI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_MAIL_REGISTRI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_MODELLI_DELEGA_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_MODELLI_DELEGA_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_MODELLI_DEST_CON_NOTIFICA_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_MODELLI_DEST_CON_NOTIFICA_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_MODELLI_MITT_DEST_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_MODELLI_MITT_DEST_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_MODELLI_TRASM_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_MODELLI_TRASM_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_NOTE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_NOTE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_NOTIFICA_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_NOTIFICA_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_OBJECTS_SYNC_PENDING_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_OBJECTS_SYNC_PENDING_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_OGGETTARIO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_OGGETTARIO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_OGGETTI_CUSTOM_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_OGGETTI_CUSTOM_FASC_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_OGGETTI_CUSTOM_FASC_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_OGGETTI_CUSTOM_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_OGGETTI_STO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_OGGETTI_STO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_OGG_CUSTOM_COMP_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_OGG_CUSTOM_COMP_FASC_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_OGG_CUSTOM_COMP_FASC_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_OGG_CUSTOM_COMP_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_PAROLE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_PAROLE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_PASSI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_PASSI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_PEOPLEGROUPS_QUALIFICHE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_PEOPLEGROUPS_QUALIFICHE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_POLICY_ESECUZIONE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_POLICY_ESECUZIONE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_POSIZ_TIMBRO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_POSIZ_TIMBRO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_PREGRESSI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_PROFIL_FASC_STO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_PROFIL_FASC_STO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_PROFIL_STO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_PROFIL_STO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_PROF_PAROLE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_PROF_PAROLE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_PROTO_TIT_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_PROTO_TIT_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_PR_DOCXSEDE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_PR_DOCXSEDE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_QUALIFICA_CORRISPONDENTE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_QUALIFICA_CORRISPONDENTE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_QUALIFICHE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_QUALIFICHE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_RAGIONE_TRASM_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_RAGIONE_TRASM_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_REGISTRI_REPERTORIO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_REGISTRI_REPERTORIO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_REGISTRO_STO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_REGISTRO_STO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_REG_FASC_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_REG_FASC_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_REG_PROTO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_REG_PROTO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_RISCONTRI_CLASSIFICA_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_RISCONTRI_CLASSIFICA_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ROLE_HISTORY_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_ROLE_HISTORY_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_RUOE_UTENTE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_RUOE_UTENTE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_SALVA_RICERCHE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_SALVA_RICERCHE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_SERVER_POSTA_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_SERVER_POSTA_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_STAMPAREGISTRI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_STAMPAREGISTRI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_STAMPA_REPERTORI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_STAMPA_REPERTORI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_STATI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_STATI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_STATO_INVIO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_STATO_INVIO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_SUPPORTO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_SUPPORTO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TEMPLATES_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TEMPLATES_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TEMPL_TRASM_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TEMPL_TRASM_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_THEMES_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_THEMES_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TIMESTAMP_DOC_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TIMESTAMP_DOC_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TIPO_ATTO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TIPO_ATTO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TIPO_FASC_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TIPO_FASC_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TIPO_FUNZIONE_20120309_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TIPO_FUNZIONE_20120309_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TIPO_FUNZIONE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TIPO_FUNZIONE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TIPO_F_RUOLO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TIPO_F_RUOLO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TIPO_NOTIFICA_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TIPO_NOTIFICA_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TIPO_OGGETTO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TIPO_OGGETTO_FASC_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TIPO_OGGETTO_FASC_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TIPO_OGGETTO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TIPO_RUOLO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TIPO_RUOLO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TIPO_SUPPORTO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TIPO_SUPPORTO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TODOLIST_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TODOLIST_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TRASMISSIONE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TRASMISSIONE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TRASM_DIAGR_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TRASM_DIAGR_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TRASM_SINGOLA_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TRASM_SINGOLA_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TRASM_UTENTE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_TRASM_UTENTE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_T_CANALE_CORR_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_T_CANALE_CORR_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_UO_REG_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_UO_REG_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_UO_SMISTAMENTO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_UO_SMISTAMENTO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_USERADMIN_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_USERADMIN_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_USERADMIN_REGISTRI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_USERADMIN_REGISTRI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_USERADMIN_VOCI_MENU_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_USERADMIN_VOCI_MENU_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_VIS_ANOMALA_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_VIS_ANOMALA_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_VIS_MAIL_REGISTRI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_VIS_MAIL_REGISTRI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_VIS_TIPO_DOC_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_VIS_TIPO_DOC_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_VIS_TIPO_FASC_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_VIS_TIPO_FASC_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_VOCI_MENU_ADMIN_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DPA_VOCI_MENU_ADMIN_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DR%24INDX_DESC_CORR_TEXT%24I_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DR%24INDX_DESC_CORR_TEXT%24I_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DR%24INDX_DESC_CORR_TEXT%24K_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DR%24INDX_DESC_CORR_TEXT%24K_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DR%24INDX_DESC_CORR_TEXT%24N_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DR%24INDX_DESC_CORR_TEXT%24N_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DR%24INDX_DESC_CORR_TEXT%24R_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DR%24INDX_DESC_CORR_TEXT%24R_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DR%24INDX_OGG_TEXT%24I_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DR%24INDX_OGG_TEXT%24I_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DR%24INDX_OGG_TEXT%24K_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DR%24INDX_OGG_TEXT%24K_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DR%24INDX_OGG_TEXT%24N_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DR%24INDX_OGG_TEXT%24N_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DR%24INDX_OGG_TEXT%24R_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\DR%24INDX_OGG_TEXT%24R_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\ELEMENTIRUBRICA_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\ELEMENTIRUBRICA_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\Elenco\Generato-20120606171538.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\EMAILS_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\EMAILS_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\GROUPS_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\GROUPS_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\INTEROPERABILITYSETTINGS_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\INTEROPERABILITYSETTINGS_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\MLOG%24_DPA_ASSOCIAZIONE_TEM_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\MLOG%24_DPA_ASSOCIAZIONE_TEM_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\MLOG%24_DPA_CORR_GLOBALI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\MLOG%24_DPA_CORR_GLOBALI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\MLOG%24_DPA_DOC_ARRIVO_PAR_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\MLOG%24_DPA_DOC_ARRIVO_PAR_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\MLOG%24_DPA_OGGETTI_CUSTOM_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\MLOG%24_DPA_OGGETTI_CUSTOM_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\MLOG%24_DPA_OGG_CUSTOM_COMP_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\MLOG%24_DPA_OGG_CUSTOM_COMP_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\MLOG%24_DPA_TIPO_ATTO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\MLOG%24_DPA_TIPO_ATTO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\MLOG%24_DPA_TIPO_OGGETTO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\MLOG%24_DPA_TIPO_OGGETTO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\MV_DOCUMENTI_CUSTOM_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\MV_DOCUMENTI_CUSTOM_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\MV_PROSPETTI_DOCCLASSCOMP_ALL_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\MV_PROSPETTI_DOCCLASSCOMP_ALL_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\MV_PROSPETTI_DOCCLASS_ALL_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\MV_PROSPETTI_DOCCLASS_ALL_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\MV_PROSPETTI_DOCGRIGICLASS_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\MV_PROSPETTI_DOCGRIGICLASS_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\MV_PROSPETTI_DOCGRIGI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\MV_PROSPETTI_DOCGRIGI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\MV_PROSPETTI_DOCUMENTICLASSUO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\MV_PROSPETTI_DOCUMENTICLASSUO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\MV_PROSPETTI_DOCUMENTICLASS_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\MV_PROSPETTI_DOCUMENTICLASS_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\MV_PROSPETTI_DOCUMENTI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\MV_PROSPETTI_DOCUMENTI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\NETWORK_ALIASES_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\NETWORK_ALIASES_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\NOTIFICATIONCHANNEL_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\NOTIFICATIONCHANNEL_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\NOTIFICATIONINSTANCECHANNELS_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\NOTIFICATIONINSTANCECHANNELS_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\NOTIFICATIONINSTANCE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\NOTIFICATIONINSTANCE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\NOTIFICATIONITEMCATEGORIES_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\NOTIFICATIONITEMCATEGORIES_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\NOTIFICATIONITEM_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\NOTIFICATIONITEM_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\NOTIFICATIONUSER_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\NOTIFICATIONUSER_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\OUTPUT_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\OUTPUT_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\PEOPLEGROUPS_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\PEOPLEGROUPS_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\PEOPLE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\PEOPLE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\PGU_ENTI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\PGU_ENTI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\PGU_ENTI_UTENTI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\PGU_ENTI_UTENTI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\PGU_UTENTI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\PGU_UTENTI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\POLICY_CONSERVAZIONE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\POLICY_CONSERVAZIONE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\PROFILE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\PROFILE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\PROJECT2_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\PROJECT2_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\PROJECT_APPO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\PROJECT_APPO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\PROJECT_COMPONENTS_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\PROJECT_COMPONENTS_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\PROJECT_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\PROJECT_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\PUBBLICAZIONI_DOCUMENTI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\PUBBLICAZIONI_DOCUMENTI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\PUBLISHER_ERRORS_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\PUBLISHER_ERRORS_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\PUBLISHER_EVENTS_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\PUBLISHER_EVENTS_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\PUBLISHER_INSTANCES_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\PUBLISHER_INSTANCES_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\REMOTE_LIBRARIES_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\REMOTE_LIBRARIES_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\RUPD%24_DPA_ASSOCIAZIONE_TEM_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\RUPD%24_DPA_ASSOCIAZIONE_TEM_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\RUPD%24_DPA_CORR_GLOBALI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\RUPD%24_DPA_CORR_GLOBALI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\RUPD%24_DPA_DOC_ARRIVO_PAR_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\RUPD%24_DPA_DOC_ARRIVO_PAR_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\RUPD%24_DPA_OGGETTI_CUSTOM_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\RUPD%24_DPA_OGGETTI_CUSTOM_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\RUPD%24_DPA_OGG_CUSTOM_COMP_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\RUPD%24_DPA_OGG_CUSTOM_COMP_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\RUPD%24_DPA_TIPO_ATTO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\RUPD%24_DPA_TIPO_ATTO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\RUPD%24_DPA_TIPO_OGGETTO_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\RUPD%24_DPA_TIPO_OGGETTO_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\SECURITY_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\SECURITY_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\SEC_LOG_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\SEC_LOG_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\SIMPINTEROPDBLOG_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\SIMPINTEROPDBLOG_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\SIMPINTEROPRECEIVEDMESSAGE_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\SIMPINTEROPRECEIVEDMESSAGE_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\SUBSCRIBER_HISTORY_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\SUBSCRIBER_HISTORY_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\SUBSCRIBER_INSTANCES_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\SUBSCRIBER_INSTANCES_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\SUBSCRIBER_RULES_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\SUBSCRIBER_RULES_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\TEMP_LOG_JOBS_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\TEMP_LOG_JOBS_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\TMP_LOG_REPORT_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\TMP_LOG_REPORT_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\TMP_PRJ_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\TMP_PRJ_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\TMP_SECURITY_PREV_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\TMP_SECURITY_PREV_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\UTENTI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\UTENTI_LOGGATI_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\UTENTI_LOGGATI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\UTENTI_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\UTL_OUTPUT_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\UTL_OUTPUT_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\UTL_SYSTEM_LOG_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\UTL_SYSTEM_LOG_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\UTL_TRACK_AOORUOLORESP_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\UTL_TRACK_AOORUOLORESP_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\VERSIONS_CONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Constraints\VERSIONS_REFCONSTRAINT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DELETED_SECURITY.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DETT_DOPPI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DOCS_UNIQUE_KEYS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DOCUMENTTYPES.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_AMMINISTRA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_ANAGRAFICA_FUNZIONI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_ANAGRAFICA_LOG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_AREA_CONSERVAZIONE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_AREA_LAVORO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_ASSOCIAZIONE_TEMPLATES.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_ASSOCIAZIONE_VALORI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_ASS_ALLEGATO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_ASS_DIAGRAMMI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_ASS_DOC_MAIL_INTEROP.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_ASS_GRIDS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_ASS_INDX_SIS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_ASS_LETTERE_DOCUMENTI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_ASS_POLICY_PROFILAZIONE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_ASS_POLICY_TYPE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_ASS_PREGRESSI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_ASS_RUOLO_OGG_CUSTOM.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_ASS_TEMPLATES_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_ASS_VALORI_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_A_R_OGG_CUSTOM_DOC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_A_R_OGG_CUSTOM_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_CACHE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_CANALI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_CANALI_REG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_CARAT_TIMBRO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_CHECKIN_CHECKOUT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_CHIAVI_CONFIGURAZIONE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_CHIAVI_CONFIG_TEMPLATE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_CHIAVI_CONF_BKP20110909.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_CLIENT_MODEL_PROCESSORS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_COLL_MSPEDIZ_DOCUMENTO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_COLORE_TIMBRO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_CONFIG_ANAGRAFICA_ESTERNA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_CONFIG_CACHE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_CONSOLIDATED_DOCS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_CONS_VERIFICA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_CONTATORI_DOC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_CONTATORI_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_CONV_PDF_SERVER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_COPY_LOG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_CORR_ABILITATI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_CORR_GLOBALI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_CORR_GLO_X_INT_TIPI_RUO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_CORR_GRUPPO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_CORR_STO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_COUNT_TODOLIST.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_DATA_ARRIVO_STO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_DATI_SCARICATI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_DELEGHE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_DETT_GLOBALI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_DETT_POLICY_ESECUZIONE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_DIAGRAMMI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_DIAGRAMMI_STATO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_DIAGRAMMI_STO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_DISPOSITIVI_STAMPA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_DISSERVIZI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_DOCSPA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_DOC_ARRIVO_PAR.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_DOC_AR_PAR_AP_S112.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_DOC_COLLEGAMENTI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_ELENCO_NOTE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_EL_REGISTRI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_FASCICOLAZIONE_CARTACEA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_FIRMATARI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_FIRMA_VERS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_FORMATI_DOCUMENTO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_FORMATTA_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_FORMATTA_SEGN.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_FRIEND_APPLICATION.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_FUNZIONI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_FUNZIONI_20120309.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_GRIDS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_INDX_SIS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_ITEMS_CONSERVAZIONE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_LDAP_CONFIG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_LDAP_SYNC_HISTORY.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_LEGISLATURE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_LETTERE_DOCUMENTI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_LISTE_DISTR.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_LOCK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_LOG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_LOGIN.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_LOG_ATTIVATI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_LOG_INSTALL.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_LOG_STORICO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_L_AOO_UO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_L_RUOLO_REG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_MAIL_CORR_ESTERNI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_MAIL_ELABORATE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_MAIL_REGISTRI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_MODELLI_DELEGA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_MODELLI_DEST_CON_NOTIFICA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_MODELLI_MITT_DEST.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_MODELLI_TRASM.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_NOTE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_NOTIFICA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_OBJECTS_SYNC_PENDING.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_OGGETTARIO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_OGGETTI_CUSTOM.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_OGGETTI_CUSTOM_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_OGGETTI_STO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_OGG_CUSTOM_COMP.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_OGG_CUSTOM_COMP_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_PAROLE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_PASSI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_PEOPLEGROUPS_QUALIFICHE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_POLICY_ESECUZIONE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_POSIZ_TIMBRO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_PREGRESSI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_PROFIL_FASC_STO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_PROFIL_STO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_PROF_PAROLE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_PROTO_TIT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_PR_DOCXSEDE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_QUALIFICA_CORRISPONDENTE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_QUALIFICHE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_RAGIONE_TRASM.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_REGISTRI_REPERTORIO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_REGISTRO_STO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_REG_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_REG_PROTO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_RISCONTRI_CLASSIFICA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_ROLE_HISTORY.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_RUOE_UTENTE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_SALVA_RICERCHE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_SERVER_POSTA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_STAMPAREGISTRI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_STAMPA_REPERTORI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_STATI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_STATO_INVIO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_SUPPORTO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_TEMPLATES.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_TEMPL_TRASM.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_THEMES.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_TIMESTAMP_DOC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_TIPO_ATTO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_TIPO_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_TIPO_FUNZIONE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_TIPO_FUNZIONE_20120309.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_TIPO_F_RUOLO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_TIPO_NOTIFICA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_TIPO_OGGETTO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_TIPO_OGGETTO_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_TIPO_RUOLO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_TIPO_SUPPORTO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_TODOLIST.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_TRASMISSIONE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_TRASM_DIAGR.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_TRASM_SINGOLA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_TRASM_UTENTE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_T_CANALE_CORR.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_UO_REG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_UO_SMISTAMENTO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_USERADMIN.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_USERADMIN_REGISTRI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_USERADMIN_VOCI_MENU.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_VIS_ANOMALA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_VIS_MAIL_REGISTRI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_VIS_TIPO_DOC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_VIS_TIPO_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\DPA_VOCI_MENU_ADMIN.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\ELEMENTIRUBRICA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Elenco\Generato-20120606170310.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\EMAILS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\GROUPS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\COD_RUBRICA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\DOCTYPESCU.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\DPA_ASSOCIAZIONE_TEMPL_INDX01.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\DPA_ASS_GRIDS_PK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\DPA_ASS_TEMPL_FASC_INDX01.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\DPA_CHIAVI_CONFIG_IDX.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\DPA_CHIAVI_CONFIG_TEMPLATE_PK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\DPA_CHIAVI_CONFIG_TEMPLATE_U01.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\DPA_CLIENT_MODEL_PROCESSORS_PK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\DPA_CONS_VERIFICA_PK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\DPA_COPY_LOG_PK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\DPA_CORR_ABILITATI_PK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\DPA_LDAP_SYNC_HISTORY_PK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\DPA_MODELLI_DELEGA_PK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\DPA_MODELLI_DEST_CON_NOTIFI_PK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\DPA_SUPPORTO_PK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\DPA_TIPO_SUPPORTO_PK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\DPA_VIS_TIPO_DOC_U01.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\DPA_VIS_TIPO_FASC_R01.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\DPA_VOCI_MENU_ADMIN_U01.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\DR%24INDX_DESC_CORR_TEXT%24X.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\DR%24INDX_OGG_TEXT%24X.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\Elenco\Generato-20120606171003.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\EMAIL_PK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\GROUPSCU.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\GROUPS_PK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\IDX_DPA_DOC_ARRIVO_PAR.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\IDX_DPA_OGGETTARIO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\IDX_PEOPLE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\IDX_PGU_ENTI_NOME.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDEX_MV_PROSPETTI_DOCGRIGI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_ANAFUNZ1.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_AREALAV.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_AREALAV2.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_AREA_CONS_PK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_ASS_TEMPL1.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_ASS_TEMPL_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_CANALECORR1.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_CHA_APPLICAZIONE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_COMP1.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_COMP2.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_CORRGLOB1.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_CORRGLOB3.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_CORRGLOB5.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_CORRGLOB6.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_CORRGLOB8.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_CORRGLOB9.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_CORR_GLOB_TIPO_CORR.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_CORR_GLOB_TIPO_IE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_CORR_TIPOURP.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_DEL_SEC5.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_DEL_SEC6.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_DEL_SEQ_PK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_DESC_CORR_TEXT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_DETTGLOB2.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_DOCARRPAR.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_DOCARRPAR2.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_DOCARRPAR3.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_DPASTATOINVIO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_DPA_ASS_RUOLO_OGG_CUSTOM.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_DPA_A_R_DOC1.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_DPA_A_R_FASC1.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_DPA_CARAT_TIMBRO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_DPA_COLORE_TIMBRO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_DPA_POSIZ_TIMBRO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_DPA_TODOLIST_PEOPLE_DEST.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_DTA_CREAZIONE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_DTA_EME.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_DTA_ULTIMO_SCARICO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_FASC_CARTACEA_ID_DOC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_FASC_CARTACEA_PK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_FASC_CARTACEA_PROJ_ID.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_FASC_CARTACEA_PROJ_VERS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_FASC_CARTACEA_VERS_ID.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_FUNZ1.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_ID_CORR_GLOBALE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_ID_OGG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_ID_PARENT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_ID_PEOPLE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_ID_RUOLO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_ID_ULTIMO_DOC_SCARICATO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_ID_UTENTE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_ITEMS_CONS_PK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_LO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_LO2.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_OGG2.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_OGG_TEXT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PEOPLE2.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PEOPLE3.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PEOPLEGROUP1.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PEOPLEGROUP2.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PEOPLE_PK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROFILE1.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROFILE10.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROFILE11.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROFILE12.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROFILE13.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROFILE2.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROFILE3.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROFILE4.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROFILE5.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROFILE6.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROFILE7.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROFILE8.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROFILE9.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROFILE_DATA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROFILE_DOC_PRINC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROFILE_PK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROFILE_TIME.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROF_PAROLE1.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROJ10.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROJ11.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROJ2.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROJ3.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROJ4.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROJ5.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROJ6.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROJ7.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROJ8.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROJ9.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROJECTCOMP1.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROJECTCOMP2.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROJECT_PK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROJ_UNIQUE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_PROTO_EME.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_REG_FASC1.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_RUOLOREG1.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_RUOLOREG2.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_SEC5.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_SEC6.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_SEC_PK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_STAMPA1.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_TESTO_NOTE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_TIPOFUNRUOLO1.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_TIPOFUNRUOLO2.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_TRASM2.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_TRASM3.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_TRASM4.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_TRASM5.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_TRASM6.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_TRASMSING1.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_TRASMSING2.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_TRASMSING3.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_TRASMSING4.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_TRASMUTE1.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_TRASMUTE2.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_TRASM_UTENTE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_TS_STAMPA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_UPPER_TESTO_NOTE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_UPPER_VAR_CODICE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_UPPER_VAR_COD_RUBRICA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_UPPER_VAR_DESC_CORR.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_UPPER_VAR_DESC_OGGETTO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_UPPER_VAR_PROF_OGGETTO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_VAR_SEGN.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_VERSIONS1.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_VERSIONS2.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\INDX_VERSIONS3.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\IND_NOTIFICA_K3.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\IX_DPA_LDAP_CONFIG_ID_AMM.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\IX_ER_CODICE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\IX_ER_DESCRIZIONE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\IX_ER_IDUTENTECREATORE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\IX_PGU_UTENTI_NAME.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\IX_T_DPA_ASS_ALLEGATOK2.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\IX_T_DPA_ASS_PREGRESSIK2.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\IX_T_DPA_PREGRESSIK1.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\IX_UT_NOME.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\NETWORK_ALIASESU.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PGU_ENTI_PK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PGU_ENTI_UTENTI_PK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PGU_UTENTI_PK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_ASSOCIAZIONE_TEMPLATES.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_ASSOCIAZIONE_VALORI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_ASS_INDX_SIS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_ASS_RUOLO_OGG_CUSTOM.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_ASS_TEMPLATES_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_ASS_VALORI_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_A_R_OGG_CUSTOM_DOC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_A_R_OGG_CUSTOM_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_CHECKIN_CHECKOUT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_CONV_PDF_SERVER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_DELEGHE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_DIAGRAMMI_DOC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_DIAGRAMMI_STATO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_DIAGRAMMI_STO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_ELENCO_NOTE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_FORMATI_DOCUMENTO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_FRIEND_APPLICATION.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_GRIDS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_INDX_SIS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_OGGETTI_CUSTOM.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_OGGETTI_CUSTOM_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_OGG_CUSTOM_COMP.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_OGG_CUSTOM_COMP_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_PASSI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_PROTO_TIT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_RISCONTRI_CLASSIFICA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_SALVA_RICERCHE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_STATI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_TIMESTAMP_DOC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_TIPODOC_DS_TEMPL.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_TIPO_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_TIPO_OGGETTO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_TIPO_OGGETTO_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_TRASM_DIAGR.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_VIS_TIPO_DOC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_VIS_TIPO_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_DPA_VOCI_MENU_ADMIN.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_ELEMENTIRUBRICA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PK_UTENTI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PUBLISHER_EVENTS_PK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PUBLISHER_INSTANCES_PK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PUBLISH_ERRORS_PK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PUBLISH_HISTORY_PK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PUBLISH_INSTANCES_PK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\PUBLISH_RULES_PK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\REMOTE_LIBSCU.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\UIPROF.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\UPPER_APPL.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Indexes\U_SALVARIC_NOME.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\INTEROPERABILITYSETTINGS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\MV_DOCUMENTI_CUSTOM.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\MV_PROSPETTI_DOCCLASSCOMP_ALL.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\MV_PROSPETTI_DOCCLASS_ALL.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\MV_PROSPETTI_DOCGRIGI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\MV_PROSPETTI_DOCGRIGICLASS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\MV_PROSPETTI_DOCUMENTI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\MV_PROSPETTI_DOCUMENTICLASS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\MV_PROSPETTI_DOCUMENTICLASSUO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\NETWORK_ALIASES.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\NEW\ALTER_PROFILE.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\NEW\ALTER_PROJECT.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\NEW\CREATE_DPA_EXT_APPS.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\NEW\CREATE_DPA_REL_PEOPLE_EXTAPPS.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\NOTIFICATIONCHANNEL.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\NOTIFICATIONINSTANCE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\NOTIFICATIONINSTANCECHANNELS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\NOTIFICATIONITEM.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\NOTIFICATIONITEMCATEGORIES.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\NOTIFICATIONUSER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\OUTPUT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\PEOPLE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\PEOPLEGROUPS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\PGU_ENTI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\PGU_ENTI_UTENTI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\PGU_UTENTI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\POLICY_CONSERVAZIONE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\PROFILE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\PROJECT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\PROJECT_COMPONENTS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\PUBBLICAZIONI_DOCUMENTI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\PUBLISHER_ERRORS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\PUBLISHER_EVENTS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\PUBLISHER_INSTANCES.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\REMOTE_LIBRARIES.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\SECURITY.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\SEC_LOG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\SIMPINTEROPDBLOG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\SIMPINTEROPRECEIVEDMESSAGE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\SUBSCRIBER_HISTORY.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\SUBSCRIBER_INSTANCES.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\SUBSCRIBER_RULES.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\TEMP_LOG_JOBS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Triggers\Elenco\Generato-20120606152602.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Triggers\MODCOUNTDOCINMNGRTBL.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Triggers\REMOVEREGFROMREPERTORITABLE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Triggers\ROLEHISTORYCREATE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Triggers\ROLEHISTORYDELETE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Triggers\ROLEHISTORYMODIFY.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Triggers\TRACK_RUOLORESP_REGISTRI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Triggers\TR_INSERT_DPA_TODOLIST.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Triggers\TR_UPDATE_DPA_TODOLIST.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Triggers\UPDATEREPERTORITABLE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\UTENTI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\UTENTI_LOGGATI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\UTL_OUTPUT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\UTL_SYSTEM_LOG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\UTL_TRACK_AOORUOLORESP.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\VERSIONE\insert_dpa_docspa.MSSQL.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\VERSIONS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="table_async_mailbox.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Trigger_su_LOG.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Update Apps.SQLSERVER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UpdateOra.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UpdateSql.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Update_APPS.MSSQL_old.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Update_APPS.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UPDATE_DPA_AMMINISTRA.MSSQL.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UPDATE_DPA_AMMINISTRA.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UPDATE_DPA_AMMINISTRA.SQLSERVER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="utl_add_column.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="utl_add_foreign_key.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="utl_add_index.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Utl_Backup_Sp.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Utl_Insert_Chiave_Config.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Utl_Insert_Chiave_Config.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Utl_insert_chiave_log.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Utl_Insert_Chiave_Microfunz.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="utl_insert_log.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Utl_Isvalore_Lt_Column.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="utl_rename_column.ORA.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="versions.xml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\DPA_V_DOCUMENTI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\DPA_V_DOC_TRASM.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\DPA_V_LOGS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\DPA_V_TXFASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\Elenco\Generato-20120606153508.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\RDE_AUTORIZZAZIONE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\RDE_AUTORIZZAZIONE_2.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\RDE_REGISTRO.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\RDE_REGISTRO_2.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\RDE_UTENTE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\RDE_UTENTE_2.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\VS01_DOC_CREATI_DA_UT_DELL_RF.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\VS02_UT_NELL_RF.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\VS04_BIS_ANNULLATI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\VS04_DOC_IN_OUT_INT_GRI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\VS05_PERC_DOC_ACQUISITI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\VS06_DOC_SENZA_ALLEGATI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\VS07_NUM_DOC_CON_ALLEGATI.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\VS08_NUM_DOC_CON_CORR_OCCAS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\VS09_NUM_VISUALIZ_FILES.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\VS10_NUM_DOC_NON_TRASMES.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\VS11A_GIACENZA_MEDIA_CON_WF.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\VS11B_GIACENZA_MEDIA_SENZA_WF.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\VS12_N_TRASM_OLDER_THAN_30.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\VS13_NUM_MEDIO_DOC_IN_FASC.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\V_TRASMISSIONE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\V_VISIBILITA_PROT.sql">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+</Project>

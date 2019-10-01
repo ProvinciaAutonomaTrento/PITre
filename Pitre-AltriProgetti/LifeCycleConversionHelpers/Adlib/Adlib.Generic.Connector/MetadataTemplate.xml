@@ -1,0 +1,122 @@
+﻿<?xml version="1.0"?>
+<MetadataTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<MetadataDefinitionList>
+  <MetadataDefinition>
+ 	<Name>NewMetadataItem</Name>
+	<ValueList>
+		<Value>NewMetadataValue</Value>
+	</ValueList>
+	<CanEditName>true</CanEditName>
+	<CanEditValue>true</CanEditValue>
+	<Description>Define your own Name/Value/Data.</Description>
+  </MetadataDefinition>
+  <MetadataDefinition>
+    <Name>Adlib.Schemas.Engines.ConvertToHtml.Job.Pdf</Name>
+    <ValueList>
+      <Value><![CDATA[<Pdf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.adlibsoftware.com" />]]></Value>
+    </ValueList>
+    <CanEditName>false</CanEditName>
+    <CanEditValue>true</CanEditValue>
+    <Description></Description>
+  </MetadataDefinition>
+  <MetadataDefinition>
+    <Name>Adlib.Schemas.Engines.ConvertToPdf.Job.Cad</Name>
+    <ValueList>
+      <Value>
+        <![CDATA[<Cad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.adlibsoftware.com">
+  <CreateLayers>true</CreateLayers>
+</Cad>]]></Value>
+    </ValueList>
+    <CanEditName>false</CanEditName>
+    <CanEditValue>true</CanEditValue>
+    <Description></Description>
+  </MetadataDefinition>
+  <MetadataDefinition>
+    <Name>Adlib.Schemas.Engines.ConvertToJpeg.Job.Pdf</Name>
+    <ValueList>
+      <Value>
+        <![CDATA[<Pdf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.adlibsoftware.com">
+  <Resolution>300</Resolution>
+  <ColorDepth>Grayscale</ColorDepth>
+</Pdf>]]>
+      </Value>
+    </ValueList>
+    <CanEditName>false</CanEditName>
+    <CanEditValue>true</CanEditValue>
+    <Description></Description>
+  </MetadataDefinition>
+  <MetadataDefinition>
+    <Name>Adlib.Schemas.Engines.ConvertToPdf.Job.MicrosoftWord</Name>
+    <ValueList>
+      <Value>
+        <![CDATA[<MicrosoftWord xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.adlibsoftware.com">
+  <Fonts>
+    <Embedding>Full</Embedding>
+  </Fonts>
+  <Images>
+    <Compression>High</Compression>
+    <Resolution>300dpi</Resolution>
+  </Images>
+  <Viewer>
+    <Review>
+      <Display>Final</Display>
+      <Markup>
+        <Comments>true</Comments>
+      </Markup>
+    </Review>
+  </Viewer>
+  <Hyperlinks />
+  <Bookmarks />
+</MicrosoftWord>]]>
+      </Value>
+    </ValueList>
+    <CanEditName>false</CanEditName>
+    <CanEditValue>true</CanEditValue>
+    <Description></Description>
+  </MetadataDefinition>
+  <MetadataDefinition>
+    <Name>Adlib.Schemas.Engines.PdfProcessing.Job.Footer.Example1</Name>
+    <ValueList>
+      <Value>
+        <![CDATA[<Footer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.adlibsoftware.com">
+  <Text>
+    <Left>Left footer</Left>
+    <Center>Center footer</Center>
+    <Right>Right footer</Right>
+  </Text>
+</Footer>]]>
+      </Value>
+    </ValueList>
+    <CanEditName>true</CanEditName>
+    <CanEditValue>true</CanEditValue>
+    <Description></Description>
+  </MetadataDefinition>
+  <MetadataDefinition>
+    <Name>Adlib.Schemas.Engines.PdfProcessing.Job.Header.Example1</Name>
+    <ValueList>
+      <Value>
+        <![CDATA[<Header xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.adlibsoftware.com">
+  <Text>
+    <Left>Header Left</Left>
+    <Center>Header Center</Center>
+    <Right>Header Right</Right>
+  </Text>
+</Header>]]>
+      </Value>
+    </ValueList>
+    <CanEditName>true</CanEditName>
+    <CanEditValue>true</CanEditValue>
+    <Description></Description>
+  </MetadataDefinition>
+  <MetadataDefinition>
+    <Name>Adlib.SystemManager.YourName.XmlJobTicketTemplate</Name>
+    <ValueList>
+      <Value></Value>
+    </ValueList>
+    <CanEditName>true</CanEditName>
+    <CanEditValue>true</CanEditValue>
+    <Description>Job Ticket Templates (JTTs) are used when there is a need to include Document Transformation  (DT) with any number of settings for a Job without having to store it in the rule engine. The JTT must be specified in the Data field below. One or more JTT can be included as part of a Job. These are merged together with any JTT resulting from the rules execution based on the metadata sent with the Job. Each JTT metadata name (i.e. Adlib.SystemManager.YourName.XmlJobTicketTemplate) must be unique (e.g. Adlib.SystemManager.MyName1.XmlJobTicketTemplate, Adlib.SystemManager.MyName2.XmlJobTicketTemplate, etc) for each JTT to be used, otherwise the last one will be the only one to take effect since it will overwrite each prior one. Refer to the Express XML Job Ticket User Guide for additional information regarding JTTs.</Description>
+  </MetadataDefinition>
+</MetadataDefinitionList>
+</MetadataTemplate>
+

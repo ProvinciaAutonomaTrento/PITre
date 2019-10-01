@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://efis638/Vt-Docs/DocsPaWS/Mobile/VTDocsWSMobile.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" />
+  <xs:import schemaLocation="http://efis638/Vt-Docs/DocsPaWS/Mobile/VTDocsWSMobile.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" />
+  <xs:element name="beIsReady">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="beIsReadyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="beIsReadyResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="login">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="loginRequest" nillable="true" type="q1:LoginRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="loginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="loginResult" nillable="true" type="q2:LoginResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="logout">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="logoutRequest" nillable="true" type="q3:LogoutRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="logoutResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="logoutResult" nillable="true" type="q4:LogoutResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getTodoList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q5:ToDoListRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getTodoListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="getTodoListResult" nillable="true" type="q6:ToDoListResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="checkConnection">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="checkConnectionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="checkConnectionResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDocInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q7:GetDocInfoRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDocInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="getDocInfoResult" nillable="true" type="q8:GetDocInfoResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q9:GetFileRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="getFileResult" nillable="true" type="q10:GetFileResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPreview">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q11:GetPreviewRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPreviewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="getPreviewResult" nillable="true" type="q12:GetPreviewResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ADLAction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q13:ADLActionRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ADLActionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="ADLActionResult" nillable="true" type="q14:ADLActionResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getFascInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q15:GetFascInfoRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getFascInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="getFascInfoResult" nillable="true" type="q16:GetFascInfoResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ricerca">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q17:RicercaRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ricercaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="ricercaResult" nillable="true" type="q18:RicercaResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRicercheSalvate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q19:GetRicSalvateRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRicercheSalvateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="getRicercheSalvateResult" nillable="true" type="q20:GetRicSalvateResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCountDelegheAttive">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q21:CountDelegheAttiveRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCountDelegheAttiveResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="getCountDelegheAttiveResult" nillable="true" type="q22:CountDelegheAttiveResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getListaDeleghe">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q23:DelegheRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getListaDelegheResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="getListaDelegheResult" nillable="true" type="q24:DelegheResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getListaModelliDelega">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q25:ListaModelliDelegaRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getListaModelliDelegaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="getListaModelliDelegaResult" nillable="true" type="q26:ListaModelliDelegaResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="creaDelegaDaModello">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q27:CreaDelegaDaModelloRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="creaDelegaDaModelloResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="creaDelegaDaModelloResult" nillable="true" type="q28:CreaDelegaDaModelloResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="creaDelega">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q29:CreaDelegaRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="creaDelegaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="creaDelegaResult" nillable="true" type="q30:CreaDelegaResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="accettaDelega">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q31:AccettaDelegaRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="accettaDelegaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="accettaDelegaResult" nillable="true" type="q32:AccettaDelegaResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="dismettiDelega">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q33:DismettiDelegaRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="dismettiDelegaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="dismettiDelegaResult" nillable="true" type="q34:DismettiDelegaResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="revocaDeleghe">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q35:RevocaDelegheRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="revocaDelegheResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="revocaDelegheResult" nillable="true" type="q36:RevocaDelegheResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ricercaUtenti">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q37:RicercaUtentiRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ricercaUtentiResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="ricercaUtentiResult" nillable="true" type="q38:RicercaUtentiResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getListaRuoli">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q39:ListaTipiRuoloRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getListaRuoliResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="getListaRuoliResult" nillable="true" type="q40:ListaTipiRuoloResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getListaUtenti">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q41:ListaUtentiRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getListaUtentiResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="getListaUtentiResult" nillable="true" type="q42:ListaUtentiResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="accettaRifiutaTrasm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q43:AccettaRifiutaTrasmRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="accettaRifiutaTrasmResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="accettaRifiutaTrasmResult" nillable="true" type="q44:AccettaRifiutaTrasmResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getListaModelliTrasm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q45:ListaModelliTrasmRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getListaModelliTrasmResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="getListaModelliTrasmResult" nillable="true" type="q46:ListaModelliTrasmResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="eseguiTrasm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q47:EseguiTrasmRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="eseguiTrasmResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="eseguiTrasmResult" nillable="true" type="q48:EseguiTrasmResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ricercaSmistamento">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q49:RicercaSmistamentoRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ricercaSmistamentoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="ricercaSmistamentoResult" nillable="true" type="q50:RicercaSmistamentoResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="aggiungiSmistamentoElement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q51:RicercaSmistamentoRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="aggiungiSmistamentoElementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="aggiungiSmistamentoElementResult" nillable="true" type="q52:RicercaSmistamentoResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getSmistamentoTree">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q53:GetSmistamentoTreeRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getSmistamentoTreeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="getSmistamentoTreeResult" nillable="true" type="q54:GetSmistamentoTreeResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getSmistamentoElements">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q55:GetSmistamentoElementsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getSmistamentoElementsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="getSmistamentoElementsResult" nillable="true" type="q56:GetSmistamentoElementsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="eseguiSmistamento">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q57:EseguiSmistamentoRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="eseguiSmistamentoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="eseguiSmistamentoResult" nillable="true" type="q58:EseguiSmistamentoResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="hsmSign">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q59:HSMSignRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="hsmSignResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="hsmSignResult" nillable="true" type="q60:HSMSignResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="hsmRequestOTP">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q61:HSMSignRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="hsmRequestOTPResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="hsmRequestOTPResult" nillable="true" type="q62:HSMSignResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="hsmVerifySign">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q63:HSMSignRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="hsmVerifySignResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="hsmVerifySignResult" nillable="true" type="q64:HSMSignResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="hsmInfoSign">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q65:HSMSignRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="hsmInfoSignResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="hsmInfoSignResult" nillable="true" type="q66:HSMSignResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="hsmInfoMemento">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" minOccurs="0" name="request" nillable="true" type="q67:HSMSignRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="hsmInfoMementoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" minOccurs="0" name="hsmInfoMementoResult" nillable="true" type="q68:HSMSignResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

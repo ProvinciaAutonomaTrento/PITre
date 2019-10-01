@@ -1,0 +1,999 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A8BA40A6-AB86-4DF7-8C0F-8A9BBB7EE885}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>DocsPaVO</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>DocsPaVO</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <PublishUrl>http://localhost/DocsPaVO/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\..\DLL_TERZE_PARTI\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\VersionInfo.cs">
+      <Link>VersionInfo.cs</Link>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="addressbook\CorrespondentDetails.cs" />
+    <Compile Include="addressbook\DettagliCorrispondente.cs">
+      <DependentUpon>DettagliCorrispondente.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="addressbook\DettagliCorrispondente.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DettagliCorrispondente.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="addressbook\QueryCorrispondente.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="addressbook\QueryCorrispondenteAutorizzato.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="addressbook\TipoUtente.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="amministrazione\AlertConservazione.cs" />
+    <Compile Include="amministrazione\Assertion.cs" />
+    <Compile Include="amministrazione\ChiaveConfigurazione.cs" />
+    <Compile Include="amministrazione\Configurazione.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="amministrazione\Diagnostics.cs" />
+    <Compile Include="amministrazione\DispositivoStampaEtichetta.cs" />
+    <Compile Include="amministrazione\Disservizio.cs" />
+    <Compile Include="amministrazione\DocumentoStatoFinale.cs" />
+    <Compile Include="amministrazione\CasellaRegistro.cs" />
+    <Compile Include="amministrazione\MetodoPIS.cs" />
+    <Compile Include="amministrazione\RightRuoloMailRegistro.cs" />
+    <Compile Include="amministrazione\SaveChangesToRoleReport.cs" />
+    <Compile Include="amministrazione\SaveChangesToRoleRequest.cs" />
+    <Compile Include="amministrazione\SaveChangesToRoleResponse.cs" />
+    <Compile Include="amministrazione\SistemaEsterno.cs" />
+    <Compile Include="amministrazione\VisualizzaStatoDoc.cs" />
+    <Compile Include="areaConservazione\AreaConservazioneValidationResult.cs" />
+    <Compile Include="areaConservazione\ChiaveVersamento.cs" />
+    <Compile Include="areaConservazione\esitoCons.cs" />
+    <Compile Include="areaConservazione\InfoEsibizione.cs" />
+    <Compile Include="areaConservazione\InputMarca.cs" />
+    <Compile Include="areaConservazione\InvalidItemConservazione.cs" />
+    <Compile Include="areaConservazione\ItemsEsibizione.cs" />
+    <Compile Include="areaConservazione\ItemsVersamento.cs" />
+    <Compile Include="areaConservazione\OutputResponseMarca.cs" />
+    <Compile Include="areaConservazione\ReportFormatiConservazione.cs" />
+    <Compile Include="areaConservazione\StampaConservazione.cs" />
+    <Compile Include="areaConservazione\StampaRegistro.cs" />
+    <Compile Include="areaLavoro\ResultAddAreaLavoro.cs" />
+    <Compile Include="areaLavoro\WorkingArea.cs" />
+    <Compile Include="Caching\CacheConfig.cs" />
+    <Compile Include="Caching\InfoFileCaching.cs" />
+    <Compile Include="Conservazione\ElListaPolicy.cs" />
+    <Compile Include="Conservazione\ExecutionPolicy.cs" />
+    <Compile Include="Conservazione\PARER\BigFiles\InvioOggettoAsincrono.cs" />
+    <Compile Include="Conservazione\PARER\BigFiles\NotificaAvvenutoTrasferimento.cs" />
+    <Compile Include="Conservazione\PARER\EsecuzionePolicy.cs" />
+    <Compile Include="Conservazione\PARER\Mailbox.cs" />
+    <Compile Include="Conservazione\PARER\PolicyPARER.cs" />
+    <Compile Include="Conservazione\PARER\ReportConfiguration.cs" />
+    <Compile Include="Conservazione\PARER\Report\ReportMonitoraggioPolicyRequest.cs" />
+    <Compile Include="Conservazione\PARER\Report\ReportMonitoraggioPolicyResponse.cs" />
+    <Compile Include="Conservazione\PARER\Report\ReportSingolaAmmRequest.cs" />
+    <Compile Include="Conservazione\PARER\Report\ReportSingolaAmmResponse.cs" />
+    <Compile Include="Conservazione\PARER\StatoVersamento.cs" />
+    <Compile Include="Conservazione\Policy.cs" />
+    <Compile Include="Conservazione\Rapporto\Allegato.cs" />
+    <Compile Include="Conservazione\Rapporto\Documento.cs" />
+    <Compile Include="Conservazione\Rapporto\File.cs" />
+    <Compile Include="Conservazione\Rapporto\RapportoVersamento.cs" />
+    <Compile Include="Conservazione\Rapporto\Tipologia.cs" />
+    <Compile Include="Conservazione\Rapporto\Versatore.cs" />
+    <Compile Include="Conservazione\RegistroCons.cs" />
+    <Compile Include="Deposito\ARCHIVE_AUTH_Authorization_Result.cs" />
+    <Compile Include="Deposito\ARCHIVE_AUTH_AuthorizedObject.cs" />
+    <Compile Include="Deposito\ARCHIVE_AUTH_Authorization.cs" />
+    <Compile Include="Deposito\ARCHIVE_AUTH_grid_document.cs" />
+    <Compile Include="Deposito\ARCHIVE_AUTH_grid_project.cs" />
+    <Compile Include="Deposito\ARCHIVE_Disposal.cs" />
+    <Compile Include="Deposito\ARCHIVE_DisposalForSearch.cs" />
+    <Compile Include="Deposito\ARCHIVE_DisposalState.cs" />
+    <Compile Include="Deposito\ARCHIVE_DisposalStateType.cs" />
+    <Compile Include="Deposito\ARCHIVE_JOB_Disposal.cs" />
+    <Compile Include="Deposito\ARCHIVE_JOB_Transfer.cs" />
+    <Compile Include="Deposito\ARCHIVE_JOB_TransferPolicy.cs" />
+    <Compile Include="Deposito\ARCHIVE_LOG_TransferAndPolicy.cs" />
+    <Compile Include="Deposito\ARCHIVE_Result_Transfer.cs" />
+    <Compile Include="Deposito\ARCHIVE_Profile_TransferPolicy.cs" />
+    <Compile Include="Deposito\ARCHIVE_Transfer.cs" />
+    <Compile Include="Deposito\ARCHIVE_TransferForSearch.cs" />
+    <Compile Include="Deposito\ARCHIVE_TransferPolicy.cs" />
+    <Compile Include="Deposito\ARCHIVE_TransferPolicyType.cs" />
+    <Compile Include="Deposito\ARCHIVE_TransferPolicy_ProfileType.cs" />
+    <Compile Include="Deposito\ARCHIVE_TransferState.cs" />
+    <Compile Include="Deposito\ARCHIVE_TransferStateType.cs" />
+    <Compile Include="Deposito\ARCHIVE_View_DocFascReport.cs" />
+    <Compile Include="Deposito\ARCHIVE_View_DocReport.cs" />
+    <Compile Include="Deposito\ARCHIVE_View_DocReportDisposal.cs" />
+    <Compile Include="Deposito\ARCHIVE_View_Documents_Policy.cs" />
+    <Compile Include="Deposito\ARCHIVE_View_FascReport.cs" />
+    <Compile Include="Deposito\ARCHIVE_View_FascReportDisposal.cs" />
+    <Compile Include="Deposito\ARCHIVE_View_Policy.cs" />
+    <Compile Include="Deposito\ARCHIVE_View_Projects_Policy.cs" />
+    <Compile Include="DesktopApps\DesktopApp.cs" />
+    <Compile Include="DiagrammaStato\AssPhaseStatoDiagramma.cs" />
+    <Compile Include="DiagrammaStato\AssRuoloStatiDiagramma.cs" />
+    <Compile Include="DiagrammaStato\Phases.cs" />
+    <Compile Include="documento\Allegato.cs" />
+    <Compile Include="documento\AnelloDocumentale.cs" />
+    <Compile Include="documento\AnteprimaPdf.cs" />
+    <Compile Include="documento\Applicazione.cs" />
+    <Compile Include="documento\BaseInfoDoc.cs" />
+    <Compile Include="documento\CessioneDocumento.cs" />
+    <Compile Include="documento\CreatoreDocumento.cs" />
+    <Compile Include="documento\DatiEmergenza.cs" />
+    <Compile Include="documento\DirittoOggetto.cs" />
+    <Compile Include="documento\DocumentConsolidation.cs" />
+    <Compile Include="documento\Documento.cs" />
+    <Compile Include="documento\DocumentoStoricoDataArrivo.cs" />
+    <Compile Include="documento\DocumentoVisualizzato.cs" />
+    <Compile Include="documento\EtichettaInfo.cs" />
+    <Compile Include="documento\FascicolazioneTipiDocumento.cs" />
+    <Compile Include="documento\FileDocumento.cs" />
+    <Compile Include="documento\FileDocumentoAnteprima.cs" />
+    <Compile Include="documento\FileInformation.cs" />
+    <Compile Include="documento\FileRequest.cs" />
+    <Compile Include="documento\FirmaResult.cs" />
+    <Compile Include="documento\Firmatario.cs" />
+    <Compile Include="documento\InfoDocumento.cs" />
+    <Compile Include="documento\InfoDocumentoExport.cs" />
+    <Compile Include="documento\InfoProtocolloDuplicato.cs" />
+    <Compile Include="documento\labelPdf.cs" />
+    <Compile Include="documento\LogDocumento.cs" />
+    <Compile Include="documento\ObjServerPdfConversion.cs" />
+    <Compile Include="documento\Oggetto.cs" />
+    <Compile Include="documento\ParolaChiave.cs" />
+    <Compile Include="documento\Protocollatore.cs" />
+    <Compile Include="documento\Protocollo.cs" />
+    <Compile Include="documento\ProtocolloAnnullato.cs" />
+    <Compile Include="documento\ProtocolloDestinatario.cs" />
+    <Compile Include="documento\ProtocolloEmergenza.cs" />
+    <Compile Include="documento\ProtocolloEmergenzaGrigi.cs" />
+    <Compile Include="documento\ProtocolloEntrata.cs" />
+    <Compile Include="documento\ProtocolloInterno.cs" />
+    <Compile Include="documento\ProtocolloUscita.cs" />
+    <Compile Include="documento\QueryOggetto.cs" />
+    <Compile Include="documento\ResultFascicolazione.cs" />
+    <Compile Include="documento\ResultProtocollazione.cs" />
+    <Compile Include="documento\RicercaDuplicati.cs" />
+    <Compile Include="documento\SchedaDocumento.cs" />
+    <Compile Include="documento\SessionRepositoryContext.cs" />
+    <Compile Include="documento\StampaRegistroResult.cs" />
+    <Compile Include="documento\StatoDocumento.cs" />
+    <Compile Include="documento\StoriaDirittoDocumento.cs" />
+    <Compile Include="documento\Storico.cs" />
+    <Compile Include="documento\StoricoMittente.cs" />
+    <Compile Include="documento\StoricoOggetto.cs" />
+    <Compile Include="documento\Tab.cs" />
+    <Compile Include="documento\TimestampDoc.cs" />
+    <Compile Include="documento\TipoDiritto.cs" />
+    <Compile Include="documento\TipoFirma.cs" />
+    <Compile Include="documento\TipologiaAtto.cs" />
+    <Compile Include="documento\TipologiaCanale.cs" />
+    <Compile Include="documento\VerifySignatureResult.cs" />
+    <Compile Include="ExternalServices\Ctrl_Stmp_Rep.cs" />
+    <Compile Include="ExternalServices\EventoCDS.cs" />
+    <Compile Include="ExternalServices\FileFtpUpInfo.cs" />
+    <Compile Include="ExternalServices\FornitoreFattAttiva.cs" />
+    <Compile Include="ExternalServices\MIBACT_Bacheca_info.cs" />
+    <Compile Include="ExternalServices\MIGR_File_Info.cs" />
+    <Compile Include="ExternalServices\PubblicazioneAlbo.cs" />
+    <Compile Include="ExternalServices\PubblicazioneAPSS.cs" />
+    <Compile Include="ExternalServices\Servizio.cs" />
+    <Compile Include="fascicolazione\DescrizioneFascicolo.cs" />
+    <Compile Include="fascicolazione\FascOrFolderBaseInfo.cs" />
+    <Compile Include="Fatturazione\AssociazioneFatturaPassiva.cs" />
+    <Compile Include="Fatturazione\CampoCustomFattura.cs" />
+    <Compile Include="Fatturazione\CedentePrestatore.cs" />
+    <Compile Include="Fatturazione\CessionarioCommittente.cs" />
+    <Compile Include="Fatturazione\DatiBeniServizi.cs" />
+    <Compile Include="Fatturazione\DatiOrdineAcquisto.cs" />
+    <Compile Include="Fatturazione\FatturaPA.cs" />
+    <Compile Include="Fatturazione\FatturaPAXML.cs" />
+    <Compile Include="FileManager\FileTransferInfo.cs" />
+    <Compile Include="FileManager\IFileManager.cs" />
+    <Compile Include="FileManager\RemoteFileInfo.cs" />
+    <Compile Include="FileManager\SendFileRequest.cs" />
+    <Compile Include="filtri\CommonFilters.cs" />
+    <Compile Include="filtri\Conservazione\listaArgomenti.cs" />
+    <Compile Include="filtri\FilterVisibility.cs" />
+    <Compile Include="filtri\FiltroMail.cs" />
+    <Compile Include="filtri\LibroFirma\listaArgomentiElemento.cs" />
+    <Compile Include="filtri\LibroFirma\listaArgomentiProcessoFirma.cs" />
+    <Compile Include="FlussoAutomatico\ContestoProcedurale.cs" />
+    <Compile Include="FlussoAutomatico\Flusso.cs" />
+    <Compile Include="FlussoAutomatico\FlussoMessaggi.cs" />
+    <Compile Include="FlussoAutomatico\Messaggio.cs" />
+    <Compile Include="Grids\GridBaseInfo.cs" />
+    <Compile Include="Grids\FieldValue.cs" />
+    <Compile Include="Grids\SearchObject.cs" />
+    <Compile Include="Grids\SearchObjectField.cs" />
+    <Compile Include="Grids\SpecialField.cs" />
+    <Compile Include="Import\Pregressi\Allegati.cs" />
+    <Compile Include="Import\Pregressi\EsitoImportPregressi.cs" />
+    <Compile Include="Import\Pregressi\ItemReportPregressi.cs" />
+    <Compile Include="Import\Pregressi\ReportPregressi.cs" />
+    <Compile Include="InstanceAccess\InfoDocument.cs" />
+    <Compile Include="InstanceAccess\InfoProject.cs" />
+    <Compile Include="InstanceAccess\InstanceAccess.cs" />
+    <Compile Include="InstanceAccess\InstanceAccessAttachments.cs" />
+    <Compile Include="InstanceAccess\InstanceAccessDocument.cs" />
+    <Compile Include="InstanceAccess\Metadata\Document.cs" />
+    <Compile Include="InstanceAccess\Metadata\Instance.cs" />
+    <Compile Include="Interoperabilita\InfoCheckMailbox.cs" />
+    <Compile Include="Interoperabilita\Semplificata\RecordInfo.cs" />
+    <Compile Include="Interoperabilita\Semplificata\InteroperabilitySettings.cs" />
+    <Compile Include="LibroFirma\AnagraficaEventi.cs" />
+    <Compile Include="LibroFirma\ElementoInLibroFirma.cs" />
+    <Compile Include="LibroFirma\Evento.cs" />
+    <Compile Include="LibroFirma\FiltroElementiLibroFirma.cs" />
+    <Compile Include="LibroFirma\FiltroIstanzeProcessoFirma.cs" />
+    <Compile Include="LibroFirma\FiltroProcessoFirma.cs" />
+    <Compile Include="LibroFirma\FirmaElettronica.cs" />
+    <Compile Include="LibroFirma\InfoDocLibroFirma.cs" />
+    <Compile Include="LibroFirma\IstanzaPassoDiFirma.cs" />
+    <Compile Include="LibroFirma\IstanzaProcessoDiFirma.cs" />
+    <Compile Include="LibroFirma\OpzioniNotifica.cs" />
+    <Compile Include="LibroFirma\PassoFirma.cs" />
+    <Compile Include="LibroFirma\ProcessoFirma.cs" />
+    <Compile Include="LibroFirma\StatoPasso.cs" />
+    <Compile Include="LibroFirma\StatoProcesso.cs" />
+    <Compile Include="LibroFirma\WaitResponse.cs" />
+    <Compile Include="Logger\InteroperabilityLogItem.cs" />
+    <Compile Include="Mobile\FirmaInfo.cs" />
+    <Compile Include="Mobile\LibroFirmaElement.cs" />
+    <Compile Include="Mobile\LightUserInfo.cs" />
+    <Compile Include="Mobile\Requests\ADLActionRequest.cs" />
+    <Compile Include="Mobile\Requests\HSMSignRequest.cs" />
+    <Compile Include="Mobile\Requests\CountDelegheAttiveRequest.cs" />
+    <Compile Include="Mobile\Requests\CreaDelegaRequest.cs" />
+    <Compile Include="Mobile\Requests\DismettiDelegaRequest.cs" />
+    <Compile Include="Mobile\Requests\EseguiSmistamentoRequest.cs" />
+    <Compile Include="Mobile\Requests\GetSmistamentoElementsRequest.cs" />
+    <Compile Include="Mobile\Requests\GetSmistamentoTreeRequest.cs" />
+    <Compile Include="Mobile\Requests\LibroFirmaCambiaStatoRequest.cs" />
+    <Compile Include="Mobile\Requests\LibroFirmaRequest.cs" />
+    <Compile Include="Mobile\Requests\LogoutRequest.cs" />
+    <Compile Include="Mobile\Requests\RevocaDelegheRequest.cs" />
+    <Compile Include="Mobile\Requests\RicercaUtentiRequest.cs" />
+    <Compile Include="Mobile\Requests\RicercaSmistamentoRequest.cs" />
+    <Compile Include="Mobile\Responses\ADLActionResponse.cs" />
+    <Compile Include="Mobile\Responses\HSMSignResponse.cs" />
+    <Compile Include="Mobile\Responses\CountDelegheAttiveResponse.cs" />
+    <Compile Include="Mobile\Responses\CreaDelegaResponse.cs" />
+    <Compile Include="Mobile\Responses\DismettiDelegaResponse.cs" />
+    <Compile Include="Mobile\Responses\EseguiSmistamentoResponse.cs" />
+    <Compile Include="Mobile\Responses\GetSmistamentoElementsResponse.cs" />
+    <Compile Include="Mobile\Responses\GetSmistamentoTreeResponse.cs" />
+    <Compile Include="Mobile\Responses\LibroFirmaResponse.cs" />
+    <Compile Include="Mobile\Responses\LogoutResponse.cs" />
+    <Compile Include="Mobile\Responses\RevocaDelegheResponse.cs" />
+    <Compile Include="Mobile\Responses\RicercaUtentiResponse.cs" />
+    <Compile Include="Mobile\Responses\RicercaSmistamentoResponse.cs" />
+    <Compile Include="Mobile\SmistamentoElement.cs" />
+    <Compile Include="Mobile\SmistamentoNode.cs" />
+    <Compile Include="Mobile\SmistamentoTree.cs" />
+    <Compile Include="Modelli_Trasmissioni\FindAndReplaceRequest.cs" />
+    <Compile Include="Modelli_Trasmissioni\FindAndReplaceResponse.cs" />
+    <Compile Include="Modelli_Trasmissioni\ModelloTrasmissioneSearchResult.cs" />
+    <Compile Include="Modelli_Trasmissioni\ModelloTrasmissioneSearchResultCollection.cs" />
+    <Compile Include="MText\MTextDocumentInfo.cs" />
+    <Compile Include="Notification\Items.cs" />
+    <Compile Include="Notification\Notification.cs" />
+    <Compile Include="Notification\NotificationsFilters.cs" />
+    <Compile Include="Notification\Structures.cs" />
+    <Compile Include="OggettiLite\CorrispondenteLite.cs" />
+    <Compile Include="OggettiLite\ProtocolloLite.cs" />
+    <Compile Include="OggettiLite\SchedaDocumentoLite.cs" />
+    <Compile Include="OggettiLite\SpedizioneDocumentoLite.cs" />
+    <Compile Include="OggettiLite\UnitaOrganizzativaLite.cs" />
+    <Compile Include="Plugin\DpaPluginHash.cs" />
+    <Compile Include="Procedimento\DettaglioProcedimento.cs" />
+    <Compile Include="Procedimento\DocumentoProcedimento.cs" />
+    <Compile Include="Procedimento\Procedimento.cs" />
+    <Compile Include="Procedimento\Report\ReportProcedimentoRequest.cs" />
+    <Compile Include="Procedimento\Report\ReportProcedimentoResponse.cs" />
+    <Compile Include="Procedimento\StatoProcedimento.cs" />
+    <Compile Include="ProfilazioneDinamicaLite\TemplateLite.cs" />
+    <Compile Include="ProfilazioneDinamica\Contatore.cs" />
+    <Compile Include="ProfilazioneDinamica\CustomObjHistoryState.cs" />
+    <Compile Include="ProfilazioneDinamica\SelectiveHistoryRequest.cs" />
+    <Compile Include="ProfilazioneDinamica\SelectiveHistoryResponse.cs" />
+    <Compile Include="ProfilazioneDinamica\Storicizzazione.cs" />
+    <Compile Include="ProfilazioneDinamica\StoricoProfilati.cs" />
+    <Compile Include="ProfilazioneDinamica\StoricoProfilatiOldValue.cs" />
+    <Compile Include="Pubblicazione\DocumentoDaPubblicare.cs" />
+    <Compile Include="Qualifica\PeopleGroupsQualifiche.cs" />
+    <Compile Include="Qualifica\PeopleQualifica.cs" />
+    <Compile Include="Qualifica\Qualifica.cs" />
+    <Compile Include="RegistroAccessi\FOIA\Esito.cs" />
+    <Compile Include="RegistroAccessi\FOIA\MotiviRifiuto.cs" />
+    <Compile Include="RegistroAccessi\FOIA\Oggetto.cs" />
+    <Compile Include="RegistroAccessi\FOIA\RichiestaDiAccesso.cs" />
+    <Compile Include="RegistroAccessi\RegistroAccessiReportRequest.cs" />
+    <Compile Include="RegistroAccessi\RegistroAccessiReportResponse.cs" />
+    <Compile Include="Report\HeaderColumnCollection.cs" />
+    <Compile Include="Report\HeaderProperty.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Report\PrintReportRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Report\PrintReportRequestDataset.cs" />
+    <Compile Include="Report\PrintReportObjectTransformationRequest.cs" />
+    <Compile Include="Report\PrintReportResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Report\Report.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Report\ReportDataExtractorClassAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Report\ReportDataExtractorMethodAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Report\ReportGeneratorAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Report\ReportMapColumnProperty.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Report\ReportMapRow.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Report\ReportMapRowProperty.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Report\ReportMetadata.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RicercaLite\CampiProfilati.cs" />
+    <Compile Include="RicercaLite\FiltriRicerca.cs" />
+    <Compile Include="RicercaLite\CampoProfilatoAvanzata.cs" />
+    <Compile Include="DatiCert\Daticert.cs" />
+    <Compile Include="DatiCert\Notifica.cs" />
+    <Compile Include="DatiCert\TipoNotifica.cs" />
+    <Compile Include="Deleghe\InfoDelega.cs" />
+    <Compile Include="Deleghe\ModelloDelega.cs" />
+    <Compile Include="Deleghe\SearchDelegaInfo.cs" />
+    <Compile Include="Deleghe\SearchModelloDelegaInfo.cs" />
+    <Compile Include="RicercaLite\Profilo.cs" />
+    <Compile Include="ExportFascicolo\ContentDocumento.cs" />
+    <Compile Include="ExportFascicolo\DocumentoRequest.cs" />
+    <Compile Include="ExportFascicolo\ExportFascicoloRequest.cs" />
+    <Compile Include="ExportFascicolo\MetaInfoDocumento.cs" />
+    <Compile Include="ExportFascicolo\MetaInfoFascicolo.cs" />
+    <Compile Include="fascicolazione\ChiudeFascicolo.cs" />
+    <Compile Include="fascicolazione\CreatoreFascicolo.cs" />
+    <Compile Include="areaLavoro\AreaScarto\InfoScarto.cs" />
+    <Compile Include="areaLavoro\AreaScarto\IstanzaScarto.cs" />
+    <Compile Include="fascicolazione\RiscontroMittente.cs" />
+    <Compile Include="FriendApplication\CorrLite.cs" />
+    <Compile Include="FriendApplication\FriendApplication.cs" />
+    <Compile Include="FriendApplication\SchedaDocumento.cs" />
+    <Compile Include="Grids\Field.cs" />
+    <Compile Include="Grids\Grid.cs" />
+    <Compile Include="Import\AddressBook\AddressBookImportResult.cs" />
+    <Compile Include="Import\AddressBook\AddressBookImportResultContainer.cs" />
+    <Compile Include="Import\AddressBook\AddressBookRowData.cs" />
+    <Compile Include="Import\AddressBook\AddressBookRowDataContainer.cs" />
+    <Compile Include="Import\AddressBook\ImportAddressBookException.cs" />
+    <Compile Include="Import\ImportException.cs" />
+    <Compile Include="Import\Project\ImportProjectException.cs" />
+    <Compile Include="Ldap\LdapConfig.cs" />
+    <Compile Include="amministrazione\Oggettario.cs" />
+    <Compile Include="amministrazione\MezzoSpedizione.cs" />
+    <Compile Include="amministrazione\DatiAmministratore.cs" />
+    <Compile Include="amministrazione\EsitoOperazione.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="amministrazione\InfoAmministrazione.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="amministrazione\InfoTimbro.cs" />
+    <Compile Include="amministrazione\Menu.cs" />
+    <Compile Include="amministrazione\OrgDettagliGlobali.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="amministrazione\OrgFunzione.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="amministrazione\OrgNodoTitolario.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="amministrazione\OrgRagioneTrasmissione.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="amministrazione\OrgRegistro.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="amministrazione\OrgRisultatoRicerca.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="amministrazione\OrgRuolo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="amministrazione\OrgRuoloTitolario.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="amministrazione\OrgTipoFunzione.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="amministrazione\OrgTipoRuolo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="amministrazione\OrgTitolario.cs" />
+    <Compile Include="amministrazione\OrgUO.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="amministrazione\OrgUtente.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="amministrazione\PasswordConfigurations.cs" />
+    <Compile Include="areaConservazione\DettItemsConservazione.cs" />
+    <Compile Include="areaConservazione\FolderConservazione.cs" />
+    <Compile Include="areaConservazione\InfoConservazione.cs" />
+    <Compile Include="areaConservazione\InfoSupporto.cs" />
+    <Compile Include="areaConservazione\ItemsConservazione.cs" />
+    <Compile Include="areaConservazione\Metadati.cs" />
+    <Compile Include="areaConservazione\TipoSupporto.cs" />
+    <Compile Include="areaLavoro\AreaLavoro.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="areaLavoro\QueryAreaLavoro.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="areaLavoro\TipoDocumento.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="areaLavoro\TipoFascicolo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="areaLavoro\TipoOggetto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CheckInOut\CheckOutStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagrammaStato\DiagrammaStato.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagrammaStato\Passo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagrammaStato\Stato.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ExportData\CampoSelezionato.cs" />
+    <Compile Include="ExportData\ExportDataExcel.cs" />
+    <Compile Include="ExportData\ExportDataFilterExcel.cs" />
+    <Compile Include="ExportData\ExportExcelClass.cs" />
+    <Compile Include="fascicolazione\ResultCreazioneFolder.cs" />
+    <Compile Include="fascicolazione\VoceIndiceSistematico.cs" />
+    <Compile Include="FormatiDocumento\SupportedFileType.cs" />
+    <Compile Include="ExportData\ExportDataFormatEnum.cs" />
+    <Compile Include="FascicolazioneCartacea\SearchPagingContext.cs" />
+    <Compile Include="FascicolazioneCartacea\DocumentoFascicolazione.cs" />
+    <Compile Include="FascicolazioneCartacea\FascicoloArchivio.cs" />
+    <Compile Include="FascicolazioneCartacea\SnapshotDocumentiFascicolazione.cs" />
+    <Compile Include="fascicolazione\Classifica.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fascicolazione\Classificazione.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fascicolazione\DirittoOggetto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fascicolazione\Fascicolo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fascicolazione\Folder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fascicolazione\InfoFascicolo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fascicolazione\LocazioneFisica.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fascicolazione\ResultCreazioneFascicolo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fascicolazione\TipoDiritto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="filtri\fascicolazione\listaArgomenti.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="filtri\FiltroRicerca.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="filtri\ricerca\listaArgomenti.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="filtri\stampaRegistro\listaArgomenti.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="filtri\trasmissione\listaArgomenti.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="filtri\trasmissione\listaArgomentiNascosti.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HMDiritti\HMdiritti.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interoperabilita\DatiInteropAutomatica.cs" />
+    <Compile Include="Interoperabilita\LogElementCheckMail.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interoperabilita\MailAccountCheckResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interoperabilita\NotificaAnnullamento.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interoperabilita\RicevutaRitorno.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interoperabilita\SendDocumentResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ldap\LdapUser.cs" />
+    <Compile Include="Ldap\LdapUserConfig.cs" />
+    <Compile Include="Ldap\LdapUserSyncronization.cs" />
+    <Compile Include="LiveCycle\ProcessFormInput.cs" />
+    <Compile Include="LiveCycle\ProcessFormOutput.cs" />
+    <Compile Include="Logger\CodAzione.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mobile\Delega.cs" />
+    <Compile Include="Mobile\DelegaInfo.cs" />
+    <Compile Include="Mobile\DocInfo.cs" />
+    <Compile Include="Mobile\ElementType.cs" />
+    <Compile Include="Mobile\FascInfo.cs" />
+    <Compile Include="Mobile\FileInfo.cs" />
+    <Compile Include="Mobile\FiltroRicercaWrapper.cs" />
+    <Compile Include="Mobile\InfoNoteComparer.cs" />
+    <Compile Include="Mobile\ModelloDelegaInfo.cs" />
+    <Compile Include="Mobile\ModelloTrasm.cs" />
+    <Compile Include="Mobile\RegistroInfo.cs" />
+    <Compile Include="Mobile\Requests\AccettaRifiutaTrasmRequest.cs" />
+    <Compile Include="Mobile\Requests\CreaDelegaDaModelloRequest.cs" />
+    <Compile Include="Mobile\Requests\DelegheRequest.cs" />
+    <Compile Include="Mobile\Requests\EseguiTrasmRequest.cs" />
+    <Compile Include="Mobile\Requests\AccettaDelegaRequest.cs" />
+    <Compile Include="Mobile\Requests\GetDocInfoRequest.cs" />
+    <Compile Include="Mobile\Requests\GetFascInfoRequest.cs" />
+    <Compile Include="Mobile\Requests\GetFileRequest.cs" />
+    <Compile Include="Mobile\Requests\GetPreviewRequest.cs" />
+    <Compile Include="Mobile\Requests\GetRicSalvateRequest.cs" />
+    <Compile Include="Mobile\Requests\ListaModelliDelegaRequest.cs" />
+    <Compile Include="Mobile\Requests\ListaModelliTrasmRequest.cs" />
+    <Compile Include="Mobile\Requests\ListaTipiRuoloRequest.cs" />
+    <Compile Include="Mobile\Requests\ListaUtentiRequest.cs" />
+    <Compile Include="Mobile\Requests\LoginRequest.cs" />
+    <Compile Include="Mobile\Requests\RicercaRequest.cs" />
+    <Compile Include="Mobile\Requests\ToDoListRequest.cs" />
+    <Compile Include="Mobile\Responses\AccettaRifiutaTrasmResponse.cs" />
+    <Compile Include="Mobile\Responses\CreaDelegaDaModelloResponse.cs" />
+    <Compile Include="Mobile\Responses\DelegheResponse.cs" />
+    <Compile Include="Mobile\Responses\EseguiTrasmResponse.cs" />
+    <Compile Include="Mobile\Responses\AccettaDelegaResponse.cs" />
+    <Compile Include="Mobile\Responses\GetDocInfoResponse.cs" />
+    <Compile Include="Mobile\Responses\GetFascInfoResponse.cs" />
+    <Compile Include="Mobile\Responses\GetFileResponse.cs" />
+    <Compile Include="Mobile\Responses\GetPreviewResponse.cs" />
+    <Compile Include="Mobile\Responses\GetRicSalvateResponse.cs" />
+    <Compile Include="Mobile\Responses\ListaModelliDelegaResponse.cs" />
+    <Compile Include="Mobile\Responses\ListaModelliTrasmResponse.cs" />
+    <Compile Include="Mobile\Responses\ListaTipiRuoloResponse.cs" />
+    <Compile Include="Mobile\Responses\ListaUtentiResponse.cs" />
+    <Compile Include="Mobile\Responses\LoginResponse.cs" />
+    <Compile Include="Mobile\Responses\RicercaResponse.cs" />
+    <Compile Include="Mobile\Responses\ToDoListResponse.cs" />
+    <Compile Include="Mobile\RicercaElement.cs" />
+    <Compile Include="Mobile\RicercaSalvata.cs" />
+    <Compile Include="Mobile\RicercaType.cs" />
+    <Compile Include="Mobile\RuoloInfo.cs" />
+    <Compile Include="Mobile\TipoRuoloInfo.cs" />
+    <Compile Include="Mobile\ToDoListElement.cs" />
+    <Compile Include="Mobile\TrasmInfo.cs" />
+    <Compile Include="Mobile\UserInfo.cs" />
+    <Compile Include="Modelli\ModelRequest.cs" />
+    <Compile Include="Modelli\ModelResponse.cs" />
+    <Compile Include="Modelli_Trasmissioni\AssDocDiagTrasm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modelli_Trasmissioni\MittDest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modelli_Trasmissioni\ModelloTrasmissione.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modelli_Trasmissioni\RagioneDest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Note\InfoNota.cs" />
+    <Compile Include="Modelli_Trasmissioni\UtentiConNotificaTrasm.cs" />
+    <Compile Include="Note\NotaElenco.cs" />
+    <Compile Include="PrjDocImport\DocumentRowDataContainer.cs" />
+    <Compile Include="PrjDocImport\ImportResult.cs" />
+    <Compile Include="PrjDocImport\ProfilationFieldInformation.cs" />
+    <Compile Include="PrjDocImport\ProjectRowData.cs" />
+    <Compile Include="PrjDocImport\RDEDocumentRowData.cs" />
+    <Compile Include="PrjDocImport\ResultsContainer.cs" />
+    <Compile Include="PrjDocImport\DocumentRowData.cs" />
+    <Compile Include="ProfilazioneDinamicaLite\CampoProfilato.cs" />
+    <Compile Include="ProfilazioneDinamicaLite\Result.cs" />
+    <Compile Include="ProfilazioneDinamicaLite\TipologiaDocProfilato.cs" />
+    <Compile Include="ProfilazioneDinamica\AssDocFascRuoli.cs" />
+    <Compile Include="ProfilazioneDinamica\ItemRicCampiComuni.cs" />
+    <Compile Include="ProfilazioneDinamica\LinkDocFascInfo.cs" />
+    <Compile Include="ProfilazioneDinamica\OggettoCustom.cs" />
+    <Compile Include="ProfilazioneDinamica\Templates.cs" />
+    <Compile Include="ProfilazioneDinamica\TipoOggetto.cs" />
+    <Compile Include="ProfilazioneDinamica\ValoreOggetto.cs" />
+    <Compile Include="Pubblicazione\LoginInfo.cs" />
+    <Compile Include="Pubblicazione\PubblicazioneDocumenti.cs" />
+    <Compile Include="ricerche\FullTextSearchContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ricerche\SearchPagingContext.cs" />
+    <Compile Include="ricerche\SearchItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ricerche\SearchItemList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ricerche\SearchResultInfo.cs" />
+    <Compile Include="RubricaComune\ConfigurazioniRubricaComune.cs" />
+    <Compile Include="RubricaComune\ElementoRC.cs" />
+    <Compile Include="RubricaComune\ElementoRubricaComune.cs" />
+    <Compile Include="RubricaComune\ElementoRubricaRF.cs" />
+    <Compile Include="RubricaComune\ElementoRubricaUO.cs" />
+    <Compile Include="rubrica\ElementoRubrica.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="rubrica\ParametriRicercaRubrica.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="rubrica\SmistamentoRubrica.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sanita\AttestatiListVO.cs" />
+    <Compile Include="Sanita\AttestatoVO.cs" />
+    <Compile Include="Sanita\Requests\ImportAttestatiRequest.cs" />
+    <Compile Include="Sanita\Responses\ImportAttestatiResponse.cs" />
+    <Compile Include="Security\CopyVisibility.cs" />
+    <Compile Include="Security\InfoAtipicita.cs" />
+    <Compile Include="Security\SecurityItemInfo.cs" />
+    <Compile Include="SmartClient\SmartClientConfigurations.cs" />
+    <Compile Include="Smistamento\datiAggiuntiviSmistamento.cs" />
+    <Compile Include="Smistamento\DatiTrasmissioneDocumento.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Smistamento\DocumentoSmistamento.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Smistamento\EsitoSmistamentoDocumento.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Smistamento\MittenteSmistamento.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Smistamento\RuoloSmistamento.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Smistamento\UOSmistamento.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Smistamento\UtenteSmistamento.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Spedizione\ElStoricoSpedizioni.cs" />
+    <Compile Include="Spedizione\InfoDocumentoSpedito.cs" />
+    <Compile Include="Spedizione\SpedizioneDocumento.cs" />
+    <Compile Include="StatoInvio\StatoInvio.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Task\Reminder.cs" />
+    <Compile Include="Task\Task.cs" />
+    <Compile Include="trasmissione\AllToDoList.cs" />
+    <Compile Include="trasmissione\Diritti.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="trasmissione\infoSecurity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="trasmissione\infoToDoList.cs" />
+    <Compile Include="trasmissione\InfoTrasmissione.cs" />
+    <Compile Include="trasmissione\OggettoTrasm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="trasmissione\RagioneTrasmissione.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="trasmissione\StatoTrasmissioneUtente.cs" />
+    <Compile Include="trasmissione\TemplateTrasmissione.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="trasmissione\TipoDestinatario.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="trasmissione\TipoDiritto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="trasmissione\TipoGerarchia.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="trasmissione\TipoOggetto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="trasmissione\TipoRisposta.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="trasmissione\Trasmissione.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="trasmissione\TrasmissioneSingola.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="trasmissione\TrasmissioneUtente.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UploadFiles\FileInUpload.cs" />
+    <Compile Include="utente\Amministrazione.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utente\BrowserInfo.cs" />
+    <Compile Include="utente\Canale.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utente\InfoComune.cs" />
+    <Compile Include="utente\ExtApplication.cs" />
+    <Compile Include="utente\Corrispondente.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utente\DatiModificaCorr.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utente\Funzione.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utente\HSMPin.cs" />
+    <Compile Include="utente\HSMParameters.cs" />
+    <Compile Include="utente\InfoUtente.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utente\Login.cs" />
+    <Compile Include="utente\MailCorrispondente.cs" />
+    <Compile Include="utente\RaggruppamentoFunzionale.cs" />
+    <Compile Include="utente\Registro.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utente\RegistroConservazione\RegistroConservazionePrint.cs" />
+    <Compile Include="utente\RegistroConservazione\RegistroConservazioneSummary.cs" />
+    <Compile Include="utente\Repertori\RequestAndResponse\GetRepertorioStateRequest.cs" />
+    <Compile Include="utente\Repertori\RequestAndResponse\GetRepertorioStateResponse.cs" />
+    <Compile Include="utente\Repertori\RequestAndResponse\GetRepertoriPrintRangesRequest.cs" />
+    <Compile Include="utente\Repertori\RegistroRepertorio.cs" />
+    <Compile Include="utente\Repertori\RegistroRepertorioPrint.cs" />
+    <Compile Include="utente\Repertori\RegistroRepertorioSettingsMinimalInfo.cs" />
+    <Compile Include="utente\Repertori\RegistroRepertorioSingleSettings.cs" />
+    <Compile Include="utente\Repertori\RepertorioPrintRange.cs" />
+    <Compile Include="utente\Repertori\RequestAndResponse\ChangeRepertorioStateRequest.cs" />
+    <Compile Include="utente\Repertori\RequestAndResponse\ChangeRepertorioStateResponse.cs" />
+    <Compile Include="utente\Repertori\RequestAndResponse\GeneratePrintRepertorioRequest.cs" />
+    <Compile Include="utente\Repertori\RequestAndResponse\GeneratePrintRepertorioResponse.cs" />
+    <Compile Include="utente\Repertori\RequestAndResponse\GetRegisteredRegistriRepertorioRequest.cs" />
+    <Compile Include="utente\Repertori\RequestAndResponse\GetRegisteredRegistriRepertorioResponse.cs" />
+    <Compile Include="utente\Repertori\RequestAndResponse\GetRegistersToPrintAutomaticServiceResponse.cs" />
+    <Compile Include="utente\Repertori\RequestAndResponse\GetRepertoriPrintRangesResponse.cs" />
+    <Compile Include="utente\Repertori\RequestAndResponse\GetSettingsMinimalInfoRequest.cs" />
+    <Compile Include="utente\Repertori\RequestAndResponse\GetSettingsMinimalInfoResponse.cs" />
+    <Compile Include="utente\Repertori\RequestAndResponse\GetUsersInRoleMinimalInfoRequest.cs" />
+    <Compile Include="utente\Repertori\RequestAndResponse\GetUsersInRoleMinimalInfoResponse.cs" />
+    <Compile Include="utente\Repertori\RequestAndResponse\RegistroRepertorioSettingsRequest.cs" />
+    <Compile Include="utente\Repertori\RequestAndResponse\RegistroRepertorioSettingsResponse.cs" />
+    <Compile Include="utente\Repertori\RequestAndResponse\SaveRegistroRepertorioSettingsRequest.cs" />
+    <Compile Include="utente\Repertori\RequestAndResponse\SaveRegistroRepertorioSettingsResponse.cs" />
+    <Compile Include="utente\RoleChainResponse.cs" />
+    <Compile Include="utente\RoleHistoryItem.cs" />
+    <Compile Include="utente\RoleHistoryRequest.cs" />
+    <Compile Include="utente\RoleHistoryResponse.cs" />
+    <Compile Include="utente\Ruolo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utente\ServerPosta.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utente\TipiFunzione.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utente\TipoRuolo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utente\UnitaOrganizzativa.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utente\UserLogin.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utente\UserMinimalInfo.cs" />
+    <Compile Include="utente\Utente.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Validations\BrokenRule.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Validations\ValidationResultInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <None Include="addressbook\DettagliCorrispondente.xsc">
+      <DependentUpon>DettagliCorrispondente.xsd</DependentUpon>
+    </None>
+    <None Include="addressbook\DettagliCorrispondente.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DettagliCorrispondente.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="addressbook\DettagliCorrispondente.xss">
+      <DependentUpon>DettagliCorrispondente.xsd</DependentUpon>
+    </None>
+    <None Include="DocsPaVO.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

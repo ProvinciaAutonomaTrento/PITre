@@ -1,0 +1,353 @@
+﻿html, body
+{
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+    background-color: #ffffff;
+    font-size: 13px;
+}
+
+input:focus
+{
+    background-color: #fcfbc5;
+    border: 1px solid #8a890b;
+}
+
+input[readonly="readonly"]
+{
+    background-color: #ffffff;
+    border: 1px solid #0f64a1;
+}
+
+/*--------------------------------LOGIN------------------------------------------*/
+#containerLogin
+{
+    width: 944px;
+    height: 396px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -280px 0 0 -472px;
+}
+
+#UpPnlLogin
+{
+    margin: 0 auto;
+    width: 944px;
+    margin-top: 30px;
+}
+
+#UpPnlLoginLeft
+{
+    width: 424px;
+    float: left;
+    margin-top: 50px;
+    background-color: #cccccc;
+}
+
+#UpPnlLoginLeft img
+{
+    width: 434px;
+    float: left;
+    border: 0px;
+}
+
+#UpPnlLoginRight
+{
+    float: right;
+    width: 490px;
+}
+
+#loginAccedi
+{
+    clear: both;
+    background-image: url('../../Images/Common/bg_login.jpg');
+    height: 396px;
+    margin-top: 25px;
+    float: left;
+}
+
+#loginAccedi h4
+{
+    position:absolute;
+    margin: 0px;
+    padding: 0px;
+    text-align: right;
+    font-size: 1.1em;
+    font-weight: normal;
+    margin-left: 285px;
+    margin-top:250px;
+}
+
+.lbl_login
+{
+    color: #0f64a1;
+    font-size: 1.1em;
+}
+
+#loginAccedi a:link
+{
+    color: #0f64a1;
+    text-decoration: none;
+}
+
+#loginAccedi a:visited
+{
+    color: #0f64a1;
+    text-decoration: none;
+}
+
+#loginAccedi a:hover
+{
+    color: #0f64a1;
+    text-decoration: underline;
+}
+
+#loginAccedi fieldset
+{
+    position:absolute;
+    margin: 0px;
+    padding: 0px;
+    text-align: left;
+    border: 0px;
+    margin-bottom: 35px;
+    clear: both;
+    margin-top: 200px;
+    float: left;
+    width: 165px;
+    margin-left: 325px;
+}
+
+.loginAccediItem
+{
+    float: left;
+    width: 490px;
+    clear: both;
+    padding-bottom: 15px;
+}
+
+.loginAccediItemSx
+{
+    float: left;
+    width: 160px;
+    text-align: right;
+    padding-left: 10px;
+}
+
+.loginAccediItemDx
+{
+    float: right;
+    width: 310px;
+    text-align: left;
+}
+
+.loginAccediItemCx
+{
+    padding-top: 20px;
+    padding-bottom: 10px;
+    height: 30px;
+    text-align: center;
+}
+
+.lbl_login_error
+{
+    font-size: 1em;
+    color: #e20000;
+    font-weight: bold;
+    margin-left:5px;
+    margin-right:5px;
+}
+
+.txt_login
+{
+    width: 270px;
+    border: 1px solid #0f64a1;
+    height: 18px;
+    line-height: 18px;
+    font-family: Verdana, Helvetica, Arial, Verdana, sans-serif;
+    font-size: 1.1em;
+    border-radius: 5px;
+    -moz-border-radius: 5px; /* firefox */
+    -webkit-border-radius: 5px; /* safari, chrome */
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.txt_login_readonly
+{
+    width: 270px;
+    border: 1px solid #0f64a1;
+    height: 18px;
+    line-height: 18px;
+    font-family: Verdana, Helvetica, Arial, Verdana, sans-serif;
+    font-size: 1.1em;
+    background-color: #ffffff;
+    border-radius: 5px;
+    -moz-border-radius: 5px; /* firefox */
+    -webkit-border-radius: 5px; /* safari, chrome */
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+/*---------------------------------UTILITIES---------------------------------------*/
+.btnEnable
+{
+    font-family: Verdana, Helvetica, Arial, Verdana, sans-serif;
+    font-size: 1.1em;
+    margin: 0px;
+    padding: 0px;
+    width: 99px;
+    height: 34px;
+    line-height: 34px;
+    color: #ffffff;
+    font-weight: bold;
+    border: 0px;
+    text-align: center;
+    background-image: url('../../Images/Common/btn_bg.png');
+    cursor: pointer;
+}
+
+.btnHover
+{
+    font-family: Verdana, Helvetica, Arial, Verdana, sans-serif;
+    font-size: 1.1em;
+    margin: 0px;
+    padding: 0px;
+    width: 99px;
+    height: 34px;
+    line-height: 34px;
+    color: #ffffff;
+    font-weight: bold;
+    border: 0px;
+    text-align: center;
+    background-image: url('../../Images/Common/btn_bg_hover.png');
+    cursor: pointer;
+}
+
+.btnDisable
+{
+    font-family: Verdana, Helvetica, Arial, Verdana, sans-serif;
+    font-size: 1.1em;
+    margin: 0px;
+    padding: 0px;
+    width: 99px;
+    height: 34px;
+    line-height: 34px;
+    color: #5c5c5c;
+    font-weight: bold;
+    border: 0px;
+    text-align: center;
+    background-image: url('../../Images/Common/btn_bg_disabled.png');
+}
+
+#PnlMultiLanguage
+{
+    float: right;
+    text-align: right;
+    height: 25px;
+}
+
+#PnlMultiLanguage img
+{
+    margin-right: 10px;
+}
+
+.modalPopup
+{
+
+    z-index: 100px;
+}
+
+.modalPopup img
+{
+    border: 0px;
+}
+
+#wait
+{
+    display: none;
+    font-weight: normal;
+    font-size: 13px;
+    font-family: Arial;
+    text-align: center;
+       
+}
+
+.modalBackground
+{
+     opacity: 0.5; filter: alpha(opacity=50);
+        background-color:#ffffff;
+}
+
+/* Pagina Gestione errori*/
+
+.Space
+{
+height: 25px;
+}
+
+.ErrorAbortItemCx
+{
+    padding-top: 40px;
+    padding-bottom: 10px;
+    height: 30px;
+    text-align: center;
+}
+
+#btnLogin 
+{
+    text-align: center;
+}
+
+#TxtBoxError
+{
+    color: #0f64a1;
+    font-family: Verdana, Helvetica, Arial, Verdana, sans-serif;
+    font-size: 1.1em;
+    line-height: 18px;    
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.messager {
+    text-align: center;
+    background: #feead2 url('../Images/Common/bg_messager.png') repeat-x top left;
+    padding: 0;
+    border: 2px solid #fcb55d;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    max-width: 700px;
+    min-height: 90px;
+    /*float: left;*/
+    width: 100%;
+    padding-top:20px;
+    margin: 10px auto;
+    clear: both;
+}
+
+.messager img {
+	vertical-align: middle;
+}
+
+.messager_c1 {float: left; width: 27%; text-align: right;}
+.messager_c2 {float: left; width: 40%; text-align: center; margin: 0 3%;}
+.messager_c2 span 
+{
+    font-family: Verdana, Helvetica, Arial, Verdana, sans-serif;
+    font-size: 1em;
+    color: #e20000;
+    font-weight:bold;   
+	padding: 5px 0 0 0;
+	margin: 0;
+	display: block;
+}
+.messager_c3 {float: left; width: 27%; text-align: left;}
+
+
+.loginAccediItem p
+{
+    color:#0f64a1;
+    font-weight:normal;
+    margin:0px;
+    padding:0px;
+    margin-left:20px;
+    font-size:13px;
+}

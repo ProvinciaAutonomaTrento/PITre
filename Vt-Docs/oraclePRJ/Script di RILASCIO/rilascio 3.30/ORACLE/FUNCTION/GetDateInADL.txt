@@ -1,0 +1,31 @@
+CREATE OR REPLACE FUNCTION GetDateInADL (sysID int, typeID char,idGruppo INT,idPeople INT)
+
+RETURN date IS risultato date;
+
+
+BEGIN --generale
+
+
+begin --interno
+
+IF (typeID = 'D') THEN
+SELECT DISTINCT(DTA_INS) INTO risultato FROM DPA_AREA_LAVORO WHERE ID_PROFILE = sysID
+AND (ID_PEOPLE =idPeople or ID_PEOPLE=0) and ID_RUOLO_IN_UO = (SELECT SYSTEM_ID FROM DPA_CORR_GLOBALI WHERE ID_GRUPPO = idGruppo);
+
+END IF;
+IF (typeID = 'F') THEN
+SELECT DISTINCT(DTA_INS) INTO risultato FROM DPA_AREA_LAVORO WHERE ID_PROJECT = sysID
+AND (ID_PEOPLE =idPeople or ID_PEOPLE=0) and ID_RUOLO_IN_UO = (SELECT SYSTEM_ID FROM DPA_CORR_GLOBALI WHERE ID_GRUPPO = idGruppo);
+
+END IF;
+
+
+EXCEPTION
+WHEN NO_DATA_FOUND THEN risultato := '';
+WHEN OTHERS THEN risultato := '';
+
+end;
+
+RETURN risultato;
+END GetDateInADL;
+/

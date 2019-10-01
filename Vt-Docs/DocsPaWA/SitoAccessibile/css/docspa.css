@@ -1,0 +1,339 @@
+/*@import url(menu.css);
+
+body {
+	margin: 0;
+	padding: 0 0.5em;
+	font: small "Lucida Grande", LucidaGrande, Lucida, Verdana, Helvetica, Arial, sans-serif;
+	color: #000000;
+    background-color: #f7f3f7;
+}*/
+
+#intestazione {
+	height: 32px;
+	background: #810d06 url(../img/dpalogo.png) no-repeat top left;
+	padding-left: 150px;
+    border-bottom: 1px solid #f7f3f7;
+}
+
+#corpo
+{
+	padding-top: 5px;
+	padding-bottom: 10px;
+	border-bottom: 5px solid #9e9e9e;
+	clear: both;
+}
+
+.row {
+	display: block;
+	margin: 0 0 0.25em;
+	padding: 0.2em; 
+	clear: both;
+}
+
+
+#separatore
+{
+	height: 16px;
+	background: #9e9e9e;
+    padding: 0;
+    border-bottom: 16px solid #f7f3f7;
+}
+
+#sub-intestazione
+{
+	height: 20px;
+	background: #9e9e9e;
+	/*border-bottom: 20px solid #ffffff;*/
+    border-bottom: 20px solid #f7f3f7;
+}
+
+
+a {
+	color: #000000;
+	font-weight: bolder;
+}
+
+a:link {
+	color: #000033;
+	text-decoration: underline;
+}
+
+a:visited {
+	color: #333366;
+}
+
+a:hover, a:active {
+	color: #aa1018;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	color: #aa1018;
+}
+
+h1 {
+	font: bolder 1.25em "Trebuchet MS",Arial,Helvetica,Verdana,sans-serif;
+}
+
+h2 {
+	font-size: 1.05em;
+	font-weight: bold;
+}
+
+h3 {
+	font-size: 1em;
+	font-weight: bold;
+}
+
+form {
+	margin: 0 0 0.5em;
+	padding: 0;
+	line-height: 1.8em;
+	font-size: 0.85em;
+}
+
+
+
+div {
+}
+
+fieldset {
+	/*border: 1px solid #cccccc;*/
+    border: 1px solid #999999;
+	margin: 0;
+	padding: 0.5em;
+}
+
+
+legend {
+    color: #333333;
+	font-weight: bolder;
+	background: #efefef;
+	padding: 0.2em 0.5em;
+    border: 1px solid #999999;
+	vertical-align: middle;
+}
+
+
+input, select, option, label, textarea {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+    color: #666666;
+}
+
+select{
+  width: 72%;
+}
+
+label{
+  font-weight: bold;
+}
+
+.value{
+ font-weight: normal;
+}
+
+.white-ro{
+ background: #ffffff;
+}
+
+.box{
+    background-color: #eeeeee;
+    padding: 0 1% 0 1%;
+   	border: solid #dddddd 1px;
+}
+
+table {
+	display: table;
+	padding: 0;
+	border-collapse: collapse;
+	background: #ffffff;
+	font-size: 0.85em;
+	margin: 0 0 0.5em;
+	border: solid #cccccc 2px;
+}
+
+caption {
+	margin: 0;
+	padding: 0.3em;
+	display: table-caption;
+	background: transparent;
+	text-align: left;
+	color: #aa1018;
+	font: bolder 1.25em "Trebuchet MS",Arial,Helvetica,Verdana,sans-serif;
+}
+
+th, td {
+	border: 1px solid #efefef;
+	margin: 0;
+	padding: 0.25em 0.85em;
+	text-align: left;
+}
+
+th {
+	background: #efefef;
+	color: #003366;
+	border-color: #cccccc;
+}
+
+td {
+	background: #ffffff;
+	display: table-cell;
+	border-bottom: 1px solid #cccccc;
+}
+
+
+.row {
+	display: block;
+	margin: 0 0 0.25em;
+	padding: 0.2em;
+	clear: both;
+}
+
+.pnlcx {
+	width: 100%;
+	padding: 1%;
+	margin: 0 auto 0 auto;
+	white-space: nowrap;
+	display: block;
+	text-align: center;
+}
+
+.contenitore {
+	width: 90%;
+	padding: 0;
+	margin: 0 auto 0 auto;
+    text-align: center;
+}
+
+.pnlsx, .pnldx {
+	width: 48%;
+	display: block;
+	float: left;
+	margin: 0;
+	padding: 1%;
+}
+
+.sx {
+    text-align: right;
+    float: left;
+}
+
+.dx {
+    text-align: left;
+    float: right;
+}
+
+
+.span {
+  text-indent: 0;
+  display: inline;  
+  margin: 0.5em; 
+  padding: 0.5em; 
+}
+
+.label {
+	display: block;
+	float: left;
+	width: 19%;
+	text-align: right;
+	padding-right: 1%;
+}
+
+.field {
+	display: block;
+	float: left;
+	width: 80%;
+}
+
+.nolabel {
+	padding-left: 20%;
+}
+
+/*<group=Stati>*/
+.opzioni_avanzate{
+
+}
+a.opzioni_avanzate {
+    background: no-repeat left center url(img/advopt.gif);
+}
+
+span.archiviata {
+	background: #efefef;
+	font-style: italic;
+}
+
+span.inlavorazione {
+	background: #ccccff;
+}
+
+span.pubblicata {
+	background: #99ff99;
+}
+
+span.archiviata, span.inlavorazione, span.pubblicata {
+	padding: 0.3em;
+	white-space: nowrap;
+	display: block;
+	text-align: center;
+}
+
+/*</group>*/
+
+/*<group=Azioni>*/
+
+a.aggiorna, a.archivia, a.clona, a.pubblica {
+	height: 16px;
+	margin: 0;
+	padding: 0 1em 0 18px;
+	display: block;
+	float: left;
+	font-size: 11px;
+}
+
+a.aggiorna span, a.archivia span, a.clona span, a.pubblica span {
+	padding-top: 4px;
+	display: block;
+	float: none;
+}
+
+a.aggiorna {
+	background: no-repeat left center url(images/aggiorna.gif);
+}
+
+a.archivia {
+	background: no-repeat url(images/archivia.gif) left center;
+}
+
+a.clona {
+	background: url(images/clona.gif) no-repeat left center;
+}
+
+a.pubblica {
+	background: url(images/pubblica.gif) no-repeat left center;
+}
+
+/*</group>*/
+
+.clear {
+	display: none;
+}
+
+.nascosto {
+	position: absolute;
+	left: -1000px;
+	width: 990px;
+}
+
+.invisibile {
+	display: none;
+}
+
+.message
+{
+    color:#cb3232;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight:bold; 
+	font-size: 0.9em; 
+	text-align:center;
+}
+
+

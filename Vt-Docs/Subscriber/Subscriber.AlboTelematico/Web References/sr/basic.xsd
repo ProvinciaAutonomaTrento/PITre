@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://nttdata.com/2012/Pi3/Stamp" elementFormDefault="qualified" targetNamespace="http://nttdata.com/2012/Pi3/Stamp" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Stamp">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Classifications" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodeAdministration" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodeRegister" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodeRf" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodeUO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DataProtocol" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumberAtthachements" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumberProtocol" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SignatureValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StampValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeProtocol" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TypeProtocol" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Year" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Stamp" nillable="true" type="tns:Stamp" />
+</xs:schema>

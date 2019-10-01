@@ -1,0 +1,1153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{046CAFA2-0EE6-4BB2-88A6-314596B10565}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DocsPaWS</RootNamespace>
+    <AssemblyName>DocsPaWS</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SignAssembly>false</SignAssembly>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\DocsPaWS.XML</DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PublishDatabaseSettings>
+      <Objects>
+      </Objects>
+    </PublishDatabaseSettings>
+    <FilesToIncludeForPublish>AllFilesInTheProject</FilesToIncludeForPublish>
+    <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
+    <ExcludeApp_Data>true</ExcludeApp_Data>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.7.4114.6375, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL_TERZE_PARTI\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Interoperability.Domain, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL_TERZE_PARTI\Interoperabilita_Semplificata\Interoperability.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="Interoperability.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL_TERZE_PARTI\Interoperabilita_Semplificata\Interoperability.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL_TERZE_PARTI\Zip\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL_TERZE_PARTI\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="PDFLinearizator">
+      <HintPath>..\..\DLL_TERZE_PARTI\Linearizzazione\$(Platform)\PDFLinearizator.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Services3, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Services" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions.Design, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WCFExtras, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL_TERZE_PARTI\WCFExtras.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AcquisizioneMassiva\UploadPage.aspx" />
+    <Content Include="Albo\AlboWS.asmx" />
+    <Content Include="BusinessServices\BusinessServices.asmx" />
+    <Content Include="BusinessServices\DocumentServices.asmx" />
+    <Content Include="BusinessServices\OrganigrammaServices.asmx" />
+    <Content Include="BusinessServices\RubricaServices.asmx" />
+    <Content Include="BusinessServices\SpotlightServices.asmx" />
+    <Content Include="Cache\DocsPaCachingWS.asmx" />
+    <Content Include="Behaviors.config" />
+    <Content Include="Bindings.config" />
+    <!--<Compile Include="ChilkatDotNet2.dll" />-->
+    <Content Include="ChilkatDotNet\ChilkatDotNet2_32.dll" />
+    <Content Include="ChilkatDotNet\ChilkatDotNet2_64.dll" />
+    <Content Include="Conservazione\Integrita\IntegritaServices.asmx" />
+    <Content Include="Conservazione\PacchettiVersamento\PacchettiServices.asmx" />
+    <Content Include="Conservazione\Policy\PolicyExecutionServices.asmx" />
+    <Content Include="DocsPaWS.asmx" />
+    <Content Include="DocsPaWSILite.asmx" />
+    <Content Include="DocsPaWSImportOrganigramma.asmx" />
+    <Content Include="DocsPaWSITokenAuth.asmx" />
+    <Content Include="DocsPaWSLite.asmx" />
+    <Content Include="DocsPaWSProtoASL.asmx" />
+    <Content Include="Dummy\DummyWS.asmx" />
+    <Content Include="Fatturazione\DocsPaFatturazioneWS.asmx" />
+    <Content Include="FileService.svc" />
+    <Content Include="Global.asax" />
+    <Content Include="gsdll\gsdll32.dll" />
+    <Content Include="gsdll\gsdll64.dll" />
+    <Content Include="Hermes\ClientHermsWS.aspx" />
+    <Content Include="Hermes\Hermes.asmx" />
+    <Content Include="InteroperabilityService.svc" />
+    <Content Include="Mobile\NotificaDisservizi\notificaDisservizi.asmx" />
+    <Content Include="Mobile\VTDocsWSMobile.svc" />
+    <Content Include="NttDataWS.asmx" />
+    <Content Include="P3SBCServices.svc" />
+    <Content Include="Conservazione\PGU\PGUServices.asmx" />
+    <Content Include="Pubblicazioni\APSS_SOLR_Integration.asmx" />
+    <Content Include="Pubblicazioni\Integrazioni.asmx" />
+    <Content Include="report\ricevuta\ricevuta.txt" />
+    <Content Include="report\templateXML\XMLRepStampaRisRicTrasmFasc.xml" />
+    <Content Include="report\templateXML\XMLStampaRisRicNotificationCenter.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="report\templateXML\XMLStampaRisRicVisibilitaProcessi.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="VtDocsWS\Compression\bin\Debug\Compression.dll" />
+    <Content Include="VtDocsWS\Compression\bin\Debug\Compression.pdb" />
+    <Content Include="VtDocsWS\Compression\bin\Debug\Ionic.Zip.dll" />
+    <Content Include="VtDocsWS\Compression\Compression.csproj" />
+    <Content Include="VtDocsWS\Compression\obj\Debug\Compression.csproj.FileListAbsolute.txt" />
+    <Content Include="VtDocsWS\Compression\obj\Debug\Compression.dll" />
+    <Content Include="VtDocsWS\Compression\obj\Debug\Compression.pdb" />
+    <Content Include="VtDocsWS\Errors.txt" />
+    <Content Include="VtDocsWS\ErrorsENG.txt" />
+    <Content Include="VtDocsWS\WebServices\AddressBook.svc" />
+    <Content Include="VtDocsWS\WebServices\AdLDocument.svc" />
+    <Content Include="VtDocsWS\WebServices\Administration.svc" />
+    <Content Include="VtDocsWS\WebServices\APSS_Services.svc" />
+    <Content Include="VtDocsWS\WebServices\Authentication.svc" />
+    <Content Include="VtDocsWS\WebServices\CAPServices.svc" />
+    <Content Include="VtDocsWS\WebServices\CheckWS.svc" />
+    <Content Include="VtDocsWS\WebServices\ClassificationSchemes.svc" />
+    <Content Include="VtDocsWS\WebServices\Documents.svc" />
+    <Content Include="VtDocsWS\WebServices\DocumentsAdvanced.svc" />
+    <Content Include="VtDocsWS\WebServices\Email.svc" />
+    <Content Include="VtDocsWS\WebServices\FilesUploader.svc" />
+    <Content Include="VtDocsWS\WebServices\LibroFirma.svc" />
+    <Content Include="VtDocsWS\WebServices\PluginHash.svc" />
+    <Content Include="VtDocsWS\WebServices\Proceedings.svc" />
+    <Content Include="VtDocsWS\WebServices\Projects.svc" />
+    <Content Include="VtDocsWS\WebServices\Registers.svc" />
+    <Content Include="VtDocsWS\WebServices\Roles.svc" />
+    <Content Include="Pubblicazioni\PubblicazioneDocumenti.asmx" />
+    <Content Include="Publisher\PublisherWebService.asmx" />
+    <Content Include="report\busta\bodyBusta.txt" />
+    <Content Include="report\busta\bottomBusta.txt" />
+    <Content Include="report\busta\headerBusta.txt" />
+    <Content Include="report\corrispondenti\Bottom.txt" />
+    <Content Include="report\corrispondenti\Header.txt" />
+    <Content Include="report\corrispondenti\Row.txt" />
+    <Content Include="report\corrispondenti\TableHead.txt" />
+    <Content Include="report\fascicolo\Fascetta.txt" />
+    <Content Include="report\schedaDoc\schedaDoc.txt" />
+    <Content Include="report\schedaDoc\schedaProfiloDoc.txt" />
+    <Content Include="report\StampaReg\Bottom.txt" />
+    <Content Include="report\StampaReg\HeaderFooter.txt" />
+    <Content Include="report\StampaReg\headerMod.txt" />
+    <Content Include="report\StampaReg\RecordTable.txt" />
+    <Content Include="report\StampaReg\RecordTable2.txt" />
+    <Content Include="report\templateXML\logo.jpg" />
+    <Content Include="report\templateXML\XMLRepLog.xml" />
+    <Content Include="report\templateXML\XMLRepStampaRegistro.xml" />
+    <Content Include="report\templateXML\XMLRepStampaRegistroWithFilters.xml" />
+    <Content Include="report\templateXML\XMLRepTrasmDocFasc.xml" />
+    <Content Include="report\templateXML\XMLRepTrasmUO_DOC.xml" />
+    <Content Include="report\templateXML\XMLRepTrasmUO_FASC.xml" />
+    <Content Include="report\titolario\bottomTableTitolario.txt" />
+    <Content Include="report\titolario\bottomTitolario.txt" />
+    <Content Include="report\titolario\headerTableTitolario.txt" />
+    <Content Include="report\titolario\headerTitolario.txt" />
+    <Content Include="report\titolario\voceProc.txt" />
+    <Content Include="report\titolario\voceTitolario.txt" />
+    <Content Include="report\trasmissioni\bottomTrasmx.txt" />
+    <Content Include="report\trasmissioni\headerTrasmx.txt" />
+    <Content Include="report\trasmissioni\rowTrasmx.txt" />
+    <Content Include="report\trasmissioni\TableHeadTrasmx.txt" />
+    <Content Include="Sanita\SanitaWS.asmx" />
+    <Content Include="VtDocsWS\WebServices\Token.svc" />
+    <Content Include="VtDocsWS\WebServices\Transmissions.svc" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="webservice_test\webServiceTest.asmx" />
+    <Content Include="xml\Dati.xml" />
+    <Content Include="xml\descrittore CSV.txt" />
+    <Content Include="xml\ImportExportQueryList.xml" />
+    <Content Include="xml\labelPDF.xml" />
+    <Content Include="xml\logger.xsl" />
+    <Content Include="xml\oracleSequenceMaps.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\queryListStyle.xsl" />
+    <Content Include="xml\queryList_Oracle.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\queryList_Sql.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\rapporti.xml" />
+    <Content Include="xml\ServiceLoadController.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\Titolario.xml" />
+    <Content Include="xml\Titolario_TEMPLATE.xml" />
+    <Content Include="xml\Utenti.xml" />
+    <Content Include="xml\Utenti_TEMPLATE.xml" />
+    <Content Include="xml\WSLog.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\xslfo.xsl" />
+    <Content Include="xml\xslfo_export_conservazione_policy.xsl" />
+    <Content Include="xml\xslfo_export_conservazione_rigIst.xsl" />
+    <Content Include="xml\xslfo_export_doc.xsl" />
+    <Content Include="xml\xslfo_export_fasc.xsl" />
+    <Content Include="xml\xslfo_export_notification_center.xsl" />
+    <Content Include="xml\xslfo_export_trasm.xsl" />
+    <None Include="Properties\PublishProfiles\ny.pubxml" />
+    <None Include="Properties\PublishProfiles\SVILUPPO.pubxml" />
+    <None Include="Properties\PublishProfiles\SVILUPPO_BE.pubxml" />
+    <None Include="VtDocsWS\Compression\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="xml\impresainungiorno.gov_tipi_elementari-1.0.0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="xml\pratica_suap-1.0.1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="xml\Segnatura.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\BackEnd\VersionInfo.cs">
+      <Link>VersionInfo.cs</Link>
+    </Compile>
+    <Compile Include="AcquisizioneMassiva\UploadPage.aspx.cs">
+      <DependentUpon>UploadPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Albo\AboToken.cs" />
+    <Compile Include="Albo\AlboWS.asmx.cs">
+      <DependentUpon>AlboWS.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BusinessServices\BusinessServices.asmx.cs">
+      <DependentUpon>BusinessServices.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BusinessServices\DocumentServices.asmx.cs">
+      <DependentUpon>DocumentServices.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BusinessServices\OrganigrammaServices.asmx.cs">
+      <DependentUpon>OrganigrammaServices.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BusinessServices\RubricaServices.asmx.cs">
+      <DependentUpon>RubricaServices.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BusinessServices\SpotlightServices.asmx.cs">
+      <DependentUpon>SpotlightServices.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Cache\DocsPaCachingWS.asmx.cs">
+      <DependentUpon>DocsPaCachingWS.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Conservazione\Integrita\GetHashDocumentoRequest.cs" />
+    <Compile Include="Conservazione\Integrita\GetHashDocumentoResponse.cs" />
+    <Compile Include="Conservazione\Integrita\IntegritaServices.asmx.cs">
+      <DependentUpon>IntegritaServices.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Conservazione\PacchettiVersamento\Dominio\Fascicolo.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Dominio\Profilo.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Dominio\TipiSupportoEnum.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\AddDocumentoInIstanza\AddDocumentoInIstanzaRequest.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\AddDocumentoInIstanza\AddDocumentoInIstanzaResponse.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\AddFascicoloInIstanza\AddFascicoloInIstanzaRequest.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\AddFascicoloInIstanza\AddFascicoloInIstanzaResponse.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\ClassificaDocumento\ClassificaDocumentoRequest.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\ClassificaDocumento\ClassificaDocumentoResponse.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\CreateFascicolo\CreateFascicoloRequest.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\CreateFascicolo\CreateFascicoloResponse.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\FascicolaDocumento\FascicoloDocumentoRequest.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\FascicolaDocumento\FascicoloDocumentoResponse.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\GetIstanzaDaInviare\GetIstanzaDaInviareRequest.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\GetIstanzaDaInviare\GetIstanzaDaInviareResponse.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\GetProfilo\GetProfiloRequest.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\GetProfilo\GetProfiloResponse.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\GetProfili\GetProfiliRequest.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\GetProfili\GetProfiliResponse.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\GetSupporti\GetSupportiRequest.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\GetSupporti\GetSupportiResponse.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\InviaCentroServizi\InviaCentroServiziRequest.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\InviaCentroServizi\InviaCentroServiziResponse.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\UploadFile\UploadFileRequest.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\UploadFile\UploadFileResponse.cs" />
+    <Compile Include="Conservazione\Policy\PolicyExecutionServices.asmx.cs">
+      <DependentUpon>PolicyExecutionServices.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Conservazione\PacchettiVersamento\Dominio\DescriptionAttribute.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Dominio\Documento.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Dominio\File.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Dominio\Istanza.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Dominio\StatiIstanzaEnum.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Dominio\Supporto.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Dominio\ModiCreazioneIstanzaEnum.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Dominio\TipiIstanzaEnum.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\ErrorCodes.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\ErrorDescriptions.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErrorDescriptions.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Conservazione\PacchettiVersamento\PacchettiException.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\CreateIstanza\CreateIstanzaResponse.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\CreateIstanza\CreateIstanzaRequest.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\DeleteDocumento\DeleteDocumentoRequest.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\DeleteDocumento\DeleteDocumentoResponse.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\DeleteIstanza\DeleteIstanzaRequest.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\DeleteIstanza\DeleteIstanzaResponse.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\GetDocumenti\GetDocumentiRequest.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\GetDocumenti\GetDocumentiResponse.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\GetDocumento\GetDocumentoRequest.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\GetDocumento\GetDocumentoResponse.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\InsertDocumento\InsertDocumentoRequest.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\InsertDocumento\InsertDocumentoResponse.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\ResponseError.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\GetIstanza\GetIstanzaRequest.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\GetIstanza\GetIstanzaResponse.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\GetIstanze\GetIstanzeRequest.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\GetIstanze\GetIstanzaResponse.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\LogIn\LogInRequest.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\LogIn\LogInResponse.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\Request.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\Services\Response.cs" />
+    <Compile Include="Conservazione\PacchettiVersamento\PacchettiServices.asmx.cs">
+      <DependentUpon>PacchettiServices.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Conservazione\PacchettiVersamento\Services\IServices.cs" />
+    <Compile Include="Conservazione\PGU\Entities.cs" />
+    <Compile Include="DocsPaConservazioneWS.asmx.cs">
+      <DependentUpon>DocsPaConservazioneWS.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DocsPaMarcaturaWS.asmx.cs">
+      <DependentUpon>DocsPaMarcaturaWS.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DocsPaWS.asmx.cs">
+      <DependentUpon>DocsPaWS.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DocsPaWSILite.asmx.cs">
+      <DependentUpon>DocsPaWSILite.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DocsPaWSImportOrganigramma.asmx.cs">
+      <DependentUpon>DocsPaWSImportOrganigramma.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DocsPaWSITokenAuth.asmx.cs">
+      <DependentUpon>DocsPaWSITokenAuth.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Dummy\DummyHandler.cs" />
+    <Compile Include="Dummy\DummyWS.asmx.cs">
+      <DependentUpon>DummyWS.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Fatturazione\DocsPaFatturazioneWS.asmx.cs">
+      <DependentUpon>DocsPaFatturazioneWS.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FileService.svc.cs">
+      <DependentUpon>FileService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="FriendApplication\DocsPaWSFriendApplication.asmx.cs">
+      <DependentUpon>DocsPaWSFriendApplication.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DocsPaWSImportaProtocolli.asmx.cs">
+      <DependentUpon>DocsPaWSImportaProtocolli.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DocsPaWSLdapSync.asmx.cs">
+      <DependentUpon>DocsPaWSLdapSync.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DocsPaWSLite.asmx.cs">
+      <DependentUpon>DocsPaWSLite.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DocsPaWSProtoASL.asmx.cs">
+      <DependentUpon>DocsPaWSProtoASL.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DocsPaWSRDE.asmx.cs">
+      <DependentUpon>DocsPaWSRDE.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DocsPaWSTokenAuth.asmx.cs">
+      <DependentUpon>DocsPaWSTokenAuth.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Hermes\BandoSyncRequest.cs" />
+    <Compile Include="Hermes\BandoSyncResponse.cs" />
+    <Compile Include="Hermes\ClientHermsWS.aspx.cs">
+      <DependentUpon>ClientHermsWS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Hermes\ClientHermsWS.aspx.designer.cs">
+      <DependentUpon>ClientHermsWS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Hermes\Hermes.asmx.cs">
+      <DependentUpon>Hermes.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Hermes\Utility.cs" />
+    <Compile Include="InteroperabilityService.svc.cs">
+      <DependentUpon>InteroperabilityService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Log\DefaultEnvironmentHandler.cs" />
+    <Compile Include="Log\PerformanceEnvironmentHandler.cs" />
+    <Compile Include="Log\Migrazioni\MigrazionePITRE.asmx.cs">
+      <DependentUpon>MigrazionePITRE.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Conservazione\PGU\PGUServices.asmx.cs">
+      <DependentUpon>PGUServices.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Mobile\Builders\CorrispondenteBuilder.cs" />
+    <Compile Include="Mobile\Builders\TrasmBuilder.cs" />
+    <Compile Include="Mobile\Builders\TrasmSingoleBuilder.cs" />
+    <Compile Include="Mobile\Decorators\FascicoloContentDecorator.cs" />
+    <Compile Include="Mobile\Decorators\ListDecorator.cs" />
+    <Compile Include="Mobile\Decorators\NoteDecorator.cs" />
+    <Compile Include="Mobile\Decorators\PaginatorDecorator.cs" />
+    <Compile Include="Mobile\IVTDocsWSMobile.cs" />
+    <Compile Include="Mobile\MobileManager.cs" />
+    <Compile Include="Mobile\NotificaDisservizi\notificaDisservizi.asmx.cs">
+      <DependentUpon>notificaDisservizi.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Mobile\PdfToImage\PDFConvert.cs" />
+    <Compile Include="Mobile\PdfToImage\PDFConvertException.cs" />
+    <Compile Include="Mobile\PdfToImage\PDFConvertWrapper.cs" />
+    <Compile Include="Mobile\Strategies\RicercaStrategies.cs" />
+    <Compile Include="Mobile\VTDocsWSMobile.svc.cs">
+      <DependentUpon>VTDocsWSMobile.svc</DependentUpon>
+    </Compile>
+    <Compile Include="NttDataWS.asmx.cs">
+      <DependentUpon>NttDataWS.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Pubblicazioni\APSS_SOLR_Integration.asmx.cs">
+      <DependentUpon>APSS_SOLR_Integration.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Pubblicazioni\Integrazioni.asmx.cs">
+      <DependentUpon>Integrazioni.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VtDocsWS\Domain\Administration.cs" />
+    <Compile Include="VtDocsWS\Compression\CompressionManager.cs" />
+    <Compile Include="VtDocsWS\Compression\HttpCompressionModule.cs" />
+    <Compile Include="VtDocsWS\Compression\Properties\AssemblyInfo.cs" />
+    <Compile Include="VtDocsWS\Domain\C3Document.cs" />
+    <Compile Include="VtDocsWS\Domain\C3File.cs" />
+    <Compile Include="VtDocsWS\Domain\ClassificationScheme.cs" />
+    <Compile Include="VtDocsWS\Domain\Correspondent.cs" />
+    <Compile Include="VtDocsWS\Domain\DocInProceeding.cs" />
+    <Compile Include="VtDocsWS\Domain\Document.cs" />
+    <Compile Include="VtDocsWS\Domain\DpaPluginHash.cs" />
+    <Compile Include="VtDocsWS\Domain\EmailAttachment.cs" />
+    <Compile Include="VtDocsWS\Domain\Field.cs" />
+    <Compile Include="VtDocsWS\Domain\File.cs" />
+    <Compile Include="VtDocsWS\Domain\FileDoc\CertificateInfo.cs" />
+    <Compile Include="VtDocsWS\Domain\FileDoc\FileDoc.cs" />
+    <Compile Include="VtDocsWS\Domain\FileDoc\Marca.cs" />
+    <Compile Include="VtDocsWS\Domain\FileDoc\OutputResponseMarca.cs" />
+    <Compile Include="VtDocsWS\Domain\FileDoc\PKCS7Document.cs" />
+    <Compile Include="VtDocsWS\Domain\FileDoc\SignerInfo.cs" />
+    <Compile Include="VtDocsWS\Domain\FileDoc\SubjectInfo.cs" />
+    <Compile Include="VtDocsWS\Domain\FileDoc\TSARFC2253.cs" />
+    <Compile Include="VtDocsWS\Domain\FileDoc\VerifySignatureResult.cs" />
+    <Compile Include="VtDocsWS\Domain\FileFTPUploadInfo.cs" />
+    <Compile Include="VtDocsWS\Domain\FileInUpload.cs" />
+    <Compile Include="VtDocsWS\Domain\Filter.cs" />
+    <Compile Include="VtDocsWS\Domain\Folder.cs" />
+    <Compile Include="VtDocsWS\Domain\IstanzaPassoFirma.cs" />
+    <Compile Include="VtDocsWS\Domain\SignBook\Event.cs" />
+    <Compile Include="VtDocsWS\Domain\SignBook\SignStepInstance.cs" />
+    <Compile Include="VtDocsWS\Domain\SignBook\SignatureProcessInstance.cs" />
+    <Compile Include="VtDocsWS\Domain\SignBook\SignatureStep.cs" />
+    <Compile Include="VtDocsWS\Domain\SignBook\SignatureProcess.cs" />
+    <Compile Include="VtDocsWS\Domain\Note.cs" />
+    <Compile Include="VtDocsWS\Domain\OperationFollow.cs" />
+    <Compile Include="VtDocsWS\Domain\OpportunityData.cs" />
+    <Compile Include="VtDocsWS\Domain\Phase.cs" />
+    <Compile Include="VtDocsWS\Domain\Proceeding.cs" />
+    <Compile Include="VtDocsWS\Domain\Project.cs" />
+    <Compile Include="VtDocsWS\Domain\Register.cs" />
+    <Compile Include="VtDocsWS\Domain\Role.cs" />
+    <Compile Include="VtDocsWS\Domain\SendingResult.cs" />
+    <Compile Include="VtDocsWS\Domain\Stamp.cs" />
+    <Compile Include="VtDocsWS\Domain\StateDiagram.cs" />
+    <Compile Include="VtDocsWS\Domain\StateOfDiagram.cs" />
+    <Compile Include="VtDocsWS\Domain\Template.cs" />
+    <Compile Include="VtDocsWS\Domain\TransmissionModel.cs" />
+    <Compile Include="VtDocsWS\Domain\User.cs" />
+    <Compile Include="VtDocsWS\Manager\AddressBookManager.cs" />
+    <Compile Include="VtDocsWS\Manager\AdLDocumentManager.cs" />
+    <Compile Include="VtDocsWS\Manager\AdministrationManager.cs" />
+    <Compile Include="VtDocsWS\Manager\APSS_ServicesManager.cs" />
+    <Compile Include="VtDocsWS\Manager\AuthenticationManager.cs" />
+    <Compile Include="VtDocsWS\Manager\CAPServicesManager.cs" />
+    <Compile Include="VtDocsWS\Manager\CheckConnectionManager.cs" />
+    <Compile Include="VtDocsWS\Manager\ClassificationSchemesManager.cs" />
+    <Compile Include="VtDocsWS\Manager\DocumentsAdvancedManager.cs" />
+    <Compile Include="VtDocsWS\Manager\DocumentsManager.cs" />
+    <Compile Include="VtDocsWS\Manager\EmailManager.cs" />
+    <Compile Include="VtDocsWS\Manager\LibroFirmaManager.cs" />
+    <Compile Include="VtDocsWS\Manager\PluginHashManager.cs" />
+    <Compile Include="VtDocsWS\Manager\ProceedingsManager.cs" />
+    <Compile Include="VtDocsWS\Manager\ProjectsManager.cs" />
+    <Compile Include="VtDocsWS\Manager\RegistersManager.cs" />
+    <Compile Include="VtDocsWS\Manager\RolesManager.cs" />
+    <Compile Include="VtDocsWS\Manager\SignatureManager.cs" />
+    <Compile Include="VtDocsWS\Manager\TokenManager.cs" />
+    <Compile Include="VtDocsWS\Manager\TransmissionsManager.cs" />
+    <Compile Include="VtDocsWS\Manager\UploadFileManager.cs" />
+    <Compile Include="VtDocsWS\PisException.cs" />
+    <Compile Include="VtDocsWS\PISFaultException.cs" />
+    <Compile Include="VtDocsWS\Services\AddressBook\AddCorrespondent\AddCorrespondentRequest.cs" />
+    <Compile Include="VtDocsWS\Services\AddressBook\AddCorrespondent\AddCorrespondentResponse.cs" />
+    <Compile Include="VtDocsWS\Services\AddressBook\DeleteCorrespondent\DeleteCorrespondentRequest.cs" />
+    <Compile Include="VtDocsWS\Services\AddressBook\DeleteCorrespondent\DeleteCorrespondentResponse.cs" />
+    <Compile Include="VtDocsWS\Services\AddressBook\EditCorrespondent\EditCorrespondentRequest.cs" />
+    <Compile Include="VtDocsWS\Services\AddressBook\EditCorrespondent\EditCorrespondentResponse.cs" />
+    <Compile Include="VtDocsWS\Services\AddressBook\GetCorrespondentFilters\GetCorrespondentFiltersRequest.cs" />
+    <Compile Include="VtDocsWS\Services\AddressBook\GetCorrespondentFilters\GetCorrespondentFiltersResponse.cs" />
+    <Compile Include="VtDocsWS\Services\AddressBook\GetCorrespondent\GetCorrespondentRequest.cs" />
+    <Compile Include="VtDocsWS\Services\AddressBook\GetCorrespondent\GetCorrespondentResponse.cs" />
+    <Compile Include="VtDocsWS\Services\AddressBook\GetOpportunity\GetOpportunityRequest.cs" />
+    <Compile Include="VtDocsWS\Services\AddressBook\GetOpportunity\GetOpportunityResponse.cs" />
+    <Compile Include="VtDocsWS\Services\AddressBook\GetUserFilters\GetUserFiltersRequest.cs" />
+    <Compile Include="VtDocsWS\Services\AddressBook\GetUserFilters\GetUserFiltersResponse.cs" />
+    <Compile Include="VtDocsWS\Services\AddressBook\SearchCorrespondents\SearchCorrespondentsRequest.cs" />
+    <Compile Include="VtDocsWS\Services\AddressBook\SearchCorrespondents\SearchCorrespondentsResponse.cs" />
+    <Compile Include="VtDocsWS\Services\AddressBook\SearchUsers\SearchUsersRequest.cs" />
+    <Compile Include="VtDocsWS\Services\AddressBook\SearchUsers\SearchUsersResponse.cs" />
+    <Compile Include="VtDocsWS\Services\AdL\AddDocumentInAdLRuolo\AddDocumentInAdLRuoloRequest.cs" />
+    <Compile Include="VtDocsWS\Services\AdL\AddDocumentInAdLRuolo\AddDocumentInAdLRuoloResponse.cs" />
+    <Compile Include="VtDocsWS\Services\AdL\AddDocumentInAdLUtente\AddDocumentInAdLUtenteRequest.cs" />
+    <Compile Include="VtDocsWS\Services\AdL\AddDocumentInAdLUtente\AddDocumentInAdLUtenteResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Administration\GetAdministrations\GetAdministrationsRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Administration\GetAdministrations\GetAdministrationsResponse.cs" />
+    <Compile Include="VtDocsWS\Services\APSS_Services\SendPublicationResult\SendPublicationResultRequest.cs" />
+    <Compile Include="VtDocsWS\Services\APSS_Services\SendPublicationResult\SendPublicationResultResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Authentication\Authenticate\AuthenticateRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Authentication\Authenticate\AuthenticateResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Authentication\LogIn\LogInRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Authentication\LogIn\LogInResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Authentication\LogOut\LogOutRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Authentication\LogOut\LogOutResponse.cs" />
+    <Compile Include="VtDocsWS\Services\CAPServices\ApproveOpportunity\ApproveOpportunityRequest.cs" />
+    <Compile Include="VtDocsWS\Services\CAPServices\ApproveOpportunity\ApproveOpportunityResponse.cs" />
+    <Compile Include="VtDocsWS\Services\CAPServices\Authenticate\AuthenticateRequest.cs" />
+    <Compile Include="VtDocsWS\Services\CAPServices\Authenticate\AuthenticateResponse.cs" />
+    <Compile Include="VtDocsWS\Services\CAPServices\DownloadDoc\DownloadDocRequest.cs" />
+    <Compile Include="VtDocsWS\Services\CAPServices\DownloadDoc\DownloadDocResponse.cs" />
+    <Compile Include="VtDocsWS\Services\CAPServices\GetDocsInOpportunity\GetDocsInOpportunityRequest.cs" />
+    <Compile Include="VtDocsWS\Services\CAPServices\GetDocsInOpportunity\GetDocsInOpportunityResponse.cs" />
+    <Compile Include="VtDocsWS\Services\CAPServices\GetOppApprovals\GetOppApprovalsRequest.cs" />
+    <Compile Include="VtDocsWS\Services\CAPServices\GetOppApprovals\GetOppApprovalsResponse.cs" />
+    <Compile Include="VtDocsWS\Services\CAPServices\GetOpportunities\GetOpportunitiesRequest.cs" />
+    <Compile Include="VtDocsWS\Services\CAPServices\GetOpportunities\GetOpportunitiesResponse.cs" />
+    <Compile Include="VtDocsWS\Services\CAPServices\StoreOpportunity\StoreOpportunityRequest.cs" />
+    <Compile Include="VtDocsWS\Services\CAPServices\StoreOpportunity\StoreOpportunityResponse.cs" />
+    <Compile Include="VtDocsWS\Services\CheckWS\CheckConnection\CheckConnectionRequest.cs" />
+    <Compile Include="VtDocsWS\Services\CheckWS\CheckConnection\CheckConnectionResponse.cs" />
+    <Compile Include="VtDocsWS\Services\ClassificationScheme\GetActiveClassificationScheme\GetActiveClassificationSchemeRequest.cs" />
+    <Compile Include="VtDocsWS\Services\ClassificationScheme\GetActiveClassificationScheme\GetActiveClassificationSchemeResponse.cs" />
+    <Compile Include="VtDocsWS\Services\ClassificationScheme\GetAllClassificationSchemes\GetAllClassificationSchemesRequest.cs" />
+    <Compile Include="VtDocsWS\Services\ClassificationScheme\GetAllClassificationSchemes\GetAllClassificationSchemesResponse.cs" />
+    <Compile Include="VtDocsWS\Services\ClassificationScheme\GetClassificationSchemeById\GetClassificationSchemeByIdRequest.cs" />
+    <Compile Include="VtDocsWS\Services\ClassificationScheme\GetClassificationSchemeById\GetClassificationSchemeByIdResponse.cs" />
+    <Compile Include="VtDocsWS\Services\DocumentsAdvanced\C3GetDocs\C3GetDocsRequest.cs" />
+    <Compile Include="VtDocsWS\Services\DocumentsAdvanced\C3GetDocs\C3GetDocsResponse.cs" />
+    <Compile Include="VtDocsWS\Services\DocumentsAdvanced\CaricaLottoInPi3\CaricaLottoInPi3Request.cs" />
+    <Compile Include="VtDocsWS\Services\DocumentsAdvanced\CaricaLottoInPi3\CaricaLottoInPi3Response.cs" />
+    <Compile Include="VtDocsWS\Services\DocumentsAdvanced\CircolarePubblicata\CircolarePubblicataRequest.cs" />
+    <Compile Include="VtDocsWS\Services\DocumentsAdvanced\FatturaEsitoNotifica\FatturaEsitoNotificaRequest.cs" />
+    <Compile Include="VtDocsWS\Services\DocumentsAdvanced\FatturaEsitoNotifica\FatturaEsitoNotificaResponse.cs" />
+    <Compile Include="VtDocsWS\Services\DocumentsAdvanced\NuovaFattura\NuovaFatturaRequest.cs" />
+    <Compile Include="VtDocsWS\Services\DocumentsAdvanced\NuovaFattura\NuovaFatturaResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\AddAttachment\AddAttachmentRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\AddAttachment\AddAttachmentResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\GetEnvelopedFileById\GetEnvelopedFileByIdRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\GetEnvelopedFileById\GetEnvelopedFileByIdResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\GetFileWithSignatureAndSignerInfo\GetFileWithSignatureAndStampRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\GetFileWithSignatureAndSignerInfo\GetFileWithSignatureAndStampResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\GetLinkDocByID\GetLinkDocByIDRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\GetLinkDocByID\GetLinkDocByIDResponse.cs" />
+    <Compile Include="VtDocsWS\Services\DocumentsAdvanced\RemoveDocument\RemoveDocumentRequest.cs" />
+    <Compile Include="VtDocsWS\Services\DocumentsAdvanced\RemoveDocument\RemoveDocumentResponse.cs" />
+    <Compile Include="VtDocsWS\Services\DocumentsAdvanced\SendDocumentAdvanced\SendDocumentAdvancedRequest.cs" />
+    <Compile Include="VtDocsWS\Services\DocumentsAdvanced\SendDocumentAdvanced\SendDocumentAdvancedResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\AddDocInProject\AddDocInProjectRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\AddDocInProject\AddDocInProjectResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\CreateDocumentAndAddInProject\CreateDocumentAndAddInProjectRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\CreateDocumentAndAddInProject\CreateDocumentAndAddInProjectResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\CreateDocument\CreateDocumentRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\CreateDocument\CreateDocumentResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\EditDocStateDiagram\EditDocStateDiagramRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\EditDocStateDiagram\EditDocStateDiagramResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\EditDocument\EditDocumentRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\EditDocument\EditDocumentResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\GetDocumentFilters\GetDocumentFiltersRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\GetDocumentFilters\GetDocumentFiltersResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\GetDocumentsInProject\GetDocumentsInProjectRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\GetDocumentsInProject\GetDocumentsInProjectResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\GetDocumentStateDiagram\GetDocumentStateDiagramRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\GetDocumentStateDiagram\GetDocumentStateDiagramResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\GetDocument\GetDocumentRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\GetDocument\GetDocumentResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\GetFileDocumentById\GetFileDocumentByIdRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\GetFileDocumentById\GetFileDocumentByIdResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\GetFileWithSignatureOrStamp\GetFileWithSignatureOrStampRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\GetFileWithSignatureOrStamp\GetFileWithSignatureOrStampResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\GetStampAndSignature\GetStampAndSignatureRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\GetStampAndSignature\GetStampAndSignatureResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\GetTemplateDoc\GetTemplateDocRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\GetTemplateDoc\GetTemplateDocResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\GetTemplatesDocuments\GetTemplatesDocumentsRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\GetTemplatesDocuments\GetTemplatesDocumentsResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\InvalidateDocument\InvalidateDocumentRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\InvalidateDocument\InvalidateDocumentResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\SearchDocuments\SearchDocumentsRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\SearchDocuments\SearchDocumentsResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\SendDocument\SendDocumentRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\SendDocument\SendDocumentResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\UploadFileToDocument\UploadFileToDocumentRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Documents\UploadFileToDocument\UploadFileToDocumentResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Email\SendMail\SendMailRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Email\SendMail\SendMailResponse.cs" />
+    <Compile Include="VtDocsWS\Services\FilesUploader\FileFTPUpload\CheckFileFTPUploadRequest.cs" />
+    <Compile Include="VtDocsWS\Services\FilesUploader\FileFTPUpload\FileFTPUploadResponse.cs" />
+    <Compile Include="VtDocsWS\Services\FilesUploader\FileFTPUpload\NotifyFileFTPUploadRequest.cs" />
+    <Compile Include="VtDocsWS\Services\FilesUploader\GetFileState\GetFileStateRequest.cs" />
+    <Compile Include="VtDocsWS\Services\FilesUploader\GetFileState\GetFileStateResponse.cs" />
+    <Compile Include="VtDocsWS\Services\FilesUploader\UploaderVersion\UploaderVersionRequest.cs" />
+    <Compile Include="VtDocsWS\Services\FilesUploader\UploaderVersion\UploaderVersionResponse.cs" />
+    <Compile Include="VtDocsWS\Services\FilesUploader\UploadFile\UploadFileRequest.cs" />
+    <Compile Include="VtDocsWS\Services\FilesUploader\UploadFile\UploadFileResponse.cs" />
+    <Compile Include="VtDocsWS\Services\FollowDomainObject\FollowResponse.cs" />
+    <Compile Include="VtDocsWS\Services\FollowDomainObject\FollowRequest.cs" />
+    <Compile Include="VtDocsWS\Services\IAddressBook.cs" />
+    <Compile Include="VtDocsWS\Services\IAdLDocument.cs" />
+    <Compile Include="VtDocsWS\Services\IAdministration.cs" />
+    <Compile Include="VtDocsWS\Services\IAuthentication.cs" />
+    <Compile Include="VtDocsWS\Services\IClassificationSchemes.cs" />
+    <Compile Include="VtDocsWS\Services\IDocuments.cs" />
+    <Compile Include="VtDocsWS\Services\IDocumentsAdvanced.cs" />
+    <Compile Include="VtDocsWS\Services\IFilesUploader.cs" />
+    <Compile Include="VtDocsWS\Services\ILibroFirma.cs" />
+    <Compile Include="VtDocsWS\Services\IPluginHash.cs" />
+    <Compile Include="VtDocsWS\Services\IProceedings.cs" />
+    <Compile Include="VtDocsWS\Services\IProjects.cs" />
+    <Compile Include="VtDocsWS\Services\IRegisters.cs" />
+    <Compile Include="VtDocsWS\Services\IRoles.cs" />
+    <Compile Include="VtDocsWS\Services\ITransmissions.cs" />
+    <Compile Include="VtDocsWS\Services\LibroFirma\AddElementoInLF\AddElementoInLFRequest.cs" />
+    <Compile Include="VtDocsWS\Services\LibroFirma\AddElementoInLF\AddElementoInLFResponse.cs" />
+    <Compile Include="VtDocsWS\Services\LibroFirma\ClosePassoAndGetNext\ClosePassoAndGetNextRequest.cs" />
+    <Compile Include="VtDocsWS\Services\LibroFirma\ClosePassoAndGetNext\ClosePassoAndGetNextResponse.cs" />
+    <Compile Include="VtDocsWS\Services\LibroFirma\GetInstanceSearchFilters\GetInstanceSearchFiltersResponse.cs" />
+    <Compile Include="VtDocsWS\Services\LibroFirma\GetSignatureProcesses\GetSignatureProcessesRequest.cs" />
+    <Compile Include="VtDocsWS\Services\LibroFirma\GetSignatureProcesses\GetSignatureProcessesResponse.cs" />
+    <Compile Include="VtDocsWS\Services\LibroFirma\GetSignatureProcess\GetSignatureProcessRequest.cs" />
+    <Compile Include="VtDocsWS\Services\LibroFirma\GetSignatureProcess\GetSignatureProcessResponse.cs" />
+    <Compile Include="VtDocsWS\Services\LibroFirma\GetSignProcessInstance\GetSignProcessInstanceRequest.cs" />
+    <Compile Include="VtDocsWS\Services\LibroFirma\GetSignProcessInstance\GetSignProcessInstanceResponse.cs" />
+    <Compile Include="VtDocsWS\Services\LibroFirma\InterruptSignatureProcess\InterruptSignatureProcessRequest.cs" />
+    <Compile Include="VtDocsWS\Services\LibroFirma\InterruptSignatureProcess\InterruptSignatureProcessResponse.cs" />
+    <Compile Include="VtDocsWS\Services\LibroFirma\SearchSignProcessInstances\SearchSignProcessInstancesRequest.cs" />
+    <Compile Include="VtDocsWS\Services\LibroFirma\SearchSignProcessInstances\SearchSignProcessInstancesResponse.cs" />
+    <Compile Include="VtDocsWS\Services\LibroFirma\StartSignatureProcess\StartSignatureProcessRequest.cs" />
+    <Compile Include="VtDocsWS\Services\LibroFirma\StartSignatureProcess\StartSignatureProcessResponse.cs" />
+    <Compile Include="VtDocsWS\Services\PluginHash\GetHashMail\GetHashMailRequest.cs" />
+    <Compile Include="VtDocsWS\Services\PluginHash\GetHashMail\GetHashMailResponse.cs" />
+    <Compile Include="VtDocsWS\Services\PluginHash\NewHashMail\NewHashMailRequest.cs" />
+    <Compile Include="VtDocsWS\Services\PluginHash\NewHashMail\NewHashMailResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Proceedings\AddDocToProceeding\AddDocToProceedingRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Proceedings\AddDocToProceeding\AddDocToProceedingResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Proceedings\GetProceeding\GetProceedingRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Proceedings\GetProceeding\GetProceedingResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Proceedings\GetUnreadNotifications\GetUnreadNotificationsRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Proceedings\GetUnreadNotifications\GetUnreadNotificationsResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Proceedings\SetReadNotifications\SetReadNotificationsRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Proceedings\SetReadNotifications\SetReadNotificationsResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Proceedings\StartProceeding\StartProceedingRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Proceedings\StartProceeding\StartProceedingResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Projects\CreateFolder\CreateFolderRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Projects\CreateFolder\CreateFolderResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Projects\CreateProject\CreateProjectRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Projects\CreateProject\CreateProjectResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Projects\EditPrjStateDiagram\EditPrjStateDiagramRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Projects\EditPrjStateDiagram\EditPrjStateDiagramResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Projects\EditProject\EditProjectRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Projects\EditProject\EditProjectResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Projects\GetLinkPrjByID\GetLinkPrjByIDRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Projects\GetLinkPrjByID\GetLinkPrjByIDResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Projects\GetProjectFilters\GetProjectFiltersRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Projects\GetProjectFilters\GetProjectFiltersResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Projects\GetProjectsByDocument\GetProjectsByDocumentRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Projects\GetProjectsByDocument\GetProjectsByDocumentResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Projects\GetProjectStateDiagram\GetProjectStateDiagramRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Projects\GetProjectStateDiagram\GetProjectStateDiagramResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Projects\GetProjectFolders\GetProjectFoldersRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Projects\GetProjectFolders\GetProjectFoldersResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Projects\GetProject\GetProjectRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Projects\GetProject\GetProjectResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Projects\GetTemplatePrj\GetTemplatePrjRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Projects\GetTemplatePrj\GetTemplatePrjResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Projects\GetTemplatesProjects\GetTemplatesProjectsRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Projects\GetTemplatesProjects\GetTemplatesProjectsResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Projects\OpenCloseProject\OpenCloseProjectRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Projects\OpenCloseProject\OpenCloseProjectResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Projects\RemoveProjectFolders\RemoveProjectFoldersRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Projects\RemoveProjectFolders\RemoveProjectFoldersResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Projects\SearchProjects\SearchProjectsRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Projects\SearchProjects\SearchProjectsResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Registers\GetRegisterOrRF\GetRegisterOrRFRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Registers\GetRegisterOrRF\GetRegisterOrRFResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Registers\GetRegistersOrRF\GetRegistersOrRFRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Registers\GetRegistersOrRF\GetRegistersOrRFResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Request.cs" />
+    <Compile Include="VtDocsWS\Services\Response.cs" />
+    <Compile Include="VtDocsWS\Services\ResponseError.cs" />
+    <Compile Include="VtDocsWS\Services\Roles\GetRolesForEnabledActions\GetRolesForEnabledActionsRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Roles\GetRolesForEnabledActions\GetRolesForEnabledActionsResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Roles\GetRoles\GetRolesRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Roles\GetRoles\GetRolesResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Roles\GetRole\GetRoleRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Roles\GetRole\GetRoleResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Roles\GetUsersInRole\GetUsersInRoleRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Roles\GetUsersInRole\GetUsersInRoleResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Signature\VerifySignature\VerifySignatureRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Signature\VerifySignature\VerifySignatureResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Token\GetAuthenticationToken\GetAuthenticationTokenRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Token\GetAuthenticationToken\GetAuthenticationTokenResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Token\GetToken\GetTokenRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Token\GetToken\GetTokenResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Transmissions\ExecuteTransmDocModel\ExecuteTransmDocModelRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Transmissions\ExecuteTransmDocModel\ExecuteTransmDocModelResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Transmissions\ExecuteTransmissionDocument\ExecuteTransmissionDocumentRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Transmissions\ExecuteTransmissionDocument\ExecuteTransmissionDocumentResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Transmissions\ExecuteTransmissionProject\ExecuteTransmissionProjectRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Transmissions\ExecuteTransmissionProject\ExecuteTransmissionProjectResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Transmissions\ExecuteTransmPrjModel\ExecuteTransmPrjModelRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Transmissions\ExecuteTransmPrjModel\ExecuteTransmPrjModelResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Transmissions\GetTransmissionModels\GetTransmissionModelsRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Transmissions\GetTransmissionModels\GetTransmissionModelsResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Transmissions\GetTransmissionModel\GetTransmissionModelRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Transmissions\GetTransmissionModel\GetTransmissionModelResponse.cs" />
+    <Compile Include="VtDocsWS\Services\Transmissions\GiveUpRights\GiveUpRightsRequest.cs" />
+    <Compile Include="VtDocsWS\Services\Transmissions\GiveUpRights\GiveUpRightsResponse.cs" />
+    <Compile Include="VtDocsWS\WebServices\AddressBook.svc.cs">
+      <DependentUpon>AddressBook.svc</DependentUpon>
+    </Compile>
+    <Compile Include="VtDocsWS\WebServices\AdLDocument.svc.cs">
+      <DependentUpon>AdLDocument.svc</DependentUpon>
+    </Compile>
+    <Compile Include="VtDocsWS\WebServices\Administration.svc.cs">
+      <DependentUpon>Administration.svc</DependentUpon>
+    </Compile>
+    <Compile Include="VtDocsWS\WebServices\APSS_Services.svc.cs">
+      <DependentUpon>APSS_Services.svc</DependentUpon>
+    </Compile>
+    <Compile Include="VtDocsWS\WebServices\Authentication.svc.cs">
+      <DependentUpon>Authentication.svc</DependentUpon>
+    </Compile>
+    <Compile Include="VtDocsWS\WebServices\CAPServices.svc.cs">
+      <DependentUpon>CAPServices.svc</DependentUpon>
+    </Compile>
+    <Compile Include="VtDocsWS\WebServices\CheckWS.svc.cs">
+      <DependentUpon>CheckWS.svc</DependentUpon>
+    </Compile>
+    <Compile Include="VtDocsWS\WebServices\ClassificationSchemes.svc.cs">
+      <DependentUpon>ClassificationSchemes.svc</DependentUpon>
+    </Compile>
+    <Compile Include="VtDocsWS\WebServices\Documents.svc.cs">
+      <DependentUpon>Documents.svc</DependentUpon>
+    </Compile>
+    <Compile Include="VtDocsWS\WebServices\DocumentsAdvanced.svc.cs">
+      <DependentUpon>DocumentsAdvanced.svc</DependentUpon>
+    </Compile>
+    <Compile Include="VtDocsWS\WebServices\Email.svc.cs">
+      <DependentUpon>Email.svc</DependentUpon>
+    </Compile>
+    <Compile Include="VtDocsWS\Services\IEmail.cs" />
+    <Compile Include="VtDocsWS\Services\IToken.cs" />
+    <Compile Include="VtDocsWS\Services\ICheckWS.cs" />
+    <Compile Include="VtDocsWS\Services\IAPSS_Services.cs" />
+    <Compile Include="VtDocsWS\WebServices\FilesUploader.svc.cs">
+      <DependentUpon>FilesUploader.svc</DependentUpon>
+    </Compile>
+    <Compile Include="VtDocsWS\Services\ICAPServices.cs" />
+    <Compile Include="VtDocsWS\WebServices\LibroFirma.svc.cs">
+      <DependentUpon>LibroFirma.svc</DependentUpon>
+    </Compile>
+    <Compile Include="VtDocsWS\WebServices\PluginHash.svc.cs">
+      <DependentUpon>PluginHash.svc</DependentUpon>
+    </Compile>
+    <Compile Include="VtDocsWS\WebServices\Proceedings.svc.cs">
+      <DependentUpon>Proceedings.svc</DependentUpon>
+    </Compile>
+    <Compile Include="VtDocsWS\WebServices\Projects.svc.cs">
+      <DependentUpon>Projects.svc</DependentUpon>
+    </Compile>
+    <Compile Include="VtDocsWS\WebServices\Registers.svc.cs">
+      <DependentUpon>Registers.svc</DependentUpon>
+    </Compile>
+    <Compile Include="VtDocsWS\WebServices\Roles.svc.cs">
+      <DependentUpon>Roles.svc</DependentUpon>
+    </Compile>
+    <Compile Include="VtDocsWS\WebServices\Token.svc.cs">
+      <DependentUpon>Token.svc</DependentUpon>
+    </Compile>
+    <Compile Include="VtDocsWS\WebServices\Transmissions.svc.cs">
+      <DependentUpon>Transmissions.svc</DependentUpon>
+    </Compile>
+    <Compile Include="VtDocsWS\WebServices\Utils.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Pubblicazioni\PubblicazioneDocumenti.asmx.cs">
+      <DependentUpon>PubblicazioneDocumenti.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Pubblicazioni\Utils.cs" />
+    <Compile Include="Sanita\Builders\TrasmissioneBuilder.cs" />
+    <Compile Include="Sanita\Interoperabilita\InteropSchedaDocHandler.cs" />
+    <Compile Include="Sanita\SanitaManager.cs" />
+    <Compile Include="Sanita\SanitaWS.asmx.cs">
+      <DependentUpon>SanitaWS.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Sanita\VO\StatusTemplateVO.cs" />
+    <Compile Include="Sanita\VO\AttestatiListVO.cs" />
+    <Compile Include="Sanita\VO\AttestatoVO.cs" />
+    <Compile Include="Sanita\VO\Requests\ImportAttestatiRequest.cs" />
+    <Compile Include="Sanita\VO\Requests\InteropCreazioneDocRequest.cs" />
+    <Compile Include="Sanita\VO\Responses\ImportAttestatiResponse.cs" />
+    <Compile Include="Sanita\VO\Responses\InteropCreazioneDocResponse.cs" />
+    <Compile Include="Sanita\VO\RuoloInfoVO.cs" />
+    <Compile Include="Sanita\VO\TrasmissioneVO.cs" />
+    <Compile Include="Sanita\VO\UserInfoVO.cs" />
+    <Compile Include="SmartServices\DocsPaServices.asmx.cs">
+      <DependentUpon>DocsPaServices.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SmartServices\Utils.cs" />
+    <Compile Include="webservice_test\webServiceTest.asmx.cs">
+      <DependentUpon>webServiceTest.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WSManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AcquisizioneMassiva\UploadPage.aspx.resx">
+      <DependentUpon>UploadPage.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Conservazione\PacchettiVersamento\ErrorDescriptions.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorDescriptions.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DocsPaWS.asmx.resx">
+      <DependentUpon>DocsPaWS.asmx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DocsPaWSLite.asmx.resx">
+      <DependentUpon>DocsPaWSLite.asmx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DocsPaWSProtoASL.asmx.resx">
+      <DependentUpon>DocsPaWSProtoASL.asmx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global.asax.resx">
+      <DependentUpon>Global.asax.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DocsPaWSImportaProtocolli.asmx" />
+    <Content Include="DocsPaWSTokenAuth.asmx" />
+    <Content Include="documentModels\model.txt" />
+    <Content Include="xml\xslfo_export_archivio_cartaceo.xsl" />
+    <Content Include="documentModels\model.doc" />
+    <Content Include="documentModels\model.ppt" />
+    <Content Include="documentModels\model.rtf" />
+    <Content Include="documentModels\model.xls" />
+    <Content Include="report\schedaDoc\schedaDoc.rtf" />
+    <Content Include="report\schedaDoc\SchedaDoc_UffRef.rtf" />
+    <None Include="Conservazione\PacchettiVersamento\Dominio\Dominio.cd" />
+    <None Include="Conservazione\PacchettiVersamento\Services\Services.cd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="report\StampaRic\Ricevuta.rtf" />
+    <None Include="report\StampaRic\Ricevuta.pdf" />
+    <None Include="report\templateXML\XMLReport.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="report\templateXML\XMLReport.xsx">
+      <DependentUpon>XMLReport.xsd</DependentUpon>
+    </None>
+    <Content Include="xml\protocolloASL.xsd">
+      <SubType>
+      </SubType>
+    </Content>
+    <Content Include="xml\Segnatura.dtd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Services.config" />
+    <None Include="xml\daticert.dtd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BackEnd\BusinessLogic\BusinessLogic.csproj">
+      <Project>{FDE4CB26-1F10-464B-8913-0D9E2BD0C72A}</Project>
+      <Name>BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BackEnd\DocsPaConservazione\DocsPaConservazione.csproj">
+      <Project>{EBD4E730-2154-4B60-A3C6-4FC2643C9092}</Project>
+      <Name>DocsPaConservazione</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BackEnd\DocsPaDB\DocsPaDB.csproj">
+      <Project>{5CFF0911-B6D1-4F98-A9EA-3034E188F68B}</Project>
+      <Name>DocsPaDB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BackEnd\DocsPaDigitalSignature\DocsPaDigitalSignature.csproj">
+      <Project>{9990A8BE-92EC-4657-863D-9D23665FB3C4}</Project>
+      <Name>DocsPaDigitalSignature</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BackEnd\DocsPaDocumentale\DocsPaDocumentale_PITRE\DocsPaDocumentale_PITRE.csproj">
+      <Project>{98C8EC85-D776-406D-8B61-4A12BE651129}</Project>
+      <Name>DocsPaDocumentale_PITRE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BackEnd\DocsPaUtils\DocsPaUtils.csproj">
+      <Project>{942AD652-BCF7-44CA-AE38-CF0CDA8E0D16}</Project>
+      <Name>DocsPaUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BackEnd\DocsPaVO\DocsPaVO.csproj">
+      <Project>{A8BA40A6-AB86-4DF7-8C0F-8A9BBB7EE885}</Project>
+      <Name>DocsPaVO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BackEnd\DocsPa_I_TSAuthority\DocsPa_I_TSAuthority.csproj">
+      <Project>{BC181B10-8483-4121-99A8-913A376EF3A0}</Project>
+      <Name>DocsPa_I_TSAuthority</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BackEnd\DocsPa_TSAuthority\DocsPa_TSAuthority.csproj">
+      <Project>{23B0B679-F0AB-46BF-9887-61067D7C50D8}</Project>
+      <Name>DocsPa_TSAuthority</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BackEnd\DocsPa_TSAuthority_InfoTN\DocsPa_TSAuthority_InfoTN.csproj">
+      <Project>{3043B3B0-6DC0-461C-BA52-202BDF7C8BA0}</Project>
+      <Name>DocsPa_TSAuthority_InfoTN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BackEnd\FatturazioneElettronica\FatturazioneElettronicaServiceConsumer\FatturazioneElettronicaServiceConsumer.csproj">
+      <Project>{223FB05F-B61D-45EB-90CC-D6221FD83D5F}</Project>
+      <Name>FatturazioneElettronicaServiceConsumer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BackEnd\LiveCycle\LiveCycle.csproj">
+      <Project>{4240BF16-0E74-4F14-A1A2-C5C315168D26}</Project>
+      <Name>LiveCycle</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BackEnd\P3SBCLib\P3SBCLib.csproj">
+      <Project>{6BAA41FB-B96E-46EA-B164-679714FE7A57}</Project>
+      <Name>P3SBCLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BackEnd\ProspettiRiepilogativi\ProspettiRiepilogativi.csproj">
+      <Project>{015B3536-386C-40B8-A951-010DA06884FD}</Project>
+      <Name>ProspettiRiepilogativi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BackEnd\ServiceLoadController\ServiceLoadController.csproj">
+      <Project>{ACCEAC45-8BF8-42FA-BEFE-165EF0D15904}</Project>
+      <Name>ServiceLoadController</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BackEnd\VtDocs.BusinessServices.Core\VtDocs.BusinessServices.Core.csproj">
+      <Project>{C85CD2BD-A8C5-4FD3-9FC8-8E1EAAF506A2}</Project>
+      <Name>VtDocs.BusinessServices.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BackEnd\VtDocs.BusinessServices\VtDocs.BusinessServices.csproj">
+      <Project>{00705496-C7C0-4792-94B4-CA618551319C}</Project>
+      <Name>VtDocs.BusinessServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DocsPA3xSolution\VerifyAndSetTypeDocOrFasc\VerifyAndSetTypeDocOrFasc.csproj">
+      <Project>{DEB63EFB-4F28-4C00-9EBF-13F23F428F81}</Project>
+      <Name>VerifyAndSetTypeDocOrFasc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Publisher\Publisher.Core\Publisher.Core.csproj">
+      <Project>{9D5CAAF5-8558-4A9A-8A7E-1B9D8D83EF37}</Project>
+      <Name>Publisher.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Security\Security.Core.csproj">
+      <Project>{E333E3EA-13A5-413C-9747-707FCECE1080}</Project>
+      <Name>Security.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DocsPaConservazioneWS.asmx" />
+    <Content Include="DocsPaMarcaturaWS.asmx" />
+    <Content Include="FriendApplication\DocsPaWSFriendApplication.asmx" />
+    <Content Include="DocsPaWSLdapSync.asmx" />
+    <Content Include="DocsPaWSRDE.asmx" />
+    <Content Include="Log\Migrazioni\MigrazionePITRE.asmx" />
+    <Content Include="report\templateXML\XMLRepExportConservazione.xml" />
+    <Content Include="report\templateXML\XMLRepStampaRisArchCartaceo.xml" />
+    <Content Include="report\templateXML\XMLRepStampaRisDocInCestino.xml" />
+    <Content Include="report\templateXML\XMLRepStampaRisRicDoc.xml" />
+    <Content Include="report\templateXML\XMLRepStampaRisRicFasc.xml" />
+    <Content Include="report\templateXML\XMLRepStampaRisRicLog.xml" />
+    <Content Include="report\templateXML\XMLRepStampaRisRicToDoList.xml" />
+    <Content Include="report\templateXML\XMLRepStampaRisRicTrasm.xml" />
+    <Content Include="report\templateXML\XMLRepStampaRisScarto.xml" />
+    <Content Include="SmartServices\DocsPaServices.asmx" />
+    <Content Include="xml\xslfo_export_conservazione.xsl">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\xslfo_export_fasc_scarto.xsl" />
+    <Content Include="xml\xslfo_export_log.xsl" />
+    <Content Include="xml\xslfo_export_docInCest.xsl" />
+    <Content Include="xml\xslfo_export_todolist.xsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="VtDocsWS\Compression\obj\Debug\TempPE\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

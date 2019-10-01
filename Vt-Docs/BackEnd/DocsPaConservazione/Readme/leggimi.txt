@@ -1,0 +1,157 @@
+DESCRIZIONE DI QUESTA ISTANZA DI CONSERVAZIONE
+
+
+Si intende per "istanza di conservazione" l'unità logica dei seguneti elemneti:
+- uno o più file che sono sottoposti unitariamente al processo di conservazione
+- l'"indice di conservazione" richiesto dalla normativa vigente (Deliberazione 
+CNIPA 19 febbraio 2004 n. 11)
+- ulteriori componenti utili ai fini gestionali (strutture di dati e indici).
+In alcuni documenti normativi e standard, tale unità logica prende il nome di 
+"volume di conservazione". 
+
+Il presente file descrive la struttura dell'istanza o volume di conservazione e 
+la disposizione dei documenti e delle altre componenti in esso contenuti.
+
+Nella cartella radice sono presenti i seguenti files e cartelle:
+- file index.html
+- file leggimi.txt
+- file readme.txt
+- file liesmich.txt
+- file dati_istanza.xml
+- cartella chiusura
+- cartella html
+- cartella fascicoli
+- cartella documenti
+- cartella schemi_dei_dati
+
+Di seguito viene fornita la descrizione dei suddetti file e cartelle.
+
+
+*****   index.html   *****
+Il file index.html contiene una pagina in formato HTML 4.0 che rappresenta il 
+punto di partenza per la navigazione ipertestuale del supporto.
+Se si vuole esplorare il contenuto dell'istanza sfruttando i collegamenti in 
+essa presenti sarà sufficiente aprire il file index.html con un qualunque 
+browser compatibile con il linguaggio HTML 4.0. 
+Si noti che non è necessaria una connessione ad internet o ad altra rete di 
+comunicazione di tipo intranet. 
+La pagina index.html contiene dei collegamenti alle sguenti viste dell'istanza:
+- Ricerca per numero documento
+- Ricerca per segnatura o numero di documento
+- Ricerca per descrizione oggetto
+- Ricerca per codice fascicolo
+- Ricerca per data di creazione o protocollazione
+- Ricerca per nome file
+- Ricerca per mittente
+- Ricerca per creatore documento
+- Ricerca per tipologia documento
+
+
+*****   leggimi.txt   *****
+Il presente file.
+
+*****   readme.txt    *****
+La descrizione della struttura del supporto in lingua inglese.
+
+*****   liesmich.txt  *****
+La descrizione della struttura del supporto in lingua tedesca.
+
+
+*****	file dati_istanza.xml	*****
+Il file dati_istanza.xml è un file XML versione "1.0" encoding="uft-8" in cui 
+sono presenti le informazioni necessarie per l'identificazione dell'istanza di 
+conservazione.
+La struttura dei dati segue il rispettivo schema presente nella cartella 
+"schemi_dei_dati".
+
+
+****   cartella chiusura  *****
+La cartella chiusura contiene i files necessari per attestare il corretto 
+svolgimento del processo di conservazione ai sensi della normativa vigente 
+(artt. 3 e 4  della deliberazione CNIPA 19 febbrazio 2004, n. 11). 
+In particolare sono presenti i seguenti files:
+- file_chiusura.xml
+- file_chiusura.p7m
+- file_chiusura.tsr 
+      
+*****  file_chiusura.xml   *****
+Il file_chiusura.xml è un file XML versione "1.0" encoding="utf-8".
+Questo rappresenta il "file di chiusura" o "indice di conservazione" previsto 
+dalla normativa vigente sopra citata, cioè l'evidenza informatica associata ad 
+ogni istanza o volume di conservazione, in cui sono presenti una o più impronte 
+dei file dei documenti presenti nell'istanza di conservazione e altre 
+informazioni a supporto del processo di conservazione.
+Tale insieme di dati è articolato secondo la struttura definita nella standard 
+UNI 11386:2010 SinCRO - Supporto all'Interoperabilità nella Conservazione e nel 
+Recupero degli Oggetti Digitali.
+
+***** file_chiusura.p7m   *****
+File PKCS#7 contenente il file di chiusura file_chiusura.xml firmato digitalmente 
+dal responsabile della conservazione.        
+
+*****  file_chiusura.tsr   *****
+File TSR contenente una marca temporale relativa al file file_chiusura.p7m. 
+erogata dall'autorità di certificazione temporale all'atto della firma del file 
+di chiusura da parte del responsabile della conservazione.
+
+
+*****	cartella html	*****
+Nella cartella html sono presenti i seguenti file in formato html 4.0:
+- RicCreatoreDocumento.html
+- RicData.html- RicDocNumber.html
+- RicFascicolo.html
+- RicFileName.html
+- RicMittente.html
+- RicOggetto.html
+- RicSegnatura.html
+- RicTipologiaDocumento.html
+- RicContatori.html
+- Ric.......html
+Tali file contengono l'elenco dei documenti contenuti nel supporto organizzati 
+per la specifica chiave di ricerca e
+un puntatore alla posizione fisica del file relativo al documento e ai metadati 
+ad esso associati. 
+Tutti i predetti file html sono puntati dal file index.html presente nella 
+cartella radice.
+
+
+*****   cartella fascicoli  *****
+La cartella "fascicoli" (presente solamente se nell'istanza è presente tale 
+tipologia di oggetti) contiene tante sotto cartelle quanti sono i fascicoli 
+conservati nel supporto. 
+Ciascuna sottocartella è identificata dal codice del corrispondente fascicolo. 
+All'interno della cartella relativa ad un singolo fascicolo è presente una 
+cartella "documenti" (la cui struttura è descritta nel seguito) e un file xml 
+contentente i dati del fasciclo.
+La struttura dei dati segue il rispettivo schema presente nella cartella 
+"schemi_dei_dati".
+
+
+*****   cartella documenti  *****
+La cartella "documenti", presente direttamente sotto la cartella radice o 
+all'interno della eventuale cartella "fascicoli", contiene tante sottocartelle 
+quanti sono i documenti inseriti nell'istanza di conservazione.
+Ciascuna di queste sottocartelle è identificata dall'ID (identificativo univoco) 
+attribuito a ciascun documento all'interno del sistema gestione documentale 
+P.I.Tre..
+Nella cartella di ciascun documento sono presenti due file identificati entrambi 
+dall'ID del documento: uno di questi due file (la cui estensione può variare a 
+seconda del documento) rappresenta il contenuto informativo del documenti stesso, 
+l'altro è un file xml contenente i dati del documento.
+Se ad un documento sono associati uno o più allegati, la cartella identificata 
+dall'ID del documento conterrà anche una sottocartella "allegati" contenente i 
+file dei documenti allegati al documenti principale.
+La struttura dei dati segue il rispettivo schema presente nella cartella 
+"schemi_dei_dati".
+
+
+*****	cartella schemi_dei_dati	*****
+La cartella "schemi_dei_dati" contiene quattro sottocartelle:
+- dati_istanza
+- dati_fascicolo
+- dati_documento
+Ciascuna cartella contiene lo schema, la Document Type Definition e lo Schema 
+Definition della struttura di dati relativa rispettivamente all'istanza, al 
+fascicolo e al documento.
+
+

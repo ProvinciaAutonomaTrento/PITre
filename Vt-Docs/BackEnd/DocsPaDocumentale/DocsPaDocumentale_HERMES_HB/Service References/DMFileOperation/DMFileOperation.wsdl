@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="AggiungiDocumento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Libreria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NomeForm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Titolo_Doc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Appl_Id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Autore" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDoc" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="pDocLen" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AggiungiDocumentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AggiungiDocumentoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AggiungiDocumentoSec">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Libreria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NomeForm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Titolo_Doc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Appl_Id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Autore" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDoc" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="Trustee" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DMUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DMPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AggiungiDocumentoSecResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AggiungiDocumentoSecResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AggiungiVersione">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Libreria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NomeForm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDoc" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="Docnumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="fVersione" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DMUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DMPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AggiungiVersioneResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AggiungiVersioneResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VisualizzaDocumento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Libreria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDocNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="estensione" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VisualizzaDocumentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VisualizzaDocumentoResult" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="estensione" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VisualizzaDocumentoSec">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Libreria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDocNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="estensione" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DMUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DMPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VisualizzaDocumentoSecResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VisualizzaDocumentoSecResult" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="estensione" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancellaDocumento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Libreria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDocNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNomeForm" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancellaDocumentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CancellaDocumentoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancellaDocumentoSec">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Libreria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDocNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNomeForm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DMUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DMPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancellaDocumentoSecResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CancellaDocumentoSecResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateProfile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pLibreria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNomeForm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDocNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pStringUpdate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateProfileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateProfileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateProfileSec">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pLibreria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNomeForm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDocNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pStringUpdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Trustee" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DMUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DMPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateProfileSecResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateProfileSecResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateProfileDB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pLibreria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNomeForm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDocNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pStringUpdate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateProfileDBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateProfileDBResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VisualizzaLookUp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pLibreria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NomeTabellaLookUp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DMUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DMPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VisualizzaLookUpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VisualizzaLookUpResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ScegliVersione">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pLibreria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDocnumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DMUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DMPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ScegliVersioneResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ScegliVersioneResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VisualizzaVersione">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Libreria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDocNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Version_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="estensione" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DMUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DMPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VisualizzaVersioneResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VisualizzaVersioneResult" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="estensione" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AggiungiDocumentoSoapIn">
+    <wsdl:part name="parameters" element="tns:AggiungiDocumento" />
+  </wsdl:message>
+  <wsdl:message name="AggiungiDocumentoSoapOut">
+    <wsdl:part name="parameters" element="tns:AggiungiDocumentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AggiungiDocumentoSecSoapIn">
+    <wsdl:part name="parameters" element="tns:AggiungiDocumentoSec" />
+  </wsdl:message>
+  <wsdl:message name="AggiungiDocumentoSecSoapOut">
+    <wsdl:part name="parameters" element="tns:AggiungiDocumentoSecResponse" />
+  </wsdl:message>
+  <wsdl:message name="AggiungiVersioneSoapIn">
+    <wsdl:part name="parameters" element="tns:AggiungiVersione" />
+  </wsdl:message>
+  <wsdl:message name="AggiungiVersioneSoapOut">
+    <wsdl:part name="parameters" element="tns:AggiungiVersioneResponse" />
+  </wsdl:message>
+  <wsdl:message name="VisualizzaDocumentoSoapIn">
+    <wsdl:part name="parameters" element="tns:VisualizzaDocumento" />
+  </wsdl:message>
+  <wsdl:message name="VisualizzaDocumentoSoapOut">
+    <wsdl:part name="parameters" element="tns:VisualizzaDocumentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="VisualizzaDocumentoSecSoapIn">
+    <wsdl:part name="parameters" element="tns:VisualizzaDocumentoSec" />
+  </wsdl:message>
+  <wsdl:message name="VisualizzaDocumentoSecSoapOut">
+    <wsdl:part name="parameters" element="tns:VisualizzaDocumentoSecResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancellaDocumentoSoapIn">
+    <wsdl:part name="parameters" element="tns:CancellaDocumento" />
+  </wsdl:message>
+  <wsdl:message name="CancellaDocumentoSoapOut">
+    <wsdl:part name="parameters" element="tns:CancellaDocumentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancellaDocumentoSecSoapIn">
+    <wsdl:part name="parameters" element="tns:CancellaDocumentoSec" />
+  </wsdl:message>
+  <wsdl:message name="CancellaDocumentoSecSoapOut">
+    <wsdl:part name="parameters" element="tns:CancellaDocumentoSecResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateProfileSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateProfile" />
+  </wsdl:message>
+  <wsdl:message name="UpdateProfileSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateProfileSecSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateProfileSec" />
+  </wsdl:message>
+  <wsdl:message name="UpdateProfileSecSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateProfileSecResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateProfileDBSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateProfileDB" />
+  </wsdl:message>
+  <wsdl:message name="UpdateProfileDBSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateProfileDBResponse" />
+  </wsdl:message>
+  <wsdl:message name="VisualizzaLookUpSoapIn">
+    <wsdl:part name="parameters" element="tns:VisualizzaLookUp" />
+  </wsdl:message>
+  <wsdl:message name="VisualizzaLookUpSoapOut">
+    <wsdl:part name="parameters" element="tns:VisualizzaLookUpResponse" />
+  </wsdl:message>
+  <wsdl:message name="ScegliVersioneSoapIn">
+    <wsdl:part name="parameters" element="tns:ScegliVersione" />
+  </wsdl:message>
+  <wsdl:message name="ScegliVersioneSoapOut">
+    <wsdl:part name="parameters" element="tns:ScegliVersioneResponse" />
+  </wsdl:message>
+  <wsdl:message name="VisualizzaVersioneSoapIn">
+    <wsdl:part name="parameters" element="tns:VisualizzaVersione" />
+  </wsdl:message>
+  <wsdl:message name="VisualizzaVersioneSoapOut">
+    <wsdl:part name="parameters" element="tns:VisualizzaVersioneResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DMFileOperationSoap">
+    <wsdl:operation name="AggiungiDocumento">
+      <wsdl:input message="tns:AggiungiDocumentoSoapIn" />
+      <wsdl:output message="tns:AggiungiDocumentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AggiungiDocumentoSec">
+      <wsdl:input message="tns:AggiungiDocumentoSecSoapIn" />
+      <wsdl:output message="tns:AggiungiDocumentoSecSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AggiungiVersione">
+      <wsdl:input message="tns:AggiungiVersioneSoapIn" />
+      <wsdl:output message="tns:AggiungiVersioneSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VisualizzaDocumento">
+      <wsdl:input message="tns:VisualizzaDocumentoSoapIn" />
+      <wsdl:output message="tns:VisualizzaDocumentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VisualizzaDocumentoSec">
+      <wsdl:input message="tns:VisualizzaDocumentoSecSoapIn" />
+      <wsdl:output message="tns:VisualizzaDocumentoSecSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancellaDocumento">
+      <wsdl:input message="tns:CancellaDocumentoSoapIn" />
+      <wsdl:output message="tns:CancellaDocumentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancellaDocumentoSec">
+      <wsdl:input message="tns:CancellaDocumentoSecSoapIn" />
+      <wsdl:output message="tns:CancellaDocumentoSecSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProfile">
+      <wsdl:input message="tns:UpdateProfileSoapIn" />
+      <wsdl:output message="tns:UpdateProfileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProfileSec">
+      <wsdl:input message="tns:UpdateProfileSecSoapIn" />
+      <wsdl:output message="tns:UpdateProfileSecSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProfileDB">
+      <wsdl:input message="tns:UpdateProfileDBSoapIn" />
+      <wsdl:output message="tns:UpdateProfileDBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VisualizzaLookUp">
+      <wsdl:input message="tns:VisualizzaLookUpSoapIn" />
+      <wsdl:output message="tns:VisualizzaLookUpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ScegliVersione">
+      <wsdl:input message="tns:ScegliVersioneSoapIn" />
+      <wsdl:output message="tns:ScegliVersioneSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VisualizzaVersione">
+      <wsdl:input message="tns:VisualizzaVersioneSoapIn" />
+      <wsdl:output message="tns:VisualizzaVersioneSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DMFileOperationSoap" type="tns:DMFileOperationSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AggiungiDocumento">
+      <soap:operation soapAction="http://tempuri.org/AggiungiDocumento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AggiungiDocumentoSec">
+      <soap:operation soapAction="http://tempuri.org/AggiungiDocumentoSec" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AggiungiVersione">
+      <soap:operation soapAction="http://tempuri.org/AggiungiVersione" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VisualizzaDocumento">
+      <soap:operation soapAction="http://tempuri.org/VisualizzaDocumento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VisualizzaDocumentoSec">
+      <soap:operation soapAction="http://tempuri.org/VisualizzaDocumentoSec" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancellaDocumento">
+      <soap:operation soapAction="http://tempuri.org/CancellaDocumento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancellaDocumentoSec">
+      <soap:operation soapAction="http://tempuri.org/CancellaDocumentoSec" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProfile">
+      <soap:operation soapAction="http://tempuri.org/UpdateProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProfileSec">
+      <soap:operation soapAction="http://tempuri.org/UpdateProfileSec" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProfileDB">
+      <soap:operation soapAction="http://tempuri.org/UpdateProfileDB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VisualizzaLookUp">
+      <soap:operation soapAction="http://tempuri.org/VisualizzaLookUp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ScegliVersione">
+      <soap:operation soapAction="http://tempuri.org/ScegliVersione" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VisualizzaVersione">
+      <soap:operation soapAction="http://tempuri.org/VisualizzaVersione" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DMFileOperationSoap12" type="tns:DMFileOperationSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AggiungiDocumento">
+      <soap12:operation soapAction="http://tempuri.org/AggiungiDocumento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AggiungiDocumentoSec">
+      <soap12:operation soapAction="http://tempuri.org/AggiungiDocumentoSec" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AggiungiVersione">
+      <soap12:operation soapAction="http://tempuri.org/AggiungiVersione" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VisualizzaDocumento">
+      <soap12:operation soapAction="http://tempuri.org/VisualizzaDocumento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VisualizzaDocumentoSec">
+      <soap12:operation soapAction="http://tempuri.org/VisualizzaDocumentoSec" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancellaDocumento">
+      <soap12:operation soapAction="http://tempuri.org/CancellaDocumento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancellaDocumentoSec">
+      <soap12:operation soapAction="http://tempuri.org/CancellaDocumentoSec" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProfile">
+      <soap12:operation soapAction="http://tempuri.org/UpdateProfile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProfileSec">
+      <soap12:operation soapAction="http://tempuri.org/UpdateProfileSec" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProfileDB">
+      <soap12:operation soapAction="http://tempuri.org/UpdateProfileDB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VisualizzaLookUp">
+      <soap12:operation soapAction="http://tempuri.org/VisualizzaLookUp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ScegliVersione">
+      <soap12:operation soapAction="http://tempuri.org/ScegliVersione" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VisualizzaVersione">
+      <soap12:operation soapAction="http://tempuri.org/VisualizzaVersione" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DMFileOperation">
+    <wsdl:port name="DMFileOperationSoap" binding="tns:DMFileOperationSoap">
+      <soap:address location="http://10.174.69.181/WSDM2005/DMFileOperation.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DMFileOperationSoap12" binding="tns:DMFileOperationSoap12">
+      <soap12:address location="http://10.174.69.181/WSDM2005/DMFileOperation.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

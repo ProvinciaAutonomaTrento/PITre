@@ -1,0 +1,12 @@
+use PCM_DEPOSITO_1
+go
+
+INSERT INTO [DOCSADM].[ARCHIVE_TransferPolicyState]([System_ID], [Name]) VALUES (1 , 'RICERCA NON AVVIATA')
+
+INSERT INTO [DOCSADM].[ARCHIVE_TransferPolicyState]([System_ID], [Name]) VALUES (2 , 'RICERCA IN CORSO')
+
+INSERT INTO [DOCSADM].[ARCHIVE_TransferPolicyState]([System_ID], [Name]) VALUES (3 , 'RICERCA COMPLETATA')
+
+INSERT INTO [DOCSADM].[ARCHIVE_TransferPolicyState]([System_ID], [Name]) VALUES (4 , 'ANALISI IN CORSO')
+
+INSERT INTO [DOCSADM].[ARCHIVE_TransferPolicyState]([System_ID], [Name]) VALUES (5 , 'ANALISI COMPLETATA')

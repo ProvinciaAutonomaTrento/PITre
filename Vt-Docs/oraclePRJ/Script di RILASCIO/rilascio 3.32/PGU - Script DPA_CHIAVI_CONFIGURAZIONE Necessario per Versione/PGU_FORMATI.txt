@@ -1,0 +1,15 @@
+
+CREATE TABLE PGU_FORMATI_DOCUMENTO
+(
+  SYSTEM_ID                 INTEGER             NOT NULL,
+  FILE_TYPE_USED            INTEGER             DEFAULT 1                     NOT NULL,
+  DESCRIPTION               VARCHAR2(255 BYTE)  NOT NULL,
+  FILE_EXTENSION            VARCHAR2(10 BYTE)   NOT NULL,
+  MAX_FILE_SIZE             INTEGER             DEFAULT 0                     NOT NULL,
+  MAX_FILE_SIZE_ALERT_MODE  INTEGER             DEFAULT 2                     NOT NULL,
+  CONTAINS_FILE_MODEL       INTEGER             DEFAULT 0                     NOT NULL,
+  DOCUMENT_TYPE             INTEGER             DEFAULT 0                     NOT NULL,
+  FILE_TYPE_SIGNATURE       INTEGER,
+  FILE_TYPE_PRESERVATION    INTEGER,
+  FILE_TYPE_VALIDATION      INTEGER
+);

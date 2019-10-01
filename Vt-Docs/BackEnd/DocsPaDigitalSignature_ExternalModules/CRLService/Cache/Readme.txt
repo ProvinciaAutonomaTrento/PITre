@@ -1,0 +1,1 @@
+﻿Cache folder, here go all the downloaded CRL'S

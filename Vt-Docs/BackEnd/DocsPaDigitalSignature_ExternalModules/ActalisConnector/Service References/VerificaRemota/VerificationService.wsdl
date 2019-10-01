@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WL5G3N1:definitions xmlns:WL5G3N2="http://actalisVol/" xmlns:WL5G3N0="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:WL5G3N3="http://schemas.xmlsoap.org/wsdl/soap/" name="VerificationService" targetNamespace="http://actalisVol/" xmlns:WL5G3N1="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:UsingPolicy WL5G3N1:Required="true" />
+  <wsp:Policy WL5G3N0:Id="Mtom.xml">
+    <wsoma:OptimizedMimeSerialization xmlns:wsoma="http://schemas.xmlsoap.org/ws/2004/09/policy/optimizedmimeserialization" />
+  </wsp:Policy>
+  <WL5G3N1:types>
+    <xsd:schema xmlns:WL5G3N4="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:WL5G3N1="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N0="http://www.w3.org/ns/ws-policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:WL5G3N3="http://actalisVol/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:actalisVol="http://actalisVol/" targetNamespace="http://actalisVol/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="Verification" type="actalisVol:Verification" />
+      <xsd:element name="VerificationResponse" type="actalisVol:VerificationResponse" />
+      <xsd:complexType name="Verification">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="fileInfo" type="actalisVol:fileInfo" />
+          <xsd:element xmime:expectedContentTypes="application/octet-stream" minOccurs="1" maxOccurs="1" name="fileContent" type="xsd:base64Binary" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="verifAllaData" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="fileInfo">
+        <xsd:sequence>
+          <xsd:element name="fileName" type="xsd:string" />
+          <xsd:element name="fileExtension" type="xsd:string" />
+          <xsd:element default="false" name="autoDetectType" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="VerificationResponse">
+        <xsd:sequence>
+          <xsd:element name="Return" type="actalisVol:Return" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Return">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="error" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="operation" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="answerCurrentDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="verificaAllaData" type="xsd:dateTime" />
+          <xsd:element xmime:expectedContentTypes="application/octet-stream" minOccurs="0" maxOccurs="1" name="originalFile" type="xsd:base64Binary" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="signers" type="actalisVol:signer" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ReturnTimeStampDataValidation">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="error" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="answerCurrentDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="verificaAllaData" type="xsd:dateTime" />
+          <xsd:element xmime:expectedContentTypes="application/octet-stream" minOccurs="0" maxOccurs="1" name="originalFile" type="xsd:base64Binary" />
+          <xsd:element minOccurs="0" name="certificate" type="actalisVol:certificate" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="timeStamp" type="actalisVol:signerTimeStamp" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ReturnTimeStampValidation">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="error" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="answerCurrentDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="certificate" type="actalisVol:certificate" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="timeStamp" type="actalisVol:signerTimeStamp" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ReturnCertificateValidation">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="error" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="answerCurrentDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="certificate" type="actalisVol:certificate" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="signer">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="signatureInfo" type="actalisVol:signatureInfo" />
+          <xsd:element minOccurs="0" name="certificate" type="actalisVol:certificate" />
+          <xsd:element minOccurs="0" name="timeStamp" type="actalisVol:signerTimeStamp" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="counterSignature" type="actalisVol:signer" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="certificate">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="certName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="certVersion" type="xsd:string" />
+          <xsd:element minOccurs="0" name="certSerialNo" type="xsd:string" />
+          <xsd:element minOccurs="0" name="certQualified" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="certValFrom" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="certValUntil" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="certKeyUsage" type="xsd:string" />
+          <xsd:element minOccurs="0" name="certSubject" type="actalisVol:certSubject" />
+          <xsd:element minOccurs="0" name="certIssuer" type="actalisVol:certIssuer" />
+          <xsd:element minOccurs="0" name="certPublicKey" type="actalisVol:certPublicKey" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="certPolicy" type="actalisVol:certPolicy" />
+          <xsd:element minOccurs="0" name="certRevocation" type="actalisVol:certRevocationInfo" />
+          <xsd:element minOccurs="0" name="certFinger256" type="xsd:string" />
+          <xsd:element minOccurs="0" name="certValid" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="certTimeValid" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="certTrusted" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="certCert" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="certRevocationInfo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="certRevoked" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="revocationReason" type="xsd:string" />
+          <xsd:element minOccurs="0" name="revocationDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="crlInfo" type="actalisVol:crlInfo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="crlInfo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="crlStatus" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="clStatusInfo" type="xsd:string" />
+          <xsd:element minOccurs="0" name="crlThisUpdate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="crlNextUpdate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="serial" type="xsd:string" />
+          <xsd:element minOccurs="0" name="expiredCertsOnCrl" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="certPolicy">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="certCpsUri" type="xsd:string" />
+          <xsd:element minOccurs="0" name="certPolText" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="certPublicKey">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="certPublicKey" type="xsd:string" />
+          <xsd:element minOccurs="0" name="certPublicKeyLength" type="xsd:integer" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="certIssuer">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="issuerDistinguishName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="issuerName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="issuerPartitaIva" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="certSubject">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="subjectDistinguishedName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="commonName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="codiceFiscale" type="xsd:string" />
+          <xsd:element minOccurs="0" name="role" type="xsd:string" />
+          <xsd:element minOccurs="0" name="country" type="xsd:string" />
+          <xsd:element minOccurs="0" name="organization" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="signerTimeStamp">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="tsSignVaild" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="tsSignCertV2" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="tsSignDigestAlg" type="xsd:string" />
+          <xsd:element minOccurs="0" name="tsSignDelib45Valid" type="actalisVol:delib45Valid" />
+          <xsd:element minOccurs="0" name="tsDelib45Valid" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="tsDigestMessageImprint" type="xsd:string" />
+          <xsd:element minOccurs="0" name="tsGenTime" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="tsSerialNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" name="tsPolicyOid" type="xsd:string" />
+          <xsd:element minOccurs="0" name="tsTsaName" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="delib45Valid">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="warnDelib45" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="warnDelib45Cause" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="signatureInfo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="sigValid" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="sigCorrupted" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="sigTime" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="sigCertV2" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="sigAlgorithm" type="xsd:string" />
+          <xsd:element minOccurs="0" name="sigValue" type="xsd:string" />
+          <xsd:element minOccurs="0" name="sigMessageDigest" type="xsd:string" />
+          <xsd:element minOccurs="0" name="sigDelib45Valid" type="actalisVol:delib45Valid" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="VerifyTimeStampToken">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="timeStampToken" type="xsd:string" />
+            <xsd:element xmime:expectedContentTypes="application/octet-stream" minOccurs="1" maxOccurs="1" name="fileTimeStamped" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VerifyTimeStampTokenResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="return" type="actalisVol:ReturnTimeStampValidation" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VerifyTimeStampData">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmime:expectedContentTypes="application/octet-stream" minOccurs="1" maxOccurs="1" name="fileContent" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VerifyTimeStampDataResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="return" type="actalisVol:ReturnTimeStampDataValidation" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VerifyCertificate">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Certificate" type="xsd:string" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="verifAllaData" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VerifyCertificateResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="return" type="actalisVol:ReturnCertificateValidation" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VerifyP7M">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmime:expectedContentTypes="application/octet-stream" minOccurs="1" maxOccurs="1" name="fileContent" type="xsd:base64Binary" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="verifAllaData" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VerifyP7MResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="return" type="actalisVol:Return" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VerifyP7MDetached">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmime:expectedContentTypes="application/octet-stream" minOccurs="1" maxOccurs="1" name="fileContent" type="xsd:base64Binary" />
+            <xsd:element xmime:expectedContentTypes="application/octet-stream" minOccurs="1" maxOccurs="1" name="fileOrig" type="xsd:base64Binary" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="verifAllaData" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VerifyP7MDetachedResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="return" type="actalisVol:Return" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VerifyPDF">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmime:expectedContentTypes="application/octet-stream" minOccurs="1" maxOccurs="1" name="fileContent" type="xsd:base64Binary" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="verifAllaData" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VerifyPDFResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="return" type="actalisVol:Return" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VerifyXML">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmime:expectedContentTypes="application/octet-stream" minOccurs="1" maxOccurs="1" name="fileContent" type="xsd:base64Binary" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="verifAllaData" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VerifyXMLResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="return" type="actalisVol:Return" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </WL5G3N1:types>
+  <WL5G3N1:message name="VerifyXMLResponse">
+    <WL5G3N1:part name="parameters" element="WL5G3N2:VerifyXMLResponse" />
+  </WL5G3N1:message>
+  <WL5G3N1:message name="Verification">
+    <WL5G3N1:part name="parameters" element="WL5G3N2:Verification" />
+  </WL5G3N1:message>
+  <WL5G3N1:message name="VerifyTimeStampTokenRequest">
+    <WL5G3N1:part name="parameters" element="WL5G3N2:VerifyTimeStampToken" />
+  </WL5G3N1:message>
+  <WL5G3N1:message name="VerificationResponse">
+    <WL5G3N1:part name="parameters" element="WL5G3N2:VerificationResponse" />
+  </WL5G3N1:message>
+  <WL5G3N1:message name="VerifyP7MResponse">
+    <WL5G3N1:part name="parameters" element="WL5G3N2:VerifyP7MResponse" />
+  </WL5G3N1:message>
+  <WL5G3N1:message name="VerifyP7MRequest">
+    <WL5G3N1:part name="parameters" element="WL5G3N2:VerifyP7M" />
+  </WL5G3N1:message>
+  <WL5G3N1:message name="VerifyPDFRequest">
+    <WL5G3N1:part name="parameters" element="WL5G3N2:VerifyPDF" />
+  </WL5G3N1:message>
+  <WL5G3N1:message name="VerifyCertificateRequest">
+    <WL5G3N1:part name="parameters" element="WL5G3N2:VerifyCertificate" />
+  </WL5G3N1:message>
+  <WL5G3N1:message name="VerifyTimeStampTokenResponse">
+    <WL5G3N1:part name="parameters" element="WL5G3N2:VerifyTimeStampTokenResponse" />
+  </WL5G3N1:message>
+  <WL5G3N1:message name="VerifyCertificateResponse">
+    <WL5G3N1:part name="parameters" element="WL5G3N2:VerifyCertificateResponse" />
+  </WL5G3N1:message>
+  <WL5G3N1:message name="VerifyXMLRequest">
+    <WL5G3N1:part name="parameters" element="WL5G3N2:VerifyXML" />
+  </WL5G3N1:message>
+  <WL5G3N1:message name="VerifyTimeStampDataRequest">
+    <WL5G3N1:part name="parameters" element="WL5G3N2:VerifyTimeStampData" />
+  </WL5G3N1:message>
+  <WL5G3N1:message name="VerifyP7MDetachedRequest">
+    <WL5G3N1:part name="parameters" element="WL5G3N2:VerifyP7MDetached" />
+  </WL5G3N1:message>
+  <WL5G3N1:message name="VerifyTimeStampDataResponse">
+    <WL5G3N1:part name="parameters" element="WL5G3N2:VerifyTimeStampDataResponse" />
+  </WL5G3N1:message>
+  <WL5G3N1:message name="VerifyP7MDetachedResponse">
+    <WL5G3N1:part name="parameters" element="WL5G3N2:VerifyP7MDetachedResponse" />
+  </WL5G3N1:message>
+  <WL5G3N1:message name="VerifyPDFResponse">
+    <WL5G3N1:part name="parameters" element="WL5G3N2:VerifyPDFResponse" />
+  </WL5G3N1:message>
+  <WL5G3N1:portType name="VerificationService">
+    <WL5G3N1:operation name="Verification">
+      <WL5G3N1:input message="WL5G3N2:Verification" />
+      <WL5G3N1:output message="WL5G3N2:VerificationResponse" />
+    </WL5G3N1:operation>
+    <WL5G3N1:operation name="VerifyTimeStampToken">
+      <WL5G3N1:input message="WL5G3N2:VerifyTimeStampTokenRequest" />
+      <WL5G3N1:output message="WL5G3N2:VerifyTimeStampTokenResponse" />
+    </WL5G3N1:operation>
+    <WL5G3N1:operation name="VerifyTimeStampData">
+      <WL5G3N1:input message="WL5G3N2:VerifyTimeStampDataRequest" />
+      <WL5G3N1:output message="WL5G3N2:VerifyTimeStampDataResponse" />
+    </WL5G3N1:operation>
+    <WL5G3N1:operation name="VerifyCertificate">
+      <WL5G3N1:input message="WL5G3N2:VerifyCertificateRequest" />
+      <WL5G3N1:output message="WL5G3N2:VerifyCertificateResponse" />
+    </WL5G3N1:operation>
+    <WL5G3N1:operation name="VerifyP7M">
+      <WL5G3N1:input message="WL5G3N2:VerifyP7MRequest" />
+      <WL5G3N1:output message="WL5G3N2:VerifyP7MResponse" />
+    </WL5G3N1:operation>
+    <WL5G3N1:operation name="VerifyP7MDetached">
+      <WL5G3N1:input message="WL5G3N2:VerifyP7MDetachedRequest" />
+      <WL5G3N1:output message="WL5G3N2:VerifyP7MDetachedResponse" />
+    </WL5G3N1:operation>
+    <WL5G3N1:operation name="VerifyPDF">
+      <WL5G3N1:input message="WL5G3N2:VerifyPDFRequest" />
+      <WL5G3N1:output message="WL5G3N2:VerifyPDFResponse" />
+    </WL5G3N1:operation>
+    <WL5G3N1:operation name="VerifyXML">
+      <WL5G3N1:input message="WL5G3N2:VerifyXMLRequest" />
+      <WL5G3N1:output message="WL5G3N2:VerifyXMLResponse" />
+    </WL5G3N1:operation>
+  </WL5G3N1:portType>
+  <WL5G3N1:binding name="VerificationServiceSOAPBinding" type="WL5G3N2:VerificationService">
+    <wsp:Policy>
+      <wsp:PolicyReference URI="#Mtom.xml" />
+    </wsp:Policy>
+    <WL5G3N3:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <WL5G3N1:operation name="Verification">
+      <WL5G3N3:operation soapAction="" />
+      <WL5G3N1:input>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N1:input>
+      <WL5G3N1:output>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N1:output>
+    </WL5G3N1:operation>
+    <WL5G3N1:operation name="VerifyTimeStampToken">
+      <WL5G3N3:operation soapAction="" />
+      <WL5G3N1:input>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N1:input>
+      <WL5G3N1:output>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N1:output>
+    </WL5G3N1:operation>
+    <WL5G3N1:operation name="VerifyTimeStampData">
+      <WL5G3N3:operation soapAction="" />
+      <WL5G3N1:input>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N1:input>
+      <WL5G3N1:output>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N1:output>
+    </WL5G3N1:operation>
+    <WL5G3N1:operation name="VerifyCertificate">
+      <WL5G3N3:operation soapAction="" />
+      <WL5G3N1:input>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N1:input>
+      <WL5G3N1:output>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N1:output>
+    </WL5G3N1:operation>
+    <WL5G3N1:operation name="VerifyP7M">
+      <WL5G3N3:operation soapAction="" />
+      <WL5G3N1:input>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N1:input>
+      <WL5G3N1:output>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N1:output>
+    </WL5G3N1:operation>
+    <WL5G3N1:operation name="VerifyP7MDetached">
+      <WL5G3N3:operation soapAction="" />
+      <WL5G3N1:input>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N1:input>
+      <WL5G3N1:output>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N1:output>
+    </WL5G3N1:operation>
+    <WL5G3N1:operation name="VerifyPDF">
+      <WL5G3N3:operation soapAction="" />
+      <WL5G3N1:input>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N1:input>
+      <WL5G3N1:output>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N1:output>
+    </WL5G3N1:operation>
+    <WL5G3N1:operation name="VerifyXML">
+      <WL5G3N3:operation soapAction="" />
+      <WL5G3N1:input>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N1:input>
+      <WL5G3N1:output>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N1:output>
+    </WL5G3N1:operation>
+  </WL5G3N1:binding>
+  <WL5G3N1:service name="VerificationServiceService">
+    <WL5G3N1:port name="VerificationServiceSOAP" binding="WL5G3N2:VerificationServiceSOAPBinding">
+      <WL5G3N3:address location="http://cdcrm0-vm0098.corteconti.it:8001/FirmaDigitale/VerificaFirmaDigitale_PX" />
+    </WL5G3N1:port>
+  </WL5G3N1:service>
+</WL5G3N1:definitions>

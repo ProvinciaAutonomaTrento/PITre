@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{785E2FDE-49DD-45BF-B9CF-8E7AA11E3DB6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DocsPaDocumentale_CDC_SP</RootNamespace>
+    <AssemblyName>DocsPaDocumentale_CDC_SP</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>C:\Progetti\VT\DocsPaDocumentale_CDC_SP.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\DocsPaDocumentale_CDC_SP.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\DLL_TERZE_PARTI\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Documentale\AclEventListener.cs" />
+    <Compile Include="Documentale\AdminPasswordConfig.cs" />
+    <Compile Include="Documentale\AmministrazioneManager.cs" />
+    <Compile Include="Documentale\CheckInOutAdminDocumentManager.cs" />
+    <Compile Include="Documentale\CheckInOutDocumentManager.cs" />
+    <Compile Include="Documentale\DocumentManager.cs" />
+    <Compile Include="Documentale\FullTextSearchManager.cs" />
+    <Compile Include="Documentale\OrganigrammaManager.cs" />
+    <Compile Include="Documentale\ProjectManager.cs" />
+    <Compile Include="Documentale\TitolarioManager.cs" />
+    <Compile Include="Documentale\UserManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DocsPaDB\DocsPaDB.csproj">
+      <Project>{5CFF0911-B6D1-4F98-A9EA-3034E188F68B}</Project>
+      <Name>DocsPaDB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DocsPaDocumentale\DocsPaDocumentale_ETDOCS\DocsPaDocumentale_ETDOCS.csproj">
+      <Project>{F9A60FCF-AA50-4E11-A6B3-DBBD6DE9CA17}</Project>
+      <Name>DocsPaDocumentale_ETDOCS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DocsPaDocumentale\DocsPaDocumentale_Interfaces\DocsPaDocumentale_Interfaces.csproj">
+      <Project>{CD584E33-6EE7-4C62-B465-3A2A3A320C88}</Project>
+      <Name>DocsPaDocumentale_Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DocsPaDocumentale_SP\DocsPaDocumentale_SP\DocsPaDocumentale_SP\DocsPaDocumentale_SP.csproj">
+      <Project>{3A60025C-2734-4A4F-909E-D8B0548FCF90}</Project>
+      <Name>DocsPaDocumentale_SP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DocsPaUtils\DocsPaUtils.csproj">
+      <Project>{942AD652-BCF7-44CA-AE38-CF0CDA8E0D16}</Project>
+      <Name>DocsPaUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DocsPaVO\DocsPaVO.csproj">
+      <Project>{A8BA40A6-AB86-4DF7-8C0F-8A9BBB7EE885}</Project>
+      <Name>DocsPaVO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,56 @@
+--begin
+--if 'VARCHAR2' = 'NUMBER' and length('VARCHAR2')>0 and length('1')>0 then
+--  execute immediate 'alter table DPA_MAIL_REGISTRI add(VAR_MAIL_RIC_PENDENTE VARCHAR2(, 1))';
+--elsif ('VARCHAR2' = 'NUMBER' and length('VARCHAR2')>0 and length('1')=0) or
+--  'VARCHAR2' = 'VARCHAR2' then
+--  execute immediate 'alter table DPA_MAIL_REGISTRI add(VAR_MAIL_RIC_PENDENTE VARCHAR2(1))';
+--else
+--  execute immediate 'alter table DPA_MAIL_REGISTRI add(VAR_MAIL_RIC_PENDENTE VARCHAR2)';
+--end if;
+--end;
+--/
+
+
+--begin
+--if 'VARCHAR2' = 'NUMBER' and length('VARCHAR2')>0 and length('1')>0 then
+--  execute immediate 'alter table DPA_EL_REGISTRI add(VAR_MAIL_RIC_PENDENTE VARCHAR2(, 1))';
+--elsif ('VARCHAR2' = 'NUMBER' and length('VARCHAR2')>0 and length('1')=0) or
+--  'VARCHAR2' = 'VARCHAR2' then
+--  execute immediate 'alter table DPA_EL_REGISTRI add(VAR_MAIL_RIC_PENDENTE VARCHAR2(1))';
+--else
+--  execute immediate 'alter table DPA_EL_REGISTRI add(VAR_MAIL_RIC_PENDENTE VARCHAR2)';
+--end if;
+--end;
+--/
+
+BEGIN
+declare cntcol int;
+
+begin
+select count(*) into cntcol from cols 
+	where table_name='DPA_MAIL_REGISTRI' and column_name='VAR_MAIL_RIC_PENDENTE';
+
+if cntcol = 0 then 
+	execute immediate 
+	'ALTER TABLE DPA_MAIL_REGISTRI ADD (VAR_MAIL_RIC_PENDENTE  VARCHAR2(1))';
+end if;
+
+end;
+END;
+/
+
+BEGIN
+declare cntcol int;
+
+begin
+select count(*) into cntcol from cols 
+	where table_name='DPA_EL_REGISTRI' and column_name='VAR_MAIL_RIC_PENDENTE';
+
+if cntcol = 0 then 
+	execute immediate 
+	'ALTER TABLE DPA_EL_REGISTRI ADD (VAR_MAIL_RIC_PENDENTE  VARCHAR2(1))';
+end if;
+
+end;
+END;
+/

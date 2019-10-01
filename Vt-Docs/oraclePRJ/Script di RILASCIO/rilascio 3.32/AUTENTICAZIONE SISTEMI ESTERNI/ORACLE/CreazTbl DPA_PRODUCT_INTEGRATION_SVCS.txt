@@ -1,0 +1,20 @@
+begin
+	declare cnt int;
+    begin
+        
+        select count(*) into cnt from user_tables where table_name='DPA_PRODUCT_INTEGRATION_SVCS';
+        if (cnt = 0) then
+          execute immediate    
+			'CREATE TABLE DPA_PRODUCT_INTEGRATION_SVCS
+			(
+				SYSTEM_ID          		NUMBER(10, 0) NOT NULL ,
+				METHOD_NAME    			VARCHAR2(255 CHAR),
+				DESCRIPTION 	     	VARCHAR2(511 CHAR),
+				FILE_SVC 				VARCHAR2(127 CHAR),
+				CHECKABLE				VARCHAR2(1 CHAR),
+				CONSTRAINT "DPA_PRODUCT_INTEGRATION_S_PK" PRIMARY KEY ("SYSTEM_ID") ENABLE
+			)';
+		end if;
+	end;
+end;
+/

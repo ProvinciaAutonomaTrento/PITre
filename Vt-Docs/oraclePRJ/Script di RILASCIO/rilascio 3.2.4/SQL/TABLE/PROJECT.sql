@@ -1,0 +1,1 @@
+alter table project alter column var_cod_liv1 varchar(8000)

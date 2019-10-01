@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://nttdata.com/2012/Pi3/Documents" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://nttdata.com/2012/Pi3/Documents" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://nttdata.com/2012/Pi3/Documents/Imports">
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd0" namespace="http://nttdata.com/2012/Pi3/Documents" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.AddDocInProject" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.CreateDocument" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd5" namespace="http://nttdata.com/2012/Pi3/Document" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd6" namespace="http://nttdata.com/2012/Pi3/File" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd7" namespace="http://nttdata.com/2012/Pi3/Correspondent" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd8" namespace="http://nttdata.com/2012/Pi3/Note" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd9" namespace="http://nttdata.com/2012/Pi3/User" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd10" namespace="http://nttdata.com/2012/Pi3/Register" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd11" namespace="http://nttdata.com/2012/Pi3/Template" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd12" namespace="http://nttdata.com/2012/Pi3/Field" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd13" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd14" namespace="http://nttdata.com/2012/Pi3/StateDiagram" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd15" namespace="http://nttdata.com/2012/Pi3/StateOfDiagram" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd16" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.EditDocStateDiagram" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd17" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.EditDocument" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd18" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocument" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd19" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocumentsInProject" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd20" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocumentStateDiagram" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd21" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetFileDocumentById" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd22" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetFileWithSignatureOrStamp" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd23" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetTemplateDoc" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd24" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetTemplatesDocuments" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd25" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.SearchDocuments" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd26" namespace="http://nttdata.com/2012/Pi3/Filter" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd27" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.SendDocument" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd28" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.UploadFileToDocument" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd29" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetStampAndSignature" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd30" namespace="http://nttdata.com/2012/Pi3/Stamp" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd31" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocumentFilters" />
+      <xsd:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd32" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.CreateDocumentAndAddInProject" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDocuments_AddDocInProject_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDocInProject" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_AddDocInProject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDocInProjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_CreateDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDocument" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_CreateDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_EditDocStateDiagram_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditDocStateDiagram" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_EditDocStateDiagram_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditDocStateDiagramResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_EditDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditDocument" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_EditDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocument" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetDocumentsInProject_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentsInProject" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetDocumentsInProject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentsInProjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetDocumentStateDiagram_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentStateDiagram" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetDocumentStateDiagram_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentStateDiagramResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetFileDocumentById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileDocumentById" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetFileDocumentById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileDocumentByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetFileWithSignatureOrStamp_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileWithSignatureOrStamp" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetFileWithSignatureOrStamp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileWithSignatureOrStampResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetTemplateDoc_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTemplateDoc" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetTemplateDoc_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTemplateDocResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetTemplatesDocuments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTemplatesDocuments" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetTemplatesDocuments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTemplatesDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_SearchDocuments_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchDocuments" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_SearchDocuments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_SendDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendDocument" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_SendDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_UploadFileToDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadFileToDocument" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_UploadFileToDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadFileToDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetStampAndSignature_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStampAndSignature" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetStampAndSignature_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStampAndSignatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetDocumentFilters_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentFilters" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetDocumentFilters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentFiltersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_CreateDocumentAndAddInProject_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDocumentAndAddInProject" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_CreateDocumentAndAddInProject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDocumentAndAddInProjectResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDocuments">
+    <wsdl:operation name="AddDocInProject">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/AddDocInProject" message="tns:IDocuments_AddDocInProject_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/AddDocInProjectResponse" message="tns:IDocuments_AddDocInProject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDocument">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/CreateDocument" message="tns:IDocuments_CreateDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/CreateDocumentResponse" message="tns:IDocuments_CreateDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditDocStateDiagram">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/EditDocStateDiagram" message="tns:IDocuments_EditDocStateDiagram_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/EditDocStateDiagramResponse" message="tns:IDocuments_EditDocStateDiagram_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditDocument">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/EditDocument" message="tns:IDocuments_EditDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/EditDocumentResponse" message="tns:IDocuments_EditDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocument">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/GetDocument" message="tns:IDocuments_GetDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/GetDocumentResponse" message="tns:IDocuments_GetDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsInProject">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/GetDocumentsInProject" message="tns:IDocuments_GetDocumentsInProject_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/GetDocumentsInProjectResponse" message="tns:IDocuments_GetDocumentsInProject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentStateDiagram">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/GetDocumentStateDiagram" message="tns:IDocuments_GetDocumentStateDiagram_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/GetDocumentStateDiagramResponse" message="tns:IDocuments_GetDocumentStateDiagram_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileDocumentById">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/GetFileDocumentById" message="tns:IDocuments_GetFileDocumentById_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/GetFileDocumentByIdResponse" message="tns:IDocuments_GetFileDocumentById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileWithSignatureOrStamp">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/GetFileWithSignatureOrStamp" message="tns:IDocuments_GetFileWithSignatureOrStamp_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/GetFileWithSignatureOrStampResponse" message="tns:IDocuments_GetFileWithSignatureOrStamp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplateDoc">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/GetTemplateDoc" message="tns:IDocuments_GetTemplateDoc_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/GetTemplateDocResponse" message="tns:IDocuments_GetTemplateDoc_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplatesDocuments">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/GetTemplatesDocuments" message="tns:IDocuments_GetTemplatesDocuments_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/GetTemplatesDocumentsResponse" message="tns:IDocuments_GetTemplatesDocuments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchDocuments">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/SearchDocuments" message="tns:IDocuments_SearchDocuments_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/SearchDocumentsResponse" message="tns:IDocuments_SearchDocuments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendDocument">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/SendDocument" message="tns:IDocuments_SendDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/SendDocumentResponse" message="tns:IDocuments_SendDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadFileToDocument">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/UploadFileToDocument" message="tns:IDocuments_UploadFileToDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/UploadFileToDocumentResponse" message="tns:IDocuments_UploadFileToDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStampAndSignature">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/GetStampAndSignature" message="tns:IDocuments_GetStampAndSignature_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/GetStampAndSignatureResponse" message="tns:IDocuments_GetStampAndSignature_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentFilters">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/GetDocumentFilters" message="tns:IDocuments_GetDocumentFilters_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/GetDocumentFiltersResponse" message="tns:IDocuments_GetDocumentFilters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDocumentAndAddInProject">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/CreateDocumentAndAddInProject" message="tns:IDocuments_CreateDocumentAndAddInProject_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/Documents/IDocuments/CreateDocumentAndAddInProjectResponse" message="tns:IDocuments_CreateDocumentAndAddInProject_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

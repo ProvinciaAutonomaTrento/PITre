@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2011 rel. 3 sp1 (http://www.altova.com) by stefano frezza (company) -->
+<xs:schema xmlns:sincro="http://www.cnipa.gov.it/sincro/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.cnipa.gov.it/sincro/" elementFormDefault="qualified" attributeFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation xml:lang="en"> Definition of simple types
+</xs:documentation>
+	</xs:annotation>
+	<xs:simpleType name="Label">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="Path">
+		<xs:restriction base="xs:anyURI"/>
+	</xs:simpleType>
+	<xs:simpleType name="Name">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="Version">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="Producer">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="TimeInfo">
+		<xs:restriction base="xs:dateTime"/>
+	</xs:simpleType>
+	<xs:simpleType name="FirstName">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="LastName">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="FormalName">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="EmptyString">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:annotation>
+		<xs:documentation xml:lang="en"> Definition of attributes
+</xs:documentation>
+	</xs:annotation>
+	<xs:attribute name="version" type="xs:NMTOKEN" fixed="1.0"/>
+	<xs:attribute name="url" type="xs:anyURI" fixed="http://www.cnipa.gov.it/sincro/"/>
+	<xs:attribute name="XMLScheme" type="xs:anyURI"/>
+	<xs:attribute name="scheme" type="xs:string" default="local"/>
+	<xs:attribute name="canonicalXML" type="xs:boolean"/>
+	<xs:attribute name="function" type="xs:NMTOKEN" default="SHA-1"/>
+	<xs:attribute name="extension" type="xs:NMTOKEN"/>
+	<xs:attribute name="language" type="xs:language" default="IT"/>
+	<xs:attribute name="format" type="xs:string"/>
+	<xs:attribute name="encoding">
+		<xs:simpleType>
+			<xs:restriction base="xs:NMTOKEN">
+				<xs:enumeration value="7bit"/>
+				<xs:enumeration value="8bit"/>
+				<xs:enumeration value="base64"/>
+				<xs:enumeration value="binary"/>
+				<xs:enumeration value="quotedprintable"/>
+				<xs:enumeration value="xtoken"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:attribute>
+	<xs:attribute name="normal" type="xs:dateTime"/>
+	<xs:attribute name="type">
+		<xs:simpleType>
+			<xs:restriction base="xs:NMTOKEN">
+				<xs:enumeration value="person"/>
+				<xs:enumeration value="organization"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:attribute>
+	<xs:attribute name="otherRole" type="xs:string"/>
+	<xs:attribute name="role">
+		<xs:simpleType>
+			<xs:restriction base="xs:NMTOKEN">
+				<xs:enumeration value="PreservationManager"/>
+				<xs:enumeration value="Operator"/>
+				<xs:enumeration value="PublicOfficer"/>
+				<xs:enumeration value="Delegate"/>
+				<xs:enumeration value="OtherRole"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:attribute>
+	<xs:annotation>
+		<xs:documentation xml:lang="en"> Definition of
+complex types </xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="EmbeddedMetadata">
+		<xs:complexContent>
+			<xs:extension base="xs:anyType"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Identifier">
+		<xs:simpleContent>
+			<xs:extension base="xs:NMTOKEN">
+				<xs:attribute ref="sincro:scheme"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Agent_ID">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="scheme" use="required">
+					<xs:simpleType>
+						<xs:restriction base="xs:NMTOKEN">
+							<xs:enumeration value="TaxCode"/>
+							<xs:enumeration value="VATRegistrationNumber"/>
+							<xs:enumeration value="NationalHealthCareAuthority"/>
+							<xs:enumeration value="OtherScheme"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="otherScheme" type="xs:string"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Description">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute ref="sincro:language"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="MoreInfo">
+		<xs:choice>
+			<xs:element name="EmbeddedMetadata" type="sincro:EmbeddedMetadata"/>
+			<xs:element name="ExternalMetadata" type="sincro:File"/>
+		</xs:choice>
+		<xs:attribute ref="sincro:XMLScheme" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="Hash">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute ref="sincro:canonicalXML"/>
+				<xs:attribute ref="sincro:function" use="optional"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="PreviousHash">
+		<xs:simpleContent>
+			<xs:extension base="sincro:Hash">
+				<xs:attribute name="relatedIdC" type="xs:NMTOKEN" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="CreatingApplication">
+		<xs:sequence>
+			<xs:element name="Name" type="sincro:Name"/>
+			<xs:element name="Version" type="sincro:Version"/>
+			<xs:element name="Producer" type="sincro:Producer"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LawAndRegulations">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute ref="sincro:language"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SourceIdC">
+		<xs:sequence>
+			<xs:element name="ID" type="sincro:Identifier"/>
+			<xs:element name="Path" type="sincro:Path" minOccurs="0"/>
+			<xs:element name="Hash" type="sincro:Hash"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SourceVdC">
+		<xs:sequence>
+			<xs:element name="ID" type="sincro:Identifier"/>
+			<xs:element name="IdC_ID" type="sincro:Identifier"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VdCGroup">
+		<xs:sequence>
+			<xs:element name="Label" type="sincro:Label"/>
+			<xs:element name="ID" type="sincro:Identifier" minOccurs="0"/>
+			<xs:element name="Description" type="sincro:Description" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VdC">
+		<xs:sequence>
+			<xs:element name="ID" type="sincro:Identifier"/>
+			<xs:element name="SourceVdC" type="sincro:SourceVdC" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="VdCGroup" type="sincro:VdCGroup" minOccurs="0"/>
+			<xs:element name="MoreInfo" type="sincro:MoreInfo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FileGroup">
+		<xs:sequence>
+			<xs:element name="Label" type="sincro:Label" minOccurs="0"/>
+			<xs:element name="File" type="sincro:File" maxOccurs="unbounded"/>
+			<xs:element name="MoreInfo" type="sincro:MoreInfo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="File">
+		<xs:sequence>
+			<xs:element name="ID" type="sincro:Identifier"/>
+			<xs:element name="Path" type="sincro:Path" minOccurs="0"/>
+			<xs:element name="Hash" type="sincro:Hash"/>
+			<xs:element name="PreviousHash" type="sincro:PreviousHash" minOccurs="0"/>
+			<xs:element name="MoreInfo" type="sincro:MoreInfo" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute ref="sincro:encoding" default="binary"/>
+		<xs:attribute ref="sincro:extension"/>
+		<xs:attribute ref="sincro:format" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="SelfDescription">
+		<xs:sequence>
+			<xs:element name="ID" type="sincro:Identifier"/>
+			<xs:element name="CreatingApplication" type="sincro:CreatingApplication"/>
+			<xs:element name="SourceIdC" type="sincro:SourceIdC" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="MoreInfo" type="sincro:MoreInfo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NameAndSurname">
+		<xs:sequence>
+			<xs:element name="FirstName" type="sincro:FirstName"/>
+			<xs:element name="LastName" type="sincro:LastName"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AgentName">
+		<xs:choice>
+			<xs:element name="NameAndSurname" type="sincro:NameAndSurname"/>
+			<xs:element name="FormalName" type="sincro:FormalName"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Agent">
+		<xs:sequence>
+			<xs:element name="AgentName" type="sincro:AgentName"/>
+			<xs:element name="Agent_ID" type="sincro:Agent_ID" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="MoreInfo" type="sincro:MoreInfo" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute ref="sincro:type" use="required"/>
+		<xs:attribute ref="sincro:role" use="required"/>
+		<xs:attribute ref="sincro:otherRole"/>
+	</xs:complexType>
+	<xs:complexType name="Process">
+		<xs:sequence>
+			<xs:element name="Agent" type="sincro:Agent" maxOccurs="unbounded"/>
+			<xs:element name="TimeReference" type="sincro:TimeReference"/>
+			<xs:element name="LawAndRegulations" type="sincro:LawAndRegulations" minOccurs="0"/>
+			<xs:element name="MoreInfo" type="sincro:MoreInfo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TimeReference">
+		<xs:choice>
+			<xs:element name="DetachedTimestamp" type="sincro:DetachedTimeStamp"/>
+			<xs:element name="AttachedTimeStamp" type="sincro:AttachedTimeStamp"/>
+			<xs:element name="TimeInfo" type="sincro:TimeInfo"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="AttachedTimeStamp">
+		<xs:simpleContent>
+			<xs:extension base="sincro:EmptyString">
+				<xs:attribute ref="sincro:normal" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="DetachedTimeStamp">
+		<xs:simpleContent>
+			<xs:extension base="xs:anyURI">
+				<xs:attribute ref="sincro:normal" use="required"/>
+				<xs:attribute ref="sincro:encoding" default="binary"/>
+				<xs:attribute ref="sincro:format" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="IdC">
+		<xs:sequence>
+			<xs:element name="SelfDescription" type="sincro:SelfDescription"/>
+			<xs:element name="VdC" type="sincro:VdC"/>
+			<xs:element name="FileGroup" type="sincro:FileGroup" maxOccurs="unbounded"/>
+			<xs:element name="Process" type="sincro:Process"/>
+		</xs:sequence>
+		<xs:attribute ref="sincro:version"/>
+		<xs:attribute ref="sincro:url"/>
+	</xs:complexType>
+	<xs:annotation>
+		<xs:documentation xml:lang="en"> Definition of root
+element </xs:documentation>
+	</xs:annotation>
+	<xs:element name="IdC" type="sincro:IdC"/>
+</xs:schema>

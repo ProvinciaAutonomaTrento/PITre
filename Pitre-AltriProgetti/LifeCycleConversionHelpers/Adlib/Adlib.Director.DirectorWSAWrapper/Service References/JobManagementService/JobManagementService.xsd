@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://adlibsoftware.com/" elementFormDefault="qualified" targetNamespace="http://adlibsoftware.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://vmsasha18.adlibsys.com/Adlib/JobManagementService/JobManagementService.svc?xsd=xsd1" namespace="http://microsoft.com/wsdl/types/" />
+  <xs:element name="BeginJobTransaction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="adminScopeId" type="q1:guid" />
+        <xs:element minOccurs="0" maxOccurs="1" name="jobKey" type="tns:JobKey" />
+        <xs:element minOccurs="0" maxOccurs="1" name="rulesRequest" type="tns:ProcessRulesRequest" />
+        <xs:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfMetadata" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="JobKey">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="UserDefinedId" type="xs:string" />
+      <xs:element xmlns:q2="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="RepositoryId" type="q2:guid" />
+      <xs:element xmlns:q3="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="SubmitterComponentId" type="q3:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProcessRulesRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRulesRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="RulesDefinitions" type="tns:ArrayOfRulesetDefinition" />
+          <xs:element minOccurs="1" maxOccurs="1" name="MergeRulesetsResults" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BaseRulesRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="MetadataInputs" type="tns:ArrayOfMetadata" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EnableRulesTrace" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfMetadata">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Metadata" nillable="true" type="tns:Metadata" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Metadata">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Value" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="XmlSchema" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Type" type="tns:MetadataType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="MetadataType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="XML" />
+      <xs:enumeration value="String" />
+      <xs:enumeration value="Integer" />
+      <xs:enumeration value="Double" />
+      <xs:enumeration value="Boolean" />
+      <xs:enumeration value="Guid" />
+      <xs:enumeration value="ReplacementVariables" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="InitRulesRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRulesRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="ConfigurableEntityName" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfRulesetDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RulesetDefinition" nillable="true" type="tns:RulesetDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RulesetDefinition">
+    <xs:sequence>
+      <xs:element xmlns:q4="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="WorkspaceId" type="q4:guid" />
+      <xs:element xmlns:q5="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="WorkspaceVersionId" type="q5:guid" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ConfigurableEntityName" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BeginJobTransactionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="BeginJobTransactionResult" type="tns:BeginJobTransactionResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="BeginJobTransactionResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:JobResponse">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="BeginJobTransactionAccepted" type="xs:boolean" />
+          <xs:element minOccurs="0" maxOccurs="1" name="RulesResponse" type="tns:ProcessRulesResponse" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="JobResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element xmlns:q6="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="JobId" type="q6:guid" />
+          <xs:element minOccurs="1" maxOccurs="1" name="JobStatus" type="tns:JobStatus" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BaseResponse">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ResultCode" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ResultMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Metadata" type="tns:ArrayOfMetadata" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ExecuteCommandResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="CommandSuccessful" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="UnregisterComponentResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ObjectLockResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element xmlns:q7="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="UserId" type="q7:guid" />
+          <xs:element xmlns:q8="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="InstalledComponentId" type="q8:guid" />
+          <xs:element xmlns:q9="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="ObjectLockId" type="q9:guid" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RegisterComponentResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element xmlns:q10="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="AdministrativeScopeId" type="q10:guid" />
+          <xs:element xmlns:q11="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="MachineId" type="q11:guid" />
+          <xs:element xmlns:q12="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="ComponentId" type="q12:guid" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RulesetResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element xmlns:q13="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="WorkspaceVersionId" type="q13:guid" />
+          <xs:element xmlns:q14="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="RulesetId" type="q14:guid" />
+          <xs:element xmlns:q15="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="WorkspaceId" type="q15:guid" />
+          <xs:element minOccurs="0" maxOccurs="1" name="ConfigurableEntityName" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="RulesFound" type="xs:int" />
+          <xs:element minOccurs="1" maxOccurs="1" name="RulesRun" type="xs:int" />
+          <xs:element minOccurs="1" maxOccurs="1" name="StartTime" type="xs:dateTime" />
+          <xs:element minOccurs="1" maxOccurs="1" name="EndTime" type="xs:dateTime" />
+          <xs:element minOccurs="1" maxOccurs="1" name="ExceptionCode" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="1" name="ExceptionMessage" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="RuleResults" type="tns:ArrayOfRuleResult" />
+          <xs:element minOccurs="0" maxOccurs="1" name="MetadataOutputs" type="tns:ArrayOfMetadata" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfRuleResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RuleResult" nillable="true" type="tns:RuleResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RuleResult">
+    <xs:sequence>
+      <xs:element xmlns:q16="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="RuleId" type="q16:guid" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RuleName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StartTime" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EndTime" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ExceptionCode" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ExceptionMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Condition" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ExitOnConditionTrue" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ExitOnConditionFalse" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ConditionPostProcessed" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ConditionEvaluated" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RuleMetadataOutputs" type="tns:ArrayOfMetadata" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CumulativeMetadataOutput" type="tns:ArrayOfMetadata" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProcessRulesResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="MetadataOutputs" type="tns:ArrayOfMetadata" />
+          <xs:element minOccurs="0" maxOccurs="1" name="RulesetResults" type="tns:ArrayOfRulesetResult" />
+          <xs:element minOccurs="1" maxOccurs="1" name="ExceptionCode" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="1" name="ExceptionMessage" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfRulesetResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RulesetResult" nillable="true" type="tns:RulesetResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="JobStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="UnInitialized" />
+      <xs:enumeration value="Initialized" />
+      <xs:enumeration value="Committed" />
+      <xs:enumeration value="Ready" />
+      <xs:enumeration value="Processing" />
+      <xs:enumeration value="CompletedSuccessful" />
+      <xs:enumeration value="CompletedFailed" />
+      <xs:enumeration value="CompletedCancelled" />
+      <xs:enumeration value="CompletedResubmissionFailed" />
+      <xs:enumeration value="CompletedUncommitted" />
+      <xs:enumeration value="CompletedJarRejected" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="JobDetailResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:JobResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="EWSJobId" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="JobKey" type="tns:JobKey" />
+          <xs:element minOccurs="0" maxOccurs="1" name="JobDocumentsInfo" type="tns:JobDocumentsInfo" />
+          <xs:element xmlns:q17="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="TransformationEngineComponentId" type="q17:guid" />
+          <xs:element minOccurs="0" maxOccurs="1" name="TransformationEngineMachineName" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="TransformationEngineNetworkName" type="xs:string" />
+          <xs:element xmlns:q18="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="SystemManagerComponentId" type="q18:guid" />
+          <xs:element minOccurs="1" maxOccurs="1" name="JobQueuePosition" type="xs:int" />
+          <xs:element minOccurs="1" maxOccurs="1" name="TransformationEngineCompletedOnIso8601Utc" type="xs:dateTime" />
+          <xs:element minOccurs="1" maxOccurs="1" name="TransformationEngineStartedOnIso8601Utc" type="xs:dateTime" />
+          <xs:element minOccurs="1" maxOccurs="1" name="JobManagementServiceCompletedOnIso8601Utc" type="xs:dateTime" />
+          <xs:element minOccurs="1" maxOccurs="1" name="JobManagementServiceStartedOnIso8601Utc" type="xs:dateTime" />
+          <xs:element minOccurs="0" maxOccurs="1" name="TransformationEngineJobDetail" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="WorkflowCount" type="xs:int" />
+          <xs:element minOccurs="1" maxOccurs="1" name="WorkflowsCompleted" type="xs:int" />
+          <xs:element minOccurs="1" maxOccurs="1" name="ResubmissionCount" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="1" name="JobGroup" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="JobPriority" type="xs:double" />
+          <xs:element minOccurs="0" maxOccurs="1" name="TransformationEngineJobDefinitionXml" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="JobCompletionClientComponentFailureCount" type="xs:int" />
+          <xs:element minOccurs="1" maxOccurs="1" name="TransformationEngineConversionTimeSec" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="JobDocumentsInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="DocumentInputs" type="tns:ArrayOfDocumentInput" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DocumentOutputs" type="tns:ArrayOfDocumentOutput" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfDocumentInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DocumentInput" nillable="true" type="tns:DocumentInput" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DocumentInput">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Document">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Folder" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="Uri" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Document">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="FileLength" type="xs:long" />
+      <xs:element minOccurs="0" maxOccurs="1" name="HashType" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FileHash" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FileName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DocumentId" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Metadata" type="tns:ArrayOfMetadata" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DocumentOutput">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Document">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Destinations" type="tns:ArrayOfDestination" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfDestination">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Destination" nillable="true" type="tns:Destination" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Destination">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Type" type="tns:OutputDestinationType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Folder" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="OutputDestinationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Folder" />
+      <xs:enumeration value="Uri" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ArrayOfDocumentOutput">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DocumentOutput" nillable="true" type="tns:DocumentOutput" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReleaseCompletedJobResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:JobResponse">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="JobReleaseSuccessful" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="JobFilesResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:JobResponse">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="SendJobFilesSuccessful" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DefineJobFiles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="jobId" type="q19:guid" />
+        <xs:element minOccurs="0" maxOccurs="1" name="jobDocumentsInfo" type="tns:JobDocumentsInfo" />
+        <xs:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfMetadata" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DefineJobFilesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="DefineJobFilesResult" type="tns:JobFilesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PutJobFiles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="jobId" type="q20:guid" />
+        <xs:element minOccurs="0" maxOccurs="1" name="jobFiles" type="tns:ArrayOfJobFile" />
+        <xs:element minOccurs="0" maxOccurs="1" name="jobFileBuffers" type="tns:ArrayOfBase64Binary" />
+        <xs:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfMetadata" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfJobFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="JobFile" nillable="true" type="tns:JobFile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="JobFile">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BytesRead" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Offset" type="xs:long" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FileName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RelativeFolder" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfBase64Binary">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="base64Binary" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PutJobFilesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="PutJobFilesResult" type="tns:JobFilesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CommitJobTransaction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="jobId" type="q21:guid" />
+        <xs:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfMetadata" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CommitJobTransactionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="CommitJobTransactionResult" type="tns:JobResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitReadyJob">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="adminScopeId" type="q22:guid" />
+        <xs:element minOccurs="0" maxOccurs="1" name="jobKey" type="tns:JobKey" />
+        <xs:element minOccurs="0" maxOccurs="1" name="rulesRequest" type="tns:ProcessRulesRequest" />
+        <xs:element minOccurs="0" maxOccurs="1" name="jobDocumentsInfo" type="tns:JobDocumentsInfo" />
+        <xs:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfMetadata" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitReadyJobResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="SubmitReadyJobResult" type="tns:SubmitReadyJobResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="SubmitReadyJobResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BeginJobTransactionResponse" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetJobsStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="jobIds" type="tns:ArrayOfGuid" />
+        <xs:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfMetadata" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfGuid">
+    <xs:sequence>
+      <xs:element xmlns:q23="http://microsoft.com/wsdl/types/" minOccurs="0" maxOccurs="unbounded" name="guid" type="q23:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetJobsStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetJobsStatusResult" type="tns:ArrayOfJobStatusResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfJobStatusResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="JobStatusResponse" nillable="true" type="tns:JobStatusResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="JobStatusResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:JobResponse" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetJobsCompletionInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="jobIds" type="tns:ArrayOfGuid" />
+        <xs:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfMetadata" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJobsCompletionInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetJobsCompletionInfoResult" type="tns:ArrayOfJobCompletionInfoResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfJobCompletionInfoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="JobCompletionInfoResponse" nillable="true" type="tns:JobCompletionInfoResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="JobCompletionInfoResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:JobResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="JobDocumentsInfo" type="tns:JobDocumentsInfo" />
+          <xs:element minOccurs="1" maxOccurs="1" name="JobCompletedOnUtc" type="xs:dateTime" />
+          <xs:element minOccurs="1" maxOccurs="1" name="JobStartedOnUtc" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ExecuteCommand">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="commandName" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfMetadata" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecuteCommandResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ExecuteCommandResult" type="tns:ExecuteCommandResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJobsId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="adminScopeId" type="q24:guid" />
+        <xs:element minOccurs="0" maxOccurs="1" name="jobKey" type="tns:JobKey" />
+        <xs:element minOccurs="0" maxOccurs="1" name="jobStatus" type="tns:ArrayOfJobStatus" />
+        <xs:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfMetadata" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfJobStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="JobStatus" type="tns:JobStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetJobsIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetJobsIdResult" type="tns:ArrayOfGuid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJobsDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="jobIds" type="tns:ArrayOfGuid" />
+        <xs:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfMetadata" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJobsDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetJobsDetailResult" type="tns:ArrayOfJobDetailResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfJobDetailResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="JobDetailResponse" nillable="true" type="tns:JobDetailResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetJobFiles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="jobId" type="q25:guid" />
+        <xs:element minOccurs="0" maxOccurs="1" name="jobFiles" type="tns:ArrayOfJobFile" />
+        <xs:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfMetadata" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJobFilesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetJobFilesResult" type="tns:ArrayOfBase64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelJobs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="jobIds" type="tns:ArrayOfGuid" />
+        <xs:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfMetadata" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelJobsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="CancelJobsResult" type="tns:ArrayOfJobResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfJobResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="JobResponse" nillable="true" type="tns:JobResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReleaseCompletedJobs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="jobIds" type="tns:ArrayOfGuid" />
+        <xs:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfArrayOfMetadata" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfArrayOfMetadata">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArrayOfMetadata" nillable="true" type="tns:ArrayOfMetadata" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReleaseCompletedJobsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ReleaseCompletedJobsResult" type="tns:ArrayOfReleaseCompletedJobResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfReleaseCompletedJobResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReleaseCompletedJobResponse" nillable="true" type="tns:ReleaseCompletedJobResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProcessRules">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="adminScopeId" type="q26:guid" />
+        <xs:element minOccurs="0" maxOccurs="1" name="rulesRequest" type="tns:ProcessRulesRequest" />
+        <xs:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfMetadata" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessRulesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ProcessRulesResult" type="tns:ProcessRulesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessInitRules">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="rulesRequest" type="tns:InitRulesRequest" />
+        <xs:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfMetadata" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessInitRulesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ProcessInitRulesResult" type="tns:ProcessRulesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AcquireObjectLock">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="objectHashSource" type="xs:string" />
+        <xs:element xmlns:q27="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="installedComponentId" type="q27:guid" />
+        <xs:element xmlns:q28="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="userId" type="q28:guid" />
+        <xs:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfMetadata" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AcquireObjectLockResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="AcquireObjectLockResult" type="tns:ObjectLockResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReleaseObjectLock">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="objectLockId" type="q29:guid" />
+        <xs:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfMetadata" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReleaseObjectLockResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ReleaseObjectLockResult" type="tns:ObjectLockResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterComponent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RegisterComponentRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="RegisterComponentRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Component" type="tns:ComponentInfo" />
+          <xs:element minOccurs="0" maxOccurs="1" name="Machine" type="tns:MachineInfo" />
+          <xs:element minOccurs="0" maxOccurs="1" name="UserDetails" type="tns:UserDetails" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BaseRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="MetadataInputs" type="tns:ArrayOfMetadata" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UnregisterComponentRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element xmlns:q30="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="AdministrativeScopeId" type="q30:guid" />
+          <xs:element xmlns:q31="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="ComponentId" type="q31:guid" />
+          <xs:element minOccurs="0" maxOccurs="1" name="UserDetails" type="tns:UserDetails" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="UserDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Username" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Password" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SessionTimeoutMinutes" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ComponentInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Version" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="InstallPath" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ComponentType" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MachineInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Ip" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NetworkName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element xmlns:q32="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="Id" type="q32:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegisterComponentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="RegisterComponentResult" type="tns:RegisterComponentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnregisterComponent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:UnregisterComponentRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnregisterComponentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="UnregisterComponentResult" type="tns:UnregisterComponentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

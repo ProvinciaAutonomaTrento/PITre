@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT Istanza (SoggettoProduttore, ResponsabileConservazione)>
+<!ATTLIST Istanza
+ID				CDATA		#REQUIRED
+Descrizione			CDATA		#REQUIRED
+DataCreazione		CDATA		#REQUIRED
+DataInvio	 		CDATA		#REQUIRED
+DataChiusura			CDATA		#REQUIRED
+Tipologia			CDATA		#REQUIRED
+>
+<!ELEMENT SoggettoProduttore (Amministrazione, GerarchiaUO, Creatore)>
+<!ELEMENT Amministrazione EMPTY>
+<!ATTLIST Amministrazione
+		CodiceAmministrazione		CDATA		#REQUIRED		
+		DescrizioneAmministrazione		CDATA		#REQUIRED
+>	
+<!ELEMENT GerarchiaUO (UnitàOrganizzativa+)>
+<!ELEMENT UnitàOrganizzativa (UnitàOrganizzativa*)>
+<!ATTLIST UnitàOrganizzativa
+		CodiceUO		CDATA		#REQUIRED
+		DescrizioneUO	CDATA		#REQUIRED	
+		Livello	CDATA		#REQUIRED	
+>
+<!ELEMENT Creatore EMPTY>
+<!ATTLIST Creatore
+	CodiceRuolo CDATA #REQUIRED
+	DescrizioneRuolo CDATA #REQUIRED
+	CodiceUtente CDATA #REQUIRED	
+	DescrizioneUtente CDATA #REQUIRED
+>
+<!ELEMENT ResponsabileConservazione EMPTY>
+<!ATTLIST ResponsabileConservazione
+Utente			CDATA		#REQUIRED
+>

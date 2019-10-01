@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:ns2="http://www.marcaturatemporale.regione.taa.it/MarcaturaTemporaleType/schemas" xmlns:tns="http://www.marcaturatemporale.regione.taa.it/MarcaturaTemporale/service" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns0="http://www.marcaturatemporale.regione.taa.it/MarcaturaTemporale/definitions" xmlns:soap1="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ns1="http://www.regione.taa.it/FaultType/schemas" name="Untitled" targetNamespace="http://www.marcaturatemporale.regione.taa.it/MarcaturaTemporale/service" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.marcaturatemporale.regione.taa.it/MarcaturaTemporale/definitions" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://www.marcaturatemporale.regione.taa.it/MarcaturaTemporaleType/schemas" />
+      <xs:import namespace="http://www.regione.taa.it/FaultType/schemas" />
+      <xs:annotation>
+        <xs:documentation>Contiene i wrapper di MarcaturaTemporaleService</xs:documentation>
+      </xs:annotation>
+      <xs:annotation>
+        <xs:documentation>Contiene la definizione del FaultType</xs:documentation>
+      </xs:annotation>
+      <xs:element name="EmissioneMarcaTemporale">
+        <xs:annotation>
+          <xs:documentation xml:lang="it">Il file che si vuole marcare</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="ns2:file">
+              <xs:annotation>
+                <xs:documentation>Rappresenta un file binario in formato Base64 (si veda la RFC 2045)</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EmissioneMarcaTemporaleResponse">
+        <xs:annotation>
+          <xs:documentation xml:lang="it">La marca temporale con indicate data ora creazione, numero seriale e DN</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="marcaTemporale" type="ns2:MarcaType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="MarcaTemporaleDaHash">
+        <xs:annotation>
+          <xs:documentation xml:lang="it">Hash di un file ovvero una stringa esadecimale lunga 64 caratteri. Si assume che l'algoritmo di hashing sia SHA-256</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="ns2:hash">
+              <xs:annotation>
+                <xs:documentation>Rappresenta l'hash di un file ovvero una stringa esadecimale lunga 64 caratteri. Si assume di default che l'algoritmo di hashing sia SHA-256.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="MarcaTemporaleDaHashResponse">
+        <xs:annotation>
+          <xs:documentation xml:lang="it">La marca temporale con indicate data ora creazione, numero seriale e DN</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="marcaTemporale" type="ns2:MarcaType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VerificaDisponibilitaMarche">
+        <xs:annotation>
+          <xs:documentation xml:lang="it">Contiene un identificativoRichiesta</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="identificativoRichiesta" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VerificaDisponibilitaMarcheResponse">
+        <xs:annotation>
+          <xs:documentation xml:lang="it">La disponibilita' per ogni provider associato al Consumer</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="disponibilita" type="ns2:DisponibilitaType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VerificaMarcatura">
+        <xs:annotation>
+          <xs:documentation xml:lang="it">Il file che si vuole verificare e la sua marca</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="ns2:marca">
+              <xs:annotation>
+                <xs:documentation xml:lang="it">La marca applicata al file</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element ref="ns2:file">
+              <xs:annotation>
+                <xs:documentation xml:lang="it">Il file originario a cui si e' applicata marca</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VerificaMarcaturaResponse">
+        <xs:annotation>
+          <xs:documentation xml:lang="it">Se l'esito della verifica è positivo torna la marca temporale con indicate data ora creazione, numero seriale e DN</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="marca" type="ns2:MarcaType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="WSFault" type="ns1:FaultType" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://www.regione.taa.it/FaultType/schemas" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.regione.taa.it/FaultType/schemas" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:annotation>
+        <xs:documentation>Schema contenente tipi ed elementi per la gestione delle eccezioni</xs:documentation>
+      </xs:annotation>
+      <xs:complexType name="CustomFaultType" abstract="true">
+        <xs:annotation>
+          <xs:documentation>Tipo da estendere per le eccezioni specifiche per un determinato errore</xs:documentation>
+        </xs:annotation>
+      </xs:complexType>
+      <xs:complexType name="DatiInputObbligatoriMancantiFaultType" final="restriction">
+        <xs:annotation>
+          <xs:documentation>Fault che viene sollevata se il client ha omesso dei dati obbligatori tra quelli previsti da una certa operation.</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:CustomFaultType" />
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="FaultType">
+        <xs:annotation>
+          <xs:documentation>Tipo che modella l'eccezione che puo' essere ritornata da una qualsiasi operazione</xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="errorCode" type="xs:integer" use="required" />
+        <xs:attribute name="type" type="tns:TipologiaFaultType" use="required">
+          <xs:annotation>
+            <xs:documentation>La tipologia di eccezione, ovvero se e' un errore utente o di sistema</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="userMessage" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="PeriodoNonConformeFaultType" final="restriction">
+        <xs:annotation>
+          <xs:documentation>Fault che viene sollevata se si indica un periodo non conforme ai requisiti (ad esempio un arco temporale troppo lungo).</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:CustomFaultType" />
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:simpleType name="TipologiaFaultType">
+        <xs:annotation>
+          <xs:documentation>Lista di possibili tipologie di eccezioni: USER_FAULT indica che l'errore e' stato generato dall'utente; SYSTEM_FAULT indica che l'errore e' stato generato dal sistema</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:NMTOKEN">
+          <xs:enumeration value="USER_FAULT" />
+          <xs:enumeration value="SYSTEM_FAULT" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="DatiInputObbligatoriMancantiFault">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="error" type="tns:DatiInputObbligatoriMancantiFaultType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PeriodoNonConformeFault">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="error" type="tns:PeriodoNonConformeFaultType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="WSFault">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="error" type="tns:FaultType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://www.marcaturatemporale.regione.taa.it/MarcaturaTemporaleType/schemas" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.marcaturatemporale.regione.taa.it/MarcaturaTemporaleType/schemas" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="DisponibilitaType">
+        <xs:annotation>
+          <xs:documentation>Modella le informazioni sulla disponibilita' di marche, ovvero quante son state consumate e quante ne restano da consumare.		</xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="marcheConsumate" type="xs:long" use="required" />
+        <xs:attribute name="marcheDisponibili" type="xs:long" use="required" />
+        <xs:attribute name="utente" type="xs:string" use="required" />
+      </xs:complexType>
+      <xs:complexType name="MarcaType">
+        <xs:annotation>
+          <xs:documentation>Rappresenta la marca temporale e le informazioni collegate	</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="marca" type="xs:base64Binary">
+            <xs:annotation>
+              <xs:documentation>Contiene i byte della marca temporale in formato Base64 (si veda la RFC 3161)	</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="dataOraMarca" type="xs:dateTime" use="required">
+          <xs:annotation>
+            <xs:documentation>Data e ora di creazione della marca in formato GeneralizedTime YYYYMMDDhhmmssZ</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="serialNumber" type="xs:long" use="required">
+          <xs:annotation>
+            <xs:documentation>Rappresenta il numero seriale della marca</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="timestampAuthority" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Rappresenta il Subject DN (Distinguished Name) del certificato di firma della Timestamp Authority (in formato RFC 2253)		</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:complexType>
+      <xs:element name="file" type="xs:base64Binary">
+        <xs:annotation>
+          <xs:documentation>Rappresenta un file binario in formato Base64 (si veda la RFC 2045)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="hash" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Rappresenta l'hash di un file ovvero una stringa esadecimale lunga 64 caratteri. Si assume di default che l'algoritmo di hashing sia SHA-256.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="marca" type="xs:base64Binary">
+        <xs:annotation>
+          <xs:documentation>Contiene i byte della marca temporale in formato Base64 (si veda la RFC 3161)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="EmissioneMarcaTemporaleRequest">
+    <wsdl:part name="parameters" element="ns0:EmissioneMarcaTemporale" />
+  </wsdl:message>
+  <wsdl:message name="EmissioneMarcaTemporaleResponse">
+    <wsdl:part name="parameters" element="ns0:EmissioneMarcaTemporaleResponse" />
+  </wsdl:message>
+  <wsdl:message name="WSFault">
+    <wsdl:part name="fault" element="ns0:WSFault" />
+  </wsdl:message>
+  <wsdl:message name="VerificaDisponibilitaMarcheRequest">
+    <wsdl:part name="parameters" element="ns0:VerificaDisponibilitaMarche" />
+  </wsdl:message>
+  <wsdl:message name="VerificaDisponibilitaMarcheResponse">
+    <wsdl:part name="parameters" element="ns0:VerificaDisponibilitaMarcheResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerificaMarcaturaRequest">
+    <wsdl:part name="parameters" element="ns0:VerificaMarcatura" />
+  </wsdl:message>
+  <wsdl:message name="VerificaMarcaturaResponse">
+    <wsdl:part name="parameters" element="ns0:VerificaMarcaturaResponse" />
+  </wsdl:message>
+  <wsdl:message name="MarcaTemporaleDaHashRequest">
+    <wsdl:part name="parameters" element="ns0:MarcaTemporaleDaHash" />
+  </wsdl:message>
+  <wsdl:message name="MarcaTemporaleDaHashResponse">
+    <wsdl:part name="parameters" element="ns0:MarcaTemporaleDaHashResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MarcaturaTemporalePortType">
+    <wsdl:operation name="EmissioneMarcaTemporale">
+      <wsdl:input message="tns:EmissioneMarcaTemporaleRequest" />
+      <wsdl:output message="tns:EmissioneMarcaTemporaleResponse" />
+      <wsdl:fault name="WSFault" message="tns:WSFault" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificaDisponibilitaMarche">
+      <wsdl:input message="tns:VerificaDisponibilitaMarcheRequest" />
+      <wsdl:output message="tns:VerificaDisponibilitaMarcheResponse" />
+      <wsdl:fault name="WSFault" message="tns:WSFault" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificaMarcatura">
+      <wsdl:input message="tns:VerificaMarcaturaRequest" />
+      <wsdl:output message="tns:VerificaMarcaturaResponse" />
+      <wsdl:fault name="WSFault" message="tns:WSFault" />
+    </wsdl:operation>
+    <wsdl:operation name="MarcaTemporaleDaHash">
+      <wsdl:input message="tns:MarcaTemporaleDaHashRequest" />
+      <wsdl:output message="tns:MarcaTemporaleDaHashResponse" />
+      <wsdl:fault name="WSFault" message="tns:WSFault" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MarcaturaTemporaleEndpoint3Binding" type="tns:MarcaturaTemporalePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="EmissioneMarcaTemporale">
+      <soap:operation soapAction="/EmissioneMarcaTemporale" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaDisponibilitaMarche">
+      <soap:operation soapAction="/VerificaDisponibilitaMarche" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaMarcatura">
+      <soap:operation soapAction="/VerificaMarcatura" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="MarcaTemporaleDaHash">
+      <soap:operation soapAction="/MarcaTemporaleDaHash" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MarcaturaTemporaleEndpoint1Binding" type="tns:MarcaturaTemporalePortType">
+    <soap1:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="EmissioneMarcaTemporale">
+      <soap1:operation soapAction="/EmissioneMarcaTemporale" style="document" soapActionRequired="true" />
+      <wsdl:input>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap1:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaDisponibilitaMarche">
+      <soap1:operation soapAction="/VerificaDisponibilitaMarche" style="document" soapActionRequired="true" />
+      <wsdl:input>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap1:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaMarcatura">
+      <soap1:operation soapAction="/VerificaMarcatura" style="document" soapActionRequired="true" />
+      <wsdl:input>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap1:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="MarcaTemporaleDaHash">
+      <soap1:operation soapAction="/MarcaTemporaleDaHash" style="document" soapActionRequired="true" />
+      <wsdl:input>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap1:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MarcaturaTemporaleEndpoint4Binding" type="tns:MarcaturaTemporalePortType">
+    <soap1:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="EmissioneMarcaTemporale">
+      <soap1:operation soapAction="/EmissioneMarcaTemporale" style="document" soapActionRequired="true" />
+      <wsdl:input>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap1:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaDisponibilitaMarche">
+      <soap1:operation soapAction="/VerificaDisponibilitaMarche" style="document" soapActionRequired="true" />
+      <wsdl:input>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap1:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaMarcatura">
+      <soap1:operation soapAction="/VerificaMarcatura" style="document" soapActionRequired="true" />
+      <wsdl:input>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap1:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="MarcaTemporaleDaHash">
+      <soap1:operation soapAction="/MarcaTemporaleDaHash" style="document" soapActionRequired="true" />
+      <wsdl:input>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap1:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MarcaturaTemporaleEndpoint2Binding" type="tns:MarcaturaTemporalePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="EmissioneMarcaTemporale">
+      <soap:operation soapAction="/EmissioneMarcaTemporale" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaDisponibilitaMarche">
+      <soap:operation soapAction="/VerificaDisponibilitaMarche" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaMarcatura">
+      <soap:operation soapAction="/VerificaMarcatura" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="MarcaTemporaleDaHash">
+      <soap:operation soapAction="/MarcaTemporaleDaHash" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MarcaturaTemporale.serviceagent">
+    <wsdl:port name="MarcaturaTemporaleEndpoint3" binding="tns:MarcaturaTemporaleEndpoint3Binding">
+      <soap:address location="http://ws-s.marca.intra.infotn.it:15608/Resources/WebServices/MarcaturaTemporale.serviceagent/BasicSoap11" />
+    </wsdl:port>
+    <wsdl:port name="MarcaturaTemporaleEndpoint1" binding="tns:MarcaturaTemporaleEndpoint1Binding">
+      <soap1:address location="https://ws-s.marca.intra.infotn.it:15602/Resources/WebServices/MarcaturaTemporale.serviceagent" />
+    </wsdl:port>
+    <wsdl:port name="MarcaturaTemporaleEndpoint4" binding="tns:MarcaturaTemporaleEndpoint4Binding">
+      <soap1:address location="http://ws-s.marca.intra.infotn.it:15608/Resources/WebServices/MarcaturaTemporale.serviceagent/BasicSoap12" />
+    </wsdl:port>
+    <wsdl:port name="MarcaturaTemporaleEndpoint2" binding="tns:MarcaturaTemporaleEndpoint2Binding">
+      <soap:address location="https://ws-s.marca.intra.infotn.it:15602/Resources/WebServices/MarcaturaTemporale.serviceagent/Soap11" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

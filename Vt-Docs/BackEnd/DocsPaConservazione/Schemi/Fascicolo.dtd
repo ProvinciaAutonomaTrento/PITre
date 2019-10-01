@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT Fascicolo (SoggettoProduttore, Tipologia?, Contenuto)>
+<!ATTLIST Fascicolo
+	Codice CDATA #REQUIRED
+	Descrizione CDATA #REQUIRED
+	Numero CDATA #REQUIRED
+	Classificazione CDATA #REQUIRED
+	TitolarioDiRiferimento CDATA #REQUIRED	
+	DataCreazione CDATA #REQUIRED
+	DataChiusura CDATA #REQUIRED
+	EstremoCronologicoInferiore CDATA #REQUIRED
+	EstremoCronologicoSuperiore CDATA #REQUIRED
+	LivelloRiservatezza CDATA #IMPLIED
+>
+<!ELEMENT SoggettoProduttore (Amministrazione, GerarchiaUO, Creatore)>
+<!ELEMENT Amministrazione EMPTY>
+<!ATTLIST Amministrazione
+	CodiceAmministrazione CDATA #REQUIRED
+	DescrizioneAmministrazione CDATA #REQUIRED
+>
+<!ELEMENT GerarchiaUO (UnitàOrganizzativa)+>
+<!ELEMENT UnitàOrganizzativa (UnitàOrganizzativa)*>
+<!ATTLIST UnitàOrganizzativa
+	CodiceUO CDATA #REQUIRED
+	DescrizioneUO CDATA #REQUIRED
+	Livello CDATA #REQUIRED
+>
+<!ELEMENT Creatore EMPTY>
+<!ATTLIST Creatore
+	CodiceRuolo CDATA #REQUIRED
+	DescrizioneRuolo CDATA #REQUIRED
+	CodiceUtente CDATA #REQUIRED	
+	DescrizioneUtente CDATA #REQUIRED
+>
+<!ELEMENT Tipologia (CampoTipologia)+>
+<!ELEMENT CampoTipologia EMPTY>
+<!ATTLIST Tipologia
+	NomeTipologia CDATA #REQUIRED
+>
+<!ATTLIST CampoTipologia
+	NomeCampo CDATA #REQUIRED
+	ValoreCampo CDATA #REQUIRED
+>
+<!ELEMENT Contenuto (Sottofascicolo | Documento)+>
+<!ATTLIST Contenuto
+	ConsistenzaSottofascicoli CDATA #IMPLIED
+	ConsistenzaDocumenti CDATA #REQUIRED
+>
+<!ELEMENT Sottofascicolo (Sottofascicolo | Documento)+>
+<!ATTLIST Sottofascicolo
+	Codice CDATA #REQUIRED
+	Descrizione CDATA #REQUIRED
+>
+<!ELEMENT Documento EMPTY>
+<!ATTLIST Documento
+	IDdocumento CDATA #REQUIRED
+	DataCreazione CDATA #REQUIRED
+	Oggetto CDATA #REQUIRED
+	LivelloRiservatezza CDATA #IMPLIED	
+>

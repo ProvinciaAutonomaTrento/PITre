@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.adlibsoftware.com/Common/" elementFormDefault="qualified" targetNamespace="http://schemas.adlibsoftware.com/Common/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="PendingChangesType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Create" />
+      <xs:enumeration value="Update" />
+      <xs:enumeration value="Delete" />
+      <xs:enumeration value="None" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PendingChangesType" nillable="true" type="tns:PendingChangesType" />
+</xs:schema>

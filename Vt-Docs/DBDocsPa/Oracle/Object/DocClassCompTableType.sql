@@ -1,0 +1,2 @@
+CREATE OR REPLACE TYPE @db_user.DocClassCompTableType IS OBJECT 		(TOT_DOC_CLASS number, 		COD_CLASS varchar(255), 		DESC_CLASS varchar(255), 		TOT_DOC_CLASS_VT float, 		PERC_DOC_CLASS_VT float, 		NUM_LIVELLO varchar(255))
+/

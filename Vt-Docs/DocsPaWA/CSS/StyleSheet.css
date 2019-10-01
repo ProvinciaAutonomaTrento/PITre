@@ -1,0 +1,36 @@
+﻿#waitTrans
+{
+	position:absolute; 
+	top:0; 
+	left:0; 
+	height:100%; 
+	width:100%; 
+	filter:alpha(opacity=40); 
+	opacity:0.4; 
+	background-color:white; 
+	z-index:10;
+}
+#waitImg
+{
+	position:absolute; 
+	top:0; 
+	left:0; 
+	height:100%; 
+	width:100%; 
+	background-image:url('../images/proto/loading.gif'); 
+	background-position:center; 
+	background-repeat:no-repeat;
+	z-index:10;
+}
+#waitImgBottom
+{
+	position:absolute; 
+	top:0; 
+	left:0; 
+	height:100%; 
+	width:100%; 
+	background-image:url('../images/proto/loading.gif'); 
+	background-position:bottom; 
+	background-repeat:no-repeat;
+	z-index:10;
+}

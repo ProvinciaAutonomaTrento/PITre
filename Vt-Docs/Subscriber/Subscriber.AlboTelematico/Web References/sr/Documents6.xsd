@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetFileDocumentById" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetFileDocumentById" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://vt-ferlitoca.valueteam.com/Vt-Docs/DocsPaWS/VtDocsWS/WebServices/Documents.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" />
+  <xs:import schemaLocation="http://vt-ferlitoca.valueteam.com/Vt-Docs/DocsPaWS/VtDocsWS/WebServices/Documents.svc?xsd=xsd6" namespace="http://nttdata.com/2012/Pi3/File" />
+  <xs:complexType name="GetFileDocumentByIdRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q1:Request">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IdDocument" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VersionId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetFileDocumentByIdRequest" nillable="true" type="tns:GetFileDocumentByIdRequest" />
+  <xs:complexType name="GetFileDocumentByIdResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q2:Response">
+        <xs:sequence>
+          <xs:element xmlns:q3="http://nttdata.com/2012/Pi3/File" minOccurs="0" name="File" nillable="true" type="q3:File" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetFileDocumentByIdResponse" nillable="true" type="tns:GetFileDocumentByIdResponse" />
+</xs:schema>

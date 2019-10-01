@@ -1,0 +1,28 @@
+USE [PCM_330]
+GO
+
+/****** Object:  UserDefinedFunction [DOCSADM].[CountAllegati_StampaReg]    Script Date: 10/19/2015 15:57:05 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+create  function [DOCSADM].[CountAllegati_StampaReg](@id int)
+returns int
+as
+begin
+declare @risultato int
+
+SELECT @risultato=
+COUNT(SYSTEM_ID)
+FROM PROFILE P 
+WHERE P.ID_DOCUMENTO_PRINCIPALE = @id
+
+return @risultato
+end
+
+GO
+
+

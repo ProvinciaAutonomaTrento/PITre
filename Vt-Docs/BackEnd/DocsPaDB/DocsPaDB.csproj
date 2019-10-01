@@ -1,0 +1,390 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5CFF0911-B6D1-4F98-A9EA-3034E188F68B}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>DocsPaDB</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>DocsPaDB</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <PublishUrl>http://localhost/DocsPaDB/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\..\DLL_TERZE_PARTI\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <ProjectReference Include="..\DocsPaDB.Transactions\DocsPaDB.Transactions.csproj">
+      <Project>{9797A7A0-D014-4176-A411-306DB1A915C6}</Project>
+      <Name>DocsPaDB.Transactions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DocsPaDbManagement\DocsPaDbManagement_ORACLE\DocsPaDbManagement_ORACLE.csproj">
+      <Name>DocsPaDbManagement_ORACLE</Name>
+      <Project>{145DB8D9-C055-4EC4-82A5-F2C634A1DCEA}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\DocsPaDbManagement\DocsPaDbManagement_SQLSERVER\DocsPaDbManagement_SQLSERVER.csproj">
+      <Name>DocsPaDbManagement_SQLSERVER</Name>
+      <Project>{8A8D6FCC-95FA-4F81-B827-E2A160BBA9D3}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\DocsPaUtils\DocsPaUtils.csproj">
+      <Project>{942AD652-BCF7-44CA-AE38-CF0CDA8E0D16}</Project>
+      <Name>DocsPaUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DocsPaVO\DocsPaVO.csproj">
+      <Name>DocsPaVO</Name>
+      <Project>{A8BA40A6-AB86-4DF7-8C0F-8A9BBB7EE885}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\VersionInfo.cs">
+      <Link>VersionInfo.cs</Link>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Diagnostics\Database.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Functions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query_DocsPAWS\AdministrationAssertionEvent.cs" />
+    <Compile Include="Query_DocsPAWS\Amministrazione.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query_DocsPAWS\AmministrazioneXml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query_DocsPAWS\Conservazione.cs" />
+    <Compile Include="Query_DocsPAWS\Caching.cs" />
+    <Compile Include="Query_DocsPAWS\CheckInOut.cs" />
+    <Compile Include="Query_DocsPAWS\Deposito.cs" />
+    <Compile Include="Query_DocsPAWS\DesktopApps.cs" />
+    <Compile Include="Query_DocsPAWS\ExternalServices.cs" />
+    <Compile Include="Query_DocsPAWS\Fatturazione.cs" />
+    <Compile Include="Query_DocsPAWS\FlussoAutomatico.cs" />
+    <Compile Include="Query_DocsPAWS\GestioneApplicazioni.cs" />
+    <Compile Include="Query_DocsPAWS\ImportPregressi.cs" />
+    <Compile Include="Query_DocsPAWS\InstanceAccessDB.cs" />
+    <Compile Include="Query_DocsPAWS\Integrazioni.cs" />
+    <Compile Include="Query_DocsPAWS\InteroperabilitaInterna.cs" />
+    <Compile Include="Query_DocsPAWS\InteroperabilitaSemplificata.cs" />
+    <Compile Include="Query_DocsPAWS\LibroFirma.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query_DocsPAWS\NotificationDB.cs" />
+    <Compile Include="Query_DocsPAWS\PluginHashDB.cs" />
+    <Compile Include="Query_DocsPAWS\PolicyConservazione.cs" />
+    <Compile Include="Query_DocsPAWS\Deleghe.cs" />
+    <Compile Include="Query_DocsPAWS\DocumentConsolidation.cs" />
+    <Compile Include="Query_DocsPAWS\FriendApplication.cs" />
+    <Compile Include="Query_DocsPAWS\Grids.cs" />
+    <Compile Include="Query_DocsPAWS\InteroperabilitaDatiCert.cs" />
+    <Compile Include="Query_DocsPAWS\MigrazioneMassivaDocFascTDL.cs" />
+    <Compile Include="Query_DocsPAWS\Mobile\DocumentiMobile.cs" />
+    <Compile Include="Query_DocsPAWS\Mobile\RubricaMobile.cs" />
+    <Compile Include="Query_DocsPAWS\ModDeleghe.cs" />
+    <Compile Include="Query_DocsPAWS\MText.cs" />
+    <Compile Include="Query_DocsPAWS\Procedimenti.cs" />
+    <Compile Include="Query_DocsPAWS\PubblicazioneDocumenti.cs" />
+    <Compile Include="Query_DocsPAWS\RegistriRepertorioPrintManager.cs" />
+    <Compile Include="Query_DocsPAWS\RegistroConservazionePrintManager.cs" />
+    <Compile Include="Query_DocsPAWS\Reminder.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\AmmExportMacroFunzioniReport.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\AmmExportMicroFunzioniReport.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\AmmExportPolicyPARERReport.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\AmmMonitoraggioPolicyReport.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\CertificazioneIstanzaEsibizioneReport.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\ConsistenzaOrganigrammaReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query_DocsPAWS\Reporting\CopiaVisibilitaReport.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\ElencoSpedizioni.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\DecretiInEsameReport.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\DecretiInEsameSRCReport.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\DecretiPervenutiInIntTemporaleReport.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\DecretiPervenutiInIntTemporaleSuccSCCLA.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\DecretiPervenutiInIntTemporaleSRCReport.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\ElencoDecretiRestituitiConRilievoSCCLAReport.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\ElencoDecretiRestituitiConRilievoSCCLASuccReport.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\ElencoDecretiRestituitiConRilievoSRCReport.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\ElencoDecretiRestituitiSCCLAReport.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\ElencoDecretiRestituitiSCCLASuccReport.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\ElencoDecretiRestituitiSRCReport.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\ElencoDecretiSCCLAReport.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\ElencoDecretiSCCLARepostSucc.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\ElencoDecretiSRCReport.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\EsportaLogConservazioneReport.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\ExportProcessiDiFirmaReport.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\ExportRubricaReport.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\ExportTrasmissioniPendentiReport.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\ModelliTrasmissioneReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query_DocsPAWS\Reporting\NotifichePecReport.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\NotificheRifiutoReport.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\RegistroAccessiExportReport.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\ReportIstanzeDiConservazione.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\ReportMethodFinder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query_DocsPAWS\Reporting\ReportVerificheFaseInPresa.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\ReportVersamentiReport.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\RigenerazioneIstanzaReport.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\StampaRegistroConservazioneReport.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\ReportStoriaDocumenti.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\ReportStoriaIstanze.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\ReportVerifichePeriodicheIstanze.cs" />
+    <Compile Include="Query_DocsPAWS\Reporting\StampeRepertoriReport.cs" />
+    <Compile Include="Query_DocsPAWS\RF.cs" />
+    <Compile Include="Query_DocsPAWS\DiagrammiStato.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query_DocsPAWS\Documentale.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query_DocsPAWS\Documenti.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query_DocsPAWS\Fascicoli.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query_DocsPAWS\Fax.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query_DocsPAWS\ImporterXml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query_DocsPAWS\IndiceSistematico.cs" />
+    <Compile Include="Query_DocsPAWS\Interoperabilita.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query_DocsPAWS\Ldap.cs" />
+    <Compile Include="Query_DocsPAWS\ListeDistr.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query_DocsPAWS\Log.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query_DocsPAWS\Model.cs" />
+    <Compile Include="Query_DocsPAWS\ModelFasc.cs" />
+    <Compile Include="Query_DocsPAWS\ClientSideModelProcessor.cs" />
+    <Compile Include="Query_DocsPAWS\ModTrasmissioni.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query_DocsPAWS\AdminPasswordConfig.cs" />
+    <Compile Include="Query_DocsPAWS\Note.cs" />
+    <Compile Include="Query_DocsPAWS\Query_Utils\Utils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query_DocsPAWS\Report.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query_DocsPAWS\RicercaFullText.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query_DocsPAWS\RicProfCampiComuni.cs" />
+    <Compile Include="Query_DocsPAWS\Rubrica.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query_DocsPAWS\SimplifiedInteroperabilityRegistryAndLogDbManager.cs" />
+    <Compile Include="Query_DocsPAWS\SmartClient.cs" />
+    <Compile Include="Query_DocsPAWS\StruttureSottoFascicoli.cs" />
+    <Compile Include="Query_DocsPAWS\Task.cs" />
+    <Compile Include="Query_DocsPAWS\TimestampDoc.cs" />
+    <Compile Include="Query_DocsPAWS\UploadFiles.cs" />
+    <Compile Include="Query_DocsPAWS\SmistamentoDocumenti.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query_DocsPAWS\Strutture\allegato.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query_DocsPAWS\Strutture\corrispondente.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query_DocsPAWS\Strutture\documento.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query_DocsPAWS\Strutture\sicurezza.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query_DocsPAWS\Strutture\trasmissioni.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query_DocsPAWS\Strutture\versione.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query_DocsPAWS\Trasmissione.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query_DocsPAWS\UserPassword.cs" />
+    <Compile Include="Query_DocsPAWS\Utenti.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RegistroAccessi.cs" />
+    <Compile Include="TransactionContext.cs" />
+    <Compile Include="Utils\Gerarchia.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\HashTableManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\PagingQuery.cs" />
+    <Compile Include="Utils\Personalization.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\Security.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\SimpleLog.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="JRO">
+      <Guid>{AC3B8B4C-B6CA-11D1-9F31-00C04FC29D52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>6</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

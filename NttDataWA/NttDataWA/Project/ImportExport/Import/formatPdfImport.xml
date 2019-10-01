@@ -1,0 +1,23 @@
+﻿<?xml version="1.0"?>
+<report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="..\..\..\ProspettiRiepilogativi\FrontEnd\TemplateXML\XMLReport.xsd">
+  <pagina formato="A4" orientamento="ORIZZONTALE">
+    <dta_stampa align="RIGHT" target="footer" font="Arial" size="10" style="PLAIN" color="#000000">Report effettuato il: </dta_stampa>
+    <num_pagine align="LEFT" target="header" font="Arial" size="8" style="PLAIN" color="#000000" total="1" separator="/" widthTot="5">Pag. </num_pagine>
+  </pagina>
+  <header align="LEFT" font="Arial" size="16" style="BOLD" color="#000000" bgcolor="#FFFFFF" border="1">Stampa riassuntiva dell'importazione massiva fascicoli</header>
+  <logo align="LEFT" file="" bgcolor="#FFFFFF"/>
+  <dati>
+    <tabella showBorder="true" target="TABLE_DATA" padding="2" spacing="0">
+      <header_tabella align="CENTER" font="Arial" size="10" style="BOLD" color="#000000" bgcolor="#C0C0C0" valign="middle"/>
+      <dati_tabella align="LEFT" font="Arial" size="9" style="PLAIN" color="#000000" bgcolor="#C0C0C0" valign="bottom"/>
+      <colonne>
+        <colonna name="Data" alias="Data" visible="true" width="7" align="center" valign="top" />
+        <colonna name="File" alias="File" visible="true" width="28" align="left" valign="top"/>
+        <colonna name="Tipo" alias="Tipo" visible="true" width="7" align="center" valign="top"/>
+        <colonna name="Esito" alias="Esito" visible="true" width="58" align="left" valign="top"/>
+      </colonne>
+    </tabella>
+  </dati>
+  <footer align="LEFT" font="Arial" size="8" style="PLAIN" color="#000000" bgcolor="#FFFFFF" border="1">
+  </footer>
+</report>

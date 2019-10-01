@@ -1,0 +1,2218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://nttdata.com/2012/Pi3" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Documents" targetNamespace="http://nttdata.com/2012/Pi3" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:ProtectionToken>
+              <wsp:Policy>
+                <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/Never">
+                  <wsp:Policy>
+                    <sp:RequireDerivedKeys />
+                    <sp:RequireThumbprintReference />
+                    <sp:WssX509V3Token10 />
+                  </wsp:Policy>
+                </sp:X509Token>
+              </wsp:Policy>
+            </sp:ProtectionToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+            <sp:EncryptSignature />
+            <sp:OnlySignEntireHeadersAndBody />
+          </wsp:Policy>
+        </sp:SymmetricBinding>
+        <sp:EndorsingSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:RequireThumbprintReference />
+                <sp:WssX509V3Token10 />
+              </wsp:Policy>
+            </sp:X509Token>
+          </wsp:Policy>
+        </sp:EndorsingSupportingTokens>
+        <sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:MustSupportRefThumbprint />
+            <sp:MustSupportRefEncryptedKey />
+            <sp:RequireSignatureConfirmation />
+          </wsp:Policy>
+        </sp:Wss11>
+        <sp:Trust10 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:MustSupportIssuedTokens />
+            <sp:RequireClientEntropy />
+            <sp:RequireServerEntropy />
+          </wsp:Policy>
+        </sp:Trust10>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_AddDocInProject_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_AddDocInProject_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_CreateDocument_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_CreateDocument_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_EditDocStateDiagram_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_EditDocStateDiagram_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_EditDocument_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_EditDocument_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_GetDocument_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_GetDocument_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_GetDocumentsInProject_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_GetDocumentsInProject_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_GetDocumentStateDiagram_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_GetDocumentStateDiagram_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_GetFileDocumentById_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_GetFileDocumentById_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_GetFileWithSignatureOrStamp_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_GetFileWithSignatureOrStamp_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_GetTemplateDoc_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_GetTemplateDoc_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_GetTemplatesDocuments_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_GetTemplatesDocuments_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_SearchDocuments_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_SearchDocuments_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_SendDocument_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_SendDocument_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_UploadFileToDocument_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_UploadFileToDocument_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_GetStampAndSignature_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_GetStampAndSignature_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_GetDocumentFilters_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_GetDocumentFilters_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_CreateDocumentAndAddInProject_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDocuments_CreateDocumentAndAddInProject_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://nttdata.com/2012/Pi3">
+      <xsd:element name="AddDocInProject">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q1="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.AddDocInProject" minOccurs="0" name="request" nillable="true" type="q1:AddDocInProjectRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AddDocInProjectResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q2="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.AddDocInProject" minOccurs="0" name="AddDocInProjectResult" nillable="true" type="q2:AddDocInProjectResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CreateDocument">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q3="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.CreateDocument" minOccurs="0" name="request" nillable="true" type="q3:CreateDocumentRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="Document">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Annulled" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ArrivalDate" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Attachments" nillable="true" type="tns:ArrayOfFile" />
+          <xsd:element minOccurs="0" name="ConsolidationState" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CreationDate" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DataProtocolSender" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DocNumber" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DocumentType" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Id" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdParent" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="InBasket" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="IsAttachments" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="MainDocument" nillable="true" type="tns:File" />
+          <xsd:element minOccurs="0" name="MeansOfSending" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="MultipleSenders" nillable="true" type="tns:ArrayOfCorrespondent" />
+          <xsd:element minOccurs="0" name="Note" nillable="true" type="tns:ArrayOfNote" />
+          <xsd:element minOccurs="0" name="Object" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PersonalDocument" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Predisposed" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="PrivateDocument" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ProtocolDate" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ProtocolSender" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Recipients" nillable="true" type="tns:ArrayOfCorrespondent" />
+          <xsd:element minOccurs="0" name="RecipientsCC" nillable="true" type="tns:ArrayOfCorrespondent" />
+          <xsd:element minOccurs="0" name="Register" nillable="true" type="tns:Register" />
+          <xsd:element minOccurs="0" name="Sender" nillable="true" type="tns:Correspondent" />
+          <xsd:element minOccurs="0" name="Signature" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Template" nillable="true" type="tns:Template" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Document" nillable="true" type="tns:Document" />
+      <xsd:complexType name="ArrayOfFile">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="File" nillable="true" type="tns:File" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfFile" nillable="true" type="tns:ArrayOfFile" />
+      <xsd:complexType name="File">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Content" nillable="true" type="xsd:base64Binary" />
+          <xsd:element minOccurs="0" name="Description" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Id" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="MimeType" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Name" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="VersionId" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="File" nillable="true" type="tns:File" />
+      <xsd:complexType name="ArrayOfCorrespondent">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Correspondent" nillable="true" type="tns:Correspondent" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfCorrespondent" nillable="true" type="tns:ArrayOfCorrespondent" />
+      <xsd:complexType name="Correspondent">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AOOCode" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Address" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="AdmCode" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Cap" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="City" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Code" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CodeRegisterOrRF" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CorrespondentType" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Description" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Email" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Fax" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Id" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IsCommonAddress" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Location" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Name" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Nation" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NationalIdentificationNumber" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Note" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PhoneNumber" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PreferredChannel" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Province" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Surname" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Type" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="VatNumber" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Correspondent" nillable="true" type="tns:Correspondent" />
+      <xsd:complexType name="ArrayOfNote">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Note" nillable="true" type="tns:Note" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfNote" nillable="true" type="tns:ArrayOfNote" />
+      <xsd:complexType name="Note">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Description" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Id" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Note" nillable="true" type="tns:Note" />
+      <xsd:complexType name="User">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Description" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Id" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Name" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NationalIdentificationNumber" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Surname" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="UserId" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="User" nillable="true" type="tns:User" />
+      <xsd:complexType name="Register">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Code" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Description" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Id" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IsRF" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="State" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Register" nillable="true" type="tns:Register" />
+      <xsd:complexType name="Template">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Fields" nillable="true" type="tns:ArrayOfField" />
+          <xsd:element minOccurs="0" name="Id" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Name" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="StateDiagram" nillable="true" type="tns:StateDiagram" />
+          <xsd:element minOccurs="0" name="Type" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Template" nillable="true" type="tns:Template" />
+      <xsd:complexType name="ArrayOfField">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Field" nillable="true" type="tns:Field" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfField" nillable="true" type="tns:ArrayOfField" />
+      <xsd:complexType name="Field">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CodeRegisterOrRF" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CounterToTrigger" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Id" nillable="true" type="xsd:string" />
+          <xsd:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MultipleChoice" nillable="true" type="q4:ArrayOfstring" />
+          <xsd:element minOccurs="0" name="Name" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Required" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Rights" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Type" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Value" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Field" nillable="true" type="tns:Field" />
+      <xsd:complexType name="StateDiagram">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Description" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Id" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="StateOfDiagram" nillable="true" type="tns:ArrayOfStateOfDiagram" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="StateDiagram" nillable="true" type="tns:StateDiagram" />
+      <xsd:complexType name="ArrayOfStateOfDiagram">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="StateOfDiagram" nillable="true" type="tns:StateOfDiagram" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfStateOfDiagram" nillable="true" type="tns:ArrayOfStateOfDiagram" />
+      <xsd:complexType name="StateOfDiagram">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Description" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DiagramId" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FinaleState" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Id" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="InitialState" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="StateOfDiagram" nillable="true" type="tns:StateOfDiagram" />
+      <xsd:element name="CreateDocumentResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q5="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.CreateDocument" minOccurs="0" name="CreateDocumentResult" nillable="true" type="q5:CreateDocumentResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EditDocStateDiagram">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q6="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.EditDocStateDiagram" minOccurs="0" name="request" nillable="true" type="q6:EditDocStateDiagramRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EditDocStateDiagramResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q7="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.EditDocStateDiagram" minOccurs="0" name="EditDocStateDiagramResult" nillable="true" type="q7:EditDocStateDiagramResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EditDocument">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q8="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.EditDocument" minOccurs="0" name="request" nillable="true" type="q8:EditDocumentRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EditDocumentResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q9="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.EditDocument" minOccurs="0" name="EditDocumentResult" nillable="true" type="q9:EditDocumentResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetDocument">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q10="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocument" minOccurs="0" name="request" nillable="true" type="q10:GetDocumentRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetDocumentResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q11="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocument" minOccurs="0" name="GetDocumentResult" nillable="true" type="q11:GetDocumentResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetDocumentsInProject">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q12="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocumentsInProject" minOccurs="0" name="request" nillable="true" type="q12:GetDocumentsInProjectRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetDocumentsInProjectResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q13="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocumentsInProject" minOccurs="0" name="GetDocumentsInProjectResult" nillable="true" type="q13:GetDocumentsInProjectResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="ArrayOfDocument">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Document" nillable="true" type="tns:Document" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfDocument" nillable="true" type="tns:ArrayOfDocument" />
+      <xsd:element name="GetDocumentStateDiagram">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q14="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocumentStateDiagram" minOccurs="0" name="request" nillable="true" type="q14:GetDocumentStateDiagramRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetDocumentStateDiagramResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q15="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocumentStateDiagram" minOccurs="0" name="GetDocumentStateDiagramResult" nillable="true" type="q15:GetDocumentStateDiagramResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetFileDocumentById">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q16="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetFileDocumentById" minOccurs="0" name="request" nillable="true" type="q16:GetFileDocumentByIdRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetFileDocumentByIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q17="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetFileDocumentById" minOccurs="0" name="GetFileDocumentByIdResult" nillable="true" type="q17:GetFileDocumentByIdResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetFileWithSignatureOrStamp">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q18="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetFileWithSignatureOrStamp" minOccurs="0" name="request" nillable="true" type="q18:GetFileWithSignatureOrStampRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetFileWithSignatureOrStampResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q19="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetFileWithSignatureOrStamp" minOccurs="0" name="GetFileWithSignatureOrStampResult" nillable="true" type="q19:GetFileWithSignatureOrStampResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetTemplateDoc">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q20="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetTemplateDoc" minOccurs="0" name="request" nillable="true" type="q20:GetTemplateDocRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetTemplateDocResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q21="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetTemplateDoc" minOccurs="0" name="GetTemplateDocResult" nillable="true" type="q21:GetTemplateDocResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetTemplatesDocuments">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q22="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetTemplatesDocuments" minOccurs="0" name="request" nillable="true" type="q22:GetTemplatesDocumentsRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetTemplatesDocumentsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q23="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetTemplatesDocuments" minOccurs="0" name="GetTemplatesDocumentsResult" nillable="true" type="q23:GetTemplatesDocumentsResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="ArrayOfTemplate">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Template" nillable="true" type="tns:Template" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfTemplate" nillable="true" type="tns:ArrayOfTemplate" />
+      <xsd:element name="SearchDocuments">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q24="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.SearchDocuments" minOccurs="0" name="request" nillable="true" type="q24:SearchDocumentsRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="ArrayOfFilter">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Filter" nillable="true" type="tns:Filter" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfFilter" nillable="true" type="tns:ArrayOfFilter" />
+      <xsd:complexType name="Filter">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Description" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Name" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Template" nillable="true" type="tns:Template" />
+          <xsd:element minOccurs="0" name="Type" type="tns:FilterType" />
+          <xsd:element minOccurs="0" name="Value" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Filter" nillable="true" type="tns:Filter" />
+      <xsd:simpleType name="FilterType">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="String" />
+          <xsd:enumeration value="Bool" />
+          <xsd:enumeration value="Number" />
+          <xsd:enumeration value="Date" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="FilterType" nillable="true" type="tns:FilterType" />
+      <xsd:element name="SearchDocumentsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q25="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.SearchDocuments" minOccurs="0" name="SearchDocumentsResult" nillable="true" type="q25:SearchDocumentsResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="SendDocument">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q26="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.SendDocument" minOccurs="0" name="request" nillable="true" type="q26:SendDocumentRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="SendDocumentResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q27="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.SendDocument" minOccurs="0" name="SendDocumentResult" nillable="true" type="q27:SendDocumentResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UploadFileToDocument">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q28="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.UploadFileToDocument" minOccurs="0" name="request" nillable="true" type="q28:UploadFileToDocumentRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UploadFileToDocumentResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q29="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.UploadFileToDocument" minOccurs="0" name="UploadFileToDocumentResult" nillable="true" type="q29:UploadFileToDocumentResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetStampAndSignature">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q30="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetStampAndSignature" minOccurs="0" name="request" nillable="true" type="q30:GetStampAndSignatureRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetStampAndSignatureResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q31="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetStampAndSignature" minOccurs="0" name="GetStampAndSignatureResult" nillable="true" type="q31:GetStampAndSignatureResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="Stamp">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Classifications" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CodeAdministration" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CodeRegister" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CodeRf" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CodeUO" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DataProtocol" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DocNumber" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NumberAtthachements" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NumberProtocol" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="SignatureValue" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="StampValue" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="TimeProtocol" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="TypeProtocol" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Year" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Stamp" nillable="true" type="tns:Stamp" />
+      <xsd:element name="GetDocumentFilters">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q32="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocumentFilters" minOccurs="0" name="request" nillable="true" type="q32:GetDocumentFiltersRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetDocumentFiltersResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q33="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocumentFilters" minOccurs="0" name="GetDocumentFiltersResult" nillable="true" type="q33:GetDocumentFiltersResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CreateDocumentAndAddInProject">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q34="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.CreateDocumentAndAddInProject" minOccurs="0" name="request" nillable="true" type="q34:CreateDocumentAndAddInProjectRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CreateDocumentAndAddInProjectResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q35="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.CreateDocumentAndAddInProject" minOccurs="0" name="CreateDocumentAndAddInProjectResult" nillable="true" type="q35:CreateDocumentAndAddInProjectResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xsd:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.AddDocInProject" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.AddDocInProject">
+      <xsd:complexType name="AddDocInProjectRequest">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q36="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q36:Request">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" name="CodeProject" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="IdDocument" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="IdProject" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="AddDocInProjectRequest" nillable="true" type="tns:AddDocInProjectRequest" />
+      <xsd:complexType name="AddDocInProjectResponse">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q37="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q37:Response">
+            <xsd:sequence />
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="AddDocInProjectResponse" nillable="true" type="tns:AddDocInProjectResponse" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services">
+      <xsd:complexType name="Request">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AuthenticationToken" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CodeAdm" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CodeApplication" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CodeRoleLogin" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="UserName" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Request" nillable="true" type="tns:Request" />
+      <xsd:complexType name="Response">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:element name="Response" nillable="true" type="tns:Response" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.CreateDocument" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.CreateDocument">
+      <xsd:complexType name="CreateDocumentRequest">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q38="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q38:Request">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" name="CodeRF" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="CodeRegister" nillable="true" type="xsd:string" />
+              <xsd:element xmlns:q39="http://nttdata.com/2012/Pi3" minOccurs="0" name="Document" nillable="true" type="q39:Document" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="CreateDocumentRequest" nillable="true" type="tns:CreateDocumentRequest" />
+      <xsd:complexType name="CreateDocumentResponse">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q40="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q40:Response">
+            <xsd:sequence>
+              <xsd:element xmlns:q41="http://nttdata.com/2012/Pi3" minOccurs="0" name="Document" nillable="true" type="q41:Document" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="CreateDocumentResponse" nillable="true" type="tns:CreateDocumentResponse" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <xsd:complexType name="ArrayOfstring">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.EditDocStateDiagram" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.EditDocStateDiagram">
+      <xsd:complexType name="EditDocStateDiagramRequest">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q42="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q42:Request">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" name="IdDocument" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="Signature" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="StateOfDiagram" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="EditDocStateDiagramRequest" nillable="true" type="tns:EditDocStateDiagramRequest" />
+      <xsd:complexType name="EditDocStateDiagramResponse">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q43="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q43:Response">
+            <xsd:sequence />
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="EditDocStateDiagramResponse" nillable="true" type="tns:EditDocStateDiagramResponse" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.EditDocument" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.EditDocument">
+      <xsd:complexType name="EditDocumentRequest">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q44="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q44:Request">
+            <xsd:sequence>
+              <xsd:element xmlns:q45="http://nttdata.com/2012/Pi3" minOccurs="0" name="Document" nillable="true" type="q45:Document" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="EditDocumentRequest" nillable="true" type="tns:EditDocumentRequest" />
+      <xsd:complexType name="EditDocumentResponse">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q46="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q46:Response">
+            <xsd:sequence>
+              <xsd:element xmlns:q47="http://nttdata.com/2012/Pi3" minOccurs="0" name="Document" nillable="true" type="q47:Document" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="EditDocumentResponse" nillable="true" type="tns:EditDocumentResponse" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocument" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocument">
+      <xsd:complexType name="GetDocumentRequest">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q48="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q48:Request">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" name="GetFile" type="xsd:boolean" />
+              <xsd:element minOccurs="0" name="GetFileWithSignature" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="IdDocument" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="Signature" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="GetDocumentRequest" nillable="true" type="tns:GetDocumentRequest" />
+      <xsd:complexType name="GetDocumentResponse">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q49="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q49:Response">
+            <xsd:sequence>
+              <xsd:element xmlns:q50="http://nttdata.com/2012/Pi3" minOccurs="0" name="Document" nillable="true" type="q50:Document" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="GetDocumentResponse" nillable="true" type="tns:GetDocumentResponse" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocumentsInProject" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocumentsInProject">
+      <xsd:complexType name="GetDocumentsInProjectRequest">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q51="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q51:Request">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" name="ClassificationSchemeId" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="CodeProject" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="ElementsInPage" nillable="true" type="xsd:int">
+                <xsd:annotation>
+                  <xsd:appinfo>
+                    <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xsd:appinfo>
+                </xsd:annotation>
+              </xsd:element>
+              <xsd:element minOccurs="0" name="GetTotalDocumentsNumber" type="xsd:boolean" />
+              <xsd:element minOccurs="0" name="IdProject" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="PageNumber" nillable="true" type="xsd:int">
+                <xsd:annotation>
+                  <xsd:appinfo>
+                    <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xsd:appinfo>
+                </xsd:annotation>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="GetDocumentsInProjectRequest" nillable="true" type="tns:GetDocumentsInProjectRequest" />
+      <xsd:complexType name="GetDocumentsInProjectResponse">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q52="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q52:Response">
+            <xsd:sequence>
+              <xsd:element xmlns:q53="http://nttdata.com/2012/Pi3" minOccurs="0" name="Documents" nillable="true" type="q53:ArrayOfDocument" />
+              <xsd:element minOccurs="0" name="TotalDocumentsNumber" nillable="true" type="xsd:int">
+                <xsd:annotation>
+                  <xsd:appinfo>
+                    <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xsd:appinfo>
+                </xsd:annotation>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="GetDocumentsInProjectResponse" nillable="true" type="tns:GetDocumentsInProjectResponse" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocumentStateDiagram" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocumentStateDiagram">
+      <xsd:complexType name="GetDocumentStateDiagramRequest">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q54="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q54:Request">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" name="IdDocument" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="Signature" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="GetDocumentStateDiagramRequest" nillable="true" type="tns:GetDocumentStateDiagramRequest" />
+      <xsd:complexType name="GetDocumentStateDiagramResponse">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q55="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q55:Response">
+            <xsd:sequence>
+              <xsd:element xmlns:q56="http://nttdata.com/2012/Pi3" minOccurs="0" name="StateOfDiagram" nillable="true" type="q56:StateOfDiagram" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="GetDocumentStateDiagramResponse" nillable="true" type="tns:GetDocumentStateDiagramResponse" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetFileDocumentById" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetFileDocumentById">
+      <xsd:complexType name="GetFileDocumentByIdRequest">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q57="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q57:Request">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" name="IdDocument" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="VersionId" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="GetFileDocumentByIdRequest" nillable="true" type="tns:GetFileDocumentByIdRequest" />
+      <xsd:complexType name="GetFileDocumentByIdResponse">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q58="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q58:Response">
+            <xsd:sequence>
+              <xsd:element xmlns:q59="http://nttdata.com/2012/Pi3" minOccurs="0" name="File" nillable="true" type="q59:File" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="GetFileDocumentByIdResponse" nillable="true" type="tns:GetFileDocumentByIdResponse" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetFileWithSignatureOrStamp" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetFileWithSignatureOrStamp">
+      <xsd:complexType name="GetFileWithSignatureOrStampRequest">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q60="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q60:Request">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" name="IdDocument" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="Signature" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="WithSignature" type="xsd:boolean" />
+              <xsd:element minOccurs="0" name="WithStamp" type="xsd:boolean" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="GetFileWithSignatureOrStampRequest" nillable="true" type="tns:GetFileWithSignatureOrStampRequest" />
+      <xsd:complexType name="GetFileWithSignatureOrStampResponse">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q61="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q61:Response">
+            <xsd:sequence>
+              <xsd:element xmlns:q62="http://nttdata.com/2012/Pi3" minOccurs="0" name="File" nillable="true" type="q62:File" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="GetFileWithSignatureOrStampResponse" nillable="true" type="tns:GetFileWithSignatureOrStampResponse" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetTemplateDoc" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetTemplateDoc">
+      <xsd:complexType name="GetTemplateDocRequest">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q63="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q63:Request">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" name="DescriptionTemplate" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="IdTemplate" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="GetTemplateDocRequest" nillable="true" type="tns:GetTemplateDocRequest" />
+      <xsd:complexType name="GetTemplateDocResponse">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q64="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q64:Response">
+            <xsd:sequence>
+              <xsd:element xmlns:q65="http://nttdata.com/2012/Pi3" minOccurs="0" name="Template" nillable="true" type="q65:Template" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="GetTemplateDocResponse" nillable="true" type="tns:GetTemplateDocResponse" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetTemplatesDocuments" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetTemplatesDocuments">
+      <xsd:complexType name="GetTemplatesDocumentsRequest">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q66="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q66:Request">
+            <xsd:sequence />
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="GetTemplatesDocumentsRequest" nillable="true" type="tns:GetTemplatesDocumentsRequest" />
+      <xsd:complexType name="GetTemplatesDocumentsResponse">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q67="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q67:Response">
+            <xsd:sequence>
+              <xsd:element xmlns:q68="http://nttdata.com/2012/Pi3" minOccurs="0" name="Templates" nillable="true" type="q68:ArrayOfTemplate" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="GetTemplatesDocumentsResponse" nillable="true" type="tns:GetTemplatesDocumentsResponse" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.SearchDocuments" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.SearchDocuments">
+      <xsd:complexType name="SearchDocumentsRequest">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q69="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q69:Request">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" name="ElementsInPage" nillable="true" type="xsd:int">
+                <xsd:annotation>
+                  <xsd:appinfo>
+                    <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xsd:appinfo>
+                </xsd:annotation>
+              </xsd:element>
+              <xsd:element xmlns:q70="http://nttdata.com/2012/Pi3" minOccurs="0" name="Filters" nillable="true" type="q70:ArrayOfFilter" />
+              <xsd:element minOccurs="0" name="GetTotalDocumentsNumber" type="xsd:boolean" />
+              <xsd:element minOccurs="0" name="PageNumber" nillable="true" type="xsd:int">
+                <xsd:annotation>
+                  <xsd:appinfo>
+                    <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xsd:appinfo>
+                </xsd:annotation>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="SearchDocumentsRequest" nillable="true" type="tns:SearchDocumentsRequest" />
+      <xsd:complexType name="SearchDocumentsResponse">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q71="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q71:Response">
+            <xsd:sequence>
+              <xsd:element xmlns:q72="http://nttdata.com/2012/Pi3" minOccurs="0" name="Documents" nillable="true" type="q72:ArrayOfDocument" />
+              <xsd:element minOccurs="0" name="TotalDocumentsNumber" nillable="true" type="xsd:int">
+                <xsd:annotation>
+                  <xsd:appinfo>
+                    <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xsd:appinfo>
+                </xsd:annotation>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="SearchDocumentsResponse" nillable="true" type="tns:SearchDocumentsResponse" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.SendDocument" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.SendDocument">
+      <xsd:complexType name="SendDocumentRequest">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q73="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q73:Request">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" name="IdDocument" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="Signature" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="SendDocumentRequest" nillable="true" type="tns:SendDocumentRequest" />
+      <xsd:complexType name="SendDocumentResponse">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q74="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q74:Response">
+            <xsd:sequence />
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="SendDocumentResponse" nillable="true" type="tns:SendDocumentResponse" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.UploadFileToDocument" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.UploadFileToDocument">
+      <xsd:complexType name="UploadFileToDocumentRequest">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q75="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q75:Request">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" name="AttachmentType" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="CovertToPDFA" type="xsd:boolean" />
+              <xsd:element minOccurs="0" name="CreateAttachment" type="xsd:boolean" />
+              <xsd:element minOccurs="0" name="Description" nillable="true" type="xsd:string" />
+              <xsd:element xmlns:q76="http://nttdata.com/2012/Pi3" minOccurs="0" name="File" nillable="true" type="q76:File" />
+              <xsd:element minOccurs="0" name="HashFile" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="IdDocument" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="UploadFileToDocumentRequest" nillable="true" type="tns:UploadFileToDocumentRequest" />
+      <xsd:complexType name="UploadFileToDocumentResponse">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q77="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q77:Response">
+            <xsd:sequence />
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="UploadFileToDocumentResponse" nillable="true" type="tns:UploadFileToDocumentResponse" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetStampAndSignature" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetStampAndSignature">
+      <xsd:complexType name="GetStampAndSignatureRequest">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q78="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q78:Request">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" name="IdDocument" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="Signature" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="GetStampAndSignatureRequest" nillable="true" type="tns:GetStampAndSignatureRequest" />
+      <xsd:complexType name="GetStampAndSignatureResponse">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q79="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q79:Response">
+            <xsd:sequence>
+              <xsd:element xmlns:q80="http://nttdata.com/2012/Pi3" minOccurs="0" name="Stamp" nillable="true" type="q80:Stamp" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="GetStampAndSignatureResponse" nillable="true" type="tns:GetStampAndSignatureResponse" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocumentFilters" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocumentFilters">
+      <xsd:complexType name="GetDocumentFiltersRequest">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q81="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q81:Request">
+            <xsd:sequence />
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="GetDocumentFiltersRequest" nillable="true" type="tns:GetDocumentFiltersRequest" />
+      <xsd:complexType name="GetDocumentFiltersResponse">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q82="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q82:Response">
+            <xsd:sequence>
+              <xsd:element xmlns:q83="http://nttdata.com/2012/Pi3" minOccurs="0" name="Filters" nillable="true" type="q83:ArrayOfFilter" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="GetDocumentFiltersResponse" nillable="true" type="tns:GetDocumentFiltersResponse" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.CreateDocumentAndAddInProject" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.CreateDocumentAndAddInProject">
+      <xsd:complexType name="CreateDocumentAndAddInProjectRequest">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q84="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q84:Request">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" name="ClassificationSchemeId" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="CodeProject" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="CodeRF" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="CodeRegister" nillable="true" type="xsd:string" />
+              <xsd:element xmlns:q85="http://nttdata.com/2012/Pi3" minOccurs="0" name="Document" nillable="true" type="q85:Document" />
+              <xsd:element minOccurs="0" name="IdProject" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="CreateDocumentAndAddInProjectRequest" nillable="true" type="tns:CreateDocumentAndAddInProjectRequest" />
+      <xsd:complexType name="CreateDocumentAndAddInProjectResponse">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q86="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q86:Response">
+            <xsd:sequence>
+              <xsd:element xmlns:q87="http://nttdata.com/2012/Pi3" minOccurs="0" name="Document" nillable="true" type="q87:Document" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="CreateDocumentAndAddInProjectResponse" nillable="true" type="tns:CreateDocumentAndAddInProjectResponse" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDocuments_AddDocInProject_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDocInProject" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_AddDocInProject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDocInProjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_CreateDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDocument" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_CreateDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_EditDocStateDiagram_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditDocStateDiagram" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_EditDocStateDiagram_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditDocStateDiagramResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_EditDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditDocument" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_EditDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocument" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetDocumentsInProject_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentsInProject" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetDocumentsInProject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentsInProjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetDocumentStateDiagram_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentStateDiagram" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetDocumentStateDiagram_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentStateDiagramResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetFileDocumentById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileDocumentById" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetFileDocumentById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileDocumentByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetFileWithSignatureOrStamp_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileWithSignatureOrStamp" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetFileWithSignatureOrStamp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileWithSignatureOrStampResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetTemplateDoc_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTemplateDoc" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetTemplateDoc_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTemplateDocResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetTemplatesDocuments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTemplatesDocuments" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetTemplatesDocuments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTemplatesDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_SearchDocuments_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchDocuments" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_SearchDocuments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_SendDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendDocument" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_SendDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_UploadFileToDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadFileToDocument" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_UploadFileToDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadFileToDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetStampAndSignature_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStampAndSignature" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetStampAndSignature_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStampAndSignatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetDocumentFilters_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentFilters" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_GetDocumentFilters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentFiltersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_CreateDocumentAndAddInProject_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDocumentAndAddInProject" />
+  </wsdl:message>
+  <wsdl:message name="IDocuments_CreateDocumentAndAddInProject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDocumentAndAddInProjectResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDocuments">
+    <wsdl:operation name="AddDocInProject">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/AddDocInProject" message="tns:IDocuments_AddDocInProject_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/AddDocInProjectResponse" message="tns:IDocuments_AddDocInProject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDocument">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/CreateDocument" message="tns:IDocuments_CreateDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/CreateDocumentResponse" message="tns:IDocuments_CreateDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditDocStateDiagram">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/EditDocStateDiagram" message="tns:IDocuments_EditDocStateDiagram_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/EditDocStateDiagramResponse" message="tns:IDocuments_EditDocStateDiagram_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditDocument">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/EditDocument" message="tns:IDocuments_EditDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/EditDocumentResponse" message="tns:IDocuments_EditDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocument">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/GetDocument" message="tns:IDocuments_GetDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/GetDocumentResponse" message="tns:IDocuments_GetDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsInProject">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/GetDocumentsInProject" message="tns:IDocuments_GetDocumentsInProject_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/GetDocumentsInProjectResponse" message="tns:IDocuments_GetDocumentsInProject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentStateDiagram">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/GetDocumentStateDiagram" message="tns:IDocuments_GetDocumentStateDiagram_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/GetDocumentStateDiagramResponse" message="tns:IDocuments_GetDocumentStateDiagram_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileDocumentById">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/GetFileDocumentById" message="tns:IDocuments_GetFileDocumentById_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/GetFileDocumentByIdResponse" message="tns:IDocuments_GetFileDocumentById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileWithSignatureOrStamp">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/GetFileWithSignatureOrStamp" message="tns:IDocuments_GetFileWithSignatureOrStamp_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/GetFileWithSignatureOrStampResponse" message="tns:IDocuments_GetFileWithSignatureOrStamp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplateDoc">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/GetTemplateDoc" message="tns:IDocuments_GetTemplateDoc_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/GetTemplateDocResponse" message="tns:IDocuments_GetTemplateDoc_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplatesDocuments">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/GetTemplatesDocuments" message="tns:IDocuments_GetTemplatesDocuments_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/GetTemplatesDocumentsResponse" message="tns:IDocuments_GetTemplatesDocuments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchDocuments">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/SearchDocuments" message="tns:IDocuments_SearchDocuments_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/SearchDocumentsResponse" message="tns:IDocuments_SearchDocuments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendDocument">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/SendDocument" message="tns:IDocuments_SendDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/SendDocumentResponse" message="tns:IDocuments_SendDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadFileToDocument">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/UploadFileToDocument" message="tns:IDocuments_UploadFileToDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/UploadFileToDocumentResponse" message="tns:IDocuments_UploadFileToDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStampAndSignature">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/GetStampAndSignature" message="tns:IDocuments_GetStampAndSignature_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/GetStampAndSignatureResponse" message="tns:IDocuments_GetStampAndSignature_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentFilters">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/GetDocumentFilters" message="tns:IDocuments_GetDocumentFilters_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/GetDocumentFiltersResponse" message="tns:IDocuments_GetDocumentFilters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDocumentAndAddInProject">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/CreateDocumentAndAddInProject" message="tns:IDocuments_CreateDocumentAndAddInProject_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/IDocuments/CreateDocumentAndAddInProjectResponse" message="tns:IDocuments_CreateDocumentAndAddInProject_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_IDocuments" type="tns:IDocuments">
+    <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddDocInProject">
+      <soap12:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/AddDocInProject" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_AddDocInProject_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_AddDocInProject_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDocument">
+      <soap12:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/CreateDocument" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_CreateDocument_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_CreateDocument_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDocStateDiagram">
+      <soap12:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/EditDocStateDiagram" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_EditDocStateDiagram_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_EditDocStateDiagram_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDocument">
+      <soap12:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/EditDocument" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_EditDocument_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_EditDocument_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocument">
+      <soap12:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/GetDocument" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_GetDocument_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_GetDocument_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsInProject">
+      <soap12:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/GetDocumentsInProject" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_GetDocumentsInProject_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_GetDocumentsInProject_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentStateDiagram">
+      <soap12:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/GetDocumentStateDiagram" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_GetDocumentStateDiagram_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_GetDocumentStateDiagram_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileDocumentById">
+      <soap12:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/GetFileDocumentById" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_GetFileDocumentById_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_GetFileDocumentById_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileWithSignatureOrStamp">
+      <soap12:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/GetFileWithSignatureOrStamp" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_GetFileWithSignatureOrStamp_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_GetFileWithSignatureOrStamp_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplateDoc">
+      <soap12:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/GetTemplateDoc" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_GetTemplateDoc_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_GetTemplateDoc_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplatesDocuments">
+      <soap12:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/GetTemplatesDocuments" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_GetTemplatesDocuments_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_GetTemplatesDocuments_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchDocuments">
+      <soap12:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/SearchDocuments" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_SearchDocuments_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_SearchDocuments_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendDocument">
+      <soap12:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/SendDocument" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_SendDocument_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_SendDocument_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadFileToDocument">
+      <soap12:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/UploadFileToDocument" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_UploadFileToDocument_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_UploadFileToDocument_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStampAndSignature">
+      <soap12:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/GetStampAndSignature" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_GetStampAndSignature_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_GetStampAndSignature_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentFilters">
+      <soap12:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/GetDocumentFilters" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_GetDocumentFilters_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_GetDocumentFilters_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDocumentAndAddInProject">
+      <soap12:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/CreateDocumentAndAddInProject" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_CreateDocumentAndAddInProject_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IDocuments_CreateDocumentAndAddInProject_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IDocuments" type="tns:IDocuments">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddDocInProject">
+      <soap:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/AddDocInProject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDocument">
+      <soap:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/CreateDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDocStateDiagram">
+      <soap:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/EditDocStateDiagram" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDocument">
+      <soap:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/EditDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocument">
+      <soap:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/GetDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsInProject">
+      <soap:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/GetDocumentsInProject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentStateDiagram">
+      <soap:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/GetDocumentStateDiagram" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileDocumentById">
+      <soap:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/GetFileDocumentById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileWithSignatureOrStamp">
+      <soap:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/GetFileWithSignatureOrStamp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplateDoc">
+      <soap:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/GetTemplateDoc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplatesDocuments">
+      <soap:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/GetTemplatesDocuments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchDocuments">
+      <soap:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/SearchDocuments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendDocument">
+      <soap:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/SendDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadFileToDocument">
+      <soap:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/UploadFileToDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStampAndSignature">
+      <soap:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/GetStampAndSignature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentFilters">
+      <soap:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/GetDocumentFilters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDocumentAndAddInProject">
+      <soap:operation soapAction="http://nttdata.com/2012/Pi3/IDocuments/CreateDocumentAndAddInProject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Documents">
+    <wsdl:port name="WSHttpBinding_IDocuments" binding="tns:WSHttpBinding_IDocuments">
+      <soap12:address location="http://pis.test2.pitre.tn.it/infotn_coll-ws/VtDocsWS/WebServices/Documents.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://pis.test2.pitre.tn.it/infotn_coll-ws/VtDocsWS/WebServices/Documents.svc</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+            <X509Data>
+              <X509Certificate>MIICEzCCAYCgAwIBAgIQIUH/3i4pvK9H80kD78zT4TAJBgUrDgMCHQUAMBQxEjAQBgNVBAMTCVRlbXBQaTNDQTAeFw0xMzAzMjExNTM2NDJaFw0zOTEyMzEyMzU5NTlaMCQxIjAgBgNVBAMTGVBpM0ludGVncmF0aW9uSXN0YW5jZVRlc3QwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBANDOPBYuKvSb4h3NeowT6PR7mmG/UKdCTlMZh2mkPDX0UhPFYhRd6HDEEAZVPRYC9jk0YGPclFjbKrUHZ7u5oj9e7hJlsNMrleBrtLkr3kaqcjZASCpj26Co/kzrFRwFlR2q8FvzY+ZzdZOc41Dx9YzA7uZCykV0NUsG+xHAVx6tAgMBAAGjXjBcMBMGA1UdJQQMMAoGCCsGAQUFBwMBMEUGA1UdAQQ+MDyAEEXIhxUqPr3F0VTaRy+Hz5+hFjAUMRIwEAYDVQQDEwlUZW1wUGkzQ0GCEJcdNbMlrl2GS8tDAf1YM+YwCQYFKw4DAh0FAAOBgQDkA9D3Cmc2skjgC8WA3lVgcXQHUw6uzODgca31tnCqk7EFoLsEUEHhhPutJMz67LhUkR8UOIEMAt9vbrIyjRCN6K0gtk/r8cO8tFCWT07NZGEx3jbzBdXKxT7/SU2sA9VbPCpeTmdfu+TIkfsQMzcmkWG75VR5hBftIS7/IIijhg==</X509Certificate>
+            </X509Data>
+          </KeyInfo>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IDocuments" binding="tns:BasicHttpBinding_IDocuments">
+      <soap:address location="http://pis.test2.pitre.tn.it/infotn_coll-ws/VtDocsWS/WebServices/Documents.svc/basic" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

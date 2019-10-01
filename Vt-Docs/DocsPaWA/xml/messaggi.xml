@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<messaggi>
+  <!-- Messaggi per documenti privati -->
+  <messaggio>
+    <codice>insDocPrivato</codice>
+    <descrizione>Attenzione si sta per inserire il documento\nmarcato privato in fascicolo.\nConfermi l'operazione?</descrizione>
+  </messaggio>
+  <messaggio>
+    <codice>trasmDocPrivato</codice>
+    <descrizione>Attenzione si sta per trasmettere il documento\nmarcato privato\nConfermi l'operazione?</descrizione>
+  </messaggio>
+  <messaggio>
+    <codice>fasc_trasmDocPrivato</codice>
+    <descrizione>Attenzione si sta per trasmettere/fascicolare\nun documento marcato privato.\nConfermi l'operazione?</descrizione>
+  </messaggio>
+  <messaggio>
+    <codice>InsDocPrivatoInFasc</codice>
+    <descrizione>Attenzione i seguenti documenti sono privati.\nConfermi l'inserimento?\nDoc:\n</descrizione>
+  </messaggio>
+  <!-- Messaggi per documenti personali -->
+  <messaggio>
+    <codice>insDocPersonale</codice>
+    <descrizione>Attenzione si sta per inserire il documento\nmarcato personale in fascicolo.\nConfermi l'operazione?</descrizione>
+  </messaggio>
+  <messaggio>
+    <codice>trasmDocPersonale</codice>
+    <descrizione>Attenzione si sta per trasmettere il documento\nmarcato personale.\nConfermi l'operazione?</descrizione>
+  </messaggio>
+  <messaggio>
+    <codice>fasc_trasmDocPersonale</codice>
+    <descrizione>Attenzione si sta per trasmettere/fascicolare\nun documento marcato personale.\nConfermi l'operazione?</descrizione>
+  </messaggio>
+  <messaggio>
+    <codice>InsDocsPersonaleInFasc</codice>
+    <descrizione>Attenzione i seguenti documenti sono personali.\nConfermi l'inserimento?\nDoc:\n</descrizione>
+  </messaggio>
+  <messaggio>
+    <codice>docPredisponiPersonale</codice>
+    <descrizione>Attenzione l'operazione non è possibile per un documento personale.\nVerrà quindi trasformato in privato.\nConfermi l'operazione?</descrizione>
+  </messaggio>
+  <messaggio>
+    <codice>docPredisponiPersonale-NO</codice>
+    <descrizione>Attenzione l'operazione di predisposizione\nconverte un documento in privato.\nL'operazione non è possibile perchè non si hanno i diritti.</descrizione>
+  </messaggio>
+  <!-- Messaggi per copia documenti riproposti -->
+  <messaggio>
+    <codice>docRiproponiCopiaDocumenti</codice>
+    <descrizione>Vuoi copiare il documento principale e gli allegati\nnel documento riproposto?</descrizione>
+  </messaggio>
+  <!-- Messaggi per fascicoli privati -->
+  <messaggio>
+    <codice>trasmFascPrivato</codice>
+    <descrizione>Attenzione si sta per trasmettere il fascicolo\nmarcato privato.\nConfermi l'operazione?</descrizione>
+  </messaggio>
+  <!-- Messaggi per profilazione dinamica: documenti, fascicoli privati -->
+  <messaggio>
+    <codice>PD_DocPrivato</codice>
+    <descrizione>Attenzione il tipo documento selezionato\nè associato a dei documenti.\nConfermi l'operazione?</descrizione>
+  </messaggio>
+  <messaggio>
+    <codice>PD_FascPrivato</codice>
+    <descrizione>Attenzione il tipo fascicolo selezionato\nè associato a dei documenti.\nConfermi l'operazione?</descrizione>
+  </messaggio>
+  <!-- Gestione ACL -->
+  <messaggio>
+    <codice>RIMUOVI_DOCUMENTO_ACL</codice>
+    <descrizione>Questa operazione rimuove il diritto\n di visibilità del documento per\n il ruolo o utente selezionato, vuoi continuare?</descrizione>
+  </messaggio>
+  <messaggio>
+    <codice>RIMUOVI_DOCUMENTO_ACL_PROPR</codice>
+    <descrizione>Questa operazione rimuove tutti i diritti\ndi visibilità del documento per\nquesto ruolo o utente e comporterà l'acquisizione\ndei diritti di proprietà, vuoi continuare?</descrizione>
+  </messaggio>
+  <messaggio>
+    <codice>RIMUOVI_FASCICOLO_ACL</codice>
+    <descrizione>Questa operazione rimuove il diritto\n di visibilità del fascicolo per\n il ruolo o utente selezionato, vuoi continuare?</descrizione>
+  </messaggio>
+  <!-- Gestione rimozione documenti -->
+  <messaggio>
+    <codice>RIATTIVA_DOCUMENTO</codice>
+    <descrizione>Sei sicuro di voler riattivare il documento?</descrizione>
+  </messaggio>
+  <messaggio>
+    <codice>RIMUOVI_DOCUMENTO</codice>
+    <descrizione>Sei sicuro di voler rimuovere il documento?</descrizione>
+  </messaggio>
+  <messaggio>
+    <codice>SVUOTA_CESTINO</codice>
+    <descrizione>Questa operazione rimuoverà definitivamete\ntutti i documenti nello stato rimosso.\nConfermi l'operazione?</descrizione>
+  </messaggio>
+  <messaggio>
+    <codice>ELIMINA_DOCUMENTO</codice>
+    <descrizione>Questa operazione rimuoverà definitivamente\nil documento selezionato.\nConfermi l'operazione?</descrizione>
+  </messaggio>
+  <!-- -->
+  <messaggio>
+    <codice>CLOSE_NOTIFICA_DOCFASC</codice>
+    <descrizione>Prima di chiudere, si vuole salvare il testo\nper la notifica dei documenti e la notifica dei fascicoli a tutte le ragioni?</descrizione>
+  </messaggio>
+  <messaggio>
+    <codice>CLOSE_NOTIFICA_DOC</codice>
+    <descrizione>Prima di chiudere, si vuole salvare il testo\nper la notifica dei documenti a tutte le ragioni?</descrizione>
+  </messaggio>
+  <messaggio>
+    <codice>CLOSE_NOTIFICA_FASC</codice>
+    <descrizione>Prima di chiudere, si vuole salvare il testo\nper la notifica dei fascicoli a tutte le ragioni?</descrizione>
+  </messaggio>
+  <messaggio>
+    <codice>SAVE_NOTIFICA_DOCFASC</codice>
+    <descrizione>Le modifiche effettuate per il testo della:\n- notifica dei documenti\n- notifica dei fascicoli\nnon sono state salvate.\n\nVuoi salvarle?</descrizione>
+  </messaggio>
+  <messaggio>
+    <codice>SAVE_NOTIFICA_DOC</codice>
+    <descrizione>Le modifiche effettuate per il testo della notifica dei documenti\nnon sono state salvate.\n\nVuoi salvarle?</descrizione>
+  </messaggio>
+  <messaggio>
+    <codice>SAVE_NOTIFICA_FASC</codice>
+    <descrizione>Le modifiche effettuate per il testo della notifica dei fascicoli\nnon sono state salvate.\n\nVuoi salvarle?</descrizione>
+  </messaggio>
+  <!-- Gestione deleghe -->
+  <messaggio>
+    <codice>DELEGA_REVOCA</codice>
+    <descrizione>Le sostituzioni selezionate verranno revocate.\nVuoi continuare?</descrizione>
+  </messaggio>
+  <messaggio>
+    <codice>DELEGA_CHIUDINUOVA</codice>
+    <descrizione>La sostituzione impostata non è stata salvata.\nVuoi salvare?</descrizione>
+  </messaggio>
+  <messaggio>
+    <codice>DELEGA_PERMANENTE</codice>
+    <descrizione>Attenzione, si sta per creare una sostituzione permanente.\nVuoi continuare?</descrizione>
+  </messaggio>
+  <messaggio>
+    <codice>ESERCITA_DELEGA</codice>
+    <descrizione>Hai almeno una sostituzione assegnata. Premi Ok per esercitarla.</descrizione>
+  </messaggio>
+  <messaggio>
+    <codice>STOP_WORD</codice>
+    <descrizione>Per evitare tempi lunghi di attesa, il sistema non permette una ricerca con la parola {0}.</descrizione>
+  </messaggio>
+</messaggi>

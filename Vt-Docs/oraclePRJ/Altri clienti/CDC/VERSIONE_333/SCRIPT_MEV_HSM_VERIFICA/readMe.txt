@@ -1,0 +1,1 @@
+modificare gli script per disabilitare le funzioni

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://nttdata.com/2012/Pi3/Document" elementFormDefault="qualified" targetNamespace="http://nttdata.com/2012/Pi3/Document" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://vt-ferlitoca.valueteam.com/Vt-Docs/DocsPaWS/VtDocsWS/WebServices/Documents.svc?xsd=xsd6" namespace="http://nttdata.com/2012/Pi3/File" />
+  <xs:import schemaLocation="http://vt-ferlitoca.valueteam.com/Vt-Docs/DocsPaWS/VtDocsWS/WebServices/Documents.svc?xsd=xsd7" namespace="http://nttdata.com/2012/Pi3/Correspondent" />
+  <xs:import schemaLocation="http://vt-ferlitoca.valueteam.com/Vt-Docs/DocsPaWS/VtDocsWS/WebServices/Documents.svc?xsd=xsd8" namespace="http://nttdata.com/2012/Pi3/Note" />
+  <xs:import schemaLocation="http://vt-ferlitoca.valueteam.com/Vt-Docs/DocsPaWS/VtDocsWS/WebServices/Documents.svc?xsd=xsd10" namespace="http://nttdata.com/2012/Pi3/Register" />
+  <xs:import schemaLocation="http://vt-ferlitoca.valueteam.com/Vt-Docs/DocsPaWS/VtDocsWS/WebServices/Documents.svc?xsd=xsd11" namespace="http://nttdata.com/2012/Pi3/Template" />
+  <xs:complexType name="Document">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Annulled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ArrivalDate" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://nttdata.com/2012/Pi3/File" minOccurs="0" name="Attachments" nillable="true" type="q1:ArrayOfFile" />
+      <xs:element minOccurs="0" name="ConsolidationState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreationDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DataProtocolSender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdParent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InBasket" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsAttachments" type="xs:boolean" />
+      <xs:element xmlns:q2="http://nttdata.com/2012/Pi3/File" minOccurs="0" name="MainDocument" nillable="true" type="q2:File" />
+      <xs:element minOccurs="0" name="MeansOfSending" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://nttdata.com/2012/Pi3/Correspondent" minOccurs="0" name="MultipleSenders" nillable="true" type="q3:ArrayOfCorrespondent" />
+      <xs:element xmlns:q4="http://nttdata.com/2012/Pi3/Note" minOccurs="0" name="Note" nillable="true" type="q4:ArrayOfNote" />
+      <xs:element minOccurs="0" name="Object" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Predisposed" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PrivateDocument" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ProtocolDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProtocolSender" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://nttdata.com/2012/Pi3/Correspondent" minOccurs="0" name="Recipients" nillable="true" type="q5:ArrayOfCorrespondent" />
+      <xs:element xmlns:q6="http://nttdata.com/2012/Pi3/Correspondent" minOccurs="0" name="RecipientsCC" nillable="true" type="q6:ArrayOfCorrespondent" />
+      <xs:element xmlns:q7="http://nttdata.com/2012/Pi3/Register" minOccurs="0" name="Register" nillable="true" type="q7:Register" />
+      <xs:element xmlns:q8="http://nttdata.com/2012/Pi3/Correspondent" minOccurs="0" name="Sender" nillable="true" type="q8:Correspondent" />
+      <xs:element minOccurs="0" name="Signature" nillable="true" type="xs:string" />
+      <xs:element xmlns:q9="http://nttdata.com/2012/Pi3/Template" minOccurs="0" name="Template" nillable="true" type="q9:Template" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Document" nillable="true" type="tns:Document" />
+  <xs:complexType name="ArrayOfDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Document" nillable="true" type="tns:Document" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDocument" nillable="true" type="tns:ArrayOfDocument" />
+</xs:schema>

@@ -1,0 +1,1 @@
+CREATE SEQUENCE seq_dpa_alert_conservazione;

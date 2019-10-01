@@ -1,0 +1,50 @@
+CREATE OR REPLACE PROCEDURE @db_user.I_Smistamento_DocVisto(
+IDTrasmissioneUtenteMittente IN NUMBER,
+TrasmissioneConWorkflow IN CHAR,
+ReturnValue OUT NUMBER)	IS
+
+
+TipoTrasmSingola CHAR(1) := NULL;
+
+BEGIN
+IF TrasmissioneConWorkflow = '1' THEN
+BEGIN
+UPDATE 	DPA_TRASM_UTENTE
+SET 	DTA_VISTA = SYSDATE(),
+CHA_VISTA = '1',
+DTA_ACCETTATA = SYSDATE(),
+CHA_ACCETTATA = '1',
+CHA_IN_TODOLIST = '0'
+WHERE	SYSTEM_ID = IDTrasmissioneUtenteMittente;
+END;
+ELSE
+BEGIN
+UPDATE 	DPA_TRASM_UTENTE
+SET 	DTA_VISTA = SYSDATE(),
+CHA_VISTA = '1',
+CHA_IN_TODOLIST = '0'
+WHERE	SYSTEM_ID = IDTrasmissioneUtenteMittente;
+END;
+END IF;
+
+BEGIN
+SELECT    CHA_TIPO_TRASM INTO TipoTrasmSingola
+FROM 	   DPA_TRASM_SINGOLA
+WHERE 	   SYSTEM_ID = (SELECT ID_TRASM_SINGOLA FROM DPA_TRASM_UTENTE WHERE SYSTEM_ID = IDTrasmissioneUtenteMittente);
+END;
+
+IF TipoTrasmSingola = 'S' AND TrasmissioneConWorkflow = '1' THEN
+
+BEGIN
+UPDATE 	DPA_TRASM_UTENTE
+SET 	CHA_VALIDA = '0',
+CHA_IN_TODOLIST = '0'
+WHERE	ID_TRASM_SINGOLA = (SELECT ID_TRASM_SINGOLA FROM DPA_TRASM_UTENTE WHERE SYSTEM_ID = IDTrasmissioneUtenteMittente)
+AND		SYSTEM_ID NOT IN (IDTrasmissioneUtenteMittente);
+END;
+END IF;
+
+ReturnValue := 0;
+
+END;
+/

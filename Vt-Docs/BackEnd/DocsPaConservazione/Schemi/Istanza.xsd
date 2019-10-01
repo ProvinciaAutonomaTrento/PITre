@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+	<xs:complexType name="Istanza">
+		<xs:sequence>
+			<xs:element ref="SoggettoProduttore"/>
+			<xs:element ref="ResponsabileConservazione"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:anySimpleType" use="required"/>
+		<xs:attribute name="Descrizione" type="xs:anySimpleType" use="required"/>
+		<xs:attribute name="DataCreazione" type="xs:anySimpleType" use="required"/>
+		<xs:attribute name="DataInvio" type="xs:anySimpleType" use="required"/>
+		<xs:attribute name="DataChiusura" type="xs:anySimpleType" use="required"/>
+		<xs:attribute name="Tipologia" type="xs:anySimpleType" use="required"/>
+	</xs:complexType>
+	<xs:element name="Istanza" type="Istanza"/>
+	<xs:complexType name="SoggettoProduttore">
+		<xs:sequence>
+			<xs:element ref="Amministrazione"/>
+			<xs:element ref="GerarchiaUO"/>
+			<xs:element ref="Creatore"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="SoggettoProduttore" type="SoggettoProduttore"/>
+	<xs:complexType name="Amministrazione">
+		<xs:attribute name="CodiceAmministrazione" type="xs:anySimpleType" use="required"/>
+		<xs:attribute name="DescrizioneAmministrazione" type="xs:anySimpleType" use="required"/>
+	</xs:complexType>
+	<xs:element name="Amministrazione" type="Amministrazione"/>
+	<xs:complexType name="GerarchiaUO">
+		<xs:sequence>
+			<xs:element ref="UnitàOrganizzativa" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="GerarchiaUO" type="GerarchiaUO"/>
+	<xs:complexType name="UnitàOrganizzativa">
+		<xs:sequence>
+			<xs:element ref="UnitàOrganizzativa" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="CodiceUO" type="xs:anySimpleType" use="required"/>
+		<xs:attribute name="DescrizioneUO" type="xs:anySimpleType" use="required"/>
+		<xs:attribute name="Livello" type="xs:anySimpleType" use="required"/>
+	</xs:complexType>
+	<xs:element name="UnitàOrganizzativa" type="UnitàOrganizzativa"/>
+	<xs:complexType name="Creatore">
+		<xs:attribute name="CodiceRuolo" type="xs:anySimpleType" use="required"/>
+		<xs:attribute name="DescrizioneRuolo" type="xs:anySimpleType" use="required"/>
+		<xs:attribute name="CodiceUtente" type="xs:anySimpleType" use="required"/>
+		<xs:attribute name="DescrizioneUtente" type="xs:anySimpleType" use="required"/>
+	</xs:complexType>
+	<xs:element name="Creatore" type="Creatore"/>
+	<xs:complexType name="ResponsabileConservazione">
+		<xs:attribute name="Utente" type="xs:anySimpleType" use="required"/>
+	</xs:complexType>
+	<xs:element name="ResponsabileConservazione" type="ResponsabileConservazione"/>
+</xs:schema>

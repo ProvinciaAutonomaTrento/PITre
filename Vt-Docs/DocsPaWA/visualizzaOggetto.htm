@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title></title>
+    <script type="text/javascript">
+    
+		    function redirectToVisualizzaOggetto() {
+		        var version = getInternetExplorerVersion();
+		        var pageAddress = 'visualizzaOggetto.aspx?' + window.location.search.substring(1); ;
+		        var newUrl = pageAddress;
+
+		        if (version > -1 && version < 7) {
+		            var newWindow = window.open(newUrl, '_blank', 'location=0');
+		            window.opener = null;
+		            window.close()
+		            return;
+		        }
+
+		        if (version > -1 && version >= 7) {
+		            window.open(null, '_self', null);
+		            window.close();
+		            window.open(newUrl, '_blank', 'location=0');
+		            return;
+		        }
+                
+		    }
+
+		    function getInternetExplorerVersion() {
+		        var rv = -1;
+		        if (navigator.appName.lastIndexOf('Explorer') != -1) {
+		            var ua = navigator.userAgent;
+		            var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+		            if (re.exec(ua) != null)
+		                rv = parseFloat(RegExp.$1);
+		        }
+		        return rv;
+		    }       
+    </script>
+</head>
+<body onload="redirectToVisualizzaOggetto();">
+    
+</body>
+</html>

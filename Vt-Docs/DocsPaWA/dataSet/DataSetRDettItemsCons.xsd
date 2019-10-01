@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetRDettItemsCons" targetNamespace="http://tempuri.org/DataSetRDettItemsCons.xsd" xmlns:mstns="http://tempuri.org/DataSetRDettItemsCons.xsd" xmlns="http://tempuri.org/DataSetRDettItemsCons.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetRDettItemsCons" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetRDettItemsCons" msprop:Generator_UserDSName="DataSetRDettItemsCons">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_conservazione" msprop:Generator_ColumnVarNameInTable="columnid_conservazione" msprop:Generator_ColumnPropNameInRow="id_conservazione" msprop:Generator_ColumnPropNameInTable="id_conservazioneColumn" msprop:Generator_UserColumnName="id_conservazione" type="xs:string" minOccurs="0" />
+              <xs:element name="descrizione" msprop:Generator_ColumnVarNameInTable="columndescrizione" msprop:Generator_ColumnPropNameInRow="descrizione" msprop:Generator_ColumnPropNameInTable="descrizioneColumn" msprop:Generator_UserColumnName="descrizione" type="xs:string" minOccurs="0" />
+              <xs:element name="data_riversamento" msprop:Generator_ColumnVarNameInTable="columndata_riversamento" msprop:Generator_ColumnPropNameInRow="data_riversamento" msprop:Generator_ColumnPropNameInTable="data_riversamentoColumn" msprop:Generator_UserColumnName="data_riversamento" type="xs:string" minOccurs="0" />
+              <xs:element name="userId" msprop:Generator_ColumnVarNameInTable="columnuserId" msprop:Generator_ColumnPropNameInRow="userId" msprop:Generator_ColumnPropNameInTable="userIdColumn" msprop:Generator_UserColumnName="userId" type="xs:string" minOccurs="0" />
+              <xs:element name="collFisica" msprop:Generator_ColumnVarNameInTable="columncollFisica" msprop:Generator_ColumnPropNameInRow="collFisica" msprop:Generator_ColumnPropNameInTable="collFisicaColumn" msprop:Generator_UserColumnName="collFisica" type="xs:string" minOccurs="0" />
+              <xs:element name="tipo_cons" msprop:Generator_ColumnVarNameInTable="columntipo_cons" msprop:Generator_ColumnPropNameInRow="tipo_cons" msprop:Generator_ColumnPropNameInTable="tipo_consColumn" msprop:Generator_UserColumnName="tipo_cons" type="xs:string" minOccurs="0" />
+              <xs:element name="num_docInFasc" msprop:Generator_ColumnVarNameInTable="columnnum_docInFasc" msprop:Generator_ColumnPropNameInRow="num_docInFasc" msprop:Generator_ColumnPropNameInTable="num_docInFascColumn" msprop:Generator_UserColumnName="num_docInFasc" type="xs:string" minOccurs="0" />
+              <xs:element name="id_profile_trasm" msprop:Generator_ColumnVarNameInTable="columnid_profile_trasm" msprop:Generator_ColumnPropNameInRow="id_profile_trasm" msprop:Generator_ColumnPropNameInTable="id_profile_trasmColumn" msprop:Generator_UserColumnName="id_profile_trasm" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
