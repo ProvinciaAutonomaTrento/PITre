@@ -36,7 +36,7 @@ Per maggiori informazioni è possibile consultare:
 ## Project Status
 
 Il prodotto è *stabile* e *production ready* e usato in produzione in numerosi enti pubblici. 
-Lo sviluppo avviene in modo costante su richiesta degli Ente Titolare utilizzatori
+Lo sviluppo avviene in modo costante su richiesta degli Ente Titolare degli enti utilizzatori
 
 ## Copyright (C)
 
