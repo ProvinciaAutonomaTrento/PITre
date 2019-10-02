@@ -2,11 +2,11 @@
 
 Elenco Cartelle:
 
-* COMPONENT DIAGRAM
-* DEPLOYMENT DIAGRAM
+* Component Diagram
+* Deployment Diagram
 * Documentazione DB
 * Documentazione Pis
-* Manuali
+* Manuali d'uso 
 * Piano Configurazione
 
 # Altri files
