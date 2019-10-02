@@ -1,6 +1,6 @@
 # Documentazione PiTre
 
-Elenco Cartelle:
+In questa parte del repository è raccolta la documentazione messa a disposizione per PiTre, suddivisa in specifiche cartelle: 
 
 * Component Diagram
 * Deployment Diagram
