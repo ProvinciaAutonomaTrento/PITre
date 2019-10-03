@@ -41,7 +41,7 @@ Per maggiori informazioni è possibile consultare:
 Il prodotto è *stabile* e *production ready* e usato in produzione in numerosi enti pubblici. 
 Lo sviluppo avviene in modo costante su richiesta degli Ente Titolare degli enti utilizzatori
 
-# Elenco degli enti che usano questo software
+## Elenco degli enti che usano questo software
   - Provincia autonoma di Trento 
   - Regione Autonoma Trentino Alto Adige - Autonome Region Trentino-Südtirol
   - Trentino Digitale Spa 
@@ -60,8 +60,7 @@ Lo sviluppo avviene in modo costante su richiesta degli Ente Titolare degli enti
 Il titolare del software è la [Provincia autonoma di Trento](https://www.provincia.trento.it)
 
 
-
-### Maintainer
+## Maintainer
 
 [Trentino Digitale Spa](https://www.trentinodigitale.it/), è responsabile della progettazione, realizzazione e manutenzione tecnica, tramite il supporto di fornitori esterni
 
