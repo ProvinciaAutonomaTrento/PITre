@@ -13,7 +13,7 @@ Applicazione web di esempio c#
 Da IIS creare una nuova directory virtuale che punti al contenuto della cartella C# (può essere rinominata in qualunque modo).\
 Nel web.config dell'applicazione modificare i link in modo che puntino all'installazione di interesse.\
 Modificare le chiavi username e amministrazione con i valori di un utente.\
-Lanciare la pagina Default.aspx.\
+Lanciare la pagina Default.aspx.
 
 Applicazione di esempio Java\
 Da aprire con Eclipse. Nella cartella Test ci sono i vari main di test.\
