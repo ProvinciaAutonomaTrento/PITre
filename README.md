@@ -63,7 +63,7 @@ Il titolare del software è la [Provincia autonoma di Trento](https://www.provin
 
 ## Maintainer
 
-[Trentino Digitale Spa](https://www.trentinodigitale.it/), è responsabile della progettazione, realizzazione e manutenzione tecnica, tramite il supporto di fornitori esterni. Per qualsiasi richiesta si consiglia di utilizzare il sistema di gestione ISSUE messo a disposizione [qui](https://github.com/ProvinciaAutonomaTrento/PITre/issues)
+[Trentino Digitale Spa](https://www.trentinodigitale.it/), è responsabile della progettazione, realizzazione e manutenzione tecnica, tramite il supporto di fornitori esterni.\Per qualsiasi richiesta si consiglia di utilizzare il sistema di gestione ISSUE messo a disposizione [qui](https://github.com/ProvinciaAutonomaTrento/PITre/issues)
 
 
 
