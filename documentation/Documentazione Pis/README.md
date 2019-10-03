@@ -15,15 +15,14 @@ Nel web.config dell'applicazione modificare i link in modo che puntino all'insta
 Modificare le chiavi username e amministrazione con i valori di un utente
 Lanciare la pagina Default.aspx.
 
-Applicazione di esempio java.
-Aprire con Eclipse. Nella cartella Test ci sono i vari main di test
+Applicazione di esempio Java
+Da aprire con Eclipse. Nella cartella Test ci sono i vari main di test
 Utilizza Axis2 1.5.5
 
 ## Documentazione Routing Dinamico 
 Fare riferimento al seguente documento:
 
-[Documentazione per il routing dinamico](Documentazione Routing Dinamico Applicazione_4_20140324.doc)
-
+[Documentazione per il routing dinamico](Documentazione%20Pis/Documentazione%20Routing%20Dinamico%20Applicazione_4_20140324.doc)
 
 ## Versioni vecchie API
 Fare riferimento al seguente documento:
