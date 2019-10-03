@@ -3,7 +3,7 @@
 ## Documentazione API 
 Fare riferimento al seguente documento:
 
-[WebServicesPIS Aprile 2014] (https://github.com/ProvinciaAutonomaTrento/PITre/blob/master/documentation/Documentazione%20Pis/WebServicesPIS_A-PI3-PIS_01%2012_APRILE2014_v2.pdf)
+[Guida API WebPis Aprile 2014](WebServicesPIS_A-PI3-PIS_01%2012_APRILE2014_v2.pdf)
 
 ## WebServicesPis.zip
 
