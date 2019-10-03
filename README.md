@@ -43,7 +43,7 @@ Lo sviluppo avviene in modo costante su richiesta degli Ente Titolare degli enti
 
 ## Copyright (C)
 
-Il titolare del software è il [Provincia autonoma di Trento](https://www.provincia.trento.it)
+Il titolare del software è la [Provincia autonoma di Trento](https://www.provincia.trento.it)
 
 
 
