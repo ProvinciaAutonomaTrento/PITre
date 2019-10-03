@@ -1,7 +1,8 @@
 # Elenco documentazione API PiTre
 
 ## Documentazione API 
-WebServicesPIS_A-PI3-PIS_01 12_APRILE2014_v2.pdf (Aprile 2014)
+Fare riferimento al seguente documento: 
+[WebServicesPIS_A-PI3-PIS_01 12_APRILE2014_v2.pdf] (https://github.com/ProvinciaAutonomaTrento/PITre/blob/master/documentation/Documentazione%20Pis/WebServicesPIS_A-PI3-PIS_01%2012_APRILE2014_v2.pdf)
 
 ## WebServicesPis.zip
 
