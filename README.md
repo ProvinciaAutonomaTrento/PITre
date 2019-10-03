@@ -52,6 +52,7 @@ Lo sviluppo avviene in modo costante su richiesta degli Ente Titolare degli enti
   - Consorzio Comuni Trentini
   - Comunità di Valle del Trentino
   - Comuni del Trentino
+  - Istituzioni Scolastiche del Trentino
 
 
 ## Copyright (C)
