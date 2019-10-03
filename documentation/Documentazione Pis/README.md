@@ -27,6 +27,6 @@ Fare riferimento al seguente documento:
 ## Versioni vecchie API
 Fare riferimento al seguente documento:
 
-[Vecchia guida API](WebServicesPIS_A-PI3-PIS_01 11_19dic2013.pdf)
+[Vecchia guida API](WebServicesPIS_A-PI3-PIS_01%2011_19dic2013.pdf)
 
 
