@@ -41,6 +41,19 @@ Per maggiori informazioni è possibile consultare:
 Il prodotto è *stabile* e *production ready* e usato in produzione in numerosi enti pubblici. 
 Lo sviluppo avviene in modo costante su richiesta degli Ente Titolare degli enti utilizzatori
 
+# Elenco degli enti che gia lo riusano
+  - Provincia autonoma di Trento 
+  - Regione Autonoma Trentino Alto Adige - Autonome Region Trentino-Südtirol
+  - Trentino Digitale Spa 
+  - Azienda Provinciale per i Servizi Sanitari
+  - Università degli Studi di Trento
+  - Consiglio Provinciale della Provincia autonoma di Trento
+  - Comune di Trento
+  - Consorzio Comuni Trentini
+  - Comunità di Valle del Trentino
+  - Comuni del Trentino
+
+
 ## Copyright (C)
 
 Il titolare del software è la [Provincia autonoma di Trento](https://www.provincia.trento.it)
