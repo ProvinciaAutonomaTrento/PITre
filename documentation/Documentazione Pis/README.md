@@ -21,11 +21,11 @@ Utilizzato Axis2 1.5.5
 
 ## Documentazione Routing Dinamico 
 
-[Documentazione per il routing dinamico] (Documentazione Routing Dinamico Applicazione_4_20140324.doc)
+[Documentazione per il routing dinamico](Documentazione Routing Dinamico Applicazione_4_20140324.doc)
 
 
 ## Versioni vecchie API
 
-[Vecchia guida API] WebServicesPIS_A-PI3-PIS_01 11_19dic2013.pdf
+[Vecchia guida API](WebServicesPIS_A-PI3-PIS_01 11_19dic2013.pdf)
 
 
