@@ -17,7 +17,7 @@ Lanciare la pagina Default.aspx.
 
 Applicazione di esempio Java\
 Da aprire con Eclipse. Nella cartella Test ci sono i vari main di test.\
-Utilizza Axis2 1.5.5\
+Utilizza Axis2 1.5.5
 
 ## Documentazione Routing Dinamico 
 Fare riferimento al seguente documento:
