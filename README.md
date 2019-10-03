@@ -41,7 +41,7 @@ Per maggiori informazioni è possibile consultare:
 Il prodotto è *stabile* e *production ready* e usato in produzione in numerosi enti pubblici. 
 Lo sviluppo avviene in modo costante su richiesta degli Ente Titolare degli enti utilizzatori
 
-# Elenco degli enti che gia lo riusano
+# Elenco degli enti che usano questo software
   - Provincia autonoma di Trento 
   - Regione Autonoma Trentino Alto Adige - Autonome Region Trentino-Südtirol
   - Trentino Digitale Spa 
