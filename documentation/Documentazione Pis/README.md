@@ -20,11 +20,13 @@ Aprire con Eclipse. Nella cartella Test ci sono i vari main di test
 Utilizzato Axis2 1.5.5
 
 ## Documentazione Routing Dinamico 
+Fare riferimento al seguente documento:
 
 [Documentazione per il routing dinamico](Documentazione Routing Dinamico Applicazione_4_20140324.doc)
 
 
 ## Versioni vecchie API
+Fare riferimento al seguente documento:
 
 [Vecchia guida API](WebServicesPIS_A-PI3-PIS_01 11_19dic2013.pdf)
 
