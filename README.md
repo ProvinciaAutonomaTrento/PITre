@@ -42,7 +42,7 @@ Il prodotto è *stabile* e *production ready* e usato in produzione in numerosi 
 Lo sviluppo avviene in modo costante su richiesta degli Ente Titolare degli Enti Utilizzatori
 
 
-## Elenco degli enti che usano questo software
+## Elenco degli enti che usano questo software (agg. Maggio 2019 - Totale: 336)
   - Provincia autonoma di Trento 
   - Regione Autonoma Trentino Alto Adige - Autonome Region Trentino-Südtirol
   -	Altri Enti  Conservatorio Musicale Francesco Antonio Bonporti (Trento)
