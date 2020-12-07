@@ -45,11 +45,13 @@ Lo sviluppo avviene in modo costante su richiesta degli Ente Titolare degli Enti
 ## Elenco degli enti che usano questo software (agg. Maggio 2019 - Totale: 336)
   - Provincia autonoma di Trento 
   - Regione Autonoma Trentino Alto Adige - Autonome Region Trentino-Südtirol
+  - Ministero dei Beni Culturali 
   -	Altri Enti  Conservatorio Musicale Francesco Antonio Bonporti (Trento)
   -	Altri Enti  Federazione VVF Volontari della Provincia Autonoma di Trento
   -	Altri Enti  Opera Universitaria (Trento)
   -	Altri Enti  Unione dei Comuni dell'Alta Anaunia (Cavareno)
   -	Altri Enti  Università degli Studi (Trento)
+  - Altri Enti  Consorzio BIM del Chiese 
   -	Società pubbliche strumentali	ASIS Azienda speciale per la gestione degli impianti sportivi del Comune di Trento
   -	Società pubbliche strumentali	Trentino Digitale Spa
   -	Società pubbliche strumentali	Ingarda Trentino
@@ -378,7 +380,7 @@ Lo sviluppo avviene in modo costante su richiesta degli Ente Titolare degli Enti
   -	Amministrazioni Separate dei beni di Uso Civico (ASUC)	ASUC di Vigo di Fassa (Comune di Sèn Jan di Fassa)
   -	Amministrazioni Separate dei beni di Uso Civico (ASUC)	ASUC di Villa Rendena (Comune di Porte di Rendena)
   -	Amministrazioni Separate dei beni di Uso Civico (ASUC)	ASUC di Vion (Comune di Predaia)
-
+  
 
 ## Copyright (C)
 
