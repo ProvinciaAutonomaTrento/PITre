@@ -1,0 +1,8 @@
+
+CREATE OR REPLACE FUNCTION @db_user.Getregdescr (SYSREG INT)
+RETURN VARCHAR IS risultato VARCHAR(256);
+BEGIN
+SELECT VAR_CODICE INTO risultato FROM DPA_EL_REGISTRI WHERE system_id=SYSREG;
+RETURN risultato;
+END Getregdescr;
+/

@@ -1,1 +1,0 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="VisualizzaLink.aspx.cs" Inherits="NttDataWA.VisualizzaLink" %>

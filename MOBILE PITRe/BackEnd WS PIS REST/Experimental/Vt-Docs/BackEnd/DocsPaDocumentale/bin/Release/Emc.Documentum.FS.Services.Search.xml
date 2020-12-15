@@ -1,0 +1,492 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Emc.Documentum.FS.Services.Search</name>
+    </assembly>
+    <members>
+        <member name="T:Emc.Documentum.FS.Services.Search.SearchServicePortClient">
+            <exclude/>
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Search.ISearchService">
+            <summary>
+            SearchService is a primary mechanism for searching objects in multiple docbases and external repositories.<p/>
+            It provides basic operations for listing the available repositories and searching objects in theses sources.<p/>
+            External Repositories will only be available when ECI Services option is configured and connected to the DFS System through the DFC.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.ISearchService.Execute(Emc.Documentum.FS.DataModel.Core.Query.Query,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <summary>
+            Executes a query against the search repositories. The operation returns a <see cref="T:Emc.Documentum.FS.DataModel.Core.Query.QueryResult">QueryResult</see> object that is
+            composed of the <see cref="T:Emc.Documentum.FS.DataModel.Core.Query.QueryStatus">QueryStatus</see>, that contains search statuses for every targeted repository and a 
+            <see cref="T:Emc.Documentum.FS.DataModel.Core.DataPackage">DataPackage</see> that contains the expected subset of results.
+            <p/>
+            This operation allows to: <ul><li>execute a search across several repositories</li><li>get subsets of search
+            results</li></ul>
+            <p/>
+            To get subsets of search results you have to provide a <see cref="T:Emc.Documentum.FS.DataModel.Core.Query.QueryExecution">QueryExecution</see> object with the following values:
+            <ul> <li>startingIndex is the start index that is used to build the subset of results to return (default is
+            0)</li> <li>maxResultsCount is the maximum number of results which is returned by the operation (default is
+            100)</li> <li>maxResultPerSource is used to limit the total number of results that will be retrieved by the
+            query</li> </ul>
+            <p/>
+            Client can also retrieve subsets of results of the same query without re executing the query by: <ul><li>Setting
+            the <see cref="T:Emc.Documentum.FS.DataModel.Core.Query.QueryExecution">QueryExecution</see> queryId field for the first call and then use the queryId for subsequent calls.</li>
+            <li>Using the queryId generated and returned in the <see cref="T:Emc.Documentum.FS.DataModel.Core.Query.QueryResult">QueryResult</see> by the first call to execute (If no queryId is
+            specified). Client has to set the returned queryId in the <see cref="T:Emc.Documentum.FS.DataModel.Core.Query.QueryExecution">QueryExecution</see> object for subsequent
+            calls.</li></ul>
+            <p/>
+            The execution is synchronous by default. By specifying a <see cref="T:Emc.Documentum.FS.DataModel.Core.Profiles.SearchProfile">SearchProfile</see>, the user can retrieve results
+            asynchronously.
+            </summary>
+            <param name="query">The query contains the query definition (i.e. the constraints) as well as the repositories to
+                             search.</param>
+            <param name="execution">Contains the execution parameters: the query id, the number of results to return and their
+                             indexes in the global results Set.</param>
+            <param name="options">The object containing a <see cref="T:Emc.Documentum.FS.DataModel.Core.Profiles.PropertyProfile">PropertyProfile</see> defining which data will be returned as results
+                             and a SearchProfile defining the kind of execution. If this object is null, default operation
+                             behaviors will take effect.</param>
+            <returns>The QueryResult contains the QueryStatus that aggregates the repository statuses, the dataPackage
+                    representing the found results and the query Id. This query id can be used for subsequent calls to
+                    SearchService operations.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.ISearchService.GetFacets(Emc.Documentum.FS.DataModel.Core.Query.Query,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <summary>
+            Calculates facets on query results for the specified {@link Query}.
+            Facets are calculated by the Documentum Search Server (DSS) on the whole results set matching a query.
+            The list of facets to retrieve are specified in the {@link StructuredQuery} object
+            with a list of {@link FacetDefinition} objects.
+            This operation could be called after a call to execute with the same {@link Query} and queryId to benefit from the search cache.
+            The paging information in {@link QueryExecution} have no impact on the facets calculation.
+            If the query has not already been executed or if the results are no longer available in
+            the search context, the query will be executed according to the {@link Query} and {@link
+            OperationOptions} parameters.
+            The execution is synchronous by default. If the query is done on several repositories supporting facets, the user
+            can retrieve facets asynchronously by specifying a {@link SearchProfile}.
+            If the query has no results, the facets are empty.
+            </summary>
+            <param name="query">The query contains the query definition (i.e. the constraints), the repositories to search and the facet definitions (list of facets to retrieve).</param>
+            <param name="execution">Contains the execution parameters: the query id is used to identify the query and other parameters do not apply.</param>
+            <param name="options">Object containing a SearchProfile. Other profiles are not applicable.</param>
+            <returns>
+            A QueryFacet object containing: a list of Facet, the id and the status of the query.
+            </returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.ISearchService.StopSearch(Emc.Documentum.FS.DataModel.Core.Query.Query,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution)">
+            <summary>
+            Stop the execution of the query passed in parameter.
+            </summary>
+            <param name="query">The query to stop</param>
+            <param name="execution">the execution parameters of the query to stop</param>
+            <returns>
+            The QueryStatus of the stopped search
+            </returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.ISearchService.GetRepositoryList(Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <summary>
+            This service returns the list of available repositories.<p/> The Repository can either be a Docbase (MANAGED) source or an EXTERNAL source, if ECI Services option is connected.
+            </summary>
+            <param name="options">An object containing profiles and properties that specify operation behaviors. If this object is
+            null, default operation behaviors will take effect. (Not used in D6, future use only)
+            </param>
+            <returns>The List of Repositories that can be searched through the execute method of this SearchService</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.ISearchService.GetClusters(Emc.Documentum.FS.DataModel.Core.Query.Query,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+             <summary>
+             Calculates clusters on query results for the specified <see cref="T:Emc.Documentum.FS.DataModel.Core.Profiles.ClusteringProfile">ClusteringProfile</see>.
+             <p/>
+             <p/>
+             The operation should be called after a call to execute with the same queryId, <see cref="T:Emc.Documentum.FS.DataModel.Core.Query.Query">Query</see> and 
+             <see cref="T:Emc.Documentum.FS.DataModel.Core.Query.QueryExecution">QueryExecution</see> objects.
+             <p/>
+             <p/>
+             If the query referenced by the queryId has not already been executed or if the results are no longer available in
+             the search context, the query will be executed according to the <see cref="T:Emc.Documentum.FS.DataModel.Core.Query.Query">Query</see>, <see cref="T:Emc.Documentum.FS.DataModel.Core.Query.QueryExecution">QueryExecution</see> 
+             and <see cref="T:Emc.Documentum.FS.DataModel.Core.OperationOptions">OperationOptions</see> parameters.
+             The execution is synchronous by default. By specifying a <see cref="T:Emc.Documentum.FS.DataModel.Core.Profiles.SearchProfile">SearchProfile</see>, the user can retrieve clusters
+             asynchronously.
+             If the query has no results, the clusters are empty.
+             <p/>
+             <p/>
+             </summary>
+             <param name="query">The query contains the query definition (i.e. the constraints) as well as the repositories to
+                              search.</param>
+             <param name="execution">Contains the execution parameters: the query id, the number of results to return and their
+                              indexes in the global results Set.</param>
+             <param name="options">Object containing a ClusteringProfile and a SearchProfile. The ClusteringProfile contains a list of
+                              ClusteringStrategy. Client can specify in the ClusteringStrategy to return or not the identities
+                              of the objects contained in a cluster. Other profiles are not applicable. If this object is null
+                              or ClusteringStrategies empty, no clusters are returned.</param>
+            
+             <returns>A QueryCluster object containing: a list of ClusterTree and the id of the query.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.ISearchService.GetSubclusters(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.Query.Query,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+             <summary>
+             Calculates clusters on the objects specified in the <see cref="T:Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet">ObjectIdentitySet</see> for the 
+             specified <see cref="T:Emc.Documentum.FS.DataModel.Core.Profiles.ClusteringProfile">ClusteringProfile</see>.
+             <p/>
+             <p/>
+             The operation should be called after a call to execute with the same queryId, <see cref="T:Emc.Documentum.FS.DataModel.Core.Query.Query">Query</see> and 
+             <see cref="T:Emc.Documentum.FS.DataModel.Core.Query.QueryExecution">QueryExecution</see> objects.
+             <p/>
+             <p/>
+             If the query referenced by the queryId has not already been executed or if the results are no longer available in
+             the search context, the query will be executed according to the Query, QueryExecution and OperationOptions
+             parameters.
+             The execution is synchronous by default. By specifying a <see cref="T:Emc.Documentum.FS.DataModel.Core.Profiles.SearchProfile">SearchProfile</see>, the user can retrieve subclusters
+             asynchronously.
+             If the query has no results, the clusters are empty.
+             <p/>
+             <p/>
+             </summary>
+             <param name="objectsToClusterize">Contains the object identities that will be used to calculate clusters</param>
+             <param name="query">The query contains the query definition (i.e. the constraints) as well as the repositories to
+                              search.</param>
+             <param name="execution">Contains the execution parameters: the query id, the number of results to return and their
+                              indexes in the global results Set.</param>
+             <param name="options">Object containing a ClusteringProfile and a SearchProfile. The ClusteringProfile contains a list of
+                              ClusteringStrategy (ClusterTrees are calculated according to a ClusteringStrategy). You can
+                              specify in the ClusteringStrategy to return or not the identities of the objects contained in a
+                              cluster. Other profiles are not applicable. If this object is null or ClusteringStrategies
+                              empty, no clusters are returned.</param> 
+            
+             <returns>A QueryCluster object containing: a list of <see cref="T:Emc.Documentum.FS.DataModel.Core.Query.ClusterTree">ClusterTree</see> and the query id.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.ISearchService.GetResultsProperties(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.Query.Query,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <summary>
+            Returns the query results specified in the <see cref="T:Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet">ObjectIdentitySet</see>. The operation allows retrieving documents
+            belonging to a cluster.
+            <p/>
+            It should be called after a call to getClusters or getSubclusters.
+            <p/>
+            If the search context is no longer available, the query will be executed according to the <see cref="T:Emc.Documentum.FS.DataModel.Core.Query.Query">Query</see>, 
+            <see cref="T:Emc.Documentum.FS.DataModel.Core.Query.QueryExecution">QueryExecution</see> and <see cref="T:Emc.Documentum.FS.DataModel.Core.OperationOptions">OperationOptions</see> parameters to retrieve the specified objects.
+            <p/>
+            The execution is synchronous by default. By specifying a <see cref="T:Emc.Documentum.FS.DataModel.Core.Profiles.SearchProfile">SearchProfile</see>, the user can retrieve objects
+            asynchronously.
+            </summary>
+            <param name="forClustersObjects">Contains a list of ObjectIdentity objects specifying the clusters objects to retrieve.</param>
+            <param name="query">The query contains the query definition (i.e. the constraints) as well as the
+                                      repositories to search.</param>
+            <param name="execution">Contains the execution parameters: the query id, the number of results to return and
+                                      their indexes in the global results Set.</param>
+            <param name="options">Object containing a SearchProfile. Other profiles are not applicable. If this object is null, default operation behaviors will take effect.</param>
+            <returns>A DataPackage containing the objects specified in the ObjectIdentitySet</returns>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Search.SearchServicePort">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePort.execute(Emc.Documentum.FS.Services.Search.executeRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePort.getFacets(Emc.Documentum.FS.Services.Search.getFacetsRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePort.stopSearch(Emc.Documentum.FS.Services.Search.stopSearchRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePort.getRepositoryList(Emc.Documentum.FS.Services.Search.getRepositoryListRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePort.getClusters(Emc.Documentum.FS.Services.Search.getClustersRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePort.getSubclusters(Emc.Documentum.FS.Services.Search.getSubclustersRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePort.getResultsProperties(Emc.Documentum.FS.Services.Search.getResultsPropertiesRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePortClient.GetServiceContext">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePortClient.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePortClient.#ctor(System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePortClient.#ctor(System.String,System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePortClient.#ctor(System.String,System.ServiceModel.EndpointAddress)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePortClient.#ctor(System.ServiceModel.Channels.Binding,System.ServiceModel.EndpointAddress)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePortClient.Emc#Documentum#FS#Services#Search#SearchServicePort#execute(Emc.Documentum.FS.Services.Search.executeRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePortClient.execute(Emc.Documentum.FS.DataModel.Core.Query.Query,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePortClient.Emc#Documentum#FS#Services#Search#SearchServicePort#getFacets(Emc.Documentum.FS.Services.Search.getFacetsRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePortClient.getFacets(Emc.Documentum.FS.DataModel.Core.Query.Query,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePortClient.Emc#Documentum#FS#Services#Search#SearchServicePort#stopSearch(Emc.Documentum.FS.Services.Search.stopSearchRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePortClient.stopSearch(Emc.Documentum.FS.DataModel.Core.Query.Query,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePortClient.Emc#Documentum#FS#Services#Search#SearchServicePort#getRepositoryList(Emc.Documentum.FS.Services.Search.getRepositoryListRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePortClient.getRepositoryList(Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePortClient.Emc#Documentum#FS#Services#Search#SearchServicePort#getClusters(Emc.Documentum.FS.Services.Search.getClustersRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePortClient.getClusters(Emc.Documentum.FS.DataModel.Core.Query.Query,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePortClient.Emc#Documentum#FS#Services#Search#SearchServicePort#getSubclusters(Emc.Documentum.FS.Services.Search.getSubclustersRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePortClient.getSubclusters(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.Query.Query,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePortClient.Emc#Documentum#FS#Services#Search#SearchServicePort#getResultsProperties(Emc.Documentum.FS.Services.Search.getResultsPropertiesRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePortClient.getResultsProperties(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.Query.Query,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePortClient.Execute(Emc.Documentum.FS.DataModel.Core.Query.Query,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePortClient.GetFacets(Emc.Documentum.FS.DataModel.Core.Query.Query,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePortClient.StopSearch(Emc.Documentum.FS.DataModel.Core.Query.Query,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePortClient.GetRepositoryList(Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePortClient.GetClusters(Emc.Documentum.FS.DataModel.Core.Query.Query,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePortClient.GetSubclusters(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.Query.Query,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.SearchServicePortClient.GetResultsProperties(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.Query.Query,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Search.executeRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Search.executeRequest.query">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Search.executeRequest.execution">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Search.executeRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.executeRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.executeRequest.#ctor(Emc.Documentum.FS.DataModel.Core.Query.Query,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Search.executeResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Search.executeResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.executeResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.executeResponse.#ctor(Emc.Documentum.FS.DataModel.Core.Query.QueryResult)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Search.getFacetsRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Search.getFacetsRequest.query">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Search.getFacetsRequest.execution">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Search.getFacetsRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.getFacetsRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.getFacetsRequest.#ctor(Emc.Documentum.FS.DataModel.Core.Query.Query,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Search.getFacetsResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Search.getFacetsResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.getFacetsResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.getFacetsResponse.#ctor(Emc.Documentum.FS.DataModel.Core.Query.QueryFacet)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Search.stopSearchRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Search.stopSearchRequest.query">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Search.stopSearchRequest.execution">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.stopSearchRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.stopSearchRequest.#ctor(Emc.Documentum.FS.DataModel.Core.Query.Query,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Search.stopSearchResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Search.stopSearchResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.stopSearchResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.stopSearchResponse.#ctor(Emc.Documentum.FS.DataModel.Core.Query.QueryStatus)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Search.getRepositoryListRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Search.getRepositoryListRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.getRepositoryListRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.getRepositoryListRequest.#ctor(Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Search.getRepositoryListResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Search.getRepositoryListResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.getRepositoryListResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.getRepositoryListResponse.#ctor(Emc.Documentum.FS.DataModel.Core.Query.Repository[])">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Search.getClustersRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Search.getClustersRequest.query">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Search.getClustersRequest.execution">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Search.getClustersRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.getClustersRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.getClustersRequest.#ctor(Emc.Documentum.FS.DataModel.Core.Query.Query,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Search.getClustersResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Search.getClustersResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.getClustersResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.getClustersResponse.#ctor(Emc.Documentum.FS.DataModel.Core.Query.QueryCluster)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Search.getSubclustersRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Search.getSubclustersRequest.objectsToClusterize">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Search.getSubclustersRequest.query">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Search.getSubclustersRequest.execution">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Search.getSubclustersRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.getSubclustersRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.getSubclustersRequest.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.Query.Query,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Search.getSubclustersResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Search.getSubclustersResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.getSubclustersResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.getSubclustersResponse.#ctor(Emc.Documentum.FS.DataModel.Core.Query.QueryCluster)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Search.getResultsPropertiesRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Search.getResultsPropertiesRequest.forClustersObjects">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Search.getResultsPropertiesRequest.query">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Search.getResultsPropertiesRequest.execution">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Search.getResultsPropertiesRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.getResultsPropertiesRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.getResultsPropertiesRequest.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.Query.Query,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Search.getResultsPropertiesResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Search.getResultsPropertiesResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.getResultsPropertiesResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Search.getResultsPropertiesResponse.#ctor(Emc.Documentum.FS.DataModel.Core.DataPackage)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Search.SearchServicePortChannel">
+            <exclude/>
+        </member>
+    </members>
+</doc>

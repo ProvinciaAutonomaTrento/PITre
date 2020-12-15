@@ -1,0 +1,807 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://www.regione.taa.it/FaultType/schemas" xmlns:tns="http://xmlns.example.com/1302014887254" xmlns:ns0="http://www.firmadigitale.regione.taa.it/FirmaDigitale/definitions" xmlns:soap1="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ns1="http://www.firmadigitale.regione.taa.it/FirmaDigitaleType/schemas" name="Untitled" targetNamespace="http://xmlns.example.com/1302014887254" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:tns="http://www.firmadigitale.regione.taa.it/FirmaDigitaleType/schemas" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.firmadigitale.regione.taa.it/FirmaDigitaleType/schemas" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="CertificatoType">
+        <xs:annotation>
+          <xs:documentation>Dati del certificato</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="subject" type="xs:string" />
+          <xs:element minOccurs="0" name="issuer" type="xs:string" />
+          <xs:element minOccurs="0" name="dataInizioValidita" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="dataFineValidita" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="serialNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="dettaglioCertificato" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DatiFirmaType">
+        <xs:annotation>
+          <xs:documentation>Dati di firma</xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="cnCertAuthority" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Common name della Certification Authority</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codiceFiscale" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Codice Fiscale del firmatario</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="cognome" type="xs:anySimpleType">
+          <xs:annotation>
+            <xs:documentation>Campo SUR del Subject</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="commonName" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Nome e cognome firmatario. Corrisponde al CN del subject</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="dataFineValiditaCert" type="xs:dateTime">
+          <xs:annotation>
+            <xs:documentation>Data e ora di fine validità del certificato</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="dataInizioValiditaCert" type="xs:dateTime">
+          <xs:annotation>
+            <xs:documentation>Data e ora di inizio validità del certificato</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="dataOraFirma" type="xs:dateTime" />
+        <xs:attribute name="dataRevocaCertificato" type="xs:dateTime">
+          <xs:annotation>
+            <xs:documentation>Se presente è la data di revoca del certificato del firmatario</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="digestAlgorithm" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>algoritmo di calcolo dell'impronta del messaggio per la firma indicato con il suo OID. Esempio: Oid="1.3.14.3.2.26" =SHA1, Oid="2.16.840.1.101.3.4.2.1"=SHA256.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="distinguishName" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Rappresenta il distinguish name del certificato di firma ovvero il codice identificativo del titolare presso l'Autorità di Certificazione</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="nazione" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Campo C del Subject</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="nome" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Campo GIVEN del Subject</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="organizzazione" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Campo O del Subject</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="serialNumber" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Numero seriale del certificato</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:complexType>
+      <xs:complexType name="DettaglioFirmaDigitaleType">
+        <xs:annotation>
+          <xs:documentation>Modella le informazioni di dettaglio contenute nella firma digitale di un file.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="datiFirmatari" type="tns:FirmatarioType" />
+          <xs:element minOccurs="0" name="parteFirmata" type="tns:ParteFirmataType" />
+          <xs:element minOccurs="0" name="marcaDetached" type="tns:MarcaType" />
+          <xs:element minOccurs="0" name="datiGeneraliVerifica" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Dati generali di verifica delle firme e delle marche (output Design)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="dataVerificaFirma" type="xs:dateTime">
+          <xs:annotation>
+            <xs:documentation>Data ora di verifica del file firmato. Se il file non e' marcato è la data di chiamata del servizio di verifica altrimenti è la data dell'ultima marca temporale</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="fileMarcato" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Indica se il file è marcato</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:complexType>
+      <xs:complexType name="DocumentoType">
+        <xs:annotation>
+          <xs:documentation>File originale con descrizione tipo di file</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:fileOriginale">
+            <xs:annotation>
+              <xs:documentation>Rappresenta un file binario firmato in formato Base64 (si veda la RFC 2045)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="mediaType" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Tipo di file. Ad esempio: text/plain -&gt; testo, application/pdf -&gt; PDF, application/xml -&gt; XML, application/msword -&gt; Microsoft Word, application/vnd.ms-excel -&gt; Microsoft Excel</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:complexType>
+      <xs:complexType name="FirmatarioType">
+        <xs:annotation>
+          <xs:documentation>Modella le informazioni di dettaglio di una firma digitale</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="firmatario" type="tns:DatiFirmaType" />
+          <xs:element minOccurs="0" name="marcaFirma" type="tns:MarcaType" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="controfirmatario">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" name="firma" type="tns:DatiFirmaType" />
+                <xs:element minOccurs="0" name="marca" type="tns:MarcaType" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ItemFirmaType">
+        <xs:sequence>
+          <xs:element ref="tns:Firmatario" />
+          <xs:element minOccurs="0" name="Warning" type="tns:WarningType" />
+          <xs:element minOccurs="0" name="WarningTimeStamp" type="tns:WarningType" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="WarningControfirma" type="tns:WarningType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="MarcaType">
+        <xs:annotation>
+          <xs:documentation>Dati della marca detached</xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="TSANameIssuer" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Concatenazione Issuer CN, OU, O, C</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="TSANameSubject" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Concatenazione Subject CN, OU, O, C</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="TSdateTime" type="xs:dateTime">
+          <xs:annotation>
+            <xs:documentation>Data ora marca temporale</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="TSimprint" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Impronta della marca temporale</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="TSserialNumber" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Numero seriale della marca temporale</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="dataFineValiditaCert" type="xs:dateTime">
+          <xs:annotation>
+            <xs:documentation>Data e ora di fine validità del certificato</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="dataInizioValiditaCert" type="xs:dateTime">
+          <xs:annotation>
+            <xs:documentation>Data e ora di inizio validità del certificato</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:complexType>
+      <xs:complexType name="ParteFirmataType">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="datiFirmatari" type="tns:FirmatarioType" />
+          <xs:element minOccurs="0" name="parteFirmata" type="tns:ParteFirmataType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WarningCertificatoType">
+        <xs:annotation>
+          <xs:documentation>Risposta in caso di problemi in verifica certificato</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="status" type="xs:string" />
+          <xs:element minOccurs="0" name="errorMsg" type="xs:string" />
+          <xs:element minOccurs="0" name="subject" type="xs:string" />
+          <xs:element minOccurs="0" name="issuer" type="xs:string" />
+          <xs:element minOccurs="0" name="dataInizioValidita" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="dataFineValidita" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="serialNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="dataRevoca" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="dataSospensione" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="dettaglioCertificato" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WarningResponseType">
+        <xs:annotation>
+          <xs:documentation>Risposta utile in caso di error del Design</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" ref="tns:WarningFault" />
+          <xs:element minOccurs="0" name="DettaglioFirmaDigitale" type="tns:DettaglioFirmaDigitaleType">
+            <xs:annotation>
+              <xs:documentation>Dettaglio firma</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Documento" type="tns:DocumentoType">
+            <xs:annotation>
+              <xs:documentation>E' il file a cui e' stata tolta la firma (il file "sbustato")</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WarningType">
+        <xs:annotation>
+          <xs:documentation>Modella la struttura di error del Design</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SubjectCN" type="xs:string" />
+          <xs:element minOccurs="0" name="SubjectDN" type="xs:string" />
+          <xs:element minOccurs="0" name="status" type="xs:string" />
+          <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+          <xs:element minOccurs="0" name="errorMsg" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Certificato" type="tns:CertificatoType">
+        <xs:annotation>
+          <xs:documentation>Dettaglio certificato</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DatiFirma" type="tns:DatiFirmaType" />
+      <xs:element name="DatiMarca" type="tns:MarcaType" />
+      <xs:element name="DettaglioFirmaDigitale" type="tns:DettaglioFirmaDigitaleType">
+        <xs:annotation>
+          <xs:documentation>Dettagli firma</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Firmatario" type="tns:FirmatarioType" />
+      <xs:element name="ItemFirma" type="tns:ItemFirmaType" />
+      <xs:element name="ParteFirmata" type="tns:ParteFirmataType">
+        <xs:annotation>
+          <xs:documentation>Parte del documento firmata</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="WarningCertificato" type="tns:WarningCertificatoType" />
+      <xs:element name="WarningFault" type="tns:WarningType" />
+      <xs:element name="fileFirmato" type="xs:base64Binary">
+        <xs:annotation>
+          <xs:documentation>Rappresenta un file binario firmato in formato Base64 (si veda la RFC 2045)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="fileOriginale" type="xs:base64Binary">
+        <xs:annotation>
+          <xs:documentation>Rappresenta un file binario firmato in formato Base64 (si veda la RFC 2045)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.firmadigitale.regione.taa.it/FirmaDigitale/definitions" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://www.firmadigitale.regione.taa.it/FirmaDigitaleType/schemas" />
+      <xs:import namespace="http://www.regione.taa.it/FaultType/schemas" />
+      <xs:annotation>
+        <xs:documentation>Contiene i wrapper di FirmaDigitaleService</xs:documentation>
+      </xs:annotation>
+      <xs:annotation>
+        <xs:documentation>Contiene la definizione del FaultType</xs:documentation>
+      </xs:annotation>
+      <xs:complexType name="VerificaCertificatoResponseType">
+        <xs:sequence>
+          <xs:element name="esito" type="ns1:CertificatoType" />
+          <xs:element name="dataVerifica" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="VerificaCertificatoType">
+        <xs:sequence>
+          <xs:element name="certificatoDer" type="xs:base64Binary">
+            <xs:annotation>
+              <xs:documentation>Byte array che rappresenta il certificato formato DER (binario)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="certificatoCAPem" nillable="true" type="xs:base64Binary">
+            <xs:annotation>
+              <xs:documentation>Byte array che rappresenta il/i certificato/i della/e CA in formato PEM (Base64),  facoltativo</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="controlloCrlCert" nillable="true">
+            <xs:annotation>
+              <xs:documentation>0 (default) Si, 1 No
+Controllo CRL del certificato
+							</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:byte">
+                <xs:enumeration value="0" />
+                <xs:enumeration value="1" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="controlloCrlCertCA" nillable="true">
+            <xs:annotation>
+              <xs:documentation>0 (default) Si, 1 No
+Controllo CRL del certificato della CA
+							</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:byte">
+                <xs:enumeration value="0" />
+                <xs:enumeration value="1" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="VerificaFirmaConOriginaleResponseType">
+        <xs:sequence>
+          <xs:element name="esito" type="ns1:DettaglioFirmaDigitaleType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="VerificaFirmaConOriginaleType">
+        <xs:sequence>
+          <xs:element ref="ns1:fileFirmato">
+            <xs:annotation>
+              <xs:documentation>Rappresenta un file binario firmato in formato Base64 (si veda la RFC 2045)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element ref="ns1:fileOriginale">
+            <xs:annotation>
+              <xs:documentation>Rappresenta un file binario firmato in formato Base64 (si veda la RFC 2045)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="firmaSHA1WithRSA" nillable="true">
+            <xs:annotation>
+              <xs:documentation>2 (default) accetta SHA1WithRSAEncryption solo nei file firmati prima del 30/06/2011 
+1 accetta SHA1WithRSAEncryption anche nei file firmati privi di marca temporale 
+0 disabilita il controllo sull'utilizzo dell'algoritmo SHA1WithRSAEncryption
+							</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:byte">
+                <xs:enumeration value="0" />
+                <xs:enumeration value="1" />
+                <xs:enumeration value="2" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="marcaSHA1WithRSA" nillable="true">
+            <xs:annotation>
+              <xs:documentation>0 (default) Si, 1 No
+Controllo algoritmo SHA1WithRSAEncryption nelle marche temporali emesse dopo il 30 agosto 2010
+							</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:byte">
+                <xs:enumeration value="0" />
+                <xs:enumeration value="1" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="dataVerifica" nillable="true">
+            <xs:annotation>
+              <xs:documentation>Data di verifica utilizzata solo in mancanza di una marca temporale. Formato 'aammgghhmmss'</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="12" />
+                <xs:pattern value="\d\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])([01][0-9]|2[0-3])[0-5]\d[0-5]\d" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="controlloFirmeAnnidate" nillable="true">
+            <xs:annotation>
+              <xs:documentation>0 (default) Appiattite, 1 Annidate
+Se 0 l'output elenca le firme in modo piatto altrimenti in modo annidato.
+							</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:byte">
+                <xs:enumeration value="0" />
+                <xs:enumeration value="1" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="VerificaFirmaResponseType">
+        <xs:sequence>
+          <xs:element name="esito" type="ns1:DettaglioFirmaDigitaleType" />
+          <xs:element minOccurs="0" name="documento" type="ns1:DocumentoType">
+            <xs:annotation>
+              <xs:documentation>E' il file a cui e' stata tolta la firma (il file "sbustato") e il tipo di file</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="VerificaFirmaType">
+        <xs:sequence>
+          <xs:element ref="ns1:fileFirmato">
+            <xs:annotation>
+              <xs:documentation>Rappresenta un file binario firmato in formato Base64 (si veda la RFC 2045)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="firmaSHA1WithRSA" nillable="true">
+            <xs:annotation>
+              <xs:documentation>2 (default) accetta SHA1WithRSAEncryption solo nei file firmati prima del 30/06/2011 
+1 accetta SHA1WithRSAEncryption anche nei file firmati privi di marca temporale 
+0 disabilita il controllo sull'utilizzo dell'algoritmo SHA1WithRSAEncryption
+							</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:byte">
+                <xs:enumeration value="0" />
+                <xs:enumeration value="1" />
+                <xs:enumeration value="2" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="marcaSHA1WithRSA" nillable="true">
+            <xs:annotation>
+              <xs:documentation>0 (default) Si, 1 No
+Controllo algoritmo SHA1WithRSAEncryption nelle marche temporali emesse dopo il 30 agosto 2010
+							</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:byte">
+                <xs:enumeration value="0" />
+                <xs:enumeration value="1" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="dataVerifica" nillable="true">
+            <xs:annotation>
+              <xs:documentation>Data di verifica utilizzata solo in mancanza di una marca temporale. Formato 'aammgghhmmss'</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="12" />
+                <xs:pattern value="\d\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])([01][0-9]|2[0-3])[0-5]\d[0-5]\d" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="controlloFirmeAnnidate" nillable="true">
+            <xs:annotation>
+              <xs:documentation>0 (default) Appiattite, 1 Annidate
+Se 0 l'output elenca le firme in modo piatto altrimenti in modo annidato.
+							</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:byte">
+                <xs:enumeration value="0" />
+                <xs:enumeration value="1" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="VerificaCertificato" type="ns0:VerificaCertificatoType">
+        <xs:annotation>
+          <xs:documentation xml:lang="it">Certificato da verificare</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="VerificaCertificatoResponse" type="ns0:VerificaCertificatoResponseType">
+        <xs:annotation>
+          <xs:documentation xml:lang="it">Risposta verifica certificati</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="VerificaFirma" type="ns0:VerificaFirmaType">
+        <xs:annotation>
+          <xs:documentation xml:lang="it">Il file che si vuole verificare</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="VerificaFirmaConOriginale" type="ns0:VerificaFirmaConOriginaleType">
+        <xs:annotation>
+          <xs:documentation xml:lang="it">Il file di cui si vuole verificare la firma digitale e il file originale</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="VerificaFirmaConOriginaleResponse" type="ns0:VerificaFirmaConOriginaleResponseType">
+        <xs:annotation>
+          <xs:documentation xml:lang="it">L'esito della verifica della firma contenente tutte le informazioni relative alla firma digitale del file</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="VerificaFirmaResponse" type="ns0:VerificaFirmaResponseType">
+        <xs:annotation>
+          <xs:documentation xml:lang="it">L'esito della verifica della firma contenente tutte le informazioni relative alla firma digitale del file e il file in chiaro in Base64</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="WSFault" type="ns2:FaultType" />
+      <xs:element name="WarningCertificatoResponse" type="ns1:WarningCertificatoType">
+        <xs:annotation>
+          <xs:documentation xml:lang="it">Warining verifica certificati</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="WarningResponse" type="ns1:WarningResponseType">
+        <xs:annotation>
+          <xs:documentation xml:lang="it">Risposta in caso di error del Design</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://www.regione.taa.it/FaultType/schemas" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.regione.taa.it/FaultType/schemas" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:annotation>
+        <xs:documentation>Schema contenente tipi ed elementi per la gestione delle eccezioni</xs:documentation>
+      </xs:annotation>
+      <xs:complexType name="FaultType">
+        <xs:annotation>
+          <xs:documentation>Tipo che modella l'eccezione che puo' essere ritornata da una qualsiasi operazione</xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="errorCode" type="xs:integer" use="required" />
+        <xs:attribute name="type" type="tns:TipologiaFaultType" use="required">
+          <xs:annotation>
+            <xs:documentation>La tipologia di eccezione, ovvero se e' un errore utente o di sistema</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="userMessage" type="xs:string" />
+      </xs:complexType>
+      <xs:simpleType name="TipologiaFaultType">
+        <xs:annotation>
+          <xs:documentation>Lista di possibili tipologie di eccezioni: USER_FAULT indica che l'errore e' stato generato dall'utente; SYSTEM_FAULT indica che l'errore e' stato generato dal sistema</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:NMTOKEN">
+          <xs:enumeration value="USER_FAULT" />
+          <xs:enumeration value="SYSTEM_FAULT" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="WSFault">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="error" type="tns:FaultType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="VerificaFirmaConOriginaleRequest">
+    <wsdl:part name="parameters" element="ns0:VerificaFirmaConOriginale" />
+  </wsdl:message>
+  <wsdl:message name="VerificaFirmaConOriginaleResponse">
+    <wsdl:part name="parameters" element="ns0:VerificaFirmaConOriginaleResponse" />
+  </wsdl:message>
+  <wsdl:message name="WSFault">
+    <wsdl:part name="fault" element="ns0:WSFault" />
+  </wsdl:message>
+  <wsdl:message name="WarningFault">
+    <wsdl:part name="warning" element="ns0:WarningResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerificaCertificatoRequest">
+    <wsdl:part name="parameters" element="ns0:VerificaCertificato" />
+  </wsdl:message>
+  <wsdl:message name="VerificaCertificatoResponse">
+    <wsdl:part name="parameters" element="ns0:VerificaCertificatoResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarningCertificatoFault">
+    <wsdl:part name="warning" element="ns0:WarningCertificatoResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerificaFirmaRequest">
+    <wsdl:part name="parameters" element="ns0:VerificaFirma" />
+  </wsdl:message>
+  <wsdl:message name="VerificaFirmaResponse">
+    <wsdl:part name="parameters" element="ns0:VerificaFirmaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FirmaDigitalePortType">
+    <wsdl:operation name="VerificaFirmaConOriginale">
+      <wsdl:input message="tns:VerificaFirmaConOriginaleRequest" />
+      <wsdl:output message="tns:VerificaFirmaConOriginaleResponse" />
+      <wsdl:fault name="WSFault" message="tns:WSFault" />
+      <wsdl:fault name="WarningFault" message="tns:WarningFault" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificaCertificato">
+      <wsdl:input message="tns:VerificaCertificatoRequest" />
+      <wsdl:output message="tns:VerificaCertificatoResponse" />
+      <wsdl:fault name="WSFault" message="tns:WSFault" />
+      <wsdl:fault name="WarningCertificatoFault" message="tns:WarningCertificatoFault" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificaFirma">
+      <wsdl:input message="tns:VerificaFirmaRequest" />
+      <wsdl:output message="tns:VerificaFirmaResponse" />
+      <wsdl:fault name="WSFault" message="tns:WSFault" />
+      <wsdl:fault name="WarningFault" message="tns:WarningFault" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FirmaDigitalePortTypeEndpoint4Binding" type="tns:FirmaDigitalePortType">
+    <soap1:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VerificaFirmaConOriginale">
+      <soap1:operation soapAction="/VerificaFirmaConOriginale" style="document" soapActionRequired="true" />
+      <wsdl:input>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap1:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="WarningFault">
+        <soap1:fault use="literal" name="WarningFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaCertificato">
+      <soap1:operation soapAction="/VerificaCertificato" style="document" soapActionRequired="true" />
+      <wsdl:input>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap1:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="WarningCertificatoFault">
+        <soap1:fault use="literal" name="WarningCertificatoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaFirma">
+      <soap1:operation soapAction="/VerificaFirma" style="document" soapActionRequired="true" />
+      <wsdl:input>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap1:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="WarningFault">
+        <soap1:fault use="literal" name="WarningFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FirmaDigitalePortTypeEndpoint1Binding" type="tns:FirmaDigitalePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VerificaFirmaConOriginale">
+      <soap:operation soapAction="/VerificaFirmaConOriginale" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="WarningFault">
+        <soap:fault use="literal" name="WarningFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaCertificato">
+      <soap:operation soapAction="/VerificaCertificato" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="WarningCertificatoFault">
+        <soap:fault use="literal" name="WarningCertificatoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaFirma">
+      <soap:operation soapAction="/VerificaFirma" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="WarningFault">
+        <soap:fault use="literal" name="WarningFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FirmaDigitalePortTypeEndpoint3Binding" type="tns:FirmaDigitalePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VerificaFirmaConOriginale">
+      <soap:operation soapAction="/VerificaFirmaConOriginale" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="WarningFault">
+        <soap:fault use="literal" name="WarningFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaCertificato">
+      <soap:operation soapAction="/VerificaCertificato" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="WarningCertificatoFault">
+        <soap:fault use="literal" name="WarningCertificatoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaFirma">
+      <soap:operation soapAction="/VerificaFirma" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="WarningFault">
+        <soap:fault use="literal" name="WarningFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FirmaDigitalePortTypeEndpoint2Binding" type="tns:FirmaDigitalePortType">
+    <soap1:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VerificaFirmaConOriginale">
+      <soap1:operation soapAction="/VerificaFirmaConOriginale" style="document" soapActionRequired="true" />
+      <wsdl:input>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap1:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="WarningFault">
+        <soap1:fault use="literal" name="WarningFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaCertificato">
+      <soap1:operation soapAction="/VerificaCertificato" style="document" soapActionRequired="true" />
+      <wsdl:input>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap1:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="WarningCertificatoFault">
+        <soap1:fault use="literal" name="WarningCertificatoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaFirma">
+      <soap1:operation soapAction="/VerificaFirma" style="document" soapActionRequired="true" />
+      <wsdl:input>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap1:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="WarningFault">
+        <soap1:fault use="literal" name="WarningFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FirmaDigitale.serviceagent">
+    <wsdl:port name="FirmaDigitalePortTypeEndpoint4" binding="tns:FirmaDigitalePortTypeEndpoint4Binding">
+      <soap1:address location="http://ws-s.firma.intra.infotn.it:15605/Resources/WebServices/FirmaDigitale.serviceagent/BasicSoap12" />
+    </wsdl:port>
+    <wsdl:port name="FirmaDigitalePortTypeEndpoint1" binding="tns:FirmaDigitalePortTypeEndpoint1Binding">
+      <soap:address location="https://ws-s.firma.intra.infotn.it:15603/Resources/WebServices/FirmaDigitale.serviceagent/Soap11" />
+    </wsdl:port>
+    <wsdl:port name="FirmaDigitalePortTypeEndpoint3" binding="tns:FirmaDigitalePortTypeEndpoint3Binding">
+      <soap:address location="http://ws-s.firma.intra.infotn.it:15605/Resources/WebServices/FirmaDigitale.serviceagent/BasicSoap11" />
+    </wsdl:port>
+    <wsdl:port name="FirmaDigitalePortTypeEndpoint2" binding="tns:FirmaDigitalePortTypeEndpoint2Binding">
+      <soap1:address location="https://ws-s.firma.intra.infotn.it:15603/Resources/WebServices/FirmaDigitale.serviceagent/Soap12" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

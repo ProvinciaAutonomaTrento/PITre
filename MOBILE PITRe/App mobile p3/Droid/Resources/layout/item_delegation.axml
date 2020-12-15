@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="@dimen/list_item_height"
+    android:paddingLeft="@dimen/margin_40px"
+    android:paddingRight="@dimen/margin_40px"
+    android:paddingTop="@dimen/margin_40px"
+    android:paddingBottom="@dimen/margin_40px"
+    android:background="@color/colorWhite">
+<!-- DON'T DELETE, It's used in the cell swiping -->
+    <View
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:background="@android:color/transparent" />
+<!--                                             -->
+    <TextView
+        android:id="@+id/textView_infoDelega"
+        style="@style/list_document_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:lines="1"
+        android:gravity="center_vertical"
+        android:text="Segreteria avvocatura della provincia"
+        android:layout_alignParentTop="true" />
+    <LinearLayout
+        android:layout_marginTop="@dimen/margin_20px"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/textView_infoDelega"
+        android:layout_height="match_parent"
+        android:weightSum="3">
+    <!-- first row START-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="bottom"
+            android:layout_weight="1"
+            android:weightSum="3">
+            <TextView
+                android:id="@+id/textView_dataDecorrenza_str"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/list_document_description"
+                android:text="@string/item_delegation_date_from"
+                android:layout_weight="1" />
+            <TextView
+                android:id="@+id/textView_dataDecorrenza"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/list_sender"
+                android:layout_weight="2"
+                android:text="@string/item_delegation_date_from" />
+        </LinearLayout>
+    <!-- first row END-->
+    <!-- second row START-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="bottom"
+            android:layout_weight="1"
+            android:weightSum="3">
+            <TextView
+                android:id="@+id/textView_dataScadenza_str"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/list_document_description"
+                android:text="@string/item_delegation_date_to"
+                android:layout_weight="1" />
+            <TextView
+                android:id="@+id/textView_dataScadenza"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/list_sender"
+                android:layout_weight="2"
+                android:text="@string/item_delegation_date_from" />
+        </LinearLayout>
+    <!-- second row END-->
+    <!-- third row START-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:weightSum="3">
+            <TextView
+                android:id="@+id/textView_delegante_str"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/list_document_description"
+                android:text="@string/item_delegation_delegator"
+                android:layout_weight="1" />
+            <TextView
+                android:id="@+id/textView_delegante"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/list_sender"
+                android:layout_weight="2"
+                android:text="@string/item_delegation_delegator" />
+        </LinearLayout>
+    <!-- third row END-->
+    <!-- fourth column START-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="bottom"
+            android:layout_weight="1"
+            android:weightSum="3">
+            <TextView
+                android:id="@+id/textView_delegato_role"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/list_document_description"
+                android:text="@string/item_delegation_role"
+                android:layout_weight="1" />
+            <TextView
+                android:id="@+id/textView_role"
+                android:layout_width="0dp"
+                android:layout_gravity="center_vertical"
+                android:layout_height="wrap_content"
+                style="@style/list_sender"
+                android:layout_weight="2"
+                android:text="@string/item_delegation_delegator" />
+        </LinearLayout>
+    <!-- fourth column END-->
+    </LinearLayout>
+</RelativeLayout>

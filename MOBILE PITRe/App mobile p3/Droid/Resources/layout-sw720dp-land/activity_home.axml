@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/scrollView"
+            android:layout_toLeftOf="@+id/home_layout">
+        <TextView
+                android:id="@+id/quit"
+                style="@style/drawer_quit_menu_style"
+                android:paddingBottom="16dp"/>
+    </FrameLayout>
+    
+    <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content">
+    
+    <RelativeLayout
+        android:id="@+id/relativeLayout_leftDrawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:paddingTop="20dp"
+        android:background="@color/colorLightGrey">
+        <LinearLayout
+            android:id="@+id/linearLayout_userContainer"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="top"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+            <ImageView
+                android:layout_marginTop="30dp"
+                android:id="@+id/imageView_userImage"
+                android:layout_width="@dimen/avatar_dim"
+                android:layout_height="@dimen/avatar_dim"
+                android:background="@drawable/user" />
+            <TextView
+                android:layout_marginTop="30dp"
+                android:id="@+id/textView_userName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                style="@style/list_document_name" />
+            <TextView
+                android:layout_marginTop="30dp"
+                android:id="@+id/textView_userRole"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                style="@style/link_to_page" />
+            
+        </LinearLayout>
+        <InformaticaTrentinaPCL.Droid.Home.Tabbar.CustomBottomNavigationView
+                android:id="@+id/customBottomNavigationView"
+                android:layout_below="@+id/linearLayout_userContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"/>
+       
+    </RelativeLayout>
+    </ScrollView>
+
+    <RelativeLayout
+            android:id="@+id/home_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/scrollView">
+        <include
+                layout="@layout/toolbar" />
+        <InformaticaTrentinaPCL.Droid.Home.CustomFilterView
+                android:id="@+id/customFilterView"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/toolbar"
+                android:background="@color/colorRed"
+                android:visibility="visible" />
+        <FrameLayout
+                android:id="@+id/frameLayout_container"
+                android:layout_below="@+id/customFilterView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+    </RelativeLayout>
+</RelativeLayout>

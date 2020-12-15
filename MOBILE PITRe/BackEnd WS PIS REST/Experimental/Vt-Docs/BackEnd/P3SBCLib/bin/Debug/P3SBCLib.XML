@@ -1,0 +1,1434 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>P3SBCLib</name>
+    </assembly>
+    <members>
+        <member name="T:P3SBCLib.DocsPaServices.DocsPaServiceHelper">
+            <summary>
+            Helper class per l'utilizzo dei servizi dello strato business di docspa
+            </summary>
+        </member>
+        <member name="F:P3SBCLib.DocsPaServices.DocsPaServiceHelper.FUNZIONE_ABILITAZIONE_SERVIZI">
+            <summary>
+            Codice della funzione in amministrazione che consente
+            di abilitare l'utilizzo dei servizi SBC agli utenti
+            appartenenti ad un determinato ruolo
+            </summary>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaServiceHelper.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaServiceHelper.Impersonate(System.String)">
+            <summary>
+            Task di impersonificazione utente SBC in utente DocsPa
+            </summary>
+            <param name="userIdRichiedente"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaServiceHelper.GetIdRuoloPreferito(System.String)">
+            <summary>
+            Reperimento dell'id del primo ruolo di riferimento cui l'utente risulta associato
+            </summary>
+            <param name="idPeople"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaServiceHelper.GetRuoloPreferito(System.String)">
+            <summary>
+            Reperimento del primo ruolo di appartenenza dell'utente per cui risulta abilitata la microfunzione GEST_SERVIZI_SBC
+            </summary>
+            <param name="idPeople"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaServiceHelper.GetRegistroRuoloPreferito(DocsPaVO.utente.InfoUtente,DocsPaVO.utente.Ruolo)">
+            <summary>
+            
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="ruoloPreferito"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaServiceHelper.GetRegistroRuoloPreferito(DocsPaVO.utente.InfoUtente)">
+            <summary>
+            Reperimento registro associato al ruolo preferito
+            </summary>
+            <param name="infoUtente"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaServiceHelper.GetRuoloPreferito(DocsPaVO.utente.InfoUtente)">
+            <summary>
+            Reperimento del ruolo preferito per l'utente
+            </summary>
+            <param name="infoUtente"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaServiceHelper.GetUtenti(System.String[],DocsPaVO.filtri.FiltroRicerca[],DocsPaVO.ricerche.SearchPagingContext)">
+            <summary>
+            Reperimento utenti attivi in amministrazione
+            </summary>
+            <param name="classificazioni"></param>
+            <param name="filtriRicerca"></param>
+            <param name="pagingContext"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaServiceHelper.GetDocumenti(DocsPaVO.utente.InfoUtente,DocsPaVO.filtri.FiltroRicerca[],DocsPaVO.ricerche.SearchPagingContext)">
+            <summary>
+            Reperimento documenti
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="filtriRicerca"></param>
+            <param name="pagingContext"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaServiceHelper.GetFascicoli(DocsPaVO.utente.InfoUtente,System.String,System.Boolean,DocsPaVO.filtri.FiltroRicerca[],DocsPaVO.filtri.FiltroRicerca[],DocsPaVO.ricerche.SearchPagingContext)">
+            <summary>
+            Reperimento fascicoli
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="codiceClassificazione"></param>
+            <param name="ricercaInClassificazioniFiglie"></param>
+            <param name="filtriRicerca"></param>
+            <param name="filtriRicercaDocumenti"></param>
+            <param name="pagingContext"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaServiceHelper.GetFolderFascicolo(DocsPaVO.utente.InfoUtente,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="codiceFascicolo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaServiceHelper.GetFascicolo(DocsPaVO.utente.InfoUtente,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="codiceFascicolo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaServiceHelper.GetDocumento(DocsPaVO.utente.InfoUtente,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="docNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaServiceHelper.GetSchedaDocumento(DocsPaVO.utente.InfoUtente,System.String)">
+            <summary>
+            Reperimento oggetto scheda documento
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="docNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaServiceHelper.GetTemplateTipoDocumento(DocsPaVO.utente.InfoUtente,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="codiceTipoDocumento"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaServiceHelper.GetTemplateTipoFascicolo(DocsPaVO.utente.InfoUtente,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="codiceTipoFascicolo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaServiceHelper.GetOggettoCustom(System.Collections.Generic.List{DocsPaVO.ProfilazioneDinamica.OggettoCustom},System.String)">
+            <summary>
+            Reperimento oggetto custom
+            </summary>
+            <param name="oggettiCustom"></param>
+            <param name="codiceOggetto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaServiceHelper.SetValoreOggettoCustom(System.Collections.Generic.List{DocsPaVO.ProfilazioneDinamica.OggettoCustom},System.String,System.String)">
+            <summary>
+            Impostazione valore per un campo custom di profilazione
+            </summary>
+            <param name="oggettiCustom"></param>
+            <param name="codiceOggetto"></param>
+            <param name="valore"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaServiceHelper.GetDescrizioneStatoDocumento(DocsPaVO.utente.InfoUtente,DocsPaVO.documento.InfoDocumento)">
+            <summary>
+            Reperimento della descrizione dello stato associato al documento
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="infoDocumento"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaServiceHelper.GetNotaDocumento(DocsPaVO.utente.InfoUtente,DocsPaVO.documento.InfoDocumento)">
+            <summary>
+            Reperimento dell'ultima nota visibile dall'utente associata al documento
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="infoDocumento"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaServiceHelper.GetFile(DocsPaVO.utente.InfoUtente,System.String)">
+            <summary>
+            Reperimento file associato al documento
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="docNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaServiceHelper.GetFileName(DocsPaVO.utente.InfoUtente,System.String)">
+            <summary>
+            Reperimento del nome del file acquisito per la versione corrente del documento
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="docNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaServiceHelper.SetFile(DocsPaVO.utente.InfoUtente,System.String,System.String,System.Byte[])">
+            <summary>
+            
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="numeroDocumento"></param>
+            <param name="fileName"></param>
+            <param name="fileContent"></param>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaServiceHelper.IsAcquired(DocsPaVO.documento.FileRequest)">
+            <summary>
+            Verifica se per l'ultima versione del documento corrente è stato acquisito un file
+            </summary>
+            <param name="fileRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaServiceHelper.GetClassificazione(DocsPaVO.utente.InfoUtente,System.String)">
+            <summary>
+            Reperimento oggetto classificazione
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="codiceClassifica"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaServiceHelper.GetIdAmministrazione(System.String)">
+            <summary>
+            Reperimento dell'id dell'amministrazione di appartenenza dell'utente
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaServiceHelper.GetIdAmministrazioneClassificazione(System.String)">
+            <summary>
+            Reperimento id amministrazione a partire da un codice classificazione
+            </summary>
+            <param name="codiceClassificazione"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaServiceHelper.FindFilterByName(DocsPaVO.filtri.FiltroRicerca[],System.String)">
+            <summary>
+            Ricerca di un filtro in base al nome
+            </summary>
+            <param name="filters"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:P3SBCLib.DocsPaServices.DocsPaTxServiceHelper">
+            <summary>
+            Classe per la gestione delle trasmissioni tramite modello utilizzate dai servizi SBC
+            </summary>
+            <remarks>
+            ERRONEAMENTE CREDEVO CHE LE TRASMISSIONI AUTOMATICHE E I PASSAGGI DI STATO
+            DEI FASCICOLI FOSSERO FATTE DIRETTAMENTE DA BACKEND CONTESTUALMENTE ALLA
+            CREAZIONE DEL FASCICOLO.
+            INVECE TALE TASK è EFFETTUATO NEL FRONTEND, PERTANTO HO RIPORTATO
+            IN QUESTA CLASSE LA MAGGIOR PARTE DELLA LOGICA ESPRESSA 
+            NELLA CLASSE "TrasmManager" DEL FRONTEND.
+            I NOMI DEI METODI SONO STATI LASCIATI VOLUTAMENTE GLI STESSI (ECCETTO QUELLO PUBBLICO)
+            PER MANTENERE LA LOGICA QUANTO PIù POSSIBILE INALTERATA.
+            </remarks>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaTxServiceHelper.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaTxServiceHelper.ExecuteStateTx(DocsPaVO.utente.InfoUtente,DocsPaVO.fascicolazione.Fascicolo,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="fascicolo"></param>
+            <param name="idStato"></param>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaTxServiceHelper.queryUtenti(DocsPaVO.utente.InfoUtente,DocsPaVO.utente.Corrispondente)">
+            <summary>
+            
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="corr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaTxServiceHelper.addTrasmissioneSingola(DocsPaVO.utente.InfoUtente,DocsPaVO.trasmissione.Trasmissione,DocsPaVO.utente.Corrispondente,DocsPaVO.trasmissione.RagioneTrasmissione,System.String,System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="trasmissione"></param>
+            <param name="corr"></param>
+            <param name="ragione"></param>
+            <param name="note"></param>
+            <param name="tipoTrasm"></param>
+            <param name="scadenza"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaTxServiceHelper.effettuaTrasmissioneFascDaModello(DocsPaVO.utente.InfoUtente,DocsPaVO.Modelli_Trasmissioni.ModelloTrasmissione,System.String,DocsPaVO.fascicolazione.Fascicolo)">
+            <summary>
+            Tramissione di un fascicolo usando un modello di trasmissione
+            Il parametro "idStato" puo' essere null o meno a seconda delle necessità
+            </summary>
+            <returns></returns>
+            
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaTxServiceHelper.getCorrispondenti(DocsPaVO.utente.InfoUtente,System.String,DocsPaVO.fascicolazione.Fascicolo,DocsPaVO.trasmissione.Trasmissione)">
+            <summary>
+            
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="tipo_destinatario"></param>
+            <param name="fascicolo"></param>
+            <param name="trasmissione"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaTxServiceHelper.impostaNotificheUtentiDaModello(DocsPaVO.utente.InfoUtente,DocsPaVO.trasmissione.Trasmissione,DocsPaVO.Modelli_Trasmissioni.ModelloTrasmissione)">
+            <summary>
+            
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="objTrasm"></param>
+            <param name="modello"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaTxServiceHelper.daNotificareSuModello(DocsPaVO.utente.InfoUtente,System.String,System.String,DocsPaVO.Modelli_Trasmissioni.ModelloTrasmissione)">
+            <summary>
+            
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="currentIDPeople"></param>
+            <param name="currentIDCorrGlobRuolo"></param>
+            <param name="modello"></param>
+            <returns></returns>
+        </member>
+        <member name="T:P3SBCLib.DocsPaServices.DocsPaWorkflowServiceHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaWorkflowServiceHelper.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:P3SBCLib.DocsPaServices.DocsPaWorkflowServiceHelper.SetOnFirstWorkflowStep(DocsPaVO.utente.InfoUtente,DocsPaVO.fascicolazione.Fascicolo)">
+            <summary>
+            Lo stato del fascicolo viene impostato al primo passo impostato dall'eventuale diagramma di stato associato
+            </summary>
+            <param name="fascicolo"></param>
+            <param name="infoUtente"></param>
+        </member>
+        <member name="T:P3SBCLib.DocsPaServices.TipoDocumentoAperturaPratica">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:P3SBCLib.DocsPaServices.TipoDocumentoAperturaPratica.TIPOLOGIA">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:P3SBCLib.DocsPaServices.TipoDocumentoProvvedimento">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:P3SBCLib.DocsPaServices.TipoDocumentoProvvedimento.TIPOLOGIA">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:P3SBCLib.DocsPaServices.TipoPratica">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:P3SBCLib.DocsPaServices.TipoPratica.PRESENZA_BENE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:P3SBCLib.DocsPaServices.TipoPratica.CODICE_BENE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:P3SBCLib.DocsPaServices.TipoPratica.DESCRIZIONE_BENE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:P3SBCLib.IP3SBCServices">
+            <summary>
+            Servizi creati ad hoc per permettere al sistema SBC di integrarsi 
+            con i servizi di PITRE nel modo più semplice e performante possibile. 
+            I servizi che la classe definisce permettono l'accesso semplificato 
+            ad alcuni dei servizi supportati dell'area funzionale dei fascicoli e dei documenti di PITRE. 
+            Come prerequisito è necessario che in PITRE siano già stati creati i tipi fascicoli e i tipi documenti 
+            contenenti gli attributi personalizzati necessari per creare le corrispondenza 
+            tra fascicolo PITRE - pratica SBC e tra documento PITRE - provvedimento SBC. 
+            </summary>
+            <remarks>
+            I servizi non implementano alcun meccanismo di autenticazione utente verso PITRE, 
+            questo per evitare un accoppiamento del sistema SBC con le logiche di sessione utente proprie di PITRE. 
+            Pertanto, il sistema SBC si autenticherà ai servizi presentando un opportuno certificato X509. 
+            Ciò garantirà l'accesso ai metodi solo ai richiedenti dei servizi che forniranno le credenziali 
+            corrente tramite il certificato prescelto. 
+            </remarks>
+        </member>
+        <member name="M:P3SBCLib.IP3SBCServices.DownloadDocumento(System.String,System.String)">
+            <summary>
+            Servizio per il download del file associato ad un documento in PITRE
+            </summary>
+            <param name="userIdRichiedente">UserID dell'utente PITRE che esegue la richiesta</param>
+            <param name="numeroDocumento">Numero del documento
+            <remarks>
+            In PITRE, corrisponde all'identificativo univoco del documento
+            </remarks>
+            </param>
+            <returns>Oggetto contenente i metadati e il file associato al documento</returns>
+            <exception cref="T:P3SBCLib.Contracts.P3OperationFault">
+            Errore nell'esecuzione dell'operazione
+            </exception>
+        </member>
+        <member name="M:P3SBCLib.IP3SBCServices.UploadDocumento(System.String,System.String,P3SBCLib.Contracts.Documento)">
+            <summary>
+            Servizio per l'upload del file associato ad un documento in PITRE 
+            </summary>
+            <param name="userIdRichiedente">UserID dell'utente PITRE che esegue la richiesta</param>
+            <param name="numeroDocumento">Numero del documento
+            <remarks>
+            In PITRE, corrisponde all'identificativo univoco del documento
+            </remarks>
+            </param>
+            <param name="documento">Oggetto contenente il file da associare al documento</param>
+            <exception cref="T:P3SBCLib.Contracts.P3OperationFault">
+            Errore nell'esecuzione dell'operazione
+            </exception>
+        </member>
+        <member name="M:P3SBCLib.IP3SBCServices.GetDocumenti(System.String,P3SBCLib.Contracts.FiltroRicercaDocumenti,P3SBCLib.Contracts.CriteriPaginazione)">
+            <summary>
+            Servizio per la ricerca dei documenti in PITRE
+            </summary>
+            <param name="userIdRichiedente">UserID dell'utente PITRE che esegue la richiesta</param>
+            <param name="filtriRicerca">Criteri per filtrare i risultati della ricerca</param>
+            <param name="criteriPaginazione">Opzionale. Consente di specificare i criteri per paginare i risultati della ricerca. Se non definito, non sarà applicata alcuna paginazione ai dati</param>
+            <returns>Esito della ricerca documenti effettuata</returns>
+            <exception cref="T:P3SBCLib.Contracts.P3OperationFault">
+            Errore nell'esecuzione dell'operazione
+            </exception>
+        </member>
+        <member name="M:P3SBCLib.IP3SBCServices.GetDocumento(System.String,System.String,System.Boolean)">
+            <summary>
+            Servizio per il reperimento dei dati di un documento in SBC a partire dal numero
+            </summary>
+            <param name="userIdRichiedente">UserID dell'utente PITRE che esegue la richiesta </param>
+            <param name="numeroDocumento">Numero del documento
+            <remarks>
+            In PITRE, corrisponde all'identificativo univoco del documento
+            </remarks>
+            </param>
+            <param name="downloadContent">
+            Indica se caricare contestualmente al servizio il file associato al documento
+            </param>
+            <returns>Metadati del documento</returns>
+            <exception cref="T:P3SBCLib.Contracts.P3OperationFault">
+            Errore nell'esecuzione dell'operazione
+            </exception>
+        </member>
+        <member name="M:P3SBCLib.IP3SBCServices.AddDocumentoPratica(System.String,System.String,System.String)">
+            <summary>
+            Servizio per l'associazione di un documento in una pratica
+            </summary>
+            <param name="userIdRichiedente">UserID dell'utente PITRE che esegue la richiesta</param>
+            <param name="numeroPratica">Numero della pratica</param>
+            <param name="numeroDocumento">Numero del documento</param>
+            <exception cref="T:P3SBCLib.Contracts.P3OperationFault">
+            Errore nell'esecuzione dell'operazione
+            </exception>
+        </member>
+        <member name="M:P3SBCLib.IP3SBCServices.RemoveDocumentoPratica(System.String,System.String,System.String)">
+            <summary>
+            Rimozione di un documento da una pratica
+            </summary>
+            <param name="userIdRichiedente">UserID dell'utente PITRE che esegue la richiesta</param>
+            <param name="numeroPratica">Numero della pratica</param>
+            <param name="numeroDocumento">Numero del documento</param>
+            <exception cref="T:P3SBCLib.Contracts.P3OperationFault">
+            Errore nell'esecuzione dell'operazione
+            </exception>
+        </member>
+        <member name="M:P3SBCLib.IP3SBCServices.GetPratiche(System.String,P3SBCLib.Contracts.FiltriRicercaPratiche,P3SBCLib.Contracts.CriteriPaginazione)">
+            <summary>
+            Servizio per la ricerca delle pratiche in SBC (fascicoli in PITRE).
+            </summary>
+            <param name="userIdRichiedente">UserID dell'utente PITRE che esegue la richiesta</param>
+            <param name="filtriRicerca">Criteri per filtrare i risultati della ricerca. E' necessario specificare almeno l'attributo di ricerca "Classificazione"</param>
+            <param name="criteriPaginazione">Opzionale. Consente di specificare i criteri per paginare i risultati della ricerca. Se non definito, non sarà applicata alcuna paginazione ai dati</param>
+            <returns>Esito della ricerca pratiche effettuata</returns>
+            <exception cref="T:P3SBCLib.Contracts.P3OperationFault">
+            Errore nell'esecuzione dell'operazione
+            </exception>
+        </member>
+        <member name="M:P3SBCLib.IP3SBCServices.GetPratica(System.String,System.String)">
+            <summary>
+            Servizio per il reperimento di una Pratica in SBC
+            </summary>
+            <param name="userIdRichiedente">UserID dell'utente PITRE che esegue la richiesta</param>
+            <param name="numeroPratica">Numero della pratica in SBC</param>
+            <remarks>
+            Corrisponde ad un Fascicolo in PITRE
+            </remarks>
+            <returns>Metadati della pratica richiesta</returns>
+            <exception cref="T:P3SBCLib.Contracts.P3OperationFault">
+            Errore nell'esecuzione dell'operazione
+            </exception>
+        </member>
+        <member name="M:P3SBCLib.IP3SBCServices.GetPraticheDaNumeri(System.String,System.String[])">
+            <summary>
+            Servizio per il reperimento di una o più Pratiche in SBC
+            </summary>
+            <param name="userIdRichiedente">UserID dell'utente PITRE che esegue la richiesta</param>
+            <param name="numeriPratica">
+            Identificativi di una o più pratiche SBC per cui si vogliono reperire i metadati
+            </param>
+            <remarks>
+            Corrisponde ad un Fascicolo in PITRE
+            </remarks>
+            <returns>Metadati delle pratiche richieste</returns>
+            <exception cref="T:P3SBCLib.Contracts.P3OperationFault">
+            Errore nell'esecuzione dell'operazione
+            </exception>
+        </member>
+        <member name="M:P3SBCLib.IP3SBCServices.InsertPratica(System.String,P3SBCLib.Contracts.Pratica)">
+            <summary>
+            Servizio per l'inserimento di un fascicolo in PITRE (pratica in SBC) di una particolare tipologia già configurata 
+            </summary>
+            <param name="userIdRichiedente">UserID dell'utente PITRE che esegue la richiesta</param>
+            <param name="pratica">Dati della pratica SBC da inserire come fascicolo in PITRE</param>
+            <returns>Metadati della pratica inserita</returns>
+            <exception cref="T:P3SBCLib.Contracts.P3OperationFault">
+            Errore nell'esecuzione dell'operazione
+            </exception>
+        </member>
+        <member name="M:P3SBCLib.IP3SBCServices.UpdatePratica(System.String,P3SBCLib.Contracts.Pratica)">
+            <summary>
+            Servizio per l'aggiornamento dei dati di un fascicolo esistente in PITRE (pratica in SBC)
+            </summary>
+            <param name="userIdRichiedente">UserID dell'utente PITRE che esegue la richiesta</param>
+            <param name="pratica">Dati della pratica SBC da modificare nel corrispondente fascicolo in PITRE</param>
+            <returns>Metadati della pratica aggiornata</returns>
+            <exception cref="T:P3SBCLib.Contracts.P3OperationFault">
+            Errore nell'esecuzione dell'operazione
+            </exception>
+        </member>
+        <member name="M:P3SBCLib.IP3SBCServices.GetUtenti(P3SBCLib.Contracts.FiltriRicercaUtenti,P3SBCLib.Contracts.CriteriPaginazione)">
+            <summary>
+            Servizio per la ricerca degli utenti attivi in PITRE
+            </summary>
+            <param name="filtriRicerca">
+            Criteri per filtrare i risultati della ricerca
+            <remarks>
+            Come filtro obbligatorio è necessario definire almeno una Classificazione,
+            in quanto saranno reperiti solamente gli utenti che ne avranno la visibilità 
+            </remarks>
+            </param>
+            <param name="criteriPaginazione">Opzionale. Consente di specificare i criteri per paginare i risultati della ricerca. Se non definito, non sarà applicata alcuna paginazione ai dati</param>
+            <returns>Esito della ricerca utenti effettuata</returns>
+            <exception cref="T:P3SBCLib.Contracts.P3OperationFault">
+            Errore nell'esecuzione dell'operazione
+            </exception>
+        </member>
+        <member name="T:P3SBCLib.P3SBCServices">
+            <summary>
+            Implementazione dei servizi per l'interazione del sistema SBC con il sistema PITRE
+            </summary>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.DownloadDocumento(System.String,System.String)">
+            <summary>
+            Servizio per il download del file associato ad un documento in PITRE
+            </summary>
+            <param name="userIdRichiedente">UserID dell'utente PITRE che esegue la richiesta</param>
+            <param name="numeroDocumento">Numero del documento
+            <remarks>
+            In PITRE, corrisponde all'identificativo univoco del documento
+            </remarks>
+            </param>
+            <returns>Oggetto contenente i metadati e il file associato al documento</returns>
+            <exception cref="T:P3SBCLib.Contracts.P3OperationFault">
+            Errore nell'esecuzione dell'operazione
+            </exception>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.UploadDocumento(System.String,System.String,P3SBCLib.Contracts.Documento)">
+            <summary>
+            Servizio per l'upload del file associato ad un documento in PITRE 
+            </summary>
+            <param name="userIdRichiedente">UserID dell'utente PITRE che esegue la richiesta</param>
+            <param name="numeroDocumento">Numero del documento
+            <remarks>
+            In PITRE, corrisponde all'identificativo univoco del documento
+            </remarks>
+            </param>
+            <param name="documento">Oggetto contenente il file da associare al documento</param>
+            <exception cref="T:P3SBCLib.Contracts.P3OperationFault">
+            Errore nell'esecuzione dell'operazione
+            </exception>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.GetDocumenti(System.String,P3SBCLib.Contracts.FiltroRicercaDocumenti,P3SBCLib.Contracts.CriteriPaginazione)">
+            <summary>
+            Servizio per la ricerca dei documenti in PITRE
+            </summary>
+            <param name="userIdRichiedente">UserID dell'utente PITRE che esegue la richiesta</param>
+            <param name="filtriRicerca">Criteri per filtrare i risultati della ricerca</param>
+            <param name="criteriPaginazione">Opzionale. Consente di specificare i criteri per paginare i risultati della ricerca. Se non definito, non sarà applicata alcuna paginazione ai dati</param>
+            <returns>Esito della ricerca documenti effettuata</returns>
+            <exception cref="T:P3SBCLib.Contracts.P3OperationFault">
+            Errore nell'esecuzione dell'operazione
+            </exception>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.GetDocumento(System.String,System.String,System.Boolean)">
+            <summary>
+            Servizio per il reperimento dei dati di un documento in SBC a partire dal numero
+            </summary>
+            <param name="userIdRichiedente">UserID dell'utente PITRE che esegue la richiesta </param>
+            <param name="numeroDocumento">Numero del documento
+            <remarks>
+            In PITRE, corrisponde all'identificativo univoco del documento
+            </remarks>
+            </param>
+            <param name="downloadContent">
+            Indica se caricare contestualmente al servizio il file associato al documento
+            </param>
+            <returns>Metadati del documento</returns>
+            <exception cref="T:P3SBCLib.Contracts.P3OperationFault">
+            Errore nell'esecuzione dell'operazione
+            </exception>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.AddDocumentoPratica(System.String,System.String,System.String)">
+            <summary>
+            Servizio per l'associazione di un documento in una pratica
+            </summary>
+            <param name="userIdRichiedente">UserID dell'utente PITRE che esegue la richiesta</param>
+            <param name="numeroPratica">Numero della pratica</param>
+            <param name="numeroDocumento">Numero del documento</param>
+            <exception cref="T:P3SBCLib.Contracts.P3OperationFault">
+            Errore nell'esecuzione dell'operazione
+            </exception>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.RemoveDocumentoPratica(System.String,System.String,System.String)">
+            <summary>
+            Rimozione di un documento da una pratica
+            </summary>
+            <param name="userIdRichiedente">UserID dell'utente PITRE che esegue la richiesta</param>
+            <param name="numeroPratica">Numero della pratica</param>
+            <param name="numeroDocumento">Numero del documento</param>
+            <exception cref="T:P3SBCLib.Contracts.P3OperationFault">
+            Errore nell'esecuzione dell'operazione
+            </exception>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.GetPratiche(System.String,P3SBCLib.Contracts.FiltriRicercaPratiche,P3SBCLib.Contracts.CriteriPaginazione)">
+            <summary>
+            Servizio per la ricerca delle pratiche in SBC (fascicoli in PITRE).
+            </summary>
+            <param name="userIdRichiedente">UserID dell'utente PITRE che esegue la richiesta</param>
+            <param name="filtriRicerca">Criteri per filtrare i risultati della ricerca. E' necessario specificare almeno l'attributo di ricerca "Classificazione"</param>
+            <param name="criteriPaginazione">Opzionale. Consente di specificare i criteri per paginare i risultati della ricerca. Se non definito, non sarà applicata alcuna paginazione ai dati</param>
+            <returns>Esito della ricerca pratiche effettuata</returns>
+            <exception cref="T:P3SBCLib.Contracts.P3OperationFault">
+            Errore nell'esecuzione dell'operazione
+            </exception>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.GetPratica(System.String,System.String)">
+            <summary>
+            Servizio per il reperimento di una Pratica in SBC
+            </summary>
+            <param name="userIdRichiedente">UserID dell'utente PITRE che esegue la richiesta</param>
+            <param name="numeroPratica">Numero della pratica in SBC</param>
+            <remarks>
+            Corrisponde ad un Fascicolo in PITRE
+            </remarks>
+            <returns>Metadati della pratica richiesta</returns>
+            <exception cref="T:P3SBCLib.Contracts.P3OperationFault">
+            Errore nell'esecuzione dell'operazione
+            </exception>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.GetPraticheDaNumeri(System.String,System.String[])">
+            <summary>
+            Servizio per il reperimento di una o più Pratiche in SBC
+            </summary>
+            <param name="userIdRichiedente">UserID dell'utente PITRE che esegue la richiesta</param>
+            <param name="numeriPratica">
+            Identificativi di una o più pratiche SBC per cui si vogliono reperire i metadati
+            </param>
+            <remarks>
+            Corrisponde ad un Fascicolo in PITRE
+            </remarks>
+            <returns>Metadati delle pratiche richieste</returns>
+            <exception cref="T:P3SBCLib.Contracts.P3OperationFault">
+            Errore nell'esecuzione dell'operazione
+            </exception>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.InsertPratica(System.String,P3SBCLib.Contracts.Pratica)">
+            <summary>
+            Servizio per l'inserimento di un fascicolo in PITRE (pratica in SBC) di una particolare tipologia già configurata 
+            </summary>
+            <param name="userIdRichiedente">UserID dell'utente PITRE che esegue la richiesta</param>
+            <param name="pratica">Dati della pratica SBC da inserire come fascicolo in PITRE</param>
+            <returns>Metadati della pratica inserita</returns>
+            <exception cref="T:P3SBCLib.Contracts.P3OperationFault">
+            Errore nell'esecuzione dell'operazione
+            </exception>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.UpdatePratica(System.String,P3SBCLib.Contracts.Pratica)">
+            <summary>
+            Servizio per l'aggiornamento dei dati di un fascicolo esistente in PITRE (pratica in SBC)
+            </summary>
+            <param name="userIdRichiedente">UserID dell'utente PITRE che esegue la richiesta</param>
+            <param name="pratica">Dati della pratica SBC da modificare nel corrispondente fascicolo in PITRE</param>
+            <returns>Metadati della pratica aggiornata</returns>
+            <exception cref="T:P3SBCLib.Contracts.P3OperationFault">
+            Errore nell'esecuzione dell'operazione
+            </exception>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.GetUtenti(P3SBCLib.Contracts.FiltriRicercaUtenti,P3SBCLib.Contracts.CriteriPaginazione)">
+            <summary>
+            Servizio per la ricerca degli utenti attivi in PITRE
+            </summary>
+            <param name="filtriRicerca">
+            Criteri per filtrare i risultati della ricerca
+            <remarks>
+            Come filtro obbligatorio è necessario definire almeno una Classificazione,
+            in quanto saranno reperiti solamente gli utenti che ne avranno la visibilità 
+            </remarks>
+            </param>
+            <param name="criteriPaginazione">Opzionale. Consente di specificare i criteri per paginare i risultati della ricerca. Se non definito, non sarà applicata alcuna paginazione ai dati</param>
+            <returns>Esito della ricerca utenti effettuata</returns>
+            <exception cref="T:P3SBCLib.Contracts.P3OperationFault">
+            Errore nell'esecuzione dell'operazione
+            </exception>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.AddDocumentoPratica(DocsPaVO.utente.InfoUtente,System.String,System.String)">
+            <summary>
+            Associazione di un documento ad una pratica
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="numeroPratica"></param>
+            <param name="numeroDocumento"></param>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.RemoveDocumentoPratica(DocsPaVO.utente.InfoUtente,System.String,System.String)">
+            <summary>
+            Rimozione di un documento associato ad una pratica
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="numeroPratica"></param>
+            <param name="numeroDocumento"></param>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.GetFile(DocsPaVO.utente.InfoUtente,System.String)">
+            <summary>
+            Reperimento file associato al documento
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="numeroDocumento"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.GetFileName(DocsPaVO.utente.InfoUtente,System.String)">
+            <summary>
+            Reperimento del nome del file acquisito per la versione corrente del documento
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="numeroDocumento"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.SetFile(DocsPaVO.utente.InfoUtente,System.String,P3SBCLib.Contracts.Documento)">
+            <summary>
+            Impostazione del file associato al documento
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="numeroDocumento"></param>
+            <param name="documento"></param>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.CreateDocumento(DocsPaVO.utente.InfoUtente,DocsPaVO.documento.InfoDocumento)">
+            <summary>
+            Creazione oggetto InfoDocumento
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="infoDocumento"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.CreatePratica(DocsPaVO.utente.InfoUtente,DocsPaVO.fascicolazione.Fascicolo)">
+            <summary>
+            Creazione oggetto pratica
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="fascicolo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.GetDocumentoPratica(DocsPaVO.utente.InfoUtente,System.String,P3SBCLib.Contracts.Pratica)">
+            <summary>
+            Reperimento della prima occorrenza di un documento di una determinata tipologia in una pratica
+            </summary>
+            <param name="tipoDocumento"></param>
+            <param name="pratica"></param>
+            <remarks>
+            Il metodo è necessario per reperire il documento di una tipologia (Apertura Pratica, Provvedimento)
+            per l'associazione con la pratica
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.CreateOggettoCustom(DocsPaVO.ProfilazioneDinamica.OggettoCustom,System.String,System.Boolean,DocsPaVO.ProfilazioneDinamica.TipoRicercaStringaEnum)">
+            <summary>
+            Creazione di un nuovo oggetto custom clonando un oggetto custom
+            </summary>
+            <param name="fromOggettoCustom"></param>
+            <param name="valoreDatabase"></param>
+            <param name="campoComune"></param>
+            <param name="tipoRicercaStringa"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.LoadBeneInPratica(P3SBCLib.Contracts.Pratica,DocsPaVO.fascicolazione.Fascicolo)">
+            <summary>
+            Caricamento dati del bene nella pratica
+            </summary>
+            <param name="praticaSbc"></param>
+            <param name="fascicoloPitre"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.GetFiltriRicercaPratiche(DocsPaVO.utente.InfoUtente,P3SBCLib.Contracts.FiltriRicercaPratiche)">
+            <summary>
+            Creazione filtri di ricerca per le pratiche
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="filtriRicerca"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.GetFiltriRicercaDocumenti(DocsPaVO.utente.InfoUtente,P3SBCLib.Contracts.FiltroRicercaDocumenti,System.Boolean)">
+            <summary>
+            Creazione filtri di ricerca per i documenti
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="filtriRicerca"></param>
+            <param name="ricercaPratiche"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.GetFiltriRicercaUtenti(P3SBCLib.Contracts.FiltriRicercaUtenti)">
+            <summary>
+            Reperimento dei filtri di ricerca per gli utenti
+            </summary>
+            <param name="filtriRicerca"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.AppendFiltroRicerca(System.Collections.Generic.List{DocsPaVO.filtri.FiltroRicerca},System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="filtri"></param>
+            <param name="argomento"></param>
+            <param name="valore"></param>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.AppendFiltriRicercaData(System.Collections.Generic.List{DocsPaVO.filtri.FiltroRicerca},System.String,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            Accodamento filtri per data e intervallo di date
+            </summary>
+            <param name="filtri"></param>
+            <param name="filtroData"></param>
+            <param name="filtroDataIniziale"></param>
+            <param name="filtroDataFinale"></param>
+            <param name="dataIniziale"></param>
+            <param name="dataFinale"></param>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.Impersonate(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="userIdRichiedente"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.CheckValiditaDocumentoInPratica(DocsPaVO.utente.InfoUtente,System.String)">
+            <summary>
+            Verifica della validità del documento nell'ambito della gestione della pratica,
+            ovvero se classificabile o meno
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="numeroDocumento"></param>
+            <returns></returns>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.CheckStringParameter(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="parameterName"></param>
+            <param name="parameterValue"></param>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.CheckObjectParameter(System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="parameterName"></param>
+            <param name="parameterValue"></param>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.CheckFiltriRicercaUtenti(P3SBCLib.Contracts.FiltriRicercaUtenti)">
+            <summary>
+            Controllo validità filtri di ricerca per gli utenti
+            </summary>
+            <param name="filtriRicerca"></param>
+        </member>
+        <member name="M:P3SBCLib.P3SBCServices.CheckFiltriRicercaPratiche(P3SBCLib.Contracts.FiltriRicercaPratiche)">
+            <summary>
+            Controllo validità filtri di ricerca per gli utenti
+            </summary>
+            <param name="filtriRicerca"></param>
+        </member>
+        <member name="T:P3SBCLib.Contracts.P3OperationFault">
+            <summary>
+            Contratto per far transitare ai client le eccezioni verificatesi nel servizio
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.P3OperationFault.Message">
+            <summary>
+            Testo dell'eccezione verificatasi
+            </summary>
+        </member>
+        <member name="T:P3SBCLib.Contracts.CriteriPaginazione">
+            <summary>
+            Criteri necessari per la paginazione dei dati nelle ricerche degli oggetti in PITRE 
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.CriteriPaginazione.Pagina">
+            <summary>
+            Indica il numero di pagina richiesto 
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.CriteriPaginazione.OggettiPerPagina">
+            <summary>
+            Indica il numero di oggetti da includere nella ricerca per ciascuna pagina 
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.CriteriPaginazione.TotalePagine">
+            <summary>
+            Indica il numero totale delle pagine restituite dalla ricerca 
+            </summary>
+            <remarks>
+            Il dato è disponibile solamente come risultato della ricerca effettuata 
+            </remarks>
+        </member>
+        <member name="P:P3SBCLib.Contracts.CriteriPaginazione.TotaleOggetti">
+            <summary>
+            Indica il numero totale di oggetti (non paginati) restituiti dalla ricerca 
+            </summary>
+            <remarks>
+            Il dato è disponibile solamente come risultato della ricerca effettuata 
+            </remarks>
+        </member>
+        <member name="T:P3SBCLib.Contracts.Documento">
+            <summary>
+            Dati del file associato o da associare ad un Documento in SBC
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.Documento.Nomefile">
+            <summary>
+            Nome del file con estensione nel documentale PITRE
+            </summary>
+            <remarks>
+            Il file si riferisce al documento acquisito per la versione corrente del documento
+            </remarks>
+        </member>
+        <member name="P:P3SBCLib.Contracts.Documento.MimeType">
+            <summary>
+            Formato MIME del file 
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.Documento.Content">
+            <summary>
+            File associato in formato di byte array 
+            </summary>
+        </member>
+        <member name="T:P3SBCLib.Contracts.InfoDocumento">
+            <summary>
+            Dati di un documento SBC
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.InfoDocumento.Numero">
+            <summary>
+            Numero del documento
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.InfoDocumento.Protocollo">
+            <summary>
+            Se il documento è protocollato, riporta il numero del protocollo
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.InfoDocumento.Segnatura">
+            <summary>
+            Se il documento è protocollato, riporta la segnatura del protocollo 
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.InfoDocumento.Data">
+            <summary>
+            Se il documento è protocollato rappresenta la data del protocollo,
+            altrimenti riporta la data di creazione del documento
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.InfoDocumento.Tipo">
+            <summary>
+            Tipologia del provvedimento in SBC 
+            </summary>
+            <remarks>
+            Corrisponde alla tipologia del documento in PITRE, rappresenta due tipi di documenti:
+            - Documento di Apertura
+            - Provvedimento
+            </remarks>
+        </member>
+        <member name="P:P3SBCLib.Contracts.InfoDocumento.SottoTipologia">
+            <summary>
+            Tipologia del provvedimento in SBC 
+            </summary>
+            <remarks>
+            Corrisponde alla tipologia reale in SBC del documento di apertura pratica o del provvedimento
+            </remarks>
+        </member>
+        <member name="P:P3SBCLib.Contracts.InfoDocumento.Soggetto">
+            <summary>
+            Se il documento è un protocollo in ingresso, rappresenta il soggetto mittente
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.InfoDocumento.Oggetto">
+            <summary>
+            Oggetto del documento
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.InfoDocumento.OperatoreInserimento">
+            <summary>
+            Utente creatore del documento
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.InfoDocumento.Note">
+            <summary>
+            Ultima nota visibile dall'utente corrente associata al documento
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.InfoDocumento.Stato">
+            <summary>
+            Stato del documento
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.InfoDocumento.DocumentoSpecified">
+            <summary>
+            Indica che è stata impostata un'istanza di un oggetto documento
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.InfoDocumento.Nomefile">
+            <summary>
+            Nome del file con estensione nel documentale PITRE
+            </summary>
+            <remarks>
+            Il file si riferisce al documento acquisito per la versione corrente del documento
+            </remarks>
+        </member>
+        <member name="P:P3SBCLib.Contracts.InfoDocumento.Documento">
+            <summary>
+            Dati del file associato alla versione corrente del documento
+            </summary>
+        </member>
+        <member name="T:P3SBCLib.Contracts.ElencoInfoDocumenti">
+            <summary>
+            Esito della ricerca documenti effettuata in SBC
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.ElencoInfoDocumenti.Documenti">
+            <summary>
+            Documenti trovati con il criterio di filtro impostato
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.ElencoInfoDocumenti.Paginazione">
+            <summary>
+            Criteri di paginazione utilizzati per la ricerca
+            </summary>
+        </member>
+        <member name="T:P3SBCLib.Contracts.FiltroRicercaDocumenti">
+            <summary>
+            Definizione dei filtri di ricerca dei documenti in PITRE 
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.FiltroRicercaDocumenti.Numero">
+            <summary>
+            Filtro per numero documento in SBC
+            </summary>
+            <remarks>
+            Corrisponde all'id del documento in PITRE
+            </remarks>
+        </member>
+        <member name="P:P3SBCLib.Contracts.FiltroRicercaDocumenti.Protocollo">
+            <summary>
+            Filtro per numero di protocollo di un documento in SBC
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.FiltroRicercaDocumenti.Segnatura">
+            <summary>
+            Filtro per segnatura di protocollo di un documento in SBC
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.FiltroRicercaDocumenti.TipoDocumento">
+            <summary>
+            Filtro per tipologia del documento
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.FiltroRicercaDocumenti.Soggetto">
+            <summary>
+            Filtro per soggetto
+            </summary>
+            <remarks>
+            In PITRE corrisponde ai soggetti mittente / destinatari di un protocollo
+            </remarks>
+        </member>
+        <member name="P:P3SBCLib.Contracts.FiltroRicercaDocumenti.Oggetto">
+            <summary>
+            Filtro per oggetto del documento
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.FiltroRicercaDocumenti.DataDocumento">
+            <summary>
+            Filtro per data documento
+            </summary>
+            <remarks>
+            In PITRE corrisponde alla data di protocollo
+            </remarks>
+        </member>
+        <member name="P:P3SBCLib.Contracts.FiltroRicercaDocumenti.DataDocumentoFinale">
+            <summary>
+            Filtro per data documento finale
+            </summary>
+            <remarks>
+            In PITRE corrisponde alla data di protocollo.
+            Valido solo se viene specificata la DataDocumento ai fini della ricerca dei protocolli per intervallo di date
+            </remarks>
+        </member>
+        <member name="P:P3SBCLib.Contracts.FiltroRicercaDocumenti.DataCreazioneDocumento">
+            <summary>
+            Filtro per data di creazione del documento in SBC
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.FiltroRicercaDocumenti.DataCreazioneDocumentoFinale">
+            <summary>
+            Filtro per data di creazione del documento in SBC
+            </summary>
+            <remarks>
+            Valido solo se viene specificata la DataCreazioneDocumento ai fini della ricerca dei documenti per intervallo di date
+            </remarks>
+        </member>
+        <member name="P:P3SBCLib.Contracts.FiltroRicercaDocumenti.NumeroPratica">
+            <summary>
+            Filtro che si riferisce alla pratica in cui cercare i documenti
+            </summary>
+        </member>
+        <member name="T:P3SBCLib.Contracts.Bene">
+            <summary>
+            Dati di un bene oggetto della pratica in SBC 
+            </summary>
+            <remarks>
+            Corrisponde ad una serie di attributi personalizzati di una tipologia fascicolo in PITRE
+            </remarks>
+        </member>
+        <member name="P:P3SBCLib.Contracts.Bene.Codice">
+            <summary>
+            Codice del bene in SBC 
+            </summary>
+            <remarks>
+            In PITRE corrisponde ad un campo personalizzato del fascicolo di una particolare tipologia denominato "Codice"
+            </remarks>
+        </member>
+        <member name="P:P3SBCLib.Contracts.Bene.Descrizione">
+            <summary>
+            Descrizione del bene in SBC 
+            </summary>
+            <remarks>
+            In PITRE corrisponde ad un campo personalizzato del fascicolo di una particolare tipologia denominato "Descrizione"
+            </remarks>
+        </member>
+        <member name="T:P3SBCLib.Contracts.Pratica">
+            <summary>
+            Dati di una pratica in SBC 
+            </summary>
+            <remarks>
+            In PITRE corrisponde ad un fascicolo di una particolare tipoligia 
+            </remarks>
+        </member>
+        <member name="P:P3SBCLib.Contracts.Pratica.ClassificazionePratica">
+            <summary>
+            Codice classificazione della pratica in SBC
+            </summary>
+            <remarks>
+            Corrisponde al codice del nodo titolario di appartenenza del fascicolo in PITRE
+            </remarks>
+        </member>
+        <member name="P:P3SBCLib.Contracts.Pratica.Tipo">
+            <summary>
+            Tipologia della pratica in SBC 
+            </summary>
+            <remarks>
+            Corrisponde alla tipologia del fascicolo in PITRE 
+            </remarks>
+        </member>
+        <member name="P:P3SBCLib.Contracts.Pratica.Numero">
+            <summary>
+            Numero della pratica in SBC 
+            </summary>
+            <remarks>
+            Corrisponde al codice del fascicolo in PITRE 
+            </remarks>
+        </member>
+        <member name="P:P3SBCLib.Contracts.Pratica.Descrizione">
+            <summary>
+            Descrizione della pratica in SBC 
+            </summary>
+            <remarks>
+            Corrisponde alla descrizione del fascicolo in PITRE 
+            </remarks>
+        </member>
+        <member name="P:P3SBCLib.Contracts.Pratica.DataApertura">
+            <summary>
+            Data di apertura della pratica in SBC 
+            </summary>
+            <remarks>
+            Corrisponde alla data di apertura del fascicolo in PITRE 
+            </remarks>
+        </member>
+        <member name="P:P3SBCLib.Contracts.Pratica.BeneSpecified">
+            <summary>
+            Indica che è stata impostata l'istanza di un bene
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.Pratica.Bene">
+            <summary>
+            Dati del bene oggetto della pratica in SBC 
+            </summary>
+            <remarks>
+            Corrisponde ad una serie di attributi personalizzati di una tipologia fascicolo in PITRE 
+            </remarks>
+        </member>
+        <member name="P:P3SBCLib.Contracts.Pratica.ProtocolloSpecified">
+            <summary>
+            Indica che è stata impostata l'istanza di un protocollo
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.Pratica.Protocollo">
+            <summary>
+            Dati del documento di richiesta iniziale della pratica 
+            </summary>
+            <remarks>
+            In PITRE corrisponde ad un protocollo in ingresso 
+            </remarks>
+        </member>
+        <member name="P:P3SBCLib.Contracts.Pratica.ProvvedimentoSpecified">
+            <summary>
+            Indica che è stata impostata l'istanza di un provvedimento
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.Pratica.Provvedimento">
+            <summary>
+            Dati del provvedimento finale associato alla pratica in SBC
+            </summary>
+            <remarks>
+            In PITRE corrisponde ad un documento di una particolare tipologia inserito nel fascicolo (che rappresenta la pratica in SBC)
+            </remarks>
+        </member>
+        <member name="T:P3SBCLib.Contracts.ElencoPratiche">
+            <summary>
+            Esito della ricerca documenti effettuata in SBC
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.ElencoPratiche.Paginazione">
+            <summary>
+            Criteri di paginazione utilizzati per la ricerca
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.ElencoPratiche.Pratiche">
+            <summary>
+            Pratiche trovate con il criterio di filtro impostato
+            </summary>
+        </member>
+        <member name="T:P3SBCLib.Contracts.FiltriRicercaPratiche">
+            <summary>
+            Definizione dei filtri di ricerca per le pratiche in PITRE 
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.FiltriRicercaPratiche.ClassificazionePratica">
+            <summary>
+            Filtro per la classificazione della pratica SBC
+            </summary>
+            <remarks>
+            Una volta stabilito il titolario in SBC, sarà assegnato un nodo di classificazione cui le amministrazioni dei beni culturali lavoreranno 
+            </remarks>
+        </member>
+        <member name="P:P3SBCLib.Contracts.FiltriRicercaPratiche.CercaInClassificazioniFiglie">
+            <summary>
+            Indica se ricercare le pratiche SBC anche nei nodi figli della classificazione richiesta
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.FiltriRicercaPratiche.DataAperturaPratica">
+            <summary>
+            Intervallo iniziale all'interno del quale dovrebbe trovarsi la pratica 
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.FiltriRicercaPratiche.DataAperturaPraticaFinale">
+            <summary>
+            Intervallo finale all'interno del quale dovrebbe trovarsi la pratica 
+            </summary>
+            <remarks>
+            Valido solo se viene specificata la DataAperturaPratica ai fini della ricerca dei protocolli per intervallo di date
+            </remarks>
+        </member>
+        <member name="P:P3SBCLib.Contracts.FiltriRicercaPratiche.CodiciBene">
+            <summary>
+            Filtro per i beni contenuti nelle pratiche SBC
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.FiltriRicercaPratiche.NumeroPratica">
+            <summary>
+            Filtro per numero della pratica in SBC 
+            </summary>
+            <remarks>
+            Corrisponde al codice del fascicolo in PITRE 
+            </remarks>
+        </member>
+        <member name="P:P3SBCLib.Contracts.FiltriRicercaPratiche.TipoPratica">
+            <summary>
+            Filtro per tipologia della pratica in SBC 
+            </summary>
+            <remarks>
+            Corrisponde alla tipologia del fascicolo in PITRE 
+            </remarks>
+        </member>
+        <member name="P:P3SBCLib.Contracts.FiltriRicercaPratiche.NumeroProvvedimento">
+            <summary>
+            Filtro per numero del provvedimento della pratica in SBC 
+            </summary>
+            <remarks>
+            Corrisponde all'id del documento contenuto nella pratica in PITRE
+            </remarks>
+        </member>
+        <member name="P:P3SBCLib.Contracts.FiltriRicercaPratiche.SoloPraticheNonAssegnate">
+            <summary>
+            Consente di filtrare la ricerca alle sole pratiche del titolario opportuno che non risultano già associate a un Bene
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.FiltriRicercaPratiche.FiltroDocumenti">
+            <summary>
+            Filtro di ricerca inerente i documenti contenuti nella pratica
+            </summary>
+            <remarks>
+            Se specificato, la ricerca riporterà solamente le pratiche 
+            contenenti i documenti estratti in base alla definizione del filtro
+            </remarks>
+        </member>
+        <member name="T:P3SBCLib.Contracts.Utente">
+            <summary>
+            Rappresenta un account utente in PITRE 
+            </summary>
+            <remarks>
+            PITRE al momento non utilizza LDAP ma un proprio sistema di autenticazione basato su ruoli i cui metadati risiedono sul proprio database. Il portale esterno SBC, tramite gli attributi definiti dalla classe, può "associare" i propri utenti di portale (presenti in apposito ramo LDAP, i quali si considerano già esistenti in PITRE) con i corrispondenti utenti PITRE. 
+            </remarks>
+        </member>
+        <member name="P:P3SBCLib.Contracts.Utente.UserId">
+            <summary>
+            UserId dell'utente
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.Utente.Nome">
+            <summary>
+            Nome dell'utente
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.Utente.Cognome">
+            <summary>
+            Cognome dell'utente
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.Utente.Email">
+            <summary>
+            Email dell'utente
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.Utente.Sede">
+            <summary>
+            Sede di appartenenza dell'utente
+            </summary>
+        </member>
+        <member name="T:P3SBCLib.Contracts.ElencoUtenti">
+            <summary>
+            Esito della ricerca documenti effettuata in SBC
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.ElencoUtenti.Paginazione">
+            <summary>
+            Criteri di paginazione utilizzati per la ricerca
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.ElencoUtenti.Utenti">
+            <summary>
+            Utenti trovati con il criterio di filtro impostato
+            </summary>
+        </member>
+        <member name="T:P3SBCLib.Contracts.FiltriRicercaUtenti">
+            <summary>
+            Definizione dei filtri di ricerca per gli utenti in PITRE
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.FiltriRicercaUtenti.Classificazioni">
+            <summary>
+            Classificazioni cui gli utenti da estrarre devono avere la visibilità
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.FiltriRicercaUtenti.UserId">
+            <summary>
+            Filtro per UserId che inizia con
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.FiltriRicercaUtenti.Nome">
+            <summary>
+            Filtro per Nome che inzia con
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.FiltriRicercaUtenti.Cognome">
+            <summary>
+            Filtro per Cognome che inizia con
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.FiltriRicercaUtenti.Email">
+            <summary>
+            Filtro per Email che inizia con
+            </summary>
+        </member>
+        <member name="P:P3SBCLib.Contracts.FiltriRicercaUtenti.Sede">
+            <summary>
+            Filtro per Sede che inizia con
+            </summary>
+        </member>
+    </members>
+</doc>

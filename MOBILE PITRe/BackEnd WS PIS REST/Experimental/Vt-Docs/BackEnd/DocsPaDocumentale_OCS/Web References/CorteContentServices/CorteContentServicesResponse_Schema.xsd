@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="urn:it:CorteConti:Servizi:CorteContentServicesResponse_Schema:xsd" xmlns:ns1="urn:it:CorteConti:Servizi:CorteContentServices_Schema:xsd" elementFormDefault="qualified" targetNamespace="urn:it:CorteConti:Servizi:CorteContentServicesResponse_Schema:xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="CorteContentServices_Schema.xsd" namespace="urn:it:CorteConti:Servizi:CorteContentServices_Schema:xsd" />
+  <xs:complexType name="ResponseType">
+    <xs:sequence>
+      <xs:element name="result" type="ns1:ResultType" />
+      <xs:element name="response" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UsersResponseType">
+    <xs:sequence>
+      <xs:element name="result" type="ns1:ResultType" />
+      <xs:element name="users" type="ns1:UsersType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GroupsResponseType">
+    <xs:sequence>
+      <xs:element name="result" type="ns1:ResultType" />
+      <xs:element name="groups" type="ns1:GroupsType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemIdResponseType">
+    <xs:sequence>
+      <xs:element name="result" type="ns1:ResultType" />
+      <xs:element name="itemId" type="ns1:ItemIdType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemLockedListResponseType">
+    <xs:sequence>
+      <xs:element name="result" type="ns1:ResultType" />
+      <xs:element name="items" type="ns1:ItemLockedListType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemGrantsResponseType">
+    <xs:sequence>
+      <xs:element name="result" type="ns1:ResultType" />
+      <xs:element name="grants" type="ns1:ItemGrantsType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemInfoResponseType">
+    <xs:sequence>
+      <xs:element name="result" type="ns1:ResultType" />
+      <xs:element name="info" type="ns1:ItemInfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemMetadataResponseType">
+    <xs:sequence>
+      <xs:element name="result" type="ns1:ResultType" />
+      <xs:element name="categories" type="ns1:CategoriesType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DocumentAttachListResponseType">
+    <xs:sequence>
+      <xs:element name="result" type="ns1:ResultType" />
+      <xs:element name="attachments" type="ns1:DocumentAttachListType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DocumentVersionListResponseType">
+    <xs:sequence>
+      <xs:element name="result" type="ns1:ResultType" />
+      <xs:element name="versions" type="ns1:ItemVersionListType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VersionResponseType">
+    <xs:sequence>
+      <xs:element name="result" type="ns1:ResultType" />
+      <xs:element name="version" type="ns1:VersionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PhysicalDataResponseType">
+    <xs:sequence>
+      <xs:element name="result" type="ns1:ResultType" />
+      <xs:element name="physicalData" type="ns1:PhysicalDataType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemSearchListResponseType">
+    <xs:sequence>
+      <xs:element name="result" type="ns1:ResultType" />
+      <xs:element name="items" type="ns1:ItemSearchListType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FolderDocumentListResponseType">
+    <xs:sequence>
+      <xs:element name="result" type="ns1:ResultType" />
+      <xs:element name="documents" type="ns1:FolderDocumentListType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VersionInfoResponseType">
+    <xs:sequence>
+      <xs:element name="result" type="ns1:ResultType" />
+      <xs:element name="info" type="ns1:VersionInfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VersionSearchListResponseType">
+    <xs:sequence>
+      <xs:element name="result" type="ns1:ResultType" />
+      <xs:element name="versions" type="ns1:VersionSearchListType" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,1 +1,0 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PrintReceiptPdf.aspx.cs" Inherits="NttDataWA.Popup.PrintReceiptPdf" %>

@@ -1,1 +1,0 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ReportContent.aspx.cs" Inherits="NttDataWA.Popup.ReportContent" %>

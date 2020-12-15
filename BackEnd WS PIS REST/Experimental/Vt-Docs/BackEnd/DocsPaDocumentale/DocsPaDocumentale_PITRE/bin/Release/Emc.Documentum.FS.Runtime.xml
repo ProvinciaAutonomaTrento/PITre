@@ -1,0 +1,1538 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Emc.Documentum.FS.Runtime</name>
+    </assembly>
+    <members>
+        <member name="T:Emc.Documentum.FS.Runtime.Behaviors.KerberosBinarySecurityToken">
+            <summary>
+            This class creates a BinarySecurityToken based on the Kerberos Token Profile 1.1 specification.
+            
+            Kerberos tokens can be attached to SOAP messages using WSS:SOAP Message Security by using
+            the wsse:BinarySecurityToken described in WSS:SOAP Message Security. When using this
+            element, the @ValueType attribute MUST be specified. This specification defines six values
+            for this attribute as defined below:
+            
+            - ValueType.KERBEROSV5_AP_REQ
+            - ValueType.GSS_KERBEROSV5_AP_REQ
+            - ValueType.KERBEROSV5_AP_REQ1510
+            - ValueType.GSS_KERBEROSV5_AP_REQ1510
+            - ValueType.KERBEROSV5_AP_REQ4120
+            - ValueType.GSS_KERBEROSV5_AP_REQ4120
+            
+            All token types defined in this section must use the type 0x8003 defined in RFC1964 for the
+            checksum field of the authenticator inside the AP_REQ.
+            
+            The octet sequence of either the GSS-API framed KRB_AP_REQ token or an unwrapped AP_REQ must
+            be encoded according to the EncodingType in BinarySecurityToken (for example, Base64) and the result
+            set as the Value of the wsse:BinarySecurityToken element.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Behaviors.KerberosBinarySecurityToken.#ctor(Emc.Documentum.FS.DataModel.Shared.Impl.Soap.BinarySecurityToken)">
+            <summary>
+            Creates a BinarySecurityToken based on some existing BinarySecurityToken.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Behaviors.KerberosBinarySecurityToken.#ctor(System.Byte[],System.String,Emc.Documentum.FS.Runtime.Behaviors.KerberosValueType,Emc.Documentum.FS.Runtime.Behaviors.KerberosEncodingType)">
+            <summary>
+            Creates a BinarySecurityToken based on the raw byte[] Kerberos token.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Behaviors.KerberosBinarySecurityToken.#ctor(System.Byte[],System.String,Emc.Documentum.FS.Runtime.Behaviors.KerberosValueType)">
+            <summary>
+            Same as new KerberosBinarySecurityToken(kerberosToken, id, type, KerberosEncodingType.BASE64);
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Behaviors.KerberosBinarySecurityToken.#ctor(System.Byte[],Emc.Documentum.FS.Runtime.Behaviors.KerberosValueType)">
+            <summary>
+            Same as new KerberosBinarySecurityToken(kerberosToken, null, type, KerberosEncodingType.BASE64);
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Behaviors.KerberosBinarySecurityToken.SetEncodingType(Emc.Documentum.FS.Runtime.Behaviors.KerberosEncodingType)">
+            <summary>
+            Sets the encoding type applied to the token value .
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Behaviors.KerberosBinarySecurityToken.SetId(System.String)">
+            <summary>
+            Sets the token id.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Behaviors.KerberosBinarySecurityToken.SetQualificationValueType(System.String)">
+            <summary>
+            Sets the token type.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Behaviors.KerberosBinarySecurityToken.SetValueType(Emc.Documentum.FS.Runtime.Behaviors.KerberosValueType)">
+            <summary>
+            Sets the token value type. 
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Behaviors.KerberosBinarySecurityToken.SetValue(System.String)">
+            <summary>
+            Sets the token value.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Behaviors.KerberosBinarySecurityToken.ToBinarySecurityToken">
+            <summary>
+            Converts the KerberosBinarySecurityToken to a BinarySecurityToken. Useful for XML serialization purposes. 
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Behaviors.KerberosEncodingType">
+            <summary>
+             Encoding types specific to Kerberos Token Profile 1.1.
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.Runtime.Behaviors.KerberosEncodingType.BASE64">
+            <summary>
+             Base64 encoding.
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Behaviors.KerberosEncodingTypeUtil">
+            <summary>
+            Provides enum to string value bi-directional mapping, encoding logic.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Behaviors.KerberosEncodingTypeUtil.ToString(Emc.Documentum.FS.Runtime.Behaviors.KerberosEncodingType)">
+            <summary>
+            Provides the string representation of the encoding enum.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Behaviors.KerberosEncodingTypeUtil.ToEnum(System.String)">
+            <summary>
+            Returns a enum element from the string representation for the encoding type.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Behaviors.KerberosEncodingTypeUtil.Encode(Emc.Documentum.FS.Runtime.Behaviors.KerberosEncodingType,System.Byte[])">
+            <summary>
+            Performs encoding as per the provided encoding type.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Behaviors.KerberosEncodingTypeUtil.Decode(Emc.Documentum.FS.Runtime.Behaviors.KerberosEncodingType,System.String)">
+            <summary>
+            Performs decoding as per the provided encoding type.
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Behaviors.KerberosTokenHandler">
+            <summary>
+            The implementation of this JAXWS handler is based on Web Services Security Kerberos Token
+            Profile 1.1 and facilitates encoding of Kerberos tickets and attaching them to SOAP messages.
+            
+            For interoperability concerns, and for some security concerns, the Kerberos Token Profile 1.1
+            specification is limited to using the AP-REQ packet (service ticket and authenticator) defined
+            by Kerberos as the Kerberos token. This allows a service to authenticate the ticket and
+            interoperate with existing Kerberos implementations. It should be noted that how the AP-REQ is
+            obtained is out of scope of this specification as are scenarios involving other ticket types and
+            user-to-user interactions.
+            
+            The handler is not thread safe and shoud not be shared by multiple SOAP consumers. Setting a
+            Service Ticket on the handler and invoking the service should be wrapped by a synchronized
+            block if the soap client is used by more than one thread.  
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Behaviors.KerberosTokenHandler.#ctor">
+            <summary>
+            Creates a blank Kerberos handler instance. The handler will skip execution until
+            SetBinarySecurityToken(...) is called to provide a token to the handler.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Behaviors.KerberosTokenHandler.#ctor(Emc.Documentum.FS.Runtime.Behaviors.KerberosBinarySecurityToken)">
+            <summary>
+            Creates a handler instance and sets a security token discarding all previous tokens.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Behaviors.KerberosTokenHandler.SetBinarySecurityToken(Emc.Documentum.FS.Runtime.Behaviors.KerberosBinarySecurityToken)">
+             <summary>
+             A Kerberos token is provided as a BinarySecurityToken in the Security header of the outgoing SOAP request.
+            
+             This method sets a security token discarding all previous tokens.
+             </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Behaviors.KerberosTokenHandler.AddBindingParameters(System.ServiceModel.Description.ServiceEndpoint,System.ServiceModel.Channels.BindingParameterCollection)">
+            <summary>
+            Empty implementation.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Behaviors.KerberosTokenHandler.ApplyClientBehavior(System.ServiceModel.Description.ServiceEndpoint,System.ServiceModel.Dispatcher.ClientRuntime)">
+            <summary>
+            Adds the KerberosMessageInspector to the list of client runtime inspectors.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Behaviors.KerberosTokenHandler.ApplyDispatchBehavior(System.ServiceModel.Description.ServiceEndpoint,System.ServiceModel.Dispatcher.EndpointDispatcher)">
+            <summary>
+            Empty implementation.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Behaviors.KerberosTokenHandler.Validate(System.ServiceModel.Description.ServiceEndpoint)">
+            <summary>
+            Empty implementation.
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Behaviors.KerberosTokenProfileConstants">
+            <summary>
+            Constants specific to Kerberos Token Profile 1.1.
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.Runtime.Behaviors.KerberosTokenProfileConstants.BASE_URI">
+            <summary>
+            Unless otherwise specified, URI fragments defined in the Kerberos Token Profile 1.1 specification 
+            are relative to the following base URI: http://docs.oasis-open.org/wss/oasis-wss-kerberos-token-profile-1.1.
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.Runtime.Behaviors.KerberosTokenProfileConstants.ENCODING_URI">
+            <summary>
+            Base URI for encoding types defined in the Kerberos Token Profile 1.1.
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Behaviors.KerberosValueType">
+            <summary>
+            The Kerberos Token Profile 1.1 specification defines six values for the ValueType attribute
+            of BinarySecurityToken:
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.Runtime.Behaviors.KerberosValueType.KERBEROSV5_AP_REQ">
+            <summary>
+            Kerberos v5 AP-REQ as defined in the Kerberos specification. This ValueType is used when 
+            the ticket is an AP Request.
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.Runtime.Behaviors.KerberosValueType.GSS_KERBEROSV5_AP_REQ">
+            <summary>
+            A GSS-API Kerberos V5 mechanism token containing an KRB_AP_REQ message as defined in 
+            RFC-1964 [1964], Sec. 1.1 and its successor RFC-4121 [4121], Sec. 4.1. This ValueType is 
+            used when the ticket is an AP Request (ST + Authenticator).
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.Runtime.Behaviors.KerberosValueType.KERBEROSV5_AP_REQ1510">
+            <summary>
+            Kerberos v5 AP-REQ as defined in RFC1510. This ValueType is used when the ticket is an AP 
+            Request per RFC1510.
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.Runtime.Behaviors.KerberosValueType.GSS_KERBEROSV5_AP_REQ1510">
+            <summary>
+            A GSS-API Kerberos V5 mechanism token containing an KRB_AP_REQ message as defined in 
+            RFC-1964, Sec. 1.1 and its successor RFC-4121, Sec. 4.1. This ValueType is used when the 
+            ticket is an AP Request (ST + Authenticator) per RFC1510.
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.Runtime.Behaviors.KerberosValueType.KERBEROSV5_AP_REQ4120">
+            <summary>
+            Kerberos v5 AP-REQ as defined in RFC4120. This ValueType is used when the ticket is an AP 
+            Request per RFC4120.
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.Runtime.Behaviors.KerberosValueType.GSS_KERBEROSV5_AP_REQ4120">
+            <summary>
+            A GSS-API Kerberos V5 mechanism token containing an KRB_AP_REQ message as defined in 
+            RFC-1964, Sec. 1.1 and its successor RFC-4121, Sec. 4.1. This ValueType is used when the 
+            ticket is an AP Request (ST + Authenticator) per RFC4120.
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Behaviors.KerberosValueTypeUtil">
+            <summary>
+            Enum to string bi-directional value mapping.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Behaviors.KerberosValueTypeUtil.ToString(Emc.Documentum.FS.Runtime.Behaviors.KerberosValueType)">
+            <summary>
+            Provides the string representation of the enum.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Behaviors.KerberosValueTypeUtil.ToEnum(System.String)">
+            <summary>
+            Creates an enum representation of the provided string.
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Context.Impl.IInvocationHandler">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.IInvocationHandler.Invoke(System.Object,System.Reflection.MethodInfo,System.Object[])">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Context.Impl.DynamicProxy">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Runtime.Context.Impl.DynamicProxy.handler">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.DynamicProxy.#ctor(Emc.Documentum.FS.Runtime.Context.Impl.IInvocationHandler)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.DynamicProxy.IsProxyType(System.Type)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.DynamicProxy.GetInvocationHandler(System.Object)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.DynamicProxy.NewInstance(System.AppDomain,System.Type[],Emc.Documentum.FS.Runtime.Context.Impl.IInvocationHandler)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.DynamicProxy.GetProxy(System.AppDomain,System.Type[])">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Context.Impl.DynamicProxy.FlagCreateFile">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Context.Impl.MethodStore">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.MethodStore.Register(System.Reflection.MethodInfo)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.MethodStore.GetMethod(System.Int32)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Context.IServiceContext">
+            <summary>
+            ServiceContext is a stateful object maintaining identity information for service authentication,
+            profiles for setting options and filters, a locale, and properties. Service context can
+            be shared among multiple services.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.IServiceContext.GetLocale">
+            <summary>
+            Gets language locale
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.IServiceContext.SetLocale(System.String)">
+            <summary>
+            Sets language locale to service context
+            </summary>
+            <param name="locale"></param>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.IServiceContext.GetIdentityCount">
+            <summary>
+            Number of identities stored at service context
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.IServiceContext.GetIdentity(System.Int32)">
+            <summary>
+            Gets identity with specified index
+            </summary>
+            <param name="i">Identity index</param>
+            <returns>Identity - superclass of BasicIdentity and RepositoryIdentity</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.IServiceContext.AddIdentity(Emc.Documentum.FS.DataModel.Core.Context.Identity)">
+            <summary>
+            Adds identity to service context
+            </summary>
+            <param name="identity">RepositoryIdentity or BasicIdentity</param>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.IServiceContext.SetIdentities(System.Collections.Generic.List{Emc.Documentum.FS.DataModel.Core.Context.Identity})">
+            <summary>
+            Sets list of Identities to service context
+            </summary>
+            <param name="identities">RepositoryIdentity or BasicIdentity</param>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.IServiceContext.GetProfileCount">
+            <summary>
+            Number of profiles contained at service context.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.IServiceContext.SetProfile(Emc.Documentum.FS.DataModel.Core.Profiles.Profile)">
+            <summary>
+            Sets profile to service context.
+            </summary>
+            <param name="profile"><see cref="T:Emc.Documentum.FS.DataModel.Core.Profiles.Profile"/></param>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.IServiceContext.GetProfile(System.Type)">
+            <summary>
+            Gets profile by type
+            </summary>
+            <param name="type">Type of profile which needs to be retrieved</param>
+            <returns>Profile</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.IServiceContext.SetProfiles(System.Collections.Generic.List{Emc.Documentum.FS.DataModel.Core.Profiles.Profile})">
+            <summary>
+            Sets list of profiles to service context.
+            </summary>
+            <param name="profiles">Given profiles</param>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.IServiceContext.Clone">
+            <summary>
+            Clones Context
+            Not supported in current version.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.IServiceContext.GetIdentities">
+            <summary>
+            Gets collection of identities, which are mappings of repository names onto
+            sets of user credentials used in service authentication. A service context is expected to contain only
+            one identity per repository name. Identities will be set in a service context using one of two concrete
+            subclasses: BasicIdentity and RepositoryIdentity.
+            </summary>
+            <returns>IEnumerator</returns>
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.Context.BasicIdentity">BasicIdentity</seealso>
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.Context.RepositoryIdentity">RepositoryIdentity</seealso>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.IServiceContext.GetProfiles">
+            <summary>
+            Contains profiles that specify behaviors for the operation. The profiles
+            can potentially overlap with profiles stored in the OperationOptions. In the case that they do overlap,
+            the profiles in OperationOptions always take precedence over profiles stored in the service context.
+            The profiles stored in the service context take effect when no matching profile is stored in the
+            OperationOptions for a specific operation. The override of profiles in the service context takes place on
+            a profile-by-profile basis: there is no merge of specific settings stored within the profiles.
+            </summary>
+            <returns>Profiles</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.IServiceContext.GetRuntimeProperties">
+            <summary>
+            RuntimeProperties collection, in which properties can be set for all services
+            sharing the service context. These properties settings can be used to store configuration settings
+            that are scoped to the service context, and which therefore are not suitable as operation parameters
+            or inclusion in the OperationOptions PropertySet.Properties included in RuntimeProperties would
+            generally be standalone properties. If your service configuration requires a set of interrelated
+            properties, it may be more appropriate to extend the Profile class and manage the settings within the
+            profile. DFS platform services generally use profiles in preference to RuntimeProperties.
+            </summary>
+            <returns>IEnumerator containing RuntimeProperties</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.IServiceContext.SetRuntimeProperty``1(System.String,``0)">
+            <summary>
+            Sets runtime property to service context
+            </summary>
+            <typeparam name="T">Type of the property</typeparam>
+            <param name="name">Name of the property</param>
+            <param name="value">Value of the property</param>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.IServiceContext.GetRuntimeProperty(System.String)">
+            <summary>
+            Gets runtime property with specified name.
+            </summary>
+            <param name="name">Name of the property</param>
+            <returns>Property</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.IServiceContext.SetRuntimeProperties(Emc.Documentum.FS.DataModel.Core.Properties.PropertySet)">
+            <summary>
+            Sets collection of properties to ServiceContext
+            </summary>
+            <param name="properties">PropertySet</param>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.#ctor(Emc.Documentum.FS.DataModel.Core.Context.ServiceContext)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.GetLocale">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.SetLocale(System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.GetIdentityCount">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.GetIdentity(System.Int32)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.AddIdentity(Emc.Documentum.FS.DataModel.Core.Context.Identity)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.SetIdentities(System.Collections.Generic.List{Emc.Documentum.FS.DataModel.Core.Context.Identity})">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.GetProfileCount">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.SetProfile(Emc.Documentum.FS.DataModel.Core.Profiles.Profile)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.SetDelta(Emc.Documentum.FS.DataModel.Core.Context.ServiceContext)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.GetToken">
+            This would always point to the registered token. If the context was not registered, a
+            temporary token would be returned
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.SetToken(System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.GetDeltaContext">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.ClearDeltaContext">
+            Clears delta, but preserves the token so that we can reuse
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.IsDeltaEmpty">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.GetConsolidatedContext">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.GetProfile(System.Type)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.SetProfiles(System.Collections.Generic.List{Emc.Documentum.FS.DataModel.Core.Profiles.Profile})">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.GetIdentities">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.GetProfiles">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.GetRuntimeProperties">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.SetRuntimeProperty``1(System.String,``0)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.GetRuntimeProperty(System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.SetRuntimeProperties(Emc.Documentum.FS.DataModel.Core.Properties.PropertySet)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.IsRemoteInvocation">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.SetRemoteInvocation(System.Boolean)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.AddCookies(System.Collections.Generic.ICollection{System.Net.Cookie})">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.GetCookies">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.Clone">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.GenerateTemporaryToken">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.m_consolidatedContext">
+            This is the real container of all options, used by client and server side.  It cannot be null, but can be empty
+        </member>
+        <member name="F:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.m_deltaContext">
+            This is a deltas context that allows to send capture only changes after Adapter was created.  It can be null.
+        </member>
+        <member name="F:Emc.Documentum.FS.Runtime.Context.Impl.ServiceContextAdapter.m_isRemoteInvocation">
+            This variable is use only during actual call within a single thread. By default it should be false.
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Context.ContextFactory">
+            <summary>
+            ContextFactory provides API for creation and registration of ServiceContext to ContextRegistryService
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.ContextFactory.NewContext">
+            <summary>
+            Creates new service context
+            </summary>
+            <returns><see cref="T:Emc.Documentum.FS.Runtime.Context.IServiceContext">Service Context</see></returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.ContextFactory.GetContext">
+            <summary>
+            Retrieves context which is stored at ThreadLocalContextStorage, or creates new service context
+            For chained services only<br/>
+            Currently is not supported.
+            </summary>
+            <returns><see cref="T:Emc.Documentum.FS.Runtime.Context.IServiceContext">Service Context</see></returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.ContextFactory.Register(Emc.Documentum.FS.Runtime.Context.IServiceContext)">
+            <summary>
+            Registers service context at default ContextRegistryService which is set at App.config
+            </summary>
+            <param name="serviceContext">IServiceContext</param>
+            <returns><see cref="T:Emc.Documentum.FS.Runtime.Context.IServiceContext">Context</see></returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.ContextFactory.Register(Emc.Documentum.FS.Runtime.Context.IServiceContext,System.String)">
+            <summary>
+            Registers service context at default ContextRegistryService which is set at App.config
+            </summary>
+            <param name="serviceContext">IServiceContext</param>
+            <param name="module">String</param>
+            <returns><see cref="T:Emc.Documentum.FS.Runtime.Context.IServiceContext">Context</see></returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.ContextFactory.Register(Emc.Documentum.FS.Runtime.Context.IServiceContext,System.String,System.String)">
+            <summary>
+            Registers service context at specified ContextRegistryService.
+            </summary>
+            <param name="serviceContext">IServiceContext</param>
+            <param name="serviceModule">module where ContextRegistryService is deployed (e.g. "core")</param>
+            <param name="contextRoot">contextRoot where ContextRegistryService is deployed (e.g. "http://localhost:7001/services")</param>
+            <returns><see cref="T:Emc.Documentum.FS.Runtime.Context.IServiceContext">Service Context</see></returns>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Context.ContextFactory.Instance">
+            <summary>
+            Gets an instance of ContextFactory
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Context.IContextHolder">
+            <summary>
+            Retrieves IServiceContext from service.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.IContextHolder.GetServiceContext">
+            <summary>
+            Retrieves IServiceContext from service
+            </summary>
+            <returns>
+            <seealso cref="T:Emc.Documentum.FS.Runtime.Context.IServiceContext">IServiceContext</seealso>
+            </returns>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Context.IServiceContextConstants">
+            <summary>
+            DFS runtime properties (and their values) that can be set in the IServiceContext.
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.Runtime.Context.IServiceContextConstants.USER_TRANSACTION_HINT">
+            <summary>
+            The name of the property that controls whether transaction is required or not required.
+            Value of the property can be:
+            TRANSACTION_REQUIRED
+            TRANSACTION_NOT_REQUIRED
+            The property should be added to service context before service call.
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.Runtime.Context.IServiceContextConstants.TRANSACTION_REQUIRED">
+            <summary>
+            Transaction required constant
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.Runtime.Context.IServiceContextConstants.TRANSACTION_NOT_REQUIRED">
+            <summary>
+            Transaction is not required constant
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Context.ServiceFactory">
+            <summary>
+            ServiceFactory is used for instantiating service.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.ServiceFactory.GetRemoteService``1(Emc.Documentum.FS.Runtime.Context.IServiceContext)">
+            <summary>
+            Gets service to be called using remote (SOAP) interaction.
+            Implicit service addressing on the .NET client uses settings provided by the .NET runtime
+            client configuration (in App.config) as implicit service module name and context root.
+            </summary>
+            <typeparam name="T">Type of service class, e.g. IObjectService</typeparam>
+            <param name="serviceContext"><see cref="T:Emc.Documentum.FS.Runtime.Context.IServiceContext"/></param>
+            <returns>service instance</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.ServiceFactory.GetRemoteService``1(Emc.Documentum.FS.Runtime.Context.IServiceContext,System.String)">
+            <summary>
+            Gets service to be called using remote (SOAP) interaction.
+            Retrieves settings provided by the .NET runtime
+            client configuration (in App.config) by service module name.
+            </summary>
+            <typeparam name="T">Type of service class, e.g. IObjectService</typeparam>
+            <param name="serviceContext"><see cref="T:Emc.Documentum.FS.Runtime.Context.IServiceContext"/></param>
+            <param name="module">Module from App.Config file</param>
+            <returns>service instance</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.ServiceFactory.GetRemoteService``1(Emc.Documentum.FS.Runtime.Context.IServiceContext,System.String,System.String,System.Collections.Generic.List{System.ServiceModel.Description.IEndpointBehavior})">
+            <summary>
+            Gets service to be called using remote (SOAP) interaction.
+            Explicit addressing requires passing of a service module name and context root in ServiceFactory method
+            </summary>
+            <typeparam name="T">Type of service class, e.g. IObjectService</typeparam>
+            <param name="serviceContext"><see cref="T:Emc.Documentum.FS.Runtime.Context.IServiceContext"/></param>
+            <param name="serviceModule">service module name (e.g. "core")</param>
+            <param name="contextRoot">service context root (e.g. "http://localhost:7001/services/")</param>
+            <param name="behaviors">IEndpointBehavior applied to the SOAP client behavior to modify header or message content</param>
+            <returns>service instance</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.ServiceFactory.GetRemoteService``1(Emc.Documentum.FS.Runtime.Context.IServiceContext,System.String,System.String)">
+            <summary>
+            Same as GetRemoteService(serviceContext, serviceModule, contextRoot, null);
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.ServiceFactory.GetBehaviors">
+            <summary>
+            Returned list of behaviors is applied to all created services and executed before any behavior provided 
+            to the getService(...) method.
+            Each behavior must have a unique type for it to be accepted by the endpoint.
+            </summary>
+            <returns>instance-wide list of WCF behaviors</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Context.ServiceFactory.SetBehaviors(System.Collections.Generic.List{System.ServiceModel.Description.IEndpointBehavior})">
+            <summary>
+            Provided list of behaviors is applied to all created services and executed before any behavior provided 
+            to the getService(...) method.
+            Each behavior must have a unique type for it to be accepted by the endpoint.
+            </summary>
+            <param name="behaviors">instance-wide list of WCF behaviors</param>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Context.ServiceFactory.Instance">
+            <returns>
+            Instance of ServiceFactory
+            </returns>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Impl.Configuration.DataModel.ModuleInfo">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.DataModel.ModuleInfo.ToUrlPrefix">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Impl.Configuration.DataModel.ModuleInfo.Name">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Impl.Configuration.DataModel.ModuleInfo.Protocol">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Impl.Configuration.DataModel.ModuleInfo.Host">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Impl.Configuration.DataModel.ModuleInfo.Port">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Impl.Configuration.DataModel.ModuleInfo.ContextRoot">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Impl.Configuration.DataModel.SsoConfig">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.DataModel.SsoConfig.#ctor">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Impl.Configuration.DataModel.SsoConfig.SsoType">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Impl.Configuration.DataModel.SsoConfig.RepositoryName">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Impl.Configuration.DataModel.SsoConfig.PasswordCookieName">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Impl.Configuration.DataModel.SsoConfig.UserHeaderName">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Impl.Configuration.AppConfig">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.AppConfig.GetModuleByName(System.String)">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Impl.Configuration.AppConfig.Instance">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Impl.Configuration.AppConfig.DefaultModuleName">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Impl.Configuration.AppConfig.RegistryProviderModuleName">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Impl.Configuration.AppConfig.ConfigObject">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Impl.Configuration.AppConfig.DFSDefaultServiceBinding">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Impl.Configuration.AppConfig.DFSAgentServiceBinding">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Impl.Configuration.AppConfig.DFSContextRegistryServiceBinding">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Impl.Configuration.ConfigObject">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.ConfigObject.#ctor">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Impl.Configuration.ConfigObject.SsoConfig">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Impl.Configuration.ConfigObject.DefaultModuleName">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Impl.Configuration.ConfigObject.RegistryProviderModuleName">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Impl.Configuration.ConfigObject.Modules">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Impl.Configuration.ConfigObject.RequireSignedUcfJars">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Impl.Configuration.ResourceMgr">
+            <summary>
+            The Documentum Foundation Services wrapper around .NET Framework's 
+            <see cref="T:System.Resources.ResourceManager">ResourceManager</see> class. 
+            This class cannot be inherited.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.ResourceMgr.#ctor">
+            <summary>
+            Initializes the per-instance fields of the <see cref="T:Emc.Documentum.FS.Runtime.Impl.Configuration.ResourceMgr">ResourceMgr</see>
+            class.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.ResourceMgr.GetManager">
+            <summary>
+            Returns an instance of the <see cref="T:Emc.Documentum.FS.Runtime.Impl.Configuration.ResourceMgr">ResourceMgr</see> class.
+            </summary>
+            <returns>A <see cref="T:Emc.Documentum.FS.Runtime.Impl.Configuration.ResourceMgr">ResourceMgr</see> object.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.ResourceMgr.GetBoolean(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name">The name of a localized <c>bool</c>.</param>
+            <returns>A <c>bool</c> value in the default locale.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.ResourceMgr.GetBoolean(System.Globalization.CultureInfo,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="culture">A <see cref="T:System.Globalization.CultureInfo">CultureInfo</see> object.</param>
+            <param name="name">The name of a localized <c>bool</c>.</param>
+            <returns>A localized <c>bool</c>.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.ResourceMgr.GetByte(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name">The name of a localized <c>byte</c>.</param>
+            <returns>A <c>byte</c> value in the default locale.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.ResourceMgr.GetByte(System.Globalization.CultureInfo,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="culture">A <see cref="T:System.Globalization.CultureInfo">CultureInfo</see> object.</param>
+            <param name="name">The name of a localized <c>byte</c>.</param>
+            <returns>A localized <c>byte</c>.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.ResourceMgr.GetChar(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name">The name of a localized <c>char</c>.</param>
+            <returns>A <c>char</c> value in the default locale.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.ResourceMgr.GetChar(System.Globalization.CultureInfo,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="culture">A <see cref="T:System.Globalization.CultureInfo">CultureInfo</see> object.</param>
+            <param name="name">The name of a localized <c>char</c>.</param>
+            <returns>A localized <c>char</c>.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.ResourceMgr.GetDouble(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name">The name of a localized <c>double</c>.</param>
+            <returns>A <c>double</c> value in the default locale.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.ResourceMgr.GetDouble(System.Globalization.CultureInfo,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="culture">A <see cref="T:System.Globalization.CultureInfo">CultureInfo</see> object.</param>
+            <param name="name">The name of a localized <c>double</c>.</param>
+            <returns>A localized <c>double</c>.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.ResourceMgr.GetFloat(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name">The name of a localized <c>float</c>.</param>
+            <returns>A <c>float</c> value in the default locale.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.ResourceMgr.GetFloat(System.Globalization.CultureInfo,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="culture">A <see cref="T:System.Globalization.CultureInfo">CultureInfo</see> object.</param>
+            <param name="name">The name of a localized <c>float</c>.</param>
+            <returns>A localized <c>float</c>.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.ResourceMgr.GetInt(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name">The name of a localized <c>int</c>.</param>
+            <returns>An <c>int</c> value in the default locale.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.ResourceMgr.GetInt(System.Globalization.CultureInfo,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="culture">A <see cref="T:System.Globalization.CultureInfo">CultureInfo</see> object.</param>
+            <param name="name">The name of a localized <c>int</c>.</param>
+            <returns>A localized <c>int</c>.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.ResourceMgr.GetLong(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name">The name of a localized <c>long</c>.</param>
+            <returns>A <c>long</c> value in the default locale.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.ResourceMgr.GetLong(System.Globalization.CultureInfo,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="culture">A <see cref="T:System.Globalization.CultureInfo">CultureInfo</see> object.</param>
+            <param name="name">The name of a localized <c>long</c>.</param>
+            <returns>A localized <c>long</c>.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.ResourceMgr.GetObject(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name">The name of a localized <c>object</c>.</param>
+            <returns>An <c>object</c> value in the default locale.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.ResourceMgr.GetObject(System.Globalization.CultureInfo,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="culture">A <see cref="T:System.Globalization.CultureInfo">CultureInfo</see> object.</param>
+            <param name="name">The name of a localized <c>object</c>.</param>
+            <returns>A localized <c>object</c>.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.ResourceMgr.GetShort(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name">The name of a localized <c>short</c>.</param>
+            <returns>A <c>short</c> value in the default locale.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.ResourceMgr.GetShort(System.Globalization.CultureInfo,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="culture">A <see cref="T:System.Globalization.CultureInfo">CultureInfo</see> object.</param>
+            <param name="name">The name of a localized <c>short</c>.</param>
+            <returns>A localized short.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.ResourceMgr.GetString(System.String)">
+            <summary>
+            Returns a string resource localized using the default locale.
+            </summary>
+            <param name="name">The name of a localized <c>string</c>.</param>
+            <returns>A <c>string</c> value in the default locale.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.ResourceMgr.GetString(System.Globalization.CultureInfo,System.String)">
+            <summary>
+            Returns a string resource localized using the specified locale.
+            </summary>
+            <param name="culture">A <see cref="T:System.Globalization.CultureInfo">CultureInfo</see> object.</param>
+            <param name="name">The name of a localized <c>string</c>.</param>
+            <returns>A localized string.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.ResourceMgr.GetString(System.String,System.Object[])">
+            <summary>
+            Returns a formatted string resource localized using the default locale.
+            </summary>
+            <param name="name">The name of a localized <c>string</c>.</param>
+            <param name="args">An array of objects to format.</param>
+            <returns>A <c>string</c> value in the default locale.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.ResourceMgr.GetString(System.Globalization.CultureInfo,System.String,System.Object[])">
+            <summary>
+            Returns a formatted string resource localized using the specified locale.
+            </summary>
+            <param name="culture">A <see cref="T:System.Globalization.CultureInfo">CultureInfo</see> object.</param>
+            <param name="name">The name of a localized <c>string</c>.</param>
+            <param name="args">An array of objects to format.</param>
+            <returns>A localized string.</returns>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Impl.Configuration.XmlSectionSettingsBase">
+            <summary>
+            <c>XmlSectionSettingsBase</c> provides any class that derives from it the ability 
+            to reload itself with associated configuration data changes in the application 
+            configuration files.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.XmlSectionSettingsBase.LoadSettings(System.Xml.XmlNode)">
+            <summary>
+            Called by the XmlSerializationSectionHandler to deserialize a 
+            settings object for the first time. If that object inherits from 
+            XmlSectionSettingsBase, then we make it watch for changes to the 
+            config file.
+            </summary>
+            <param name="section"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.XmlSectionSettingsBase.UpdateChanges">
+            <summary>
+            Method that checks for changes to the config file. If changes are 
+            found, the settings are reloaded.  This should be called before 
+            access to each public property.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.XmlSectionSettingsBase.DeserializeSection(System.Xml.XmlNode)">
+            <summary>
+            Returns an object deserialized from an Xml Configuration Section.
+            </summary>
+            <param name="section">The configuration section containing the settings.</param>
+            <returns></returns>
+            <exception cref="T:System.Configuration.ConfigurationException">Invalid type specified.</exception>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.XmlSectionSettingsBase.WatchForConfigChanges">
+            <summary>
+            Sets up a file system watcher to watch for changes to the config file.
+            </summary>
+            <exception cref="T:System.Configuration.ConfigurationException">Configuration file could not be monitored for changes.</exception>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.XmlSectionSettingsBase.OnConfigChanged(System.Object,System.IO.FileSystemEventArgs)">
+            <summary>
+            Merely marks the fact that the configuration file has changed.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.XmlSectionSettingsBase.ReloadSettings">
+            <summary>
+            Reloads setting values from the configuration file.
+            </summary>
+            <exception cref="T:System.Configuration.ConfigurationException">Configuration section could not be found.</exception>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.XmlSectionSettingsBase.CopySettings(System.Object)">
+            <summary>
+            Updates the settings of this instance with the values 
+            of the new settings by copying public property values.
+            </summary>
+            <param name="newSettings"></param>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Impl.Configuration.XmlSerializerSectionHandler">
+            <summary>
+            <c>XmlSerializerSectionHandler</c> provides a flexible 
+            <see cref="T:System.Configuration.IConfigurationSectionHandler">configuration section handler</see> 
+            that uses XML serialization to convert XML within a configuration file (i.e. app.config) 
+            into an object.
+            </summary>
+            <remarks>
+            In you app.config file, you associate a named section of XML with its handling type
+            (i.e. section handler).
+            </remarks>
+            <example>
+            Here is an XML example of a named section declaration in app.config:
+            <code>
+            &lt;configuration&gt;
+               &lt;configSections&gt;
+                  &lt;section name="MySection" type="Emc.Documentum.FS.Runtime.Configuration, Emc.Documentum.FS.Runtime.Configuration" /&gt;
+               &lt;/configSections&gt;
+            &lt;/configuration&gt;
+            </code>
+            Here is an XML example of a named section definition in app.config:
+            <code>
+            &lt;configuration&gt;
+               &lt;MySection type="NameSpace.MyConfigSettingObject, MyAssembly"&gt;
+                  &lt;Foo&gt;1234&lt;/Foo&gt;
+                  &lt;Bar&gt;Blah&lt;/Bar&gt;
+                  &lt;Quux&gt;true&lt;/Quux&gt;
+               &lt;/MySection&gt;
+            &lt;/configuration&gt;
+            </code>
+            Here is a C# example of accessing custom configuration data from app.config:
+            <code>
+            NameSpace.MyConfigSettingObject myConfigSettings = (NameSpace.MyConfigSettingObject)System.Configuration.ConfigurationSettings.GetConfig("MySection");
+            </code>
+            </example>
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Impl.Configuration.XmlSerializerSectionHandler.System#Configuration#IConfigurationSectionHandler#Create(System.Object,System.Object,System.Xml.XmlNode)">
+            <summary>
+            Implemented by all configuration section handlers to parse the XML of the configuration 
+            section. The returned object is added to the configuration collection and is accessed 
+            by <see cref="M:System.Configuration.ConfigurationSettings.GetConfig(System.String)">GetConfig</see>.
+            </summary>
+            <param name="parent">The configuration settings in a corresponding parent configuration section.</param>
+            <param name="configContext">An HttpConfigurationContext when Create is called from the ASP.NET configuration system. Otherwise, this parameter is reserved and is a null reference.</param>
+            <param name="section">The <see cref="T:System.Xml.XmlNode">XmlNode</see> that contains the configuration information from the configuration file. Provides direct access to the XML contents of the configuration section.</param>
+            <returns>A configuration object.</returns>
+            <exception cref="T:System.Configuration.ConfigurationException">Configuration data could not be loaded.</exception>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Resources.Dfs_messages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Resources.Dfs_messages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Resources.Dfs_messages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Resources.Dfs_messages.E_CONFIG_MODULE_NOT_FOUND">
+            <summary>
+              Looks up a localized string similar to Specified module is not found. Please check your App.config file..
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Resources.Dfs_messages.E_DEFAULT_MODULE_NAME_IS_NULL">
+            <summary>
+              Looks up a localized string similar to Default module is null or empty. Please check your App.config file.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Resources.Dfs_messages.E_EXCEPTION_COULD_NOT_BE_DESERIALIZED">
+            <summary>
+              Looks up a localized string similar to Service exception could not be deserialized..
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Resources.Dfs_messages.E_INVOCATION_FAILED_MULTIPLE_HTTP_SESSIONS_PROVIDED">
+            <summary>
+              Looks up a localized string similar to Can not execute UCF call: provided HTTP session id &quot;{0}&quot; overrides original HTTP session id &quot;{1}&quot;. Please use original HTTP session for UCF calls. Doing otherwise will cause the call to fail in load-balanced environments..
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Resources.Dfs_messages.E_JAVA_EXE_MISSING">
+            <summary>
+              Looks up a localized string similar to Cant find java.exe at &quot;{0}&quot;.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Resources.Dfs_messages.E_JAVA_HOME_MISSING">
+            <summary>
+              Looks up a localized string similar to JAVA_HOME or JRE_HOME environment variable is not found..
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Resources.Dfs_messages.E_KRB_ENCODING_TYPE_NOT_SUPPORTED">
+            <summary>
+              Looks up a localized string similar to @EncodingType &apos;{0}&apos; not supported..
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Resources.Dfs_messages.E_KRB_NULL_SECURITY_TOKEN">
+            <summary>
+              Looks up a localized string similar to BinarySecurityToken should not be null.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Resources.Dfs_messages.E_KRB_NULL_TICKET">
+            <summary>
+              Looks up a localized string similar to Kerberos ticket should not be null.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Resources.Dfs_messages.E_KRB_VALUE_TYPE_NOT_SUPPORTED">
+            <summary>
+              Looks up a localized string similar to @ValueType &apos;{0}&apos; not supported..
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Resources.Dfs_messages.E_NO_JSESSIONID_COOKIE">
+            <summary>
+              Looks up a localized string similar to Service invocation did not return a HTTP session id cookie (JSESSIONID).
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Resources.Dfs_messages.E_SERVICE_CONTEXT_REGISTRATION_FAILED">
+            <summary>
+              Looks up a localized string similar to Failed registering service context to: &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Resources.Dfs_messages.E_SERVICE_METHOD_INVOCATION_FAILED">
+            <summary>
+              Looks up a localized string similar to Service method &quot;{0}&quot; invocation failed..
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Resources.Dfs_messages.E_TYPE_NOT_FOUND">
+            <summary>
+              Looks up a localized string similar to Required type &quot;{0}&quot; was not found and therefore could not be created..
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Resources.Dfs_messages.E_UCF_FAILED_TO_RETRIEVE_SESSION_ID">
+            <summary>
+              Looks up a localized string similar to Failed to retrieve session id from AgentService at &quot;{0}&quot;.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Resources.Dfs_messages.E_UCF_FAILED_TO_RETRIEVE_UCF_ID">
+            <summary>
+              Looks up a localized string similar to Failed to retrieve UCF id..
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Resources.UcfLauncher">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Resources.UcfLauncher.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.Resources.UcfLauncher.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Services.AgentServicePort">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.AgentServicePort.getHttpSessionId(Emc.Documentum.FS.Runtime.Services.getHttpSessionIdRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.AgentServicePort.getStatus(Emc.Documentum.FS.Runtime.Services.getStatusRequest)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Services.getHttpSessionIdRequest">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.getHttpSessionIdRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Services.getHttpSessionIdResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Runtime.Services.getHttpSessionIdResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.getHttpSessionIdResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.getHttpSessionIdResponse.#ctor(System.String)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Services.getStatusRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Runtime.Services.getStatusRequest.activityInfo">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.getStatusRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.getStatusRequest.#ctor(Emc.Documentum.FS.DataModel.Core.Content.ActivityInfo)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Services.getStatusResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Runtime.Services.getStatusResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.getStatusResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.getStatusResponse.#ctor(Emc.Documentum.FS.DataModel.Core.Content.ProgressInfo)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Services.AgentServicePortChannel">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Services.AgentServicePortClient">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.AgentServicePortClient.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.AgentServicePortClient.#ctor(System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.AgentServicePortClient.#ctor(System.String,System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.AgentServicePortClient.#ctor(System.String,System.ServiceModel.EndpointAddress)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.AgentServicePortClient.#ctor(System.ServiceModel.Channels.Binding,System.ServiceModel.EndpointAddress)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.AgentServicePortClient.getHttpSessionId">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.AgentServicePortClient.getStatus(Emc.Documentum.FS.DataModel.Core.Content.ActivityInfo)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Services.ContextRegistryServicePort">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.ContextRegistryServicePort.register(Emc.Documentum.FS.Runtime.Services.registerRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.ContextRegistryServicePort.lookup(Emc.Documentum.FS.Runtime.Services.lookupRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.ContextRegistryServicePort.unregister(Emc.Documentum.FS.Runtime.Services.unregisterRequest)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Services.registerRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Runtime.Services.registerRequest.context">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Runtime.Services.registerRequest.host">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.registerRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.registerRequest.#ctor(Emc.Documentum.FS.DataModel.Core.Context.ServiceContext,System.String)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Services.registerResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Runtime.Services.registerResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.registerResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.registerResponse.#ctor(System.String)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Services.lookupRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Runtime.Services.lookupRequest.token">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.lookupRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.lookupRequest.#ctor(System.String)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Services.lookupResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Runtime.Services.lookupResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.lookupResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.lookupResponse.#ctor(Emc.Documentum.FS.DataModel.Core.Context.ServiceContext)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Services.unregisterRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Runtime.Services.unregisterRequest.token">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.unregisterRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.unregisterRequest.#ctor(System.String)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Services.unregisterResponse">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.unregisterResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Services.ContextRegistryServicePortChannel">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.Services.ContextRegistryServicePortClient">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.ContextRegistryServicePortClient.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.ContextRegistryServicePortClient.#ctor(System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.ContextRegistryServicePortClient.#ctor(System.String,System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.ContextRegistryServicePortClient.#ctor(System.String,System.ServiceModel.EndpointAddress)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.ContextRegistryServicePortClient.#ctor(System.ServiceModel.Channels.Binding,System.ServiceModel.EndpointAddress)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.ContextRegistryServicePortClient.register(Emc.Documentum.FS.DataModel.Core.Context.ServiceContext,System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.ContextRegistryServicePortClient.lookup(System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.Services.ContextRegistryServicePortClient.unregister(System.String)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.DfsBaseException">
+            <summary>
+            Base class for DFS .NET exceptions.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.DfsBaseException.#ctor(System.String)">
+            <summary>
+            Creates exception
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.DfsBaseException.#ctor(System.String,System.Object[])">
+            <summary>
+            Creates exception
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.DfsBaseException.#ctor(System.String,System.Exception,System.Object[])">
+            <summary>
+            Creates chained exception
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.DfsBaseException.#ctor(System.String,System.Exception)">
+            <summary>
+            Creates chained exception
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.DfsBaseException.#ctor(System.Exception)">
+            <summary>
+            Creates chained exception
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.SerializableException">
+            <summary>
+            SerializableException is used for storing raised exception details and transferring them through SOAP<p/>
+            Private implementation.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.SerializableException.ReadXml(System.Xml.XmlReader)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.SerializableException.WriteXml(System.Xml.XmlWriter)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.SerializableException.GetSchema">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.SerializableException.ExportSchema(System.Xml.Schema.XmlSchemaSet)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.SerializableException.GetMessageId">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.SerializableException.GetExceptionType">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.SerializableException.Nodes">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.ServiceException">
+            <summary>
+            ServiceException is used for storing raised exception details and transferring them through SOAP<p/>
+            Private implementation.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.ServiceException.ReadXml(System.Xml.XmlReader)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.ServiceException.WriteXml(System.Xml.XmlWriter)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.ServiceException.GetSchema">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.ServiceException.ExportSchema(System.Xml.Schema.XmlSchemaSet)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.ServiceException.GetMessageId">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.ServiceException.GetExceptionType">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.Runtime.ServiceException.Nodes">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.ServiceInstantiationException">
+            <summary>
+            Exception which is raised when service could not be instantiated
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.ServiceInvocationException">
+            <summary>
+            Exception which is raised when service invocation fails.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.ServiceInvocationException.#ctor(System.String)">
+            <summary>
+            Creates exception
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.ServiceInvocationException.#ctor(System.String,System.Object[])">
+            <summary>
+            Creates exception
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.ServiceInvocationException.#ctor(System.String,System.Exception,System.Object[])">
+            <summary>
+            Creates chained exception
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.ServiceInvocationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Creates chained exception
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.ServiceInvocationException.#ctor(System.Exception)">
+            <summary>
+            Creates chained exception
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.ServiceInvocationException.GetMessageId">
+            <summary>
+            Returns the unique exception error code
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.ServiceInstantiationException.#ctor(System.String)">
+            <summary>
+            Creates exception
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.ServiceInstantiationException.#ctor(System.String,System.Object[])">
+            <summary>
+            Creates exception
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.ServiceInstantiationException.#ctor(System.String,System.Exception,System.Object[])">
+            <summary>
+            Creates chained exception
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.ServiceInstantiationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Creates chained exception
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.ServiceInstantiationException.#ctor(System.Exception)">
+            <summary>
+            Creates chained exception
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.Runtime.ServiceRegistrationException">
+            <summary>
+            Exception which is raised when service context registration fails
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.ServiceRegistrationException.#ctor(System.String)">
+            <summary>
+            Creates exception
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.ServiceRegistrationException.#ctor(System.String,System.Object[])">
+            <summary>
+            Creates exception
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.ServiceRegistrationException.#ctor(System.String,System.Exception,System.Object[])">
+            <summary>
+            Creates chained exception
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.ServiceRegistrationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Creates chained exception
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Runtime.ServiceRegistrationException.#ctor(System.Exception)">
+            <summary>
+            Creates chained exception
+            </summary>
+        </member>
+    </members>
+</doc>

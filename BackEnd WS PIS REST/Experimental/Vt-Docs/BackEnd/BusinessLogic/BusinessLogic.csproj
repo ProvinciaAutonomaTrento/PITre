@@ -1,0 +1,1006 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FDE4CB26-1F10-464B-8913-0D9E2BD0C72A}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>BusinessLogic</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>BusinessLogic</RootNamespace>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <PublishUrl>http://localhost/BusinessLogic/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>0</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="ActiveUp.Net.Common">
+      <HintPath>..\..\DLL_TERZE_PARTI\MailSystem.net\ActiveUp.Net.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ActiveUp.Net.Imap4">
+      <HintPath>..\..\DLL_TERZE_PARTI\MailSystem.net\ActiveUp.Net.Imap4.dll</HintPath>
+    </Reference>
+    <Reference Include="ActiveUp.Net.Mail">
+      <HintPath>..\..\DLL_TERZE_PARTI\MailSystem.net\ActiveUp.Net.Mail.dll</HintPath>
+    </Reference>
+    <Reference Include="ActiveUp.Net.Pop3">
+      <HintPath>..\..\DLL_TERZE_PARTI\MailSystem.net\ActiveUp.Net.Pop3.dll</HintPath>
+    </Reference>
+    <Reference Include="ActiveUp.Net.Smtp">
+      <HintPath>..\..\DLL_TERZE_PARTI\MailSystem.net\ActiveUp.Net.Smtp.dll</HintPath>
+    </Reference>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\..\DLL_TERZE_PARTI\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="AODL">
+      <HintPath>..\..\DLL_TERZE_PARTI\AODL.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Pdf">
+      <HintPath>..\..\DLL_TERZE_PARTI\Aspose.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Slides">
+      <HintPath>..\..\DLL_TERZE_PARTI\Aspose.Slides.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto">
+      <HintPath>..\..\DLL_TERZE_PARTI\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="ChilkatDotNet46">
+      <HintPath>..\..\DLL_TERZE_PARTI\ChilKat46\ChilkatDotNet46.dll</HintPath>
+    </Reference>
+    <Reference Include="DPA.Acrobat7.PdfConverter">
+      <HintPath>..\..\DLL_TERZE_PARTI\DPA.Acrobat7.PdfConverter.dll</HintPath>
+    </Reference>
+    <Reference Include="DPA.BouncyCastle">
+      <HintPath>..\..\DLL_TERZE_PARTI\DPA.BouncyCastle.dll</HintPath>
+    </Reference>
+    <Reference Include="DPA.Common">
+      <HintPath>..\..\DLL_TERZE_PARTI\DPA.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="DPA.EZTwain.PdfConverter">
+      <HintPath>..\..\DLL_TERZE_PARTI\DPA.EZTwain.PdfConverter.dll</HintPath>
+    </Reference>
+    <Reference Include="DPA.ITextSharp.PdfConverter">
+      <HintPath>..\..\DLL_TERZE_PARTI\DPA.ITextSharp.PdfConverter.dll</HintPath>
+    </Reference>
+    <Reference Include="DPA.PdfSharp.PdfConverter">
+      <HintPath>..\..\DLL_TERZE_PARTI\DPA.PdfSharp.PdfConverter.dll</HintPath>
+    </Reference>
+    <Reference Include="DPA.UI.Scanner.EZTwain">
+      <HintPath>..\..\DLL_TERZE_PARTI\DPA.UI.Scanner.EZTwain.dll</HintPath>
+    </Reference>
+    <Reference Include="Emc.Documentum.FS.DataModel">
+      <HintPath>..\..\DLL_TERZE_PARTI\Emc.Documentum.FS.DataModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Emc.Documentum.FS.DataModel.Core">
+      <HintPath>..\..\DLL_TERZE_PARTI\DLL_EMC\Emc.Documentum.FS.DataModel.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Emc.Documentum.FS.DataModel.Shared">
+      <HintPath>..\..\DLL_TERZE_PARTI\DLL_EMC\Emc.Documentum.FS.DataModel.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Emc.Documentum.FS.Runtime">
+      <HintPath>..\..\DLL_TERZE_PARTI\DLL_EMC\Emc.Documentum.FS.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Emc.Documentum.FS.Services">
+      <HintPath>..\..\DLL_TERZE_PARTI\Emc.Documentum.FS.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="Emc.Documentum.FS.Services.Core">
+      <HintPath>..\..\DLL_TERZE_PARTI\DLL_EMC\Emc.Documentum.FS.Services.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Emc.Documentum.FS.Services.Search">
+      <HintPath>..\..\DLL_TERZE_PARTI\DLL_EMC\Emc.Documentum.FS.Services.Search.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelXmlWriter">
+      <HintPath>..\..\DLL_TERZE_PARTI\ExcelXmlWriter.dll</HintPath>
+    </Reference>
+    <Reference Include="FileTypeFinder">
+      <HintPath>..\..\DLL_TERZE_PARTI\FileTypeFinder.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.5.452, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DLL_TERZE_PARTI\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.ZfLib">
+      <Name>Interop.ZfLib</Name>
+      <HintPath>..\..\DLL_TERZE_PARTI\Interop.ZfLib.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Interoperability.Controller, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DLL_TERZE_PARTI\Interoperabilita_Semplificata\Interoperability.Controller.dll</HintPath>
+    </Reference>
+    <Reference Include="Interoperability.Domain, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DLL_TERZE_PARTI\Interoperabilita_Semplificata\Interoperability.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="Interoperability.ProofGenerator">
+      <HintPath>..\..\DLL_TERZE_PARTI\Interoperabilita_Semplificata\Interoperability.ProofGenerator.dll</HintPath>
+    </Reference>
+    <Reference Include="Interoperability.Service.Library, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DLL_TERZE_PARTI\Interoperabilita_Semplificata\Interoperability.Service.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=4.1.6.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DLL_TERZE_PARTI\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\DLL_TERZE_PARTI\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Services2">
+      <HintPath>..\..\DLL_TERZE_PARTI\Microsoft.Web.Services2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Services3, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.Web.Services3.dll</HintPath>
+    </Reference>
+    <Reference Include="PDFLinearizator">
+      <HintPath>..\..\DLL_TERZE_PARTI\Linearizzazione\$(Platform)\PDFLinearizator.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.Protocols" />
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Name>System.Web.Services</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <ProjectReference Include="..\..\DocsPA3xSolution\InfoCertSignerConnector\InfoCertSignerConnector.csproj">
+      <Project>{531c9431-634e-4310-bf8f-33717ac50729}</Project>
+      <Name>InfoCertSignerConnector</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\InlineConverterEngine.Proxy\InlineConverterEngine.Proxy.csproj">
+      <Project>{CC328C7A-7B13-4EE6-B577-AAEBDABF69AD}</Project>
+      <Name>InlineConverterEngine.Proxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Rubrica.Proxy\RubricaComune.Proxy.csproj">
+      <Project>{320E87AF-BC9B-45AD-A7FF-07E6A3A1E3F7}</Project>
+      <Name>RubricaComune.Proxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DocsPaAS400\DocsPaAS400.csproj">
+      <Name>DocsPaAS400</Name>
+      <Project>{FC21F34A-BFED-4D38-BF06-024A04958523}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\DocsPaDB\DocsPaDB.csproj">
+      <Name>DocsPaDB</Name>
+      <Project>{5CFF0911-B6D1-4F98-A9EA-3034E188F68B}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\DocsPaDigitalSignature\DocsPaDigitalSignature.csproj">
+      <Name>DocsPaDigitalSignature</Name>
+      <Project>{9990A8BE-92EC-4657-863D-9D23665FB3C4}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\DocsPaDocumentale\DocsPaDocumentale.csproj">
+      <Project>{823EB656-10AC-4B13-9B79-C4B0E20E81E1}</Project>
+      <Name>DocsPaDocumentale</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DOCSPADOCUMENTALE\DocsPaDocumentale_Interfaces\DocsPaDocumentale_Interfaces.csproj">
+      <Project>{CD584E33-6EE7-4C62-B465-3A2A3A320C88}</Project>
+      <Name>DocsPaDocumentale_Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DocsPaLdapServices\DocsPaLdapServices.csproj">
+      <Project>{83A164ED-DE16-44F2-9C69-2BEBE32ACCB8}</Project>
+      <Name>DocsPaLdapServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DocsPaPwdServices\DocsPaPwdServices.csproj">
+      <Project>{7BB57997-1152-4864-AB67-4ADFA1A04108}</Project>
+      <Name>DocsPaPwdServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DocsPaStampe\StampaPDF\StampaPDF.csproj">
+      <Name>StampaPDF</Name>
+      <Project>{B541E965-8EC1-419C-8550-1BB5E30D26C8}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\DocsPaUtils\DocsPaUtils.csproj">
+      <Name>DocsPaUtils</Name>
+      <Project>{942AD652-BCF7-44CA-AE38-CF0CDA8E0D16}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\DocsPaVO\DocsPaVO.csproj">
+      <Name>DocsPaVO</Name>
+      <Project>{A8BA40A6-AB86-4DF7-8C0F-8A9BBB7EE885}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\DocsPa_I_TSAuthority\DocsPa_I_TSAuthority.csproj">
+      <Project>{BC181B10-8483-4121-99A8-913A376EF3A0}</Project>
+      <Name>DocsPa_I_TSAuthority</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DocsPa_TSAuthority\DocsPa_TSAuthority.csproj">
+      <Project>{23B0B679-F0AB-46BF-9887-61067D7C50D8}</Project>
+      <Name>DocsPa_TSAuthority</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DocsPa_TSAuthority_InfoTN\DocsPa_TSAuthority_InfoTN.csproj">
+      <Project>{3043B3B0-6DC0-461C-BA52-202BDF7C8BA0}</Project>
+      <Name>DocsPa_TSAuthority_InfoTN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FatturazioneElettronica\SdiConnector\SdiConnector.csproj">
+      <Project>{436AB008-18B7-4C99-B75D-84C938205619}</Project>
+      <Name>SdiConnector</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LiveCycle\LiveCycle.csproj">
+      <Project>{4240BF16-0E74-4F14-A1A2-C5C315168D26}</Project>
+      <Name>LiveCycle</Name>
+    </ProjectReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+    </COMReference>
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\VersionInfo.cs">
+      <Link>VersionInfo.cs</Link>
+    </Compile>
+    <Compile Include="AcquisizioneMassiva\Configurations.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AcquisizioneMassiva\PutFileHelper.cs" />
+    <Compile Include="AmministrazioneXml\AmministrazioniXml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AmministrazioneXml\ErrorCode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AmministrazioneXml\FunzioniXml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AmministrazioneXml\ImporterXml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AmministrazioneXml\OrganigrammaXml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AmministrazioneXml\RagioniTrasmissioneXml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AmministrazioneXml\RegistriXml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AmministrazioneXml\RuoliXml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AmministrazioneXml\ServerXml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AmministrazioneXml\TitolarioXml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AmministrazioneXml\UserData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AmministrazioneXml\UtentiXml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Amministrazione\AmministraManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Amministrazione\AssertionEventManager.cs" />
+    <Compile Include="Amministrazione\DocumentoStatoFinaleManager.cs" />
+    <Compile Include="Amministrazione\ImportOrganigrammaManager.cs" />
+    <Compile Include="Amministrazione\ImportPregressiManager.cs" />
+    <Compile Include="Amministrazione\MezziSpedizioneManager.cs" />
+    <Compile Include="Amministrazione\FunzioniManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Amministrazione\OrganigrammaManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Amministrazione\RagioniTrasmissioneManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Amministrazione\RegistroManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Amministrazione\SistemiEsterni.cs" />
+    <Compile Include="Amministrazione\StruttureSottofascicoliManager.cs" />
+    <Compile Include="Amministrazione\TipiFunzioneManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Amministrazione\TipiRuoloManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Amministrazione\TitolarioManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Amministrazione\UOManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Amministrazione\UtenteManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Application\ProtocollazioneInterna.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Application\Startup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AS400\AS400.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CheckInOut\CheckInOutAdminServices.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CheckInOut\CheckInOutCache.cs" />
+    <Compile Include="CheckInOut\CheckInOutModels.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CheckInOut\CheckInOutServices.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Conservazione\AmmConservazioneManager.cs" />
+    <Compile Include="Conservazione\ConservazioneManager.cs" />
+    <Compile Include="Conservazione\EsibizioneManager.cs" />
+    <Compile Include="Conservazione\PARER\PolicyPARERManager.cs" />
+    <Compile Include="Conservazione\Policy\PolicyManager.cs" />
+    <Compile Include="Deleghe\DelegheManager.cs" />
+    <Compile Include="Deleghe\ModelliDelegaManager.cs" />
+    <Compile Include="Deposito\ArchiveManager.cs" />
+    <Compile Include="DesktopApps\DesktopAppsManager.cs" />
+    <Compile Include="Diagnostics\Database.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagrammiStato\DiagrammiStato.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documenti\CacheFileManager.cs" />
+    <Compile Include="Documenti\DocumentConsolidation.cs" />
+    <Compile Include="Documenti\EtichetteManager.cs" />
+    <Compile Include="Documenti\PDFParser.cs" />
+    <Compile Include="Documenti\TimestampManager.cs" />
+    <Compile Include="Documenti\VersioniRemoveHandler.cs" />
+    <Compile Include="ExportDati\OpenDocumentServices.cs" />
+    <Compile Include="ExternalServices\ExternalServicesManager.cs" />
+    <Compile Include="Fatturazione\FatturazioneManager.cs" />
+    <Compile Include="FlussoAutomatico\FlussoAutomaticoManager.cs" />
+    <Compile Include="Grids\GridManager.cs" />
+    <Compile Include="ExportDati\ModelDataProcessor.cs" />
+    <Compile Include="Import\CorrispondenteInfo.cs" />
+    <Compile Include="Import\ImportPregressi\PregressiManager.cs" />
+    <Compile Include="Import\Template\Builders\TemplateBuilder.cs" />
+    <Compile Include="Import\ImportAddressBook\ImportAddressBook.cs" />
+    <Compile Include="Import\ImportDocuments\DocumentType\Attachment.cs" />
+    <Compile Include="Import\ImportDocuments\DocumentType\Document.cs" />
+    <Compile Include="Import\ImportDocuments\DocumentType\InDocument.cs" />
+    <Compile Include="Import\ImportDocuments\DocumentType\OwnDocument.cs" />
+    <Compile Include="Import\ImportDocuments\DocumentType\GrayDocument.cs" />
+    <Compile Include="Import\ImportDocuments\DocumentType\OutDocument.cs" />
+    <Compile Include="Import\ImportDocuments\ImportDocumentsManager.cs" />
+    <Compile Include="Documenti\AllegatiManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documenti\ArchivioManager.cs" />
+    <Compile Include="Documenti\areaConservazioneManager.cs" />
+    <Compile Include="Documenti\areaLavoroManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documenti\CateneDocManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documenti\DocManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documenti\DocSave.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documenti\FileManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documenti\InfoDocManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documenti\Oggettario.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documenti\ParoleManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documenti\PdfConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documenti\ProtocolloEmergenza.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documenti\ProtocolloUscitaManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documenti\ProtoManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documenti\SessionRepositoryInstance.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documenti\SignedFileManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ExportFascicolo\ExportFascicoloManager.cs" />
+    <Compile Include="fascicoli\AreaScartoManager.cs" />
+    <Compile Include="fascicoli\IndiceSistematico.cs" />
+    <Compile Include="FormatiDocumento\Configurations.cs" />
+    <Compile Include="FormatiDocumento\DocumentModelsManager.cs" />
+    <Compile Include="FormatiDocumento\SupportedFormatsManager.cs" />
+    <Compile Include="Documenti\VerificaFirma.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documenti\VersioniManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ExportDati\ExportDatiManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FascicolazioneCartacea\FascicolazioneCartaceaServices.cs" />
+    <Compile Include="FascicolazioneCartacea\FascicolazioneCartaceaSnapshotServices.cs" />
+    <Compile Include="fascicoli\FascicoloManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fascicoli\FolderManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fascicoli\ProjectsManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fascicoli\TitolarioManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FriendApplication\FriendApplicationManager.cs" />
+    <Compile Include="Import\ImportNote\ImportNote.cs" />
+    <Compile Include="Import\ImportUtils.cs" />
+    <Compile Include="Import\RDE\ImportRDE.cs" />
+    <Compile Include="Import\Template\Builders\RtfBuilder.cs" />
+    <Compile Include="Import\Template\TemplateManager.cs" />
+    <Compile Include="Import\ZipBuilder.cs" />
+    <Compile Include="InstanceAccess\InstanceAccessManager.cs" />
+    <Compile Include="InstanceAccess\staticfiles\WriteStaticFiles.cs" />
+    <Compile Include="InstanceAccess\XmlDocument.cs" />
+    <Compile Include="InstanceAccess\XmlInstance.cs" />
+    <Compile Include="interoperabilita\CalendarMail\iCalendar\AlertInfo.cs" />
+    <Compile Include="interoperabilita\CalendarMail\iCalendar\Appointment.cs" />
+    <Compile Include="interoperabilita\CalendarMail\iCalendar\AppointmentInfo.cs" />
+    <Compile Include="interoperabilita\CalendarMail\iCalendar\AppointmentMethodTypes.cs" />
+    <Compile Include="interoperabilita\CalendarMail\iCalendar\AppointmentStatusTypes.cs" />
+    <Compile Include="interoperabilita\CalendarMail\iCalendar\AppontimentParamAttribute.cs" />
+    <Compile Include="interoperabilita\CalendarMail\iCalendar\UidGenerator.cs" />
+    <Compile Include="interoperabilita\CalendarMail\MailBodyFormatter.cs" />
+    <Compile Include="interoperabilita\CalendarMail\MailDispatcher.cs" />
+    <Compile Include="interoperabilita\CalendarMail\MailRequest.cs" />
+    <Compile Include="interoperabilita\CalendarMail\MailSender.cs" />
+    <Compile Include="interoperabilita\Chilkat\ChilkatEmailComponent.cs" />
+    <Compile Include="interoperabilita\Chilkat\ChilkatKeys.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="interoperabilita\Chilkat\InteropSvrPosta_CK.cs" />
+    <Compile Include="interoperabilita\InteroperabilitaEccezioni.cs" />
+    <Compile Include="interoperabilita\Fax\FaxInvio.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="interoperabilita\Fax\FaxManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="interoperabilita\InteroperabilitaInternaTrasmissioneSelettiva.cs" />
+    <Compile Include="interoperabilita\InteroperabilitaSendXmlInAttach.cs" />
+    <Compile Include="interoperabilita\MailProcessor.cs" />
+    <Compile Include="interoperabilita\IMailConnector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="interoperabilita\InteroperabilitaControlloRicevute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="interoperabilita\InteroperabilitaInvioAnnullamento.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="interoperabilita\InteroperabilitaInvioRicevuta.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="interoperabilita\InteroperabilitaInvioSegnatura.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="interoperabilita\InteroperabilitaManager.cs" />
+    <Compile Include="interoperabilita\InteroperabilitaNotificaAnnullamento.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="interoperabilita\InteroperabilitaRicezione.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="interoperabilita\InteroperabilitaSegnatura.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="interoperabilita\InteroperabilitaUtils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="interoperabilita\InteropResolver.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="interoperabilita\InteropSvrPosta.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="interoperabilita\Log\LogCheckMail.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="interoperabilita\MailSystem.NET\InteropSvrPosta_MS.cs" />
+    <Compile Include="interoperabilita\MailSystem.NET\RFC2047Decoder.cs" />
+    <Compile Include="interoperabilita\Notifica.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="interoperabilita\SegnaturaClass.cs" />
+    <Compile Include="interoperabilita\Semplificata\Exceptions\CreatingDocumentException.cs" />
+    <Compile Include="interoperabilita\Semplificata\Exceptions\DownloadDocumentException.cs" />
+    <Compile Include="interoperabilita\Semplificata\Exceptions\ExecuteTransmission.cs" />
+    <Compile Include="interoperabilita\Semplificata\Exceptions\RegistryNotInteroperable.cs" />
+    <Compile Include="interoperabilita\Semplificata\Exceptions\RetrivingSenderInfoException.cs" />
+    <Compile Include="interoperabilita\Semplificata\Exceptions\RetrivingSomeTransmissionReceiverException.cs" />
+    <Compile Include="interoperabilita\Semplificata\Exceptions\RetrivingTransmissionReceiver.cs" />
+    <Compile Include="interoperabilita\Semplificata\Exceptions\SaveMessageReferenceException.cs" />
+    <Compile Include="interoperabilita\Semplificata\Exceptions\SenderNotInteroperableException.cs" />
+    <Compile Include="interoperabilita\Semplificata\Exceptions\SimplifiedInteroperabilityException.cs" />
+    <Compile Include="interoperabilita\Semplificata\Exceptions\SimplifiedInteroperabilityLoadSettings.cs" />
+    <Compile Include="interoperabilita\Semplificata\Exceptions\SimplifiedInteroperabilitySaveSettingsException.cs" />
+    <Compile Include="interoperabilita\Semplificata\InteroperabilitaSemplificataHelper.cs" />
+    <Compile Include="interoperabilita\Semplificata\InteroperabilitaSemplificataManager.cs" />
+    <Compile Include="interoperabilita\Semplificata\SimplifiedInteroperabilityFileManager.cs" />
+    <Compile Include="interoperabilita\Semplificata\SimplifiedInteroperabilityLogAndRegistryManager.cs" />
+    <Compile Include="interoperabilita\Semplificata\SimplifiedInteroperabilityMessageDeliveredProofManager.cs" />
+    <Compile Include="interoperabilita\Semplificata\SimplifiedInteroperabilityMessageUndeliveredProofManager.cs" />
+    <Compile Include="interoperabilita\Semplificata\SimplifiedInteroperabilityProtoManager.cs" />
+    <Compile Include="interoperabilita\Semplificata\SimplifiedInteroperabilityRecordDroppedAndExceptionManager.cs" />
+    <Compile Include="interoperabilita\Semplificata\SimplifiedInteroperabilityRequestManager.cs" />
+    <Compile Include="interoperabilita\TrasmUnoTuttiInteroperabilita.cs" />
+    <Compile Include="Ldap\LdapConfigurationsServices.cs" />
+    <Compile Include="Ldap\LdapUserConfigurationServices.cs" />
+    <Compile Include="Ldap\LdapUserSyncronizationServices.cs" />
+    <Compile Include="LibroFirma\LibroFirmaManager.cs" />
+    <Compile Include="LiveCycle\IDpaConnector.cs" />
+    <Compile Include="LiveCycle\LiveCyclePdfConverter.cs" />
+    <Compile Include="LiveCycle\LiveCycle.cs" />
+    <Compile Include="Mobile\VerifyUpdate.cs" />
+    <Compile Include="Mobile\DocManager.cs" />
+    <Compile Include="Mobile\RubricaManager.cs" />
+    <Compile Include="Modelli\AsposeModelProcessor\PdfModelProcessor.cs" />
+    <Compile Include="Modelli\AsposeModelProcessor\PptModelProcessor.cs" />
+    <Compile Include="Modelli\DocModelProcessor.cs" />
+    <Compile Include="Modelli\ModelProcessor.cs" />
+    <Compile Include="Modelli\ModelliManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modelli\BaseDocModelProcessor.cs" />
+    <Compile Include="Modelli\StampaRicevuteDocModelProcessor.cs" />
+    <Compile Include="Modelli\StampaRicevutaProtocolloPdf.cs" />
+    <Compile Include="MText\MText.cs" />
+    <Compile Include="Note\NoteManager.cs" />
+    <Compile Include="Plugin\PluginHashBL.cs" />
+    <Compile Include="Reporting\AmmExportMacroFunzioniReportGeneratorCommand.cs" />
+    <Compile Include="Reporting\AmmExportMicroFunzioniReportGeneratorCommand.cs" />
+    <Compile Include="Reporting\AmmExportPolicyPARERReportGeneratorCommand.cs" />
+    <Compile Include="Reporting\CertificazioneIstanzaEsibizioneReportGeneratorCommand.cs" />
+    <Compile Include="Reporting\EsecuzionePolicyPARERReportGeneratorCommand.cs" />
+    <Compile Include="Reporting\ExportLogConservazioneReportGeneratorCommand.cs" />
+    <Compile Include="Reporting\ExportRubricaReportGeneratorCommand.cs" />
+    <Compile Include="Reporting\ExportRubricaSearchReportGeneratorCommand.cs" />
+    <Compile Include="Reporting\NotificheChiusuraReportGeneratorCommand.cs" />
+    <Compile Include="Reporting\NotificheRifiutoReportGeneratorCommand.cs" />
+    <Compile Include="Reporting\ReportVersamentiPAREREmptyReportGeneratorCommand.cs" />
+    <Compile Include="Reporting\ReportVersamentiReportGeneratorCommand.cs" />
+    <Compile Include="Reporting\RigenerazioneIstanzaReportGeneratorCommand.cs" />
+    <Compile Include="Reporting\StampeRegistroConservazioneReportGeneratorCommand.cs" />
+    <Compile Include="Reporting\ReportIstanzeDiConservazioneGeneratorCommand.cs" />
+    <Compile Include="Reporting\ElencoSpedizioniReportGeneratorCommand.cs" />
+    <Compile Include="Reporting\ReportStoriaDocumentiGeneratorCommand.cs" />
+    <Compile Include="Reporting\ReportStoriaIstanzeGeneratorCommand.cs" />
+    <Compile Include="Reporting\ReportVerificheFaseInPresaGeneratorCommand.cs" />
+    <Compile Include="Reporting\ReportVerifichePeriodicheIstanzeGeneratorCommand.cs" />
+    <Compile Include="Reporting\VerificaFormatiConservazioneReportGeneratorCommand.cs" />
+    <Compile Include="ServiceNotifications\Notification.cs" />
+    <Compile Include="NotificationCenter\NotificationCenterHelper.cs" />
+    <Compile Include="Oggettario\OggettarioManager.cs" />
+    <Compile Include="ProfilazioneAvanzata\ProfilazioneAvanzata.cs" />
+    <Compile Include="ProfilazioneDinamica\ProfilazioneDocumenti.cs" />
+    <Compile Include="ProfilazioneDinamica\ProfilazioneFascicoli.cs" />
+    <Compile Include="Import\ImportProjects\ImportProjects.cs" />
+    <Compile Include="ProfilazioneDinamica\RicercaCampiComuni.cs" />
+    <Compile Include="Pubblicazione\PubblicazioneDocumenti.cs" />
+    <Compile Include="Pubblicazione\Utils.cs" />
+    <Compile Include="RDE\Rde.cs" />
+    <Compile Include="Reporting\Behaviors\DataExtraction\DatasetReportDataExtractionBehavior.cs" />
+    <Compile Include="Reporting\Behaviors\DataExtraction\Exceptions\DataExtractorNotFoundException.cs" />
+    <Compile Include="Reporting\Behaviors\DataExtraction\ObjectTrasformationDataExtractionBehavior.cs" />
+    <Compile Include="Reporting\Behaviors\DataExtraction\QueryListReportDataExtractionBehavior.cs" />
+    <Compile Include="Reporting\Behaviors\DataExtraction\IReportDataExtractionBehavior.cs" />
+    <Compile Include="Reporting\Behaviors\ReportGenerator\ExcelReportGeneratorBehavior.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Reporting\Behaviors\ReportGenerator\IReportGeneratorBehavior.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Reporting\Behaviors\ReportGenerator\OdsReportGeneratorBehavior.cs" />
+    <Compile Include="Reporting\Behaviors\ReportGenerator\PdfReportGeneratorBehavior.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Reporting\CasellaIstituzionaleReportGenerator.cs" />
+    <Compile Include="Reporting\ConsistenzaOrganigrammaReportGeneratorCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Reporting\CopiaVisibilitaReportCommand.cs" />
+    <Compile Include="Reporting\DecretiInEsameReportGeneratorCommand.cs" />
+    <Compile Include="Reporting\DecretiInEsameSRCReportGeneratorCommand.cs" />
+    <Compile Include="Reporting\DecretiPervenutiInIntTemporaleReportGeneratorCommand.cs" />
+    <Compile Include="Reporting\DecretiPervenutiInIntTemporaleSRCReportGeneratorCommand.cs" />
+    <Compile Include="Reporting\DecretiPervenutiInIntTemporaleSuccSCCLAGeneratorCommand.cs" />
+    <Compile Include="Reporting\ElencoDecretiRestituitiConRilievoSCCLAReportGeneratorCommand.cs" />
+    <Compile Include="Reporting\ElencoDecretiRestituitiConRilievoSCCLASuccReportGeneratorCommand.cs" />
+    <Compile Include="Reporting\ElencoDecretiRestituitiConRilievoSRCReportGeneratorCommand.cs" />
+    <Compile Include="Reporting\ElencoDecretiRestituitiSCCLAReportGeneratorCommand.cs" />
+    <Compile Include="Reporting\ElencoDecretiRestituitiSCCLASuccReportGenerator.cs" />
+    <Compile Include="Reporting\ElencoDecretiRestituitiSRCReportGeneratorCommand.cs" />
+    <Compile Include="Reporting\ElencoDecretiSCCLAReportGeneratorCommand.cs" />
+    <Compile Include="Reporting\ElencoDecretiSCCLAReportSuccGeneratorCommand.cs" />
+    <Compile Include="Reporting\ElencoDecretiSRCReportGeneratorCommand.cs" />
+    <Compile Include="Reporting\Exceptions\ReportGenerationFailedException.cs" />
+    <Compile Include="Reporting\Exceptions\ReportGeneratorNotFoundException.cs" />
+    <Compile Include="Reporting\Exceptions\RequestNotValidException.cs" />
+    <Compile Include="Reporting\FindAndReplaceRuoliInModTrasmReportGeneratorCommand.cs" />
+    <Compile Include="Reporting\ModelliTrasmissioneReportGeneratorCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Reporting\ModificaRuoloReportGeneratorCommand.cs" />
+    <Compile Include="Reporting\NotifichePecReportGenerator.cs" />
+    <Compile Include="Reporting\ReportGeneratorCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Reporting\RuoliDisabilitatiInibitiReportGeneratorCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Reporting\StampeRepertoriReportGeneratorCommand.cs" />
+    <Compile Include="Reporting\StoriaRuoloReportGeneratorCommand.cs" />
+    <Compile Include="report\Corrispondenti.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="report\Fascicolo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="report\ProtoASL\ReportXML.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="report\RegistriStampa.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="report\ReportLog.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="report\ReportManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="report\ReportUtils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="report\StampaBuste.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="report\TitolarioReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="report\TrasmissioniReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RubricaComune\Configurazioni.cs" />
+    <Compile Include="RubricaComune\RubricaServices.cs" />
+    <Compile Include="Rubrica\RF.cs" />
+    <Compile Include="Rubrica\DPA_RubricaSearchAgent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Rubrica\ListeDistribuzione.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Rubrica\RubricaSearchAgent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\InfoAtipicitaManager.cs" />
+    <Compile Include="Service References\NotificationCenterOperationServices\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SmartClient\SmartClientManager.cs" />
+    <Compile Include="SmistamentoDocumenti\SmistamentoManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Spedizione\SpedizioneManager.cs" />
+    <Compile Include="Stampe\StampaConservazione.cs" />
+    <Compile Include="Stampe\StampaRepertorio.cs" />
+    <Compile Include="Task\ReminderManager.cs" />
+    <Compile Include="Task\TaskManager.cs" />
+    <Compile Include="trasmissioni\ExecTrasmManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="trasmissioni\ModelliTrasmissioni.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="trasmissioni\QueryTrasmManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="trasmissioni\RagioniManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="trasmissioni\TemplateTrasmManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="trasmissioni\TrasmFascUffRef.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="trasmissioni\TrasmManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="trasmissioni\TrasmProtoIntManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UploadFiles\UploadFilesManager.cs" />
+    <Compile Include="UserLog\UserLog.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utenti\addressBookManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utenti\DirittiManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utenti\Login.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Amministrazione\AdminPasswordConfigServices.cs" />
+    <Compile Include="utenti\QualificheManager.cs" />
+    <Compile Include="utenti\RegistriManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utenti\RegistriRepertorioPrintManager.cs" />
+    <Compile Include="utenti\UserManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="XmlParsing\FatturaPA\FatturaPAManager.cs" />
+    <Compile Include="XmlParsing\suap\pratica_suap-1.0.1.designer.cs" />
+    <Compile Include="XmlParsing\suap\SUAP-ente-1.0.1.designer.cs" />
+    <Compile Include="XmlParsing\suap\SuapManager.cs" />
+    <Compile Include="XmlParsing\XmlParserManager.cs" />
+    <EmbeddedResource Include="InstanceAccess\staticfiles\active.gif" />
+    <EmbeddedResource Include="InstanceAccess\staticfiles\bg-body.gif" />
+    <EmbeddedResource Include="InstanceAccess\staticfiles\col-sep.gif" />
+    <EmbeddedResource Include="InstanceAccess\staticfiles\lock.jpg" />
+    <EmbeddedResource Include="InstanceAccess\staticfiles\logo.jpg" />
+    <EmbeddedResource Include="InstanceAccess\staticfiles\main.css" />
+    <EmbeddedResource Include="interoperabilita\CalendarMail\Templates\MailBody.htm" />
+    <Content Include="Reporting\Excel\ExcelXmlWriter.dll" />
+    <EmbeddedResource Include="interoperabilita\CalendarMail\iCalendar\Templates\SendAppointment.ics" />
+    <EmbeddedResource Include="interoperabilita\CalendarMail\iCalendar\Templates\SendAppointmentDisplayAlert.ics" />
+    <None Include="Service References\NotificationCenterOperationServices\BusinessLogic.NotificationCenterOperationServices.AssociateChannelToInstanceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NotificationCenterOperationServices\BusinessLogic.NotificationCenterOperationServices.AssociateItemToChannelResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NotificationCenterOperationServices\BusinessLogic.NotificationCenterOperationServices.CountNotViewedItemsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NotificationCenterOperationServices\BusinessLogic.NotificationCenterOperationServices.InsertChannelResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NotificationCenterOperationServices\BusinessLogic.NotificationCenterOperationServices.InsertInstanceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NotificationCenterOperationServices\BusinessLogic.NotificationCenterOperationServices.InsertItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NotificationCenterOperationServices\BusinessLogic.NotificationCenterOperationServices.InsertUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NotificationCenterOperationServices\BusinessLogic.NotificationCenterOperationServices.LoadChannelByLabelResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NotificationCenterOperationServices\BusinessLogic.NotificationCenterOperationServices.LoadChannelRelatedToItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NotificationCenterOperationServices\BusinessLogic.NotificationCenterOperationServices.LoadChannelsRelatedToInstanceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NotificationCenterOperationServices\BusinessLogic.NotificationCenterOperationServices.LoadChannelsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NotificationCenterOperationServices\BusinessLogic.NotificationCenterOperationServices.LoadInstanceByNameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NotificationCenterOperationServices\BusinessLogic.NotificationCenterOperationServices.LoadInstancesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NotificationCenterOperationServices\BusinessLogic.NotificationCenterOperationServices.LoadItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NotificationCenterOperationServices\BusinessLogic.NotificationCenterOperationServices.SearchItemByChannelIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NotificationCenterOperationServices\BusinessLogic.NotificationCenterOperationServices.SearchItemByDateRangeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NotificationCenterOperationServices\BusinessLogic.NotificationCenterOperationServices.SearchItemByMessageIdRangeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NotificationCenterOperationServices\BusinessLogic.NotificationCenterOperationServices.SearchItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NotificationCenterOperationServices\BusinessLogic.NotificationCenterOperationServices.SearchItemsNotViewedByUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NotificationCenterOperationServices\BusinessLogic.NotificationCenterOperationServices.SetItemViewedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NotificationCenterOperationServices\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\NotificationCenterOperationServices\configuration.svcinfo" />
+    <None Include="Service References\NotificationCenterOperationServices\configuration91.svcinfo" />
+    <None Include="Service References\NotificationCenterOperationServices\NotificationServiceOperations.disco" />
+    <None Include="Service References\NotificationCenterOperationServices\NotificationServiceOperations.wsdl" />
+    <None Include="Service References\NotificationCenterOperationServices\NotificationServiceOperations.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NotificationCenterOperationServices\NotificationServiceOperations1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NotificationCenterOperationServices\NotificationServiceOperations2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\NotificationCenterOperationServices\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>copy "$(SolutionDir)..\DLL_TERZE_PARTI\Linearizzazione\$(Platform)\*.dll" "$(TargetDir)"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

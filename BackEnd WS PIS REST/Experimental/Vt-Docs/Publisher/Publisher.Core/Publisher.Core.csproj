@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9D5CAAF5-8558-4A9A-8A7E-1B9D8D83EF37}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Publisher</RootNamespace>
+    <AssemblyName>Publisher.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DLL_TERZE_PARTI\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminInfo.cs" />
+    <Compile Include="ApplicationContext.cs" />
+    <Compile Include="DataAccess\PublisherDataAdapter.cs" />
+    <Compile Include="ErrorCodes.cs" />
+    <Compile Include="ErrorDescriptions.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErrorDescriptions.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorInfo.cs" />
+    <Compile Include="IDataMapper.cs" />
+    <Compile Include="IInstancePublisher.cs" />
+    <Compile Include="ChannelStateEnum.cs" />
+    <Compile Include="JobExecutionConfigurations.cs" />
+    <Compile Include="PublisherException.cs" />
+    <Compile Include="VtDocs\DataMapper.cs" />
+    <Compile Include="VtDocs\DocumentDataMapper.cs" />
+    <Compile Include="VtDocs\LogDataAdapter.cs" />
+    <Compile Include="VtDocs\LogInfo.cs" />
+    <Compile Include="Hosts\PublisherWebService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VtDocs\InstancePublisher.cs" />
+    <Compile Include="EventInfo.cs" />
+    <Compile Include="ChannelRefInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublisherServiceControl.cs" />
+    <Compile Include="Schedule\EventStorage.cs" />
+    <Compile Include="Schedule\IScheduledItem.cs" />
+    <Compile Include="Schedule\MethodCall.cs" />
+    <Compile Include="Schedule\ReportTimer.cs" />
+    <Compile Include="Schedule\ScheduledItems\BlockWrapper.cs" />
+    <Compile Include="Schedule\ScheduledItems\EventInstance.cs" />
+    <Compile Include="Schedule\ScheduledItems\EventQueue.cs" />
+    <Compile Include="Schedule\ScheduledItems\ScheduledTime.cs" />
+    <Compile Include="Schedule\ScheduledItems\SimpleInterval.cs" />
+    <Compile Include="Schedule\ScheduledItems\SingleEvent.cs" />
+    <Compile Include="Schedule\ScheduleFilter.cs" />
+    <Compile Include="Schedule\ScheduleTimer.cs" />
+    <Compile Include="Schedule\TimerJob.cs" />
+    <Compile Include="VtDocs\LogCriteria.cs" />
+    <Compile Include="VtDocs\ProjectDataMapper.cs" />
+    <Compile Include="VtDocs\Security.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ErrorDescriptions.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorDescriptions.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BackEnd\BusinessLogic\BusinessLogic.csproj">
+      <Project>{fde4cb26-1f10-464b-8913-0d9e2bd0c72a}</Project>
+      <Name>BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BackEnd\DocsPaDB\DocsPaDB.csproj">
+      <Project>{5CFF0911-B6D1-4F98-A9EA-3034E188F68B}</Project>
+      <Name>DocsPaDB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BackEnd\DocsPaUtils\DocsPaUtils.csproj">
+      <Project>{942AD652-BCF7-44CA-AE38-CF0CDA8E0D16}</Project>
+      <Name>DocsPaUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BackEnd\DocsPaVO\DocsPaVO.csproj">
+      <Project>{A8BA40A6-AB86-4DF7-8C0F-8A9BBB7EE885}</Project>
+      <Name>DocsPaVO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Publisher.Proxy\Publisher.Proxy.csproj">
+      <Project>{9AAA5D27-CD6A-4D4F-A5DA-9C102D72E702}</Project>
+      <Name>Publisher.Proxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Subscriber\Subscriber.Proxy\Subscriber.Proxy.csproj">
+      <Project>{D99881A8-F4FE-4D98-920F-CC5E4F8A230F}</Project>
+      <Name>Subscriber.Proxy</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

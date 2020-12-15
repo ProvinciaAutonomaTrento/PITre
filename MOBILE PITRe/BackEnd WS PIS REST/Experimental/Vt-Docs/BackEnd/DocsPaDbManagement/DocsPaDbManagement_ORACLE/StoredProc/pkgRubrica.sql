@@ -1,0 +1,1 @@
+CREATE OR REPLACE PACKAGE pkgRubrica as TYPE r_cursor is REF CURSOR; end;

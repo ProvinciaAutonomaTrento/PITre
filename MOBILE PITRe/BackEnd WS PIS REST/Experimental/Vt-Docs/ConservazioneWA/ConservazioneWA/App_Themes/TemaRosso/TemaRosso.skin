@@ -1,0 +1,43 @@
+﻿<%--
+Default skin template. The following skins are provided as examples only.
+
+1. Named control skin. The SkinId should be uniquely defined because
+   duplicate SkinId's per control type are not allowed in the same theme.
+
+<asp:GridView runat="server" SkinId="gridviewSkin" BackColor="White" >
+   <AlternatingRowStyle BackColor="Blue" />
+</asp:GridView>
+
+2. Default skin. The SkinId is not defined. Only one default 
+   control skin per control type is allowed in the same theme.
+
+<asp:Image runat="server" ImageUrl="~/images/image1.jpg" />
+--%>
+<asp:image runat="server" SkinId="logo" ImageUrl="Img_logo.gif"></asp:image>
+<asp:image SkinID="logoente1" ImageUrl="logoentelogin1.gif" runat="server"></asp:image>
+<asp:image SkinID="logoente2" ImageUrl="logoentelogin2.gif" runat="server"></asp:image>
+<asp:image SkinId="logoEnte" ImageUrl="gest_conservazione.gif" runat="server" />
+<asp:GridView runat="server" SkinId="gridview">
+    <HeaderStyle CssClass="menu_1_bianco_dg" BackColor="#810d06"/>
+</asp:GridView>
+<asp:Calendar SkinID="calendario" 			        			        
+				    runat="server" 
+				    Width="100%" 
+				    Height="195px" 
+				    FirstDayOfWeek="Monday" 
+				    ShowGridLines="True" 
+				    CellPadding="0" 
+				    TitleStyle-CssClass="titolo_bianco" 
+				    TitleStyle-BackColor="#810d06"
+				    DayHeaderStyle-CssClass="titolo_rosso" 
+				    DayHeaderStyle-BackColor="#D7D5D5"  
+				    DayStyle-CssClass="testo_grigio"
+				    NextPrevStyle-CssClass="titolo_bianco"				    
+				    OtherMonthDayStyle-CssClass="testo_grigio_light" 
+				    OtherMonthDayStyle-BackColor="#FEFFC1" 
+				    PrevMonthText="<" 	
+				    NextMonthText=">" 
+				    TodayDayStyle-BackColor="#BAEEBA" 			     				     
+				    TodayDayStyle-CssClass="titolo_rosso" />
+	
+

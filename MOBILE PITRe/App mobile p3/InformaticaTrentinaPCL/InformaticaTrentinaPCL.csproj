@@ -1,0 +1,319 @@
+﻿<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2C33DEBD-467C-4860-A693-9FB6E07001FA}</ProjectGuid>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>InformaticaTrentinaPCL</RootNamespace>
+    <AssemblyName>InformaticaTrentinaPCL</AssemblyName>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>RELEASE;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Collaudo|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Collaudo</OutputPath>
+    <DefineConstants>COLL;</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>false</NoStdLib>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Login\LoginObject.cs" />
+    <Compile Include="Login\Network\OTPInfo.cs" />
+    <Compile Include="RecuperaPasswordInstance\IRecuperaPasswordModel.cs" />
+    <Compile Include="RecuperaPasswordInstance\IRecuperaPasswordOtpModel.cs" />
+    <Compile Include="RecuperaPasswordInstance\IRecuperaOtpPresenter.cs" />
+    <Compile Include="RecuperaPasswordInstance\IRecuperaPasswordPresenter.cs" />
+    <Compile Include="RecuperaPasswordInstance\RecuperaPasswordOtpModel.cs" />
+    <Compile Include="RecuperaPasswordInstance\RecuperaPasswordObject.cs" />
+    <Compile Include="RecuperaPasswordInstance\RecuperaOtpPresenter.cs" />
+    <Compile Include="RecuperaPasswordInstance\RecuperaPasswordPresenter.cs" />
+    <Compile Include="RecuperaPasswordInstance\RecuperaPasswordInstanceModel.cs" />
+    <Compile Include="RecuperaPasswordInstance\RecuperaPasswordInstancePresenter.cs" />
+    <Compile Include="RecuperaPasswordInstance\RecuperaPasswordModel.cs" />
+    <Compile Include="Home\ActionDialog\ActionDialogBuilder.cs" />
+    <Compile Include="Home\ActionDialog\DialogItem.cs" />
+    <Compile Include="Home\ADLDocumentModel.cs" />
+    <Compile Include="Home\SharedUrl.cs" />
+    <Compile Include="Interfaces\AbstractRecipient.cs" />
+    <Compile Include="MyClass.cs" />
+    <Compile Include="OpenFile\MVP\IFileSystemManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Interfaces\BaseRequestModel.cs" />
+    <Compile Include="Interfaces\BaseResponseModel.cs" />
+    <Compile Include="Login\LoginModel.cs" />
+    <Compile Include="Login\LoginPresenter.cs" />
+    <Compile Include="Login\LoginView.cs" />
+    <Compile Include="Login\UserInfo.cs" />
+    <Compile Include="Login\MVPD\ILoginModel.cs" />
+    <Compile Include="Login\MVPD\ILoginNativeDelegate.cs" />
+    <Compile Include="Login\MVPD\ILoginPresenter.cs" />
+    <Compile Include="Login\MVPD\ILoginView.cs" />
+    <Compile Include="Login\Network\LoginRequestModel.cs" />
+    <Compile Include="Login\Network\LoginResponseModel.cs" />
+    <Compile Include="Interfaces\IGeneralView.cs" />
+    <Compile Include="Home\ActionType.cs" />
+    <Compile Include="Home\DocumentListModel.cs" />
+    <Compile Include="Home\DocumentListPresenter.cs" />
+    <Compile Include="Home\ToDoDocumentModel.cs" />
+    <Compile Include="Home\MVPD\IDocumentListModel.cs" />
+    <Compile Include="Home\MVPD\IDocumentListPresenter.cs" />
+    <Compile Include="Home\MVPD\IDocumentListView.cs" />
+    <Compile Include="Home\Network\LoadToDoDocumentsRequestModel.cs" />
+    <Compile Include="Home\Network\LoadToDoDocumentsResponseModel.cs" />
+    <Compile Include="Signature\SignatureModel.cs" />
+    <Compile Include="Signature\SignaturePresenter.cs" />
+    <Compile Include="Signature\MVP\ISignatureModel.cs" />
+    <Compile Include="Signature\MVP\ISignaturePresenter.cs" />
+    <Compile Include="Signature\MVP\ISignatureView.cs" />
+    <Compile Include="Signature\Network\RequestOTPRequestModel.cs" />
+    <Compile Include="Signature\Network\RequestOTPResponseModel.cs" />
+    <Compile Include="Signature\Network\SignDocumentRequestModel.cs" />
+    <Compile Include="Signature\Network\SignDocumentResponseModel.cs" />
+    <Compile Include="Interfaces\IMessageDialog.cs" />
+    <Compile Include="Assegna\AssigneeModel.cs" />
+    <Compile Include="Assegna\Network\LoadAssignableRequestModel.cs" />
+    <Compile Include="Assegna\Network\LoadAssignableResponseModel.cs" />
+    <Compile Include="ChangeRole\MVPD\IRoleModel.cs" />
+    <Compile Include="ChangeRole\MVPD\IRolePresenter.cs" />
+    <Compile Include="ChangeRole\MVPD\IRoleView.cs" />
+    <Compile Include="ChangeRole\Network\ChangeRole\ChangeRoleRequestModel.cs" />
+    <Compile Include="ChangeRole\Network\ChangeRole\ChangeRoleResponseModel.cs" />
+    <Compile Include="ChangeRole\Network\ListRole\RoleRequestModel.cs" />
+    <Compile Include="ChangeRole\Network\ListRole\RoleResponseModel.cs" />
+    <Compile Include="ChangeRole\RoleModel.cs" />
+    <Compile Include="ChangeRole\RolePresenter.cs" />
+    <Compile Include="ChangeRole\Role.cs" />
+    <Compile Include="Network\HttpLoggingHandler.cs" />
+    <Compile Include="Network\WS.cs" />
+    <Compile Include="Network\NetworkConstants.cs" />
+    <Compile Include="Network\INetworkAPI.cs" />
+    <Compile Include="Home\MVPD\IHomeModel.cs" />
+    <Compile Include="Home\MVPD\IHomePresenter.cs" />
+    <Compile Include="Home\MVPD\IHomeView.cs" />
+    <Compile Include="Home\Network\LogoutResponseModel.cs" />
+    <Compile Include="Home\Network\LogoutRequestModel.cs" />
+    <Compile Include="Home\HomeModel.cs" />
+    <Compile Include="Home\HomePresenter.cs" />
+    <Compile Include="SessionData.cs" />
+    <Compile Include="Login\AmministrazioneModel.cs" />
+    <Compile Include="Home\DummyHomeModel.cs" />
+    <Compile Include="Login\DummyLoginModel.cs" />
+    <Compile Include="ChangeRole\DummyRoleModel.cs" />
+    <Compile Include="Home\DummyToDoDocumentListModel.cs" />
+    <Compile Include="Network\NetworkExtensions.cs" />
+    <Compile Include="Resource\StringResources.cs" />
+    <Compile Include="Home\Network\LibroFirmaRequestModel.cs" />
+    <Compile Include="Home\Network\LibroFirmaResponseModel.cs" />
+    <Compile Include="Home\SignDocumentModel.cs" />
+    <Compile Include="Home\SignDocumentInfoModel.cs" />
+    <Compile Include="Home\MVPD\AbstractDocumentListItem.cs" />
+    <Compile Include="Home\Network\RicercaResponseModel.cs" />
+    <Compile Include="Home\Network\RicercaRequestModel.cs" />
+    <Compile Include="Home\RicercaDocumentModel.cs" />
+    <Compile Include="Home\Network\ADLListResponseModel.cs" />
+    <Compile Include="Home\Network\ADLListRequestModel.cs" />
+    <Compile Include="Delega\DelegaDocumentModel.cs" />
+    <Compile Include="Delega\MVP\IListaDeleghePresenter.cs" />
+    <Compile Include="Delega\MVP\IListaDelegheModel.cs" />
+    <Compile Include="Delega\MVP\IListaDelegheView.cs" />
+    <Compile Include="Delega\DelegaPresenter.cs" />
+    <Compile Include="Delega\DelegaModel.cs" />
+    <Compile Include="Delega\DummyDelegaModel.cs" />
+    <Compile Include="Delega\Network\DelegaListResponseModel.cs" />
+    <Compile Include="Delega\Network\DelegaListRequestModel.cs" />
+    <Compile Include="Utils\Ext.cs" />
+    <Compile Include="Delega\InfoDelegaModel.cs" />
+    <Compile Include="Resources\StringManager.cs" />
+    <Compile Include="Utils\INativeFactory.cs" />
+    <Compile Include="Utils\ListType.cs" />
+    <Compile Include="Utils\LocalizedString.cs" />
+    <Compile Include="CommonAction\MVP\IActionView.cs" />
+    <Compile Include="CommonAction\MVP\IActionModel.cs" />
+    <Compile Include="CommonAction\MVP\IActionPresenter.cs" />
+    <Compile Include="CommonAction\ActionAccettaPresenter.cs" />
+    <Compile Include="CommonAction\ActionADLPresenter.cs" />
+    <Compile Include="CommonAction\ActionRifiutaPresenter.cs" />
+    <Compile Include="CommonAction\Network\AccettaRifiutaResponseModel.cs" />
+    <Compile Include="CommonAction\Network\ActionADLResponseModel.cs" />
+    <Compile Include="CommonAction\Network\AccettaRifiutaRequestModel.cs" />
+    <Compile Include="CommonAction\Network\ActionADLRequestModel.cs" />
+    <Compile Include="CommonAction\ActionModel.cs" />
+    <Compile Include="CommonAction\DummyActionModel.cs" />
+    <Compile Include="AnalyticsCore\IAnalyticsManager.cs" />
+    <Compile Include="AnalyticsCore\LoginEventInfo.cs" />
+    <Compile Include="AnalyticsCore\LogoutEventInfo.cs" />
+    <Compile Include="AnalyticsCore\Events.cs" />
+    <Compile Include="AnalyticsCore\EventParams.cs" />
+    <Compile Include="Network\UsersListForTestHelper.cs" />
+    <Compile Include="Interfaces\IBasePresenter.cs" />
+    <Compile Include="Interfaces\IBaseModel.cs" />
+    <Compile Include="Home\MVPD\DocumentListLoader.cs" />
+    <Compile Include="Home\Network\DocumentResponseModel.cs" />
+    <Compile Include="Delega\MVP\INewMandateModel.cs" />
+    <Compile Include="Delega\MVP\INewMandateView.cs" />
+    <Compile Include="Delega\MVP\INewMandatePresenter.cs" />
+    <Compile Include="Delega\Network\NewMandateResponseModel.cs" />
+    <Compile Include="Delega\Network\NewMandateRequestModel.cs" />
+    <Compile Include="Delega\DummyNewMandateModel.cs" />
+    <Compile Include="Delega\NewMandatePresenter.cs" />
+    <Compile Include="Utils\ResponseHelper.cs" />
+    <Compile Include="Assegna\Network\EseguiTrasmissioneRequestModel.cs" />
+    <Compile Include="Assegna\Network\EseguiTrasmissioneResponseModel.cs" />
+    <Compile Include="Assegna\MVPD\IAssegnaPresenter.cs" />
+    <Compile Include="Assegna\MVPD\IAssegnaModel.cs" />
+    <Compile Include="Assegna\MVPD\IAssegnaView.cs" />
+    <Compile Include="Assegna\AssegnaModel.cs" />
+    <Compile Include="Assegna\DummyAssegnaModel.cs" />
+    <Compile Include="Assegna\AssegnaPresenter.cs" />
+    <Compile Include="Assegna\Network\EseguiTrasmissioneModelloRequestModel.cs" />
+    <Compile Include="Assegna\Network\EseguiTrasmissioneModelloResponseModel.cs" />
+    <Compile Include="Assegna\MVPD\IAssignableModel.cs" />
+    <Compile Include="Assegna\AssignableModel.cs" />
+    <Compile Include="Assegna\DummyAssignableModel.cs" />
+    <Compile Include="Assegna\Network\ListaModelliTrasmissioneResponseModel.cs" />
+    <Compile Include="Assegna\Network\ListaModelliTrasmissioneRequestModel.cs" />
+    <Compile Include="Assegna\ModelliTrasmissioneModel.cs" />
+    <Compile Include="Assegna\Network\ListaCorrispondentiRequestModel.cs" />
+    <Compile Include="Assegna\Network\ListaCorrispondentiResponseModel.cs" />
+    <Compile Include="Assegna\CorrispondenteTrasmissioneModel.cs" />
+    <Compile Include="Search\MVP\ISearchView.cs" />
+    <Compile Include="Search\MVP\ISearchPresenter.cs" />
+    <Compile Include="Search\MVP\ISearchModel.cs" />
+    <Compile Include="Search\SearchPresenter.cs" />
+    <Compile Include="Search\DummySearchModel.cs" />
+    <Compile Include="Login\SignConfiguration.cs" />
+    <Compile Include="LoginListAdministration\MVP\ILoginListAdministrationsView.cs" />
+    <Compile Include="LoginListAdministration\MVP\ILoginListAdministrationsPresenter.cs" />
+    <Compile Include="LoginListAdministration\MVP\ILoginListAdministrationsModel.cs" />
+    <Compile Include="LoginListAdministration\LoginListAdministrationsPresenter.cs" />
+    <Compile Include="LoginListAdministration\LoginListAdministrationsModel.cs" />
+    <Compile Include="LoginListAdministration\DummyLoginListAdministrationsModel.cs" />
+    <Compile Include="Search\SearchModel.cs" />
+    <Compile Include="LoginListAdministration\Network\ListaAmministrazioniRequestModel.cs" />
+    <Compile Include="LoginListAdministration\Network\ListaAmministrazioniResponseModel.cs" />
+    <Compile Include="Filter\FilterModel.cs" />
+    <Compile Include="Delega\Network\DoRevokeResponseModel.cs" />
+    <Compile Include="Delega\Network\DoRevokeRequestModel.cs" />
+    <Compile Include="Delega\NewMandateModel.cs" />
+    <Compile Include="Delega\MVP\ISelectMandateAssigneeModel.cs" />
+    <Compile Include="Delega\MVP\ISelectMandateAssigneeView.cs" />
+    <Compile Include="Delega\MVP\ISelectMandateAssigneePresenter.cs" />
+    <Compile Include="Delega\MVP\IAssigneeModel.cs" />
+    <Compile Include="Delega\Network\FavoritesResponseModel.cs" />
+    <Compile Include="Delega\Network\FavoritesRequestModel.cs" />
+    <Compile Include="Delega\Network\SearchMandateAssigneeResponseModel.cs" />
+    <Compile Include="Delega\Network\SearchMandateAssigneeRequestModel.cs" />
+    <Compile Include="Delega\SelectMandateAssigneeModel.cs" />
+    <Compile Include="Delega\DummySelectMandateAssigneeModel.cs" />
+    <Compile Include="Delega\SelectMandateAssigneePresenter.cs" />
+    <Compile Include="Assegna\MVPD\IAssignablePresenter.cs" />
+    <Compile Include="Assegna\MVPD\IAssignableView.cs" />
+    <Compile Include="Assegna\AssignablePresenter.cs" />
+    <Compile Include="Filter\MVP\IFilterPresenter.cs" />
+    <Compile Include="Filter\MVP\IFilterView.cs" />
+    <Compile Include="Filter\FilterPresenter.cs" />
+    <Compile Include="Login\MVPD\IChangePasswordPresenter.cs" />
+    <Compile Include="Login\ChangePasswordPresenter.cs" />
+    <Compile Include="Login\LoginAdministrationState.cs" />
+    <Compile Include="Delega\Network\SearchMandateAssignee.cs" />
+    <Compile Include="OpenFile\MVP\IOpenDocumentModel.cs" />
+    <Compile Include="OpenFile\MVP\IOpenDocumentView.cs" />
+    <Compile Include="OpenFile\MVP\IOpenDocumentPresenter.cs" />
+    <Compile Include="OpenFile\Network\GetDocInfoResponseModel.cs" />
+    <Compile Include="OpenFile\Network\GetDocInfoRequestModel.cs" />
+    <Compile Include="OpenFile\Network\GetFileResponseModel.cs" />
+    <Compile Include="OpenFile\Network\GetFileRequestModel.cs" />
+    <Compile Include="OpenFile\OpenDocumentModel.cs" />
+    <Compile Include="OpenFile\DocInfo.cs" />
+    <Compile Include="OpenFile\TrasmInfo.cs" />
+    <Compile Include="OpenFile\FileInfo.cs" />
+    <Compile Include="OpenFile\OpenDocumentPresenter.cs" />
+    <Compile Include="OpenFile\DummyOpenDocumentModel.cs" />
+    <Compile Include="Delega\InfoPreferito.cs" />
+    <Compile Include="Delega\Network\SetFavoriteRequestModel.cs" />
+    <Compile Include="Delega\Network\SetFavoriteResponseModel.cs" />
+    <Compile Include="Utils\TestPDFBase64.cs" />
+    <Compile Include="Home\Network\CondividiResponseModel.cs" />
+    <Compile Include="Home\Network\CondividiRequestModel.cs" />
+    <Compile Include="OpenFile\MVP\IOpenFascModel.cs" />
+    <Compile Include="OpenFile\MVP\IOpenFascPresenter.cs" />
+    <Compile Include="OpenFile\MVP\IOpenFascView.cs" />
+    <Compile Include="OpenFile\OpenFascPresenter.cs" />
+    <Compile Include="OpenFile\OpenFascModel.cs" />
+    <Compile Include="OpenFile\DummyOpenFascModel.cs" />
+    <Compile Include="OpenFile\Network\GetFascRicercaResponseModel.cs" />
+    <Compile Include="OpenFile\Network\GetFascRicercaRequestModel.cs" />
+    <Compile Include="OpenFile\ResultFascRicerca.cs" />
+    <Compile Include="OpenFile\Network\GetDocumentoCondivisoRequestModel.cs" />
+    <Compile Include="OpenFile\Network\GetDocumentoCondivisoResponseModel.cs" />
+    <Compile Include="OpenFile\SharedDocumentBundle.cs" />
+    <Compile Include="Interfaces\IReachability.cs" />
+    <Compile Include="Assegna\MVPD\ISelectRoleView.cs" />
+    <Compile Include="Assegna\MVPD\ISelectRolePresenter.cs" />
+    <Compile Include="Assegna\SelectRolePresenter.cs" />
+    <Compile Include="Signature\DummySignatureModel.cs" />
+    <Compile Include="Assegna\MVPD\ISelectRoleModel.cs" />
+    <Compile Include="Assegna\Network\ListaRuoliUserResponseModel.cs" />
+    <Compile Include="Assegna\Network\ListaRuoliUserRequestModel.cs" />
+    <Compile Include="Assegna\SelectRoleModel.cs" />
+    <Compile Include="Assegna\DummySelectRoleModel.cs" />
+    <Compile Include="Assegna\Network\ListaRagioniResponseModel.cs" />
+    <Compile Include="Assegna\Ragione.cs" />
+    <Compile Include="Assegna\Network\ListaRagioniRequestModel.cs" />
+    <Compile Include="Signature\Network\InfoFirma.cs" />
+    <Compile Include="Signature\Network\DetailFirma.cs" />
+    <Compile Include="Signature\Network\TimeStampInfo.cs" />
+    <Compile Include="Home\Network\ViewedRequestModel.cs" />
+    <Compile Include="Home\Network\ViewedResponseModel.cs" />
+    <Compile Include="Home\Network\RespingiElementiRequestModel.cs" />
+    <Compile Include="Home\Network\CambiaStatoElementiMultipliRequestModel.cs" />
+    <Compile Include="Home\Network\CambiaStatoElementiMultipliResponseModel.cs" />
+    <Compile Include="Home\Network\FirmaElementiResponseModel.cs" />
+    <Compile Include="Home\Network\RespingiElementiResponseModel.cs" />
+    <Compile Include="Signature\Network\CambiaStatoElementoRequestModel.cs" />
+    <Compile Include="Signature\Network\CambiaStatoElementoResponseModel.cs" />
+    <Compile Include="ChooseInstance\ChooseInstancePresenter.cs" />
+    <Compile Include="ChooseInstance\ChooseInstanceModel.cs" />
+    <Compile Include="ChooseInstance\IChooseInstancePresenter.cs" />
+    <Compile Include="ChooseInstance\IChooseModel.cs" />
+    <Compile Include="ChooseInstance\IChooseInstanceView.cs" />
+    <Compile Include="ChooseInstance\InstanceModel.cs" />
+    <Compile Include="ChooseInstance\ListInstanceResponseModel.cs" />
+    <Compile Include="Login\MVPD\ILoginViewChooseInstance.cs" />
+    <Compile Include="Utils\EndDateHelper.cs" />
+    <Compile Include="Login\MVPD\IVersionManager.cs" />
+    <Compile Include="Assegna\Network\SmistaRequestModel.cs" />
+    <Compile Include="Assegna\Network\SmistaResponseModel.cs" />
+    <Compile Include="VerifyUpdate\VerifyUpdateModel.cs" />
+    <Compile Include="VerifyUpdate\VerifyUpdateRequestModel.cs" />
+    <Compile Include="VerifyUpdate\VerifyUpdateResponseModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Search\Network\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="project.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\CoreStrings.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+</Project>

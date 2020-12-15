@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UniSA.FLC.Web.UI.WebControls.AccessibleDataGrid</name>
+    </assembly>
+    <members>
+        <member name="T:UniSA.FLC.Web.UI.WebControls.AccessibleBoundColumn">
+            <summary>
+            Summary description for AccessibleBoundColumn.
+            </summary>
+        </member>
+        <member name="M:UniSA.FLC.Web.UI.WebControls.AccessibleBoundColumn.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniSA.FLC.Web.UI.WebControls.AccessibleBoundColumn.InitializeCell(System.Web.UI.WebControls.TableCell,System.Int32,System.Web.UI.WebControls.ListItemType)">
+            <summary>
+            
+            </summary>
+            <param name="cell"></param>
+            <param name="columnIndex"></param>
+            <param name="itemType"></param>
+        </member>
+        <member name="P:UniSA.FLC.Web.UI.WebControls.AccessibleBoundColumn.Abbreviation">
+            <summary>
+            Text to use for abbr attribute on table header &lt;th&gt; elements
+            </summary>
+        </member>
+        <member name="T:UniSA.FLC.Web.UI.WebControls.AccessibleButtonColumn">
+            <summary>
+            Summary description for AccessibleButtonColumn.
+            </summary>
+        </member>
+        <member name="M:UniSA.FLC.Web.UI.WebControls.AccessibleButtonColumn.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniSA.FLC.Web.UI.WebControls.AccessibleButtonColumn.InitializeCell(System.Web.UI.WebControls.TableCell,System.Int32,System.Web.UI.WebControls.ListItemType)">
+            <summary>
+            
+            </summary>
+            <param name="cell"></param>
+            <param name="columnIndex"></param>
+            <param name="itemType"></param>
+        </member>
+        <member name="P:UniSA.FLC.Web.UI.WebControls.AccessibleButtonColumn.Abbreviation">
+            <summary>
+            Text to use for abbr attribute on table header &lt;th&gt; elements
+            </summary>
+        </member>
+        <member name="T:UniSA.FLC.Web.UI.WebControls.AccessibleDataGridColumn">
+            <summary>
+            Summary description for AccessibleDataGridColumn.
+            </summary>
+        </member>
+        <member name="P:UniSA.FLC.Web.UI.WebControls.AccessibleDataGridColumn.Abbreviation">
+            <summary>
+            Text to use for abbr attribute on table header &lt;th&gt; elements
+            </summary>
+        </member>
+        <member name="T:UniSA.FLC.Web.UI.WebControls.AccessibleEditCommandColumn">
+            <summary>
+            Summary description for AccessibleEditCommandColumn.
+            </summary>
+        </member>
+        <member name="M:UniSA.FLC.Web.UI.WebControls.AccessibleEditCommandColumn.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniSA.FLC.Web.UI.WebControls.AccessibleEditCommandColumn.InitializeCell(System.Web.UI.WebControls.TableCell,System.Int32,System.Web.UI.WebControls.ListItemType)">
+            <summary>
+            
+            </summary>
+            <param name="cell"></param>
+            <param name="columnIndex"></param>
+            <param name="itemType"></param>
+        </member>
+        <member name="P:UniSA.FLC.Web.UI.WebControls.AccessibleEditCommandColumn.Abbreviation">
+            <summary>
+            Text to use for abbr attribute on table header &lt;th&gt; elements
+            </summary>
+        </member>
+        <member name="T:UniSA.FLC.Web.UI.WebControls.AccessibleHyperLinkColumn">
+            <summary>
+            Summary description for AccessibleBoundColumn.
+            </summary>
+        </member>
+        <member name="M:UniSA.FLC.Web.UI.WebControls.AccessibleHyperLinkColumn.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniSA.FLC.Web.UI.WebControls.AccessibleHyperLinkColumn.InitializeCell(System.Web.UI.WebControls.TableCell,System.Int32,System.Web.UI.WebControls.ListItemType)">
+            <summary>
+            
+            </summary>
+            <param name="cell"></param>
+            <param name="columnIndex"></param>
+            <param name="itemType"></param>
+        </member>
+        <member name="P:UniSA.FLC.Web.UI.WebControls.AccessibleHyperLinkColumn.Abbreviation">
+            <summary>
+            Text to use for abbr attribute on table header &lt;th&gt; elements
+            </summary>
+        </member>
+        <member name="T:UniSA.FLC.Web.UI.WebControls.AccessibleTemplateColumn">
+            <summary>
+            Summary description for AccessibleBoundColumn.
+            </summary>
+        </member>
+        <member name="M:UniSA.FLC.Web.UI.WebControls.AccessibleTemplateColumn.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniSA.FLC.Web.UI.WebControls.AccessibleTemplateColumn.InitializeCell(System.Web.UI.WebControls.TableCell,System.Int32,System.Web.UI.WebControls.ListItemType)">
+            <summary>
+            
+            </summary>
+            <param name="cell"></param>
+            <param name="columnIndex"></param>
+            <param name="itemType"></param>
+        </member>
+        <member name="P:UniSA.FLC.Web.UI.WebControls.AccessibleTemplateColumn.Abbreviation">
+            <summary>
+            Text to use for abbr attribute on table header &lt;th&gt; elements
+            </summary>
+        </member>
+        <member name="T:UniSA.FLC.Web.UI.WebControls.AccessibleDataGrid">
+            <summary>
+            An ASP.NET DataGrid control that implements the accessibility guidelines
+            of the W3C.
+            </summary>
+            <remarks>
+            Header cells are given unique 'id' attributes, and these are then linked
+            to data cells via the HTML 'headers' attribute.
+            If the accessible versions of the Column classes are used, then the 'abbr' attribute
+            for each 'th' element can also be populated.
+            </remarks>
+        </member>
+        <member name="M:UniSA.FLC.Web.UI.WebControls.AccessibleDataGrid.#ctor">
+            <summary>
+            Initializes a new instance of the
+            <see cref="T:UniSA.FLC.Web.UI.WebControls.AccessibleDataGrid">AccessibleDataGrid</see> class.
+            </summary>
+            <remarks>
+            Use this constructor to create and initialize a new instance of the <see cref="T:UniSA.FLC.Web.UI.WebControls.AccessibleDataGrid">AccessibleDataGrid</see> class.
+            </remarks>
+            <seealso cref="T:System.Web.UI.WebControls.DataGrid">DataGrid Class</seealso>
+        </member>
+        <member name="M:UniSA.FLC.Web.UI.WebControls.AccessibleDataGrid.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:UniSA.FLC.Web.UI.WebControls.AccessibleDataGrid.OnPreRender(System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:UniSA.FLC.Web.UI.WebControls.AccessibleDataGrid.Summary">
+            <summary>
+            Table summary attribute
+            </summary>
+            <seealso href="http://www.w3.org/TR/html401/struct/tables.html#adef-summary">W3C definition</seealso>
+        </member>
+        <member name="P:UniSA.FLC.Web.UI.WebControls.AccessibleDataGrid.Caption">
+            <summary>
+            Table caption element
+            </summary>
+            <seealso href="http://www.w3.org/TR/html401/struct/tables.html#h-11.2.2">W3C definition</seealso>
+        </member>
+    </members>
+</doc>

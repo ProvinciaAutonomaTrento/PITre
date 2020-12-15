@@ -1,0 +1,66 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Xml.Serialization;
+
+
+namespace DocsPaVO.filtri.LibroFirma
+{
+    /// <summary>
+    /// </summary>
+    [XmlType("FiltriElementoLibroFirma")]
+    public enum listaArgomenti
+    {
+        FIRMA_DIGITALE_CADES,
+        FIRMA_DIGITALE_PADES,
+        FIRMA_ELETTRONICA_SOTTOSCRIZIONE,
+        FIRMA_ELETTRONICA_AVANZAMENTO,
+        DA_FIRMARE,
+        DA_RESPINGERE,
+        PROPOSTO,
+        MODALITA_AUTOMATICA,
+        MODALITA_MANUALE,
+        NOTE,
+        DATA_INSERIMENTO_IL,
+        DATA_INSERIMENTO_SUCCESSIVA_AL,
+        DATA_INSERIMENTO_PRECEDENTE_IL,
+        DATA_INSERIMENTO_SC,
+        DATA_INSERIMENTO_MC,
+        DATA_INSERIMENTO_TODAY,
+        DATA_SCADENZA_IL,
+        DATA_SCADENZA_SUCCESSIVA_AL,
+        DATA_SCADENZA_PRECEDENTE_IL,
+        ID_PROPONENTE,
+        CODICE_PROPONENTE,
+        DESCRIZIONE_PROPONENTE,
+        PROPONENTE_STORICIZZATO,
+        DATA_AVVIO_IL,
+        DATA_AVVIO_SUCCESSIVA_AL,
+        DATA_AVVIO_PRECEDENTE_IL,
+        DATA_AVVIO_SC,
+        DATA_AVVIO_MC,
+        DATA_AVVIO_TODAY,
+        NOTE_AVVIO,
+        DATA_CONCLUSIONE_IL,
+        DATA_CONCLUSIONE_SUCCESSIVA_AL,
+        DATA_CONCLUSIONE_PRECEDENTE_IL,
+        DATA_CONCLUSIONE_SC,
+        DATA_CONCLUSIONE_MC,
+        DATA_CONCLUSIONE_TODAY,
+        DATA_INTERRUZIONE_IL,
+        DATA_INTERRUZIONE_SUCCESSIVA_AL,
+        DATA_INTERRUZIONE_PRECEDENTE_IL,
+        DATA_INTERRUZIONE_SC,
+        DATA_INTERRUZIONE_MC,
+        DATA_INTERRUZIONE_TODAY,
+        NOTE_RESPINGIMENTO,
+        STATO_IN_ESECUZIONE,
+        STATO_INTERROTTO,
+        STATO_CONCLUSO,
+        TRONCATO,
+        ID_PROCESSO,
+        CON_ERRORI,
+        SENZA_ERRORI
+    }
+}

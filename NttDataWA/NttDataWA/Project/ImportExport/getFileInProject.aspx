@@ -1,1 +1,0 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="getFileInProject.aspx.cs" Inherits="NttDataWA.Project.ImportExport.getFileInProject" %>

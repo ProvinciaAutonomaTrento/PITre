@@ -1,0 +1,404 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2BAD55ED-9B29-4F3F-87E6-BF4399A9BB1F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RESTServices</RootNamespace>
+    <AssemblyName>RESTServices</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\WebApiSwagger.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\WebApiSwagger.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Vt-Docs\DocsPaWS\bin\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Swashbuckle.Core.5.6.0\lib\net40\Swashbuckle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.6\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.6\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.6\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.6\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.6\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.6\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.6\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.EnterpriseServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\Rest Services Deploy.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="xml\daticert.dtd" />
+    <None Include="xml\impresainungiorno.gov_tipi_elementari-1.0.0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="xml\pratica_suap-1.0.1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="xml\protocolloASL.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="xml\RoutingMapping.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\Segnatura.dtd" />
+    <None Include="xml\Segnatura.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\Dati.xml" />
+    <Content Include="xml\descrittore CSV.txt" />
+    <Content Include="xml\ImportExportQueryList.xml" />
+    <Content Include="xml\labelPDF.xml" />
+    <Content Include="xml\listaIstanze.xml" />
+    <Content Include="xml\logger.xsl" />
+    <Content Include="xml\oracleSequenceMaps.xml" />
+    <Content Include="xml\queryListStyle.xsl" />
+    <Content Include="xml\queryList_Oracle.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\queryList_Sql.xml" />
+    <Content Include="xml\rapporti.xml" />
+    <Content Include="xml\ServiceLoadController.xml" />
+    <Content Include="xml\Titolario.xml" />
+    <Content Include="xml\Titolario_TEMPLATE.xml" />
+    <Content Include="xml\Utenti.xml" />
+    <Content Include="xml\Utenti_TEMPLATE.xml" />
+    <Content Include="xml\WSLog.xml" />
+    <Content Include="xml\xslfo.xsl" />
+    <Content Include="xml\xslfo_export_archivio_cartaceo.xsl" />
+    <Content Include="xml\xslfo_export_conservazione.xsl" />
+    <Content Include="xml\xslfo_export_conservazione_policy.xsl" />
+    <Content Include="xml\xslfo_export_conservazione_rigIst.xsl" />
+    <Content Include="xml\xslfo_export_doc.xsl" />
+    <Content Include="xml\xslfo_export_docInCest.xsl" />
+    <Content Include="xml\xslfo_export_fasc.xsl" />
+    <Content Include="xml\xslfo_export_fasc_scarto.xsl" />
+    <Content Include="xml\xslfo_export_log.xsl" />
+    <Content Include="xml\xslfo_export_notification_center.xsl" />
+    <Content Include="xml\xslfo_export_todolist.xsl" />
+    <Content Include="xml\xslfo_export_trasm.xsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\CorsHandler.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\SwaggerConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AddressBookController.cs" />
+    <Compile Include="Controllers\AuthenticateController.cs" />
+    <Compile Include="Controllers\ClassificationSchemesController.cs" />
+    <Compile Include="Controllers\DocumentsController.cs" />
+    <Compile Include="Controllers\ProjectsController.cs" />
+    <Compile Include="Controllers\RegistersController.cs" />
+    <Compile Include="Controllers\RESTRouterController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\SignBookController.cs" />
+    <Compile Include="Controllers\TransmissionsController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\AddressBookManager.cs" />
+    <Compile Include="Manager\AuthenticateManager.cs" />
+    <Compile Include="Manager\ClassificationSchemesManager.cs" />
+    <Compile Include="Manager\DocumentsManager.cs" />
+    <Compile Include="Manager\LibroFirmaManager.cs" />
+    <Compile Include="Manager\ProjectsManager.cs" />
+    <Compile Include="Manager\RegistersManager.cs" />
+    <Compile Include="Manager\RolesManager.cs" />
+    <Compile Include="Manager\RoutingManager.cs" />
+    <Compile Include="Manager\TransmissionsManager.cs" />
+    <Compile Include="Manager\Utils.cs" />
+    <Compile Include="Model\Domain\ClassificationScheme.cs" />
+    <Compile Include="Model\Domain\Correspondent.cs" />
+    <Compile Include="Model\Domain\Document.cs" />
+    <Compile Include="Model\Domain\Field.cs" />
+    <Compile Include="Model\Domain\File.cs" />
+    <Compile Include="Model\Domain\Filter.cs" />
+    <Compile Include="Model\Domain\Folder.cs" />
+    <Compile Include="Model\Domain\LinkedDocument.cs" />
+    <Compile Include="Model\Domain\LogEvent.cs" />
+    <Compile Include="Model\Domain\Note.cs" />
+    <Compile Include="Model\Domain\ObjectAccessRight.cs" />
+    <Compile Include="Model\Domain\Project.cs" />
+    <Compile Include="Model\Domain\Register.cs" />
+    <Compile Include="Model\Domain\Role.cs" />
+    <Compile Include="Model\Domain\SendingResult.cs" />
+    <Compile Include="Model\Domain\SignBook\Event.cs" />
+    <Compile Include="Model\Domain\SignBook\SignatureProcess.cs" />
+    <Compile Include="Model\Domain\SignBook\SignatureProcessInstance.cs" />
+    <Compile Include="Model\Domain\SignBook\SignatureStep.cs" />
+    <Compile Include="Model\Domain\SignBook\SignStepInstance.cs" />
+    <Compile Include="Model\Domain\Stamp.cs" />
+    <Compile Include="Model\Domain\StateDiagram.cs" />
+    <Compile Include="Model\Domain\StateOfDiagram.cs" />
+    <Compile Include="Model\Domain\Template.cs" />
+    <Compile Include="Model\Domain\TransmissionModel.cs" />
+    <Compile Include="Model\Domain\User.cs" />
+    <Compile Include="Model\Domain\RestException.cs" />
+    <Compile Include="Model\Requests\AddCorrespondentRequest.cs" />
+    <Compile Include="Model\Requests\AddDocInProjectRequest.cs" />
+    <Compile Include="Model\Requests\AuthenticateRequest.cs" />
+    <Compile Include="Model\Requests\CreateDocAndAddInPrjRequest.cs" />
+    <Compile Include="Model\Requests\CreateDocumentRequest.cs" />
+    <Compile Include="Model\Requests\CreateFolderRequest.cs" />
+    <Compile Include="Model\Requests\CreateProjectRequest.cs" />
+    <Compile Include="Model\Requests\EditDocStateDiagramRequest.cs" />
+    <Compile Include="Model\Requests\EditPrjStateDiagramRequest.cs" />
+    <Compile Include="Model\Requests\ExecuteTransmDocModelRequest.cs" />
+    <Compile Include="Model\Requests\ExecuteTransmissionDocumentRequest.cs" />
+    <Compile Include="Model\Requests\ExecuteTransmissionProjectRequest.cs" />
+    <Compile Include="Model\Requests\ExecuteTransmPrjModelRequest.cs" />
+    <Compile Include="Model\Requests\GetDocumentRequest.cs" />
+    <Compile Include="Model\Requests\GetDocumentsInProjectRequest.cs" />
+    <Compile Include="Model\Requests\GetTransmModelsRequest.cs" />
+    <Compile Include="Model\Requests\GiveUpRightsRequest.cs" />
+    <Compile Include="Model\Requests\InterruptSignatureProcessRequest.cs" />
+    <Compile Include="Model\Requests\OpenCloseProjectRequest.cs" />
+    <Compile Include="Model\Requests\ProtocolPredisposedRequest.cs" />
+    <Compile Include="Model\Requests\SearchFiltersOnlyRequest.cs" />
+    <Compile Include="Model\Requests\SearchRequest.cs" />
+    <Compile Include="Model\Requests\SendDocAdvRequest.cs" />
+    <Compile Include="Model\Requests\SendDocRequest.cs" />
+    <Compile Include="Model\Requests\StartSignatureProcessRequest.cs" />
+    <Compile Include="Model\Requests\UploadFileToDocumentRequest.cs" />
+    <Compile Include="Model\Responses\AuthenticateResponse.cs" />
+    <Compile Include="Model\Responses\CreateDocumentResponse.cs" />
+    <Compile Include="Model\Responses\GetAllClassificationSchemesResponse.cs" />
+    <Compile Include="Model\Responses\GetClassificationSchemeResponse.cs" />
+    <Compile Include="Model\Responses\GetCorrespondentResponse.cs" />
+    <Compile Include="Model\Responses\GetDocAccessRightsResponse.cs" />
+    <Compile Include="Model\Responses\GetDocumentEventsResponse.cs" />
+    <Compile Include="Model\Responses\GetFiltersResponse.cs" />
+    <Compile Include="Model\Responses\GetDocumentResponse.cs" />
+    <Compile Include="Model\Responses\GetFileDocumentByIdResponse.cs" />
+    <Compile Include="Model\Responses\GetFolderResponse.cs" />
+    <Compile Include="Model\Responses\GetProjectFoldersResponse.cs" />
+    <Compile Include="Model\Responses\GetProjectResponse.cs" />
+    <Compile Include="Model\Responses\GetProjectsResponse.cs" />
+    <Compile Include="Model\Responses\GetRegisterOrRFResponse.cs" />
+    <Compile Include="Model\Responses\GetRegistersOrRFResponse.cs" />
+    <Compile Include="Model\Responses\GetRoleResponse.cs" />
+    <Compile Include="Model\Responses\GetRolesResponse.cs" />
+    <Compile Include="Model\Responses\GetSignatureProcessesResponse.cs" />
+    <Compile Include="Model\Responses\GetSignatureProcessResponse.cs" />
+    <Compile Include="Model\Responses\GetSignProcessInstanceResponse.cs" />
+    <Compile Include="Model\Responses\GetSignProcessInstancesResponse.cs" />
+    <Compile Include="Model\Responses\GetStampResponse.cs" />
+    <Compile Include="Model\Responses\GetStateOfDiagramResponse.cs" />
+    <Compile Include="Model\Responses\GetTemplateResponse.cs" />
+    <Compile Include="Model\Responses\GetTemplatesResponse.cs" />
+    <Compile Include="Model\Responses\GetTransmModelResponse.cs" />
+    <Compile Include="Model\Responses\GetTransmModelsResponse.cs" />
+    <Compile Include="Model\Responses\GetUsersResponse.cs" />
+    <Compile Include="Model\Responses\MessageResponse.cs" />
+    <Compile Include="Model\Responses\SearchCorrespondentsResponse.cs" />
+    <Compile Include="Model\Responses\SearchDocumentsResponse.cs" />
+    <Compile Include="Model\Responses\SearchProjectsResponse.cs" />
+    <Compile Include="Model\Responses\SendDocAdvResponse.cs" />
+    <Compile Include="Model\Responses\TransmissionResponse.cs" />
+    <Compile Include="Model\Responses\UploadFileToDocumentResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BackEnd\BusinessLogic\BusinessLogic.csproj">
+      <Project>{fde4cb26-1f10-464b-8913-0d9e2bd0c72a}</Project>
+      <Name>BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BackEnd\DocsPaUtils\DocsPaUtils.csproj">
+      <Project>{942ad652-bcf7-44ca-ae38-cf0cda8e0d16}</Project>
+      <Name>DocsPaUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BackEnd\DocsPaVO\DocsPaVO.csproj">
+      <Project>{a8ba40a6-ab86-4df7-8c0f-8a9bbb7ee885}</Project>
+      <Name>DocsPaVO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49930</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/RESTServices</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

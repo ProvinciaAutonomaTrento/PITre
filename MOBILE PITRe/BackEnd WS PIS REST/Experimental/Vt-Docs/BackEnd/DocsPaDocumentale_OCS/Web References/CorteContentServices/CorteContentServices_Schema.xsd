@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="urn:it:CorteConti:Servizi:CorteContentServices_Schema:xsd" elementFormDefault="qualified" targetNamespace="urn:it:CorteConti:Servizi:CorteContentServices_Schema:xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="ItemIdType">
+    <xs:restriction base="xs:long" />
+  </xs:simpleType>
+  <xs:simpleType name="DateTimeType">
+    <xs:restriction base="xs:dateTime" />
+  </xs:simpleType>
+  <xs:simpleType name="NumberType">
+    <xs:restriction base="xs:long" />
+  </xs:simpleType>
+  <xs:simpleType name="UserIdType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="50" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PasswordType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="50" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NameType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="50" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DescriptionType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="250" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ValueType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="2000" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ContentType">
+    <xs:restriction base="xs:base64Binary" />
+  </xs:simpleType>
+  <xs:simpleType name="LocationType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1000" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="StateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Locked" />
+      <xs:enumeration value="Unlocked" />
+      <xs:enumeration value="Undefined" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FileNameType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="100" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PathFileType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1000" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SizeType">
+    <xs:restriction base="xs:long" />
+  </xs:simpleType>
+  <xs:simpleType name="AccessType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="50" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="InfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name" type="tns:NameType" />
+      <xs:element minOccurs="0" name="description" type="tns:DescriptionType" />
+      <xs:element minOccurs="0" name="location" type="tns:LocationType" />
+      <xs:element minOccurs="0" name="creationDate" type="tns:DateTimeType" />
+      <xs:element minOccurs="0" name="author" type="tns:UserIdType" />
+      <xs:element minOccurs="0" name="state" type="tns:StateType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InfoNameType">
+    <xs:sequence>
+      <xs:element name="name" type="tns:NameType" />
+      <xs:element name="location" type="tns:LocationType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MetadataType">
+    <xs:sequence>
+      <xs:element name="name" type="tns:NameType" />
+      <xs:element maxOccurs="unbounded" name="value" type="tns:ValueType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PhysicalDataType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="fileName" type="tns:FileNameType" />
+      <xs:element minOccurs="0" name="path" type="tns:PathFileType" />
+      <xs:element minOccurs="0" name="size" type="tns:SizeType" />
+      <xs:element minOccurs="0" name="content" type="tns:ContentType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LinkType">
+    <xs:sequence>
+      <xs:element name="linkId" type="tns:ItemIdType" />
+      <xs:element name="info" type="tns:InfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UserType">
+    <xs:sequence>
+      <xs:element name="userId" type="tns:UserIdType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UserCredentialsType">
+    <xs:sequence>
+      <xs:element name="userId" type="tns:UserIdType" />
+      <xs:element name="password" type="tns:PasswordType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GroupType">
+    <xs:sequence>
+      <xs:element name="name" type="tns:NameType" />
+      <xs:element minOccurs="0" name="description" type="tns:DescriptionType" />
+      <xs:element name="users">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="user" type="tns:UserType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GroupDefinitionType">
+    <xs:sequence>
+      <xs:element name="name" type="tns:NameType" />
+      <xs:element minOccurs="0" name="description" type="tns:DescriptionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UsersType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="user" type="tns:UserType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GroupsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="groupDefinition" type="tns:GroupDefinitionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UserGrantType">
+    <xs:sequence>
+      <xs:element name="userId" type="tns:UserIdType" />
+      <xs:element name="accessType" type="tns:AccessType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GroupGrantType">
+    <xs:sequence>
+      <xs:element name="name" type="tns:NameType" />
+      <xs:element name="accessType" type="tns:AccessType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UserGrantsType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="userGrant" type="tns:UserGrantType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GroupGrantsType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="groupGrant" type="tns:GroupGrantType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GrantsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="usersGrant" type="tns:UserGrantsType" />
+      <xs:element minOccurs="0" name="groupsGrant" type="tns:GroupGrantsType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemGrantsType">
+    <xs:sequence>
+      <xs:element name="itemId" type="tns:ItemIdType" />
+      <xs:element name="grants" type="tns:GrantsType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MetadataListType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="metadata" type="tns:MetadataType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CategoryType">
+    <xs:sequence>
+      <xs:element name="name" type="tns:NameType" />
+      <xs:element minOccurs="0" name="metadataList" type="tns:MetadataListType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CategoriesType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="category" type="tns:CategoryType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DocumentCreateType">
+    <xs:sequence>
+      <xs:element name="info" type="tns:InfoType" />
+      <xs:element minOccurs="0" name="categories" type="tns:CategoriesType" />
+      <xs:element minOccurs="0" name="physicalData" type="tns:PhysicalDataType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DocumentModifyType">
+    <xs:sequence>
+      <xs:element name="documentId" type="tns:ItemIdType" />
+      <xs:element minOccurs="0" name="info" type="tns:InfoType" />
+      <xs:element minOccurs="0" name="categories" type="tns:CategoriesType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemLockedType">
+    <xs:sequence>
+      <xs:element name="documentId" type="tns:ItemIdType" />
+      <xs:element name="info" type="tns:InfoType" />
+      <xs:element name="userId" type="tns:UserIdType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemLockedListType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="document" type="tns:ItemLockedType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemInfoType">
+    <xs:sequence>
+      <xs:element name="itemId" type="tns:ItemIdType" />
+      <xs:element minOccurs="0" name="info" type="tns:InfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemMetadataType">
+    <xs:sequence>
+      <xs:element name="itemId" type="tns:ItemIdType" />
+      <xs:element minOccurs="0" name="categories" type="tns:CategoriesType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DocumentAttachType">
+    <xs:sequence>
+      <xs:element name="attachId" type="tns:ItemIdType" />
+      <xs:element name="info" type="tns:InfoType" />
+      <xs:element minOccurs="0" name="categories" type="tns:CategoriesType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DocumentAttachListType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="attach" type="tns:DocumentAttachType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemVersionType">
+    <xs:sequence>
+      <xs:element name="versionId" type="tns:ItemIdType" />
+      <xs:element name="versionNumber" type="tns:NumberType" />
+      <xs:element minOccurs="0" name="creationDate" type="tns:DateTimeType" />
+      <xs:element minOccurs="0" name="author" type="tns:UserIdType" />
+      <xs:element minOccurs="0" name="description" type="tns:DescriptionType" />
+      <xs:element minOccurs="0" name="categories" type="tns:CategoriesType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemVersionListType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="version" type="tns:ItemVersionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FolderType">
+    <xs:sequence>
+      <xs:element name="folderId" type="tns:ItemIdType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VersionType">
+    <xs:sequence>
+      <xs:element name="versionId" type="tns:ItemIdType" />
+      <xs:element name="versionNumber" type="tns:NumberType" />
+      <xs:element minOccurs="0" name="description" type="tns:DescriptionType" />
+      <xs:element minOccurs="0" name="creationDate" type="tns:DateTimeType" />
+      <xs:element minOccurs="0" name="author" type="tns:UserIdType" />
+      <xs:element minOccurs="0" name="categories" type="tns:CategoriesType" />
+      <xs:element minOccurs="0" name="physicalData" type="tns:PhysicalDataType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DocumentAddAttachType">
+    <xs:sequence>
+      <xs:element name="documentId" type="tns:ItemIdType" />
+      <xs:element name="attachId" type="tns:ItemIdType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CreateVersionType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name" type="tns:NameType" />
+      <xs:element minOccurs="0" name="location" type="tns:LocationType" />
+      <xs:element name="description" type="tns:DescriptionType" />
+      <xs:element minOccurs="0" name="creationDate" type="tns:DateTimeType" />
+      <xs:element minOccurs="0" name="author" type="tns:UserIdType" />
+      <xs:element minOccurs="0" name="categories" type="tns:CategoriesType" />
+      <xs:element minOccurs="0" name="physicalData" type="tns:PhysicalDataType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemCreateVersionType">
+    <xs:sequence>
+      <xs:element name="itemId" type="tns:ItemIdType" />
+      <xs:element name="versionId" type="tns:ItemIdType" />
+      <xs:element name="version" type="tns:CreateVersionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UploadPhysicalDataType">
+    <xs:sequence>
+      <xs:element name="fileName" type="tns:FileNameType" />
+      <xs:element name="content" type="tns:ContentType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemUploadType">
+    <xs:sequence>
+      <xs:element name="itemId" type="tns:ItemIdType" />
+      <xs:element name="physicalData" type="tns:UploadPhysicalDataType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemSearchType">
+    <xs:sequence>
+      <xs:element name="itemId" type="tns:ItemIdType" />
+      <xs:element name="info" type="tns:InfoType" />
+      <xs:element minOccurs="0" name="categories" type="tns:CategoriesType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemSearchListType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="item" type="tns:ItemSearchType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DocumentNameSearchType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="versionNumber" type="tns:NumberType" />
+      <xs:element name="info" type="tns:InfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FolderCreateType">
+    <xs:sequence>
+      <xs:element name="info" type="tns:InfoType" />
+      <xs:element minOccurs="0" name="categories" type="tns:CategoriesType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FolderModifyType">
+    <xs:sequence>
+      <xs:element name="folderId" type="tns:ItemIdType" />
+      <xs:element name="info" type="tns:InfoType" />
+      <xs:element minOccurs="0" name="categories" type="tns:CategoriesType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FolderDocumentListType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="document" type="tns:ItemInfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FolderNameSearchType">
+    <xs:sequence>
+      <xs:element name="info" type="tns:InfoNameType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LinkCreateType">
+    <xs:sequence>
+      <xs:element name="documentId" type="tns:ItemIdType" />
+      <xs:element name="info" type="tns:InfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LinkModifyType">
+    <xs:sequence>
+      <xs:element name="linkId" type="tns:ItemIdType" />
+      <xs:element name="info" type="tns:InfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LinkNameSearchType">
+    <xs:sequence>
+      <xs:element name="info" type="tns:InfoNameType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemVersionNumberSearchType">
+    <xs:sequence>
+      <xs:element name="itemId" type="tns:ItemIdType" />
+      <xs:element name="versionNumber" type="tns:NumberType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VersionModifyType">
+    <xs:sequence>
+      <xs:element name="versionId" type="tns:ItemIdType" />
+      <xs:element minOccurs="0" name="description" type="tns:DescriptionType" />
+      <xs:element minOccurs="0" name="categories" type="tns:CategoriesType" />
+      <xs:element minOccurs="0" name="physicalData" type="tns:PhysicalDataType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VersionInfoType">
+    <xs:sequence>
+      <xs:element name="versionId" type="tns:ItemIdType" />
+      <xs:element minOccurs="0" name="description" type="tns:DescriptionType" />
+      <xs:element minOccurs="0" name="creationDate" type="tns:DateTimeType" />
+      <xs:element minOccurs="0" name="author" type="tns:UserIdType" />
+      <xs:element name="versionNumber" type="tns:NumberType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AttachCreateType">
+    <xs:sequence>
+      <xs:element name="documentId" type="tns:ItemIdType" />
+      <xs:element name="info" type="tns:InfoType" />
+      <xs:element minOccurs="0" name="categories" type="tns:CategoriesType" />
+      <xs:element minOccurs="0" name="physicalData" type="tns:PhysicalDataType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AttachModifyType">
+    <xs:sequence>
+      <xs:element name="attachId" type="tns:ItemIdType" />
+      <xs:element minOccurs="0" name="info" type="tns:InfoType" />
+      <xs:element minOccurs="0" name="categories" type="tns:CategoriesType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FilterSearchType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="folderPath" type="tns:LocationType" />
+      <xs:element minOccurs="0" name="sortClause" type="xs:string" />
+      <xs:element minOccurs="0" name="includeSubFolders" type="xs:boolean" />
+      <xs:element minOccurs="0" name="offset" type="xs:int" />
+      <xs:element minOccurs="0" name="count" type="xs:int" />
+      <xs:element minOccurs="0" ref="tns:searchExpress" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VersionSearchType">
+    <xs:sequence>
+      <xs:element name="versionId" type="tns:ItemIdType" />
+      <xs:element name="versionNumber" type="tns:NumberType" />
+      <xs:element minOccurs="0" name="description" type="tns:DescriptionType" />
+      <xs:element minOccurs="0" name="creationDate" type="tns:DateTimeType" />
+      <xs:element minOccurs="0" name="author" type="tns:UserIdType" />
+      <xs:element minOccurs="0" name="categories" type="tns:CategoriesType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VersionSearchListType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="versions" type="tns:VersionSearchType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ExceptionType">
+    <xs:sequence>
+      <xs:element name="code" type="xs:string" />
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResultType">
+    <xs:sequence>
+      <xs:element name="code" type="xs:string" />
+      <xs:element name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VersionDefinitionType">
+    <xs:sequence>
+      <xs:element name="versionId" type="tns:ItemIdType" />
+      <xs:element minOccurs="0" name="versionNumber" type="tns:NumberType" />
+      <xs:element minOccurs="0" name="description" type="tns:DescriptionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="searchExpress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" ref="tns:SearchExprType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchExprType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="leftOperand" type="xs:string" />
+        <xs:element minOccurs="0" name="rightOperand" type="xs:string" />
+        <xs:element minOccurs="0" name="operator" type="xs:string" />
+        <xs:element minOccurs="0" name="sameLevelOperator" type="xs:string" />
+        <xs:element minOccurs="0" name="subLevelOperator" type="xs:string" />
+        <xs:element minOccurs="0" ref="tns:SearchExprType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

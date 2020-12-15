@@ -1,1 +1,0 @@
-keytool -genkey -alias integrasistemi -keyalg RSA -keystore keystore.jks -keysize 2048

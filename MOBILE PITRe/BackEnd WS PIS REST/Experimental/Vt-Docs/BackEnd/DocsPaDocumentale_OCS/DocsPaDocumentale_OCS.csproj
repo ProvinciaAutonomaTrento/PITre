@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{70D33C3B-D626-4567-B030-54E0D5338F00}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DocsPaDocumentale_OCS</RootNamespace>
+    <AssemblyName>DocsPaDocumentale_OCS</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>http://localhost/DocsPaDocumentale_OCS/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\..\DLL_TERZE_PARTI\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\VersionInfo.cs">
+      <Link>VersionInfo.cs</Link>
+    </Compile>
+    <Compile Include="DocsPaObjectType\ObjectTypes.cs" />
+    <Compile Include="DocsPaObjectType\TypeDocumentoAllegato.cs" />
+    <Compile Include="DocsPaObjectType\TypeDocumentoStampaRegistro.cs" />
+    <Compile Include="DocsPaObjectType\TypeDocumentoProtocollo.cs" />
+    <Compile Include="Documentale\AclEventListener.cs" />
+    <Compile Include="Documentale\AdminPasswordConfig.cs" />
+    <Compile Include="Documentale\AmministrazioneManager.cs" />
+    <Compile Include="Documentale\CheckInOutAdminDocumentManager.cs" />
+    <Compile Include="Documentale\CheckInOutDocumentManager.cs" />
+    <Compile Include="Documentale\DocumentManager.cs" />
+    <Compile Include="Documentale\FullTextSearchManager.cs" />
+    <Compile Include="Documentale\OrganigrammaManager.cs" />
+    <Compile Include="Documentale\ProjectManager.cs" />
+    <Compile Include="Documentale\TitolarioManager.cs" />
+    <Compile Include="Documentale\UserManager.cs" />
+    <Compile Include="DocsPaServices\DocsPaQueryHelper.cs" />
+    <Compile Include="OCSServices\OCSConfigurations.cs" />
+    <Compile Include="OCSServices\OCSDocumentHelper.cs" />
+    <Compile Include="OCSServices\OCSException.cs" />
+    <Compile Include="OCSServices\OCSFolderHelper.cs" />
+    <Compile Include="OCSServices\OCSServiceFactory.cs" />
+    <Compile Include="OCSServices\OCSTokenHelper.cs" />
+    <Compile Include="OCSServices\OCSUtils.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\CorteContentServices\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DocsPaDB\DocsPaDB.csproj">
+      <Project>{5CFF0911-B6D1-4F98-A9EA-3034E188F68B}</Project>
+      <Name>DocsPaDB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DocsPaDocumentale\DocsPaDocumentale_Interfaces\DocsPaDocumentale_Interfaces.csproj">
+      <Project>{CD584E33-6EE7-4C62-B465-3A2A3A320C88}</Project>
+      <Name>DocsPaDocumentale_Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DocsPaUtils\DocsPaUtils.csproj">
+      <Project>{942AD652-BCF7-44CA-AE38-CF0CDA8E0D16}</Project>
+      <Name>DocsPaUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DocsPaVO\DocsPaVO.csproj">
+      <Project>{A8BA40A6-AB86-4DF7-8C0F-8A9BBB7EE885}</Project>
+      <Name>DocsPaVO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\CorteContentServices\CorteContentServices.wsdl" />
+    <None Include="Web References\CorteContentServices\CorteContentServicesRequest_Schema.xsd" />
+    <None Include="Web References\CorteContentServices\CorteContentServicesResponse_Schema.xsd" />
+    <None Include="Web References\CorteContentServices\CorteContentServices_Schema.xsd" />
+    <None Include="Web References\CorteContentServices\DocumentAttachListResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CorteContentServices\DocumentVersionListResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CorteContentServices\FolderDocumentListResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CorteContentServices\GroupsResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CorteContentServices\ItemGrantsResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CorteContentServices\ItemIdResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CorteContentServices\ItemInfoResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CorteContentServices\ItemLockedListResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CorteContentServices\ItemMetadataResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CorteContentServices\ItemSearchListResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CorteContentServices\PhysicalDataResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CorteContentServices\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\CorteContentServices\ResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CorteContentServices\ResultType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CorteContentServices\UsersResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CorteContentServices\VersionResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://webmtest.corteconti.it/DocumentServices/DocumentManagementSOAPHTTPPort%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CorteContentServices\</RelPath>
+      <UpdateFromURL>http://webmtest.corteconti.it/DocumentServices/DocumentManagementSOAPHTTPPort%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DocsPaDocumentale_OCS_CorteContentServices_CorteContentServices</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

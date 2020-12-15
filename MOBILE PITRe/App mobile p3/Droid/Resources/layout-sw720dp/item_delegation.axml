@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/delega_left_right_padding"
+    android:paddingRight="@dimen/delega_left_right_padding"
+    android:paddingTop="@dimen/margin_80px"
+    android:paddingBottom="@dimen/margin_80px"
+    android:layout_gravity="center_vertical"
+    android:background="@color/colorWhite">
+    <TextView
+        android:id="@+id/textView_infoDelega"
+        style="@style/list_document_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:lines="1"
+        android:gravity="center_vertical"
+        android:text="Segreteria avvocatura della provincia"
+        android:layout_alignParentTop="true" />
+    <LinearLayout
+        android:layout_marginTop="@dimen/margin_20px"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/textView_infoDelega">
+    <!-- first column START-->
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/textView_dataDecorrenza_str"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/list_document_description"
+                android:text="@string/item_delegation_date_from" />
+            <TextView
+                android:id="@+id/textView_dataDecorrenza"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/list_sender"
+                android:text="@string/item_delegation_date_from"
+                android:layout_below="@+id/textView_dataDecorrenza_str" />
+        </RelativeLayout>
+    <!-- first column END-->
+    <!-- second column START-->
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/textView_dataScadenza_str"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/list_document_description"
+                android:text="@string/item_delegation_date_to" />
+            <TextView
+                android:id="@+id/textView_dataScadenza"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/list_sender"
+                android:text="@string/item_delegation_date_from"
+                android:layout_below="@+id/textView_dataScadenza_str" />
+        </RelativeLayout>
+    <!-- second column END-->
+    <!-- third column START-->
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/textView_delegante_str"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/list_document_description"
+                android:text="@string/item_delegation_delegator" />
+            <TextView
+                android:id="@+id/textView_delegante"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/list_sender"
+                android:text="@string/item_delegation_delegator"
+                android:layout_below="@+id/textView_delegante_str" />
+        </RelativeLayout>
+    <!-- third column END-->
+    <!-- fourth column START-->
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/textView_delegato_role"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/list_document_description"
+                android:text="@string/item_delegation_role" />
+            <TextView
+                android:id="@+id/textView_role"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                style="@style/list_sender"
+                android:text="@string/item_delegation_delegator"
+                android:layout_below="@+id/textView_delegato_role" />
+        </RelativeLayout>
+    <!-- fourth column END-->
+    </LinearLayout>
+</RelativeLayout>

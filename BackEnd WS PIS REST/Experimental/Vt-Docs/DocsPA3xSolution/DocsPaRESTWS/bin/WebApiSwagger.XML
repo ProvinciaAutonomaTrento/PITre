@@ -1,0 +1,804 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DocsPaRESTWS</name>
+    </assembly>
+    <members>
+        <member name="M:DocsPaRESTWS.Controllers.DelegheController.creaDelega(DocsPaVO.Mobile.Delega)">
+            <summary>
+            Creazione Delega
+            </summary>
+            <param name="delega">L'oggetto Delega va popolato nei seguenti campi:
+            IdRuoloDelegante: può essere popolato con la stringa "TUTTI" per generare una delega per tutti i ruoli. Altrimenti può essere lasciato vuoto: la delega verrà creata per il ruolo con il quale si è fatto l'accesso.
+            IdDelegato: id dell'utente che viene delegato.
+            IdRuoloDelegato: id del ruolo che viene delegato. Se omesso sarà delegato il ruolo preferito dell'utente.
+            DataDecorrenza: parametro data per indicare l'inizio della delega
+            DataScadenza: parametro data per indicare la fine della delega
+            </param>
+            <returns>
+            Restituisce un Code:
+            0 - OK
+            1 - Errore generico
+            2 - Delega non creata per un errore di creazione
+            3 - Nell'arco di tempo selezionato sono presenti delle deleghe sovrapposte
+            </returns>
+            <remarks>Metodo utilizzato per la creazione di una delega, fornendo il periodo, e l'id del delegato.</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.DelegheController.listaDeleghe(System.String)">
+            <summary>
+            Lista delle deleghe assegnate
+            </summary>
+            <param name="statoDelega">
+            statoDelega(string): stato delle deleghe ricercate, valori ammessi
+            "T" - tutte
+            "A" - attiva
+            "I" - impostata
+            "S" - scaduta
+            "N" - Attive e impostate
+            </param>
+            <returns>
+            Codice:
+            0 - OK
+            1 - Errore generico
+            In caso di codice zero, restituisce una lista di oggetti Delega, e il numero totale degli elementi presenti.
+            </returns>
+            <remarks>Metodo per il prelievo delle deleghe impostate dall'utente verso altri ruoli.</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.DelegheController.creaDelegaDaModello(DocsPaRESTWS.Model.CreaDelegaDaModelloRequest)">
+            <summary>
+            Creazione di una delega con un modello
+            </summary>
+            <param name="request">Oltre al periodo indicato da DataDecorrenza e DataScadenza, bisogna indicare l'id del modello</param>
+            <returns>
+            Restituisce Code:
+            0 - OK
+            1 - Errore durante la creazione
+            2 - Errore Generico
+            </returns>
+            <remarks>Metodo che permette la creazione di una delega partendo da un modello preconfigurato</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.DelegheController.getListaModelliDelega">
+            <summary>
+            Lista dei modelli per deleghe
+            </summary>
+            <returns>
+            Restituisce un Code:
+            0 - OK
+            1 - Errore generico
+            In caso di Code 0, restituisce anche la lista dei modelli di delega
+            </returns>
+            <remarks>Metodo per il prelievo della lista dei modelli di delega disponibili per l'utente.</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.DelegheController.getListaTipiRuolo">
+            <summary>
+            Lista dei tipi ruolo
+            </summary>
+            <returns>
+            Restituisce un Code:
+            0 - OK
+            1 - Errore generico
+            In caso di Code 0, restituisce anche la lista dei tipi ruolo
+            </returns>
+            <remarks>Metodo per il prelievo della lista dei tipi ruolo.</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.DelegheController.getListaUtenti(System.String)">
+            <summary>
+            Lista degli utenti a partire da un tipo ruolo
+            </summary>
+            <param name="codiceTipoRuolo">Codice del tipo ruolo desiderato</param>
+            <returns>
+            Restituisce un Code:
+            0 - OK
+            1 - Errore generico
+            In caso di Code 0, restituisce anche la lista degli utenti a partire dal codice del tipo ruolo
+            </returns>
+            <remarks>Metodo per il prelievo della lista degli utenti a partire da un tipo ruolo.</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.DelegheController.ricercaUtenti(System.String,System.Int32)">
+            <summary>
+            Ricerca degli utenti
+            </summary>
+            <param name="descrizione">Parte del nome di un utente</param>
+            <param name="numMaxResult">Massimo numero dei risultati da restituire</param>
+            <returns>
+            Restituisce un Code:
+            0 - OK
+            1 - Errore generico
+            In caso di Code 0, restituisce anche una lista degli utenti che corrispondono alla descrizione fornita, ed i loro ruoli.
+            </returns>
+            <remarks>Metodo per la ricerca di un numero determinato di utenti, fornendo una parte del loro nome. Restituisce anche i ruoli</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.DelegheController.revocaDelega(DocsPaVO.Mobile.Delega)">
+            <summary>
+            Revoca Delega
+            </summary>
+            <param name="delega">L'oggetto Delega va popolato nei seguenti campi:
+            IdDelega: Id della delega
+            DataDecorrenza: parametro data per indicare l'inizio della delega
+            DataScadenza: parametro data per indicare la fine della delega
+            </param>
+            <returns>Valore booleano che indica l'avvenuta revoca</returns>
+            <remarks>Metodo utilizzato per la revoca di una delega</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.DocFascController.getDocInfo(System.String,System.String,System.String)">
+            <summary>
+            Informazioni documento
+            </summary>
+            <param name="idDoc">Id del documento</param>
+            <param name="idEvento">Id dell'evento di log</param>
+            <param name="idTrasm">Id della trasmissione</param>
+            <returns>Informazioni sul documento</returns>
+            <remarks>Metodo per il prelievo delle informazioni di un documento. Il parametro idDoc è obbligatorio per identificare il documento.
+            Il parametro idTrasm consente di prelevare le informazioni per la trasmissione.
+            Il parametro idEvento, in caso di assenza del parametro idTrasm, consente di rimuovere la notifica della TodoList.
+            Code restituiti:
+            0: OK
+            1: Errore generico
+            </remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.DocFascController.rimuoviNotifica(System.String)">
+            <summary>
+            Rimuovi notifica
+            </summary>
+            <param name="idEvento">Id dell'evento dal quale deriva la notifica</param>
+            <returns>Valore booleano che comunica l'avvenuta rimozione</returns>
+            <remarks>Metodo utilizzato per la rimozione di una notifica dalla todoList.</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.DocFascController.getFile(System.String,System.String)">
+            <summary>
+            Get File
+            </summary>
+            <param name="idDoc">Id del documento relativo al file.</param>
+            <param name="getSignedFile">Se popolato con 1, restituisce il file con busta di firma se presente</param>
+            <returns>Oggetto FileInfo contenente le informazioni del file ed il contenuto binario</returns>
+            <remarks>Metodo utilizzato per il prelievo di un file, sia il contenuto binario che le informazioni riguardanti.
+            Code restituiti:
+            0: OK
+            1: Errore generico
+            </remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.DocFascController.AdlAction(DocsPaRESTWS.Model.AdlActionRequest)">
+            <summary>
+            Gestione area di lavoro
+            </summary>
+            <param name="request">
+            Oggetto AdlActionRequest, campi da popolare:
+            ADLAction (string): Aggiunta o rimozione in Area di Lavoro. Valori ammessi "ADD" o "REMOVE"
+            IdElemento (string): Id dell'elemento sul quale eseguire l'azione
+            TipoElemento (string): se popolato con "F", indica che si sta lavorando su un fascicolo
+            </param>
+            <returns>Codice di azione eseguita correttamente</returns>
+            <remarks>
+            Metodo per la gestione di documenti e fascicoli in area di lavoro.
+            La richiesta contiene i seguenti parametri:
+            IdElemento: id dell'elemento sul quale si vuole eseguire l'azione
+            TipoElemento: se popolato con "F", indica che l'elemento è un fascicolo
+            ADLAction: azione da eseguire sull'elemento. Se popolato con "ADD", inserisce in area di lavoro. Con "REMOVE", rimuove dall'area di lavoro.
+            Code restituiti:
+            0 - OK
+            1 - Errore generico
+            </remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.DocFascController.getFascInfo(System.String,System.String)">
+            <summary>
+            Informazioni fascicolo
+            </summary>
+            <param name="idFasc">Id del fascicolo</param>
+            <param name="idTrasm">Id della trasmissione</param>
+            <returns>Informazioni sul fascicolo</returns>
+            <remarks>Metodo per il prelievo delle informazioni di un fascicolo. Il parametro idFasc è obbligatorio per identificare il fascicolo.
+            Il parametro idTrasm consente di prelevare le informazioni per la trasmissione.
+            Code restituiti:
+            0: OK
+            1: Errore generico</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.DocFascController.condividiDocumento(System.String,System.String)">
+            <summary>
+            Condividi documento
+            </summary>
+            <param name="idpeople">Id people della persona verso la quale condividere il documento</param>
+            <param name="idDocumento">Id del documento da condividere</param>
+            <returns>Stringa contenente la chiave di condivisione. "ERRORE" altrimenti.</returns>
+            <remarks>Metodo utilizzato per la creazione di una chiave di condivisione. Questa chiave riguarda un utente, un documento ed è limitata temporalmente a 72 ore</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.DocFascController.docCondiviso(System.String)">
+            <summary>
+            Documento condiviso
+            </summary>
+            <param name="chiaveDoc">Chiave di condivisione del documento</param>
+            <returns>Codice:
+            0 - OK
+            1 - Utente errato
+            2 - Token scaduto
+            3 - Errore generico
+            In caso di codice zero, restituisce le informazioni riguardanti il documento</returns>
+            <remarks>Metodo utilizzato per prelevare le informazioni di un documento condiviso.</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.FirmaHSMController.HSMSign(DocsPaRESTWS.Model.HSMSignRequest)">
+            <summary>
+            Firma HSM
+            </summary>
+            <param name="request">
+            Oggetto HSMSignRequest, deve essere popolato nei seguenti campi:
+            IdDoc: (stringa) id del documento da firmare  
+            cofirma: (bool) se viene richiesta cofirma  
+            timestamp: (bool) se viene richiesto timestamp
+            TipoFirma: (string) tipo della firma, valori ammessi "CADES" o "PADES"
+            AliasCertificato: (string) Alias del certificato
+            DominioCertificato: (string) Dominio del certificato
+            OtpFirma: (string) One time password della firma  
+            PinCertificato: (string) Pin del certificato  
+            ConvertPdf: (bool) richiesta di coversione in PDF 
+            </param>
+            <returns>
+            Code:
+            0 - OK
+            1 - Errore generico
+            2 - Errore durante l'operazione di firma
+            </returns>
+            <remarks>Metodo per effettuare la firma HSM</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.FirmaHSMController.HSMSignOTP(DocsPaRESTWS.Model.HSMSignRequest)">
+            <summary>
+            Richiesta One Time Password
+            </summary>
+            <param name="request">
+            Oggetto HSMSignRequest, deve essere popolato nei seguenti campi:
+            AliasCertificato: (string) Alias del certificato
+            DominioCertificato: (string) Dominio del certificato
+            </param>
+            <returns>
+            Code:
+            0 - OK
+            1 - Errore generico
+            </returns>
+            <remarks>Metodo per la richiesta di OTP per firma HSM</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.FirmaHSMController.hsmVerifySign(DocsPaRESTWS.Model.HSMSignRequest)">
+            <summary>
+            Verifica di firma di un documento
+            </summary>
+            <param name="request">
+            Oggetto HSMSignRequest, deve essere popolato nei seguenti campi:
+            IdDoc: (stringa) id del documento da firmare  
+            </param>
+            <returns>
+            Code:
+            0 - Il documento è firmato
+            1 - Errore generico
+            2 - Il documento non è firmato
+            </returns>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.FirmaHSMController.hsmInfoSign(DocsPaRESTWS.Model.HSMSignRequest)">
+            <summary>
+            Dettagli di firma di un documento
+            </summary>
+            <param name="request">
+            Oggetto HSMSignRequest, deve essere popolato nei seguenti campi:
+            IdDoc: (stringa) id del documento da firmare  
+            </param>
+            <returns>
+            Code:
+            0 - OK
+            1 - Errore Generico
+            2 - Il documento non è firmato
+            In caso di codice 0, restituisce un oggetto InfoDocFirmato che contiene le informazioni sulla firma del documento
+            </returns>
+            <remarks>Metodo per il prelievo delle informazioni sulla firma di un documento</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.FirmaHSMController.hsmInfoMemento">
+            <summary>
+            Informazioni sul certificato associato ad un utente
+            </summary>
+            <returns>
+            Code:
+            0 - OK
+            1 - Errore generico
+            In caso di codice 0, restituisce un oggetto Memento, che contiene al suo interno le informazioni su Alias e Dominio del certificato.
+            </returns>
+            <remarks>Metodo per avere informazioni sul certificato associato all'utente</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.FirmaHSMController.isAllowedOTP">
+            <summary>
+            Verifica abilitazione utente per OTP
+            </summary>
+            <returns>
+            Valore booleano: true se abilitato, falso altrimenti.
+            </returns>
+            <remarks>Metodo per verificare se l'utente è abilitato all'utilizzo della One Time Password</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.LibroFirmaController.getLibroFirmaElements(DocsPaRESTWS.Model.LibroFirmaRequest)">
+            <summary>
+            Elementi del LibroFirma
+            </summary>
+            <param name="request">
+            Oggetto LibroFirmaRequest, popolato nei campi:
+            RequestedPage (int): pagina richiesta
+            PageSize (int): dimensione della pagina
+            Oggetto (string): (facoltativo) filtro ricerca, oggetto del documento
+            Proponente (string): (facoltativo) filtro ricerca, Proponente del documento
+            Note (string): (facoltativo) filtro ricerca, Note del documento
+            IdDocumento (string): (facoltativo) filtro ricerca, id del documento
+            NumProto (string): (facoltativo) filtro ricerca, numero di protocollo del documento
+            NumAnnoProto (string): (facoltativo) filtro ricerca, numero e anno di protocollo del documento, formato num-anno (ex. 123-2018)
+            DataDa (string): (facoltativo) filtro ricerca, formato gg/mm/aaaa, limite inferiore della data creazione del documento
+            DataA (string): (facoltativo) filtro ricerca, formato gg/mm/aaaa, limite superiore della data creazione del documento
+            DataProtoDa (string): (facoltativo) filtro ricerca, formato gg/mm/aaaa, limite inferiore della data di protocollazione del documento
+            DataProtoA (string): (facoltativo) filtro ricerca, formato gg/mm/aaaa, limite superiore della data di protocollazione del documento
+            </param>
+            <returns>
+            Codice:
+            0 - OK
+            1 - Errore generico
+            In caso di codice zero, restituisce un array di LibroFirmaElement, e il numero totale di elementi nel LibroFirma corrispondenti alla ricerca.
+            </returns>
+            <remarks>Metodo utilizzato per ottenere gli elementi del libro firma, ed anche per effettuare delle ricerche tra gli stessi.</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.LibroFirmaController.CambiaStatoElementoLibroFirma(DocsPaRESTWS.Model.LibroFirmaCambiaStatoRequest)">
+            <summary>
+            Cambio Stato di un elemento del Libro Firma
+            </summary>
+            <param name="request">
+            Oggetto LibroFirmaCambiaStatoRequest, campi da valorizzare (i valori dell'oggetto elemento dovrebbero provenire da una precedente ricerca):
+            elemento.IdElemento : Id dell'elemento da firmare
+            elemento.DataAccettazione
+             elemento.StatoFirma : stato della firma attuale
+              elemento.IdIstanzaProcesso 
+              elemento.MotivoRespingimento
+            nuovostato (string): stato in cui si vuole far andare il documento. Valori ammessi: PROPOSTO, DA_FIRMARE, DA_RESPINGERE, FIRMATO, RESPINTO, INTERROTTO, NO_COMPETENZA
+            </param>
+            <returns>
+            Codice:
+            0 - OK
+            1 - Errore generico
+            </returns>
+            <remarks>Metodo per il cambio dello stato di un documento nel libro Firma</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.LibroFirmaController.CambiaStatoElementiMultipli(DocsPaRESTWS.Model.LFCambiaStatiRequest)">
+            <summary>
+            Cambio di stato di più elementi, ognuno con il suo stato, in Librofirma
+            </summary>
+            <param name="request">
+            Oggetto LFCambiaStatiRequest. Contiene un array di oggetti ElementToChange da valorizzare nei seguenti campi:
+            elemento.IdElemento : Id dell'elemento da firmare
+            elemento.DataAccettazione
+            elemento.StatoFirma : stato della firma attuale
+            elemento.IdIstanzaProcesso 
+            elemento.MotivoRespingimento
+            nuovostato (string): stato in cui si vuole far andare il documento. Valori ammessi: PROPOSTO, DA_FIRMARE, DA_RESPINGERE, FIRMATO, RESPINTO, INTERROTTO, NO_COMPETENZA
+            </param>
+            <returns>
+            Codice:
+            0 - OK
+            1 - Errore generico
+            In caso di codice 0, restituisce una serie di elementi ElementResult, contenenti l'esito per ogni elemento della richiesta.
+            </returns>
+            <remarks>Metodo per il cambio di stato di più elementi, ognuno con il suo stato, nel libro firma</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.LibroFirmaController.RespingiSelezionatiElementiLf(DocsPaRESTWS.Model.LibroFirmaRequest)">
+            <summary>
+            Respingi elementi del libro firma
+            </summary>
+            <param name="request">
+            Oggetto LibroFirmaRequest, popolato nei campi:
+            RequestedPage (int): pagina richiesta
+            PageSize (int): dimensione della pagina
+            Testo (string): (facoltativo) testo da ricercare, se omesso non stringe la ricerca degli elementi
+            TipoRicerca (string): (facoltativo) indica in quale campo viene effettuata la ricerca del testo inserito. Valori ammessi "OGGETTO", "NOTE", "PROPONENTE". Se omesso o differente, la ricerca viene effettuata nell'oggetto.
+            </param>        
+            <returns>
+            Codice:
+            0 - OK
+            1 - Errore generico
+            In caso di codice zero, restituisce un array di LibroFirmaElement, e il numero totale di elementi nel LibroFirma corrispondenti ai parametri inseriti in ingresso.
+            </returns>
+            <remarks>Metodo utilizzato per respingere tutti gli elementi del libro firma che sono nello stato DA RESPINGERE. Al termine del processo di firma, restuirà gli elementi relativi ai parametri inseriti</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.LibroFirmaController.FirmaSelezionatiElementiLf(DocsPaRESTWS.Model.LibroFirmaRequest)">
+            <summary>
+            Firma elementi in Libro Firma
+            </summary>
+            <param name="request">
+            Oggetto LibroFirmaRequest, popolato nei campi:
+            RequestedPage (int): pagina richiesta
+            PageSize (int): dimensione della pagina
+            Testo (string): (facoltativo) testo da ricercare, se omesso non stringe la ricerca degli elementi
+            TipoRicerca (string): (facoltativo) indica in quale campo viene effettuata la ricerca del testo inserito. Valori ammessi "OGGETTO", "NOTE", "PROPONENTE". Se omesso o differente, la ricerca viene effettuata nell'oggetto.
+            </param>        
+            <returns>
+            Codice:
+            0 - OK
+            1 - Errore generico
+            In caso di codice zero, restituisce un array di LibroFirmaElement, e il numero totale di elementi nel LibroFirma corrispondenti ai parametri inseriti in ingresso.
+            </returns>
+            <remarks>Metodo utilizzato per firmare tutti gli elementi del libro firma che sono nello stato DA FIRMARE. Al termine del processo di firma, restuirà gli elementi relativi ai parametri inseriti</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.LibroFirmaController.ExistsElementWithSignCades">
+            <summary>
+            Verifica presenza elemento Cades
+            </summary>
+            <returns>Valore booleano. True se presente almeno un elemento da firmare CADES</returns>
+            <remarks>Metodo per verificare se in coda di firma è presente un elemento da firmare con firma CADES</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.LibroFirmaController.ExistsElementWithSignPades">
+            <summary>
+            Verifica presenza elemento Pades
+            </summary>
+            <returns>Valore booleano. True se presente almeno un elemento da firmare PADES</returns>
+            <remarks>Metodo per verificare se in coda di firma è presente un elemento da firmare con firma PADES</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.LibroFirmaController.HsmMultiSign(DocsPaRESTWS.Model.HSMSignRequest)">
+            <summary>
+            Firma elementi LibroFirma con HSM 
+            </summary>
+            <param name="request">
+            Oggetto HSMSignRequest, deve essere popolato nei seguenti campi:
+            IdDoc: (stringa) id del documento da firmare  
+            cofirma: (bool) se viene richiesta cofirma  
+            timestamp: (bool) se viene richiesto timestamp
+            TipoFirma: (string) tipo della firma, valori ammessi "CADES" o "PADES"
+            AliasCertificato: (string) Alias del certificato
+            DominioCertificato: (string) Dominio del certificato
+            OtpFirma: (string) One time password della firma  
+            PinCertificato: (string) Pin del certificato  
+            ConvertPdf: (bool) richiesta di coversione in PDF 
+            </param>
+            <returns>
+            Code:
+            0 - OK
+            1 - Errore generico
+            Se il code è 0, restituisce una lista di oggetti InfoDocFirmaHSM contenenti l’id del documento, lo status (OK/KO) e l’eventuale messaggio di errore.
+            </returns>
+            <remarks>Metodo per effettuare la firma HSM degli elementi del Libro Firma che sono in stato DA_FIRMARE</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.LibroFirmaController.LibroFirmaIsAuthorized">
+            <summary>
+            Autorizzazione Libro Firma 
+            </summary>
+            <returns>Valore booleano: se true, l'utente è abilitato all'utilizzo del libro firma</returns>
+            <remarks>Metodo per verificare se un utente è autorizzato all'utilizzo del Libro Firma</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.MobileController.CheckConn">
+            <summary>
+            Check Connection
+            </summary>
+            <returns>Connection status message</returns>
+            <remarks>Verifica la connessione</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.MobileController.GetTipiOggetto">
+            <summary>
+            Get tipi oggetto
+            </summary>
+            <returns>Lista dei tipi oggetto</returns>
+            <remarks>Controllo per la connessione con il database</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.MobileController.ListaIstanze">
+            <summary>
+            Lista Istanze
+            </summary>
+            <returns>Lista delle istanze del PITRE</returns>
+            <remarks>Lista delle istanze e degli endpoint da puntare a seguito della selezione da parte dell'utente</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.MobileController.Authenticate(DocsPaRESTWS.Model.AuthenticateRequest)">
+            <summary>
+            Login
+            </summary>
+            <param name="request">Informazioni di autenticazione. Obbligatori Username e password. Id Amministrazione in caso di multiamministrazione. OldPassword se necessario cambio password.</param>
+            <returns>
+            Codice:
+            0 - OK
+            1 - User o password errati
+            2 - Password scaduta
+            3 - Utente multiamministrazione
+            4 - Errore generico
+            In caso di codice 0, vengono restituite le informazioni sull'utente, se è abilitato all'OTP, e il memento del suo certificato.
+            </returns>
+            <remarks>Login all'applicazione</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.MobileController.getListaAmmByUser(System.String)">
+            <summary>
+            Lista amministrazioni per utente
+            </summary>
+            <param name="userid">Utente per il quale prelevare le amministrazioni</param>
+            <returns>Lista delle amministrazioni sulle quali l'utente è abilitato</returns>
+            <remarks>Metodo per il prelievo delle amministrazioni sulle quali l'utente è abilitato.</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.MobileController.LogOut(System.String)">
+            <summary>
+            LogOut
+            </summary>
+            <param name="dst">parametro necessario al logout dal documentale</param>
+            <returns>Messaggio di status</returns>
+            <remarks>LogOut dall'applicazione</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.MobileController.getTodoList(System.Int32,System.Int32)">
+            <summary>
+            Get Todo List
+            </summary>
+            <param name="pagesize">Numero di elementi restituiti per pagina</param>
+            <param name="requestedpage">Pagina restituita</param>
+            <returns>Lista degli elementi del centro nofiche</returns>
+            <remarks>Restituisce gli elementi del centro notifiche per l'utente e il ruolo con il quale si è autenticati.</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.MobileController.cambiaruolo(System.String)">
+            <summary>
+            Cambio Ruolo
+            </summary>
+            <param name="idRuolo">Id del ruolo del quale si vuole il token</param>
+            <returns>
+            Codice:
+            0 - OK
+            1 - User o password errati
+            2 - Password scaduta
+            3 - Utente multiamministrazione
+            4 - Errore generico
+            In caso di codice 0, vengono restituite le informazioni sull'utente, se è abilitato all'OTP, e il memento del suo certificato.
+            </returns>
+            <remarks>Consente di ottenere il token per un ruolo differente riguardo un utente</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.RicercaController.getRicSalvate">
+            <summary>
+            Ricerche Salvate
+            </summary>
+            <returns>
+            Codice:
+            0 - OK
+            1 - Errore generico
+            In caso di codice 0, restituisce la lista delle ricerche salvate per l'utente</returns>
+            <remarks>Metodo per il prelievo della lista delle ricerche salvate per un utente</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.RicercaController.ricerca(DocsPaRESTWS.Model.RicercaRequest)">
+            <summary>
+            Ricerca
+            </summary>
+            <param name="request">
+            Oggetto RicercaRequest, popolato nei campi:
+            PageSize: numero di elementi da visualizzare 
+            RequestedPage: numero della pagina richiesta
+            Per le ricerche salvate:
+            IdRicercaSalvata: id della ricerca salvata
+            TipoRicercaSalvata: tipo della ricerca salvata. Valore ammesso "F" per indicare i fascicoli, altrimenti cerca nei documenti.
+            
+            Per le ricerche non salvate:
+            Text: testo da ricercare
+            DataDa: limite temporale inferiore per la data di creazione del fascicolo o del documento. Formato dd/mm/yyyy
+            DataA: limite temporale superiore per la data di creazione del fascicolo o del documento. Formato dd/mm/yyyy
+            DataProtoDa: limite temporale inferiore per la data protocollo. Formato dd/mm/yyyy
+            DataProtoA: limite temporale superioreper la data protocollo. Formato dd/mm/yyyy
+            IdDocumento : Id del documento da ricercare
+            NumProto: numero del protocollo da ricercare
+            TipoRicerca: tipo della ricerca da effettuare, valori ammessi: 
+            - "DOC" per cercare tra i documenti
+            - "FASC" per cercare tra i fascicoli
+            - "ALL" per cercare sia i documenti che i fascicoli
+            - "ADL_DOC" per cercare tra i documenti dell'area di lavoro
+            - "ADL_FASC" per cercare tra i fascicoli dell'area di lavoro
+            - "ADL_ALL" per cercare sia documenti che fascicoli in area di lavoro
+            
+            Per le ricerche di documento all'interno di un fascicolo o di una sottocartella:
+            IdFasc: id del fascicolo
+            IdParentFolder: id della sottocartella
+            </param>
+            <returns>
+            Codice:
+            0 - OK
+            1 - Errore Generico
+            In caso di codice zero, restituisce una lista di oggetti RicercaElement che contengono le informazioni degli oggetti cercati</returns>
+            <remarks>Metodo per eseguire la ricerca di documenti e fascicoli, anche per quelli in area di lavoro.</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.RicercaController.ricercaFasc(System.String,System.Int32,System.Int32,System.String)">
+            <summary>
+            Ricerca all'interno di un fascicolo
+            </summary>
+            <param name="IdFascicolo">Id del fascicolo</param>
+            <param name="PageSize">Numero di elementi per pagina</param>
+            <param name="RequestedPage">Pagina richiesta</param>
+            <param name="TestoDaCercare">Testo da cercare nell'oggetto del documento</param>
+            <returns>Codice
+            0 - OK
+            1 - System Error
+            In caso di codice zero, restituisce la lista dei documenti all'interno di un fascicolo e delle sue sottocartelle
+            </returns>
+            <remarks>Metodo utilizzato per la ricerca dei documenti in un fascicolo e nelle sue sottocartelle.</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.TrasmissioniController.setDataVista_SP(DocsPaRESTWS.Model.TrasmVistaRequest)">
+            <summary>
+            Trasmissione Vista
+            </summary>
+            <param name="request">
+            Oggetto request, popolato nel campo:
+            IdTrasmissione - id della trasmissione per la quale si vuole impostare la data di visualizzazione</param>
+            <returns>
+            Codice:
+            0 - OK
+            1 - Errore generico
+            2 - Errore nell'impostazione della data di visualizzazione</returns>
+            <remarks>Metodo per inserire la data di visualizzazione di una trasmissione</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.TrasmissioniController.AccettaRifiutaTrasm(DocsPaRESTWS.Model.AccettaRifiutaTrasmRequest)">
+            <summary>
+            Accettazione o Rifiuto di una trasmissione
+            </summary>
+            <param name="request">
+            Oggetto request popolato nei campi:
+            Action: (string) identifica l'azione. "ACCETTA" per accettare, altrimenti rifiuta. 
+            Note: (string) Note di accettazione o rifiuto. In caso di rifiuto le note sono obbligatorie.
+            IdTrasmissioneUtente: (string) l'id della trasmissione utente sulla quale effettuare l'azione. Ha priorità rispetto a idTrasmissione.
+            IdTrasmissione: (string) nel caso non sia disponibile l'id della trasmissione utente, esso viene ricavato a partire dall'id Trasmissione.
+            </param>
+            <returns>
+            Codice:
+            0 - OK
+            1 - Errore generico
+            2 - Errore durante l'esecuzione della trasmissione
+            </returns>
+            <remarks>Metodo per accettare o rifiutare una trasmissione. Le note sono facoltative in caso di accettazione, obbligatorie in caso di rifiuto.
+            E' richiesto un solo parametro tra idTrasmissioneUtente e idTrasmissione. Il primo ha priorità ed è preferibile perché più veloce.</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.TrasmissioniController.Smista(DocsPaRESTWS.Model.SmistaRequest)">
+            <summary>Smistamento di una trasmissione</summary>
+            <param name="request">Oggetto request </param>
+            <returns>Codice: 0 - OK 1 - Errore generico 2 - Errore durante l'esecuzione della trasmissione</returns>
+            <remarks>Metodo per smistare una trasmissione ricevuta. Lo smistamento accetta la trasmissione ricevuta ed effettua una nuova trasmissione verso un ruolo selezionato.<br/>
+            E' richiesto un solo parametro tra idTrasmissioneUtente e idTrasmissione. Il primo ha priorità ed è preferibile perché più veloce.<br/>
+            E' possibile trasmettere tramite modello indicando idModelloTrasm, oppure tramite trasmissione diretta ad un solo ruolo.<br/>
+            Se presente, l'idModelloTrasm ha priorità rispetto alla trasmissione diretta.<br/>
+            I parametri IdTrasmissioneUtente, IdTrasmissione, HasWorkflow, IdEvento, IdDoc e IdFasc sono da prelevare dalla todoList, il resto delle informazioni per la trasmissione seguente, sono da selezionare tramite maschera di trasmissione<br/><br/>
+            Oggetto request popolato nei campi: <br/>
+            IdTrasmissioneUtente: (string) l'id della trasmissione utente sulla quale effettuare l'azione. Ha priorità rispetto a idTrasmissione.<br/>
+            IdTrasmissione: (string) nel caso non sia disponibile l'id della trasmissione utente, esso viene ricavato a partire dall'id Trasmissione.<br/>
+            HasWorkflow: (boolean) Trasmissione ricevuta ha workflow <br/>
+            IdEvento: (string) Id dell'evento che ha generato la notifica <br/>
+            IdDoc: (string) Id del documento da spedire<br/>
+            IdFasc: (string) Id del fascicolo da spedire (solo un parametro tra idDoc e IdFasc. IdDoc ha priorità)<br/>
+            IdModelloTrasm: (string) id del modello di trasmissione<br/>
+            Note: (string) note della trasmissione <br/>
+            Ragione: (string) nome della ragione di trasmissione (COMPETENZA, CONOSCENZA, INOLTRO ETC.)<br/>
+            Note: (string) note della trasmissione <br/>
+            IdDestinatario: (string) id del destinatario della trasmissione<br/>
+            CodiceDestinatario: (string) Codice del destinatario della trasmissione<br/>
+            Notify: (bool) indica se deve essere inviata la notifica (true in quasi tutti i casi)<br/>
+            TipoTrasmissione: (string) se popolata con "T" è una trasmissione di tipo a TUTTI, altrimenti è singola.      </remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.TrasmissioniController.listaModelliTrasm(System.Boolean)">
+            <summary>
+            Lista dei modelli di trasmissione
+            </summary>
+            <param name="fascicoli">(bool) indica se i modelli di trasmissione riguardano i fascicoli o meno</param>
+            <returns>
+            Codice:
+            0 - OK
+            1 - Errore generico
+            In caso di codice 0, restituisce una lista di oggetti ModelloTrasm
+            </returns>
+            <remarks>Metodo per il prelievo della lista dei modelli di trasmissione disponibili per l'utente, discriminando se essi siano per documenti o fascicoli</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.TrasmissioniController.eseguiTrasmModello(DocsPaRESTWS.Model.EseguiTrasmRequest)">
+            <summary>
+            Trasmissione con modello
+            </summary>
+            <param name="request">
+            Oggetto request, popolato nei campi:
+            IdDoc: (string) Id del documento da spedire
+            IdFasc: (string) Id del fascicolo da spedire (solo un parametro tra idDoc e IdFasc. IdDoc ha priorità)
+            IdModelloTrasm: (string) id del modello di trasmissione
+            Note: (string) note della trasmissione 
+            </param>
+            <returns>
+            Codice:
+            0 - OK
+            1 - Errore Generico</returns>
+            <remarks>Metodo per l'esecuzione di una trasmissione mediante un modello di trasmissione</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.TrasmissioniController.eseguiTrasmDiretta(DocsPaRESTWS.Model.EseguiTrasmDirettaRequest)">
+            <summary>
+            Trasmissione
+            </summary>
+            <param name="request">
+            Oggetto Request, popolato nei campi:
+            IdDoc: (string) Id del documento da spedire
+            IdFasc: (string) Id del fascicolo da spedire (solo un parametro tra idDoc e IdFasc. IdDoc ha priorità)
+            Ragione: (string) nome della ragione di trasmissione (COMPETENZA, CONOSCENZA, INOLTRO ETC.)
+            Note: (string) note della trasmissione 
+            IdDestinatario: (string) id del destinatario della trasmissione
+            CodiceDestinatario: (string) Codice del destinatario della trasmissione
+             Notify: (bool) indica se deve essere inviata la notifica (true in quasi tutti i casi)
+             TipoTrasmissione: (string) se popolata con "T" è una trasmissione di tipo a TUTTI, altrimenti è singola.    
+            </param>
+            <returns>
+            Codice:
+            0 - OK
+            1 - Errore Generico</returns>
+            <remarks>Metodo per eseguire una trasmissione diretta verso un utente o un ruolo.</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.TrasmissioniController.ListaCorrVeloce(DocsPaRESTWS.Model.GetListaCorrVeloceRequest)">
+            <summary>
+            Lista corrispondenti veloce
+            </summary>
+            <param name="request">
+            Oggetto request, popolato nei campi:
+            descrizione - parte del nome del corrispondente da ricercare
+            ragione - valori ammessi "con" e "comp"
+            </param>
+            <returns>
+            Code:
+            0 - OK
+            1 - Errore generico
+            In caso di code 0, restituisce la lista dei corrispondenti
+            </returns>
+            <remarks>Metodo utilizzato per effettuare una ricerca veloce dei corrispondenti</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.TrasmissioniController.getListaRuoli(System.String)">
+            <summary>
+            Lista dei ruoli di un utente
+            </summary>
+            <param name="idUtente">id dell'utente del quale si vogliono conoscere i ruoli.</param>
+            <returns>Lista dei ruoli associati ad un utente.</returns>
+            <remarks>Metodo utilizzato per ottenere la lista dei ruoli associati ad un determinato utente</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.TrasmissioniController.ListaPreferiti(System.String,System.String)">
+            <summary>
+            Lista preferiti
+            </summary>
+            <param name="soloPers">valore booleano che indica se prelevare solo le persone</param>
+            <param name="tipoPref">Tipo preferito, A per assegnatari, D per deleghe</param>
+            <returns>
+            Codice:
+            0 - OK
+            1 - Errore generico
+            In caso di codice zero, restituisce anche la lista dei corrispondenti preferiti da un utente.</returns>
+            <remarks>Metodo utilizzato per il prelievo dei preferiti di un utente</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.TrasmissioniController.NuovoPreferito(DocsPaVO.Mobile.InfoPreferito)">
+            <summary>
+            Inserimento Preferito
+            </summary>
+            <param name="infoPref">Oggetto InfoPreferito, popolato nei campi 
+            IdCorrespondent: il suo id corrispondente, 
+            IdInternal: il suo idPeople o IdGruppo, 
+            DescCorrespondent: la sua descrizione,
+            TipoURP: U per Unità organizzativa, R per ruolo, P per persona
+            TipoPref: A per assegna, D per delega
+            </param>
+            <returns>Valore booleano che testimonia l'avvenuto inserimento o l'errore</returns>
+            <remarks>Metodo utilizzato per l'inserimento di un corrispondente nei preferiti</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.TrasmissioniController.RimuoviPreferito(DocsPaVO.Mobile.InfoPreferito)">
+            <summary>
+            Cancellazione preferito
+            </summary>
+            <param name="infoPref">Oggetto InfoPreferito, popolato nei campi 
+            SystemId: l'id all'interno della tabella dei preferiti,
+            IdCorrespondent: il suo id corrispondente, 
+            IdInternal: il suo idPeople o IdGruppo</param>
+            <returns>Valore booleano che testimonia l'avvenuto cancellamento o l'errore</returns>
+            <remarks>Metodo utilizzato per la cancellazione di un utente dai preferiti</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Controllers.TrasmissioniController.ListaRagioni(System.String,System.String)">
+            <summary>
+             Lista delle ragioni di trasmissione per un documento
+            </summary>
+            <param name="idObject">Id dell'oggetto da trasmettere</param>
+            <param name="docFasc">D se è un documento, F se fascicolo. Se omesso, default è D</param>
+            <returns>Codice:
+            0 - OK
+            1 - Errore generico
+            In caso di codice zero, restituisce anche la lista delle ragioni di trasmissione per un documento.</returns>
+            <remarks>Metodo per il prelievo delle ragioni di trasmissione disponibili per un determinato documento</remarks>
+        </member>
+        <member name="M:DocsPaRESTWS.Manager.MobileManager.isAllowedOTP(System.String)">
+            <summary>
+            Verifica se il ruolo è abilitato alla funzione di richiesta OTP
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaRESTWS.Manager.MobileManager.LibroFirmaIsAutorized(System.String)">
+            <summary>
+            Verifica se il ruolo è abilitato alla funzione di richiesta OTP
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,745 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DocsPaDocumentale_SP</name>
+    </assembly>
+    <members>
+        <member name="T:DocsPaDocumentale_SP.Documentale.CheckInOutDocumentManager">
+            <summary>
+            Iacozzilli Giordano 08/10/2012
+            Implemento l'interfaccia IdocumentManager di DocsPa
+            Per la gestione del Checkin-Checkout del documento sotto Sharepoint.
+            </summary>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.Documentale.CheckInOutDocumentManager._infoUtente">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.CheckInOutDocumentManager.#ctor(DocsPaVO.utente.InfoUtente)">
+            <summary>
+            
+            </summary>
+            <param name="infoUtente"></param>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.CheckInOutDocumentManager.GetCheckOutStatus(System.String,System.String)">
+            <summary>
+            Reperimento delle informazioni di stato su un documento in stato checkedout
+            </summary>
+            <param name="idDocument"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.CheckInOutDocumentManager.UndoCheckOut(DocsPaVO.CheckInOut.CheckOutStatus)">
+            <summary>
+            Annullamento dello stato CheckedOut per un documento
+            </summary>
+            <param name="checkOutInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.CheckInOutDocumentManager.CheckIn(DocsPaVO.CheckInOut.CheckOutStatus,System.Byte[],System.String)">
+            <summary>
+            CheckIn di un documento
+            </summary>
+            <param name="checkOutInfo">Informazioni di stato sul documento in checkOut</param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.CheckInOutDocumentManager.IsCheckedOut(System.String,System.String,System.String@)">
+            <summary>
+            Verifica se un documento è in stato checkedout
+            </summary>
+            <param name="idDocument"></param>
+            <param name="checkOutInfo">Informazioni sullo stato del checkout</param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.CheckInOutDocumentManager.IsCheckedOut(System.String,System.String)">
+            <summary>
+            Verifica se un documento è in stato checkedout
+            </summary>
+            <param name="idDocument"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.CheckInOutDocumentManager.CheckOut(System.String,System.String,System.String,System.String,DocsPaVO.CheckInOut.CheckOutStatus@)">
+            <summary>
+            CheckOut di un documento
+            </summary>
+            <param name="checkOutInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="P:DocsPaDocumentale_SP.Documentale.CheckInOutDocumentManager.InfoUtente">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.CheckInOutDocumentManager.CreateDocumentVersion(DocsPaVO.CheckInOut.CheckOutStatus,System.Byte[],System.String,DocsPaVO.utente.InfoUtente)">
+            <summary>
+            Creazione di una nuova versione del documento
+            </summary>
+            <param name="idDocument"></param>
+            <param name="checkOutStatus"></param>
+            <param name="checkedOutFile"></param>
+            <param name="checkInComments"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.CheckInOutDocumentManager.CreateFileDocument(System.String,System.Byte[])">
+            <summary>
+            Creazione di un oggetto FileDocumento a partire dal percorso del file
+            </summary>
+            <param name="documentLocation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.CheckInOutDocumentManager.GetDocRootPath">
+            <summary>
+            Reperimento percorso principale del documentale
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.CheckInOutDocumentManager.GetCheckOutStatus(DocsPaDB.DBProvider,System.String,System.String)">
+            <summary>
+            Reperimento delle informazioni di stato su un documento in stato checkedout
+            </summary>
+            <param name="dbProvider"></param>
+            <param name="idDocument"></param>
+            <param name="documentNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.CheckInOutDocumentManager.FetchCheckOutInfo(System.Data.IDataReader,DocsPaVO.CheckInOut.CheckOutStatus)">
+            <summary>
+            Caricamento dati oggetto "CheckOutInfo" da datareader
+            </summary>
+            <param name="reader"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DocsPaDocumentale_SP.Documentale.DocumentManager">
+            <summary>
+            Iacozzilli Giordano 08/10/2012
+            Implemento l'interfaccia IdocumentManager di DocsPa
+            Per usare i mie Put e Get del documento sotto Sharepoint2010.
+            </summary>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.#ctor(DocsPaVO.utente.InfoUtente)">
+            <summary>
+            Inizializza l'istanza della classe acquisendo i dati relativi all'utente 
+            ed alla libreria per la connessione al documentale.
+            </summary>
+            <param name="infoUtente">Dati relativi all'utente</param>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.CreateDocumentoStampaRegistro(DocsPaVO.documento.SchedaDocumento,DocsPaVO.utente.Ruolo)">
+            <summary>
+            Creazione di un nuovo documento per la stampa registro.
+            </summary>
+            <param name="schedaDocumento"></param>
+            <param name="ruolo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.CreateDocumentoStampaRegistro(DocsPaVO.documento.SchedaDocumento,DocsPaVO.utente.Ruolo,DocsPaVO.utente.Ruolo[]@)">
+            <summary>
+            Creazione di un nuovo documento per la stampa registro.
+            </summary>
+            <param name="schedaDocumento"></param>
+            <param name="ruolo"></param>
+            <param name="ruoliSuperiori"></param>
+            <returns>ID del documento o 'null' se si è verificato un errore</returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.GetFile(System.String,System.String,System.String,System.String)">
+            <summary>
+            Acquisisce un documento
+            </summary>
+            <param name="docNumber"></param>
+            <param name="version"></param>
+            <param name="versionId"></param>
+            <param name="versionLabel"></param>
+            <returns>
+            Documento in formato binario o 'null' se si è verificato un errore.
+            </returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.GetFile(DocsPaVO.documento.FileDocumento@,DocsPaVO.documento.FileRequest@)">
+            <summary>
+            </summary>
+            <param name="fileDocumento"></param>
+            <param name="fileRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.CreateDocument(DocsPaVO.documento.SchedaDocumento)">
+            <summary>
+            Crea un nuovo documento
+            </summary>
+            <param name="schedaDoc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.GetAllegatoVersionLabel(System.String)">
+            <summary>
+            Reperimento versionlabel per l'allegato
+            </summary>
+            <param name="docnumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.AddAttachment(DocsPaVO.documento.Allegato,System.String)">
+            <summary>
+            </summary>
+            <param name="allegato"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.ModifyAttatchment(DocsPaVO.documento.Allegato)">
+            <summary>
+            Modifica di un allegato
+            </summary>
+            <param name="allegato"></param>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.CreateDocumentoGrigio(DocsPaVO.documento.SchedaDocumento,DocsPaVO.utente.Ruolo)">
+            <summary>
+            
+            </summary>
+            <param name="schedaDocumento"></param>
+            <param name="ruolo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.CreateDocumentoGrigio(DocsPaVO.documento.SchedaDocumento,DocsPaVO.utente.Ruolo,DocsPaVO.utente.Ruolo[]@,System.String)">
+            <summary>
+            </summary>
+            <param name="schedaDocumento"></param>
+            <param name="ruolo"></param>
+            <param name="ruoliSuperiori"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.PredisponiProtocollazione(DocsPaVO.documento.SchedaDocumento)">
+            <summary>
+            Predisposizione di un documento alla protocollazione
+            </summary>
+            <param name="schedaDocumento"></param>
+            <param name="ruolo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.ProtocollaDocumentoPredisposto(DocsPaVO.documento.SchedaDocumento,DocsPaVO.utente.Ruolo,DocsPaVO.documento.ResultProtocollazione@)">
+            <summary>
+            Protocollazione di un documento predisposto
+            </summary>
+            <param name="schedaDocumento"></param>
+            <param name="ruolo"></param>
+            <param name="risultatoProtocollazione"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.SalvaDocumento(DocsPaVO.documento.SchedaDocumento,System.Boolean,System.Boolean@)">
+            <summary>
+            Save delle modifiche apportate al documento
+            </summary>
+            <param name="schedaDocumento"></param>
+            <param name="ufficioReferenteEnabled"></param>
+            <param name="ufficioReferenteSaved"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.RemoveAttatchment(DocsPaVO.documento.Allegato)">
+            <summary>
+            Rimozione di un allegato
+            </summary>
+            <remarks>
+            Con l'introduzione della nuova gestione,
+            l'allegato verrà inserito nel cestino
+            </remarks>
+            <param name="allegato"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.RemoveVersion(DocsPaVO.documento.FileRequest)">
+            <summary>
+            </summary>
+            <param name="fileRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.GetDocPath(DocsPaVO.documento.FileRequest,DocsPaVO.utente.InfoUtente)">
+            <summary>
+            Metodo che restituisce la directory dove salvare il documento, esclusa la doc root. Verifica che la Doc Root
+            esista, nel caso contrario restituisce null
+            </summary>
+            <param name="fileRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.GetDocPathAdvanced(DocsPaVO.documento.FileRequest,DocsPaVO.utente.InfoUtente)">
+            <summary>
+            
+            </summary>
+            <param name="fileRequest"></param>
+            <param name="objSicurezza"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.PutFileMetadata(DocsPaVO.documento.FileRequest,DocsPaVO.documento.FileDocumento,System.String)">
+            <summary>
+            Inserimento dei soli metadati del file nel sistema documentale
+            </summary>
+            <param name="fileRequest"></param>
+            <param name="fileDocumento"></param>
+            <param name="estensione"></param>
+            <returns></returns>
+            <remarks>
+            Non inserisce il contenuto fisico del file
+            </remarks>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.PutFile(DocsPaVO.documento.FileRequest,DocsPaVO.documento.FileDocumento,System.String)">
+            <summary>
+            Inserimento file nel sistema documentale
+            </summary>
+            <param name="fileRequest"></param>
+            <param name="fileDocumento"></param>
+            <param name="estensione"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.CreateProtocollo(DocsPaVO.documento.SchedaDocumento,DocsPaVO.utente.Ruolo,DocsPaVO.documento.ResultProtocollazione@)">
+            <summary>
+            
+            </summary>
+            <param name="idAmministrazione"></param>
+            <param name="schedaDocumento"></param>
+            <param name="ruolo"></param>
+            <param name="sede"></param>
+            <param name="risultatoProtocollazione"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.CreateProtocollo(DocsPaVO.documento.SchedaDocumento,DocsPaVO.utente.Ruolo,DocsPaVO.documento.ResultProtocollazione@,DocsPaVO.utente.Ruolo[]@,System.String)">
+            <summary>
+            Operazione per la creazione di un nuovo protocollo
+            
+            PreCondizioni:
+                - Oggetto SchedaDocumento valido, completo
+                  degli attributi e degli oggetti significativi per il protocollo 
+                  (es. numero, dataProtocollo, segnatura, oggetto "Protocollo")
+                - Il documento deve essere già protocollato
+            PostCondizioni:
+                - Operazioni di aggiornamento dati documento in "OCS" 
+                  effettuate con successo
+            
+            </summary>
+            <param name="schedaDocumento">Oggetto contenente i metadati del documento da protocollare</param>
+            <param name="ruolo">Ruolo dell'utente che protocolla il documento</param>
+            <param name="risultatoProtocollazione">Parametro output: Esito più dettagliato dell'operazione</param>
+            <returns>Boolean, l'operazione di protocollazione è andata a buon fine o meno</returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.AddVersion(DocsPaVO.documento.FileRequest,System.Boolean)">
+            <summary>
+            </summary>
+            <param name="fileRequest"></param>
+            <param name="daInviare"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.GetLatestVersionId(System.String)">
+            <summary>
+            </summary>
+            <param name="docNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.ModifyExtension(DocsPaVO.documento.FileRequest@,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            </summary>
+            <param name="fileRequest"></param>
+            <param name="estensione"></param>
+            <param name="objSicurezza"></param>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.AnnullaProtocollo(DocsPaVO.documento.SchedaDocumento@,DocsPaVO.documento.ProtocolloAnnullato)">
+            <summary>
+            Annullamento di un protocollo
+            </summary>
+            <param name="idProfile"></param>
+            <param name="protocolloAnnullato"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.ModifyVersion(DocsPaVO.documento.FileRequest)">
+            <summary>
+            Modifica dei metadati di una versione
+            </summary>
+            <param name="fileRequest"></param>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.ModifyVersionSegnatura(System.String)">
+            <summary>
+            Setta a 1 cha_segnatura se la versione contiene un documento in formato pdf, con segnatura impressa
+            </summary>
+            <param name="versionId"></param>
+            <returns>
+            bool che indica l'esito dell'operazione di update
+            </returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.IsVersionWithSegnature(System.String)">
+            <summary>
+            Informa se la versione ha associato un file con impressa la segnatura
+            </summary>
+            <param name="versionId"></param>
+            <returns>
+            bool che indica se la versione ha associato un file con impressa segnatura o meno
+            </returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.RemoveDocumentoGrigio(DocsPaVO.documento.SchedaDocumento)">
+            <summary>
+            Rimozione di un documento grigio
+            </summary>
+            <param name="schedaDocumento"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.AddDocumentoInCestino(DocsPaVO.documento.InfoDocumento)">
+            <summary>
+            Inserimento di un documento nel cestino
+            </summary>
+            <param name="idDocumento"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.RestoreDocumentoDaCestino(DocsPaVO.documento.InfoDocumento)">
+            <summary>
+            Ripristino del documento dal cestino
+            </summary>
+            <param name="infoDocumento"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.ScambiaAllegatoDocumento(DocsPaVO.documento.Allegato,DocsPaVO.documento.Documento)">
+            <summary>
+            Scambia il file associato ad un allegato con il file associato ad un documento
+            </summary>
+            <param name="allegato"></param>
+            <param name="documento"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.Remove(DocsPaVO.documento.InfoDocumento[],System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="items"></param>
+            <param name="removeFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.Remove(DocsPaVO.documento.InfoDocumento[])">
+            <summary>
+            Rimozione documenti
+            </summary>
+            <param name="items"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.AddPermission(DocsPaVO.documento.DirittoOggetto)">
+            <summary>
+            Impostazione di un permesso su un documento
+            </summary>
+            <param name="infoDiritto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.RemovePermission(DocsPaVO.documento.DirittoOggetto)">
+            <summary>
+            Revoca di un permesso su un documento
+            </summary>
+            <param name="documentInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.AddPermissionToRole(DocsPaVO.documento.DirittoOggetto)">
+            <summary>
+            Metodo per l'assegnazione di un diritto di tipo A ad un ruolo
+            </summary>
+            <param name="rights">Informazioni sul diritto da assegnare</param>
+            <returns>True se è andato bene</returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.Documentale.DocumentManager.RefreshAclDocumento(DocsPaVO.documento.SchedaDocumento)">
+            <summary>
+            Aggiorna le ACL del documento
+            </summary>
+            <param name="schedaDocumento"></param>
+        </member>
+        <member name="T:DocsPaDocumentale_SP.SPCopy.Copy">
+            <remarks/>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.SPCopy.Copy.#ctor">
+            <remarks/>
+        </member>
+        <member name="E:DocsPaDocumentale_SP.SPCopy.Copy.CopyIntoItemsLocalCompleted">
+            <remarks/>
+        </member>
+        <member name="E:DocsPaDocumentale_SP.SPCopy.Copy.CopyIntoItemsCompleted">
+            <remarks/>
+        </member>
+        <member name="E:DocsPaDocumentale_SP.SPCopy.Copy.GetItemCompleted">
+            <remarks/>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.SPCopy.Copy.CopyIntoItemsLocal(System.String,System.String[],DocsPaDocumentale_SP.SPCopy.CopyResult[]@)">
+            <remarks/>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.SPCopy.Copy.CopyIntoItemsLocalAsync(System.String,System.String[])">
+            <remarks/>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.SPCopy.Copy.CopyIntoItemsLocalAsync(System.String,System.String[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.SPCopy.Copy.CopyIntoItems(System.String,System.String[],DocsPaDocumentale_SP.SPCopy.FieldInformation[],System.Byte[],DocsPaDocumentale_SP.SPCopy.CopyResult[]@)">
+            <remarks/>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.SPCopy.Copy.CopyIntoItemsAsync(System.String,System.String[],DocsPaDocumentale_SP.SPCopy.FieldInformation[],System.Byte[])">
+            <remarks/>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.SPCopy.Copy.CopyIntoItemsAsync(System.String,System.String[],DocsPaDocumentale_SP.SPCopy.FieldInformation[],System.Byte[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.SPCopy.Copy.GetItem(System.String,DocsPaDocumentale_SP.SPCopy.FieldInformation[]@,System.Byte[]@)">
+            <remarks/>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.SPCopy.Copy.GetItemAsync(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.SPCopy.Copy.GetItemAsync(System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.SPCopy.Copy.CancelAsync(System.Object)">
+            <remarks/>
+        </member>
+        <member name="T:DocsPaDocumentale_SP.SPCopy.CopyResult">
+            <remarks/>
+        </member>
+        <member name="P:DocsPaDocumentale_SP.SPCopy.CopyResult.ErrorCode">
+            <remarks/>
+        </member>
+        <member name="P:DocsPaDocumentale_SP.SPCopy.CopyResult.ErrorMessage">
+            <remarks/>
+        </member>
+        <member name="P:DocsPaDocumentale_SP.SPCopy.CopyResult.DestinationUrl">
+            <remarks/>
+        </member>
+        <member name="T:DocsPaDocumentale_SP.SPCopy.CopyErrorCode">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.CopyErrorCode.Success">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.CopyErrorCode.DestinationInvalid">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.CopyErrorCode.DestinationMWS">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.CopyErrorCode.SourceInvalid">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.CopyErrorCode.DestinationCheckedOut">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.CopyErrorCode.InvalidUrl">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.CopyErrorCode.Unknown">
+            <remarks/>
+        </member>
+        <member name="T:DocsPaDocumentale_SP.SPCopy.FieldInformation">
+            <remarks/>
+        </member>
+        <member name="P:DocsPaDocumentale_SP.SPCopy.FieldInformation.Type">
+            <remarks/>
+        </member>
+        <member name="P:DocsPaDocumentale_SP.SPCopy.FieldInformation.DisplayName">
+            <remarks/>
+        </member>
+        <member name="P:DocsPaDocumentale_SP.SPCopy.FieldInformation.InternalName">
+            <remarks/>
+        </member>
+        <member name="P:DocsPaDocumentale_SP.SPCopy.FieldInformation.Id">
+            <remarks/>
+        </member>
+        <member name="P:DocsPaDocumentale_SP.SPCopy.FieldInformation.Value">
+            <remarks/>
+        </member>
+        <member name="T:DocsPaDocumentale_SP.SPCopy.FieldType">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.FieldType.Invalid">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.FieldType.Integer">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.FieldType.Text">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.FieldType.Note">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.FieldType.DateTime">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.FieldType.Counter">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.FieldType.Choice">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.FieldType.Lookup">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.FieldType.Boolean">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.FieldType.Number">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.FieldType.Currency">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.FieldType.URL">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.FieldType.Computed">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.FieldType.Threading">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.FieldType.Guid">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.FieldType.MultiChoice">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.FieldType.GridChoice">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.FieldType.Calculated">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.FieldType.File">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.FieldType.Attachments">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.FieldType.User">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.FieldType.Recurrence">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.FieldType.CrossProjectLink">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.FieldType.ModStat">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.FieldType.AllDayEvent">
+            <remarks/>
+        </member>
+        <member name="F:DocsPaDocumentale_SP.SPCopy.FieldType.Error">
+            <remarks/>
+        </member>
+        <member name="T:DocsPaDocumentale_SP.SPCopy.CopyIntoItemsLocalCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:DocsPaDocumentale_SP.SPCopy.CopyIntoItemsLocalCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:DocsPaDocumentale_SP.SPCopy.CopyIntoItemsLocalCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="P:DocsPaDocumentale_SP.SPCopy.CopyIntoItemsLocalCompletedEventArgs.Results">
+            <remarks/>
+        </member>
+        <member name="T:DocsPaDocumentale_SP.SPCopy.CopyIntoItemsCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:DocsPaDocumentale_SP.SPCopy.CopyIntoItemsCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:DocsPaDocumentale_SP.SPCopy.CopyIntoItemsCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="P:DocsPaDocumentale_SP.SPCopy.CopyIntoItemsCompletedEventArgs.Results">
+            <remarks/>
+        </member>
+        <member name="T:DocsPaDocumentale_SP.SPCopy.GetItemCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:DocsPaDocumentale_SP.SPCopy.GetItemCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:DocsPaDocumentale_SP.SPCopy.GetItemCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="P:DocsPaDocumentale_SP.SPCopy.GetItemCompletedEventArgs.Fields">
+            <remarks/>
+        </member>
+        <member name="P:DocsPaDocumentale_SP.SPCopy.GetItemCompletedEventArgs.Stream">
+            <remarks/>
+        </member>
+        <member name="T:DocsPaDocumentale_SP.WsSPServices.CallerSP">
+            <summary>
+            Iacozzilli Giordano 08/10/2012
+            Classe di utilità statiche per il Put , Get e utilità 
+            collegate all'uso del documentale Sharepoint2010 sotto Docspa.
+            </summary>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.WsSPServices.CallerSP.PutFileInSP(DocsPaVO.documento.FileDocumento@,DocsPaVO.documento.SchedaDocumento@,DocsPaVO.utente.InfoUtente,DocsPaVO.documento.FileRequest@,System.String)">
+            <summary>
+            Putfile chiamato per l'inserimento in SharePoint del documento.
+            </summary>
+            <param name="fileforcontenct">Oggetto dal quale prendo i byte del File</param>
+            <param name="schedaDocBase">Scheda documento, usata per i parametri in SharePoint</param>
+            <param name="_infoutente">Info Utente</param>
+            <param name="fileRequest">Oggetto utile alla get del nome file e del Path</param>
+            <param name="extention">Estensione del file da inserire nel documentale (es:doc)</param>
+            <returns>True false a seconda dell'esito del PUT, non uso Try catch per far tornare l'errore originale</returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.WsSPServices.CallerSP.GetFileFromSP(System.String,System.String)">
+            <summary>
+            Getfile chiamato per il Get da SharePoint del documento.
+            </summary>
+            <param name="filename">Nome del file da concatenare alla URL del server.</param>
+            <param name="sitecollectionurl">Parametro che conterrà il nome della site collection (es: 2012_DOCSPA)</param>
+            <returns>Il file richiesto a Sharepoint</returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.WsSPServices.CallerSP.ImpostaMetaDati(DocsPaVO.documento.SchedaDocumento@,DocsPaVO.utente.InfoUtente,DocsPaVO.documento.FileRequest)">
+            <summary>
+            Imposta i metadati da associare al documento in SharePoint, e sono:
+            DocNumber,segnatura,VersionId,VersionLabel,AOO,UO,Utente,IdentificativoDocPrincipale.
+            </summary>
+            <param name="schedaDocPerMetadati">Scheda documeto passata già in Put</param>
+            <param name="_infoutente">Info Utente per reperire dati anagrafici (Utente, UO ecc)</param>
+            <param name="fileReq">Versione del Documento</param>
+            <returns>FieldInformation[] da passare al server in fase di put.</returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.WsSPServices.CallerSP.GetCredentialSP">
+            <summary>
+            Get delle credenziali SharePoint dal Database.
+            sSP_User,sSP_Pwd,sDomain
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.WsSPServices.CallerSP.GetLibraryRoot(System.String,System.String)">
+            <summary>
+            Get Nome site collection da database:
+            SP_SiteCollection
+            </summary>
+            <param name="anno">Anno protocollazione</param>
+            <param name="app_chiamante">App chiamante (docspa, altre)</param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.WsSPServices.CallerSP.GetServerRoot">
+            <summary>
+            Get Servername dal database:
+            SP_Server
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.WsSPServices.CallerSP.GetServerRootnosites">
+            <summary>
+            Get Servername dal database senza Sites:
+            SP_Server
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.WsSPServices.CallerSP.GetServerProtocollo">
+            <summary>
+            Get del tipo di Protocollo:
+            http://, https://, ecc..
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.WsSPServices.CallerSP.GetPathAbsolute(System.String,System.String)">
+            <summary>
+            Get del path completo assoluto del documento
+            </summary>
+            <param name="anno"></param>
+            <param name="app_chiamante"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_SP.WsSPServices.CallerSP.GetSPServiceUrl">
+            <summary>
+            Get dell'URI del servizio Sharepoin di copy.
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,2659 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Emc.Documentum.FS.Services.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Emc.Documentum.FS.Services.Core.Acl.AccessControlServicePortClient">
+            <exclude/>
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Acl.IAccessControlService">
+            <summary>
+            The AccessControlService provides operations for creating, getting, updating, and deleting ACL (Access Control List) objects.
+            ACLs are used by Content Server to implement object-level permissions and folder security.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.IAccessControlService.Get(System.Collections.Generic.List{Emc.Documentum.FS.DataModel.Core.Acl.AclIdentity})">
+            <summary>
+            Gets an AclPackage containing ACL objects based on the Acl identities passed to the operation.<p/>
+            </summary>
+            <param name="aclIdentities">List containing the identities of the ACLs to get</param>
+            <returns> AclPackage containing a List of ACL objects</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.IAccessControlService.Delete(System.Collections.Generic.List{Emc.Documentum.FS.DataModel.Core.Acl.AclIdentity})">
+            <summary>
+            Deletes ACL objects based on a list of Acl identities passed to the operation.<p/>
+            </summary>
+            <param name="aclIdentities">the identities of the ACLs to delete</param>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.IAccessControlService.Create(Emc.Documentum.FS.DataModel.Core.Acl.AclPackage)">
+            <summary>
+            Creates a list of new ACL objects based on the ACL instances contained in a AclPackage passed to
+            the operation
+            </summary>
+            <param name="aclPackage">contains ACLs that will be created</param>
+            <returns>AclPackage with a list of ACLs created.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.IAccessControlService.Update(Emc.Documentum.FS.DataModel.Core.Acl.AclPackage)">
+            <summary>
+            Updates a List of ACL objects based on the Acl instances contained in an AclPackage passed to
+            the operation.<p/>
+            The update operation does not merge the data in an Acl instance into an existing ACL repository object.
+            It instead replaces all of the attribute values in an ACL object based on the data in the Acl instance passed to the operation.
+            </summary>
+            <param name="aclPackage">AclPackage containing a List of ACLs to be updated</param>
+            <returns>AclPackage containing a List of updated ACLs</returns>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Acl.AccessControlServicePort">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.AccessControlServicePort.get(Emc.Documentum.FS.Services.Core.Acl.getRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.AccessControlServicePort.delete(Emc.Documentum.FS.Services.Core.Acl.deleteRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.AccessControlServicePort.create(Emc.Documentum.FS.Services.Core.Acl.createRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.AccessControlServicePort.update(Emc.Documentum.FS.Services.Core.Acl.updateRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.AccessControlServicePortClient.GetServiceContext">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.AccessControlServicePortClient.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.AccessControlServicePortClient.#ctor(System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.AccessControlServicePortClient.#ctor(System.String,System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.AccessControlServicePortClient.#ctor(System.String,System.ServiceModel.EndpointAddress)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.AccessControlServicePortClient.#ctor(System.ServiceModel.Channels.Binding,System.ServiceModel.EndpointAddress)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.AccessControlServicePortClient.Emc#Documentum#FS#Services#Core#Acl#AccessControlServicePort#get(Emc.Documentum.FS.Services.Core.Acl.getRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.AccessControlServicePortClient.get(Emc.Documentum.FS.DataModel.Core.Acl.AclIdentity[])">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.AccessControlServicePortClient.Emc#Documentum#FS#Services#Core#Acl#AccessControlServicePort#delete(Emc.Documentum.FS.Services.Core.Acl.deleteRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.AccessControlServicePortClient.delete(Emc.Documentum.FS.DataModel.Core.Acl.AclIdentity[])">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.AccessControlServicePortClient.Emc#Documentum#FS#Services#Core#Acl#AccessControlServicePort#create(Emc.Documentum.FS.Services.Core.Acl.createRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.AccessControlServicePortClient.create(Emc.Documentum.FS.DataModel.Core.Acl.AclPackage)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.AccessControlServicePortClient.Emc#Documentum#FS#Services#Core#Acl#AccessControlServicePort#update(Emc.Documentum.FS.Services.Core.Acl.updateRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.AccessControlServicePortClient.update(Emc.Documentum.FS.DataModel.Core.Acl.AclPackage)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.AccessControlServicePortClient.Get(System.Collections.Generic.List{Emc.Documentum.FS.DataModel.Core.Acl.AclIdentity})">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.AccessControlServicePortClient.Delete(System.Collections.Generic.List{Emc.Documentum.FS.DataModel.Core.Acl.AclIdentity})">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.AccessControlServicePortClient.Create(Emc.Documentum.FS.DataModel.Core.Acl.AclPackage)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.AccessControlServicePortClient.Update(Emc.Documentum.FS.DataModel.Core.Acl.AclPackage)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Acl.getRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.Acl.getRequest.aclIdentities">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.getRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.getRequest.#ctor(Emc.Documentum.FS.DataModel.Core.Acl.AclIdentity[])">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Acl.getResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.Acl.getResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.getResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.getResponse.#ctor(Emc.Documentum.FS.DataModel.Core.Acl.AclPackage)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Acl.deleteRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.Acl.deleteRequest.aclIdentities">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.deleteRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.deleteRequest.#ctor(Emc.Documentum.FS.DataModel.Core.Acl.AclIdentity[])">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Acl.deleteResponse">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.deleteResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Acl.createRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.Acl.createRequest.aclPackage">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.createRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.createRequest.#ctor(Emc.Documentum.FS.DataModel.Core.Acl.AclPackage)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Acl.createResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.Acl.createResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.createResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.createResponse.#ctor(Emc.Documentum.FS.DataModel.Core.Acl.AclPackage)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Acl.updateRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.Acl.updateRequest.aclPackage">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.updateRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.updateRequest.#ctor(Emc.Documentum.FS.DataModel.Core.Acl.AclPackage)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Acl.updateResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.Acl.updateResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.updateResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.updateResponse.#ctor(Emc.Documentum.FS.DataModel.Core.Acl.AclPackage)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Acl.AccessControlServicePortChannel">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Acl.CoreServiceException">
+            <summary>
+            CoreServiceException is used for storing raised exception details and transferring them through SOAP<p/>
+            Private implementation.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.CoreServiceException.ReadXml(System.Xml.XmlReader)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.CoreServiceException.WriteXml(System.Xml.XmlWriter)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.CoreServiceException.GetSchema">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.CoreServiceException.ExportSchema(System.Xml.Schema.XmlSchemaSet)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Acl.CoreServiceException.RaisePropertyChanged(System.String)">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.Services.Core.Acl.CoreServiceException.Nodes">
+            <exclude/>
+        </member>
+        <member name="E:Emc.Documentum.FS.Services.Core.Acl.CoreServiceException.PropertyChanged">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Lifecycle.CoreServiceException">
+            <summary>
+            CoreServiceException is used for storing raised exception details and transferring them through SOAP<p/>
+            Private implementation.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.CoreServiceException.ReadXml(System.Xml.XmlReader)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.CoreServiceException.WriteXml(System.Xml.XmlWriter)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.CoreServiceException.GetSchema">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.CoreServiceException.ExportSchema(System.Xml.Schema.XmlSchemaSet)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.CoreServiceException.RaisePropertyChanged(System.String)">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.Services.Core.Lifecycle.CoreServiceException.Nodes">
+            <exclude/>
+        </member>
+        <member name="E:Emc.Documentum.FS.Services.Core.Lifecycle.CoreServiceException.PropertyChanged">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Lifecycle.LifecycleServicePortClient">
+            <exclude/>
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Lifecycle.ILifecycleService">
+            <summary>
+            The Lifecycle service provides operations for runtime use of lifecycles,
+            such as attaching objects to lifecycles, detaching objects from lifecycles,
+            moving objects from one lifecycle state to another, and examining the lifecycles associated with objects.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.ILifecycleService.Execute(System.Collections.Generic.List{Emc.Documentum.FS.DataModel.Core.Lifecycle.LifecycleOperation},Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <summary>
+            The execute operation processes a collection of LifecycleOperation objects, each of which specifies an object and a lifecycle operation to execute on that object.<p/>
+            </summary>
+            <param name="lifecycleOperations">a List of LifecyucleOperation; each LifecycleOperation instance specifies an object and a lifecycle operation to execute on that object.
+            The LifecycleOperation does not specify the lifecycle state name. This value is calculated based on the current life cycle state and the specific operation to be executed.
+            </param>
+            <param name="options">an OperationOptions instance containing a  LifecycleExecutionProfile instance to specify behavior options .</param>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.ILifecycleService.Attach(System.Collections.Generic.List{Emc.Documentum.FS.DataModel.Core.Lifecycle.AttachLifecycleInfo},Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+             <summary>
+             The attach operation processes a list of AttachLifecycleInfo objects, each of which specifies a lifecycle, 
+             a lifecycle state, and an object to attach to the lifecycle and state.<p/>
+            
+              If no lifecycle is specified, the object is attached to the default lifecycle of the object type.
+              If no state is specified, the object is placed in the lifecycle's base state.
+              For an object to be attached to a state, the allow_attach property of the state must be set to true. 
+             This property would normally be set at design time by the creator of the lifecycle.<p/>
+            
+              The attach operation can also set the lifecycle alias scope (also called policy scope) of the object 
+              by specifying the alias set name of an alias listed in the lifecycle's alias_set_ids property. 
+              If no alias set name is specified by the attach operation, then Content Server logic determines the lifecycle alias scope for the object.	 
+             </summary>
+             <param name="lifecycleInfos">a List of AttachLifecycleInfo each AttachLifeCycleInfo instance provides information 
+             required to attach an object to a lifecycle and state.</param>
+             <param name="options">an OperationOptions instance; reserved for future use.</param>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.ILifecycleService.GetLifecycle(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <summary>
+            The getLifecycle operation processes an ObjectIdentitySet and returns a collection of LifecycleInfo objects,
+            each containing information about the lifecycle to which a specific object is attached. <p/>
+            </summary>
+            <param name="objectIds">a collection of objects about which to obtain lifecycle information.</param>
+            <param name="options">an OperationOptions instance; reserved for future use.</param>
+            <returns>a List&lt;LifecycleInfo&gt;; each LifecycleInfo instance provides information about the lifecycle to which an object in the objectIds collection is attached.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.ILifecycleService.Detach(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <summary>
+            The detach operation processes a collection of objects, detaching each object from any lifecycle to which it is currently attached.<p/>
+            </summary>
+            <param name="objectIds">an ObjectIdentitySet identifying objects to detach from any lifecycle to which they are currently attached.</param>
+            <param name="options">an OperationOptions instance; reserved for future use.</param>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Lifecycle.LifecycleServicePort">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.LifecycleServicePort.execute(Emc.Documentum.FS.Services.Core.Lifecycle.executeRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.LifecycleServicePort.attach(Emc.Documentum.FS.Services.Core.Lifecycle.attachRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.LifecycleServicePort.getLifecycle(Emc.Documentum.FS.Services.Core.Lifecycle.getLifecycleRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.LifecycleServicePort.detach(Emc.Documentum.FS.Services.Core.Lifecycle.detachRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.LifecycleServicePortClient.GetServiceContext">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.LifecycleServicePortClient.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.LifecycleServicePortClient.#ctor(System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.LifecycleServicePortClient.#ctor(System.String,System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.LifecycleServicePortClient.#ctor(System.String,System.ServiceModel.EndpointAddress)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.LifecycleServicePortClient.#ctor(System.ServiceModel.Channels.Binding,System.ServiceModel.EndpointAddress)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.LifecycleServicePortClient.Emc#Documentum#FS#Services#Core#Lifecycle#LifecycleServicePort#execute(Emc.Documentum.FS.Services.Core.Lifecycle.executeRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.LifecycleServicePortClient.execute(Emc.Documentum.FS.DataModel.Core.Lifecycle.LifecycleOperation[],Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.LifecycleServicePortClient.Emc#Documentum#FS#Services#Core#Lifecycle#LifecycleServicePort#attach(Emc.Documentum.FS.Services.Core.Lifecycle.attachRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.LifecycleServicePortClient.attach(Emc.Documentum.FS.DataModel.Core.Lifecycle.AttachLifecycleInfo[],Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.LifecycleServicePortClient.Emc#Documentum#FS#Services#Core#Lifecycle#LifecycleServicePort#getLifecycle(Emc.Documentum.FS.Services.Core.Lifecycle.getLifecycleRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.LifecycleServicePortClient.getLifecycle(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.LifecycleServicePortClient.Emc#Documentum#FS#Services#Core#Lifecycle#LifecycleServicePort#detach(Emc.Documentum.FS.Services.Core.Lifecycle.detachRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.LifecycleServicePortClient.detach(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.LifecycleServicePortClient.Execute(System.Collections.Generic.List{Emc.Documentum.FS.DataModel.Core.Lifecycle.LifecycleOperation},Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.LifecycleServicePortClient.Attach(System.Collections.Generic.List{Emc.Documentum.FS.DataModel.Core.Lifecycle.AttachLifecycleInfo},Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.LifecycleServicePortClient.GetLifecycle(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.LifecycleServicePortClient.Detach(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Lifecycle.executeRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.Lifecycle.executeRequest.lifecycleOperations">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.Lifecycle.executeRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.executeRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.executeRequest.#ctor(Emc.Documentum.FS.DataModel.Core.Lifecycle.LifecycleOperation[],Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Lifecycle.executeResponse">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.executeResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Lifecycle.attachRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.Lifecycle.attachRequest.lifecycleInfos">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.Lifecycle.attachRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.attachRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.attachRequest.#ctor(Emc.Documentum.FS.DataModel.Core.Lifecycle.AttachLifecycleInfo[],Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Lifecycle.attachResponse">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.attachResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Lifecycle.getLifecycleRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.Lifecycle.getLifecycleRequest.objectIds">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.Lifecycle.getLifecycleRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.getLifecycleRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.getLifecycleRequest.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Lifecycle.getLifecycleResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.Lifecycle.getLifecycleResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.getLifecycleResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.getLifecycleResponse.#ctor(Emc.Documentum.FS.DataModel.Core.Lifecycle.LifecycleInfo[])">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Lifecycle.detachRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.Lifecycle.detachRequest.objectIds">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.Lifecycle.detachRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.detachRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.detachRequest.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Lifecycle.detachResponse">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Lifecycle.detachResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Lifecycle.LifecycleServicePortChannel">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Vdm.CoreServiceException">
+            <summary>
+            CoreServiceException is used for storing raised exception details and transferring them through SOAP<p/>
+            Private implementation.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.CoreServiceException.ReadXml(System.Xml.XmlReader)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.CoreServiceException.WriteXml(System.Xml.XmlWriter)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.CoreServiceException.GetSchema">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.CoreServiceException.ExportSchema(System.Xml.Schema.XmlSchemaSet)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.CoreServiceException.RaisePropertyChanged(System.String)">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.Services.Core.Vdm.CoreServiceException.Nodes">
+            <exclude/>
+        </member>
+        <member name="E:Emc.Documentum.FS.Services.Core.Vdm.CoreServiceException.PropertyChanged">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Vdm.VirtualDocumentServicePortClient">
+            <exclude/>
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Vdm.IVirtualDocumentService">
+            <summary>
+            The VirtualDocument service  provides operations for managing virtual documents, such as modifying virtual documents by adding,
+            removing, or reordering nodes, retrieving virtual documents from the repository, creating snapshots, and removing snapshots.<p/>
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.IVirtualDocumentService.Update(Emc.Documentum.FS.DataModel.Core.DataObject,System.Collections.Generic.List{Emc.Documentum.FS.DataModel.Core.Vdm.VdmChildrenActionInfo},Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+             <summary>
+             The update operation modifies (or creates) a virtual document. <p/>
+            
+             The operation is passed a DataObject representing the root document of the virtual document. 
+             If this object does not exist in the repository, it will be created. If the object exists and is a simple document, 
+             it will be converted to a virtual document. The existing object will be updated with data (such as property settings) 
+             provided in the DataObject passed to the operation.<p/>
+            
+             The child nodes of the virtual document are updated, deleted, or set using data provided in a List&lt;ChildrenActionInfo&gt;. 
+            
+             Optional operation behaviors can be specified in a VdmUpdateProfile. The operation is affected by the VdmUpdateProfile only and ignores other profiles.
+            
+             The update operation does not require that an existing object be checked out prior to the operation. 
+             If the object is not checked out, it will be checked out and checked in by the operation. If the object has been checked out 
+             by the user performing the update operation prior to the update operation, it will be checked in and the lock will not be preserved. 
+             This behavior can be changed using the retainLock setting in VdmUpdateProfile.
+             </summary>
+             <seealso cref="T:Emc.Documentum.FS.DataModel.Core.Vdm.VdmChildrenActionInfo">VdmChildrenActionInfo</seealso>
+             <seealso cref="T:Emc.Documentum.FS.DataModel.Core.Profiles.VdmUpdateProfile">VdmUpdateProfile</seealso>
+             <param name="parent">DataObject that represents the root document of the virtual document.</param>
+             <param name="children">a collection of <see cref="T:Emc.Documentum.FS.DataModel.Core.Vdm.VdmChildrenActionInfo">VdmChildrenActionInfo</see> instances, 
+             each of which contains information used to make a specific modification to the child list of the virtual document.</param>
+             <param name="options">an OperationOptions instance, which may contain an instance of VdmUpdateProfile. Other profiles will be ignored.</param>
+             <returns>a DataObject representing the virtual document after the update. The DataObject contains a list of ReferenceRelationship 
+             instances in which the virtual document child is the target object. Binding information for each virtual document node is included in 
+             the relationshipProperties list of the target object.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.IVirtualDocumentService.Retrieve(Emc.Documentum.FS.DataModel.Core.ObjectIdentity,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+             <summary>
+             The retrieve gets a DataObject containing information about a virtual document, including its child nodes and binding rules.<p/>
+             The retrieve operation can be used to get information using either a virtual document or a snapshot of a virtual document.
+            
+             <param name="parent">the identity of the root document of the virtual document or snapshot to retrieve.</param>
+             <param name="options">an OperationOptions instance, which may contain an instance of VdmRetrieveProfile. 
+             This operation will also process PropertyProfile, ContentProfile, PermissionProfile, RelationshipProfile to specify the data 
+             contained in the returned DataObject and ContentTransferProfile to specify content transfer options.</param>
+            
+             <returns>a DataObject representing the virtual document. The DataObject contains a list of ReferenceRelationship 
+             instances in which the virtual document child is the target object. Binding information for each node is included in the 
+             relationshipProperties collection of the target object. Use profiles to specify other data returned as part of the DataObject.</returns>
+            
+             <seealso cref="T:Emc.Documentum.FS.DataModel.Core.Profiles.VdmRetrieveProfile">VdmRetrieveProfile</seealso>
+             </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.IVirtualDocumentService.CreateSnapshot(Emc.Documentum.FS.DataModel.Core.ObjectIdentity,Emc.Documentum.FS.DataModel.Core.DataObject,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+             <summary>
+            
+             The createSnapshot operations creates a snapshot of the virtual document and associates it with a document. <p/>
+             If the document does not exist the associate document will be created and saved in the repository before the resulting snapshot can be associated. 
+             If document exists in the repository, the createSnapshot operation will update the existing object using data passed in a DataObject before creating the snapshot.<p/>
+             The createSnapshot operation can create either an inline or a non-inline snapshot. In the first case, the identity of the associate document is the same 
+             as the identity of the parent document. In the latter case, the parent and associated documents are not identical.
+            
+             <param name="parent">ObjectIdentity of the root of the virtual document from which to derive the snapshot.</param>
+             <param name="associate">associate the object (a dm_sysobject or subtype) with which to associate the assemblies that comprise the snapshot. 
+             This can be the same object as parent, or a different object. If the object does not exist, it will be created.</param>
+             <param name="options">an OperationOptions instance containig profiles and properties that specify operation behaviors. 
+             Specifically, it can contain a VdmRetrieveProfile, as well as PropertyProfile, ContentProfile, PermissionProfile, 
+             and RelationshipProfile, which will determine how to populate the returned DataObject. 
+             It can contain ContentTransferProfile to specify content transfer options. If VdmRetrieveProfile is not provided in OperationOptions,
+             then a new VdmRetrieveProfile will be constructed and used by the createSnapshot operation, with binding set to "CURRENT" and shouldFollowAssembly set to true.</param>
+            
+             <returns>a DataObject representing the virtual document from which the snapshot was created. The DataObject contains a list of ReferenceRelationship 
+             instances in which the virtual document child is the target object. Binding information for each node is included in the 
+             relationshipProperties collection of the target object. Use profiles to specify other data returned as part of the DataObject.</returns>
+             </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.IVirtualDocumentService.RemoveSnapshot(Emc.Documentum.FS.DataModel.Core.ObjectIdentity,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <summary>
+            Removes the snapshot from the document with which they are associated (the document itself remains in the repository).
+            </summary>
+            <param name="associate">the ObjectIdentity of the object (dm_sysobject or subtype) with which the snapshot is associated.</param>
+            <param name="options">reserved for future use</param>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Vdm.VirtualDocumentServicePort">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.VirtualDocumentServicePort.update(Emc.Documentum.FS.Services.Core.Vdm.updateRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.VirtualDocumentServicePort.retrieve(Emc.Documentum.FS.Services.Core.Vdm.retrieveRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.VirtualDocumentServicePort.createSnapshot(Emc.Documentum.FS.Services.Core.Vdm.createSnapshotRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.VirtualDocumentServicePort.removeSnapshot(Emc.Documentum.FS.Services.Core.Vdm.removeSnapshotRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.VirtualDocumentServicePortClient.GetServiceContext">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.VirtualDocumentServicePortClient.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.VirtualDocumentServicePortClient.#ctor(System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.VirtualDocumentServicePortClient.#ctor(System.String,System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.VirtualDocumentServicePortClient.#ctor(System.String,System.ServiceModel.EndpointAddress)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.VirtualDocumentServicePortClient.#ctor(System.ServiceModel.Channels.Binding,System.ServiceModel.EndpointAddress)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.VirtualDocumentServicePortClient.Emc#Documentum#FS#Services#Core#Vdm#VirtualDocumentServicePort#update(Emc.Documentum.FS.Services.Core.Vdm.updateRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.VirtualDocumentServicePortClient.update(Emc.Documentum.FS.DataModel.Core.DataObject,Emc.Documentum.FS.DataModel.Core.Vdm.VdmChildrenActionInfo[],Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.VirtualDocumentServicePortClient.Emc#Documentum#FS#Services#Core#Vdm#VirtualDocumentServicePort#retrieve(Emc.Documentum.FS.Services.Core.Vdm.retrieveRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.VirtualDocumentServicePortClient.retrieve(Emc.Documentum.FS.DataModel.Core.ObjectIdentity,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.VirtualDocumentServicePortClient.Emc#Documentum#FS#Services#Core#Vdm#VirtualDocumentServicePort#createSnapshot(Emc.Documentum.FS.Services.Core.Vdm.createSnapshotRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.VirtualDocumentServicePortClient.createSnapshot(Emc.Documentum.FS.DataModel.Core.ObjectIdentity,Emc.Documentum.FS.DataModel.Core.DataObject,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.VirtualDocumentServicePortClient.Emc#Documentum#FS#Services#Core#Vdm#VirtualDocumentServicePort#removeSnapshot(Emc.Documentum.FS.Services.Core.Vdm.removeSnapshotRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.VirtualDocumentServicePortClient.removeSnapshot(Emc.Documentum.FS.DataModel.Core.ObjectIdentity,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.VirtualDocumentServicePortClient.Update(Emc.Documentum.FS.DataModel.Core.DataObject,System.Collections.Generic.List{Emc.Documentum.FS.DataModel.Core.Vdm.VdmChildrenActionInfo},Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.VirtualDocumentServicePortClient.Retrieve(Emc.Documentum.FS.DataModel.Core.ObjectIdentity,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.VirtualDocumentServicePortClient.CreateSnapshot(Emc.Documentum.FS.DataModel.Core.ObjectIdentity,Emc.Documentum.FS.DataModel.Core.DataObject,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.VirtualDocumentServicePortClient.RemoveSnapshot(Emc.Documentum.FS.DataModel.Core.ObjectIdentity,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Vdm.updateRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.Vdm.updateRequest.parent">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.Vdm.updateRequest.children">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.Vdm.updateRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.updateRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.updateRequest.#ctor(Emc.Documentum.FS.DataModel.Core.DataObject,Emc.Documentum.FS.DataModel.Core.Vdm.VdmChildrenActionInfo[],Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Vdm.updateResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.Vdm.updateResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.updateResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.updateResponse.#ctor(Emc.Documentum.FS.DataModel.Core.DataObject)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Vdm.retrieveRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.Vdm.retrieveRequest.parent">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.Vdm.retrieveRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.retrieveRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.retrieveRequest.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentity,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Vdm.retrieveResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.Vdm.retrieveResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.retrieveResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.retrieveResponse.#ctor(Emc.Documentum.FS.DataModel.Core.DataObject)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Vdm.createSnapshotRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.Vdm.createSnapshotRequest.parent">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.Vdm.createSnapshotRequest.associate">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.Vdm.createSnapshotRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.createSnapshotRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.createSnapshotRequest.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentity,Emc.Documentum.FS.DataModel.Core.DataObject,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Vdm.createSnapshotResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.Vdm.createSnapshotResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.createSnapshotResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.createSnapshotResponse.#ctor(Emc.Documentum.FS.DataModel.Core.DataObject)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Vdm.removeSnapshotRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.Vdm.removeSnapshotRequest.associate">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.Vdm.removeSnapshotRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.removeSnapshotRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.removeSnapshotRequest.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentity,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Vdm.removeSnapshotResponse">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.Vdm.removeSnapshotResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.Vdm.VirtualDocumentServicePortChannel">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.CoreServiceException">
+            <summary>
+            CoreServiceException is used for storing raised exception details and transferring them through SOAP<p/>
+            Private implementation.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.CoreServiceException.ReadXml(System.Xml.XmlReader)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.CoreServiceException.WriteXml(System.Xml.XmlWriter)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.CoreServiceException.GetSchema">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.CoreServiceException.ExportSchema(System.Xml.Schema.XmlSchemaSet)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.CoreServiceException.RaisePropertyChanged(System.String)">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.Services.Core.CoreServiceException.Nodes">
+            <exclude/>
+        </member>
+        <member name="E:Emc.Documentum.FS.Services.Core.CoreServiceException.PropertyChanged">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.LicenseServicePortClient">
+            <exclude/>
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.ILicenseService">
+             <summary>
+            License Service implmentation.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ILicenseService.RequestLicense(System.String,System.String,System.String,System.String)">
+             <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.LicenseServicePort">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.LicenseServicePort.requestLicense(Emc.Documentum.FS.Services.Core.requestLicenseRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.LicenseServicePortClient.GetServiceContext">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.LicenseServicePortClient.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.LicenseServicePortClient.#ctor(System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.LicenseServicePortClient.#ctor(System.String,System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.LicenseServicePortClient.#ctor(System.String,System.ServiceModel.EndpointAddress)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.LicenseServicePortClient.#ctor(System.ServiceModel.Channels.Binding,System.ServiceModel.EndpointAddress)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.LicenseServicePortClient.Emc#Documentum#FS#Services#Core#LicenseServicePort#requestLicense(Emc.Documentum.FS.Services.Core.requestLicenseRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.LicenseServicePortClient.requestLicense(System.String,System.String,System.String,System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.LicenseServicePortClient.RequestLicense(System.String,System.String,System.String,System.String)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.requestLicenseRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.requestLicenseRequest.licenseName">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.requestLicenseRequest.version">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.requestLicenseRequest.userName">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.requestLicenseRequest.domainName">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.requestLicenseRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.requestLicenseRequest.#ctor(System.String,System.String,System.String,System.String)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.requestLicenseResponse">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.requestLicenseResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.LicenseServicePortChannel">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.ObjectServicePortClient">
+            <exclude/>
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.IObjectService">
+            <summary>
+            ObjectService Provides fundamental operations for creating, getting, updating, and deleting 
+            repository objects, as  well as copy and move operations<para/>
+            
+            The object service provides a 
+            set of basic operations on repository objects, in cases where the client does not need  to 
+            explicitly use the version control system. Each operation within the object service uses 
+            default behaviors as  relates to object versions that are appropriate for the specific operation. 
+            All of the object services can operate  on multiple objects (contained in either a DataPackage or an ObjectIdentitySet), 
+            enabling clients to optimize service  usage by minimizing the number of service interactions.
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.OperationOptions"/>
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.Profiles.Profile"/>
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.IObjectService.Get(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <summary>
+            The get operation retrieves a set of objects from the repository based on the contents of an ObjectIdentitySet.
+            The get operation always returns the version of the object specified by ObjectIdentity; if the ObjectIdentity
+            identifies a non-CURRENT version, the get operation returns the non-CURRENT version. The operation will also
+            return related objects if instructed to do so by RelationshipProfile settings.
+            </summary>
+            <param name="forObjects">Contains a list of ObjectIdentity instances specifying the repository objects to be retrieved.</param>
+            <param name="options">
+            An object containing profiles and properties that specify operation behaviors. If this object
+            is null, default operation behaviors will take effect.
+            OperationOptions can contain PropertyProfile, ContentProfile, PermissionProfile,
+            RelationshipProfile that will be used to populate the returned DataPackage. Also it can
+            contain ContentTransferProfile to specify the specifics of content transfer.
+            </param>
+            <returns>fully populated DataObjects and their ReferenceRelations in case filter mode is not</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.IObjectService.Copy(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.ObjectLocation,Emc.Documentum.FS.DataModel.Core.DataPackage,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <summary>
+            The copy operation copies a set of repository objects from one location to another, either within a single
+            repository, or from one repository to another. During the copy operation, the service can optionally make
+            modifications to the objects being copied.<para/>
+            
+            Note: For the service to copy an object from one repository to another, the ServiceContext must be set up to
+            provide the service with access to both repositories. This can be done by setting up a separate
+            RepositoryIdentity for each repository, or by use of a BasicIdentity, which provides default user credentials for
+            multiple repositories. For more information on RepositoryIdentity and BasicIdentity, see DFS Development Guide,
+            Identities, page 48.
+            <para/>
+            Note: DataPackage can contain operation specific properties.
+            </summary>
+            <param name="fromObjects">is a set of identities pointing to objects that must be copied.</param>
+            <param name="targetLocation">
+            Contains an ObjectIdentity that identifies the location (a cabinet or folder) into which
+            the repository objects are to be copied. If objects do not require a "parent" location.
+            Location object can be used to specify target repository.
+            </param>
+            <param name="modifyObjects">optional package of data objects that need to be modified during a copy.  It is not
+            necessary to have as many "modify objects" as "from identities".  During processing of
+            each "from identity", data object with the same identity will be used to change the
+            attributes and relationships for the new object.
+            </param>
+            <param name="options">
+            An object containing profiles and properties that specify operation behaviors. If this object
+            is null, default operation behaviors will take effect.
+            It can contain CopyProfile that will modify the behaviour of the operation.
+            OperationOptions can also contain PropertyProfile, ContentProfile, PermissionProfile,
+            RelationshipProfile that will be used to populate the returned DataPackage. Also it can
+            contain ContentTransferProfile to specify the specifics of content transfer.
+            </param>
+            <returns>
+            target DataPackage with a list of objects created. By default, it will only return
+            ObjectIdentity of the DataObjects with no ReferenceRelations. PropertyProfile and
+            ContentProfile settings can be used to specify what data is populated.
+            </returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.IObjectService.Delete(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <summary>
+            Operation deletes a set of objects from the repository. By default, for each object that it deletes, it deletes
+            all versions. The specific behaviors of the delete operation are controlled by a DeleteProfile, which should be
+            passed to the operation as part of OperationOptions.
+            <para/>
+            Note: DataPackage can contain operation specific properties
+            </summary>
+            <param name="objectsToDelete">A collection of ObjectIdentity instances that uniquely identify repository objects to be deleted</param>
+            <param name="options">
+            An object containing profiles and properties that specify operation behaviors. If this object
+            is null, default operation behaviors will take effect.
+            It can contain DeleteProfile that will modify the behaviour of the operation.
+            OperationOptions can also contain PropertyProfile, ContentProfile, PermissionProfile,
+            RelationshipProfile that will be used to populate the returned DataPackage. Also it can
+            contain ContentTransferProfile to specify the specifics of content transfer.
+            </param>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.IObjectService.Create(Emc.Documentum.FS.DataModel.Core.DataPackage,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <summary>
+            Creates a set of new repository objects based on the DataObject instances contained in a DataPackage passed to  the operation. Because each DataObject represents a new repository object, its ObjectIdentity is populated with  only a repository name. Content Server assigns a unique object identifier when the object is created in the  repository.<para/>   To create an object in a specific location, or to create objects that have relationships to one another defined  in the repository, the client can define Relationship instances in a DataObject passed to the operation. The most  common example of this would be to create a Relationship between a newly created document and the folder in which  it is to be created.  All specified related objects are also created.  All content is automatically imported.  <para/>  Note: DataPackage can contain operation specific properties.
+            </summary>
+            <param name="dataPackage">contains DataObjects that will be created</param>
+            <param name="options">An object containing profiles and properties that specify operation behaviors. If this object is null, default operation behaviors will take effect.                     OperationOptions can contain PropertyProfile, ContentProfile, PermissionProfile,                     RelationshipProfile that will be used to populate the returned DataPackage. Also it can contain ContentTransferProfile to specify the specifics of content transfer.</param>
+            <returns>target DataPackage with a list of objects created. By default, it will only return ObjectIdentity of the DataObjects with no ReferenceRelations.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.IObjectService.Update(Emc.Documentum.FS.DataModel.Core.DataPackage,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <summary>
+            The update operation updates a set of repository objects using data supplied in a set of DataObject instances
+            passed in a DataPackage. The update operation will only update the CURRENT version of an object. If passed an
+            ObjectIdentity that identifies a non-CURRENT object, the operation will throw an exception. The updated
+            repository object will be saved as the CURRENT version.<para/>
+            
+            The ObjectIdentity of each DataObject passed to the update operation must uniquely identify an existing     
+            repository object. The DataObject instances can contain updates to properties, content, and relationships, and
+            only needs to include data that requires update.<para/>
+            
+            If a DataObject contains ReferenceRelationship instances, the corresponding relationships are created or updated
+            in the repository. The update operation can also remove existing relationships. It can therefore be used,
+            for example, to unlink an object from a folder and link it into another folder. If the DataObject contains
+            ObjectRelationship instances, then the related objects are either updated or created, depending on whether they
+            already exist in the repository. If the object does not exist, it is created; if it does exist, it is updated.<para/>
+            Updates all data object in the data package using the specified target repository. All specified related objects are 
+            also updated.  All content is automatically saved as CURRENT as well.<para/>
+            
+            Note: DataPackage can contain operation specific properties.
+            </summary>
+            <param name="dataPackage">A collection of DataObject instances that contain modifications to repository objects. The
+            ObjectIdentity of each DataObject instance must uniquely identity the repository object to
+            update. The DataObject instance need only contain data that is to be modified on the
+            repository object; data that is to remain unchanged need not be supplied.
+            </param>
+            <param name="options">
+            An object containing profiles and properties that specify operation behaviors. If this object
+            is null, default operation behaviors will take effect.
+            OperationOptions can contain PropertyProfile, ContentProfile, PermissionProfile,
+            RelationshipProfile that will be used to populate the returned DataPackage. Also it can
+            contain ContentTransferProfile to specify the specifics of content transfer.
+            </param>
+            <returns>DataPackage, which by default is populated with DataObject instances that contain only an ObjectIdentity.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.IObjectService.Validate(Emc.Documentum.FS.DataModel.Core.DataPackage)">
+            <summary>
+            The validate operation validates a set of DataObject instances against repository data dictionary rules, testing
+            whether the DataObject instances represent valid repository objects, and whether the DataObject properties
+            represent valid repository properties.
+            </summary>
+            <param name="dataPackage">A collection of DataObject instances to be validated by the operation.</param>
+            <returns>
+            a ValidationInfoSet, which contains a list of ValidationInfo objects. Each ValidationInfo contains a
+            DataObject and a list of any ValidationIssue instances that were raised by the operation. A
+            ValidationIssue can be of enum type ERROR or WARNING.
+            </returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.IObjectService.CreatePath(Emc.Documentum.FS.DataModel.Core.ObjectPath,System.String)">
+            <summary>
+            The createPath operation creates a folder structure (from the cabinet down) in a repository. Notice that only  "object_name" property will be set for each object.<para/>  If any of the folders specified in the path exist, no exception is thrown. This allows you to use the operation  to create the complete path, or to add new folders to an existing path.
+            </summary>
+            <param name="objectPath">Contains a String in the form ??/cabinetName/folderName...?? that describes the complete path to create.</param>
+            <param name="repositoryName">the repository name where the objects will be created.</param>
+            <returns>Returns the ObjectIdentity of the final object in the path. For example, if the path is          ??/cabinetName/childFolder1/childFolder2??, the operation will return the ObjectIdentity of childFolder2.</returns>        
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.IObjectService.Move(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.ObjectLocation,Emc.Documentum.FS.DataModel.Core.ObjectLocation,Emc.Documentum.FS.DataModel.Core.DataPackage,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <summary>
+            The move operation moves a set of repository objects from one location into another, and provides the optional
+            capability of updating the repository objects as they are moved. The move operation will only move the CURRENT
+            version of an object. If passed an ObjectIdentity that identifies a non-CURRENT object, the operation will throw
+            an exception (unless non-CURRENT objects are specifically permitted by a MoveProfile).
+            <para/>
+            Note: Move from one repository into another repository is not permitted.DataPackage can contain operation specific properties.
+            </summary>
+            <param name="fromObjects">A collection of ObjectIdentity instances that identify the repository objects to be moved.</param>
+            <param name="sourceLocation">Contains an ObjectIdentity that identifies the location (a cabinet or folder) from which the repository objects are to be moved.</param>
+            <param name="targetLocation">Contains an ObjectIdentity that identifies the location (a cabinet or folder) into which the repository objects are to be moved.</param>
+            <param name="modifyObjects">Optionally contains a set of DataObject instances that contain modifications (such as changes to property values, content, or relationships) to all or some of the repository objects being moved. The ObjectIdentity of each DataObject must uniquely identify one of the moved objects. The modifications supplied in the DataObject are applied during the move operation.</param>
+            <param name="options">An object containing profiles and properties that specify operation behaviors. If this object is null, default operation behaviors will take effect. It can contain MoveProfile that will modify the behaviour of the operation. OperationOptions can also contain PropertyProfile, ContentProfile, PermissionProfile, RelationshipProfile that will be used to populate the returned DataPackage. Also it can
+            contain ContentTransferProfile to specify the specifics of content transfer.
+            </param>
+            <returns>a DataPackage containing one DataObject for each repository object created by the move operation. By default, each DataObject contains only the ObjectIdentity of the created object and no other data. The client can modify this behavior by using Profile objects if it requires more data about the moved objects.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.IObjectService.GetObjectContentUrls(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet)">
+            <summary>
+            Returns an array of ContentUrl objects based on specified object identities.  Notice that more than one
+            ContentUrl can be returned per object identity.
+            </summary>
+            <param name="forObjects">A collection of ObjectIdentity instances for which to obtain UrlContent objects.</param>
+            <returns>List&lt;ObjectContentSet&gt;. Each ObjectContentSet contains a list of UrlContent objects.</returns> 
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.ObjectServicePort">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePort.get(Emc.Documentum.FS.Services.Core.getRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePort.copy(Emc.Documentum.FS.Services.Core.copyRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePort.delete(Emc.Documentum.FS.Services.Core.deleteRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePort.create(Emc.Documentum.FS.Services.Core.createRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePort.update(Emc.Documentum.FS.Services.Core.updateRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePort.validate(Emc.Documentum.FS.Services.Core.validateRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePort.createPath(Emc.Documentum.FS.Services.Core.createPathRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePort.move(Emc.Documentum.FS.Services.Core.moveRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePort.getObjectContentUrls(Emc.Documentum.FS.Services.Core.getObjectContentUrlsRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.GetServiceContext">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.#ctor(System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.#ctor(System.String,System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.#ctor(System.String,System.ServiceModel.EndpointAddress)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.#ctor(System.ServiceModel.Channels.Binding,System.ServiceModel.EndpointAddress)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.Emc#Documentum#FS#Services#Core#ObjectServicePort#get(Emc.Documentum.FS.Services.Core.getRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.get(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.Emc#Documentum#FS#Services#Core#ObjectServicePort#copy(Emc.Documentum.FS.Services.Core.copyRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.copy(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.ObjectLocation,Emc.Documentum.FS.DataModel.Core.DataPackage,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.Emc#Documentum#FS#Services#Core#ObjectServicePort#delete(Emc.Documentum.FS.Services.Core.deleteRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.delete(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.Emc#Documentum#FS#Services#Core#ObjectServicePort#create(Emc.Documentum.FS.Services.Core.createRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.create(Emc.Documentum.FS.DataModel.Core.DataPackage,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.Emc#Documentum#FS#Services#Core#ObjectServicePort#update(Emc.Documentum.FS.Services.Core.updateRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.update(Emc.Documentum.FS.DataModel.Core.DataPackage,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.Emc#Documentum#FS#Services#Core#ObjectServicePort#validate(Emc.Documentum.FS.Services.Core.validateRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.validate(Emc.Documentum.FS.DataModel.Core.DataPackage)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.Emc#Documentum#FS#Services#Core#ObjectServicePort#createPath(Emc.Documentum.FS.Services.Core.createPathRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.createPath(Emc.Documentum.FS.DataModel.Core.ObjectPath,System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.Emc#Documentum#FS#Services#Core#ObjectServicePort#move(Emc.Documentum.FS.Services.Core.moveRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.move(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.ObjectLocation,Emc.Documentum.FS.DataModel.Core.ObjectLocation,Emc.Documentum.FS.DataModel.Core.DataPackage,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.Emc#Documentum#FS#Services#Core#ObjectServicePort#getObjectContentUrls(Emc.Documentum.FS.Services.Core.getObjectContentUrlsRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.getObjectContentUrls(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.Get(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.Copy(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.ObjectLocation,Emc.Documentum.FS.DataModel.Core.DataPackage,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.Delete(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.Create(Emc.Documentum.FS.DataModel.Core.DataPackage,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.Update(Emc.Documentum.FS.DataModel.Core.DataPackage,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.Validate(Emc.Documentum.FS.DataModel.Core.DataPackage)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.CreatePath(Emc.Documentum.FS.DataModel.Core.ObjectPath,System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.Move(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.ObjectLocation,Emc.Documentum.FS.DataModel.Core.ObjectLocation,Emc.Documentum.FS.DataModel.Core.DataPackage,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ObjectServicePortClient.GetObjectContentUrls(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.getRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getRequest.forObjects">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getRequest.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.getResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getResponse.#ctor(Emc.Documentum.FS.DataModel.Core.DataPackage)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.copyRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.copyRequest.fromObjects">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.copyRequest.targetLocation">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.copyRequest.modifyObjects">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.copyRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.copyRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.copyRequest.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.ObjectLocation,Emc.Documentum.FS.DataModel.Core.DataPackage,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.copyResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.copyResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.copyResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.copyResponse.#ctor(Emc.Documentum.FS.DataModel.Core.DataPackage)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.deleteRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.deleteRequest.objectsToDelete">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.deleteRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.deleteRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.deleteRequest.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.deleteResponse">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.deleteResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.createRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.createRequest.dataPackage">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.createRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.createRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.createRequest.#ctor(Emc.Documentum.FS.DataModel.Core.DataPackage,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.createResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.createResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.createResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.createResponse.#ctor(Emc.Documentum.FS.DataModel.Core.DataPackage)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.updateRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.updateRequest.dataPackage">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.updateRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.updateRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.updateRequest.#ctor(Emc.Documentum.FS.DataModel.Core.DataPackage,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.updateResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.updateResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.updateResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.updateResponse.#ctor(Emc.Documentum.FS.DataModel.Core.DataPackage)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.validateRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.validateRequest.dataPackage">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.validateRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.validateRequest.#ctor(Emc.Documentum.FS.DataModel.Core.DataPackage)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.validateResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.validateResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.validateResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.validateResponse.#ctor(Emc.Documentum.FS.DataModel.Core.ValidationInfoSet)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.createPathRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.createPathRequest.objectPath">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.createPathRequest.repositoryName">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.createPathRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.createPathRequest.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectPath,System.String)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.createPathResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.createPathResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.createPathResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.createPathResponse.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentity)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.moveRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.moveRequest.fromObjects">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.moveRequest.sourceLocation">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.moveRequest.targetLocation">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.moveRequest.modifyObjects">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.moveRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.moveRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.moveRequest.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.ObjectLocation,Emc.Documentum.FS.DataModel.Core.ObjectLocation,Emc.Documentum.FS.DataModel.Core.DataPackage,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.moveResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.moveResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.moveResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.moveResponse.#ctor(Emc.Documentum.FS.DataModel.Core.DataPackage)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.getObjectContentUrlsRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getObjectContentUrlsRequest.forObjects">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getObjectContentUrlsRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getObjectContentUrlsRequest.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.getObjectContentUrlsResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getObjectContentUrlsResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getObjectContentUrlsResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getObjectContentUrlsResponse.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectContentSet[])">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.ObjectServicePortChannel">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.QueryServicePortClient">
+            <exclude/>
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.IQueryService">
+            <summary>
+            Query service is a primary mechanism for retrieving information from a repository. Query Service 
+            is general purpose  and uses execution semantics similar to the use of queries in an RDBMS. 
+            The service returns a data set resulting from  the query to the user either directly or 
+            through asynchronous caching.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.IQueryService.Execute(Emc.Documentum.FS.DataModel.Core.Query.Query,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <summary>
+            The execute operation runs a query against data in a repository and returns the results to 
+            the client as a  QueryResult containing a DataPackage.<p/>Executes a DQL query. 
+            <p/>Notes: <para/>1) Only PassthroughQuery is supported for query parameter. <para/>
+            2) Only one repository can be specified in the query otherwise an CoreServiceException 
+            will be thrown.
+            </summary>
+            <param name="query">query object</param>
+            <param name="execution">various parameters for query execution (cache strategy, max result, starting index, query id,...)</param>
+            <param name="options">service options (override profiles were passed using ServiceContext)</param>
+            <returns>QueryResult result of query execution. <p/>   
+            <li> If succeed 
+            QueryResult.status.repositoryStatusInfos[0].status == Status.SUCCESS</li>
+            <li>If query have more elements than were returned QueryResult.status.hasMoreResults is set to true otherwise to false</li>
+            </returns>
+            <exception cref="T:Emc.Documentum.FS.Services.Core.CoreServiceException"/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.QueryServicePort">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.QueryServicePort.execute(Emc.Documentum.FS.Services.Core.executeRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.QueryServicePortClient.GetServiceContext">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.QueryServicePortClient.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.QueryServicePortClient.#ctor(System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.QueryServicePortClient.#ctor(System.String,System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.QueryServicePortClient.#ctor(System.String,System.ServiceModel.EndpointAddress)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.QueryServicePortClient.#ctor(System.ServiceModel.Channels.Binding,System.ServiceModel.EndpointAddress)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.QueryServicePortClient.Emc#Documentum#FS#Services#Core#QueryServicePort#execute(Emc.Documentum.FS.Services.Core.executeRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.QueryServicePortClient.execute(Emc.Documentum.FS.DataModel.Core.Query.Query,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.QueryServicePortClient.Execute(Emc.Documentum.FS.DataModel.Core.Query.Query,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.executeRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.executeRequest.query">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.executeRequest.execution">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.executeRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.executeRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.executeRequest.#ctor(Emc.Documentum.FS.DataModel.Core.Query.Query,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.executeResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.executeResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.executeResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.executeResponse.#ctor(Emc.Documentum.FS.DataModel.Core.Query.QueryResult)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.QueryServicePortChannel">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.QueryStoreServicePortClient">
+            <exclude/>
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.IQueryStoreService">
+            <summary>
+            <B>Purpose</B>: QueryStoreService provides fundamental operations for listing, creating, updating, loading SavedQueries objects
+            from the repository.<p/>
+            
+            To delete a SavedQuery, one should use the ObjectService.delete() operation.
+            </summary>
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.Query.Query">Query</seealso>
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.Query.SavedQuery">SavedQuery</seealso>
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.OperationOptions">OperationOptions</seealso>
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.Profiles.Profile">Profile</seealso>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.IQueryStoreService.ListSavedQueries(System.String,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.Query.SavedQueryFilter,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <summary>
+            Lists Saved Queries stored in the specified repository.<p/>
+            Only SavedQuery objects metadata is returned and the client should call @see loadSavedQuery to be provided with the whole SavedQuery data (i.e. saved defintion and saved results).<br/>
+            </summary>
+            <param name="repository">The managed repository name that stores the queries.</param>
+            <param name="exec">This parameter's fields startingIndex and maxResultCount can be populated to limit the number of SavedQuery objects to be returned.</param>
+            <param name="filter">This optional object handles the constraints that should be matched by the saved queries to return.</param>
+            <param name="options">This parameter can be poputaled with a PropertyProfile to control the amount of data to be returned.</param>
+            <returns>The DataObjects corresponding to the SavedQuery objects that match the filter.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.IQueryStoreService.LoadSavedQuery(Emc.Documentum.FS.DataModel.Core.ObjectIdentity,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <summary>
+            Loads a Saved Query.<p/>
+            
+            This operation might be resources consuming because of the number of saved results.<p/>
+            
+            Add a PropertyProfile to the OperationOptions parameter to configure the amount of data to be returned as Saved Results.
+            </summary>
+            <param name="savedQueryId">Identity of the Saved Query to load.</param>
+            <param name="exec">This parameter's fields startIndex and pageSize can be populated to limit the number of saved results to be returned with the saved Query.</param>
+            <param name="options">Add a property profile to this parameter to control the amount of data returned as the saved results.</param>
+            <returns>A SavedQuery Object populated with its QueryStatus and QueryResults if they exist.</returns>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.IQueryStoreService.SaveQuery(Emc.Documentum.FS.DataModel.Core.DataObject,Emc.Documentum.FS.DataModel.Core.Query.RichQuery,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <summary>
+            Saves the specified query with associated results to the repository that is referenced in the specified identity.
+            <p>
+            To create a new repository object, the ObjectIdentity is populated with only a repository name.
+            Content Server assigns a unique object identifier when the object is created in the repository.
+            </p>
+            <para>To update an existing SavedQuery, The ObjectIdentity is populated with that repository object identity.</para>
+            <para>The results identities will be resolved using the QueryExecution field: queryId.
+            The Query might be launched again to resolve results Identities, using the specified QueryExecution.
+            <see cref="T:Emc.Documentum.FS.Services.Core.IQueryService">IQueryService</see>
+            </para>
+            <para>It is not possible to specify where the Saved Query is to be stored in the content server.</para>
+            </summary>
+            <param name="object">The object containing the object_name and title attributes. Its identity defines at least the repository where a new Saved Query will be saved. It can optionnally reference the existing SavedQuery to update.</param>
+            <param name="richQuery">The query definition and its properties to store.</param>
+            <param name="exec">Use this parameter to provide an optionnal queryId. This is necessary to resolve results identities.</param>
+            <param name="results">Optional Identities of the objects to save as the query results. It can be null, in that case, the query is saved without any results.</param>
+            <param name="options">(reserved for Future use)</param>
+            <returns>The Identity of the created SavedQuery</returns>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.QueryStoreServicePort">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.QueryStoreServicePort.listSavedQueries(Emc.Documentum.FS.Services.Core.listSavedQueriesRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.QueryStoreServicePort.loadSavedQuery(Emc.Documentum.FS.Services.Core.loadSavedQueryRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.QueryStoreServicePort.saveQuery(Emc.Documentum.FS.Services.Core.saveQueryRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.QueryStoreServicePortClient.GetServiceContext">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.QueryStoreServicePortClient.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.QueryStoreServicePortClient.#ctor(System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.QueryStoreServicePortClient.#ctor(System.String,System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.QueryStoreServicePortClient.#ctor(System.String,System.ServiceModel.EndpointAddress)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.QueryStoreServicePortClient.#ctor(System.ServiceModel.Channels.Binding,System.ServiceModel.EndpointAddress)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.QueryStoreServicePortClient.Emc#Documentum#FS#Services#Core#QueryStoreServicePort#listSavedQueries(Emc.Documentum.FS.Services.Core.listSavedQueriesRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.QueryStoreServicePortClient.listSavedQueries(System.String,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.Query.SavedQueryFilter,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.QueryStoreServicePortClient.Emc#Documentum#FS#Services#Core#QueryStoreServicePort#loadSavedQuery(Emc.Documentum.FS.Services.Core.loadSavedQueryRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.QueryStoreServicePortClient.loadSavedQuery(Emc.Documentum.FS.DataModel.Core.ObjectIdentity,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.QueryStoreServicePortClient.Emc#Documentum#FS#Services#Core#QueryStoreServicePort#saveQuery(Emc.Documentum.FS.Services.Core.saveQueryRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.QueryStoreServicePortClient.saveQuery(Emc.Documentum.FS.DataModel.Core.DataObject,Emc.Documentum.FS.DataModel.Core.Query.RichQuery,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.QueryStoreServicePortClient.ListSavedQueries(System.String,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.Query.SavedQueryFilter,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.QueryStoreServicePortClient.LoadSavedQuery(Emc.Documentum.FS.DataModel.Core.ObjectIdentity,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.QueryStoreServicePortClient.SaveQuery(Emc.Documentum.FS.DataModel.Core.DataObject,Emc.Documentum.FS.DataModel.Core.Query.RichQuery,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.listSavedQueriesRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.listSavedQueriesRequest.repository">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.listSavedQueriesRequest.exec">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.listSavedQueriesRequest.filter">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.listSavedQueriesRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.listSavedQueriesRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.listSavedQueriesRequest.#ctor(System.String,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.Query.SavedQueryFilter,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.listSavedQueriesResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.listSavedQueriesResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.listSavedQueriesResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.listSavedQueriesResponse.#ctor(Emc.Documentum.FS.DataModel.Core.DataPackage)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.loadSavedQueryRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.loadSavedQueryRequest.savedQueryId">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.loadSavedQueryRequest.exec">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.loadSavedQueryRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.loadSavedQueryRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.loadSavedQueryRequest.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentity,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.loadSavedQueryResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.loadSavedQueryResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.loadSavedQueryResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.loadSavedQueryResponse.#ctor(Emc.Documentum.FS.DataModel.Core.Query.SavedQuery)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.saveQueryRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.saveQueryRequest.object">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.saveQueryRequest.richQuery">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.saveQueryRequest.exec">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.saveQueryRequest.results">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.saveQueryRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.saveQueryRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.saveQueryRequest.#ctor(Emc.Documentum.FS.DataModel.Core.DataObject,Emc.Documentum.FS.DataModel.Core.Query.RichQuery,Emc.Documentum.FS.DataModel.Core.Query.QueryExecution,Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.saveQueryResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.saveQueryResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.saveQueryResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.saveQueryResponse.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentity)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.QueryStoreServicePortChannel">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.RepositoryInquiryServicePortClient">
+            <exclude/>
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.IRepositoryInquiryService">
+            <summary>
+            RepositoryInquiryService is a primary mechanism for retrieving information that
+            concerns content repositories under Documentum ECM platform control (i.e. exists
+            to service content repository inquiries).
+            </summary>
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.OperationOptions">OperationOptions</seealso>
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.Query.Repository">Repository</seealso>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.IRepositoryInquiryService.GetRepositoryList(Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <summary>
+            Returns the list of available content repositories.
+            </summary>
+            <param name="options"> 
+            An object containing profiles and properties that specify operation behaviors. 
+            If this object is null, default operation behaviors will take effect.
+            </param>
+            <returns>List of content repositories</returns>
+            <exception cref="T:Emc.Documentum.FS.Services.Core.CoreServiceException"/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.IRepositoryInquiryService.GetRepositoryNameByObjectId(System.Collections.Generic.List{Emc.Documentum.FS.DataModel.Core.ObjectId},Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <summary>
+            Returns ObjectIdentities from the id passed by client and computed repository name to which ids belong
+            </summary>
+            <param name="objectIdList"> A list of ObjectId for which the repository names are inquired.</param>
+            <param name="options"> An object containing profiles and properties that specify operation behaviors. If this object is
+            null, default operation behaviors will take effect.</param>
+            <returns>
+            ObjectIdentitySet containing ObjectIdentities with id passed by client and the repository name to which it belongs
+            </returns>
+            <exception cref="T:Emc.Documentum.FS.Services.Core.CoreServiceException"></exception>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.RepositoryInquiryServicePort">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.RepositoryInquiryServicePort.getRepositoryList(Emc.Documentum.FS.Services.Core.getRepositoryListRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.RepositoryInquiryServicePort.getRepositoryNameByObjectId(Emc.Documentum.FS.Services.Core.getRepositoryNameByObjectIdRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.RepositoryInquiryServicePortClient.GetServiceContext">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.RepositoryInquiryServicePortClient.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.RepositoryInquiryServicePortClient.#ctor(System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.RepositoryInquiryServicePortClient.#ctor(System.String,System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.RepositoryInquiryServicePortClient.#ctor(System.String,System.ServiceModel.EndpointAddress)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.RepositoryInquiryServicePortClient.#ctor(System.ServiceModel.Channels.Binding,System.ServiceModel.EndpointAddress)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.RepositoryInquiryServicePortClient.Emc#Documentum#FS#Services#Core#RepositoryInquiryServicePort#getRepositoryList(Emc.Documentum.FS.Services.Core.getRepositoryListRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.RepositoryInquiryServicePortClient.getRepositoryList(Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.RepositoryInquiryServicePortClient.Emc#Documentum#FS#Services#Core#RepositoryInquiryServicePort#getRepositoryNameByObjectId(Emc.Documentum.FS.Services.Core.getRepositoryNameByObjectIdRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.RepositoryInquiryServicePortClient.getRepositoryNameByObjectId(Emc.Documentum.FS.DataModel.Core.ObjectId[],Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.RepositoryInquiryServicePortClient.GetRepositoryList(Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.RepositoryInquiryServicePortClient.GetRepositoryNameByObjectId(System.Collections.Generic.List{Emc.Documentum.FS.DataModel.Core.ObjectId},Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.getRepositoryListRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getRepositoryListRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getRepositoryListRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getRepositoryListRequest.#ctor(Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.getRepositoryListResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getRepositoryListResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getRepositoryListResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getRepositoryListResponse.#ctor(Emc.Documentum.FS.DataModel.Core.Query.Repository[])">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.getRepositoryNameByObjectIdRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getRepositoryNameByObjectIdRequest.objectIdList">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getRepositoryNameByObjectIdRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getRepositoryNameByObjectIdRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getRepositoryNameByObjectIdRequest.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectId[],Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.getRepositoryNameByObjectIdResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getRepositoryNameByObjectIdResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getRepositoryNameByObjectIdResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getRepositoryNameByObjectIdResponse.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.RepositoryInquiryServicePortChannel">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.SchemaServicePortClient">
+            <exclude/>
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.ISchemaService">
+            <summary>
+            The schema service provides a mechanism for retrieving information regarding repository schemas. 
+            A schema is a formal  definition of repository metadata, including types, properties, and relationships. 
+            For the current release only the  DEFAULT repository schema is supported, which provides metadata 
+            information concerning the data dictionary. In future  releases a repository will potentially 
+            have an arbitrary number of named schemas. The schema service can be used for  creating a data 
+            structure against which a client can perform offline validation of objects against repository metadata.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ISchemaService.GetTypeInfo(System.String,System.String,System.String,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <summary>
+            The getTypeInfo operation returns information about a repository type specified by name.
+            </summary>
+            <param name="repositoryName">Name of the repository to examine.</param>
+            <param name="schemaName">optional parameter.  If specified, used to determine what schema to load. If null or "DEFAULT", default schema will be used.</param>
+            <param name="typeName">The name of the type about which information is to be retrieved.</param>
+            <param name="options">Contains profiles and properties that specify operation behaviors. In the case of this operation, a SchemaProfile can be passed to control the information returned.</param>
+            <returns>list of all TypeInfo objects for the specified schema.</returns>
+            <exception cref="T:Emc.Documentum.FS.Services.Core.CoreServiceException"/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ISchemaService.GetRepositoryInfo(System.String,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <summary>
+            Retrieves schema information about a repository specified by name, including a list of repository schemas. For the current release, only the DEFAULT repository schema is supported.
+            </summary>
+            <param name="repositoryName">Name of the repository to examine.</param>
+            <param name="options">Contains profiles and properties that specify operation behaviors. In the case of this operation, a SchemaProfile can be passed to control the information returned.</param>
+            <returns><see cref="T:Emc.Documentum.FS.DataModel.Core.Schema.RepositoryInfo"/></returns>
+            <exception cref="T:Emc.Documentum.FS.Services.Core.CoreServiceException"/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ISchemaService.GetSchemaInfo(System.String,System.String,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <summary>
+            Retrieves schema information for the specified repository.  Note that some repository can have multiple schemas.  There is at least one (default) schema.  Note that options can include SchemaProfile to control amount of data  returned.
+            </summary>
+            <param name="repositoryName">Name of the repository to examine.</param>
+            <param name="schemaName">Optional parameter. If specified, used to determine what schema to load.  If null or "DEFAULT", default schema will be used.</param>
+            <param name="options">Contains profiles and properties that specify operation behaviors. In the case of this operation, a SchemaProfile can be passed to control the information returned.</param>
+            <returns><see cref="T:Emc.Documentum.FS.DataModel.Core.Schema.SchemaInfo"/></returns>
+            <exception cref="T:Emc.Documentum.FS.Services.Core.CoreServiceException"/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ISchemaService.GetPropertyInfo(System.String,System.String,System.String,System.String,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <summary>
+            Retrieves property information for the specified property name. This method is typically used when schema was  partially loaded.
+            </summary>
+            <param name="repositoryName">Name of the repository to examine.</param>
+            <param name="schemaName">optional parameter.  If specified, used to determine what schema to load. If null or "DEFAULT", default schema will be used.</param>
+            <param name="typeName">The name of the type about which information is to be retrieved.</param>
+            <param name="propertyName">The name of the repository property about which to retrieve information.</param>
+            <param name="options">Contains profiles and properties that specify operation behaviors. In the case of this operation, a SchemaProfile can be passed to control the information returned.</param>
+            <returns><see cref="T:Emc.Documentum.FS.DataModel.Core.Schema.PropertyInfo"/></returns>
+            <exception cref="T:Emc.Documentum.FS.Services.Core.CoreServiceException"/> 
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ISchemaService.GetTypeInfos(System.String,System.String,Emc.Documentum.FS.DataModel.Core.Schema.TypeFilter,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+             <summary>
+             The getTypeInfos operation returns information about multiple repository types it also has an option to return
+             subtypes of the specified types.
+            </summary>
+             <param name="repositoryName">Name of the repository to examine.</param>
+             <param name="schemaName">optional parameter.  If specified, used to determine what schema to load.  If null or "RICH", default schema will be used.</param>
+             <param name="filter">Contains names of the types to be retieved, also contains the option to enable retrieval of subtypes of then specified types.</param>
+             <param name="options">Contains profiles and properties that specify operation behaviors. In the case of this operation, a SchemaProfile can be passed to control the information returned.</param>
+             <returns>
+            list of all TypeInfo objects for the specified schema.
+            </returns>
+             <exception cref="T:Emc.Documentum.FS.Services.Core.CoreServiceException"></exception>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.ISchemaService.GetDynamicAssistValues(System.String,System.String,System.String,System.String,Emc.Documentum.FS.DataModel.Core.Properties.PropertySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <summary>
+            Retrieves information about dynamic value assistance for a specified repository property. Value assistance  provides a list of valid values for a property, which are used to populate a pick list associated with a field on  a dialog box. Dynamic value assistance uses a query or a routine to list possible values for an attribute,  generally based on the values of other attributes, rather than a literal list. A value assist list (whether  literal or dynamic) can be complete, meaning that no values for the property are valid other than those in the  list, or incomplete, meaning that the user is allowed to provide values in addition to those in the list.
+            </summary>
+            <param name="repositoryName">Name of the repository to examine.</param>
+            <param name="schemaName">optional parameter.  If specified, used to determine what schema to load.  If null or "DEFAULT", default schema will be used.</param>
+            <param name="typeName">The name of the type about which information is to be retrieved.</param>
+            <param name="propertyName">The name of the repository property about which to retrieve information.</param>
+            <param name="propertySet">Optional parameter</param>
+            <param name="options">Contains profiles and properties that specify operation behaviors. In the case of this operation,                  a SchemaProfile can be passed to control the information returned.</param>
+            <returns>The value assistance information</returns>
+            <exception cref="T:Emc.Documentum.FS.Services.Core.CoreServiceException"/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.SchemaServicePort">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.SchemaServicePort.getTypeInfo(Emc.Documentum.FS.Services.Core.getTypeInfoRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.SchemaServicePort.getRepositoryInfo(Emc.Documentum.FS.Services.Core.getRepositoryInfoRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.SchemaServicePort.getSchemaInfo(Emc.Documentum.FS.Services.Core.getSchemaInfoRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.SchemaServicePort.getPropertyInfo(Emc.Documentum.FS.Services.Core.getPropertyInfoRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.SchemaServicePort.getTypeInfos(Emc.Documentum.FS.Services.Core.getTypeInfosRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.SchemaServicePort.getDynamicAssistValues(Emc.Documentum.FS.Services.Core.getDynamicAssistValuesRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.SchemaServicePortClient.GetServiceContext">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.SchemaServicePortClient.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.SchemaServicePortClient.#ctor(System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.SchemaServicePortClient.#ctor(System.String,System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.SchemaServicePortClient.#ctor(System.String,System.ServiceModel.EndpointAddress)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.SchemaServicePortClient.#ctor(System.ServiceModel.Channels.Binding,System.ServiceModel.EndpointAddress)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.SchemaServicePortClient.Emc#Documentum#FS#Services#Core#SchemaServicePort#getTypeInfo(Emc.Documentum.FS.Services.Core.getTypeInfoRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.SchemaServicePortClient.getTypeInfo(System.String,System.String,System.String,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.SchemaServicePortClient.Emc#Documentum#FS#Services#Core#SchemaServicePort#getRepositoryInfo(Emc.Documentum.FS.Services.Core.getRepositoryInfoRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.SchemaServicePortClient.getRepositoryInfo(System.String,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.SchemaServicePortClient.Emc#Documentum#FS#Services#Core#SchemaServicePort#getSchemaInfo(Emc.Documentum.FS.Services.Core.getSchemaInfoRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.SchemaServicePortClient.getSchemaInfo(System.String,System.String,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.SchemaServicePortClient.Emc#Documentum#FS#Services#Core#SchemaServicePort#getPropertyInfo(Emc.Documentum.FS.Services.Core.getPropertyInfoRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.SchemaServicePortClient.getPropertyInfo(System.String,System.String,System.String,System.String,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.SchemaServicePortClient.Emc#Documentum#FS#Services#Core#SchemaServicePort#getTypeInfos(Emc.Documentum.FS.Services.Core.getTypeInfosRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.SchemaServicePortClient.getTypeInfos(System.String,System.String,Emc.Documentum.FS.DataModel.Core.Schema.TypeFilter,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.SchemaServicePortClient.Emc#Documentum#FS#Services#Core#SchemaServicePort#getDynamicAssistValues(Emc.Documentum.FS.Services.Core.getDynamicAssistValuesRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.SchemaServicePortClient.getDynamicAssistValues(System.String,System.String,System.String,System.String,Emc.Documentum.FS.DataModel.Core.Properties.PropertySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.SchemaServicePortClient.GetTypeInfo(System.String,System.String,System.String,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.SchemaServicePortClient.GetRepositoryInfo(System.String,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.SchemaServicePortClient.GetSchemaInfo(System.String,System.String,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.SchemaServicePortClient.GetPropertyInfo(System.String,System.String,System.String,System.String,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.SchemaServicePortClient.GetTypeInfos(System.String,System.String,Emc.Documentum.FS.DataModel.Core.Schema.TypeFilter,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.SchemaServicePortClient.GetDynamicAssistValues(System.String,System.String,System.String,System.String,Emc.Documentum.FS.DataModel.Core.Properties.PropertySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.getTypeInfoRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getTypeInfoRequest.repositoryName">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getTypeInfoRequest.schemaName">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getTypeInfoRequest.typeName">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getTypeInfoRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getTypeInfoRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getTypeInfoRequest.#ctor(System.String,System.String,System.String,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.getTypeInfoResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getTypeInfoResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getTypeInfoResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getTypeInfoResponse.#ctor(Emc.Documentum.FS.DataModel.Core.Schema.TypeInfo)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.getRepositoryInfoRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getRepositoryInfoRequest.repositoryName">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getRepositoryInfoRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getRepositoryInfoRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getRepositoryInfoRequest.#ctor(System.String,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.getRepositoryInfoResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getRepositoryInfoResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getRepositoryInfoResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getRepositoryInfoResponse.#ctor(Emc.Documentum.FS.DataModel.Core.Schema.RepositoryInfo)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.getSchemaInfoRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getSchemaInfoRequest.repositoryName">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getSchemaInfoRequest.schemaName">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getSchemaInfoRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getSchemaInfoRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getSchemaInfoRequest.#ctor(System.String,System.String,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.getSchemaInfoResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getSchemaInfoResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getSchemaInfoResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getSchemaInfoResponse.#ctor(Emc.Documentum.FS.DataModel.Core.Schema.SchemaInfo)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.getPropertyInfoRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getPropertyInfoRequest.repositoryName">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getPropertyInfoRequest.schemaName">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getPropertyInfoRequest.typeName">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getPropertyInfoRequest.propertyName">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getPropertyInfoRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getPropertyInfoRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getPropertyInfoRequest.#ctor(System.String,System.String,System.String,System.String,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.getPropertyInfoResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getPropertyInfoResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getPropertyInfoResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getPropertyInfoResponse.#ctor(Emc.Documentum.FS.DataModel.Core.Schema.PropertyInfo)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.getDynamicAssistValuesRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getDynamicAssistValuesRequest.repositoryName">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getDynamicAssistValuesRequest.schemaName">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getDynamicAssistValuesRequest.typeName">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getDynamicAssistValuesRequest.propertyName">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getDynamicAssistValuesRequest.propertySet">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getDynamicAssistValuesRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getDynamicAssistValuesRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getDynamicAssistValuesRequest.#ctor(System.String,System.String,System.String,System.String,Emc.Documentum.FS.DataModel.Core.Properties.PropertySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.getTypeInfosRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getTypeInfosRequest.repositoryName">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getTypeInfosRequest.schemaName">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getTypeInfosRequest.filter">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getTypeInfosRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getTypeInfosRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getTypeInfosRequest.#ctor(System.String,System.String,Emc.Documentum.FS.DataModel.Core.Schema.TypeFilter,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.getTypeInfosResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getTypeInfosResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getTypeInfosResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getTypeInfosResponse.#ctor(Emc.Documentum.FS.DataModel.Core.Schema.TypeInfo[])">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.getDynamicAssistValuesResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getDynamicAssistValuesResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getDynamicAssistValuesResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getDynamicAssistValuesResponse.#ctor(Emc.Documentum.FS.DataModel.Core.Schema.ValueAssist)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.SchemaServicePortChannel">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient">
+            <exclude/>
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.IVersionControlService">
+            <summary>
+            The version control service provides operations that enable access and changes to specific object versions.
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.OperationOptions"/>
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.IVersionControlService.GetCurrent(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <summary>
+            Retrieves objects from the repository and returns them in the Data Package.  This operation will  walk the version tree and return the CURRENT object.  It will return the current version for the object pointed  by the object Identity regardless of its position in the version tree.  <para/>  Note: If it is necessary to retrieve objects by Label, version, etc please use QueryService.
+            </summary>
+            <param name="forObjects">A collection of ObjectIdentity instances that uniquely identify the repository objects of                     which the CURRENT version will be exported.</param>
+            <param name="options">An object containing profiles and properties that specify operation behaviors. If this object                     is null, default operation behaviors will take effect.                     OperationOptions can contain PropertyProfile, ContentProfile, PermissionProfile,                     RelationshipProfile that will be used to populate the returned DataPackage. Also it can                     contain ContentTransferProfile to specify the specifics of content transfer.</param>
+            <returns>in case no filters defined DataObjects will be populated with their ReferenceRelations and properties as          PropertyFilterMode.ALL_NON_SYSTEM.</returns>
+            <exception cref="T:Emc.Documentum.FS.Services.Core.CoreServiceException"/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.IVersionControlService.Checkin(Emc.Documentum.FS.DataModel.Core.DataPackage,Emc.Documentum.FS.DataModel.Core.VersionStrategy,System.Boolean,System.Collections.Generic.List{System.String},Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <summary>
+            Checks in a set of repository objects using data contained in a DataPackage. It provides control over how the  checked in object is versioned and whether the object remains checked out and locked by the user after the  changes are versioned, and provides a mechanism for applying symbolic version labels to the checked-in versions.  The ObjectIdentity of each DataObject passed to the operation is expected to match the identity of a checked out  repository object.<para/>
+            </summary>
+            <param name="dataPackage">Contains a set of DataObject instances that are to be checked in as new versions of checked                     out repository objects.</param>
+            <param name="versionStrategy">Specifies option for incrementing the version number of the new version.</param>
+            <param name="isRetainLock">Specifies whether the object is to remain checked out and locked by the user after the new                         version is saved.</param>
+            <param name="symbolicLabels">optional parameter that allows to set custom version labels for the objects.</param>
+            <param name="options">An object containing profiles and properties that specify operation behaviors. If this object                     is null, default operation behaviors will take effect.                     It can contain CheckinProfile that will modify the behaviour of the operation.                     OperationOptions can also contain PropertyProfile, ContentProfile, PermissionProfile,                     RelationshipProfile that will be used to populate the returned DataPackage. Also it can contain ContentTransferProfile to specify the specifics of content transfer.</param>
+            <returns>resulting DataPackage. By default, it will only return ObjectIdentity filled in for each DataObject.</returns>
+            <exception cref="T:Emc.Documentum.FS.Services.Core.CoreServiceException"/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.IVersionControlService.Checkout(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <summary>
+            Performs checkout operation for a set of repository objects. Any version of the object can be checked out.
+            </summary>
+            <param name="objectIdentitySet">A collection of ObjectIdentity instances that uniquely identify the repository objects                           to check out.</param>
+            <param name="options">An object containing profiles and properties that specify operation behaviors. If this object                     is null, default operation behaviors will take effect.                     It can contain CheckoutProfile that will modify the behaviour of the operation.                      OperationOptions can contain PropertyProfile, ContentProfile, PermissionProfile,                     RelationshipProfile that will be used to populate the returned DataPackage. Also it can contain ContentTransferProfile to specify the specifics of content transfer.</param>
+            <returns>resulting DataObject. By default, it will return DataObject with all content. PropertyProfile and ContentProfile settings can be used to specify what data is populated.</returns>
+            <exception cref="T:Emc.Documentum.FS.Services.Core.CoreServiceException"/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.IVersionControlService.CancelCheckout(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet)">
+            <summary>
+            Performs cancel checkout for the specified objects.
+            </summary>
+            <param name="objectIdentitySet">A collection of ObjectIdentity instances that uniquely identify the repository objects                           to check out.</param>
+            <exception cref="T:Emc.Documentum.FS.Services.Core.CoreServiceException"/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.IVersionControlService.GetCheckoutInfo(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet)">
+            <summary>
+            Provides checkout information about the specified objects, specifically whether the objects are checked out, and  the user name of the user who has them checked out.
+            </summary>
+            <param name="objectIdentitySet">A collection of ObjectIdentity instances that uniquely identify the repository objects                            about which to obtain checkout information.</param>
+            <returns>Returns a List of CheckoutInfo instances. Checkout info encapsulates data about a specific checked out          repository object.</returns>
+            <exception cref="T:Emc.Documentum.FS.Services.Core.CoreServiceException"/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.IVersionControlService.GetVersionInfo(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet)">
+            <summary>
+            Provides information about a version of a repository object.
+            </summary>
+            <param name="objectIdentitySet">A collection of ObjectIdentity instances that uniquely identify the repository objects                           about which to provide version information.</param>
+            <returns>Returns a List of VersionInfo instances corresponding to the DataObject instances in the ObjectIdentitySet.</returns>
+            <exception cref="T:Emc.Documentum.FS.Services.Core.CoreServiceException"/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.IVersionControlService.DeleteVersion(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet)">
+            <summary>
+            Deletes a specific version of a repository object. If the deleted object is the CURRENT version, the previous  version in the version tree is promoted to CURRENT.
+            </summary>
+            <param name="objectsToDelete">A collection of ObjectIdentity instances that uniquely identify the repository object                         versions to delete.</param>
+            <exception cref="T:Emc.Documentum.FS.Services.Core.CoreServiceException"/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.IVersionControlService.DeleteAllVersions(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet)">
+            <summary>
+            Deletes all versions of a repository object. An ObjectIdentity indicating the object to delete can reference any  version in the version tree.
+            </summary>
+            <param name="objectIdentitySet">A collection of ObjectIdentity instances that uniquely identify the repository objects                           of which to delete all versions.</param>
+            <exception cref="T:Emc.Documentum.FS.Services.Core.CoreServiceException"/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.VersionControlServicePort">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePort.getCurrent(Emc.Documentum.FS.Services.Core.getCurrentRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePort.checkin(Emc.Documentum.FS.Services.Core.checkinRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePort.checkout(Emc.Documentum.FS.Services.Core.checkoutRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePort.cancelCheckout(Emc.Documentum.FS.Services.Core.cancelCheckoutRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePort.getCheckoutInfo(Emc.Documentum.FS.Services.Core.getCheckoutInfoRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePort.getVersionInfo(Emc.Documentum.FS.Services.Core.getVersionInfoRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePort.deleteVersion(Emc.Documentum.FS.Services.Core.deleteVersionRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePort.deleteAllVersions(Emc.Documentum.FS.Services.Core.deleteAllVersionsRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient.GetServiceContext">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient.#ctor(System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient.#ctor(System.String,System.String)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient.#ctor(System.String,System.ServiceModel.EndpointAddress)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient.#ctor(System.ServiceModel.Channels.Binding,System.ServiceModel.EndpointAddress)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient.Emc#Documentum#FS#Services#Core#VersionControlServicePort#getCurrent(Emc.Documentum.FS.Services.Core.getCurrentRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient.getCurrent(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient.Emc#Documentum#FS#Services#Core#VersionControlServicePort#checkin(Emc.Documentum.FS.Services.Core.checkinRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient.checkin(Emc.Documentum.FS.DataModel.Core.DataPackage,Emc.Documentum.FS.DataModel.Core.VersionStrategy,System.Boolean,System.String[],Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient.Emc#Documentum#FS#Services#Core#VersionControlServicePort#checkout(Emc.Documentum.FS.Services.Core.checkoutRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient.checkout(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient.Emc#Documentum#FS#Services#Core#VersionControlServicePort#cancelCheckout(Emc.Documentum.FS.Services.Core.cancelCheckoutRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient.cancelCheckout(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient.Emc#Documentum#FS#Services#Core#VersionControlServicePort#getCheckoutInfo(Emc.Documentum.FS.Services.Core.getCheckoutInfoRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient.getCheckoutInfo(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient.Emc#Documentum#FS#Services#Core#VersionControlServicePort#getVersionInfo(Emc.Documentum.FS.Services.Core.getVersionInfoRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient.getVersionInfo(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient.Emc#Documentum#FS#Services#Core#VersionControlServicePort#deleteVersion(Emc.Documentum.FS.Services.Core.deleteVersionRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient.deleteVersion(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient.Emc#Documentum#FS#Services#Core#VersionControlServicePort#deleteAllVersions(Emc.Documentum.FS.Services.Core.deleteAllVersionsRequest)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient.deleteAllVersions(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient.GetCurrent(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient.Checkin(Emc.Documentum.FS.DataModel.Core.DataPackage,Emc.Documentum.FS.DataModel.Core.VersionStrategy,System.Boolean,System.Collections.Generic.List{System.String},Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient.Checkout(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient.CancelCheckout(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient.GetCheckoutInfo(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient.GetVersionInfo(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient.DeleteVersion(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet)">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.VersionControlServicePortClient.DeleteAllVersions(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.getCurrentRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getCurrentRequest.forObjects">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getCurrentRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getCurrentRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getCurrentRequest.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.getCurrentResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getCurrentResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getCurrentResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getCurrentResponse.#ctor(Emc.Documentum.FS.DataModel.Core.DataPackage)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.checkinRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.checkinRequest.dataPackage">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.checkinRequest.versionStrategy">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.checkinRequest.isRetainLock">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.checkinRequest.symbolicLabels">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.checkinRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.checkinRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.checkinRequest.#ctor(Emc.Documentum.FS.DataModel.Core.DataPackage,Emc.Documentum.FS.DataModel.Core.VersionStrategy,System.Boolean,System.String[],Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.checkinResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.checkinResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.checkinResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.checkinResponse.#ctor(Emc.Documentum.FS.DataModel.Core.DataPackage)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.checkoutRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.checkoutRequest.objectIdentitySet">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.checkoutRequest.options">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.checkoutRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.checkoutRequest.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet,Emc.Documentum.FS.DataModel.Core.OperationOptions)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.checkoutResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.checkoutResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.checkoutResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.checkoutResponse.#ctor(Emc.Documentum.FS.DataModel.Core.DataPackage)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.cancelCheckoutRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.cancelCheckoutRequest.objectIdentitySet">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.cancelCheckoutRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.cancelCheckoutRequest.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.cancelCheckoutResponse">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.cancelCheckoutResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.getCheckoutInfoRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getCheckoutInfoRequest.objectIdentitySet">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getCheckoutInfoRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getCheckoutInfoRequest.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.getCheckoutInfoResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getCheckoutInfoResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getCheckoutInfoResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getCheckoutInfoResponse.#ctor(Emc.Documentum.FS.DataModel.Core.CheckoutInfo[])">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.getVersionInfoRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getVersionInfoRequest.objectIdentitySet">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getVersionInfoRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getVersionInfoRequest.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.getVersionInfoResponse">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.getVersionInfoResponse.return">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getVersionInfoResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.getVersionInfoResponse.#ctor(Emc.Documentum.FS.DataModel.Core.VersionInfo[])">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.deleteVersionRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.deleteVersionRequest.objectsToDelete">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.deleteVersionRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.deleteVersionRequest.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.deleteVersionResponse">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.deleteVersionResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.deleteAllVersionsRequest">
+            <exclude/>
+        </member>
+        <member name="F:Emc.Documentum.FS.Services.Core.deleteAllVersionsRequest.objectIdentitySet">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.deleteAllVersionsRequest.#ctor">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.deleteAllVersionsRequest.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentitySet)">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.deleteAllVersionsResponse">
+            <exclude/>
+        </member>
+        <member name="M:Emc.Documentum.FS.Services.Core.deleteAllVersionsResponse.#ctor">
+            <exclude/>
+        </member>
+        <member name="T:Emc.Documentum.FS.Services.Core.VersionControlServicePortChannel">
+            <exclude/>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="urn:it:CorteConti:Servizi:CorteContentServicesRequest_Schema:xsd" xmlns:ns1="urn:it:CorteConti:Servizi:CorteContentServices_Schema:xsd" elementFormDefault="qualified" targetNamespace="urn:it:CorteConti:Servizi:CorteContentServicesRequest_Schema:xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="CorteContentServices_Schema.xsd" namespace="urn:it:CorteConti:Servizi:CorteContentServices_Schema:xsd" />
+  <xs:complexType name="UserCredentialsRequestType">
+    <xs:sequence>
+      <xs:element name="userCredentials" type="ns1:UserCredentialsType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GroupRequestType">
+    <xs:sequence>
+      <xs:element name="userCredentials" type="ns1:UserCredentialsType" />
+      <xs:element name="group" type="ns1:GroupType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GroupDefinitionRequestType">
+    <xs:sequence>
+      <xs:element name="userCredentials" type="ns1:UserCredentialsType" />
+      <xs:element name="groupDefinition" type="ns1:GroupDefinitionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DocumentCreateRequestType">
+    <xs:sequence>
+      <xs:element name="userCredentials" type="ns1:UserCredentialsType" />
+      <xs:element name="document" type="ns1:DocumentCreateType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DocumentModifyRequestType">
+    <xs:sequence>
+      <xs:element name="userCredentials" type="ns1:UserCredentialsType" />
+      <xs:element name="document" type="ns1:DocumentModifyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemIdRequestType">
+    <xs:sequence>
+      <xs:element name="userCredentials" type="ns1:UserCredentialsType" />
+      <xs:element name="itemId" type="ns1:ItemIdType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UsersRequestType">
+    <xs:sequence>
+      <xs:element name="userCredentials" type="ns1:UserCredentialsType" />
+      <xs:element name="users" type="ns1:UsersType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemGrantsRequestType">
+    <xs:sequence>
+      <xs:element name="userCredentials" type="ns1:UserCredentialsType" />
+      <xs:element name="grants" type="ns1:ItemGrantsType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemFolderRequestType">
+    <xs:sequence>
+      <xs:element name="userCredentials" type="ns1:UserCredentialsType" />
+      <xs:element name="itemId" type="ns1:ItemIdType" />
+      <xs:element name="folder" type="ns1:FolderType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DocumentAddAttachRequestType">
+    <xs:sequence>
+      <xs:element name="userCredentials" type="ns1:UserCredentialsType" />
+      <xs:element name="attach" type="ns1:DocumentAddAttachType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemCreateVersionRequestType">
+    <xs:sequence>
+      <xs:element name="userCredentials" type="ns1:UserCredentialsType" />
+      <xs:element name="version" type="ns1:ItemCreateVersionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemUploadRequestType">
+    <xs:sequence>
+      <xs:element name="userCredentials" type="ns1:UserCredentialsType" />
+      <xs:element name="physicalData" type="ns1:ItemUploadType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemInfoRequestType">
+    <xs:sequence>
+      <xs:element name="userCredentials" type="ns1:UserCredentialsType" />
+      <xs:element name="info" type="ns1:ItemInfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemMetadataRequestType">
+    <xs:sequence>
+      <xs:element name="userCredentials" type="ns1:UserCredentialsType" />
+      <xs:element name="info" type="ns1:ItemMetadataType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FilterSearchRequestType">
+    <xs:sequence>
+      <xs:element name="userCredentials" type="ns1:UserCredentialsType" />
+      <xs:element name="filter" type="ns1:FilterSearchType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DocumentNameSearchRequestType">
+    <xs:sequence>
+      <xs:element name="userCredentials" type="ns1:UserCredentialsType" />
+      <xs:element name="document" type="ns1:DocumentNameSearchType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemVersionNumberSearchRequestType">
+    <xs:sequence>
+      <xs:element name="userCredentials" type="ns1:UserCredentialsType" />
+      <xs:element name="item" type="ns1:ItemVersionNumberSearchType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FolderCreateRequestType">
+    <xs:sequence>
+      <xs:element name="userCredentials" type="ns1:UserCredentialsType" />
+      <xs:element name="folder" type="ns1:FolderCreateType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FolderModifyRequestType">
+    <xs:sequence>
+      <xs:element name="userCredentials" type="ns1:UserCredentialsType" />
+      <xs:element name="folder" type="ns1:FolderModifyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FolderNameSearchRequestType">
+    <xs:sequence>
+      <xs:element name="userCredentials" type="ns1:UserCredentialsType" />
+      <xs:element name="folder" type="ns1:FolderNameSearchType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LinkCreateRequestType">
+    <xs:sequence>
+      <xs:element name="userCredentials" type="ns1:UserCredentialsType" />
+      <xs:element name="link" type="ns1:LinkCreateType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LinkModifyRequestType">
+    <xs:sequence>
+      <xs:element name="userCredentials" type="ns1:UserCredentialsType" />
+      <xs:element name="link" type="ns1:LinkModifyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LinkNameSearchRequestType">
+    <xs:sequence>
+      <xs:element name="userCredentials" type="ns1:UserCredentialsType" />
+      <xs:element name="link" type="ns1:LinkNameSearchType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VersionModifyRequestType">
+    <xs:sequence>
+      <xs:element name="userCredentials" type="ns1:UserCredentialsType" />
+      <xs:element name="version" type="ns1:VersionModifyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AttachCreateRequestType">
+    <xs:sequence>
+      <xs:element name="userCredentials" type="ns1:UserCredentialsType" />
+      <xs:element name="attach" type="ns1:AttachCreateType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AttachModifyRequestType">
+    <xs:sequence>
+      <xs:element name="userCredentials" type="ns1:UserCredentialsType" />
+      <xs:element name="attach" type="ns1:AttachModifyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ChangeVersionRequestType">
+    <xs:sequence>
+      <xs:element name="userCredentials" type="ns1:UserCredentialsType" />
+      <xs:element name="attachId" type="ns1:ItemIdType" />
+      <xs:element name="documentId" type="ns1:ItemIdType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VersionCreateDocumentRequestType">
+    <xs:sequence>
+      <xs:element name="userCredentials" type="ns1:UserCredentialsType" />
+      <xs:element name="document" type="ns1:DocumentCreateType" />
+      <xs:element name="version" type="ns1:VersionDefinitionType" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

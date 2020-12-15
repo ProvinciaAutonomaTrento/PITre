@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://nttdata.com/2013/FatturazioneElettronica" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://nttdata.com/2013/FatturazioneElettronica" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://nttdata.com/2013/FatturazioneElettronica">
+      <s:element name="AmmEliminaUoSysExternal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="theUO" type="tns:OrgUO" />
+            <s:element minOccurs="0" maxOccurs="1" name="codiceAmmIPA" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codiceAooIPA" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="amm" type="tns:Amministrazione" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="OrgUO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="IDCorrGlobale" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Codice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodiceRubrica" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descrizione" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Livello" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IDAmministrazione" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodiceRegistroInterop" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ruoli" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SottoUo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IDParent" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DettagliUo" type="tns:OrgDettagliGlobali" />
+          <s:element minOccurs="0" maxOccurs="1" name="IDPeso" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Classifica" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdRegistroInteroperabilitaSemplificata" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdRfInteroperabilitaSemplificata" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OrgDettagliGlobali">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Indirizzo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Citta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Provincia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cap" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nazione" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodiceFiscale" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartitaIva" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefono1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefono2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Amministrazione">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="systemId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="descrizione" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="codice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="libreria" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AmmEliminaUoSysExternalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AmmEliminaUoSysExternalResult" type="tns:Amministrazione" />
+            <s:element minOccurs="1" maxOccurs="1" name="result" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AmmModificaUoSysExternal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="oldCodiceUO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="theUO" type="tns:OrgUO" />
+            <s:element minOccurs="0" maxOccurs="1" name="codiceAmmIPA" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codiceAooIPA" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="isFatturazione" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codiceUAC" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codiceClassificazione" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="amm" type="tns:Amministrazione" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AmmModificaUoSysExternalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AmmModificaUoSysExternalResult" type="tns:Amministrazione" />
+            <s:element minOccurs="1" maxOccurs="1" name="result" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTipiOggetto">
+        <s:complexType />
+      </s:element>
+      <s:element name="getTipiOggettoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getTipiOggettoResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AmmEliminaUoSysExternalSoapIn">
+    <wsdl:part name="parameters" element="tns:AmmEliminaUoSysExternal" />
+  </wsdl:message>
+  <wsdl:message name="AmmEliminaUoSysExternalSoapOut">
+    <wsdl:part name="parameters" element="tns:AmmEliminaUoSysExternalResponse" />
+  </wsdl:message>
+  <wsdl:message name="AmmModificaUoSysExternalSoapIn">
+    <wsdl:part name="parameters" element="tns:AmmModificaUoSysExternal" />
+  </wsdl:message>
+  <wsdl:message name="AmmModificaUoSysExternalSoapOut">
+    <wsdl:part name="parameters" element="tns:AmmModificaUoSysExternalResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTipiOggettoSoapIn">
+    <wsdl:part name="parameters" element="tns:getTipiOggetto" />
+  </wsdl:message>
+  <wsdl:message name="getTipiOggettoSoapOut">
+    <wsdl:part name="parameters" element="tns:getTipiOggettoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FatturazioneElettronicaSoap">
+    <wsdl:operation name="AmmEliminaUoSysExternal">
+      <wsdl:input message="tns:AmmEliminaUoSysExternalSoapIn" />
+      <wsdl:output message="tns:AmmEliminaUoSysExternalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AmmModificaUoSysExternal">
+      <wsdl:input message="tns:AmmModificaUoSysExternalSoapIn" />
+      <wsdl:output message="tns:AmmModificaUoSysExternalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTipiOggetto">
+      <wsdl:input message="tns:getTipiOggettoSoapIn" />
+      <wsdl:output message="tns:getTipiOggettoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FatturazioneElettronicaSoap" type="tns:FatturazioneElettronicaSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AmmEliminaUoSysExternal">
+      <soap:operation soapAction="http://nttdata.com/2013/FatturazioneElettronica/AmmEliminaUoSysExternal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AmmModificaUoSysExternal">
+      <soap:operation soapAction="http://nttdata.com/2013/FatturazioneElettronica/AmmModificaUoSysExternal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTipiOggetto">
+      <soap:operation soapAction="http://nttdata.com/2013/FatturazioneElettronica/getTipiOggetto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FatturazioneElettronicaSoap12" type="tns:FatturazioneElettronicaSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AmmEliminaUoSysExternal">
+      <soap12:operation soapAction="http://nttdata.com/2013/FatturazioneElettronica/AmmEliminaUoSysExternal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AmmModificaUoSysExternal">
+      <soap12:operation soapAction="http://nttdata.com/2013/FatturazioneElettronica/AmmModificaUoSysExternal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTipiOggetto">
+      <soap12:operation soapAction="http://nttdata.com/2013/FatturazioneElettronica/getTipiOggetto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FatturazioneElettronica">
+    <wsdl:port name="FatturazioneElettronicaSoap" binding="tns:FatturazioneElettronicaSoap">
+      <soap:address location="http://localhost:48059/FatturazioneElettronica.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FatturazioneElettronicaSoap12" binding="tns:FatturazioneElettronicaSoap12">
+      <soap12:address location="http://localhost:48059/FatturazioneElettronica.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

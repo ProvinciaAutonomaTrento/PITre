@@ -1,0 +1,285 @@
+<!ELEMENT deSign (signedData?, timeStamp?)+ >
+
+<!ATTLIST deSign
+        release CDATA #IMPLIED
+        releaseDate CDATA #IMPLIED
+        controlloCACRL CDATA #IMPLIED
+        controlloCRLPKCS7 CDATA #IMPLIED
+        controlloCRLTS CDATA #IMPLIED
+        controlloValidita CDATA #IMPLIED
+        controlloSigningCertificateAttr CDATA #IMPLIED
+        serverRelease CDATA #IMPLIED
+        downloadCRL CDATA #IMPLIED
+        useProxy CDATA #IMPLIED
+        useSOCKS CDATA #IMPLIED
+>
+
+<!ELEMENT signedData (signer+ | (errorCode, errorMessage, status))>
+
+<!ATTLIST signedData
+        filename CDATA #IMPLIED
+        filetype CDATA #IMPLIED
+        detachedDocument CDATA #IMPLIED
+        content CDATA #IMPLIED
+        pkcs7 CDATA #IMPLIED
+        tsr CDATA #IMPLIED
+>
+
+<!ELEMENT timeStamp (serial?, subject?, issuer?, policyInformationList?, 
+	certNotBefore?, 
+        certNotAfter?, certificate?, timeStampSerial?, timeStampDate?, 
+	timeStampImprintAlgorithm?, timeStampImprint?, 
+	(crlThisUpdate | ocspThisUpdate)?, 
+	(crlExpired | ocspExpired)?, 
+	caCertRevoked?, 
+	(crlRevocationDate | ocspRevocationDate)?, 
+	(crlHoldDate | ocspHoldDate)?, 
+	(crlInvalidSince | ocspInvalidSince)?, 
+	caCertExpired?, expiredCertsOnCRL?, signedAttributes?, 
+	digestAlgorithm?, verificationTime?, certExpired?, 
+	errorCode?, errorMessage?, status)
+>
+
+<!ATTLIST timeStamp
+        filename CDATA #IMPLIED
+        detachedDocument CDATA #IMPLIED
+        cadesCompliant CDATA #IMPLIED
+>
+
+<!ELEMENT signer (serial?, subject?, issuer?, directoryAttributes?, 
+	policyInformationList?, qcStatements?, certNotBefore?, certNotAfter?,
+	certificate?, 
+	(crlThisUpdate | ocspThisUpdate)?, 
+	(crlExpired | ocspExpired)?, 
+	caCertRevoked?, 
+	(crlRevocationDate | ocspRevocationDate)?, 
+	(crlHoldDate | ocspHoldDate)?, 
+	(crlInvalidSince | ocspInvalidSince)?, caCertExpired?, 
+	expiredCertsOnCRL?, signedAttributes?, signingTime?,
+	signatureTimeStamp?, digestAlgorithm?, verificationTime?, 
+	certExpired?, errorCode?, errorMessage?, status, countersigner*)
+>
+
+<!ATTLIST signer
+        cadesCompliant CDATA #IMPLIED
+>
+
+<!ELEMENT countersigner (serial?, subject?, issuer?, directoryAttributes?, 
+	policyInformationList?, qcStatements?, certNotBefore?, certNotAfter?, 
+	certificate?, 
+	(crlThisUpdate | ocspThisUpdate)?, 
+	(crlExpired | ocspExpired)?, 
+	caCertRevoked?, 
+	(crlRevocationDate | ocspRevocationDate)?, 
+	(crlHoldDate | ocspHoldDate)?, 
+	(crlInvalidSince | ocspInvalidSince)?, caCertExpired?, 
+	expiredCertsOnCRL?, signedAttributes?, signingTime?,
+	signatureTimeStamp?, digestAlgorithm?, verificationTime?,
+	certExpired?, errorCode?, errorMessage?, status, countersigner*)
+>
+
+<!ATTLIST countersigner
+        cadesCompliant CDATA #IMPLIED
+>
+
+<!ELEMENT signatureTimeStamp (subject?, issuer?, policyInformationList?, 
+	certNotBefore?, certNotAfter?, certificate?, timeStampSerial?, 
+	timeStampDate?, timeStampImprintAlgorithm?, timeStampImprint?, 
+	(crlThisUpdate | ocspThisUpdate)?, 
+	(crlExpired | ocspExpired)?, 
+	caCertRevoked?, 
+	(crlRevocationDate | ocspRevocationDate)?, 
+	(crlHoldDate | ocspHoldDate)?, 
+	(crlInvalidSince | ocspInvalidSince)?, 
+	caCertExpired?, expiredCertsOnCRL?, signedAttributes?, 
+	digestAlgorithm?, certExpired?, 
+	errorCode?, errorMessage?, status)
+>
+
+<!ATTLIST signatureTimeStamp
+        cadesCompliant CDATA #IMPLIED
+>
+
+<!ELEMENT subject (C | O | OU | L | SUR | SER | GIVEN | DNQUALIF | TITLE | CN | EMAIL | DOM | PSEUD | DESCR | PROV | oid)+>
+
+<!ELEMENT issuer (C | O | OU | L | SUR | SER | GIVEN | DNQUALIF | TITLE | CN | EMAIL | DOM | PSEUD | DESCR | PROV | oid)+>
+
+<!ELEMENT policyInformationList (policyInformation)+>
+
+<!ELEMENT policyInformation (policyID, policyQualifierList?)>
+
+<!ELEMENT policyQualifierList (policyQualifier)+>
+
+<!ELEMENT policyQualifier (policyQualifierID,  cpsUri?, explicitText?)>
+
+<!ELEMENT qcStatements (qcCompliance | qcLimitValue | qcRetensionPeriod | 
+		qcSSCD)+>
+
+<!ELEMENT directoryAttributes (gender | placeOfBirth | dateOfBirth | 
+			countryOfCitizenship | countryOfResidence)+>
+
+<!ELEMENT signedAttributes (messageDigest | signingTime | 
+		signingCertificate | signingCertificateV2)*>
+
+<!ELEMENT SUR (#PCDATA)>
+<!ELEMENT GIVEN (#PCDATA)>
+<!ELEMENT SER (#PCDATA)>
+<!ELEMENT DNQUALIF (#PCDATA)>
+<!ELEMENT DOM (#PCDATA)>
+<!ELEMENT PSEUD (#PCDATA)>
+<!ELEMENT PROV (#PCDATA)>
+
+<!ELEMENT serial (#PCDATA)>
+
+<!ELEMENT messageDigest (#PCDATA)>
+<!--    empty -->
+
+<!ELEMENT signingCertificate (#PCDATA)>
+<!--    empty -->
+
+<!ELEMENT signingCertificateV2 (#PCDATA)>
+<!--    OID of digest algorithm -->
+<!--    represented in "dot notation" -->
+
+<!ELEMENT timeStampSerial (#PCDATA)>
+
+<!ELEMENT timeStampImprint (#PCDATA)>
+<!--    Base64 of DER representation of timestamp imprint -->
+
+<!ELEMENT timeStampImprintAlgorithm (#PCDATA)>
+<!--    OID of imprint algorithm -->
+<!--    represented in "dot notation" -->
+
+<!ELEMENT digestAlgorithm (#PCDATA)>
+<!--    OID of digest algorithm -->
+<!--    represented in "dot notation" -->
+
+<!ELEMENT gender (#PCDATA)>
+
+<!ELEMENT placeOfBirth (#PCDATA)>
+
+<!ELEMENT dateOfBirth (#PCDATA)>
+
+<!ELEMENT countryOfCitizenship (#PCDATA)>
+
+<!ELEMENT countryOfResidence (#PCDATA)>
+
+<!ELEMENT policyID (#PCDATA)>
+
+<!ELEMENT policyQualifierID (#PCDATA)>
+
+<!ELEMENT cpsUri (#PCDATA)>
+
+<!ELEMENT explicitText (#PCDATA)>
+
+<!ELEMENT qcCompliance EMPTY>
+
+<!ELEMENT qcSSCD EMPTY>
+
+<!ELEMENT qcLimitValue (#PCDATA)>
+
+<!ELEMENT qcRetensionPeriod (#PCDATA)>
+
+<!ELEMENT certificate (#PCDATA)>
+<!--    Base64 of DER representation of signer certificate -->
+
+<!ELEMENT certNotBefore (#PCDATA)>
+<!--    in UTC format -->
+
+<!ELEMENT certNotAfter (#PCDATA)>
+<!--    in UTC format -->
+
+<!ELEMENT crlThisUpdate (#PCDATA)>
+<!--    in UTC format -->
+
+<!ELEMENT ocspThisUpdate (#PCDATA)>
+<!--    in UTC format -->
+
+<!ELEMENT crlExpired (#PCDATA)>
+<!--    in UTC format -->
+
+<!ELEMENT ocspExpired (#PCDATA)>
+<!--    in UTC format -->
+
+<!ELEMENT crlRevocationDate (#PCDATA)>
+<!--    in UTC format -->
+
+<!ELEMENT ocspRevocationDate (#PCDATA)>
+<!--    in UTC format -->
+
+<!ELEMENT crlHoldDate (#PCDATA)>
+<!--    in UTC format -->
+
+<!ELEMENT ocspHoldDate (#PCDATA)>
+<!--    in UTC format -->
+
+<!ELEMENT crlInvalidSince (#PCDATA)>
+<!--    in UTC format -->
+
+<!ELEMENT ocspInvalidSince (#PCDATA)>
+<!--    in UTC format -->
+
+<!ELEMENT signingTime (#PCDATA)>
+<!--    in UTC format -->
+
+<!ELEMENT verificationTime (#PCDATA)>
+<!--    in UTC format -->
+
+<!ELEMENT timeStampDate (#PCDATA)>
+<!--    in GeneralizedTime format -->
+
+<!ELEMENT caCertRevoked (#PCDATA)>
+<!--    in UTC format -->
+
+<!ELEMENT caCertExpired (#PCDATA)>
+<!--    in UTC format -->
+
+<!ELEMENT certExpired (#PCDATA)>
+<!--    in UTC format -->
+
+<!ELEMENT expiredCertsOnCRL (#PCDATA)>
+<!--    in GeneralizedTime format -->
+
+<!ELEMENT status (#PCDATA)>
+<!--    Could be  -->
+<!--	OK or	  -->
+<!--	KO 	  -->
+
+<!ELEMENT errorCode (#PCDATA)>
+
+<!ELEMENT errorMessage (#PCDATA)>
+
+<!ELEMENT C (#PCDATA)>
+<!--    country  -->
+
+<!ELEMENT O (#PCDATA)>
+<!--    organization  -->
+
+<!ELEMENT OU (#PCDATA)>
+<!--    organizationUnit  -->
+
+<!ELEMENT L (#PCDATA)>
+<!--    locality  -->
+
+<!ELEMENT TITLE (#PCDATA)>
+<!--    title  -->
+
+<!ELEMENT CN (#PCDATA)>
+<!--    commonName  -->
+
+<!ELEMENT DESCR (#PCDATA)>
+<!--    descr  -->
+
+<!ELEMENT EMAIL (#PCDATA)>
+<!--    email  -->
+
+<!ELEMENT oid (#PCDATA)>
+<!--    other OIDs -->
+<!--    the attribute value is the OID  -->
+<!--    represented in "dot notation" -->
+
+<!--
+<!ATTLIST oid
+        value CDATA #REQUIRED
+>
+-->

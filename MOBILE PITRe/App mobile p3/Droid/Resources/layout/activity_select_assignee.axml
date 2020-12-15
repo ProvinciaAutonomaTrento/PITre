@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout 
+         xmlns:android="http://schemas.android.com/apk/res/android"
+         xmlns:app="http://schemas.android.com/apk/res-auto"
+         android:background="@color/colorWhite"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:focusable="true"
+         android:focusableInTouchMode="true">
+    
+    <TextView
+            android:id="@+id/textView_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_select_assignee_title"
+            style="@style/modale_title"
+            android:layout_marginTop="@dimen/modale_tabbar_margin_top"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    <ImageView
+            android:id="@+id/button_close"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:padding="24dp"
+            android:src="@drawable/ic_ico_chiudi"
+            app:layout_constraintTop_toTopOf="@id/textView_header"
+            app:layout_constraintBottom_toBottomOf="@id/textView_header"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+            android:id="@+id/info_msg"
+            android:layout_marginLeft="@dimen/seleziona_assegnatario_padding"
+            android:layout_marginRight="@dimen/seleziona_assegnatario_padding"
+            android:text="@string/description_search_select_assignable"
+            app:layout_constraintTop_toBottomOf="@+id/textView_header"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            style="@style/search_note_style" />
+    
+    <InformaticaTrentinaPCL.Droid.Search.CustomEditText
+            android:id="@+id/customEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/seleziona_assegnatario_padding"
+            android:layout_marginRight="@dimen/seleziona_assegnatario_padding"
+            app:customHint="@string/search_hint"
+            app:layout_constraintTop_toBottomOf="@+id/info_msg"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+    <android.support.design.widget.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            android:layout_marginLeft="@dimen/seleziona_assegnatario_tab_padding"
+            android:layout_marginRight="@dimen/seleziona_assegnatario_tab_padding"
+            app:tabMode="fixed"
+            app:tabMaxWidth="0dp"
+            app:tabTextColor="@color/cardview_dark_background"
+            app:tabSelectedTextColor="@color/colorBlue"
+            app:tabBackground="@drawable/tab_models_favorites_indicator"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:layout_marginTop="@dimen/margin_20px"
+            app:layout_constraintTop_toBottomOf="@+id/customEditText"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+    <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tabLayout"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView_search"
+            android:scrollbars="vertical"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:choiceMode="singleChoice"
+            android:background="@android:color/white"
+            android:layout_marginTop="@dimen/margin_20px"
+            app:layout_constraintTop_toBottomOf="@+id/customEditText"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,42 @@
+<!doctype html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>P3 Informatica Trentina</title>
+<script>
+/**
+ * Determine the mobile operating system.
+ * This function returns one of 'iOS', 'Android', 'Windows Phone', or 'unknown'.
+ *
+ * @returns {String}
+ */
+		
+function redirectToStore() {
+    var windowsStoreUrl = './deviceNotCompatible.html';
+	var playStoreUrl = 'market://details?id=com.android.chrome';
+	var appleStoreUrl = 'https://itunes.apple.com/it/app/apple-store/id375380948?mt=8';
+	var deviceNotCompatibleMessage = "Il tuo dispositivo non è compatibile con l'App di PiTre Informatica Trentina";
+
+	var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    // Windows Phone must come first because its UA also contains "Android"
+    if (/windows phone/i.test(userAgent)) {
+       document.write("<h3>"+deviceNotCompatibleMessage+"</h3>");
+    }
+	else if (/android/i.test(userAgent)) {
+        window.location.href = playStoreUrl;
+    }
+	else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        window.location.href = appleStoreUrl;
+    }
+	else{
+    	document.write("<h4>"+deviceNotCompatibleMessage+"</h4>");
+	}
+}
+</script>
+</head>
+
+<body onLoad="redirectToStore();">
+</body>
+</html>

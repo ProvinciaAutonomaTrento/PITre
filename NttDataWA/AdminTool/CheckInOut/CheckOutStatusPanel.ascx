@@ -1,1 +1,0 @@
-<%@ Control Language="c#" AutoEventWireup="false" Codebehind="CheckOutStatusPanel.ascx.cs" Inherits="SAAdminTool.CheckInOut.CheckOutStatusPanel" TargetSchema="http://schemas.microsoft.com/intellisense/ie5"%>

@@ -1,1 +1,0 @@
-<%@ Control Language="c#" AutoEventWireup="false" Codebehind="CheckOutStatusPanel.ascx.cs" Inherits="NttDataWA.CheckInOut.CheckOutStatusPanel" TargetSchema="http://schemas.microsoft.com/intellisense/ie5"%>

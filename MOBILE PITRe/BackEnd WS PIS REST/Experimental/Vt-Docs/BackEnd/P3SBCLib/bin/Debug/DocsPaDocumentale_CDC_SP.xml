@@ -1,0 +1,1214 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DocsPaDocumentale_CDC_SP</name>
+    </assembly>
+    <members>
+        <member name="T:DocsPaDocumentale_CDC_SP.Documentale.AclEventListener">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:DocsPaDocumentale_CDC_SP.Documentale.AclEventListener._instanceETDOCS">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:DocsPaDocumentale_CDC_SP.Documentale.AclEventListener._infoUtente">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.AclEventListener.#ctor(DocsPaVO.utente.InfoUtente)">
+            <summary>
+            
+            </summary>
+            <param name="infoUtente"></param>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.AclEventListener.DocumentoCreatoEventHandler(DocsPaVO.documento.SchedaDocumento,DocsPaVO.utente.Ruolo,DocsPaVO.utente.Ruolo[])">
+            <summary>
+            
+            </summary>
+            <param name="schedaDocumento"></param>
+            <param name="ruoliSuperiori"></param>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.AclEventListener.FascicoloCreatoEventHandler(DocsPaVO.fascicolazione.Classificazione,DocsPaVO.fascicolazione.Fascicolo,DocsPaVO.utente.Ruolo,DocsPaVO.utente.Ruolo[])">
+            <summary>
+            Handler dell'evento di avvenuta creazione di un fascicolo
+            </summary>
+            <param name="classificazione">Posizione nella gerarchia di titolario del fascicolo</param>
+            <param name="fascicolo"></param>
+            <param name="ruolo">Ruolo creatore del fascicolo</param>
+            <param name="ruoliSuperiori">
+            Riporta una lista di ruoli superiori al ruolo creatore
+            che devono avere la visibilità sul fascicolo
+            </param>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.AclEventListener.SottofascicoloCreatoEventHandler(DocsPaVO.fascicolazione.Folder,DocsPaVO.utente.Ruolo,DocsPaVO.utente.Ruolo[])">
+            <summary>
+            Handler dell'evento di avvenuta creazione di un sottofascicolo
+            </summary>
+            <param name="folder"></param>
+            <param name="ruolo">Ruolo creatore del sottofascicolo</param>
+            <param name="ruoliSuperiori">
+            Riporta una lista di ruoli superiori al ruolo creatore
+            che devono avere la visibilità sul sottofascicolo
+            </param>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.AclEventListener.TrasmissioneCompletataEventHandler(DocsPaVO.trasmissione.Trasmissione,DocsPaVO.trasmissione.infoSecurity[])">
+            <summary>
+            
+            </summary>
+            <param name="trasmissione"></param>
+            <param name="infoSecurity"></param>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.AclEventListener.TrasmissioneAccettataRifiutataEventHandler(DocsPaVO.trasmissione.Trasmissione,DocsPaVO.utente.Ruolo,DocsPaVO.trasmissione.TipoRisposta)">
+            <summary>
+            Handler dell'evento di avvenuta accettazione / rifiuto di una trasmissione di un documento / fascicolo
+            </summary>
+            <param name="trasmissione"></param>
+            <param name="ruolo"></param>
+            <param name="tipoRisposta"></param>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.AclEventListener.SmistamentoDocumentoCompletatoEventHandler(DocsPaVO.Smistamento.MittenteSmistamento,DocsPaVO.Smistamento.DocumentoSmistamento,DocsPaVO.Smistamento.RuoloSmistamento,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="mittente"></param>
+            <param name="documento"></param>
+            <param name="ruolo"></param>
+            <param name="accessRights"></param>
+        </member>
+        <member name="P:DocsPaDocumentale_CDC_SP.Documentale.AclEventListener.InfoUtente">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DocsPaDocumentale_CDC_SP.Documentale.AclEventListener.InstanceETDOCS">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:DocsPaDocumentale_CDC_SP.Documentale.AdminPasswordConfig._instanceETDOCS">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.AdminPasswordConfig.#ctor">
+            <summary>
+            </summary>
+            <param name="infoUtente">Dati relativi all'utente</param>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.AdminPasswordConfig.IsSupportedPasswordConfig">
+            <summary>
+            Indica se il documentale supporta la gestione delle configurazioni delle password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.AdminPasswordConfig.SavePasswordConfigurations(DocsPaVO.utente.InfoUtente,DocsPaVO.amministrazione.PasswordConfigurations)">
+            <summary>
+            
+            </summary>
+            <param name="configurations"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.AdminPasswordConfig.GetPasswordConfigurations(DocsPaVO.utente.InfoUtente,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="idAmministrazione"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.AdminPasswordConfig.ExpireAllPassword(DocsPaVO.utente.InfoUtente,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="idAmministrazione"></param>
+        </member>
+        <member name="P:DocsPaDocumentale_CDC_SP.Documentale.AdminPasswordConfig.InstanceETDOCS">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:DocsPaDocumentale_CDC_SP.Documentale.AmministrazioneManager">
+            <summary>
+            Gestione dell'amministrazione nel documentale
+            </summary>
+        </member>
+        <member name="F:DocsPaDocumentale_CDC_SP.Documentale.AmministrazioneManager._instanceETDOCS">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:DocsPaDocumentale_CDC_SP.Documentale.AmministrazioneManager._infoUtente">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.AmministrazioneManager.#ctor(DocsPaVO.amministrazione.InfoUtenteAmministratore)">
+            <summary>
+            
+            </summary>
+            <param name="infoUtente"></param>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.AmministrazioneManager.Insert(DocsPaVO.amministrazione.InfoAmministrazione)">
+            <summary>
+            Inserimento di una nuova amministrazione nel documentale
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.AmministrazioneManager.Update(DocsPaVO.amministrazione.InfoAmministrazione)">
+            <summary>
+            Aggiornamento di un'amministrazione esistente nel documentale
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.AmministrazioneManager.Delete(DocsPaVO.amministrazione.InfoAmministrazione)">
+            <summary>
+            Cancellazione di un'amministrazione nel documentale
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="P:DocsPaDocumentale_CDC_SP.Documentale.AmministrazioneManager.InfoUtente">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DocsPaDocumentale_CDC_SP.Documentale.AmministrazioneManager.InstanceETDOCS">
+            <summary>
+            Reperimento istanza gestore amministratore in etdocs
+            </summary>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.AmministrazioneManager.GetGroupNames(System.String)">
+            <summary>
+            Reperimento nomi gruppi docspa per l'amministrazione
+            </summary>
+            <param name="idAmministrazione"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DocsPaDocumentale_CDC_SP.Documentale.CheckInOutAdminDocumentManager">
+            <summary>
+            Classe per la gestione, a livello amministrativo, del checkIn/checkOut dell'ultima versione di un documento.
+            Consente di enumerare i documenti bloccati e forzare lo sblocco di un documento.
+            </summary>
+        </member>
+        <member name="F:DocsPaDocumentale_CDC_SP.Documentale.CheckInOutAdminDocumentManager._infoUtente">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:DocsPaDocumentale_CDC_SP.Documentale.CheckInOutAdminDocumentManager._instance">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.CheckInOutAdminDocumentManager.#ctor(DocsPaVO.utente.InfoUtente)">
+            <summary>
+            
+            </summary>
+            <param name="infoUtente"></param>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.CheckInOutAdminDocumentManager.GetCheckOutStatusDocuments(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="idAmministration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.CheckInOutAdminDocumentManager.GetCheckOutStatusDocuments(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="idAmministration"></param>
+            <param name="idUser"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.CheckInOutAdminDocumentManager.ForceUndoCheckOut(DocsPaVO.CheckInOut.CheckOutStatus)">
+            <summary>
+            
+            </summary>
+            <param name="checkOutAdminStatus"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.CheckInOutAdminDocumentManager.CanForceUndoCheckOut">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:DocsPaDocumentale_CDC_SP.Documentale.CheckInOutAdminDocumentManager.InfoUtente">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DocsPaDocumentale_CDC_SP.Documentale.CheckInOutAdminDocumentManager.Instance">
+            <summary>
+            Reperimento istanza manager del documentale utilizzato dall'orchestratore
+            </summary>
+        </member>
+        <member name="T:DocsPaDocumentale_CDC_SP.Documentale.CheckInOutDocumentManager">
+            <summary>
+            Classe per la gestione del checkIn/checkOut dell'ultima versione di un documento
+            </summary>
+        </member>
+        <member name="F:DocsPaDocumentale_CDC_SP.Documentale.CheckInOutDocumentManager._checkInOutSP">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:DocsPaDocumentale_CDC_SP.Documentale.CheckInOutDocumentManager._infoUtente">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.CheckInOutDocumentManager.#ctor(DocsPaVO.utente.InfoUtente)">
+            <summary>
+            
+            </summary>
+            <param name="infoUtente"></param>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.CheckInOutDocumentManager.GetCheckOutStatus(System.String,System.String)">
+            <summary>
+            Reperimento delle informazioni di stato di checkout del documento
+            </summary>
+            <param name="idDocument"></param>
+            <param name="documentNumber"></param>
+            <returns></returns>
+            <remarks>
+            Le informazioni vengono reperite solamente in SP
+            </remarks>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.CheckInOutDocumentManager.IsCheckedOut(System.String,System.String)">
+            <summary>
+            Verifica se il documento è in stato checkout
+            </summary>
+            <param name="idDocument"></param>
+            <param name="documentNumber"></param>
+            <returns></returns>
+            <remarks>
+            Le informazioni vengono reperite solamente in SP
+            </remarks>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.CheckInOutDocumentManager.IsCheckedOut(System.String,System.String,System.String@)">
+            <summary>
+            Verifica se il documento è in stato checkout
+            </summary>
+            <param name="idDocument"></param>
+            <param name="documentNumber"></param>
+            <param name="ownerUser"></param>
+            <returns></returns>
+            <remarks>
+            Le informazioni vengono reperite solamente in SP
+            </remarks>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.CheckInOutDocumentManager.CheckOut(System.String,System.String,System.String,System.String,DocsPaVO.CheckInOut.CheckOutStatus@)">
+            <summary>
+            CheckOut del documento
+            </summary>
+            <param name="idDocument"></param>
+            <param name="documentNumber"></param>
+            <param name="documentLocation"></param>
+            <param name="machineName"></param>
+            <param name="checkOutStatus"></param>
+            <returns></returns>
+            <remarks>
+            Il blocco del documento viene impostato solamente in SP
+            </remarks>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.CheckInOutDocumentManager.CheckIn(DocsPaVO.CheckInOut.CheckOutStatus,System.Byte[],System.String)">
+            <summary>
+            CheckIn del documento
+            </summary>
+            <param name="checkOutStatus"></param>
+            <param name="content"></param>
+            <param name="checkInComments"></param>
+            <returns></returns>
+            <remarks>
+            Il documento è in checkout solo nel documentale SP,
+            pertanto l'operazione di checkin, oltre ad effettuare il checkin in SP
+            </remarks>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.CheckInOutDocumentManager.UndoCheckOut(DocsPaVO.CheckInOut.CheckOutStatus)">
+            <summary>
+            UndoCheckOut del documento
+            </summary>
+            <param name="checkOutStatus"></param>
+            <returns></returns>
+            <remarks>
+            L'operazione viene effettuata solamente nel documentale SP
+            </remarks>
+        </member>
+        <member name="P:DocsPaDocumentale_CDC_SP.Documentale.CheckInOutDocumentManager.CheckInOutManagerSP">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DocsPaDocumentale_CDC_SP.Documentale.CheckInOutDocumentManager.InfoUtente">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager">
+            <summary>
+            
+            Classe documentale che si colloca ad un livello di astrazione pi� alto 
+            rispetto ai componenti per la gestione dei singoli software documentali
+            (ETDOCS e SP), in quanto:
+            
+            o	utilizza prima lo strato ETDOCS per la generazione dei metadati 
+                (es. numero protocollo, segnatura, ecc.), successivamente 
+                lo strato SP per la memorizzazione dei metadati generati;
+            o	fornisce un livello di astrazione ai layer pi� alti (BusinessLogic di DocsPa) 
+                verso i due strati documentali sottostanti;
+            o	GFD � un gestore delle transazioni a due fasi;
+            
+            <remarks>
+            Da specifiche per l�integrazione con DocsPa, SP � utilizzato come:
+            o	repository fisico dei file 
+            o	contenitore di alcuni metadati dei documenti / fascicoli / trasmissioni 
+                per una �coerente� consultazione in sola lettura dall�interfaccia 
+                proprietaria di SP (Webtop)
+             o	non � utilizzato per l�erogazione dei metadati di protocollazione.
+            </remarks>
+            
+            </summary>
+        </member>
+        <member name="F:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager._documentManagerETDOCS">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager._infoUtente">
+            <summary>
+            Istanza interna della classe InfoUtente
+            </summary>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.#ctor(DocsPaVO.utente.InfoUtente)">
+            <summary>
+            Inizializza l'istanza della classe acquisendo i dati relativi all'utente 
+            ed alla libreria per la connessione al documentale.
+            </summary>
+            <param name="infoUtente">Dati relativi all'utente</param>
+            <param name="currentLibrary">Libreria per la connessione al documentale</param>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.CreateDocumentoStampaRegistro(DocsPaVO.documento.SchedaDocumento,DocsPaVO.utente.Ruolo)">
+            <summary>
+            Creazione di un nuovo documento per la stampa registro.
+            </summary>
+            <param name="schedaDocumento"></param>
+            <param name="ruolo"></param>
+            <returns>ID del documento o 'null' se si � verificato un errore</returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.CreateDocumentoStampaRegistro(DocsPaVO.documento.SchedaDocumento,DocsPaVO.utente.Ruolo,DocsPaVO.utente.Ruolo[]@)">
+            <summary>
+            Creazione di un nuovo documento per la stampa registro.
+            overload.
+            </summary>
+            <param name="schedaDocumento"></param>
+            <param name="ruolo"></param>
+            <param name="ruoliSuperiori"></param>
+            <returns>ID del documento o 'null' se si � verificato un errore</returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.CreateDocumentoGrigio(DocsPaVO.documento.SchedaDocumento,DocsPaVO.utente.Ruolo)">
+            <summary>
+            Crea la scheda documento Grigio
+            </summary>
+            <param name="schedaDocumento"></param>
+            <param name="ruolo"></param>
+            <returns>True/false sulla creazione del documento</returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.CreateDocumentoGrigio(DocsPaVO.documento.SchedaDocumento,DocsPaVO.utente.Ruolo,DocsPaVO.utente.Ruolo[]@,System.String)">
+            <summary>
+            Crea la scheda documento Grigio
+            </summary>
+            <param name="schedaDocumento"></param>
+            <param name="ruolo"></param>
+            <param name="ruoliSuperiori"></param>
+            <returns>True/false sulla creazione del documento</returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.PredisponiProtocollazione(DocsPaVO.documento.SchedaDocumento)">
+            <summary>
+            Predisposizione di un documento alla protocollazione
+            </summary>
+            <param name="schedaDocumento"></param>
+            <param name="ruolo"></param>
+            <returns>True/False</returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.ProtocollaDocumentoPredisposto(DocsPaVO.documento.SchedaDocumento,DocsPaVO.utente.Ruolo,DocsPaVO.documento.ResultProtocollazione@)">
+            <summary>
+            Protocollazione di un documento predisposto
+            </summary>
+            <param name="schedaDocumento"></param>
+            <param name="ruolo"></param>
+            <param name="risultatoProtocollazione"></param>
+            <returns>True/False</returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.TransferFileToSP(DocsPaVO.documento.FileRequest)">
+            <summary>
+            Funzione per il trasferimento di un documento da ETDocs a SP
+            </summary>
+            <param name="fileRequest">File da trasferire</param>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.CreateProtocollo(DocsPaVO.documento.SchedaDocumento,DocsPaVO.utente.Ruolo,DocsPaVO.documento.ResultProtocollazione@)">
+            <summary>
+            Crea il protoccolo.
+            </summary>
+            <param name="idAmministrazione"></param>
+            <param name="schedaDocumento"></param>
+            <param name="ruolo"></param>
+            <param name="sede"></param>
+            <param name="risultatoProtocollazione"></param>
+            <returns>True/False Creato protocollo</returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.AggiornaProtocollo(DocsPaVO.documento.SchedaDocumento,DocsPaVO.utente.Ruolo,DocsPaVO.documento.ResultProtocollazione@,DocsPaVO.utente.Ruolo[]@)">
+            <summary>
+            Operazione per la creazione di un nuovo protocollo
+            
+            PreCondizioni:
+                - Fornire un oggetto SchedaDocumento valido, completo
+                  degli attributi e degli oggetti significativi per il protocollo 
+                  (es. numero, dataProtocollo, segnatura, oggetto "Protocollo")
+                
+            PostCondizioni:
+                - Operazione di protocollazione documento effettuata con successo
+                  
+            
+            </summary>
+            <param name="schedaDocumento">Oggetto contenente i metadati del documento da protocollare</param>
+            <param name="ruolo">Ruolo dell'utente che protocolla il documento</param>
+            <param name="risultatoProtocollazione">Parametro output: Esito pi� dettagliato dell'operazione</param>
+            <param name="ruoliSuperiori"></param>
+            <returns>Boolean, l'operazione di protocollazione � andata a buon fine o meno</returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.SalvaDocumento(DocsPaVO.documento.SchedaDocumento,System.Boolean,System.Boolean@)">
+            <summary>
+            Save delle modifiche apportate al documento
+            </summary>
+            <param name="schedaDocumento"></param>
+            <param name="ufficioReferenteEnabled"></param>
+            <param name="ufficioReferenteSaved"></param>
+            <returns>True/False</returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.AddVersion(DocsPaVO.documento.FileRequest,System.Boolean)">
+            <summary>
+            Inserimento di una nuova versione
+            </summary>
+            <param name="fileRequest"></param>
+            <param name="daInviare"></param>
+            <returns>True/False</returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.AddAttachment(DocsPaVO.documento.Allegato,System.String)">
+            <summary>
+            Inserimento di un allegato
+            </summary>
+            <param name="allegato"></param>
+            <param name="putfile"></param>
+            <returns>True/False</returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.ModifyAttatchment(DocsPaVO.documento.Allegato)">
+            <summary>
+            Modifica di un allegato
+            </summary>
+            <param name="allegato"></param>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.RemoveAttatchment(DocsPaVO.documento.Allegato)">
+            <summary>
+            Rimozione di un allegato
+            </summary>
+            <param name="allegato"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.RemoveVersion(DocsPaVO.documento.FileRequest)">
+            <summary>
+            Rimozione di una versione
+            </summary>
+            <param name="fileRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.GetFile(System.String,System.String,System.String,System.String)">
+            <summary>
+            Reperimento del contentuto di un file dal repository Documentum
+            </summary>
+            <param name="docNumber"></param>
+            <param name="version"></param>
+            <param name="versionId"></param>
+            <param name="versionLabel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.GetFile(DocsPaVO.documento.FileDocumento@,DocsPaVO.documento.FileRequest@)">
+            <summary>
+            Operazione per il reperimento di un file di una versione / allegato di un documento
+            
+            PreCondizioni:
+                la versione / allegato deve essere gi� stato creato come entit� persistente
+                il file deve essere gi� acquisito nel repository documentale
+            
+            PostCondizioni:
+                i seguenti attributi dell'oggetto "FileDocumento" devono essere inizializzati:
+                - name              (nome "fittizio" del file con estensione)
+                - estensioneFile    (estensione del file)
+                - content           (array di byte, contenuto del file)
+                - contentType       (mimetype del file)
+                - length            (dimensione dell'array di byte)
+            </summary>
+            <param name="fileDocumento"></param>
+            <param name="fileRequest"></param>
+            <param name="idamministrazione"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.PutFile(DocsPaVO.documento.FileRequest,DocsPaVO.documento.FileDocumento,System.String)">
+            <summary>
+            Operazione per l'inserimento di un file in una versione / allegato di un documento
+            
+            PreCondizione:
+                la versione / allegato deve essere gi� stato creato come entit� persistente
+            
+                Attributi dell'oggetto FileRequest gi� valorizzati in ingresso
+                    VersionId:      ID della versione / allegato in docspa
+                    Version:        0 se allegato, > 0 se versione
+                    SubVersion:     ! se allegato, stringa vuota se versione
+                    VersionLabel:   A# se allegato (dove # � il num. dell'allegato, fino a 99)
+                                    (es. A01, A02, A03, ecc.)
+                                    1, 2, 3, 4, ecc. se versione
+            PostCondizioni:
+                il file deve essere stato associato alla versione / allegato
+            
+            </summary>
+            <param name="fileRequest"></param>
+            <param name="fileDocumento"></param>
+            <param name="estensione"></param>
+            <param name="objSicurezza"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.GetLatestVersionId(System.String)">
+            <summary>
+            Reperimento della VersionId dell'ultima versione di un documento
+            </summary>
+            <param name="docNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.ModifyExtension(DocsPaVO.documento.FileRequest@,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Modifica le estensioni del file recuperato
+            </summary>
+            <param name="fileRequest"></param>
+            <param name="docNumber"></param>
+            <param name="version_id"></param>
+            <param name="version"></param>
+            <param name="subVersion"></param>
+            <param name="versionLabel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.AnnullaProtocollo(DocsPaVO.documento.SchedaDocumento@,DocsPaVO.documento.ProtocolloAnnullato)">
+            <summary>
+            Annullamento di un protocollo
+            </summary>
+            <param name="schedaDocumento"></param>
+            <param name="protocolloAnnullato"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.ModifyVersion(DocsPaVO.documento.FileRequest)">
+            <summary>
+            Modifica dei metadati di una versione
+            </summary>
+            <param name="fileRequest"></param>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.ModifyVersionSegnatura(System.String)">
+            <summary>
+            Setta a 1 cha_segnatura se la versione contiene un documento in formato pdf, con segnatura impressa
+            </summary>
+            <param name="versionId"></param>
+            <returns>
+            bool che indica l'esito dell'operazione di update
+            </returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.IsVersionWithSegnature(System.String)">
+            <summary>
+            Informa se la versione ha associato un file con impressa la segnatura
+            </summary>
+            <param name="versionId"></param>
+            <returns>
+            bool che indica se la versione ha associato un file con impressa segnatura o meno
+            </returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.AddDocumentoInCestino(DocsPaVO.documento.InfoDocumento)">
+            <summary>
+            Inserimento di un documento nel cestino
+            </summary>
+            <param name="infoDocumento"></param>
+            <param name="note"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.RestoreDocumentoDaCestino(DocsPaVO.documento.InfoDocumento)">
+            <summary>
+            Ripristino del documento dal cestino
+            </summary>
+            <param name="infoDocumento"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.ScambiaAllegatoDocumento(DocsPaVO.documento.Allegato,DocsPaVO.documento.Documento)">
+            <summary>
+            Scambia il file associato ad un allegato con il file associato ad un documento
+            </summary>
+            <param name="allegato"></param>
+            <param name="documento"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.Remove(DocsPaVO.documento.InfoDocumento[])">
+            <summary>
+            Rimozione documenti
+            </summary>
+            <param name="items"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.GetFileExtension(System.String,System.String)">
+            <summary>
+            Reperimento estensione applicazione
+            </summary>
+            <param name="docnumber"></param>
+            <param name="versionid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.GetOriginalFileName(System.String,System.String)">
+            <summary>
+            Reperimento del nome originale del file nel documentale
+            </summary>
+            <param name="docnumber"></param>
+            <param name="versionid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.AddPermission(DocsPaVO.documento.DirittoOggetto)">
+            <summary>
+            Impostazione di un permesso su un documento
+            </summary>
+            <param name="infoDiritto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.RemovePermission(DocsPaVO.documento.DirittoOggetto)">
+            <summary>
+            Revoca di un permesso su un documento
+            </summary>
+            <param name="documentInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.AddPermissionToRole(DocsPaVO.documento.DirittoOggetto)">
+            <summary>
+            Metodo per l'assegnazione di un diritto di tipo A ad un ruolo
+            </summary>
+            <param name="rights">Informazioni sul diritto da assegnare</param>
+            <returns>True se è andato bene</returns>
+        </member>
+        <member name="P:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.InfoUtente">
+            <summary>
+            Credenziali utente corrente
+            </summary>
+        </member>
+        <member name="P:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.DocumentManagerETDOCS">
+            <summary>
+            Documentale etdocs
+            </summary>
+        </member>
+        <member name="P:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.DocumentManagerSP">
+            <summary>
+            Documentale SharePoint
+            </summary>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.DocumentManager.SetFileAsInserted(DocsPaVO.documento.FileRequest,System.Byte[])">
+            <summary>
+            Inserimento dei metadati di un file inserito in etdocs
+            </summary>
+            <param name="fileRequest"></param>
+            <param name="fileContent"></param>
+            <param name="fileExtension"></param>
+        </member>
+        <member name="T:DocsPaDocumentale_CDC_SP.Documentale.FullTextSearchManager">
+            <summary>
+            Gestione della ricerca fulltext
+            </summary>
+        </member>
+        <member name="F:DocsPaDocumentale_CDC_SP.Documentale.FullTextSearchManager._infoUtente">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.FullTextSearchManager.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.FullTextSearchManager.#ctor(DocsPaVO.utente.InfoUtente)">
+            <summary>
+            
+            </summary>
+            <param name="infoUtente"></param>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.FullTextSearchManager.FullTextSearch(System.String,System.String,System.Int32,System.Int32@,System.Int32@)">
+            <summary>
+            
+            </summary>
+            <param name="testo"></param>
+            <param name="idReg"></param>
+            <param name="numPage"></param>
+            <param name="numTotPage"></param>
+            <param name="nRec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.FullTextSearchManager.FullTextSearch(DocsPaVO.ricerche.FullTextSearchContext@)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.FullTextSearchManager.SetDocumentAsIndexed(System.String)">
+            <summary>
+            Necessario per impostare il documento come indicizzato
+            nel documentale ai fini della ricerca fulltext
+            </summary>
+            <param name="docnumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.FullTextSearchManager.GetMaxRowCount">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.FullTextSearchManager.simpleFullTextSearch(DocsPaVO.ricerche.FullTextSearchContext@)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="P:DocsPaDocumentale_CDC_SP.Documentale.FullTextSearchManager.InfoUtente">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:DocsPaDocumentale_CDC_SP.Documentale.OrganigrammaManager">
+            <summary>
+            Gestione dell'organigramma dell'amministrazione
+            </summary>
+        </member>
+        <member name="F:DocsPaDocumentale_CDC_SP.Documentale.OrganigrammaManager._orgManagerETDOCS">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:DocsPaDocumentale_CDC_SP.Documentale.OrganigrammaManager._infoUtente">
+            <summary>
+            Credenziali utente
+            </summary>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.OrganigrammaManager.InserisciRuolo(DocsPaVO.amministrazione.OrgRuolo,System.Boolean)">
+            <summary>
+            Inserimento nuovo ruolo in amministrazione
+            </summary>
+            <param name="ruolo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.OrganigrammaManager.ModificaRuolo(DocsPaVO.amministrazione.OrgRuolo)">
+            <summary>
+            Modifica dei metadati di un ruolo
+            </summary>
+            <param name="ruolo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.OrganigrammaManager.OnlyDisabledRole(DocsPaVO.amministrazione.OrgRuolo)">
+            <summary>
+            Informa lamministratore se il ruolo ha documenti associati(in questo caso 
+            il ruolo può essere solo disabilitato)
+            </summary>
+            <param name="ruolo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.OrganigrammaManager.EliminaRuolo(DocsPaVO.amministrazione.OrgRuolo)">
+            <summary>
+            Cancellazione di un ruolo in amministrazione
+            </summary>
+            <param name="ruolo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.OrganigrammaManager.SpostaRuolo(DocsPaVO.amministrazione.OrgRuolo)">
+            <summary>
+            Spostamento di un ruolo in amministrazione
+            </summary>
+            <param name="ruolo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.OrganigrammaManager.ImpostaRuoloPreferito(System.String,System.String)">
+            <summary>
+            Impostazione di un ruolo come predefinito
+            </summary>
+            <param name="idPeople"></param>
+            <param name="idGruppo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.OrganigrammaManager.InserisciUtente(DocsPaVO.amministrazione.OrgUtente)">
+            <summary>
+            Inserimento di un nuovo utente in amministrazione
+            </summary>
+            <param name="utente"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.OrganigrammaManager.ModificaUtente(DocsPaVO.amministrazione.OrgUtente)">
+            <summary>
+            Modifica dei dati di un utente in amministrazione
+            </summary>
+            <param name="utente"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.OrganigrammaManager.EliminaUtente(DocsPaVO.amministrazione.OrgUtente)">
+            <summary>
+            Elimina un utente in amministrazione
+            </summary>
+            <param name="utente"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.OrganigrammaManager.InserisciUtenteInRuolo(System.String,System.String)">
+            <summary>
+            Inserimento di un utente in un ruolo
+            </summary>
+            <param name="idPeople"></param>
+            <param name="idGruppo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.OrganigrammaManager.EliminaUtenteDaRuolo(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="idPeople"></param>
+            <param name="idGruppo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.OrganigrammaManager.CopyVisibility(DocsPaVO.utente.InfoUtente,DocsPaVO.Security.CopyVisibility)">
+            <summary>
+            
+            </summary>
+            <param name="infoUtente"></param>
+            <param name="copyVisibility"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.OrganigrammaManager.ExtendVisibilityToHigherRoles(System.String,System.String,DocsPaVO.amministrazione.SaveChangesToRoleRequest.ExtendVisibilityOption)">
+            <summary>
+            Metodo per l'estensione di visibilità ai ruoli superiori di un ruolo
+            </summary>
+            <param name="idAmm">Id dell'amministrazione</param>
+            <param name="idGroup">Id del gruppo di cui estendere la visibilità</param>
+            <param name="extendScope">Scope di estensione</param>
+            <param name="copyIdToTempTable">True se bisogna copiare gli id id dei documenti e fascicoli in una tabella tamporanea per l'allineamento asincrono della visibilità</param>
+            <returns>Esito dell'operazione</returns>
+        </member>
+        <member name="P:DocsPaDocumentale_CDC_SP.Documentale.OrganigrammaManager.InfoUtente">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DocsPaDocumentale_CDC_SP.Documentale.OrganigrammaManager.OrganigrammaManagerETDOCS">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:DocsPaDocumentale_CDC_SP.Documentale.ProjectManager">
+            <summary>
+            
+            Classe documentale che si colloca ad un livello di astrazione più alto 
+            rispetto ai componenti per la gestione dei singoli software documentali
+            (ETDOCS), in quanto:
+            
+            o	utilizza prima lo strato ETDOCS per la generazione dei metadati 
+                (es. numero protocollo, segnatura, ecc.), successivamente 
+                lo strato SP per la memorizzazione dei metadati generati;
+            o	fornisce un livello di astrazione ai layer più alti (BusinessLogic di DocsPa) 
+                verso i due strati documentali sottostanti;
+            
+            <remarks>
+            Da specifiche per l’integrazione con DocsPa, SP è utilizzato come:
+            o	repository fisico dei file 
+            o	contenitore di alcuni metadati dei documenti / fascicoli / trasmissioni 
+                per una “coerente” consultazione in sola lettura dall’interfaccia 
+                proprietaria di SP (Webtop)
+             o	non è utilizzato per l’erogazione dei metadati di protocollazione.
+            </remarks>
+            
+            </summary>
+        </member>
+        <member name="F:DocsPaDocumentale_CDC_SP.Documentale.ProjectManager._projectManagerETDOCS">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:DocsPaDocumentale_CDC_SP.Documentale.ProjectManager._infoUtente">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.ProjectManager.#ctor">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.ProjectManager.#ctor(DocsPaVO.utente.InfoUtente)">
+            <summary>
+            Inizializza l'istanza della classe acquisendo i dati relativi all'utente 
+            ed alla libreria per la connessione al documentale.
+            </summary>
+            <param name="infoUtente">Dati relativi all'utente</param>
+            <param name="currentLibrary">Libreria per la connessione al documentale</param>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.ProjectManager.CreateProject(DocsPaVO.fascicolazione.Classificazione,DocsPaVO.fascicolazione.Fascicolo,DocsPaVO.utente.Ruolo,System.Boolean,DocsPaVO.fascicolazione.ResultCreazioneFascicolo@)">
+            <summary>
+            Creazione nuovo fascicolo
+            </summary>
+            <param name="classifica"></param>
+            <param name="fascicolo"></param>
+            <param name="ruolo"></param>
+            <param name="enableUfficioReferente"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.ProjectManager.CreateProject(DocsPaVO.fascicolazione.Classificazione,DocsPaVO.fascicolazione.Fascicolo,DocsPaVO.utente.Ruolo,System.Boolean,DocsPaVO.fascicolazione.ResultCreazioneFascicolo@,DocsPaVO.utente.Ruolo[]@)">
+            <summary>
+            Creazione nuovo fascicolo
+            </summary>
+            <param name="classifica"></param>
+            <param name="fascicolo"></param>
+            <param name="ruolo"></param>
+            <param name="enableUfficioReferente"></param>
+            <param name="result"></param>
+            <param name="ruoliSuperiori">
+            Ruoli superiori cui è stata impostata la visibilità del fascicolo
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.ProjectManager.ModifyProject(DocsPaVO.fascicolazione.Fascicolo)">
+            <summary>
+            Modifica dei metadati di un fascicolo
+            </summary>
+            <param name="fascicolo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.ProjectManager.DeleteFolder(DocsPaVO.fascicolazione.Folder)">
+            <summary>
+            Rimozione di un fascicolo da docspa e documentum
+            </summary>
+            <param name="idProject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.ProjectManager.CreateFolder(DocsPaVO.fascicolazione.Folder,DocsPaVO.utente.Ruolo,DocsPaVO.fascicolazione.ResultCreazioneFolder@)">
+            <summary>
+            Creazione di un nuovo folder in un fascicolo in docspa e documentum
+            </summary>
+            <param name="folder"></param>
+            <param name="ruolo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.ProjectManager.CreateFolder(DocsPaVO.fascicolazione.Folder,DocsPaVO.utente.Ruolo,DocsPaVO.fascicolazione.ResultCreazioneFolder@,DocsPaVO.utente.Ruolo[]@)">
+            <summary>
+            Creazione nuovo sottofascicolo
+            </summary>
+            <param name="folder"></param>
+            <param name="ruolo"></param>
+            <param name="result"></param>
+            <param name="ruoliSuperiori">
+            Ruoli superiori cui è impostata la visibilità del sottofascicolo
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.ProjectManager.ModifyFolder(DocsPaVO.fascicolazione.Folder)">
+            <summary>
+            Modifica dei dati di un folder in docspa e documentum
+            </summary>
+            <param name="folder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.ProjectManager.AddDocumentInFolder(System.String,System.String)">
+            <summary>
+            Inserimento di un documento in un folder in docspa e documentum
+            </summary>
+            <param name="idProfile"></param>
+            <param name="idFolder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.ProjectManager.RemoveDocumentFromFolder(System.String,DocsPaVO.fascicolazione.Folder)">
+            <summary>
+            Rimozione di un documento da un folder in docspa e documentum
+            </summary>
+            <param name="idProfile"></param>
+            <param name="folder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.ProjectManager.RemoveDocumentFromProject(System.String,DocsPaVO.fascicolazione.Folder)">
+            <summary>
+            Rimozione di un documento dal fascicolo (in generale, da tutti i folder presenti nel fascicolo)
+            </summary>
+            <param name="idProfile"></param>
+            <param name="folder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.ProjectManager.AddPermission(DocsPaVO.fascicolazione.DirittoOggetto)">
+            <summary>
+            Impostazione di un permesso su un fascicolo / folder
+            </summary>
+            <param name="infoDiritto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.ProjectManager.RemovePermission(DocsPaVO.fascicolazione.DirittoOggetto)">
+            <summary>
+            Revoca di un permesso su un fascicolo / folder
+            </summary>
+            <param name="infoDiritto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.ProjectManager.ExistFolderName(DocsPaVO.fascicolazione.Folder)">
+            <summary>
+            Verifica se il nome del folder è già presente in docspa
+            </summary>
+            <param name="folder"></param>
+            <returns></returns>
+        </member>
+        <member name="P:DocsPaDocumentale_CDC_SP.Documentale.ProjectManager.InfoUtente">
+            <summary>
+            Credenziali utente corrente
+            </summary>
+        </member>
+        <member name="P:DocsPaDocumentale_CDC_SP.Documentale.ProjectManager.ProjectManagerETDOCS">
+            <summary>
+            Documentale etdocs
+            </summary>
+        </member>
+        <member name="T:DocsPaDocumentale_CDC_SP.Documentale.TitolarioManager">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:DocsPaDocumentale_CDC_SP.Documentale.TitolarioManager._titolarioEtdocs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:DocsPaDocumentale_CDC_SP.Documentale.TitolarioManager._infoUtente">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.TitolarioManager.#ctor(DocsPaVO.utente.InfoUtente)">
+            <summary>
+            
+            </summary>
+            <param name="infoUtente"></param>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.TitolarioManager.AttivaTitolario(DocsPaVO.amministrazione.OrgTitolario)">
+            <summary>
+            Attivazione di un titolario
+            </summary>
+            <param name="titolario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.TitolarioManager.SaveTitolario(DocsPaVO.amministrazione.OrgTitolario)">
+            <summary>
+            
+            </summary>
+            <param name="titolario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.TitolarioManager.DeleteTitolario(DocsPaVO.amministrazione.OrgTitolario)">
+            <summary>
+            
+            </summary>
+            <param name="titolario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.TitolarioManager.SaveNodoTitolario(DocsPaVO.amministrazione.OrgNodoTitolario)">
+            <summary>
+            
+            </summary>
+            <param name="nodoTitolario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.TitolarioManager.DeleteNodoTitolario(DocsPaVO.amministrazione.OrgNodoTitolario)">
+            <summary>
+            
+            </summary>
+            <param name="nodoTitolario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.TitolarioManager.SetAclRuoloNodoTitolario(DocsPaVO.amministrazione.OrgNodoTitolario,DocsPaVO.amministrazione.OrgRuoloTitolario)">
+            <summary>
+            
+            </summary>
+            <param name="nodoTitolario"></param>
+            <param name="ruoloTitolario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.TitolarioManager.SetAclNodoTitolario(DocsPaVO.amministrazione.OrgNodoTitolario,DocsPaVO.amministrazione.OrgRuoloTitolario[])">
+            <summary>
+            Aggiornamento visibilità di più ruoli su un titolario
+            </summary>
+            <param name="nodoTitolario"></param>
+            <param name="ruoliTitolario"></param>
+            <returns></returns>
+        </member>
+        <member name="P:DocsPaDocumentale_CDC_SP.Documentale.TitolarioManager.InfoUtente">
+            <summary>
+            Credenziali dell'utente connesso a documentum
+            </summary>
+        </member>
+        <member name="P:DocsPaDocumentale_CDC_SP.Documentale.TitolarioManager.TitolarioManagerETDOCS">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:DocsPaDocumentale_CDC_SP.Documentale.UserManager">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:DocsPaDocumentale_CDC_SP.Documentale.UserManager._userManagerETDOCS">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.UserManager.#ctor">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.UserManager.LoginAdminUser(DocsPaVO.utente.UserLogin,System.Boolean,DocsPaVO.amministrazione.InfoUtenteAmministratore@,DocsPaVO.utente.UserLogin.LoginResult@)">
+            <summary>
+            Effettua il login di un utente amministratore
+            </summary>
+            <param name="utente"></param>
+            <param name="loginResult"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.UserManager.LoginUser(DocsPaVO.utente.UserLogin,DocsPaVO.utente.Utente@,DocsPaVO.utente.UserLogin.LoginResult@)">
+            <summary>
+            Connessione dell'utente al sistema documentale
+            </summary>
+            <param name="utente"></param>
+            <param name="loginResult"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:DocsPaDocumentale_CDC_SP.Documentale.UserManager.ChangeUserPwd(DocsPaVO.utente.UserLogin,System.String)" -->
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.UserManager.LogoutUser(System.String)">
+            <summary>
+            Disconnessione dell'utente dal sistema documentale
+            </summary>
+            <param name="dst">Identificativo univoco della sessione utente</param>
+            <returns></returns>
+        </member>
+        <member name="P:DocsPaDocumentale_CDC_SP.Documentale.UserManager.UserManagerETDOCS">
+            <summary>
+            Documentale etdocs
+            </summary>
+        </member>
+        <member name="M:DocsPaDocumentale_CDC_SP.Documentale.UserManager.UpdateUserToken(System.String,System.String)">
+            <summary>
+            Aggiornamento token di autenticazione del documentale esterno in ETDOCS
+            </summary>
+            <param name="infoUtente"></param>
+        </member>
+    </members>
+</doc>

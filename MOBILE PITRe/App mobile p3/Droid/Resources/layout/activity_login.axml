@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:background="@android:color/white"
+    android:layout_height="fill_parent"
+	    VerticalOptions="FillAndExpand"
+	app:layout_constraintBottom_toBottomOf="parent">
+    <ScrollView 
+		 android:layout_height="match_parent"
+		 android:layout_width="match_parent"
+		  VerticalOptions="FillAndExpand" 
+		app:layout_constraintBottom_toBottomOf="parent"
+		android:fillViewport="true">
+		<android.support.constraint.ConstraintLayout
+			android:layout_height="match_parent"
+			android:layout_width="match_parent"
+			VerticalOptions="FillAndExpand"
+			app:layout_constraintBottom_toBottomOf="parent">
+			<ImageView
+				android:id="@+id/imageView_pitre"
+				android:layout_width="180dp"
+				android:layout_height="50dp"
+				android:layout_marginBottom="50dp"
+				android:background="@drawable/logo_pitre"
+				app:layout_constraintBottom_toTopOf="@+id/editText_username"
+				app:layout_constraintLeft_toLeftOf="parent"
+				app:layout_constraintRight_toRightOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintVertical_bias="@integer/login_vertical_bias"
+				app:layout_constraintVertical_chainStyle="packed" />
+			<EditText
+				android:id="@+id/editText_username"
+				android:hint="@string/activity_login_username"
+				android:layout_marginLeft="@dimen/margin_40px"
+				android:layout_marginRight="@dimen/margin_40px"
+				android:singleLine="true"
+				style="@style/input_text_for_edittext"
+				app:layout_constraintTop_toBottomOf="@+id/imageView_pitre"
+				app:layout_constraintBottom_toTopOf="@+id/editText_password"
+				app:layout_constraintLeft_toLeftOf="parent"
+				app:layout_constraintRight_toRightOf="parent" />
+			<EditText
+				android:id="@+id/editText_password"
+				android:hint="@string/activity_login_password"
+				android:layout_marginLeft="@dimen/margin_40px"
+				android:layout_marginRight="@dimen/margin_40px"
+				android:layout_marginTop="10dp"
+				android:inputType="textPassword"
+				android:singleLine="true"
+				style="@style/input_text_for_edittext"
+				app:layout_constraintTop_toBottomOf="@+id/editText_username"
+				app:layout_constraintBottom_toTopOf="@+id/customAdministrationView"
+				app:layout_constraintLeft_toLeftOf="parent"
+				app:layout_constraintRight_toRightOf="parent" />
+			<Button
+				android:text="@string/activity_login_etichetta_password_dimenticata"
+				android:layout_width="wrap_content"
+				android:id="@+id/password_dimenticata"
+				android:background="@null"
+				android:layout_height="20dp"
+				app:layout_constraintLeft_toLeftOf="@+id/editText_password"
+				app:layout_constraintTop_toBottomOf="@+id/editText_password"
+				app:layout_constraintBottom_toTopOf="@+id/texView_instance_etichetta"
+			/>
+			<TextView
+				android:id="@+id/texView_instance_etichetta"
+				android:text="@string/activity_login_etichetta_instance"
+				android:layout_marginTop="@dimen/margin_40px"
+				android:layout_marginLeft="@dimen/margin_40px"
+				style="@style/details_page_label"
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				app:layout_constraintTop_toBottomOf="@+id/editText_password"
+				app:layout_constraintBottom_toTopOf="@+id/texView_instance_selected"
+				app:layout_constraintLeft_toLeftOf="parent"
+				app:layout_constraintRight_toRightOf="parent" />
+			<TextView
+				android:id="@+id/texView_instance_selected"
+				android:text="Istanza"
+				android:layout_marginTop="@dimen/margin_40px"
+				android:layout_marginLeft="@dimen/margin_40px"
+				android:layout_height="wrap_content"
+				android:layout_width="0dp"
+				android:ellipsize="end"
+				android:maxLines="1"
+				style="@style/input_text_for_edittext"
+				app:layout_constraintTop_toBottomOf="@+id/texView_instance_etichetta"
+				app:layout_constraintBottom_toTopOf="@+id/customAdministrationView"
+				app:layout_constraintLeft_toLeftOf="parent"
+				app:layout_constraintRight_toLeftOf="@+id/change_instance_button" />
+			<Button
+				android:id="@+id/change_instance_button"
+				android:layout_width="wrap_content"
+				android:layout_marginRight="@dimen/margin_40px"
+				android:layout_height="wrap_content"
+				style="@style/link_otp"
+				android:background="@null"
+				android:text="@string/activity_login_change_instance"
+				app:layout_constraintBaseline_toBaselineOf="@+id/texView_instance_selected"
+				app:layout_constraintRight_toRightOf="parent" />
+			<InformaticaTrentinaPCL.Droid.UpdatePassword.CustomAdministrationView
+				android:id="@+id/customAdministrationView"
+				android:layout_marginStart="@dimen/margin_40px"
+				android:layout_marginEnd="@dimen/margin_40px"
+				android:layout_marginTop="@dimen/margin_40px"
+				android:visibility="gone"
+				style="@style/customadministrationview_style"
+				app:layout_constraintLeft_toLeftOf="parent"
+				app:layout_constraintRight_toRightOf="parent"
+				app:layout_constraintTop_toBottomOf="@+id/editText_password"
+				app:layout_constraintBottom_toTopOf="@+id/button_login" />
+			<TextView
+				android:id="@+id/app_version_tv"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="@dimen/margin_40px"
+				android:layout_marginEnd="@dimen/margin_40px"
+				android:layout_marginTop="@dimen/margin_40px"
+				app:layout_constraintLeft_toLeftOf="parent"
+				app:layout_constraintBottom_toTopOf="@+id/button_login"
+				android:text="app version" />
+			<Button
+				android:id="@+id/button_login"
+				android:text="@string/activity_login_login"
+				style="@style/blue_button"
+				android:layout_marginBottom="@dimen/login_button_margin_bottom"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintLeft_toLeftOf="parent"
+				app:layout_constraintRight_toRightOf="parent" />
+			
+		</android.support.constraint.ConstraintLayout>
+		</ScrollView>
+</android.support.constraint.ConstraintLayout>

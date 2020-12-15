@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+    
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_below="@+id/toolbar"
+        android:layout_above="@+id/button_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true">
+            <TextView
+                android:id="@+id/textView_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/details_page_label"
+                android:layout_marginTop="@dimen/margin_80px"
+                android:layout_marginLeft="@dimen/rifiuta_left_right_padding"
+                android:layout_marginRight="@dimen/rifiuta_left_right_padding"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent" />
+            <InformaticaTrentinaPCL.Droid.DocumentDetail.DocumentDetailView
+                android:id="@+id/documentDetailView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_20px"
+                android:layout_marginLeft="@dimen/rifiuta_left_right_padding"
+                android:layout_marginRight="@dimen/rifiuta_left_right_padding"
+                app:layout_constraintTop_toBottomOf="@+id/textView_header"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+            <EditText
+                android:id="@+id/editText_notes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/activity_common_action_notes"
+                style="@style/details_page_multiline_input"
+                android:layout_marginTop="@dimen/margin_80px"
+                android:layout_marginLeft="@dimen/rifiuta_left_right_padding"
+                android:layout_marginRight="@dimen/rifiuta_left_right_padding"
+                app:layout_constraintTop_toBottomOf="@+id/documentDetailView"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+    <Button
+        android:id="@+id/button_confirm"
+        style="@style/blue_button"
+        android:layout_width="match_parent"
+        android:enabled="false"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>

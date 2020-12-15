@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="FatturazioneElettronica.asmx.cs" Class="FatturazioneElettronicaService.FatturazioneElettronica" %>

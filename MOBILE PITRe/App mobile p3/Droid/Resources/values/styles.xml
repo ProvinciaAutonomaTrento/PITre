@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MasterDetailTheme" parent="MasterDetailTheme.Base">
+    </style>
+    <style name="MasterDetailTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/colorBlue</item>
+        <item name="colorAccent">@color/colorBlue</item>
+        <item name="android:windowBackground">@color/window_background</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="colorControlNormal">#c5c5c5</item>
+        <item name="colorControlActivated">@color/colorBlue</item>
+        <item name="colorControlHighlight">@color/colorBlue</item>	
+	</style>
+
+	<style name="LoaderBackground" parent="MasterDetailTheme">
+		<item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+
+	<style name="MasterDetailTheme.Splash" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/background_splash</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+	</style>
+
+  <!-- style name="button_primary" parent="@android:style/Widget.Button">
+		<item name="colorButtonNormal">@color/primary</item>
+		<item name="android:textColor">@android:color/white</item>
+	</style>
+	<style name="Widget.CardContent" parent="android:Widget">
+		<item name="android:paddingLeft">16dp</item>
+		<item name="android:paddingRight">16dp</item>
+		<item name="android:paddingTop">24dp</item>
+		<item name="android:paddingBottom">24dp</item>
+		<item name="android:orientation">vertical</item>
+	</style -->
+    <style name="SplashTheme" parent="SplashTheme.Base">
+        <!-- Set theme colors from http://www.google.com/design/spec/style/color.html#color-color-palette-->
+        <!-- colorPrimary is used for the default action bar background -->
+        <item name="colorPrimary">@color/primary</item>
+        <!-- colorPrimaryDark is used for the status bar -->
+        <item name="colorPrimaryDark">@color/primaryDark</item>
+        <!-- colorAccent is used as the default value for colorControlActivated
+         which is used to tint widgets -->
+        <item name="colorAccent">@color/accent</item>
+    </style>
+    <style name="SplashTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/background_splash</item>
+    </style>
+    <style name="button_primary" parent="@android:style/Widget.Button">
+        <item name="colorButtonNormal">@color/primary</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="Widget.CardContent" parent="android:Widget">
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">24dp</item>
+        <item name="android:paddingBottom">24dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="ToolBarStyle" parent="ToolBarStyle.Base"/>
+
+    <style name="ToolBarStyle.Base" parent="">
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="theme">@style/ActionBarStyle</item>
+    </style>
+
+    <style name="ActionBarStyle" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:tint">@color/colorWhite</item>
+        <item name="android:drawableTint">@color/colorWhite</item>
+    </style>
+    
+    <style name="toolbar_page_title">
+        <item name="fontPath">fonts/SourceSansPro-Regular.ttf</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/textWhite</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="toolbar_section_title">
+        <item name="fontPath">fonts/SourceSansPro-Regular.ttf</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/textWhite</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="toolbar_section_title_tablet">
+        <item name="fontPath">fonts/SourceSansPro-SemiBold.ttf</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/textBlack</item>
+        <!--<item name="android:textStyle">bold</item>-->
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="document_item_date_and_name">
+        <item name="android:textSize">12dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/textBlack</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="document_item_document_name">
+        <item name="android:textSize">18dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/textBlack</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="document_item_document_type">
+        <item name="android:textSize">12dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/textBlack</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="section_title">
+        <item name="fontPath">fonts/SourceSansPro-Regular.ttf</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/textWhite</item>
+    </style>
+
+    <style name="modale_title">
+        <item name="fontPath">fonts/SourceSansPro-SemiBold.ttf</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/textDarkGrey</item>
+    </style>
+
+    <style name="link_to_page">
+        <item name="fontPath">fonts/SourceSansPro-Regular.ttf</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/colorBlue</item>
+		<item name="android:background"
+        >@android:color/transparent</item>
+        <item name="android:gravity">left|center_vertical</item>
+    </style>
+
+    <style name="confirm_page">
+        <item name="fontPath">fonts/SourceSansPro-SemiBold.ttf</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">34sp</item>
+        <item name="android:textColor">@color/textDarkGrey</item>
+    </style>
+
+    <style name="blue_button">
+        <item name="fontPath">fonts/SourceSansPro-SemiBold.ttf</item>
+        <item name="android:background">@drawable/selector_blue_button_background</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">65dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/textWhite</item>
+    </style>
+
+    <style name="input_text_label">
+        <item name="fontPath">fonts/SourceSansPro-Regular.ttf</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/textLabel</item>
+    </style>
+
+    <style name="input_text">
+        <item name="fontPath">fonts/SourceSansPro-Regular.ttf</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/textDarkGrey</item>
+    </style>
+	
+    <style name="input_text_for_textview" parent="input_text">
+		<item name="android:background">?attr/editTextBackground</item>
+	</style>	
+
+    <style name="link_password">
+        <item name="fontPath">fonts/SourceSansPro-SemiBold.ttf</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorBlue</item>
+    </style>
+
+    <style name="link_pin">
+        <item name="fontPath">fonts/SourceSansPro-SemiBold.ttf</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/textLabel</item>
+    </style>
+
+    <style name="link_otp">
+        <item name="fontPath">fonts/SourceSansPro-Bold.ttf</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/colorBlue</item>
+    </style>
+
+    <style name="list_sender">
+        <item name="fontPath">fonts/SourceSansPro-Regular.ttf</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/textDarkGrey</item>
+    </style>
+
+    <style name="list_document_name">
+        <item name="fontPath">fonts/SourceSansPro-Regular.ttf</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/textDarkGrey</item>
+    </style>
+
+     <style name="list_document_button">
+        <item name="fontPath">fonts/SourceSansPro-SemiBold.ttf</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/textBlack</item>
+    </style>
+    
+    <style name="drawer_quit_menu_style" parent="list_document_name">
+        <item name="android:drawableLeft">@drawable/ic_ico_logout</item>
+        <item name="android:drawablePadding">16dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:text">@string/navigation_drawer_quit</item>
+    </style>
+
+    <style name="list_document_description">
+        <item name="fontPath">fonts/SourceSansPro-SemiBold.ttf</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/textDarkGrey</item>
+    </style>
+
+    <style name="list_icon_description">
+        <item name="fontPath">fonts/SourceSansPro-Bold.ttf</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/iconDescription</item>
+    </style>
+
+    <style name="details_page_label">
+        <item name="fontPath">fonts/SourceSansPro-Bold.ttf</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/textDarkGrey</item>
+    </style>
+
+    <style name="details_page_document_name">
+        <item name="fontPath">fonts/SourceSansPro-Regular.ttf</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/textDarkGrey</item>
+    </style>
+
+    <style name="details_page_details">
+        <item name="fontPath">fonts/SourceSansPro-Regular.ttf</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/textDarkGrey</item>
+    </style>
+
+    <style name="details_page_input">
+        <item name="fontPath">fonts/SourceSansPro-Regular.ttf</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/textDarkGrey</item>
+		<item name="android:singleLine">true</item>
+    </style>
+
+    <style name="details_page_multiline_input">
+        <item name="fontPath">fonts/SourceSansPro-Regular.ttf</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/textDarkGrey</item>
+        <item name="android:singleLine">false</item>
+    </style>
+
+    <style name="details_custom_navigation_view">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontPath">fonts/SourceSansPro-Regular.ttf</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/selector_navigation_view_text</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:lines">1</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:paddingLeft">24dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:drawablePadding">16dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:drawableTint">@drawable/bottom_navigation_view_item</item>
+        <item name="android:button">@null</item>
+    </style>
+
+    <style name="empty_list_model_view">
+        <item name="fontPath">fonts/SourceSansPro-Regular.ttf</item>
+        <item name="android:textColor">@color/textBlack</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    
+    <style name="actiondialog_item" parent="link_to_page">
+        <item name="android:paddingTop">@dimen/small_margin</item>
+        <item name="android:paddingLeft">@dimen/small_margin</item>
+        <item name="android:paddingRight">@dimen/small_margin</item>
+        <item name="android:paddingBottom">@dimen/small_margin</item>
+    </style>
+
+    <style name="input_text_for_edittext" parent="input_text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="customadministrationview_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="search_note_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">24dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="fontPath">fonts/SourceSansPro-Regular.ttf</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/textBlack</item>
+    </style>   
+
+    <style name="link_not_remember_pin">
+        <item name="fontPath">fonts/SourceSansPro-Bold.ttf</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    
+</resources>

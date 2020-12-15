@@ -1,1 +1,0 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AttachmentInlineSaver.aspx.cs" Inherits="NttDataWA.Document.AttachmentInlineSaver" %>

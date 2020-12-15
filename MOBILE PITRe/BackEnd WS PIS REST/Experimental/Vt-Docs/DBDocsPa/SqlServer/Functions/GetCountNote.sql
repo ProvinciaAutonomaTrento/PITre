@@ -1,0 +1,35 @@
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+CREATE  FUNCTION @db_user.GetCountNote (@tipoOggetto char(1), @idOggetto int, @note nvarchar(2000), @idUtente int, @idGruppo int)
+RETURNS int AS
+BEGIN
+
+DECLARE @noteCompl varchar(2000)
+
+SET @noteCompl = '%' + @note + '%'
+
+RETURN
+(
+SELECT COUNT(SYSTEM_ID)
+FROM   DPA_NOTE N
+WHERE  N.TIPOOGGETTOASSOCIATO = @tipoOggetto AND
+N.IDOGGETTOASSOCIATO = @idOggetto AND
+N.TESTO LIKE @noteCompl AND
+(N.TIPOVISIBILITA = 'T' OR
+(N.TIPOVISIBILITA = 'P' AND N.IDUTENTECREATORE = @idUtente) OR
+(N.TIPOVISIBILITA = 'R' AND N.IDRUOLOCREATORE = @idGruppo))
+)
+END
+
+
+GO
+
+
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO

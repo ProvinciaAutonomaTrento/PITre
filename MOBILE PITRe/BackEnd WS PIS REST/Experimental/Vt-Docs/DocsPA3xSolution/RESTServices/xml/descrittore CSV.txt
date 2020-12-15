@@ -1,0 +1,100 @@
+------------------------------------------
+Formato file CSF per caricamento titolario
+------------------------------------------
+
+Carattere separatore:
+
+;
+
+Formato del file:
+
+TIPO;CODICE;DESCRIZIONE;LEGAME
+
+Dove:
+
+TIPO -> specifica il tipo del nodo
+
+T  -> Nodo di titolario
+FG -> Fascicolo generale
+FP -> Fascicolo Procedimentale
+F  -> Folder
+
+CODICE -> specifica il codice del nodo
+
+E' una stringa che ammette caratteri alfanumerici + il carattere '_'. Deve essere univoco.
+
+DESCRIZIONE -> specifica una descrizione del nodo
+
+E' una stringa che non deve contere il carattere ';'.
+
+LEGAME -> specifica un legame figlio-padre. 
+
+E' una stringa che contiene il codice del padre del nodo corrente.
+Se il nodo è di primo livello deve contenere il valore 0.
+
+Esempio:
+
+T;T1;Titolario 1;0			-> definisce il nodo titolario T1, di primo livello
+T;T1.1;Titolario 1.1;T1		-> definisce il nodo titolario T1.1, figlio di T1
+
+I legami padre-figlio ammessi sono:
+
+Nodo T  ->  Figlio di T
+Nodo FG ->  Figlio di T
+Nodo FP ->  Figlio di T
+Nodo F  ->  Figlio di FG
+Nodo F  ->  Figlio di FP
+Nodo F  ->  Figlio di F
+
+
+-------------------------------------------
+Formato file CSF per caricamento oggettario
+-------------------------------------------
+
+Formato del file:
+
+DESCRIZIONE
+
+Dove:
+
+DESCRIZIONE -> Specifica il testo dell'oggetto.
+
+Esempio:
+
+Comunicazione proposta per l'inserzione pubblicitaria nella pubblicazione 'Governi locali'
+
+
+
+
+---------------------------------------------------
+Formato file CSF per caricamento dei corrispondenti
+---------------------------------------------------
+
+Carattere separatore: 
+
+;
+
+Formato del file:
+
+CODICE RUBRICA;DESCRIZIONE;CODICE;COGNOME;NOME;INDIRIZZO;CITTA;CAP;PROVINCIA;NAZIONE;CODICE FISCALE;TELEFONO;TELEFONO2;FAX
+
+Dove:
+
+CODICE RUBRICA	-> Stringa alfanumerica o carattere underscore. Puo' essere uguale al campo CODICE.
+DESCRIZIONE		-> Stringa che non ammette il carattere ';'
+CODICE			-> Stringa alfanumerica o carattere underscore. Puo' essere uguale al campo CODICE RUBRICA.
+COGNOME			-> Stringa che non ammette il carattere ';'
+NOME			-> Stringa che non ammette il carattere ';'
+INDIRIZZO		-> Stringa che non ammette il carattere ';'
+CITTA			-> Stringa che non ammette il carattere ';'
+CAP				-> Stringa numerica
+PROVINCIA		-> Sigla della provincia. Stringa alfanumerica di due caratteri
+NAZIONE			-> Nome della nazione. Stringa che non ammette il carattere ';'
+CODICE FISCALE	-> Stringa alfanumerica di 16 caratteri
+TELEFONO		-> Stringa numerica
+TELEFONO2		-> Stringa numerica
+FAX				-> Stringa numerica
+
+Esempio:
+
+PROT-COM;Protocollista Comitato Regionale per le Comunicazioni;PROT-COM12;Rossi;Mario;via Roma, 15B;Milano;20122;MI;Italia;RSSMRS76B12H127C;0211122233;0211122244;0211122255

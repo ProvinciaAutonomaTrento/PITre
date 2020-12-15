@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent" >
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView_favoritesList"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:choiceMode="singleChoice"
+        android:background="@android:color/background_light"
+        android:divider="@null" />
+  
+    <RelativeLayout
+        android:id="@+id/empty_list_layout"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
+        <TextView
+                android:id="@+id/empty_list_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/empty_list_model_view"/>
+        
+    </RelativeLayout>
+        
+
+</FrameLayout>

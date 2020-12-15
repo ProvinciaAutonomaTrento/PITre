@@ -1,1 +1,0 @@
-<%@ Page language="c#" Codebehind="CheckInPage.aspx.cs" AutoEventWireup="false" Inherits="NttDataWA.CheckInOutApplet.CheckInPage" %>

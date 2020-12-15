@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Questo file viene usato dal processo di pubblicazione/creazione pacchetto del progetto Web. È possibile personalizzare il comportamento del processo
+modificando il file MSBuild. Per altre informazioni su questo argomento, vedere https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Sviluppo\Publish\EXPRest</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/ActiveUp.Net.Common.dll">
+      <publishTime>10/22/2019 09:33:05</publishTime>
+    </File>
+    <File Include="bin/ActiveUp.Net.Dns.dll">
+      <publishTime>10/22/2019 09:33:05</publishTime>
+    </File>
+    <File Include="bin/ActiveUp.Net.Imap4.dll">
+      <publishTime>10/22/2019 09:33:05</publishTime>
+    </File>
+    <File Include="bin/ActiveUp.Net.Pop3.dll">
+      <publishTime>10/22/2019 09:33:05</publishTime>
+    </File>
+    <File Include="bin/ActiveUp.Net.Smtp.dll">
+      <publishTime>10/22/2019 09:33:05</publishTime>
+    </File>
+    <File Include="bin/AODL.dll">
+      <publishTime>10/22/2019 09:32:56</publishTime>
+    </File>
+    <File Include="bin/Aspose.Pdf.dll">
+      <publishTime>10/22/2019 09:33:10</publishTime>
+    </File>
+    <File Include="bin/Aspose.Slides.dll">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+    <File Include="bin/BouncyCastle.Crypto.dll">
+      <publishTime>10/22/2019 09:32:57</publishTime>
+    </File>
+    <File Include="bin/BusinessLogic.dll">
+      <publishTime>11/18/2020 10:51:07</publishTime>
+    </File>
+    <File Include="bin/BusinessLogic.dll.config">
+      <publishTime>10/22/2019 09:32:36</publishTime>
+    </File>
+    <File Include="bin/BusinessLogic.pdb">
+      <publishTime>11/03/2020 10:40:50</publishTime>
+    </File>
+    <File Include="bin/ChilkatDotNet46.dll">
+      <publishTime>12/21/2018 14:43:52</publishTime>
+    </File>
+    <File Include="bin/DocsPaAS400.dll">
+      <publishTime>11/18/2020 10:50:59</publishTime>
+    </File>
+    <File Include="bin/DocsPaAS400.pdb">
+      <publishTime>10/30/2020 10:41:12</publishTime>
+    </File>
+    <File Include="bin/DocsPaDB.dll">
+      <publishTime>11/18/2020 10:50:58</publishTime>
+    </File>
+    <File Include="bin/DocsPaDB.pdb">
+      <publishTime>10/30/2020 10:41:11</publishTime>
+    </File>
+    <File Include="bin/DocsPaDB.Transactions.dll">
+      <publishTime>11/18/2020 10:50:55</publishTime>
+    </File>
+    <File Include="bin/DocsPaDB.Transactions.pdb">
+      <publishTime>11/18/2020 10:50:55</publishTime>
+    </File>
+    <File Include="bin/DocsPaDbManagement_ORACLE.dll">
+      <publishTime>11/18/2020 10:50:56</publishTime>
+    </File>
+    <File Include="bin/DocsPaDbManagement_ORACLE.pdb">
+      <publishTime>10/30/2020 10:41:08</publishTime>
+    </File>
+    <File Include="bin/DocsPaDbManagement_SQLSERVER.dll">
+      <publishTime>11/18/2020 10:50:56</publishTime>
+    </File>
+    <File Include="bin/DocsPaDbManagement_SQLSERVER.pdb">
+      <publishTime>10/30/2020 10:41:08</publishTime>
+    </File>
+    <File Include="bin/DocsPaDigitalSignature.dll">
+      <publishTime>11/18/2020 10:51:01</publishTime>
+    </File>
+    <File Include="bin/DocsPaDigitalSignature.dll.config">
+      <publishTime>10/22/2019 09:32:40</publishTime>
+    </File>
+    <File Include="bin/DocsPaDigitalSignature.pdb">
+      <publishTime>10/30/2020 10:41:15</publishTime>
+    </File>
+    <File Include="bin/DocsPaDigitalSignature.XmlSerializers.dll">
+      <publishTime>11/18/2020 10:51:02</publishTime>
+    </File>
+    <File Include="bin/DocsPaDocumentale.dll">
+      <publishTime>11/18/2020 10:51:04</publishTime>
+    </File>
+    <File Include="bin/DocsPaDocumentale.pdb">
+      <publishTime>11/18/2020 10:51:04</publishTime>
+    </File>
+    <File Include="bin/DocsPaDocumentale_CDC.dll">
+      <publishTime>11/18/2020 10:51:04</publishTime>
+    </File>
+    <File Include="bin/DocsPaDocumentale_CDC.pdb">
+      <publishTime>11/18/2020 10:51:04</publishTime>
+    </File>
+    <File Include="bin/DocsPaDocumentale_CDC_SP.dll">
+      <publishTime>11/18/2020 10:51:03</publishTime>
+    </File>
+    <File Include="bin/DocsPaDocumentale_CDC_SP.pdb">
+      <publishTime>11/18/2020 10:51:03</publishTime>
+    </File>
+    <File Include="bin/DocsPaDocumentale_DOCUMENTUM.dll">
+      <publishTime>11/18/2020 10:51:01</publishTime>
+    </File>
+    <File Include="bin/DocsPaDocumentale_DOCUMENTUM.dll.config">
+      <publishTime>10/22/2019 09:32:43</publishTime>
+    </File>
+    <File Include="bin/DocsPaDocumentale_DOCUMENTUM.pdb">
+      <publishTime>11/18/2020 10:51:01</publishTime>
+    </File>
+    <File Include="bin/DocsPaDocumentale_ETDOCS.dll">
+      <publishTime>11/18/2020 10:51:02</publishTime>
+    </File>
+    <File Include="bin/DocsPaDocumentale_ETDOCS.pdb">
+      <publishTime>10/30/2020 10:41:15</publishTime>
+    </File>
+    <File Include="bin/DocsPaDocumentale_Interfaces.dll">
+      <publishTime>11/18/2020 10:50:55</publishTime>
+    </File>
+    <File Include="bin/DocsPaDocumentale_Interfaces.pdb">
+      <publishTime>11/18/2020 10:50:55</publishTime>
+    </File>
+    <File Include="bin/DocsPaDocumentale_OCS.dll">
+      <publishTime>11/18/2020 10:51:01</publishTime>
+    </File>
+    <File Include="bin/DocsPaDocumentale_OCS.dll.config">
+      <publishTime>10/22/2019 09:32:45</publishTime>
+    </File>
+    <File Include="bin/DocsPaDocumentale_OCS.pdb">
+      <publishTime>11/18/2020 10:51:01</publishTime>
+    </File>
+    <File Include="bin/DocsPaDocumentale_OCS.XmlSerializers.dll">
+      <publishTime>11/18/2020 10:51:03</publishTime>
+    </File>
+    <File Include="bin/DocsPaDocumentale_PITRE.dll">
+      <publishTime>11/18/2020 10:51:03</publishTime>
+    </File>
+    <File Include="bin/DocsPaDocumentale_PITRE.pdb">
+      <publishTime>11/18/2020 10:51:03</publishTime>
+    </File>
+    <File Include="bin/DocsPaDocumentale_SP.dll">
+      <publishTime>11/18/2020 10:50:59</publishTime>
+    </File>
+    <File Include="bin/DocsPaDocumentale_SP.dll.config">
+      <publishTime>10/22/2019 09:32:45</publishTime>
+    </File>
+    <File Include="bin/DocsPaDocumentale_SP.pdb">
+      <publishTime>11/18/2020 10:50:59</publishTime>
+    </File>
+    <File Include="bin/DocsPaDocumentale_SP.XmlSerializers.dll">
+      <publishTime>11/18/2020 10:51:01</publishTime>
+    </File>
+    <File Include="bin/DocsPaLdapServices.dll">
+      <publishTime>11/18/2020 10:50:59</publishTime>
+    </File>
+    <File Include="bin/DocsPaLdapServices.pdb">
+      <publishTime>11/18/2020 10:50:59</publishTime>
+    </File>
+    <File Include="bin/DocsPaPwdServices.dll">
+      <publishTime>11/18/2020 10:50:59</publishTime>
+    </File>
+    <File Include="bin/DocsPaPwdServices.pdb">
+      <publishTime>11/18/2020 10:50:59</publishTime>
+    </File>
+    <File Include="bin/DocsPaRESTWS.dll">
+      <publishTime>11/18/2020 10:51:10</publishTime>
+    </File>
+    <File Include="bin/DocsPaRESTWS.pdb">
+      <publishTime>11/18/2020 10:51:10</publishTime>
+    </File>
+    <File Include="bin/DocsPaUtils.dll">
+      <publishTime>11/18/2020 10:50:54</publishTime>
+    </File>
+    <File Include="bin/DocsPaUtils.pdb">
+      <publishTime>10/30/2020 10:41:07</publishTime>
+    </File>
+    <File Include="bin/DocsPaVO.dll">
+      <publishTime>11/18/2020 10:50:53</publishTime>
+    </File>
+    <File Include="bin/DocsPaVO.pdb">
+      <publishTime>10/30/2020 10:41:06</publishTime>
+    </File>
+    <File Include="bin/DocsPa_I_TSAuthority.dll">
+      <publishTime>11/18/2020 10:50:54</publishTime>
+    </File>
+    <File Include="bin/DocsPa_I_TSAuthority.pdb">
+      <publishTime>11/18/2020 10:50:54</publishTime>
+    </File>
+    <File Include="bin/DPA.Common.dll">
+      <publishTime>10/22/2019 09:32:57</publishTime>
+    </File>
+    <File Include="bin/Emc.Documentum.FS.DataModel.Core.dll">
+      <publishTime>10/22/2019 09:33:02</publishTime>
+    </File>
+    <File Include="bin/Emc.Documentum.FS.DataModel.Shared.dll">
+      <publishTime>10/22/2019 09:33:02</publishTime>
+    </File>
+    <File Include="bin/Emc.Documentum.FS.Runtime.dll">
+      <publishTime>10/22/2019 09:33:02</publishTime>
+    </File>
+    <File Include="bin/Emc.Documentum.FS.Services.Core.dll">
+      <publishTime>10/22/2019 09:33:02</publishTime>
+    </File>
+    <File Include="bin/Emc.Documentum.FS.Services.Search.dll">
+      <publishTime>10/22/2019 09:33:02</publishTime>
+    </File>
+    <File Include="bin/ExcelXmlWriter.dll">
+      <publishTime>10/22/2019 09:32:38</publishTime>
+    </File>
+    <File Include="bin/FileTypeFinder.dll">
+      <publishTime>10/22/2019 09:32:57</publishTime>
+    </File>
+    <File Include="bin/FullTextIndexingServices.dll">
+      <publishTime>11/18/2020 10:50:53</publishTime>
+    </File>
+    <File Include="bin/FullTextIndexingServices.dll.config">
+      <publishTime>10/22/2019 09:32:50</publishTime>
+    </File>
+    <File Include="bin/FullTextIndexingServices.pdb">
+      <publishTime>10/30/2020 10:41:05</publishTime>
+    </File>
+    <File Include="bin/FullTextIndexingServices.XmlSerializers.dll">
+      <publishTime>11/18/2020 10:50:54</publishTime>
+    </File>
+    <File Include="bin/ICSharpCode.SharpZipLib.dll">
+      <publishTime>10/22/2019 09:32:57</publishTime>
+    </File>
+    <File Include="bin/InfoCertSignerConnector.dll">
+      <publishTime>11/18/2020 10:50:53</publishTime>
+    </File>
+    <File Include="bin/InfoCertSignerConnector.dll.config">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+    <File Include="bin/InfoCertSignerConnector.pdb">
+      <publishTime>11/18/2020 10:50:53</publishTime>
+    </File>
+    <File Include="bin/InlineConverterEngine.Proxy.dll">
+      <publishTime>11/18/2020 10:50:53</publishTime>
+    </File>
+    <File Include="bin/InlineConverterEngine.Proxy.pdb">
+      <publishTime>11/18/2020 10:50:53</publishTime>
+    </File>
+    <File Include="bin/Interoperability.Controller.dll">
+      <publishTime>10/22/2019 09:33:04</publishTime>
+    </File>
+    <File Include="bin/Interoperability.Controller.pdb">
+      <publishTime>10/22/2019 09:33:04</publishTime>
+    </File>
+    <File Include="bin/Interoperability.Domain.dll">
+      <publishTime>10/22/2019 09:33:04</publishTime>
+    </File>
+    <File Include="bin/Interoperability.Domain.pdb">
+      <publishTime>10/22/2019 09:33:04</publishTime>
+    </File>
+    <File Include="bin/Interoperability.Interfaces.dll">
+      <publishTime>10/22/2019 09:33:04</publishTime>
+    </File>
+    <File Include="bin/Interoperability.Interfaces.pdb">
+      <publishTime>10/22/2019 09:33:04</publishTime>
+    </File>
+    <File Include="bin/Interoperability.ProofGenerator.dll">
+      <publishTime>10/22/2019 09:33:04</publishTime>
+    </File>
+    <File Include="bin/Interoperability.ProofGenerator.pdb">
+      <publishTime>10/22/2019 09:33:04</publishTime>
+    </File>
+    <File Include="bin/Interoperability.Service.Library.dll">
+      <publishTime>10/22/2019 09:33:04</publishTime>
+    </File>
+    <File Include="bin/Interoperability.Service.Library.pdb">
+      <publishTime>10/22/2019 09:33:04</publishTime>
+    </File>
+    <File Include="bin/itextsharp.dll">
+      <publishTime>10/22/2019 09:32:58</publishTime>
+    </File>
+    <File Include="bin/LiveCycle.dll">
+      <publishTime>11/18/2020 10:51:01</publishTime>
+    </File>
+    <File Include="bin/LiveCycle.dll.config">
+      <publishTime>10/22/2019 09:32:50</publishTime>
+    </File>
+    <File Include="bin/LiveCycle.pdb">
+      <publishTime>11/18/2020 10:51:01</publishTime>
+    </File>
+    <File Include="bin/LiveCycle.XmlSerializers.dll">
+      <publishTime>11/18/2020 10:51:02</publishTime>
+    </File>
+    <File Include="bin/log4net.dll">
+      <publishTime>10/22/2019 09:32:58</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.Odbc.dll">
+      <publishTime>10/22/2019 09:32:58</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>10/22/2019 09:33:11</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>10/22/2019 09:33:11</publishTime>
+    </File>
+    <File Include="bin/PDFLinearizator.dll">
+      <publishTime>10/22/2019 09:33:04</publishTime>
+    </File>
+    <File Include="bin/RubricaComune.Proxy.dll">
+      <publishTime>11/18/2020 10:50:53</publishTime>
+    </File>
+    <File Include="bin/RubricaComune.Proxy.pdb">
+      <publishTime>11/18/2020 10:50:53</publishTime>
+    </File>
+    <File Include="bin/RubricaComune.Proxy.XmlSerializers.dll">
+      <publishTime>11/18/2020 10:50:54</publishTime>
+    </File>
+    <File Include="bin/SdiConnector.dll">
+      <publishTime>11/18/2020 10:50:55</publishTime>
+    </File>
+    <File Include="bin/SdiConnector.dll.config">
+      <publishTime>10/22/2019 09:32:50</publishTime>
+    </File>
+    <File Include="bin/SdiConnector.pdb">
+      <publishTime>11/18/2020 10:50:55</publishTime>
+    </File>
+    <File Include="bin/StampaPDF.dll">
+      <publishTime>11/18/2020 10:50:55</publishTime>
+    </File>
+    <File Include="bin/StampaPDF.dll.config">
+      <publishTime>10/22/2019 09:32:45</publishTime>
+    </File>
+    <File Include="bin/StampaPDF.pdb">
+      <publishTime>10/30/2020 10:41:08</publishTime>
+    </File>
+    <File Include="bin/Swashbuckle.Core.dll">
+      <publishTime>10/22/2019 09:33:13</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>10/22/2019 09:33:10</publishTime>
+    </File>
+    <File Include="bin/System.Web.Cors.dll">
+      <publishTime>10/22/2019 09:33:09</publishTime>
+    </File>
+    <File Include="bin/System.Web.dll">
+      <publishTime>11/05/2015 19:36:48</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>10/22/2019 09:33:10</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.Cors.dll">
+      <publishTime>10/22/2019 09:33:10</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>10/22/2019 09:33:10</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>10/22/2019 09:33:10</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>10/22/2019 09:33:09</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>10/22/2019 09:33:09</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>10/22/2019 09:33:10</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>10/22/2019 09:33:10</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>10/22/2019 09:33:10</publishTime>
+    </File>
+    <File Include="bin/WebActivatorEx.dll">
+      <publishTime>10/22/2019 09:33:12</publishTime>
+    </File>
+    <File Include="bin/WebApiSwagger.XML">
+      <publishTime>11/18/2020 10:51:10</publishTime>
+    </File>
+    <File Include="downloadApp.html">
+      <publishTime>10/22/2019 09:33:05</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>10/22/2019 09:33:05</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>10/22/2019 09:33:05</publishTime>
+    </File>
+    <File Include="share.aspx">
+      <publishTime>10/22/2019 09:33:05</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>11/18/2020 10:53:11</publishTime>
+    </File>
+    <File Include="xml/Dati.xml">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+    <File Include="xml/daticert.dtd">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+    <File Include="xml/descrittore CSV.txt">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+    <File Include="xml/ImportExportQueryList.xml">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+    <File Include="xml/labelPDF.xml">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+    <File Include="xml/listaIstanze.xml">
+      <publishTime>10/30/2020 10:24:36</publishTime>
+    </File>
+    <File Include="xml/logger.xsl">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+    <File Include="xml/oracleSequenceMaps.xml">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+    <File Include="xml/queryListStyle.xsl">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+    <File Include="xml/queryList_Oracle.xml">
+      <publishTime>01/28/2020 12:08:14</publishTime>
+    </File>
+    <File Include="xml/queryList_Sql.xml">
+      <publishTime>01/28/2020 12:08:14</publishTime>
+    </File>
+    <File Include="xml/rapporti.xml">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+    <File Include="xml/Segnatura.dtd">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+    <File Include="xml/ServiceLoadController.xml">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+    <File Include="xml/Titolario.xml">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+    <File Include="xml/Titolario_TEMPLATE.xml">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+    <File Include="xml/Utenti.xml">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+    <File Include="xml/Utenti_TEMPLATE.xml">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+    <File Include="xml/WSLog.xml">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+    <File Include="xml/xslfo.xsl">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+    <File Include="xml/xslfo_export_archivio_cartaceo.xsl">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+    <File Include="xml/xslfo_export_conservazione.xsl">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+    <File Include="xml/xslfo_export_conservazione_policy.xsl">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+    <File Include="xml/xslfo_export_conservazione_rigIst.xsl">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+    <File Include="xml/xslfo_export_doc.xsl">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+    <File Include="xml/xslfo_export_docInCest.xsl">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+    <File Include="xml/xslfo_export_fasc.xsl">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+    <File Include="xml/xslfo_export_fasc_scarto.xsl">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+    <File Include="xml/xslfo_export_log.xsl">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+    <File Include="xml/xslfo_export_notification_center.xsl">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+    <File Include="xml/xslfo_export_todolist.xsl">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+    <File Include="xml/xslfo_export_trasm.xsl">
+      <publishTime>10/22/2019 09:33:06</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

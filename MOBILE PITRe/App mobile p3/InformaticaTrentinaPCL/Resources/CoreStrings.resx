@@ -1,0 +1,605 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </resheader>
+
+  <data name="APP_VERSION">
+    <value>v. 0.03.05</value>
+  </data>
+
+  <!--GENERIC-->
+  <data name="GENERIC_ERROR">
+    <value>Si è verificato un errore generico, si prega di riprovare</value>
+  </data>
+  <data name="SERVICE_ERROR">
+    <value>Si è verificato un errore, si prega di riprovare</value>
+  </data>
+  <data name="SSL_ERROR">
+    <value>Errore di comunicazione con il server.</value>
+  </data>
+  <data name="TOKEN_ERROR">
+    <value>Si è verificato un errore nella sessione, si pega di riprovare</value>
+  </data>
+
+  <!--LOGIN-->
+  <data name="LOGIN_ERROR_CODE_1">
+    <value>Utente o password errata</value>
+  </data>
+
+  <!--CHANGEROLE-->
+  <data name="CHANGE_ROLE_ID_ERROR">
+    <value>Non è possibile utilizzare il ruolo selezionato</value>
+  </data>
+
+  <!--ACTIONTYPE-->
+  <data name="ACTIONTYPE_ACCEPT_LABELMENU">
+    <value>Accetta</value>
+  </data>
+  <data name="ACTIONTYPE_ACCEPT_TITLEBAR">
+    <value>Accetta</value>
+  </data>
+  <data name="ACTIONTYPE_ACCEPT_DESCRIPTION">
+    <value>IL {0} CHE STAI ACCETTANDO</value>
+  </data>
+  <data name="ACTIONTYPE_ACCEPT_CONFIRMBUTTON">
+    <value>Conferma</value>
+  </data>
+  <data name="ACTIONTYPE_ACCEPT_DONETEXT">
+    <value>{0} ACCETTATO</value>
+  </data>
+  <data name="ACTIONTYPE_ACCEPT_DONEBUTTON">
+    <value>Prossimo {0}</value>
+  </data>
+
+  <data name="ACTIONTYPE_ASSIGN_LABELMENU">
+    <value>Smista</value>
+  </data>
+  <data name="ACTIONTYPE_ASSIGN_TITLEBAR">
+    <value>Smista</value>
+  </data>
+  <data name="ACTIONTYPE_ASSIGN_DESCRIPTION">
+    <value>IL {0} CHE STAI SMISTANDO</value>
+  </data>
+  <data name="ACTIONTYPE_ASSIGN_CONFIRMBUTTON">
+    <value>Conferma</value>
+  </data>
+  <data name="ACTIONTYPE_ASSIGN_DONETEXT">
+    <value>{0} SMISTATO</value>
+  </data>
+  <data name="ACTIONTYPE_ASSIGN_DONEBUTTON">
+    <value>Prossimo {0}</value>
+  </data>
+
+  <data name="ACTIONTYPE_ACCEPT_AND_ADL_LABELMENU">
+    <value>Accetta e AdL</value>
+  </data>
+  <data name="ACTIONTYPE_ACCEPT_AND_ADL_TITLEBAR">
+    <value>Accetta e AdL</value>
+  </data>
+  <data name="ACTIONTYPE_ACCEPT_AND_ADL_DESCRIPTION">
+    <value>IL {0} CHE STAI ACCETTANDO E AGGIUNGENDO ALL'ADL</value>
+  </data>
+  <data name="ACTIONTYPE_ACCEPT_AND_ADL_CONFIRMBUTTON">
+    <value>Conferma</value>
+  </data>
+  <data name="ACTIONTYPE_ACCEPT_AND_ADL_DONETEXT">
+    <value>{0} ACCETTATO</value>
+  </data>
+  <data name="ACTIONTYPE_ACCEPT_AND_ADL_DONEBUTTON">
+    <value>Prossimo {0}</value>
+  </data>
+
+  <data name="ACTIONTYPE_REFUSE_LABELMENU">
+    <value>Rifiuta</value>
+  </data>
+  <data name="ACTIONTYPE_REFUSE_TITLEBAR">
+    <value>Rifiuta</value>
+  </data>
+  <data name="ACTIONTYPE_REFUSE_DESCRIPTION">
+    <value>IL {0} CHE STAI RIFIUTANDO</value>
+  </data>
+  <data name="ACTIONTYPE_REFUSE_CONFIRMBUTTON">
+    <value>Conferma</value>
+  </data>
+  <data name="ACTIONTYPE_REFUSE_DONETEXT">
+    <value>{0} RIFIUTATO</value>
+  </data>
+  <data name="ACTIONTYPE_REFUSE_DONEBUTTON">
+    <value>Prossimo {0}</value>
+  </data>
+
+  <data name="ACTIONTYPE_SIGN_LABELMENU">
+    <value>Firma</value>
+  </data>
+  <data name="ACTIONTYPE_SIGN_TITLEBAR">
+    <value>Firma</value>
+  </data>
+  <data name="ACTIONTYPE_SIGN_DESCRIPTION">
+    <value>IL {0} CHE STAI FIRMANDO</value>
+  </data>
+  <data name="ACTIONTYPE_SIGN_CONFIRMBUTTON">
+    <value>Conferma</value>
+  </data>
+  <data name="ACTIONTYPE_SIGN_DONETEXT">
+    <value>{0} FIRMATO</value>
+  </data>
+  <data name="ACTIONTYPE_SIGN_DONEBUTTON">
+    <value>Prossimo {0}</value>
+  </data>
+
+  <data name="ACTIONTYPE_OPEN_LABELMENU">
+    <value>Apri</value>
+  </data>
+  <data name="ACTIONTYPE_SHARE_LABELMENU">
+    <value>Condividi</value>
+  </data>
+
+  <!--DELEGA-->
+  <data name="GET_LISTA_MODELLI_DELEGA_ERROR">
+    <value>Si è verificato un errore, si prega di riprovare</value>
+  </data>
+  <data name="ACTIONTYPE_MANDATE_LABELMENU">
+    <value></value>
+  </data>
+  <data name="ACTIONTYPE_MANDATE_TITLEBAR">
+    <value>Nuova Sostituzione</value>
+  </data>
+  <data name="ACTIONTYPE_MANDATE_DESCRIPTION">
+    <value></value>
+  </data>
+  <data name="ACTIONTYPE_MANDATE_CONFIRMBUTTON">
+    <value>Conferma</value>
+  </data>
+  <data name="ACTIONTYPE_MANDATE_DONETEXT">
+    <value>SOSTITUZIONE ASSEGNATA</value>
+  </data>
+  <data name="ACTIONTYPE_MANDATE_DONEBUTTON">
+    <value></value>
+  </data>
+
+  <data name="ACTIONTYPE_TRANSMISSION_ERROR">
+    <value>Errore durante l'esecuzione della trasmissione</value>
+  </data>
+
+  <data name="EFFETTUA_TRASMISSIONE_ERROR_CODE_1">
+    <value>Non è stato possibile effettuare l'assegnazione</value>
+  </data>
+
+  <data name="NEW_MANDATE_CREATION_ERROR">
+    <value>Errore durante la creazione della sostituzione. Si prega di riprovare</value>
+  </data>
+
+  <!-- BOTTOM DIALOG -->
+  <data name="BOTTOM_DIALOG_REMOVE_FROM_ADL">
+    <value>Rimuovi da ADL</value>
+  </data>
+
+  <data name="BOTTOM_DIALOG_ASSIGN">
+    <value>Smista</value>
+  </data>
+
+  <data name="BOTTOM_DIALOG_SIGN">
+    <value>Firma</value>
+  </data>
+
+  <data name="BOTTOM_DIALOG_SHARE">
+    <value>Condividi</value>
+  </data>
+
+  <data name="BOTTOM_DIALOG_ACCEPT">
+    <value>Accetta</value>
+  </data>
+
+  <data name="BOTTOM_DIALOG_ACCEPT_ADL">
+    <value>Accetta e ADL</value>
+  </data>
+
+  <data name="BOTTOM_DIALOG_REFUSE">
+    <value>Rifiuta</value>
+  </data>
+
+  <data name="BOTTOM_DIALOG_INSERT_IN_ADL">
+    <value>Inserisci in ADL</value>
+  </data>
+
+
+  <data name="DOCUMENTI">
+    <value>Documenti</value>
+  </data>
+
+  <data name="FASCICOLI">
+    <value>Fascicoli</value>
+  </data>
+  <data name="DOCUMENTO">
+    <value>Documento</value>
+  </data>
+
+  <data name="FASCICOLO">
+    <value>Fascicolo</value>
+  </data>
+
+  <data name="DA">
+    <value>Da</value>
+  </data>
+
+  <data name="A">
+    <value>a</value>
+  </data>
+
+  <data name="ERROR_TIMEOUT">
+    <value>Sono stati riscontrati problemi di connessione con il server. Si prega di riprovare.</value>
+  </data>
+
+  <data name="SET_FAVORITE_ERROR">
+    <value>Errore nel salvataggio del preferito.</value>
+  </data>
+
+  <data name="MALFORMED_SHARE_URL_ERROR">
+    <value>L'url ricevuto non è corretto.</value>
+  </data>
+
+  <data name="SHARED_DOCUMENT_WRONG_USER">
+    <value>Questo utente non è autorizzato alla visualizzazione.</value>
+  </data>
+
+  <data name="SHARED_DOCUMENT_EXPIRED_TOKEN">
+    <value>Non è possibile visualizzare il documento, il link è scaduto.</value>
+  </data>
+
+  <data name="MESSAGE_NO_DOCUMENT_ASSOCIATE">
+    <value>Non vi è alcun documento associato al documento principale</value>
+  </data>
+
+  <data name="SHARE_MESSAGE">
+    <value>Ciao, ho condiviso con te un documento. Clicca qui da smartphone o tablet {0} Se non hai scaricato l'App sul
+      tuo dispositivo, clicca qui: {1}
+    </value>
+  </data>
+
+  <data name="SEARCH_STRING_TOO_SHORT">
+    <value>Il campo di ricerca inserito è troppo corto. Inserisci almeno 3 caratteri</value>
+  </data>
+
+  <data name="EMPTY_LIST_MODEL">
+    <value>La lista modelli è vuota.</value>
+  </data>
+
+  <data name="EMPTY_LIST_FAVORITE">
+    <value>La lista preferiti è vuota.</value>
+  </data>
+
+  <data name="EMPTY_LIST_ROLE">
+    <value>Non sono presenti ruoli.</value>
+  </data>
+
+
+  <data name="EMPTY_LIST_RESULT">
+    <value>Nessun risultato presente</value>
+  </data>
+
+  <data name="SELEZIONA_RAGIONE">
+    <value>Seleziona Ragione +</value>
+  </data>
+
+  <data name="AGGIUNTO_IN_ADL">
+    <value>{0} aggiunto in ADL</value>
+  </data>
+
+  <data name="RIMOSSO_DA_ADL">
+    <value>{0} rimosso da ADL</value>
+  </data>
+
+  <data name="ON_SEARCH_ERROR">
+    <value>Si è verificato un errore nella ricerca effettuata</value>
+  </data>
+
+  <data name="EMPTY_LIST_SEARCH">
+    <value>Non ci sono elementi per la ricerca effettuata</value>
+  </data>
+
+  <data name="MANDATE_OVERLAP">
+    <value>Nell'arco di tempo selezionato sono presenti delle deleghe sovrapposte</value>
+  </data>
+
+  <data name="UNDEFINED_END_DATE_MANDATE">
+    <value>01/01/0001</value>
+  </data>
+
+  <data name="CHOOSE_ASSIGNEE">
+    Seleziona sostituto +
+  </data>
+  <data name="CHOOSE_ASSIGNEE_AND_MANDATE">
+    Seleziona sostituto o usa modello +
+  </data>
+  <data name="CHOOSE_ASSIGNEE_AND_MANDATE_SMISTA_SECTION">
+    Seleziona ruolo o usa modello +
+  </data>
+  <data name="CHOOSE_ASSIGNEE_ROLE">
+    Seleziona il ruolo del sostituto +
+  </data>
+
+  <!--ALERT-->
+  <data name="OK_BUTTON">
+    OK
+  </data>
+
+  <data name="TITLE_ALERT">
+    Attenzione
+  </data>
+
+  <!--CHANGE USER IMAGE-->
+  <data name="LABEL_USE_CAMERA">
+    Fotocamera
+  </data>
+  <data name="LABEL_USE_GALLERY">
+    Galleria
+  </data>
+  <data name="LABEL_CANCEL">
+    Annulla
+  </data>
+  <data name="SELECT_USER_IMAGE">
+    Scegli immagine da:
+  </data>
+  <data name="LABEL_REMOVE_IMAGE">
+    Rimuovi
+  </data>
+  <data name="ERROR_USING_WRONG_FORMAT">
+    Riprova utilizzando un formato corretto
+  </data>
+
+  <!--PLACEHOLDERS-->
+  <data name="PLACEHOLDER_NOTES_ACCETTA">
+    Note da inserire
+  </data>
+  <data name="PLACEHOLDER_NOTES_ACCETTA_E_ADL">
+    Note da inserire
+  </data>
+  <data name="PLACEHOLDER_NOTES_RIFIUTA">
+    Note da inserire*
+  </data>
+  <data name="PLACEHOLDER_SEARCH_OPEN_FASC">
+    Cerca in {0}
+  </data>
+  <data name="PLACEHOLDER_SEARCH_ASSIGNEE">
+    Cerca
+  </data>
+  <data name="PLACEHOLDER_NOTES_ASSIGN">
+    Note
+  </data>
+
+  <data name="BOTTOM_DIALOG_VIEWED">
+    Visto
+  </data>
+    
+  <data name="BOTTOM_DIALOG_VIEWED_ADL">
+    Visto e ADL
+  </data>
+
+  <data name="VIEWED">
+    Conferma presa visione inviata correttamente
+  </data>
+    
+  <data name="VIEWED_AND_ADL">
+    Conferma presa visione inviata correttamente e aggiunto in ADL
+  </data>
+
+  <data name="CANCEL_DOWNLOAD">
+    Vuoi interrompere il download del documento corrente?
+  </data>
+  <data name="CANCEL_ACTION">
+    Continua
+  </data>
+  <data name="DONE_ACTION">
+    Interrompi
+  </data>
+
+  <!-- Stringa usata su iOS. In android è nelle Strings.xml -->
+  <data name="DESCRIPTION_SEARCH_SELECT_ASSIGNABLE">
+    Scegli un modello o un ruolo preferito. In alternativa puoi effettuare una ricerca
+  </data>
+
+  <!-- Stringa usata su iOS. In android è nelle Strings.xml -->
+  <data name="DESCRIPTION_SEARCH_SELECT_DELEGATE">
+    Scegli uno tra i tuoi preferiti, o in alternativa effettua una ricerca
+  </data>
+
+  <!-- Stringa usata su iOS. In android è nelle Strings.xml -->
+  <data name="DESCRIPTION_SEARCH_TO_SHARE">
+    Scegli uno tra i tuoi preferiti, o in alternativa effettua una ricerca
+  </data>
+
+  <!--Sign or reject documents-->
+  <data name="BOTTOM_SIGN_ALL">
+    <value>FIRMA TUTTI</value>
+  </data>
+  <data name="BOTTOM_REJECT_ALL">
+    <value>RESPINGI TUTTI</value>
+  </data>
+
+  <data name="DESCRIPTION_SIGN_COMPLETED">
+    <value>#newline# Hai firmato {0} elementi</value>
+  </data>
+
+  <data name="DESCRIPTION_SIGN_COMPLETED_WITH_OTP">
+    <value>#newline# Hai firmato {0} elementi con OTP</value>
+  </data>
+
+  <data name="DESCRIPTION_SIGN_COMPLETED_AND_SIGN_WITH_OTP">
+    <value>#newline# Hai firmato {0} elementi con OTP</value>
+  </data>
+
+  <data name="DESCRIPTION_REJECT_COMPLETED">
+    <value>#newline# Hai respinto {0} elementi</value>
+  </data>
+  <data name="TITLE_DESCRIPTION_ACTION_COMPLETED">
+    <value>OPERAZIONE COMPLETATA</value>
+  </data>
+  <data name="ACTIONTYPE_SIGN_WITH_OTP_TITLEBAR">
+    <value>Firma Documenti</value>
+  </data>
+  <data name="MESSAGE_NO_DOCUMENT_FOR_SIGN">
+    <value>Per proseguire seleziona almeno un documento da firmare</value>
+  </data>
+  <data name="MESSAGE_NO_DOCUMENT_FOR_REJECT">
+    <value>Per proseguire seleziona almeno un documento da respingere</value>
+  </data>
+  <data name="MESSAGE_NUMBER_DOCUMENTS_SIGN_CADES">
+    <value>{0} document{1} con firma CADES</value>
+  </data>
+  <data name="MESSAGE_NUMBER_DOCUMENTS_SIGN_PADES">
+    <value>{0} document{1} con firma PADES</value>
+  </data>
+  <data name="MESSAGE_ERROR_DOCUMENTS_SIGN">
+    <value>Non è stato possibile eseguire l'operazione.</value>
+  </data>
+    <data name="MESSAGE_ERROR_DOCUMENTS_SIGN_CADES">
+    <value>Non è stato possibile eseguire l'operazione.</value>
+  </data>
+    <data name="MESSAGE_ERROR_DOCUMENTS_SIGN_PADES">
+    <value>Non è stato possibile eseguire l'operazione.</value>
+  </data>
+    <data name="MESSAGE_SIGN_SUCCESS">
+    <value>I documenti sono stati firmati.</value>
+  </data>
+    <data name="MESSAGE_NUMBER_DOCUMENTS_SIGN_HEADER">
+    <value>Hai selezionato:</value>
+  </data>
+    <data name="MESSAGE_NUMBER_DOCUMENTS_SIGN_FOOTER">
+    <value>Vuoi procedere?\n\n (E' possibile che vengano visualizzate più schermate di inserimento OTP)</value>
+  </data>
+  <data name="MESSAGE_NUMBER_DOCUMENTS_SIGN">
+    <value>{0} document{1} con firma elettronica</value>
+  </data>
+  <data name="MESSAGE_NUMBER_DOCUMENTS_REJECT">
+    <value>Hai selezionato {0} document{1} da respingere</value>
+  </data>
+  <data name="CADES_LABEL">
+    <value>CADES</value>
+  </data>
+  <data name="PADES_LABEL">
+    <value>PADES</value>
+  </data>
+  <data name="PDF_LABEL">
+    <value>PDF</value>
+  </data>
+  <data name="CONTINUE_ACTION">
+    Continua
+  </data>
+  <data name="DELETE_ACTION">
+    Interrompi
+  </data>
+  <data name="FILTERS_SECTION_PROTOCOL_TITLE">
+    <value>PROTOCOLLO</value>
+  </data>
+  <data name="FILTERS_SECTION_YEAR_PROTOCOL">
+    <value>Anno protocollo</value>
+  </data>
+  <data name="FILTERS_SECTION_DOCUMENT_TITLE">
+    <value>DOCUMENTO - FASCICOLO</value>
+  </data>
+  <data name="FILTERS_DOCUMENT_ID">
+    <value>ID documento</value>
+  </data>
+  <data name="FILTERS_PROTOCOL_NUMBER">
+    <value>Numero protocollo</value>
+  </data>
+  <data name="FILTERS_DOCUMENT_ID_LABEL_RESULT">
+    <value>ID documento{0}{1}</value>
+  </data>
+  <data name="FILTERS_PROTOCOL_NUMBER_LABEL_RESULT">
+    <value>Numero protocollo{0}{1}</value>
+  </data>
+  <data name="FILTERS_SECTION_YEAR_PROTOCOL_LABEL_RESULT">
+    <value>Anno protocollo{0}{1}</value>
+  </data>
+    <data name="FILTER_DATE_ERROR">
+    <value>Le date del documento devono essere specificate.</value>
+  </data>
+    <data name="FILTER_DATE_RANGE_ERROR">
+    <value>Il periodo compreso tra le date del documento dev'essere al massimo di {0} mesi.</value>
+  </data>
+    <data name="FILTER_PROTOCOL_DATE_ERROR">
+    <value>Le date del protocollo devono essere specificate.</value>
+  </data>
+    <data name="FILTER_PROTOCOL_DATE_RANGE_ERROR">
+    <value>Il periodo compreso tra le date del protocollo dev'essere al massimo di {0} mesi.</value>
+  </data>
+  <data name="MESSAGE_NO_ASSIGNEE_SELECTED">
+    <value>Seleziona prima un sostituto</value>
+  </data>
+  <data name="ACTUAL_ROLE">
+    <value>RUOLO ATTUALE</value>
+  </data>
+  <data name="MESSAGE_URL_NOT_VALID">
+    <value>Siamo spiacenti, ma l'url dell'ambiente scelto non è valido. Si prega di effettuare un'altra scelta</value>
+  </data>
+
+  <data name="DOCUMENT">
+    <value>Documento:</value>
+  </data>
+  <data name="DOCUMENTS">
+    <value>Documenti:</value>
+  </data>
+  <data name="FILE">
+    <value>Fascicolo:</value>
+  </data>
+  <data name="FILES">
+    <value>Fascicoli:</value>
+  </data>
+  <data name="IMAGE_NOT_AQUIRED">
+    <value>Immagine non ancora acquisita</value>
+  </data>
+  <data name="DOCUMENT_SORTED">
+    <value>{0} SMISTATO</value>
+    </data>
+  <data name="OGGETTO">
+    <value>Oggetto</value>
+  </data>
+  <data name="CADES_SIGN">
+    <value>FIRMA CADES</value>
+  </data>
+  <data name="PADES_SIGN">
+    <value>FIRMA PADES</value>
+  </data>
+  <data name="ELECTRONIC_SIGN">
+    <value>ELETTRONICA</value>
+  </data>
+  <data name="OTP_RICHIESTO_CON_SUCCESSO">
+    <value>OTP richiesto con successo!</value>
+  </data>
+  <data name="OTP_USER_NOT_FOUND">
+    <value>Utente non trovato: verificare di aver inserito correttamente i campi</value>
+  </data>
+  <data name="OTP_EMAIL_ERROR">
+    <value>Email non configurata</value>
+  </data>
+  <data name="OTP_SEND_EMAIL_ERROR">
+    <value>Errore nell'invio Password Temporanea all'email configurata</value>
+  </data>
+  <data name="REQUEST_OTP_ERROR">
+    <value>Errore durante la firma o la connessione al servizio. Si prega di controllare i dati inseriti.</value>
+  </data>
+  <data name="INVALID_OTP">
+    <value>La password temporanea inserita non è corretta.</value>
+  </data>
+  <data name="PASSWORD_EQUALITY">
+    <value>La password deve essere differente rispetto a quella precedente.</value>
+  </data>
+  <data name="DOMAIN_AUTH_ENABLED">
+    <value>La password non può essere modificata in quanto per l'utente è attivata l'autenticazione di dominio.</value>
+  </data>
+</root>

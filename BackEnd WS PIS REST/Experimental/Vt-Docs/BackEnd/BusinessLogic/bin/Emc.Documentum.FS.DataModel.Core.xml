@@ -1,0 +1,963 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Emc.Documentum.FS.DataModel.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Emc.Documentum.FS.DataModel.Core.Acl.AccessType">
+            <summary>
+            AccessType enum indicates to Content Server how it should interpret the permission assignments for the accessor;
+            that is, should it grant the permission, restrict the permission, or apply some other logic.
+            All of the AccessType options, except the first (PERMIT) are valid only for Content Server installations that have a Trusted Content Services license.<p/>
+            </summary>
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.Acl.AclEntry">AclEntry</seealso>
+        </member>
+        <member name="F:Emc.Documentum.FS.DataModel.Core.Acl.AccessType.PERMIT">
+            <summary>
+            Grant the user or group this set of permissions.<p/>
+            Note that if an accessor appears more than once in a list of AclEntry instances, the accessor is granted the most restrictive level of basic permissions specified.
+            For example, if a user is a member of a group that is granted BROWSE permissions, but in another AclEntry is granted VERSION permissions,
+            Content Server will give this user BROWSE permissions on the object.
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.DataModel.Core.Acl.AccessType.RESTRICT">
+            <summary>
+            Removes the right to the base object-level permission level specified in the entry, and to any extended privileges listed in the AclEntry.<p/>
+            For BASIC permissions, the user or group members have access at the level up to the specified restriction.
+            Access restriction entries are useful when you want give a group a particular base object-level permission, but restrict access for individual members or a subgroup of members.
+            (Applicable only with Trusted Content Services license.)
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.DataModel.Core.Acl.AccessType.REQUIRE_GROUP">
+            <summary>
+            Requires a user requesting access to an object governed by the ACL to be a member of the group identified in the entry.<p/>
+            This is true even if the user is explicitly granted the permission in another entry.
+            (Applicable only with Trusted Content Services license.)
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.DataModel.Core.Acl.AccessType.REQUIRE_GROUP_SET">
+            <summary>
+            Requires a user requesting access to an object governed by the ACL to be a member of at least one group in a set of groups.<p/>
+            An ACL that enforces a required group set typically has multiple required group set entries. Each entry identifies one group in the set.
+            The user must belong to at least one of the groups identified by the REQUIRE_GROUP_SET entries in the ACL.
+            (Applicable only with Trusted Content Services license.)
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.DataModel.Core.Acl.Acl">
+            <summary>
+            An Acl object represents an Access Control List (ACL) repository object.<p/>
+            An ACL is applied to a repository object to define object-level security, or to a folder for use in folder security. 
+            The entries in the ACL control the users and groups who can access the objects to which the ACL is attached, and the level of permissions for those users and groups.
+            If the security mode for a repository is set to "acl", then every object in the repository will have an ACL.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Acl.Acl.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Acl.Acl.#ctor(Emc.Documentum.FS.DataModel.Core.Acl.AclIdentity,System.String,System.Boolean,Emc.Documentum.FS.DataModel.Core.Acl.AclType,Emc.Documentum.FS.DataModel.Core.Acl.AclVisibility,System.Collections.Generic.List{Emc.Documentum.FS.DataModel.Core.Acl.AclEntry})">
+            <summary>
+            Property constructor.
+            </summary>
+            <param name="identity">The identity of the ACL.</param>
+            <param name="description">Value to set for property 'description'.</param>
+            <param name="systemCreated">Value to set for property 'systemCreated'.</param>
+            <param name="type">Value to set for property 'type'.</param>
+            <param name="visibility">Value to set for property 'visibility'.</param>
+            <param name="entries">The initial entries in the ACL.</param>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Acl.Acl.Equals(Emc.Documentum.FS.DataModel.Core.Acl.Acl)">
+            <summary>
+            Equality
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Acl.Acl.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"></see> is equal to the current <see cref="T:System.Object"></see>.
+            </summary>
+            
+            <returns>
+            true if the specified <see cref="T:System.Object"></see> is equal to the current <see cref="T:System.Object"></see>; otherwise, false.
+            </returns>
+            
+            <param name="obj">The <see cref="T:System.Object"></see> to compare with the current <see cref="T:System.Object"></see>. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Acl.Acl.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. <see cref="M:System.Object.GetHashCode"></see> is suitable for use in hashing algorithms and data structures like a hash table.
+            </summary>
+            
+            <returns>
+            A hash code for the current <see cref="T:System.Object"></see>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Acl.Acl.Identity">
+            <summary>
+            An AclIdentity instance to uniquely identify the ACL repository object.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Acl.Acl.Description">
+            <summary>
+            A String describing the ACL
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Acl.Acl.SystemCreated">
+            <summary>
+            A value indicating if the ACL was created by the system.<p/>
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Acl.Acl.Type">
+            <summary>
+            An AclType value indicating the type of the ACL.<p/>
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Acl.Acl.TypeSpecified">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Acl.Acl.Visibility">
+            <summary>
+            An AclVisibility enum value indicating the visibility of the ACL to users.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Acl.Acl.VisibilitySpecified">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Acl.Acl.Entries">
+            <summary>
+            The value of the 'entries' property, which is a List contained by the ACL.<p/>
+            Each AclEntry defines permissions for an accessor.
+            The returned value cannot be null.
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.DataModel.Core.Acl.AclEntry">
+            <summary>
+            An AclEntry defines the access for an accessor.<p/>
+            Access is defined as a list of permissions. An accessor is a user name,  group name, or alias.
+            An AclEntry is typically contained in an Acl with other AclEntry instances, which together define access for multiple accessors.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Acl.AclEntry.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Acl.AclEntry.#ctor(System.String,Emc.Documentum.FS.DataModel.Core.Acl.AccessType,System.Collections.Generic.List{Emc.Documentum.FS.DataModel.Core.Permission})">
+            <summary>
+            Property Constructor
+            </summary>
+            <param name="accessor">Value to set for property 'Accessor'.</param>
+            <param name="accessType">Value to set for property 'AccessType'.</param>
+            <param name="permissions">the list of Permissions.</param>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Acl.AclEntry.Equals(Emc.Documentum.FS.DataModel.Core.Acl.AclEntry)">
+            <summary>
+            Equality
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Acl.AclEntry.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"></see> is equal to the current <see cref="T:System.Object"></see>.
+            </summary>
+            
+            <returns>
+            true if the specified <see cref="T:System.Object"></see> is equal to the current <see cref="T:System.Object"></see>; otherwise, false.
+            </returns>
+            
+            <param name="obj">The <see cref="T:System.Object"></see> to compare with the current <see cref="T:System.Object"></see>. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Acl.AclEntry.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. <see cref="M:System.Object.GetHashCode"></see> is suitable for use in hashing algorithms and data structures like a hash table.
+            </summary>
+            
+            <returns>
+            A hash code for the current <see cref="T:System.Object"></see>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Acl.AclEntry.Accessor">
+            <summary>
+            The accessor for which this AclEntry defines access.<p/>
+            An accessor can be a user or a group.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Acl.AclEntry.AccessType">
+            <summary>
+            The access type of this AclEntry.<p/>
+            An accessor can be a user or a group.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Acl.AclEntry.accessTypeSpecified">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Acl.AclEntry.Permissions">
+            <summary>
+            Permissions for the entry used to define access for the accessor specified in this AclEntry.<p/>
+            In case of set, all previously added permissions will be removed.
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.DataModel.Core.Acl.AclIdentity">
+            <summary>
+            An AclIdentity is used to identify a unique ACL in a repository and domain.<p/>
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Acl.AclIdentity.#ctor">
+            <summary>
+            Default constructor
+            </summary> 
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Acl.AclIdentity.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Property constructor
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Acl.AclIdentity.Equals(Emc.Documentum.FS.DataModel.Core.Acl.AclIdentity)">
+            <summary>
+            Equality
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Acl.AclIdentity.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"></see> is equal to the current <see cref="T:System.Object"></see>.
+            </summary>
+            
+            <returns>
+            true if the specified <see cref="T:System.Object"></see> is equal to the current <see cref="T:System.Object"></see>; otherwise, false.
+            </returns>
+            
+            <param name="obj">The <see cref="T:System.Object"></see> to compare with the current <see cref="T:System.Object"></see>. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Acl.AclIdentity.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. <see cref="M:System.Object.GetHashCode"></see> is suitable for use in hashing algorithms and data structures like a hash table.
+            </summary>
+            
+            <returns>
+            A hash code for the current <see cref="T:System.Object"></see>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Acl.AclIdentity.Domain">
+            <summary>
+            Domain of the ACL identified by this AclIdentity.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Acl.AclIdentity.Name">
+            <summary>
+            The name of the ACL identified by this AclIdentity.<p/>
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Acl.AclIdentity.RepositoryName">
+            <summary>
+            The repository name of the ACL identified by this AclIdentity.<p/>
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.DataModel.Core.Acl.AclPackage">
+            <summary>
+            An AclPackage is a simple container for ACL instances.<p/>
+            It is typically passed to, and returned by AccessControlService operations.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Acl.AclPackage.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Acl.AclPackage.Equals(Emc.Documentum.FS.DataModel.Core.Acl.AclPackage)">
+            <summary>
+            Equal statement
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Acl.AclPackage.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"></see> is equal to the current <see cref="T:System.Object"></see>.
+            </summary>
+            
+            <returns>
+            true if the specified <see cref="T:System.Object"></see> is equal to the current <see cref="T:System.Object"></see>; otherwise, false.
+            </returns>
+            
+            <param name="obj">The <see cref="T:System.Object"></see> to compare with the current <see cref="T:System.Object"></see>. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Acl.AclPackage.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. <see cref="M:System.Object.GetHashCode"></see> is suitable for use in hashing algorithms and data structures like a hash table.
+            </summary>
+            
+            <returns>
+            A hash code for the current <see cref="T:System.Object"></see>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Acl.AclPackage.Acls">
+            <summary>
+            A List of the ACLs in the package. In case of set, all pre-existing ACLs are removed from the List.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Acl.AclPackage.IsInternal">
+            <summary>
+            Not for public use.
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.DataModel.Core.Acl.AclType">
+            <summary>
+            The AclType enum specifies the class of ACL.<p/>
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.DataModel.Core.Acl.AclType.REGULAR">
+            <summary>
+            Regular ACL.
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.DataModel.Core.Acl.AclType.TEMPLATE">
+            <summary>
+            Template ACL.<p/>
+            A template ACL typically has one or more accessor values set to alias specifications.
+            When used in ACLs, aliases are placeholders for user and group names.
+            Use template ACLs with aliases in applications where the concrete user names may changes depending on context.
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.DataModel.Core.Acl.AclType.TEMPLATE_INSTANCE">
+            <summary>
+            Template instance ACL.<p/>
+            When a template ACL to is applied to an object, the server copies the template, creating a template instance,
+            resolves the aliases based on an alias set, and replaces them in the copy with the real names,
+            then assigns the copy to the object. The copy is always a system ACL.
+            If a template ACL or the alias set used to resolve the template's aliases is modified,
+            Content Server automatically updates the template-instances derived from the template.
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.DataModel.Core.Acl.AclVisibility">
+            <summary>
+            The AclVisibility enum represents the visibility of an ACL.<p/>
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.DataModel.Core.Acl.AclVisibility.PRIVATE">
+            <summary>
+            Regular private ACL visibility.<p/>
+            Only the owner of the ACL or a Superuser can see the ACL.
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.DataModel.Core.Acl.AclVisibility.PUBLIC">
+            <summary>
+            Public ACL visibility.<p/>
+            All users of the repository can see the ACL.
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.DataModel.Core.Lifecycle.AttachLifecycleInfo">
+            <summary>
+            The AttachLifecycleInfo class contains all the information required to attach a lifecycle to a document.<p/>
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Lifecycle.AttachLifecycleInfo.#ctor">
+            <summary>
+            Constructs a new AttachLifecycleInfo.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Lifecycle.AttachLifecycleInfo.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentity,Emc.Documentum.FS.DataModel.Core.ObjectIdentity,System.String,System.String)">
+            <summary>
+            Constructs a new AttachLifecycleInfo.
+            </summary>
+            <param name="policyId">uniquely identifies a lifecycle (dm_policy instance) to which the object is to be attached.
+            If this value is null, the object will be attached to the default lifecycle of the object type.</param>
+            <param name="objectId">uniquely identifies the object that is to be attached to the lifecycle. This value cannot be null.</param>
+            <param name="stateName">A String representing the state in which to place the object on attachment to the lifecycle.
+            If stateName is null, the object will be placed in the base state of the lifecycle.
+            If an attach operation is not able to set the object to this lifecycle state, an exception is thrown.
+            </param>
+            <param name="policyScope">
+            the name of an alias set listed in the alias_set_ids repeating attribute of the dm_policy object.
+            This determines the alias_set used for lifecycle scope resolution of aliases in the attached object.
+            If policyScope is null, Content Server will determine the object's lifecycle scope.
+            </param>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Lifecycle.AttachLifecycleInfo.PolicyId">
+            <summary>
+            The 'policyId' property, which uniquely identifies a lifecycle (dm_policy) to which the object is to be attached.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Lifecycle.AttachLifecycleInfo.ObjectId">
+            <summary>
+            The 'ObjectId' property, which uniquely identifies the object that is to be attached to the lifecycle.
+            This value cannot be null.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Lifecycle.AttachLifecycleInfo.StateName">
+            <summary>
+            The 'StateName' property, which represents the lifecycle state in which to place the object on attachment to the lifecycle.
+            If stateName is null, the object will be placed in the base state of the lifecycle.
+            If the state does not permit attachment (if its allow_attach attribute is false) the attach operation will throw an exception.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Lifecycle.AttachLifecycleInfo.PolicyScope">
+            <summary>
+            The 'PolicyScope' property, which is the name of an alias set listed in the alias_set_ids repeating attribute of the dm_policy object.<p/>
+            This property determines the alias_set used for lifecycle scope resolution of aliases in the attached object.
+            If policyScope is null, Content Server will determine the object's lifecycle scope.
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.DataModel.Core.Lifecycle.LifecycleInfo">
+            <summary>
+            The LifecycleInfo class contains information about the current lifecycle and state to which an object is attached.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Lifecycle.LifecycleInfo.#ctor">
+            <summary>
+            Constructs a new LifecycleInfo.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Lifecycle.LifecycleInfo.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentity)">
+            <summary>
+            Constructs a new LifecycleInfo with object Identity initialization.
+            </summary>
+            <param name="objectId">ObjectIdentity of the object to which info is addressed</param>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Lifecycle.LifecycleInfo.EnabledOperations">
+            <summary>
+            A List of the lifecycle operations that are available based on the object's current lifecycle state.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Lifecycle.LifecycleInfo.ObjectId">
+            <summary>
+            The identity of the object whose lifecycle information is represented by this instance.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Lifecycle.LifecycleInfo.PolicyId">
+            <summary>
+            The identity of the lifecycle (that is, the dm_policy instance) to which the object is attached.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Lifecycle.LifecycleInfo.PolicyName">
+            <summary>
+            The name of the lifecycle (dm_policy) to which the object is attached.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Lifecycle.LifecycleInfo.StateName">
+            <summary>
+            The name of the object's current lifecycle state.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Lifecycle.LifecycleInfo.StateLabel">
+            <summary>
+            A display label representing the object's current lifecycle state.
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.DataModel.Core.Lifecycle.LifecycleOperation">
+            <summary>
+            The LifecycleOperation class models a lifecycle promote, demote, suspend, or resume operation
+            and provides information required to execute that operation on a repository object.<p/>
+            The lifecycle state name is not provided: this value is calculated based on the current state of the lifecycle and the specific operation to be executed.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Lifecycle.LifecycleOperation.#ctor">
+            <summary>
+            Constructs a new LifecycleOperation.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Lifecycle.LifecycleOperation.#ctor(System.String,System.String,Emc.Documentum.FS.DataModel.Core.ObjectIdentity)">
+            <summary>
+            Constructs a new LifecycleOperation with all parametes initialized
+            </summary>
+            <param name="operationName">Name of the operation to be executed; which should be set to one the LifecycleOperation static fields: PROMOTE, DEMOTE, SUSPEND, or RESUME.</param>
+            <param name="operationLabel">A string representing the operation for display and localization.</param>
+            <param name="objectId">The identity object on which to execute the lifecycle operation.</param>
+        </member>
+        <member name="F:Emc.Documentum.FS.DataModel.Core.Lifecycle.LifecycleOperation.PROMOTE">
+            <summary>
+            PROMOTE - Move to the next normal state
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.DataModel.Core.Lifecycle.LifecycleOperation.DEMOTE">
+            <summary>
+            DEMOTE - Move to the previous state or to the base state
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.DataModel.Core.Lifecycle.LifecycleOperation.SUSPEND">
+            <summary>
+            SUSPEND - Move to an exception state
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.DataModel.Core.Lifecycle.LifecycleOperation.RESUME">
+            <summary>
+            RESUME - Return from an exception state to the last state or to the base state
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Lifecycle.LifecycleOperation.ObjectId">
+            <summary>
+            The identity of the object which will be processed.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Lifecycle.LifecycleOperation.Name">
+            <summary>
+            Name of the operation to be executed.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Lifecycle.LifecycleOperation.Label">
+            <summary>
+            Label of operation to be executed.
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.DataModel.Core.Vdm.CopyBehaviorMode">
+            <summary>
+            Enumerates copy behavior (for example in the context of copying a virtual document).
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.DataModel.Core.Vdm.CopyBehaviorMode.UNSPECIFIED">
+            <summary>
+            Caller decides at copy time.
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.DataModel.Core.Vdm.CopyBehaviorMode.REFERENCE">
+            <summary>
+            Create a reference to the existing child document.
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.DataModel.Core.Vdm.CopyBehaviorMode.COPY">
+            <summary>
+            Create a new copy of the child document.
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.DataModel.Core.Vdm.VdmChildrenAction">
+            <summary>
+            VdmChildrenAction enum represents the intended action in <see cref="T:Emc.Documentum.FS.DataModel.Core.Vdm.VdmChildrenActionInfo">VdmChildrenActionInfo</see>.<p/>
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.DataModel.Core.Vdm.VdmChildrenAction.INSERT">
+            <summary>
+            Insert an existing node as a child at a position specified in VdmChildrenActionInfo.<p/>
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.DataModel.Core.Vdm.VdmChildrenAction.APPEND">
+            <summary>
+            Append an existing node as a child at the end of the current list of children.<p/>
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.DataModel.Core.Vdm.VdmChildrenAction.REMOVE">
+            <summary>
+            Remove the child node from the child list at the position specified in VdmChildrenActionInfo.
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.DataModel.Core.Vdm.VdmChildrenAction.SET">
+            <summary>
+            Replace or update the child node at the position specified in VdmChildrenActionInfo.
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.DataModel.Core.Vdm.VdmChildrenActionInfo">
+            <summary>
+            VdmChildrenActionInfo provides settings that specify a modification to the children of a virtual document node.
+            </summary>
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.Vdm.VirtualDocumentNode">VirtualDocumentNode</seealso>
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.Vdm.VdmChildrenAction">VdmChildrenAction</seealso>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Vdm.VdmChildrenActionInfo.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Vdm.VdmChildrenActionInfo.#ctor(Emc.Documentum.FS.DataModel.Core.Vdm.VirtualDocumentNode,Emc.Documentum.FS.DataModel.Core.Vdm.VdmChildrenAction,System.Int32)">
+            <summary>
+            Property constructor
+            </summary>
+            <param name="documentNode">a VirtualDocumentNode representing a child document node.
+            This can be a new node (to be inserted or appended) or an existing node (to be deleted or set).</param>
+            <param name="action">A VdmChildrenAction enum value that specifies the action to perform on the children of a virtual document.<p/>
+            APPEND adds an existing child document to the end of the children list.<br/>
+            INSERT inserts a new child into the list at position index.<br/>
+            DELETE removes the child at position index.<br/>
+            SET updates or replaces the child at position index.<br/>
+            </param>
+            <param name="index">
+            the position in the list of children where the action will be applied. Ignored if action is APPEND.
+            </param>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Vdm.VdmChildrenActionInfo.Node">
+            <summary>
+            Information about a child node of a virtual document.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Vdm.VdmChildrenActionInfo.Action">
+            <summary>
+            Sets a VdmChildrenAction enum value that specifies the action to perform on the children of a virtual document.<p/>
+            APPEND adds an existing child document to the end of the children list.<br/>
+            DELETE removes the child at position index.<br/>
+            INSERT inserts a new child into the list at position index.<br/>
+            SET updates or replaces the child at position index.<br/>
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Vdm.VdmChildrenActionInfo.actionSpecified">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Vdm.VdmChildrenActionInfo.Index">
+            <summary>
+            The position in the list of children where the action will be applied. Ignored if action is APPEND.
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.DataModel.Core.Vdm.VirtualDocumentInfo">
+            <summary>
+            VirtualDocumentInfo provides settings that determine how operations process a virtual document node,
+            including version binding (during retrieve operations), and behavior when making copies of the virtual document.
+            </summary>
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.Vdm.VirtualDocumentNode">VirtualDocumentNode</seealso>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Vdm.VirtualDocumentInfo.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Vdm.VirtualDocumentInfo.#ctor(System.String,Emc.Documentum.FS.DataModel.Core.Vdm.CopyBehaviorMode,System.Boolean)">
+            <summary>
+            Property constructor 
+            </summary>
+            <param name="binding">the version label to use for early binding of a node. If this value is null, the node is late-bound.
+            This can be set to VirtualDocumentInfo.BINDING_CURRENT to early bind to the current version of the object, or to BINDING_LATE,
+            which specifies that the node will use the late binding version label, or to a version label string.</param>
+            <param name="copyBehavior">determines whether a node is copied when the parent of the node is copied.<p/>
+            COPY specifies that a copy (clone) of the object will be created.<br/>
+            REFERENCE specifies that a reference to the object will be created.<br/>
+            UNSPECIFIED allows the determination to be made by the application at runtime.<br/>
+            </param>
+            <param name="overrideLateBinding">if true, use the early binding version label specified for this node for all descendant late-bound nodes.
+            If false, use the early bound label for this node, but do not override descendant late-bound nodes.</param>
+        </member>
+        <member name="F:Emc.Documentum.FS.DataModel.Core.Vdm.VirtualDocumentInfo.BINDING_CURRENT">
+            <summary>
+            String constant indicating that the node is early-bound to the CURRENT version
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.DataModel.Core.Vdm.VirtualDocumentInfo.BINDING_LATE">
+            <summary>
+            String constant indicating that the node is late-bound
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Vdm.VirtualDocumentInfo.Binding">
+            <summary>
+            Version label that defines binding rule.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Vdm.VirtualDocumentInfo.CopyBehavior">
+            <summary>
+            Copy behavior for the child.<p/>
+            This property etermines whether a node is copied when the parent of the node is copied.<br/>
+            COPY specifies that a copy (clone) of the object will be created.<br/>
+            REFERENCE specifies that a reference to the object will be created.<br/>
+            UNSPECIFIED allows the determination to be made by the application at runtime.<br/>
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Vdm.VirtualDocumentInfo.copyBehaviorSpecified">
+            <exclude/>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Vdm.VirtualDocumentInfo.OverrideLateBinding">
+            <summary>
+            A flag indicating whether to override late binding on descendant nodes.
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.DataModel.Core.Vdm.VirtualDocumentNode">
+            <summary>
+            VirtualDocumentNode encapsulates data about a virtual document node.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Vdm.VirtualDocumentNode.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.Vdm.VirtualDocumentNode.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentity,Emc.Documentum.FS.DataModel.Core.Vdm.VirtualDocumentInfo)">
+            <summary>
+            Property constructor
+            </summary>
+            <param name="identity">an ObjectIdentity uniquely identifying the node's parent object (dm_sysobject)</param>
+            <param name="policy">a VirtualDocumentInfo instance providing settings that determine operation behavior when processing the virtual document node.</param>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Vdm.VirtualDocumentNode.Identity">
+            <summary>
+            An ObjectIdentity uniquely identifying the node's root object (dm_sysobject).
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.Vdm.VirtualDocumentNode.Policy">
+            <summary>
+            A VirtualDocumentInfo instance that provides settings determining operation behavior when processing the virtual document node.
+            </summary>
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.Vdm.VirtualDocumentInfo">VirtualDocumentInfo</seealso>
+        </member>
+        <member name="T:Emc.Documentum.FS.DataModel.Core.CheckoutInfo">
+            <summary>
+            <p>This class provides functionality to set and get information of the checked out documents.</p>
+            It contains three internal properties:
+            <list type="bullet">
+            <item>
+            <description>Identity – Represents the identity of the document.</description>
+            </item>
+            <item>
+            <description>IsCheckedOut – Indicates whether the document is locked</description>
+            </item>
+            <item>
+            <description>userName – Indicates the document lock owner username</description>
+            </item>
+            </list>
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.CheckoutInfo.#ctor">
+            <summary>
+            Constructs a new CheckoutInfo.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.CheckoutInfo.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentity,System.Boolean,System.String)">
+            <summary>
+            Constructs a new CheckoutInfo and sets all the fields.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.CheckoutInfo.Identity">
+            <summary>
+            The identity of the document.
+            </summary>
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.ObjectIdentity">ObjectIdentity</seealso>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.CheckoutInfo.IsCheckedOut">
+            <summary>
+            Gets/Sets whether the document is locked.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.CheckoutInfo.UserName">
+            <summary>
+            Gets/Sets the document lock owner username.
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.DataModel.Core.ObjectContentSet">
+            <summary>
+            Represents a Collection of content that belong to a given object.
+            </summary>
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.Content.Content">Content</seealso>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.ObjectContentSet.#ctor">
+            <summary>
+            Constructs a new ObjectContentSet.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.ObjectContentSet.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentity)">
+            <summary>
+            Constructs a new ObjectContentSet and sets the object identity for the object.
+            </summary>
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.ObjectIdentity">ObjectIdentity</seealso>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.ObjectContentSet.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentity,Emc.Documentum.FS.DataModel.Core.Content.Content[])">
+            <summary>
+            Constructs a new ObjectContentSet and sets the object identity for the object and the new contents.
+            </summary>
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.ObjectIdentity">ObjectIdentity</seealso>
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.Content.Content">Content</seealso>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.ObjectContentSet.Identity">
+            <summary>
+            Identity of the object.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.ObjectContentSet.Contents">
+            <summary>
+            <see cref="N:Emc.Documentum.FS.DataModel.Core.Content"/> associated with the object
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.DataModel.Core.ObjectLocation">
+            <summary>
+            ObjectLocation contains an ObjectIdentity that identifies the location.<para/>
+            </summary>
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.ObjectIdentity">ObjectIdentity</seealso>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.ObjectLocation.#ctor">
+            <summary>
+            Constructs a new ObjectLocation.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.ObjectLocation.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentity)">
+            <summary>
+            Constructor that sets object identity.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.ObjectLocation.Identity">
+            <summary>
+            Object identity of the location.
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.DataModel.Core.ValidationInfo">
+            <summary>
+            Each ValidationInfo contains a DataObject and a list of any ValidationIssue instances that were raised by the
+            Validate operation. <para/>
+            </summary>
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.ValidationInfoSet">ValidationInfoSet</seealso>
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.ValidationIssue">ValidationIssue</seealso>
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.ValidationIssueType">ValidationIssueType</seealso>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.ValidationInfo.#ctor">
+            <summary>
+            Constructs a new ValidationInfo.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.ValidationInfo.#ctor(Emc.Documentum.FS.DataModel.Core.DataObject,Emc.Documentum.FS.DataModel.Core.ValidationIssue)">
+            <summary>
+            Constructs a new ValidationInfo with the targeted DataObject and it's validation issue.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.ValidationInfo.AddValidationIssue(Emc.Documentum.FS.DataModel.Core.ValidationIssue)">
+            <summary>
+            Adds a validation issue of the target object.
+            </summary>
+            <param name="validationIssue">validation issue to add</param>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.ValidationInfo.DataObject">
+            <summary>
+            Target object.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.ValidationInfo.ValidationIssues">
+            <summary>
+            Validation issues of the target object.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.ValidationInfo.IsValid">
+            <summary>
+            IsVaild
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.DataModel.Core.ValidationInfoSet">
+            <summary>
+            A ValidationInfoSet is a simple container for ValidationInfo instances.<para/>
+            
+            ValidationInfoSet contains a list of ValidationInfo objects. Each ValidationInfo contains a DataObject and a list of
+            any ValidationIssue instances that were raised by the operation. A ValidationIssue can be of enum type ERROR,
+            UNDEFINED, or WARNING.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.ValidationInfoSet.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.ValidationInfoSet.ValidationInfos">
+            <summary>
+            List of ValidationInfo objects. Doesnt return null.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.ValidationInfoSet.IsInternal">
+            <remarks/>
+        </member>
+        <member name="T:Emc.Documentum.FS.DataModel.Core.ValidationIssue">
+            <summary>
+            ValidationIssue instances that were raised by the operation. A ValidationIssue can be of enum type ERROR, UNDEFINED
+            or WARNING.
+            </summary>
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.ValidationInfo">ValidationInfo</seealso>
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.ValidationIssueType">ValidationIssueType</seealso>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.ValidationIssue.#ctor">
+            <summary>
+            Constructs a new ValidationIssue.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.ValidationIssue.#ctor(Emc.Documentum.FS.DataModel.Core.ValidationIssueType,System.String,System.String,System.String)">
+            <summary>
+            Constructs a new ValidationIssue and sets it's type, property name, messageId and message.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.ValidationIssue.Type">
+            <summary>
+            Issue type.
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.ValidationIssueType"/>
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.ValidationIssue.PropertyName">
+            <summary>
+            Target property of the validation issue.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.ValidationIssue.MessageId">
+            <summary>
+            MessageId property.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.ValidationIssue.Value">
+            <summary>
+            Property 'message'.
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.DataModel.Core.ValidationIssueType">
+            <summary>
+            ValidationIssueType enum represents the type of ValidationIssue.<para/>
+            
+            A ValidationIssue can be of type ERROR, UNDEFINED or WARNING.
+            </summary>
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.ValidationInfo">ValidationInfo</seealso>
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.ValidationIssueType">ValidationIssueType</seealso>
+        </member>
+        <member name="F:Emc.Documentum.FS.DataModel.Core.ValidationIssueType.UNDEFINED">
+            <summary>
+            ValidationIssue of undefined type
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.DataModel.Core.ValidationIssueType.ERROR">
+            <summary>
+            ValidationIssue of error type.
+            </summary>
+        </member>
+        <member name="F:Emc.Documentum.FS.DataModel.Core.ValidationIssueType.WARNING">
+            <summary>
+            ValidationIssue of warning type.
+            </summary>
+        </member>
+        <member name="T:Emc.Documentum.FS.DataModel.Core.VersionInfo">
+            <summary>
+            VersionInfo contains data about a specific version of a repository object.<para/>
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.VersionInfo.#ctor">
+            <summary>
+            Constructs a new VersionInfo.
+            </summary>
+        </member>
+        <member name="M:Emc.Documentum.FS.DataModel.Core.VersionInfo.#ctor(Emc.Documentum.FS.DataModel.Core.ObjectIdentity,System.Boolean,System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Constructs a new VersionInfo object and sets all it's fields.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.VersionInfo.Identity">
+            <summary>
+            Document identity.
+            </summary>
+            <seealso cref="T:Emc.Documentum.FS.DataModel.Core.ObjectIdentity">ObjectIdentity</seealso>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.VersionInfo.SymbolicLabels">
+            <summary>
+            List of String values representing all symbolic version labels applied to this version, including
+            the system version label.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.VersionInfo.IsCurrent">
+            <summary>
+             Flag that indicates if the document pointed by identity is the current version.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.VersionInfo.Version">
+            <summary>
+            String representation of the document version pointed by the identity.
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.VersionInfo.NextMajorVersion">
+            <summary>
+            String representation of the next major version for the document
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.VersionInfo.NextMinorVersion">
+            <summary>
+            String representation of the next minor version for the document
+            </summary>
+        </member>
+        <member name="P:Emc.Documentum.FS.DataModel.Core.VersionInfo.NextBranchVersion">
+            <summary>
+            String representation of the next branch version for the document
+            When a user creates a branched version, the server adds two more places to the version's current implicit version
+            label. For example, if a user branches a version with the implicit label 1.2, the new branched version is
+            assigned the label 1.2.1.0.
+            </summary>
+        </member>
+    </members>
+</doc>
