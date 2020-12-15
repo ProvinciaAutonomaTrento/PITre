@@ -29,11 +29,11 @@ Il sistema infatti integra gli Enti al servizio di Conservazione dei Documenti D
 Per maggiori informazioni è possibile consultare: 
 
  * [PiTre Portal](https://www.pi3.it/portal/server.pt/community/pitre_portal/791)
- * [Documentazione](https://github.com/ProvinciaAutonomaTrento/PITre/documentazione/README.md)
+ * [Documentazione](https://github.com/ProvinciaAutonomaTrento/PITre/blob/versione-3.2.19/documentazione/README.md)
 
 ## API 
 
- * [Documentazione API](https://github.com/ProvinciaAutonomaTrento/PITre/documentazione/Documentazione%20Pis/README.md)
+ * [Documentazione API](https://github.com/ProvinciaAutonomaTrento/PITre/blob/versione-3.2.19/documentazione/Documentazione%20Pis/README.md)
 
 
 ## Project Status
