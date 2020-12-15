@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Token.GetAuthenticationToken" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Token.GetAuthenticationToken" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://aula51-pc/Vt-Docs/DocsPaWS/VtDocsWS/WebServices/Token.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" />
+  <xs:complexType name="GetAuthenticationTokenRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q1:Request">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAuthenticationTokenRequest" nillable="true" type="tns:GetAuthenticationTokenRequest" />
+  <xs:complexType name="GetAuthenticationTokenResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q2:Response">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AuthenticationToken" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAuthenticationTokenResponse" nillable="true" type="tns:GetAuthenticationTokenResponse" />
+</xs:schema>

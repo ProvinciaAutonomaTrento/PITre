@@ -1,0 +1,86 @@
+CREATE OR REPLACE PROCEDURE ATTIVA_LOG_CONSERVAZIONE (
+  returnValue     OUT    NUMBER
+)
+IS
+BEGIN
+  DECLARE
+      -- Cursore per scorrere tutte le amministrazioni su cui attivare i log_amm di conservazione
+      CURSOR idAmministrazioni
+      IS
+         SELECT SYSTEM_ID
+         FROM dpa_amministra;
+         
+      -- Count del system_id_anagrafica già attivi un dpa_log_attivati
+      SysIdAnag NUMBER;
+    
+    BEGIN
+    
+    -- Per ogni amministrazione, scorro tutti i log_amm con oggetto conservazione
+      FOR idAmm IN idAmministrazioni
+      LOOP
+         
+         BEGIN
+         
+            DECLARE
+                -- Cursore per prelevare tutti i systemid dei log_amm con oggetto conservazione
+                CURSOR systemIdLogs
+                IS
+                    SELECT SYSTEM_ID
+                    FROM DPA_ANAGRAFICA_LOG
+                    WHERE UPPER(VAR_OGGETTO) = UPPER('conservazione')
+                    --AND VAR_CODICE like 'AMM_%'
+                    AND (ID_AMM = idAmm.SYSTEM_ID OR ID_AMM IS NULL);
+            
+            BEGIN
+            
+            returnValue := 0;
+            
+            -- Per ogni id dei Log_Amm con oggetto conservazione in anagraficaLog, inserisco i log attivati
+            FOR sysId IN systemIdLogs
+            LOOP
+                BEGIN
+                    -- Così non Funziona
+                    --if not exists(select system_id_anagrafica from DPA_LOG_ATTIVATI where system_id_anagrafica = systemId)
+                    --INSERT INTO DPA_LOG_ATTIVATI
+                    --(system_id_anagrafica, id_amm, notify)
+                    --VALUES
+                    --(systemId, idAmm, 'NN');
+                    
+                    BEGIN
+                        SELECT count(system_id_anagrafica)
+                        INTO   SysIdAnag
+                        FROM   DPA_LOG_ATTIVATI
+                        WHERE  system_id_anagrafica = sysId.SYSTEM_ID
+                        AND ID_AMM = idAmm.SYSTEM_ID;
+
+                        IF (SysIdAnag = 0)
+                        THEN
+                        INSERT INTO DPA_LOG_ATTIVATI
+                        (system_id_anagrafica, id_amm, notify)
+                        VALUES
+                        (sysId.SYSTEM_ID, idAmm.SYSTEM_ID, 'NN');
+                        COMMIT;
+                        
+                        END IF;
+                        --exception
+                        --when DUP_VAL_ON_INDEX
+                        --then ROLLBACK;
+                    END;
+                    
+                EXCEPTION
+                    WHEN OTHERS
+                    THEN
+                    returnValue := 1;
+                    RETURN;
+                END;
+            END LOOP;
+            
+            END;
+         
+         END;
+         
+      END LOOP;
+    
+    END;
+END ATTIVA_LOG_CONSERVAZIONE;
+/

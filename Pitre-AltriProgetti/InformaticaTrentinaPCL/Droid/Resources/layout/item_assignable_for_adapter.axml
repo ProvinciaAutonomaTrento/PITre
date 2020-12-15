@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/frameLayout_assigneeContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/assegna_list_left_right_padding"
+            android:paddingRight="@dimen/assegna_list_left_right_padding">
+        <include
+            android:id="@+id/include_assigneeItem"
+            layout="@layout/item_assignable"/>
+    </FrameLayout>
+</FrameLayout>

@@ -1,0 +1,2 @@
+CREATE OR REPLACE TYPE @db_user.DocSedeTable IS OBJECT         (ANNO varchar(100),         SEDE varchar(100),         TOT_DOC varchar(20),         GRIGI varchar(20),         PERC_GRIGI varchar(20),         PROT varchar(20),         PERC_PROT varchar(20),         ANNULL varchar(20),         PERC_ANNULL varchar(20),         ARRIVO varchar(20),         PERC_ARRIVO varchar(20),         PARTENZA varchar(20),         PERC_PARTENZA varchar(20),         INTERNI varchar(20),         PERC_INTERNI varchar(20))
+/

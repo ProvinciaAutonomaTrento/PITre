@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://nttdata.com/2012/Pi3/Documents" elementFormDefault="qualified" targetNamespace="http://nttdata.com/2012/Pi3/Documents" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.AddDocInProject" />
+  <xs:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.CreateDocument" />
+  <xs:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd16" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.EditDocStateDiagram" />
+  <xs:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd17" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.EditDocument" />
+  <xs:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd18" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocument" />
+  <xs:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd19" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocumentsInProject" />
+  <xs:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd20" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocumentStateDiagram" />
+  <xs:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd21" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetFileDocumentById" />
+  <xs:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd22" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetFileWithSignatureOrStamp" />
+  <xs:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd23" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetTemplateDoc" />
+  <xs:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd24" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetTemplatesDocuments" />
+  <xs:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd25" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.SearchDocuments" />
+  <xs:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd27" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.SendDocument" />
+  <xs:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd28" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.UploadFileToDocument" />
+  <xs:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd29" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetStampAndSignature" />
+  <xs:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd31" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocumentFilters" />
+  <xs:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd32" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.CreateDocumentAndAddInProject" />
+  <xs:element name="AddDocInProject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.AddDocInProject" minOccurs="0" name="request" nillable="true" type="q1:AddDocInProjectRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddDocInProjectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.AddDocInProject" minOccurs="0" name="AddDocInProjectResult" nillable="true" type="q2:AddDocInProjectResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.CreateDocument" minOccurs="0" name="request" nillable="true" type="q3:CreateDocumentRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.CreateDocument" minOccurs="0" name="CreateDocumentResult" nillable="true" type="q4:CreateDocumentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditDocStateDiagram">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.EditDocStateDiagram" minOccurs="0" name="request" nillable="true" type="q5:EditDocStateDiagramRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditDocStateDiagramResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.EditDocStateDiagram" minOccurs="0" name="EditDocStateDiagramResult" nillable="true" type="q6:EditDocStateDiagramResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.EditDocument" minOccurs="0" name="request" nillable="true" type="q7:EditDocumentRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.EditDocument" minOccurs="0" name="EditDocumentResult" nillable="true" type="q8:EditDocumentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocument" minOccurs="0" name="request" nillable="true" type="q9:GetDocumentRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocument" minOccurs="0" name="GetDocumentResult" nillable="true" type="q10:GetDocumentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentsInProject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocumentsInProject" minOccurs="0" name="request" nillable="true" type="q11:GetDocumentsInProjectRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentsInProjectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocumentsInProject" minOccurs="0" name="GetDocumentsInProjectResult" nillable="true" type="q12:GetDocumentsInProjectResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentStateDiagram">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocumentStateDiagram" minOccurs="0" name="request" nillable="true" type="q13:GetDocumentStateDiagramRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentStateDiagramResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocumentStateDiagram" minOccurs="0" name="GetDocumentStateDiagramResult" nillable="true" type="q14:GetDocumentStateDiagramResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileDocumentById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetFileDocumentById" minOccurs="0" name="request" nillable="true" type="q15:GetFileDocumentByIdRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileDocumentByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetFileDocumentById" minOccurs="0" name="GetFileDocumentByIdResult" nillable="true" type="q16:GetFileDocumentByIdResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileWithSignatureOrStamp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetFileWithSignatureOrStamp" minOccurs="0" name="request" nillable="true" type="q17:GetFileWithSignatureOrStampRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileWithSignatureOrStampResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetFileWithSignatureOrStamp" minOccurs="0" name="GetFileWithSignatureOrStampResult" nillable="true" type="q18:GetFileWithSignatureOrStampResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTemplateDoc">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetTemplateDoc" minOccurs="0" name="request" nillable="true" type="q19:GetTemplateDocRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTemplateDocResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetTemplateDoc" minOccurs="0" name="GetTemplateDocResult" nillable="true" type="q20:GetTemplateDocResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTemplatesDocuments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetTemplatesDocuments" minOccurs="0" name="request" nillable="true" type="q21:GetTemplatesDocumentsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTemplatesDocumentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetTemplatesDocuments" minOccurs="0" name="GetTemplatesDocumentsResult" nillable="true" type="q22:GetTemplatesDocumentsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchDocuments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.SearchDocuments" minOccurs="0" name="request" nillable="true" type="q23:SearchDocumentsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchDocumentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.SearchDocuments" minOccurs="0" name="SearchDocumentsResult" nillable="true" type="q24:SearchDocumentsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.SendDocument" minOccurs="0" name="request" nillable="true" type="q25:SendDocumentRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.SendDocument" minOccurs="0" name="SendDocumentResult" nillable="true" type="q26:SendDocumentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadFileToDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.UploadFileToDocument" minOccurs="0" name="request" nillable="true" type="q27:UploadFileToDocumentRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadFileToDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.UploadFileToDocument" minOccurs="0" name="UploadFileToDocumentResult" nillable="true" type="q28:UploadFileToDocumentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStampAndSignature">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetStampAndSignature" minOccurs="0" name="request" nillable="true" type="q29:GetStampAndSignatureRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStampAndSignatureResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetStampAndSignature" minOccurs="0" name="GetStampAndSignatureResult" nillable="true" type="q30:GetStampAndSignatureResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentFilters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocumentFilters" minOccurs="0" name="request" nillable="true" type="q31:GetDocumentFiltersRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentFiltersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocumentFilters" minOccurs="0" name="GetDocumentFiltersResult" nillable="true" type="q32:GetDocumentFiltersResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDocumentAndAddInProject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.CreateDocumentAndAddInProject" minOccurs="0" name="request" nillable="true" type="q33:CreateDocumentAndAddInProjectRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDocumentAndAddInProjectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.CreateDocumentAndAddInProject" minOccurs="0" name="CreateDocumentAndAddInProjectResult" nillable="true" type="q34:CreateDocumentAndAddInProjectResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

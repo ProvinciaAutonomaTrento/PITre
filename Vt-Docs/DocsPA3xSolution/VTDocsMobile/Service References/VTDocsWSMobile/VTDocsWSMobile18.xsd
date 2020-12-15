@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Responses" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://integrapc/Vt-Docs/DocsPaWS/Mobile/VTDocsWSMobile.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" />
+  <xs:complexType name="EseguiSmistamentoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="tns:EseguiSmistamentoResponseCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EseguiSmistamentoResponse" nillable="true" type="tns:EseguiSmistamentoResponse" />
+  <xs:simpleType name="EseguiSmistamentoResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="SYSTEM_ERROR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EseguiSmistamentoResponseCode" nillable="true" type="tns:EseguiSmistamentoResponseCode" />
+  <xs:complexType name="HSMSignResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="tns:HSMSignResponseCode" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="infoFirma" nillable="true" type="q1:InfoDocFirmato" />
+      <xs:element minOccurs="0" name="memento" nillable="true" type="tns:Memento" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HSMSignResponse" nillable="true" type="tns:HSMSignResponse" />
+  <xs:simpleType name="HSMSignResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="SYSTEM_ERROR" />
+      <xs:enumeration value="KO" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="HSMSignResponseCode" nillable="true" type="tns:HSMSignResponseCode" />
+  <xs:complexType name="Memento">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Alias" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dominio" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Memento" nillable="true" type="tns:Memento" />
+  <xs:complexType name="LibroFirmaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="tns:LibroFirmaResponseCode" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="Elements" nillable="true" type="q2:ArrayOfLibroFirmaElement" />
+      <xs:element minOccurs="0" name="TotalRecordCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LibroFirmaResponse" nillable="true" type="tns:LibroFirmaResponse" />
+  <xs:simpleType name="LibroFirmaResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="SYSTEM_ERROR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LibroFirmaResponseCode" nillable="true" type="tns:LibroFirmaResponseCode" />
+  <xs:complexType name="LoginResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="tns:LoginResponseCode" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="UserInfo" nillable="true" type="q3:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LoginResponse" nillable="true" type="tns:LoginResponse" />
+  <xs:simpleType name="LoginResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="USER_NOT_FOUND" />
+      <xs:enumeration value="PASSWORD_EXPIRED" />
+      <xs:enumeration value="SYSTEM_ERROR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LoginResponseCode" nillable="true" type="tns:LoginResponseCode" />
+  <xs:complexType name="LogoutResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="tns:LogoutResponseCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LogoutResponse" nillable="true" type="tns:LogoutResponse" />
+  <xs:simpleType name="LogoutResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="SYSTEM_ERROR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LogoutResponseCode" nillable="true" type="tns:LogoutResponseCode" />
+  <xs:complexType name="ToDoListResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="tns:ToDoListResponseCode" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="Elements" nillable="true" type="q4:ArrayOfToDoListElement" />
+      <xs:element minOccurs="0" name="TotalRecordCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ToDoListResponse" nillable="true" type="tns:ToDoListResponse" />
+  <xs:simpleType name="ToDoListResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="SYSTEM_ERROR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ToDoListResponseCode" nillable="true" type="tns:ToDoListResponseCode" />
+  <xs:complexType name="GetDocInfoResponse">
+    <xs:sequence>
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="Allegati" nillable="true" type="q5:ArrayOfDocInfo" />
+      <xs:element minOccurs="0" name="Code" type="tns:GetDocInfoResponseCode" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="DocInfo" nillable="true" type="q6:DocInfo" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="TrasmInfo" nillable="true" type="q7:TrasmInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetDocInfoResponse" nillable="true" type="tns:GetDocInfoResponse" />
+  <xs:simpleType name="GetDocInfoResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="SYSTEM_ERROR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="GetDocInfoResponseCode" nillable="true" type="tns:GetDocInfoResponseCode" />
+  <xs:complexType name="GetFileResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="tns:GetFileResponseCode" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="File" nillable="true" type="q8:FileInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetFileResponse" nillable="true" type="tns:GetFileResponse" />
+  <xs:simpleType name="GetFileResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="SYSTEM_ERROR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="GetFileResponseCode" nillable="true" type="tns:GetFileResponseCode" />
+  <xs:complexType name="GetPreviewResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="tns:GetPreviewResponseCode" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="File" nillable="true" type="q9:FileInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetPreviewResponse" nillable="true" type="tns:GetPreviewResponse" />
+  <xs:simpleType name="GetPreviewResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="SYSTEM_ERROR" />
+      <xs:enumeration value="NO_PREVIEW_FOR_EXTENSION" />
+      <xs:enumeration value="PAGE_NOT_FOUND" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="GetPreviewResponseCode" nillable="true" type="tns:GetPreviewResponseCode" />
+  <xs:complexType name="ADLActionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="tns:AddToADLResponseCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ADLActionResponse" nillable="true" type="tns:ADLActionResponse" />
+  <xs:simpleType name="AddToADLResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="SYSTEM_ERROR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AddToADLResponseCode" nillable="true" type="tns:AddToADLResponseCode" />
+  <xs:complexType name="GetFascInfoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="tns:GetFascInfoResponseCode" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="FascInfo" nillable="true" type="q10:FascInfo" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="TrasmInfo" nillable="true" type="q11:TrasmInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetFascInfoResponse" nillable="true" type="tns:GetFascInfoResponse" />
+  <xs:simpleType name="GetFascInfoResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="SYSTEM_ERROR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="GetFascInfoResponseCode" nillable="true" type="tns:GetFascInfoResponseCode" />
+  <xs:complexType name="RicercaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="tns:RicercaResponseCode" />
+      <xs:element minOccurs="0" name="IdRicercaSalvata" nillable="true" type="xs:string" />
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="Risultati" nillable="true" type="q12:ArrayOfRicercaElement" />
+      <xs:element minOccurs="0" name="TotalRecordCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RicercaResponse" nillable="true" type="tns:RicercaResponse" />
+  <xs:simpleType name="RicercaResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="SYSTEM_ERROR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RicercaResponseCode" nillable="true" type="tns:RicercaResponseCode" />
+  <xs:complexType name="GetRicSalvateResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="tns:GetRicSalvateResponseCode" />
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="Risultati" nillable="true" type="q13:ArrayOfRicercaSalvata" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetRicSalvateResponse" nillable="true" type="tns:GetRicSalvateResponse" />
+  <xs:simpleType name="GetRicSalvateResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="SYSTEM_ERROR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="GetRicSalvateResponseCode" nillable="true" type="tns:GetRicSalvateResponseCode" />
+  <xs:complexType name="CountDelegheAttiveResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NumDeleghe" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CountDelegheAttiveResponse" nillable="true" type="tns:CountDelegheAttiveResponse" />
+  <xs:complexType name="DelegheResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="tns:DelegheResponseCode" />
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="Elements" nillable="true" type="q14:ArrayOfDelega" />
+      <xs:element minOccurs="0" name="TotalRecordCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DelegheResponse" nillable="true" type="tns:DelegheResponse" />
+  <xs:simpleType name="DelegheResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="SYSTEM_ERROR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DelegheResponseCode" nillable="true" type="tns:DelegheResponseCode" />
+  <xs:complexType name="ListaModelliDelegaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="tns:ListaModelliDelegaResponseCode" />
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="Modelli" nillable="true" type="q15:ArrayOfModelloDelegaInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListaModelliDelegaResponse" nillable="true" type="tns:ListaModelliDelegaResponse" />
+  <xs:simpleType name="ListaModelliDelegaResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="SYSTEM_ERROR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ListaModelliDelegaResponseCode" nillable="true" type="tns:ListaModelliDelegaResponseCode" />
+  <xs:complexType name="CreaDelegaDaModelloResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="tns:CreaDelegaDaModelloResponseCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreaDelegaDaModelloResponse" nillable="true" type="tns:CreaDelegaDaModelloResponse" />
+  <xs:simpleType name="CreaDelegaDaModelloResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="NOT_CREATED" />
+      <xs:enumeration value="SYSTEM_ERROR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CreaDelegaDaModelloResponseCode" nillable="true" type="tns:CreaDelegaDaModelloResponseCode" />
+  <xs:complexType name="CreaDelegaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="tns:CreaDelegaResponseCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreaDelegaResponse" nillable="true" type="tns:CreaDelegaResponse" />
+  <xs:simpleType name="CreaDelegaResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="SYSTEM_ERROR" />
+      <xs:enumeration value="NOT_CREATED" />
+      <xs:enumeration value="OVERLAPPING_PERIODS" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CreaDelegaResponseCode" nillable="true" type="tns:CreaDelegaResponseCode" />
+  <xs:complexType name="AccettaDelegaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="tns:AccettaDelegaResponseCode" />
+      <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="DelegaAccettata" nillable="true" type="q16:Delega" />
+      <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="UserInfo" nillable="true" type="q17:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AccettaDelegaResponse" nillable="true" type="tns:AccettaDelegaResponse" />
+  <xs:simpleType name="AccettaDelegaResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="NO_RUOLI" />
+      <xs:enumeration value="USER_ALREADY_LOGGED_IN" />
+      <xs:enumeration value="SYSTEM_ERROR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AccettaDelegaResponseCode" nillable="true" type="tns:AccettaDelegaResponseCode" />
+  <xs:complexType name="DismettiDelegaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="tns:DismettiDelegaResponseCode" />
+      <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="UserInfo" nillable="true" type="q18:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DismettiDelegaResponse" nillable="true" type="tns:DismettiDelegaResponse" />
+  <xs:simpleType name="DismettiDelegaResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="SYSTEM_ERROR" />
+      <xs:enumeration value="OPERATION_FAILED" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DismettiDelegaResponseCode" nillable="true" type="tns:DismettiDelegaResponseCode" />
+  <xs:complexType name="RevocaDelegheResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="tns:RevocaDelegheResponseCode" />
+      <xs:element minOccurs="0" name="Error" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RevocaDelegheResponse" nillable="true" type="tns:RevocaDelegheResponse" />
+  <xs:simpleType name="RevocaDelegheResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="SYSTEM_ERROR" />
+      <xs:enumeration value="OPERATION_FAILED" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RevocaDelegheResponseCode" nillable="true" type="tns:RevocaDelegheResponseCode" />
+  <xs:complexType name="RicercaUtentiResponse">
+    <xs:sequence>
+      <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="Risultati" nillable="true" type="q19:ArrayOfLightUserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RicercaUtentiResponse" nillable="true" type="tns:RicercaUtentiResponse" />
+  <xs:complexType name="ListaTipiRuoloResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="tns:ListaRuoliResponseCode" />
+      <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="TipiRuolo" nillable="true" type="q20:ArrayOfTipoRuoloInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListaTipiRuoloResponse" nillable="true" type="tns:ListaTipiRuoloResponse" />
+  <xs:simpleType name="ListaRuoliResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="SYSTEM_ERROR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ListaRuoliResponseCode" nillable="true" type="tns:ListaRuoliResponseCode" />
+  <xs:complexType name="ListaUtentiResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="tns:ListaUtentiResponseCode" />
+      <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="Utenti" nillable="true" type="q21:ArrayOfUserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListaUtentiResponse" nillable="true" type="tns:ListaUtentiResponse" />
+  <xs:simpleType name="ListaUtentiResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="SYSTEM_ERROR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ListaUtentiResponseCode" nillable="true" type="tns:ListaUtentiResponseCode" />
+  <xs:complexType name="AccettaRifiutaTrasmResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="tns:AccettaRifiutaTrasmResponseCode" />
+      <xs:element minOccurs="0" name="Errore" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AccettaRifiutaTrasmResponse" nillable="true" type="tns:AccettaRifiutaTrasmResponse" />
+  <xs:simpleType name="AccettaRifiutaTrasmResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="SYSTEM_ERROR" />
+      <xs:enumeration value="BL_ERROR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AccettaRifiutaTrasmResponseCode" nillable="true" type="tns:AccettaRifiutaTrasmResponseCode" />
+  <xs:complexType name="ListaModelliTrasmResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="tns:ListaModelliTrasmResponseCode" />
+      <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="Modelli" nillable="true" type="q22:ArrayOfModelloTrasm" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListaModelliTrasmResponse" nillable="true" type="tns:ListaModelliTrasmResponse" />
+  <xs:simpleType name="ListaModelliTrasmResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="SYSTEM_ERROR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ListaModelliTrasmResponseCode" nillable="true" type="tns:ListaModelliTrasmResponseCode" />
+  <xs:complexType name="EseguiTrasmResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="tns:EseguiTrasmResponseCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EseguiTrasmResponse" nillable="true" type="tns:EseguiTrasmResponse" />
+  <xs:simpleType name="EseguiTrasmResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="SYSTEM_ERROR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EseguiTrasmResponseCode" nillable="true" type="tns:EseguiTrasmResponseCode" />
+  <xs:complexType name="RicercaSmistamentoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="tns:RicercaSmistamentoResponseCode" />
+      <xs:element minOccurs="0" name="Elements" nillable="true" type="tns:ArrayOfRicercaSmistamentoElement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RicercaSmistamentoResponse" nillable="true" type="tns:RicercaSmistamentoResponse" />
+  <xs:simpleType name="RicercaSmistamentoResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="SYSTEM_ERROR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RicercaSmistamentoResponseCode" nillable="true" type="tns:RicercaSmistamentoResponseCode" />
+  <xs:complexType name="ArrayOfRicercaSmistamentoElement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RicercaSmistamentoElement" nillable="true" type="tns:RicercaSmistamentoElement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRicercaSmistamentoElement" nillable="true" type="tns:ArrayOfRicercaSmistamentoElement" />
+  <xs:complexType name="RicercaSmistamentoElement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DescrizioneRuolo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DescrizioneUO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DescrizioneUtente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdRuolo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdUO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdUtente" nillable="true" type="xs:string" />
+      <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="Type" type="q23:SmistamentoNodeType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RicercaSmistamentoElement" nillable="true" type="tns:RicercaSmistamentoElement" />
+  <xs:complexType name="GetSmistamentoTreeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="tns:GetSmistamentoTreeResponseCode" />
+      <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="Element" nillable="true" type="q24:SmistamentoTree" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetSmistamentoTreeResponse" nillable="true" type="tns:GetSmistamentoTreeResponse" />
+  <xs:simpleType name="GetSmistamentoTreeResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="SYSTEM_ERROR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="GetSmistamentoTreeResponseCode" nillable="true" type="tns:GetSmistamentoTreeResponseCode" />
+  <xs:complexType name="GetSmistamentoElementsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="tns:GetSmistamentoElementsResponseCode" />
+      <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="Elements" nillable="true" type="q25:ArrayOfSmistamentoElement" />
+      <xs:element minOccurs="0" name="TotalRecordCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetSmistamentoElementsResponse" nillable="true" type="tns:GetSmistamentoElementsResponse" />
+  <xs:simpleType name="GetSmistamentoElementsResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="SYSTEM_ERROR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="GetSmistamentoElementsResponseCode" nillable="true" type="tns:GetSmistamentoElementsResponseCode" />
+</xs:schema>

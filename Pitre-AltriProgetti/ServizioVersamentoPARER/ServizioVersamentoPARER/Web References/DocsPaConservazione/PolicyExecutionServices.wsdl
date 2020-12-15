@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.valueteam.com/Conservazione/Policy/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.valueteam.com/Conservazione/Policy/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.valueteam.com/Conservazione/Policy/">
+      <s:element name="ExecutePolicy">
+        <s:complexType />
+      </s:element>
+      <s:element name="ExecutePolicyResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ExecuteAutoTests">
+        <s:complexType />
+      </s:element>
+      <s:element name="ExecuteAutoTestsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="TestExecutePolicy">
+        <s:complexType />
+      </s:element>
+      <s:element name="TestExecutePolicyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TestExecutePolicyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GeneratePrintRegCons">
+        <s:complexType />
+      </s:element>
+      <s:element name="GeneratePrintRegConsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ExecuteVersamento">
+        <s:complexType />
+      </s:element>
+      <s:element name="ExecuteVersamentoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ExecutePolicyPARER">
+        <s:complexType />
+      </s:element>
+      <s:element name="ExecutePolicyPARERResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ExecutePolicySoapIn">
+    <wsdl:part name="parameters" element="tns:ExecutePolicy" />
+  </wsdl:message>
+  <wsdl:message name="ExecutePolicySoapOut">
+    <wsdl:part name="parameters" element="tns:ExecutePolicyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteAutoTestsSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteAutoTests" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteAutoTestsSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteAutoTestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestExecutePolicySoapIn">
+    <wsdl:part name="parameters" element="tns:TestExecutePolicy" />
+  </wsdl:message>
+  <wsdl:message name="TestExecutePolicySoapOut">
+    <wsdl:part name="parameters" element="tns:TestExecutePolicyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GeneratePrintRegConsSoapIn">
+    <wsdl:part name="parameters" element="tns:GeneratePrintRegCons" />
+  </wsdl:message>
+  <wsdl:message name="GeneratePrintRegConsSoapOut">
+    <wsdl:part name="parameters" element="tns:GeneratePrintRegConsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteVersamentoSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteVersamento" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteVersamentoSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteVersamentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecutePolicyPARERSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecutePolicyPARER" />
+  </wsdl:message>
+  <wsdl:message name="ExecutePolicyPARERSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecutePolicyPARERResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PolicyExecutionServicesSoap">
+    <wsdl:operation name="ExecutePolicy">
+      <wsdl:input message="tns:ExecutePolicySoapIn" />
+      <wsdl:output message="tns:ExecutePolicySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteAutoTests">
+      <wsdl:input message="tns:ExecuteAutoTestsSoapIn" />
+      <wsdl:output message="tns:ExecuteAutoTestsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestExecutePolicy">
+      <wsdl:input message="tns:TestExecutePolicySoapIn" />
+      <wsdl:output message="tns:TestExecutePolicySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GeneratePrintRegCons">
+      <wsdl:input message="tns:GeneratePrintRegConsSoapIn" />
+      <wsdl:output message="tns:GeneratePrintRegConsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteVersamento">
+      <wsdl:input message="tns:ExecuteVersamentoSoapIn" />
+      <wsdl:output message="tns:ExecuteVersamentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecutePolicyPARER">
+      <wsdl:input message="tns:ExecutePolicyPARERSoapIn" />
+      <wsdl:output message="tns:ExecutePolicyPARERSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PolicyExecutionServicesSoap" type="tns:PolicyExecutionServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExecutePolicy">
+      <soap:operation soapAction="http://www.valueteam.com/Conservazione/Policy/ExecutePolicy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteAutoTests">
+      <soap:operation soapAction="http://www.valueteam.com/Conservazione/Policy/ExecuteAutoTests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestExecutePolicy">
+      <soap:operation soapAction="http://www.valueteam.com/Conservazione/Policy/TestExecutePolicy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GeneratePrintRegCons">
+      <soap:operation soapAction="http://www.valueteam.com/Conservazione/Policy/GeneratePrintRegCons" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteVersamento">
+      <soap:operation soapAction="http://www.valueteam.com/Conservazione/Policy/ExecuteVersamento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecutePolicyPARER">
+      <soap:operation soapAction="http://www.valueteam.com/Conservazione/Policy/ExecutePolicyPARER" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PolicyExecutionServicesSoap12" type="tns:PolicyExecutionServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExecutePolicy">
+      <soap12:operation soapAction="http://www.valueteam.com/Conservazione/Policy/ExecutePolicy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteAutoTests">
+      <soap12:operation soapAction="http://www.valueteam.com/Conservazione/Policy/ExecuteAutoTests" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestExecutePolicy">
+      <soap12:operation soapAction="http://www.valueteam.com/Conservazione/Policy/TestExecutePolicy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GeneratePrintRegCons">
+      <soap12:operation soapAction="http://www.valueteam.com/Conservazione/Policy/GeneratePrintRegCons" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteVersamento">
+      <soap12:operation soapAction="http://www.valueteam.com/Conservazione/Policy/ExecuteVersamento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecutePolicyPARER">
+      <soap12:operation soapAction="http://www.valueteam.com/Conservazione/Policy/ExecutePolicyPARER" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PolicyExecutionServices">
+    <wsdl:port name="PolicyExecutionServicesSoap" binding="tns:PolicyExecutionServicesSoap">
+      <soap:address location="http://localhost/Vt-Docs/DocsPaWS/Conservazione/Policy/PolicyExecutionServices.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PolicyExecutionServicesSoap12" binding="tns:PolicyExecutionServicesSoap12">
+      <soap12:address location="http://localhost/Vt-Docs/DocsPaWS/Conservazione/Policy/PolicyExecutionServices.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

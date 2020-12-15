@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    
+    <LinearLayout
+        android:id="@+id/attachmentViewContainer"
+        android:layout_width="15dp"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="@dimen/margin_20px"
+        android:orientation="vertical">
+    
+        <View
+            android:id="@+id/attachmentViewUp"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/attachmentLineBackground" />
+        
+        <View
+            android:id="@+id/attachmentViewDown"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/attachmentLineBackground" />
+        
+    </LinearLayout>
+    
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/list_item_height"
+        android:paddingTop="@dimen/item_document_padding_top_bottom"
+        android:paddingBottom="@dimen/item_document_padding_top_bottom"
+        android:paddingLeft="@dimen/item_document_padding_left_right"
+        android:paddingRight="@dimen/item_document_padding_left_right"
+        android:background="@@android:color/transparent">
+    <!-- DON'T DELETE, It's used in the cell swiping -->
+        <View
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/transparent" />
+    <!--                                             -->
+        <RelativeLayout
+            android:id="@+id/relativeLayout_firstColumn"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="@dimen/margin_20px"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/imageView_documentImage"
+                android:layout_width="@dimen/document_icon_dim"
+                android:layout_height="@dimen/document_icon_dim"
+                android:layout_marginBottom="@dimen/document_icon_margin"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/ico_documenti" />
+            <TextView
+                android:id="@+id/textView_documentIconDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WORD"
+                android:gravity="center_horizontal"
+                style="@style/list_icon_description"
+                android:layout_below="@+id/imageView_documentImage"
+                android:layout_alignStart="@id/imageView_documentImage"
+                android:layout_alignEnd="@id/imageView_documentImage" />
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/textview_segnature"
+            style="@style/list_sender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/linearLayout_buttons"
+            android:layout_toRightOf="@id/relativeLayout_firstColumn"
+            android:ellipsize="end"
+            android:paddingTop="@dimen/item_document_textview"
+            android:layout_marginBottom="4dp"
+            android:singleLine="true"
+            android:text="00000000000000" />
+        <TextView
+            android:id="@+id/textView_date_and_name"
+            style="@style/list_sender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textview_segnature"
+            android:layout_toLeftOf="@+id/linearLayout_buttons"
+            android:layout_toRightOf="@id/relativeLayout_firstColumn"
+            android:layout_marginBottom="4dp"
+            android:ellipsize="end"
+            android:lines="2"
+            android:paddingBottom="@dimen/item_document_textview"
+            android:text="20/12/2016, Mino Sabrina " />
+        <TextView
+            android:id="@+id/textView_documentTitle"
+            style="@style/list_document_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_date_and_name"
+            android:layout_toEndOf="@id/relativeLayout_firstColumn"
+            android:layout_toLeftOf="@+id/linearLayout_buttons"
+            android:layout_toRightOf="@+id/relativeLayout_firstColumn"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:paddingBottom="@dimen/item_document_textview"
+            android:layout_marginBottom="8dp"
+            android:paddingTop="@dimen/item_document_textview"
+            android:text="Test " />
+        <TextView
+            android:id="@+id/textView_documentType"
+            style="@style/list_document_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_documentTitle"
+            android:layout_toLeftOf="@+id/linearLayout_buttons"
+            android:layout_toRightOf="@id/relativeLayout_firstColumn"
+            android:gravity="center_vertical"
+            android:paddingTop="@dimen/item_document_textview"
+            android:text="conoscenza" />
+        <TextView
+            android:id="@+id/type_sign"
+            android:visibility="gone"
+            style="@style/list_document_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_documentTitle"
+            android:paddingBottom="@dimen/item_document_textview"
+            android:paddingTop="10dp"
+            android:layout_toLeftOf="@+id/linearLayout_buttons"
+            android:layout_toRightOf="@id/relativeLayout_firstColumn"
+            android:text="TIPO FIRMA" />
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/linearLayout_buttons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="@dimen/margin_20px"
+            android:layout_marginLeft="@dimen/margin_20px"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/textView_sign"
+                style="@style/list_document_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"
+                android:text="@string/document_list_firma" />
+            <TextView
+                android:id="@+id/textView_reject"
+                style="@style/list_document_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:text="@string/document_list_respingi" />
+        </LinearLayout>
+    </RelativeLayout>
+    
+</LinearLayout>

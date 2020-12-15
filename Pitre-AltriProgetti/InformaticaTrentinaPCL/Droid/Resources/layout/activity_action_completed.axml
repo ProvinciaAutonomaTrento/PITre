@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:id="@+id/button_close"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@drawable/ic_ico_chiudi"
+        android:layout_marginTop="@dimen/margin_80px"
+        android:layout_marginRight="@dimen/margin_40px"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="155dp"
+        android:layout_height="155dp"
+        android:background="@drawable/ico_conferma_documenti"
+        app:layout_constraintBottom_toTopOf="@+id/textView_result"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+    <TextView
+        android:id="@+id/textView_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_40px"
+        android:text="@string/activity_action_completed_document_accepted"
+        style="@style/modale_title"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="24dp"
+        android:textAllCaps="false" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/textView_result"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/textView_ojects"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="provavfsdfsdfsdfsdfsdfsdfsdfnsdfhsdjfsdfjksdlsdjklsdjksdjflkdsjflksdjflkdjfksdjflsdjfksdfjsdlfjsdlfksdflsdjkfdsjlfjsdfsd"
+                android:layout_marginTop="@dimen/margin_40px"
+                style="@style/modale_title"
+                android:gravity="left"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textSize="18dp"
+                android:textAllCaps="false" />
+        </LinearLayout>
+    </ScrollView>
+    <Button
+        android:id="@+id/button_next"
+        android:layout_width="0dp"
+        android:text="@string/activity_action_completed_next_document"
+        android:textAllCaps="true"
+        style="@style/blue_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,112 @@
+CREATE OR REPLACE FUNCTION getContatoreDoc (docNumber INT, tipoContatore CHAR)
+RETURN VARCHAR IS risultato VARCHAR(255);
+
+valoreContatore VARCHAR(255);
+annoContatore VARCHAR(255);
+annoAccademico VARCHAR(255);
+formatoContatore VARCHAR(255);
+codiceRegRf VARCHAR(255);
+repertorio NUMBER;
+
+BEGIN
+
+valoreContatore := '';
+annoContatore := '';
+codiceRegRf := '';
+
+begin
+
+    select
+    valore_oggetto_db, anno,anno_acc,formato_contatore, repertorio
+    into valoreContatore, annoContatore,annoAccademico,formatoContatore,repertorio
+    from
+    dpa_associazione_templates, dpa_oggetti_custom, dpa_tipo_oggetto
+    where
+    dpa_associazione_templates.doc_number = to_char(docNumber)
+    and
+    dpa_associazione_templates.id_oggetto = dpa_oggetti_custom.system_id
+    and
+    dpa_oggetti_custom.id_tipo_oggetto = dpa_tipo_oggetto.system_id
+    and
+    dpa_tipo_oggetto.descrizione = 'Contatore'
+    and
+    dpa_oggetti_custom.DA_VISUALIZZARE_RICERCA='1';
+    --and
+    --dpa_oggetti_custom.cha_tipo_tar = 'T';
+    exception when others then null;
+
+    end;
+
+    IF(repertorio = 1) THEN
+    BEGIN
+    risultato := '#CONTATORE_DI_REPERTORIO#';
+    RETURN risultato;
+    END;
+    END IF;
+
+    IF(tipoContatore<>'T') THEN
+    BEGIN
+    select
+    dpa_el_registri.var_codice
+    into codiceRegRf
+    from
+    dpa_associazione_templates, dpa_oggetti_custom, dpa_tipo_oggetto, dpa_el_registri
+    where
+    dpa_associazione_templates.doc_number = to_char(docNumber)
+    and
+    dpa_associazione_templates.id_oggetto = dpa_oggetti_custom.system_id
+    and
+    dpa_oggetti_custom.id_tipo_oggetto = dpa_tipo_oggetto.system_id
+    and
+
+    dpa_tipo_oggetto.descrizione = 'Contatore'
+    and
+    dpa_oggetti_custom.DA_VISUALIZZARE_RICERCA='1'
+    --and
+    --dpa_oggetti_custom.cha_tipo_tar = tipoContatore;
+    and
+    dpa_associazione_templates.id_aoo_rf = dpa_el_registri.system_id;
+    exception when others then null;
+
+    END;
+    END IF;
+
+      
+    IF( annoAccademico is not null )
+        THEN
+        annoContatore := annoAccademico;
+        
+        IF (instr(formatoContatore,'a.s.' )!=0)
+        THEN
+            if(codiceRegRf is  null)
+            then
+            risultato :=    nvl(valoreContatore,'')||' - a.s. '||nvl(annoContatore,'') ;
+            else  
+            risultato :=  nvl(codiceRegRf,'') ||'-'|| nvl(annoContatore,'') ||' - a.s. '|| nvl(valoreContatore,'');
+            end if; 
+        ELSE
+            if(codiceRegRf is  null)
+            then
+            risultato :=    nvl(valoreContatore,'')||'-'||nvl(annoContatore,'') ;
+            else  
+            risultato :=  nvl(codiceRegRf,'') ||'-'|| nvl(annoContatore,'') ||'-'|| nvl(valoreContatore,'');
+            end if;
+                
+        END IF;
+   
+    END IF;
+
+    IF(annoAccademico is null)
+        THEN
+            if(codiceRegRf is  null)
+            then
+            risultato :=    nvl(valoreContatore,'')||'-'||nvl(annoContatore,'') ;
+            else  
+            risultato :=  nvl(codiceRegRf,'') ||'-'|| nvl(annoContatore,'') ||'-'|| nvl(valoreContatore,'');
+        end if; 
+     
+    END IF;
+ 
+    RETURN risultato;
+    End Getcontatoredoc;
+/

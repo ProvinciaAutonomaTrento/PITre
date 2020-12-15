@@ -1,0 +1,16 @@
+--------------------------------------------------------
+--  DDL for Table DPA_MODELLI_MITT_DEST
+--------------------------------------------------------
+
+  CREATE TABLE "ITCOLL_6GIU12"."DPA_MODELLI_MITT_DEST" 
+   (	"SYSTEM_ID" NUMBER, 
+	"ID_MODELLO" NUMBER, 
+	"CHA_TIPO_MITT_DEST" VARCHAR2(6 BYTE), 
+	"ID_CORR_GLOBALI" NUMBER, 
+	"ID_RAGIONE" NUMBER, 
+	"CHA_TIPO_TRASM" VARCHAR2(1 BYTE), 
+	"VAR_NOTE_SING" VARCHAR2(250 BYTE), 
+	"CHA_TIPO_URP" VARCHAR2(1 BYTE), 
+	"SCADENZA" NUMBER, 
+	"HIDE_DOC_VERSIONS" CHAR(1 BYTE)
+   ) ;

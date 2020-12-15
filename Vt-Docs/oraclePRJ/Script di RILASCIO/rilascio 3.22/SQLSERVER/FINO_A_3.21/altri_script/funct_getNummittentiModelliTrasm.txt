@@ -1,0 +1,25 @@
+CREATE FUNCTION [DOCSADM].[GetNumMittentiModelliTrasm] 
+(
+      -- Id del modello di cui contare i mittenti
+      @TemplateId   int
+)
+RETURNS int
+AS
+BEGIN
+      -- Valore da restituire
+      DECLARE @ResultVar int
+
+      -- Conteggio del numero di mittenti del modello di trasmissione
+      -- con id pari a quello passato per parametro
+      SELECT @ResultVar = COUNT('X')
+      FROM docsadm.dpa_modelli_trasm AS mt
+            INNER JOIN docsadm.dpa_modelli_mitt_dest md
+            ON mt.system_id = md.id_modello
+      WHERE mt.system_id = @TemplateId
+              AND md.CHA_TIPO_MITT_DEST = 'M'
+
+      -- Return the result of the function
+      RETURN @ResultVar
+
+END
+

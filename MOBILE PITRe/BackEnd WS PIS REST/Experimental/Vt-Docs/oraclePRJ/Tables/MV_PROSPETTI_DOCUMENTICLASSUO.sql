@@ -1,0 +1,14 @@
+--------------------------------------------------------
+--  DDL for Table MV_PROSPETTI_DOCUMENTICLASSUO
+--------------------------------------------------------
+
+  CREATE TABLE "ITCOLL_6GIU12"."MV_PROSPETTI_DOCUMENTICLASSUO" 
+   (	"ID_REGISTRO" NUMBER(10,0), 
+	"ID_UO_PROT" NUMBER, 
+	"CHA_TIPO_PROTO" VARCHAR2(1 BYTE), 
+	"NUM_ANNO_PROTO" NUMBER(10,0), 
+	"NVL_CHA_IN_CESTINO" VARCHAR2(1 BYTE), 
+	"FLAG_ANNULLATO" NUMBER, 
+	"UNDISTINCT_COUNT" NUMBER, 
+	"DISTINCT_COUNT" NUMBER
+   ) ;

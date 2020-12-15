@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite">
+    <View
+            android:id="@+id/view_shadow_up"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/footer_shadow_height"
+            android:paddingTop="@dimen/details_custom_navigation_view_shadow"
+            android:paddingBottom="@dimen/details_custom_navigation_view_shadow"
+            android:background="@drawable/shape_custom_bottom_navigation_view_background" />
+    <RadioGroup
+            android:layout_below="@+id/view_shadow_up"
+            android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:orientation="vertical">
+        <RadioButton
+                android:id="@+id/item_area_di_lavoro"
+                android:background="@drawable/selector_bottom_navigation_view"
+                android:drawableLeft="@drawable/ic_ico_adl"
+                android:text="@string/title_area_di_lavoro"
+                style="@style/details_custom_navigation_view"/>
+        <RadioButton
+                android:id="@+id/item_toSign"
+                android:background="@drawable/selector_bottom_navigation_view"
+                android:text="@string/title_sign"                
+                android:drawableLeft="@drawable/ic_ico_firma"
+                style="@style/details_custom_navigation_view" />
+        <RadioButton
+                android:id="@+id/item_toDo"
+                android:background="@drawable/selector_bottom_navigation_view"
+                android:drawableLeft="@drawable/ic_ico_dafare"
+                android:text="@string/title_todo"
+                style="@style/details_custom_navigation_view" />
+        <RadioButton
+                android:id="@+id/item_switchTo"
+                android:background="@drawable/selector_bottom_navigation_view"
+                android:text="@string/title_switchTo"
+                android:drawableLeft="@drawable/ic_ico_delega_selezionata"
+                style="@style/details_custom_navigation_view"/>
+        <RadioButton
+                android:id="@+id/item_search"
+                android:background="@drawable/selector_bottom_navigation_view"
+                android:drawableLeft="@drawable/ic_ico_cerca_bianca"
+                android:text="@string/search"
+                style="@style/details_custom_navigation_view"/>
+    </RadioGroup>
+
+    <View
+            android:layout_below="@+id/radio_group"
+            android:id="@+id/view_shadow_down"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/footer_shadow_height"
+            android:paddingTop="@dimen/details_custom_navigation_view_shadow"
+            android:paddingBottom="@dimen/details_custom_navigation_view_shadow"
+            android:background="@drawable/shape_custom_bottom_navigation_view_background" />
+</RelativeLayout>

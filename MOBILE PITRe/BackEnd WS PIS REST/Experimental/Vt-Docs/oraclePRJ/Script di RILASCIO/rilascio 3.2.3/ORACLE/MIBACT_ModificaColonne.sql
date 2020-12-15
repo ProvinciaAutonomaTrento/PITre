@@ -1,0 +1,5 @@
+-- MIBACT : colonne modificate per migrazione DB.
+
+ALTER TABLE DPA_CORR_GLOBALI MODIFY (VAR_COGNOME varchar2(256), VAR_CODICE_AOO  varchar2(32));
+
+ALTER TABLE DPA_DETT_GLOBALI MODIFY (VAR_CITTA varchar2(256), VAR_PROVINCIA  varchar2(50));

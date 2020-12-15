@@ -1,0 +1,74 @@
+USE [PCM_330]
+GO
+
+/****** Object:  UserDefinedFunction [DOCSADM].[getImprontaWithAllegati]    Script Date: 04/19/2016 15:39:46 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE FUNCTION [DOCSADM].[getImprontaWithAllegati] (      @docnum int)
+RETURNS varchar(8000)
+AS
+BEGIN
+DECLARE @temp int
+Declare @impronta varchar(4000)
+DECLARE @vmaxidgenerica  INT
+DECLARE @curImpronta VARCHAR(2000)
+DECLARE @impr VARCHAR(2000)
+
+set @impronta =''
+
+declare cur CURSOR LOCAL
+
+for SELECT var_impronta
+FROM components c, versions v, profile p
+WHERE p.id_documento_principale = @docnum
+AND c.docnumber = p.docnumber AND v.docnumber = p.docnumber
+AND v.version_id = c.version_id
+AND v.version = 
+(
+SELECT MAX(VERSION) FROM versions WHERE docnumber = p.docnumber AND VERSION <> 0
+)
+open cur
+
+SELECT @vmaxidgenerica = MAX (v1.version_id)
+FROM VERSIONS v1, components c
+WHERE v1.docnumber = @docnum AND v1.version_id = c.version_id
+
+SELECT @impr = var_impronta
+FROM components
+WHERE docnumber = @docnum AND version_id = @vmaxidgenerica
+
+SET @impronta = @impronta + @impr 
+
+SELECT @temp = COUNT(system_id)
+FROM profile
+WHERE id_documento_principale = @docnum;
+
+if (@temp > 0)
+begin
+	fetch next from cur into @curImpronta
+	while(@@fetch_status=0)
+	begin
+		if (@curImpronta is not null)
+		begin
+			SET @impronta = @impronta + ';' + @curImpronta
+		end
+		fetch next from cur into @curImpronta
+	end
+end
+
+close cur
+
+deallocate cur
+
+RETURN @impronta
+
+END
+
+
+GO
+
+

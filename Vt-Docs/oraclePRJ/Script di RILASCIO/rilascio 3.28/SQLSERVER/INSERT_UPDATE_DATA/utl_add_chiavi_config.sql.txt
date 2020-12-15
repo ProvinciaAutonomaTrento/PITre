@@ -1,0 +1,135 @@
+IF EXISTS(SELECT * FROM sys.objects WHERE type = 'P' and name ='UTL_INSERT_CHIAVE_CONFIG')
+DROP PROCEDURE DOCSADM.[Utl_Insert_Chiave_Config]
+go
+
+CREATE Procedure DOCSADM.[Utl_Insert_Chiave_Config](
+    @Codice               VARCHAR(100) ,
+    @Descrizione          VARCHAR(2000) ,
+    @Valore               VARCHAR(128) ,
+    @Tipo_Chiave          Varchar(1) ,
+    @Visibile             VARCHAR(1) ,
+    @Modificabile         VARCHAR(1) ,
+    @Globale              VARCHAR(1) ,
+    @myversione_CD          Varchar(32) ,
+    @Codice_Old_Webconfig Varchar(128) ,
+    @Forza_Update  VARCHAR(1) , 
+    @RFU VARCHAR(10) ) As  
+
+BEGIN
+
+
+  declare @Cnt Int
+
+  -- controlli lunghezza valori passati
+  If DOCSADM.Utl_IsValore_Lt_Column(@Codice, 'DPA_CHIAVI_CONFIGURAZIONE', 'VAR_CODICE') = 1 
+  begin
+     print 'parametro CODICE too large for column VAR_CODICE' 
+     return -1
+  End 
+  
+  If DOCSADM.Utl_IsValore_Lt_Column(@Descrizione, 'DPA_CHIAVI_CONFIGURAZIONE', 'VAR_Descrizione') = 1 
+  begin
+	print 'parametro Descrizione too large for column VAR_Descrizione'  
+	return -1
+  End 
+  
+  If DOCSADM.Utl_IsValore_Lt_Column(@Valore, 'DPA_CHIAVI_CONFIGURAZIONE', 'VAR_Valore') = 1 
+	begin
+    print 'parametro Valore too large for column VAR_VALORE'
+    return -1
+END 
+
+  -- fine controlli lunghezza valori passati
+  SELECT @cnt = COUNT(*)  
+  FROM DOCSADM.DPA_CHIAVI_CONFIGURAZIONE
+  Where Var_Codice=@Codice
+
+SET @Codice_Old_Webconfig = ISNULL(@Codice_Old_Webconfig,'NULL')
+
+  If (@Cnt         = 0 and @Globale    = '1') 
+  begin -- inserisco la chiave globale non esistente
+  INSERT INTO  DOCSADM.DOCSPA.DPA_CHIAVI_CONFIGURAZIONE
+    ( Id_Amm,          
+    Var_Codice ,
+      VAR_DESCRIZIONE ,          
+      VAR_VALORE ,
+      Cha_Tipo_Chiave,          
+      Cha_Visibile ,
+      CHA_MODIFICABILE,          
+      CHA_GLOBALE ,          
+      VAR_CODICE_OLD_WEBCONFIG , 
+      DTA_INSERIMENTO, 
+      VERSIONE_CD)
+    Values        
+    ( 0, 
+    @Codice ,
+    @Descrizione ,
+    @Valore ,
+    @Tipo_Chiave ,
+    @Visibile ,
+    @Modificabile,
+    @Globale,
+    @Codice_Old_Webconfig    ,
+    getdate() ,
+    @myVERSIONE_CD )
+          print 'inserita nuova chiave globale ' + @Codice
+	End 
+  If (@Cnt         = 0 And @Globale    = '0') 
+  begin -- inserisco la chiave non globale non esistente
+      -- questa forma evita di dover eseguire la procedura CREA_KEYS_AMMINISTRA di riversamento !
+       INSERT      INTO  DOCSADM.DPA_CHIAVI_CONFIGURAZIONE
+        ( Id_Amm,          
+        Var_Codice ,
+          VAR_DESCRIZIONE ,          
+          VAR_VALORE ,
+          Cha_Tipo_Chiave,          
+          Cha_Visibile ,
+          CHA_MODIFICABILE,          
+          CHA_GLOBALE ,          
+          VAR_CODICE_OLD_WEBCONFIG , 
+          DTA_INSERIMENTO, 
+          VERSIONE_CD)
+      SELECT 
+      Amm.System_Id  As Id_Amm, 
+      @Codice As Var_Codice,
+      @Descrizione As Var_Descrizione , 
+      @Valore As Var_Valore ,
+      @Tipo_Chiave As Cha_Tipo_Chiave,
+      @Visibile As Cha_Visibile ,
+      @Modificabile As Cha_Modificabile, 
+      @Globale As CHA_GLOBALE ,
+      @Codice_Old_Webconfig  as VAR_CODICE_OLD_WEBCONFIG ,
+      getdate() ,
+      @myVERSIONE_CD
+      FROM DOCSADM.Dpa_Amministra Amm       
+      WHERE NOT EXISTS
+      (SELECT Id_Amm        FROM DOCSADM.Dpa_Chiavi_Configurazione
+        WHERE var_codice = @Codice)
+        
+        print 'inserita nuove n chiavi locali per le n amministrazioni: ' + @Codice
+  End
+
+  IF (@Cnt                  = 1) 
+  begin -- chiave gi esistente
+    PRINT 'chiave ' + @Codice + ' gi esistente'
+    IF @Forza_Update = '1' 
+    begin
+      UPDATE DOCSADM.Dpa_Chiavi_Configurazione
+      SET VAR_DESCRIZIONE = @descrizione,
+        VAR_VALORE        = @valore, 
+		Cha_Visibile	  = @Visibile,
+		Cha_Modificabile  = @Modificabile,
+		cha_Tipo_Chiave	  = @Tipo_Chiave	
+      Where Var_Codice    = @Codice       and CHA_MODIFICABILE = '1'
+      PRINT  'AGGIORNATO VALORE, visibilit, modificabilit e tipo, per la CHIAVE: ' + @Codice + ' gi esistente' 
+
+    end ELSE begin-- aggiorno solo la descrizione
+      UPDATE DOCSADM.Dpa_Chiavi_Configurazione
+      SET Var_Descrizione = @Descrizione -- , Var_Valore = Valore
+      WHERE Var_Codice    = @Codice and CHA_MODIFICABILE = '1'
+
+    END 
+  END 
+  
+END
+GO

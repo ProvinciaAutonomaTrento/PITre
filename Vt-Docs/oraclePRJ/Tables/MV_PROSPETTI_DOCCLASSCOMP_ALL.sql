@@ -1,0 +1,17 @@
+--------------------------------------------------------
+--  DDL for Table MV_PROSPETTI_DOCCLASSCOMP_ALL
+--------------------------------------------------------
+
+  CREATE TABLE "ITCOLL_6GIU12"."MV_PROSPETTI_DOCCLASSCOMP_ALL" 
+   (	"ID_AMM" NUMBER, 
+	"ID_REGISTR" NUMBER, 
+	"ID_ANNO" NUMBER, 
+	"SEDE" VARCHAR2(256 BYTE), 
+	"TITOLARIO" NUMBER, 
+	"TOT_DOC_CLASS" NUMBER, 
+	"COD_CLASS" VARCHAR2(256 BYTE), 
+	"DESC_CLASS" VARCHAR2(3000 BYTE), 
+	"TOT_DOC_CLASS_VT" NUMBER, 
+	"PERC_DOC_CLASS_VT" NUMBER, 
+	"NUM_LIVELLO" VARCHAR2(256 BYTE)
+   ) ;

@@ -1,0 +1,10 @@
+if not exists (
+			   SELECT * FROM syscolumns
+			   WHERE name='OPZIONI_XML_ASSOC' and id in
+			   (SELECT id FROM sysobjects
+			   WHERE id = OBJECT_ID(N'[@db_user].[DPA_OGG_CUSTOM_COMP]') and xtype='U')
+			   )
+BEGIN
+       ALTER TABLE [@db_user].[DPA_OGG_CUSTOM_COMP] ADD OPZIONI_XML_ASSOC VARCHAR(2000)
+END
+GO

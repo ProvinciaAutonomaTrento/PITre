@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XMLReport.xsd">
+  <pagina formato="A4" orientamento="ORIZZONTALE">
+    <dta_stampa align="RIGHT" target="HEADER" font="Arial" size="10" style="PLAIN" color="#000000">Stampa ricerca trasmissioni effettuata il: </dta_stampa>
+    <num_pagine align="CENTER" target="FOOTER" font="Arial" size="8" style="PLAIN" color="#000000" total="1" separator="/" widthTot="5">Pag. </num_pagine>
+  </pagina>
+  <header align="RIGHT" font="Arial" size="8" style="PLAIN" color="#000000" bgcolor="#FFFFFF" border="0">
+  </header>
+  <!--<logo align="LEFT" file="" bgcolor="#FFFFFF"/>-->
+  <logo/>
+  <dati>
+    <paragrafo align="LEFT" font="Arial" size="14" style="BOLD" color="#000000" bgcolor="#FFFFFF" target="PAR_AMM">@amm</paragrafo>
+    <paragrafo align="LEFT" font="Arial" size="14" style="BOLD" color="#000000" bgcolor="#FFFFFF" target="PAR_TITLE">@title</paragrafo>
+    <paragrafo align="LEFT" font="Arial" size="10" style="NORMAL" color="#000000" bgcolor="#FFFFFF" target="PAR_TOT_RIGHE">Righe stampate: @param0</paragrafo>
+  </dati>
+  <dati>
+    <tabella showBorder="true" target="TABLE" padding="2" spacing="0">
+      <header_tabella align="CENTER" font="Arial" size="8" style="BOLD" color="#000000" bgcolor="#C0C0C0" valign="middle"/>
+      <dati_tabella align="CENTER" font="Arial" size="7" style="PLAIN" color="#000000" bgcolor="#C0C0C0" valign="bottom"/>
+      <colonne>
+        <colonna name="DATA_INVIO" alias="Data trasm." visible="true" width="58" align="center" valign="top" bgColor="#FFFFFF" />
+        <colonna name="COD_FASCICOLO" alias="Cod. fascicolo" visible="true" width="100" align="left" valign="top" bgColor="#FFFFFF" />
+        <colonna name="DESC_FASCICOLO" alias="Desc. fascicolo" visible="true" width="400" align="left" valign="top" bgColor="#FFFFFF" />
+        <colonna name="DATA_APERTURA" alias="Data apertura" visible="true" width="58" align="center" valign="top" bgColor="#FFFFFF" />
+      </colonne>
+    </tabella>
+  </dati>
+  <footer align="LEFT" font="Arial" size="8" style="PLAIN" color="#000000" bgcolor="#FFFFFF" border="0">
+    
+  </footer>
+</report>

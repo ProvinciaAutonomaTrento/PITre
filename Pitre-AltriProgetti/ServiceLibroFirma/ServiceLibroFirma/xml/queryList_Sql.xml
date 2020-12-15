@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="queryListStyle.xsl"?>
+<listeQuery>
+  <query>
+    <name>S_EVENTS_IN_MONITOR</name>
+    <value>
+      Select Dpa_Event_Monitor.Id_Log, Dpa_Event_Monitor.Id_Documento, Dpa_Event_Monitor.Data_Inserimento,
+      Dpa_Anagrafica_Eventi.Var_Cod_Azione, Dpa_Anagrafica_Eventi.Cha_tipo_evento,
+      Dpa_Istanza_Processo_Firma.Id_Istanza, Dpa_Event_Monitor.Id_People, Dpa_Event_Monitor.Id_Group,
+      Case When Dpa_Event_Monitor.ID_DELEGANTE Is Null Then null Else Dpa_Event_Monitor.ID_PEOPLE_AZIONE End As Delegato
+      From Dpa_Event_Monitor
+      Inner Join Dpa_Istanza_Processo_Firma
+      On Dpa_Event_Monitor.Id_Documento = Dpa_Istanza_Processo_Firma.Id_Documento
+      Inner Join Dpa_Anagrafica_Eventi
+      On Dpa_Event_Monitor.Id_Evento = Dpa_Anagrafica_Eventi.Id_Evento
+      Where Dpa_Istanza_Processo_Firma.Concluso_Il is null
+      @condition@
+      Order by Dpa_Event_Monitor.Id_People, Dpa_Event_Monitor.Id_Group
+    </value>
+  </query>
+
+  <query>
+    <name>D_EVENT_IN_MONITOR</name>
+    <value>
+      DELETE Dpa_Event_Monitor WHERE Id_Log = @Id_Log@
+    </value>
+  </query>
+
+  <query>
+    <name>D_EVENTS_IN_MONITOR</name>
+    <value>
+      DELETE Dpa_Event_Monitor WHERE Id_Log IN (@loglist@)
+    </value>
+  </query>
+
+  <query>
+    <name>S_PASSO</name>
+    <value>
+      Select Dpa_Istanza_Passo_Firma.ID_ISTANZA_PASSO, Dpa_Istanza_Passo_Firma.numero_Sequenza,
+      Dpa_Istanza_Passo_Firma.Tipo_firma, Dpa_Istanza_Processo_Firma.version_id, Dpa_Istanza_Processo_Firma.Doc_All, Dpa_Istanza_Passo_Firma.cha_automatico
+      From Dpa_Istanza_Processo_Firma
+      Inner Join Dpa_Istanza_Passo_Firma
+      on Dpa_Istanza_Passo_Firma.id_istanza_processo = Dpa_Istanza_Processo_Firma.id_istanza
+      --Inner Join Dpa_Passo_Di_Firma
+      --On Dpa_Istanza_Passo_Firma.Id_Passo = Dpa_Passo_Di_Firma.Id_Passo
+      Inner Join Dpa_Anagrafica_Eventi
+      On Dpa_Istanza_Passo_Firma.Tipo_Evento = Dpa_Anagrafica_Eventi.Id_Evento
+      Where Dpa_Anagrafica_Eventi.Var_Cod_Azione = '@Var_Cod_Azione@'
+      And Dpa_Istanza_Passo_Firma.Id_Ruolo_Coinvolto = @Id_Group@
+      And Dpa_Istanza_Processo_Firma.Id_Documento = @Id_Documento@
+      And Dpa_Istanza_Passo_Firma.Stato_Passo = 'LOOK'
+      AND (Dpa_Istanza_Passo_Firma.Id_Utente_Coinvolto = @Id_People@ OR Dpa_Istanza_Passo_Firma.Id_Utente_Coinvolto is null)
+    </value>
+  </query>
+
+  <query>
+    <name>S_PASSO_NO_ACTOR</name>
+    <value>
+      Select Dpa_Istanza_Passo_Firma.ID_ISTANZA_PASSO, Dpa_Istanza_Passo_Firma.numero_Sequenza,
+      Dpa_Istanza_Passo_Firma.Tipo_firma, Dpa_Istanza_Processo_Firma.version_id, Dpa_Istanza_Processo_Firma.Doc_All, Dpa_Istanza_Passo_Firma.cha_automatico
+      From Dpa_Istanza_Processo_Firma
+      Inner Join Dpa_Istanza_Passo_Firma
+      on Dpa_Istanza_Passo_Firma.id_istanza_processo = Dpa_Istanza_Processo_Firma.id_istanza
+      Inner Join Dpa_Anagrafica_Eventi
+      On Dpa_Istanza_Passo_Firma.Tipo_Evento = Dpa_Anagrafica_Eventi.Id_Evento
+      Where Dpa_Anagrafica_Eventi.Cha_Tipo_Evento in (@Cha_Tipo_Azione@)
+      And Dpa_Istanza_Processo_Firma.Id_Documento = @Id_Documento@
+      And Dpa_Istanza_Passo_Firma.Stato_Passo = 'LOOK'
+    </value>
+  </query>
+
+  <query>
+    <name>U_PASSO</name>
+    <value>
+      UPDATE Dpa_Istanza_Passo_Firma SET stato = 2
+      Where Dpa_Istanza_Passo_Firma.idPasso = @Id_Passo@
+    </value>
+  </query>
+
+  <query>
+    <name>U_NEXT_PASSO_AS_LOOK</name>
+    <value>
+      UPDATE Dpa_Istanza_Passo_Firma SET stato = 1
+      Where Dpa_Istanza_Passo_Firma.idProcesso = @Id_Processo@
+      And Dpa_Istanza_Passo_Firma.Id_Documento = @Id_Documento@
+      AND Dpa_Istanza_Passo_Firma.NumeroSequenza = @N_Sequenza@
+    </value>
+  </query>
+
+  <query>
+    <name>S_NEXT_PASSO</name>
+    <value>
+      Select Dpa_Istanza_Passo_Firma.*
+      From Dpa_Istanza_Passo_Firma
+      Where idProcesso = @Id_Processo@
+      And NumeroSequenza = @NumeroSequenza@
+      And Id_Documento = @Id_Documento@
+    </value>
+  </query>
+
+  <query>
+    <name>S_UTENTE</name>
+    <value>
+      Select People.Var_Nome, People.Var_Cognome, People.User_Id, Dpa_Amministra.Var_Codice_Amm, Groups.Group_Id
+      From People
+      Inner Join Dpa_Corr_Globali On People.System_Id = Dpa_Corr_Globali.Id_People
+      Inner Join Dpa_Amministra On Dpa_Corr_Globali.Id_Amm = Dpa_Amministra.System_Id
+      Inner Join Peoplegroups On People.System_Id = Peoplegroups.People_System_Id
+      Inner Join Groups On Peoplegroups.Groups_System_Id = Groups.System_Id
+      Where People.System_Id = @idpeople@ And Peoplegroups.Groups_System_Id = @idgroup@
+    </value>
+  </query>
+
+  <query>
+    <name>S_UTENTE_AUTOMATICO</name>
+    <value>
+      Select p.Var_Nome, p.Var_Cognome, p.User_Id, a.Var_Codice_Amm
+      From People p Inner Join Dpa_Amministra a On p.Id_Amm = a.System_Id
+      Where p.System_Id = @idpeople@
+    </value>
+  </query>
+  <query>
+    <name>S_RUOLO</name>
+    <value>
+      SELECT G.GROUP_ID
+      FROM GROUPS G
+      WHERE G.SYSTEM_ID = @idgroup@
+    </value>
+  </query>
+
+  <query>
+    <name>D_MANUAL_PROCESS</name>
+    <value>
+      Delete From Dpa_Elemento_In_Libro_Firma WHERE Id_Elemento in (
+      Select Distinct Dpa_Elemento_In_Libro_Firma.Id_Elemento
+      From Dpa_Event_Monitor Inner Join Dpa_Anagrafica_Eventi
+      On Dpa_Event_Monitor.Id_Evento = Dpa_Anagrafica_Eventi.Id_Evento
+      Inner Join Dpa_Elemento_In_Libro_Firma On Dpa_Event_Monitor.Id_Documento = Dpa_Elemento_In_Libro_Firma.Doc_Number
+      Where Dpa_Anagrafica_Eventi.Cha_Tipo_Evento In ('F')
+      AND Dpa_Elemento_In_Libro_Firma.Modalita = 'M')
+    </value>
+  </query>
+
+  <query>
+    <name>D_ALL_IGNORED_EVENT</name>
+    <value>
+      Delete from Dpa_Event_Monitor where Id_Documento not in (select Dpa_Elemento_In_Libro_Firma.Doc_Number from Dpa_Elemento_In_Libro_Firma)
+    </value>
+  </query>
+</listeQuery>

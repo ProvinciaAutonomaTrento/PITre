@@ -1,0 +1,60 @@
+CREATE OR REPLACE PROCEDURE DocCustomControllaDataInizio IS
+today DATE:= SYSDATE;
+custom DPA_CONT_CUSTOM_DOC%ROWTYPE;
+datainizionuova DATE;
+datafinenuova DATE;
+CURSOR c_custom IS
+SELECT * FROM DPA_CONT_CUSTOM_DOC;
+
+BEGIN
+
+OPEN c_custom;
+            LOOP
+
+                FETCH c_custom into custom;
+                EXIT WHEN c_custom%NOTFOUND;
+                IF (today < custom.DATA_INIZIO ) THEN
+                    DECLARE
+                    idtemplate DPA_ASSOCIAZIONE_TEMPLATES.ID_TEMPLATE%TYPE;
+                    CURSOR c_template IS
+                    SELECT DISTINCT ID_TEMPLATE FROM DPA_ASSOCIAZIONE_TEMPLATES WHERE ID_OGGETTO = custom.ID_OGG;   
+                            BEGIN
+                            
+                                OPEN c_template;
+                                
+                                LOOP
+                                
+                                FETCH c_template into idtemplate;
+                                EXIT WHEN c_template%NOTFOUND;
+                                    UPDATE DPA_TIPO_ATTO
+                                    SET IN_ESERCIZIO = 'NO'
+                                    WHERE SYSTEM_ID = idtemplate;
+                                    commit work;
+                                                                   
+                                        
+                                    dbms_output.put_line(' la tipologia con contatore custom con id_ogg =  '||custom.ID_OGG||  ' ha data di inizio posteriore ad oggi ' );
+                                        
+                                
+                                END LOOP;
+                                
+                            END;
+                
+
+                   
+
+                END IF;
+                
+                
+
+            END LOOP;
+
+CLOSE c_custom;   
+
+   EXCEPTION
+     WHEN NO_DATA_FOUND THEN
+       NULL;
+     WHEN OTHERS THEN
+       -- Consider logging the error and then re-raise
+       RAISE;
+END DocCustomControllaDataInizio;
+/

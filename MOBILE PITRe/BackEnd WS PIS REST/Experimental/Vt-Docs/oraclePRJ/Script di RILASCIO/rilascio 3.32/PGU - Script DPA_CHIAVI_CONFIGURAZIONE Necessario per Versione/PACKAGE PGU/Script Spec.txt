@@ -1,0 +1,96 @@
+CREATE OR REPLACE PACKAGE SVILUPPO_PITRE.PGU AS
+
+    TYPE T_SUB_CURSOR IS REF CURSOR; 
+    
+    
+    -- Reperimento utenti
+    PROCEDURE GetUtenti(cur_OUT OUT T_SUB_CURSOR);
+    
+    -- Reperimento utente
+    PROCEDURE GetUtente(pId NUMBER, cur_OUT OUT T_SUB_CURSOR);       
+    
+    -- Reperimento associazioni
+    PROCEDURE GetAssociazioniUtente(pId NUMBER, cur_OUT OUT T_SUB_CURSOR);
+    
+    -- Verifica esistenza utente
+    PROCEDURE ContainsUtente(pNome NVARCHAR2, pRet OUT NUMBER); 
+    
+    -- Inserimento di un utente
+    PROCEDURE InsertUtente( pNome NVARCHAR2,
+                            pDescrizione NVARCHAR2, 
+                            pPassword NVARCHAR2, 
+                            pSecretKey NVARCHAR2,
+                            pSecretIV NVARCHAR2,
+                            pAmministratore CHAR,
+                            pEmail NVARCHAR2,
+                            pId OUT NUMBER);
+                            
+    -- Modifica password utente                            
+    PROCEDURE ModificaPasswordUtente(pId NUMBER,
+                                     pOldPassword NVARCHAR2,
+                                     pPassword NVARCHAR2, 
+                                     pSecretKey NVARCHAR2,
+                                     pSecretIV NVARCHAR2);    
+    
+    -- Rimozione associazioni utente
+    PROCEDURE ClearAssociazioniUtenteEnte(pIdUtente NUMBER);
+    
+    -- Inserimento associazione utente / ente                            
+    PROCEDURE InsertAssociazioneUtenteEnte(pIdEnte NUMBER,
+                                           pIdUtente NUMBER,
+                                           pAbilitatoConfigurazione VARCHAR2,
+                                           pId OUT NUMBER);
+    
+    -- Modifica di un utente
+    PROCEDURE UpdateUtente( pId NUMBER,
+                            pDescrizione NVARCHAR2, 
+                            pAmministratore CHAR);    
+    
+    -- Rimozione utente
+    PROCEDURE DeleteUtente(pId NUMBER);
+    
+    -- Reperimento degli enti
+    PROCEDURE GetEnti(cur_OUT OUT T_SUB_CURSOR);
+    
+      -- Reperimento chiavi private 
+    PROCEDURE GetPasswordPrivateKeys(pNome NVARCHAR2, cur_OUT OUT T_SUB_CURSOR);
+
+    -- LoginUtente
+    PROCEDURE Login(pNome NVARCHAR2, pPassword NVARCHAR2, cur_OUT OUT T_SUB_CURSOR);
+    
+    -- Reperimento degli enti cui ha visibilit l'utente
+    PROCEDURE GetEntiUtente(pIdUtente NUMBER, cur_OUT OUT T_SUB_CURSOR);
+   
+    
+    -- Reperimento ente
+    PROCEDURE GetEnte(pId NUMBER, cur_OUT OUT T_SUB_CURSOR);
+
+    -- Verifica esistenza ente
+    PROCEDURE ContainsEnte(pNome NVARCHAR2, pRet OUT NUMBER);
+    
+    -- Inserimento ente    
+    PROCEDURE InsertEnte(pNome NVARCHAR2,
+                        pDescrizione NVARCHAR2,
+                        pUrlAppConsProtocollo NVARCHAR2,
+                        pUrlAppConsAltreApp NVARCHAR2,
+                        pUrlWsConsProtocollo NVARCHAR2,
+                        pUrlWsConsAltreApp NVARCHAR2,
+                        pUrlWsPITRE NVARCHAR2,
+                        pId OUT NUMBER);
+                        
+          
+    -- Aggiornamento ente    
+    PROCEDURE UpdateEnte(pId NUMBER,
+                        pNome NVARCHAR2,
+                        pDescrizione NVARCHAR2,
+                        pUrlAppConsProtocollo NVARCHAR2,
+                        pUrlAppConsAltreApp NVARCHAR2,
+                        pUrlWsConsProtocollo NVARCHAR2,
+                        pUrlWsConsAltreApp NVARCHAR2,
+                        pUrlWsPITRE NVARCHAR2);
+
+    -- Rimozione ente
+    PROCEDURE DeleteEnte(pId NUMBER, pResult OUT NUMBER);
+                                
+END PGU;
+/

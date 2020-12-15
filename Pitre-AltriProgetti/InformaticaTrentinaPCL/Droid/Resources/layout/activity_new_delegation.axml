@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+	<ScrollView 
+		android:id="@+id/scroll"
+		 android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+		  VerticalOptions="FillAndExpand" 
+		android:fillViewport="true"
+		 android:layout_above="@+id/button_confirm">
+    <android.support.constraint.ConstraintLayout
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/textView_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_new_delegation_title"
+            style="@style/modale_title"
+            android:layout_marginTop="@dimen/modale_tabbar_margin_top"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+        <ImageView
+            android:id="@+id/button_close"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:padding="24dp"
+            android:src="@drawable/ic_ico_chiudi"
+            app:layout_constraintTop_toTopOf="@id/textView_header"
+            app:layout_constraintBottom_toBottomOf="@id/textView_header"
+            app:layout_constraintRight_toRightOf="parent" />
+        <TextView
+            android:id="@+id/textView_your_role_str"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_new_delegation_your_role"
+            style="@style/details_page_label"
+            android:layout_marginTop="@dimen/margin_40px"
+            android:layout_marginLeft="@dimen/nuova_delega_left_right_padding"
+            android:layout_marginRight="@dimen/nuova_delega_left_right_padding"
+            app:layout_constraintTop_toBottomOf="@+id/textView_header"
+            app:layout_constraintLeft_toLeftOf="parent" />
+        <TextView
+            android:id="@+id/textView_your_role"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_new_delegation_your_role"
+            style="@style/details_page_details"
+            android:layout_marginTop="@dimen/margin_20px"
+            android:layout_marginLeft="@dimen/nuova_delega_left_right_padding"
+            android:layout_marginRight="@dimen/nuova_delega_left_right_padding"
+            app:layout_constraintTop_toBottomOf="@+id/textView_your_role_str"
+            app:layout_constraintLeft_toLeftOf="parent" />
+        <TextView
+            android:id="@+id/textView_assignedTo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_assign_assigned_to"
+            style="@style/details_page_label"
+            android:layout_marginTop="@dimen/margin_80px"
+            android:layout_marginLeft="@dimen/nuova_delega_left_right_padding"
+            android:layout_marginRight="@dimen/nuova_delega_left_right_padding"
+            app:layout_constraintTop_toBottomOf="@+id/textView_your_role"
+            app:layout_constraintLeft_toLeftOf="parent" />
+        <InformaticaTrentinaPCL.Droid.Assign.AssigneeView
+            android:id="@+id/assigneeView_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/textView_assignedTo"
+            android:layout_marginLeft="@dimen/nuova_delega_left_right_padding"
+            android:layout_marginRight="@dimen/nuova_delega_left_right_padding"
+            app:isSmistaSection="false"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:isShowingModels="false" />
+        <InformaticaTrentinaPCL.Droid.Assign.Role.AssigneeRoleView
+            android:id="@+id/assigneeRoleView_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_40px"
+            app:layout_constraintTop_toBottomOf="@+id/assigneeView_container"
+            android:layout_marginLeft="@dimen/nuova_delega_left_right_padding"
+            android:layout_marginRight="@dimen/nuova_delega_left_right_padding"
+            app:isSmistaSection="false"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+        <InformaticaTrentinaPCL.Droid.CustomDateRange.CustomDateRangeView
+            android:id="@+id/custom_date_range_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_80px"
+            android:layout_marginLeft="@dimen/nuova_delega_left_right_padding"
+            android:layout_marginRight="@dimen/nuova_delega_left_right_padding"
+            app:layout_constraintTop_toBottomOf="@+id/assigneeRoleView_container"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:fromLabel="@string/activity_new_delegation_start"
+            app:endLabel="@string/activity_new_delegation_end"
+            app:withTime="true"/>
+    </android.support.constraint.ConstraintLayout>
+		</ScrollView>
+    <Button
+        android:id="@+id/button_confirm"
+        style="@style/blue_button"
+        android:layout_width="match_parent"
+        android:text="@string/activity_new_delegation_confirm"
+       
+	android:layout_alignParentBottom="true"/>
+</RelativeLayout>

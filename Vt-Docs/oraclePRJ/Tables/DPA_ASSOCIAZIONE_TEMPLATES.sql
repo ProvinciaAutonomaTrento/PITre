@@ -1,0 +1,18 @@
+--------------------------------------------------------
+--  DDL for Table DPA_ASSOCIAZIONE_TEMPLATES
+--------------------------------------------------------
+
+  CREATE TABLE "ITCOLL_6GIU12"."DPA_ASSOCIAZIONE_TEMPLATES" 
+   (	"SYSTEM_ID" NUMBER, 
+	"ID_OGGETTO" NUMBER, 
+	"ID_TEMPLATE" NUMBER, 
+	"DOC_NUMBER" VARCHAR2(255 BYTE), 
+	"VALORE_OGGETTO_DB" VARCHAR2(255 BYTE), 
+	"ANNO" NUMBER, 
+	"ID_AOO_RF" NUMBER, 
+	"CODICE_DB" VARCHAR2(50 BYTE), 
+	"MANUAL_INSERT" NUMBER(*,0), 
+	"VALORE_SC" NUMBER, 
+	"DTA_INS" DATE, 
+	"DTA_ANNULLAMENTO" DATE
+   ) ;

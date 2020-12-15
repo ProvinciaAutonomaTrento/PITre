@@ -1,0 +1,33 @@
+using System;
+using System.CodeDom.Compiler;
+using System.Xml.Serialization;
+
+namespace StampaRegistri.DocsPaWR25
+{
+	[GeneratedCode("System.Xml", "2.0.50727.42"), XmlType(Namespace = "http://localhost")]
+	[Serializable]
+	public enum FiltriTrasmissione
+	{
+		TRASMISSIONE_IL,
+		TRASMISSIONE_SUCCESSIVA_AL,
+		TRASMISSIONE_PRECEDENTE_IL,
+		DESTINATARIO_UTENTE,
+		DESTINATARIO_RUOLO,
+		NOTE_GENERALI,
+		NOTE_INDIVIDUALI,
+		RAGIONE,
+		STATO,
+		ACCETTATA_IL,
+		ACCETTATA_SUCCESSIVA_AL,
+		ACCETTATA_PRECEDENTE_IL,
+		RIFIUTATA_IL,
+		RIFIUTATA_SUCCESSIVA_AL,
+		RIFIUTATA_PRECEDENTE_IL,
+		SCADENZA_IL,
+		SCADENZA_SUCCESSIVA_AL,
+		SCADENZA_PRECEDENTE_IL,
+		RISPOSTA_IL,
+		RISPOSTA_SUCCESSIVA_AL,
+		RISPOSTA_PRECEDENTE_IL
+	}
+}

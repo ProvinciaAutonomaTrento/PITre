@@ -1,0 +1,757 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9990A8BE-92EC-4657-863D-9D23665FB3C4}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>DocsPaDigitalSignature</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>
+    </RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <PublishUrl>http://localhost/DocsPaDigitalSignature/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.4.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DLL_TERZE_PARTI\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="DocsPaDB, Version=3.30.0.19969, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DLL_TERZE_PARTI\NTTData\DocsPaDB.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DLL_TERZE_PARTI\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <ProjectReference Include="..\DocsPaUtils\DocsPaUtils.csproj">
+      <Name>DocsPaUtils</Name>
+      <Project>{942AD652-BCF7-44CA-AE38-CF0CDA8E0D16}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\DocsPaVO\DocsPaVO.csproj">
+      <Name>DocsPaVO</Name>
+      <Project>{A8BA40A6-AB86-4DF7-8C0F-8A9BBB7EE885}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\VersionInfo.cs">
+      <Link>VersionInfo.cs</Link>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bouncy_extra\CmsSignedDataGenWithRsaCsp.cs" />
+    <Compile Include="Bouncy_extra\CMSSignedGenerator.cs" />
+    <Compile Include="Bouncy_extra\CMSSignedHelper.cs" />
+    <Compile Include="Bouncy_extra\CMSUtils.cs" />
+    <Compile Include="Bouncy_extra\DigOutputStream.cs" />
+    <Compile Include="ExternalModule.cs" />
+    <Compile Include="Helpers.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharpSystem\Drawing\Dimension.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharpSystem\Drawing\Dimension2D.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharpSystem\util\collections\OrderedTree.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharpSystem\util\ListIterator.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharpSystem\util\Properties.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharpSystem\util\StringTokenizer.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharpSystem\util\Util.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharpSystem\util\zlib\Adler32.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharpSystem\util\zlib\Deflate.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharpSystem\util\zlib\InfBlocks.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharpSystem\util\zlib\InfCodes.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharpSystem\util\zlib\Inflate.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharpSystem\util\zlib\InfTree.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharpSystem\util\zlib\JZlib.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharpSystem\util\zlib\StaticTree.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharpSystem\util\zlib\Tree.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharpSystem\util\zlib\ZDeflaterOutputStream.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharpSystem\util\zlib\ZInflaterInputStream.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharpSystem\util\zlib\ZStream.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\Anchor.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\Annotation.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\BadElementException.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\Cell.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\Chapter.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\ChapterAutoNumber.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\Chunk.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\Color.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\Document.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\DocumentException.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\DocWriter.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\Element.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\ElementTags.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\exceptions\BadPasswordException.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\exceptions\IllegalPdfSyntaxException.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\exceptions\InvalidPdfException.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\exceptions\UnsupportedPdfException.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\factories\ElementFactory.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\factories\GreekAlphabetFactory.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\factories\RomanAlphabetFactory.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\factories\RomanNumberFactory.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\Font.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\FontFactory.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\FontFactoryImp.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\GreekList.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\Header.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\HeaderFooter.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\html\HtmlEncoder.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\html\HtmlParser.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\html\HtmlPeer.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\html\HtmlTagMap.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\html\HtmlTags.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\html\HtmlWriter.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\html\ITextmyHtmlHandler.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\html\Markup.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\html\simpleparser\ChainedProperties.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\html\simpleparser\FactoryProperties.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\html\simpleparser\HTMLWorker.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\html\simpleparser\IALink.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\html\simpleparser\IImageProvider.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\html\simpleparser\IImg.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\html\simpleparser\IncCell.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\html\simpleparser\IncTable.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\html\simpleparser\StyleSheet.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\html\WebColors.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\IDocListener.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\IElement.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\IElementListener.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\ILargeElement.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\Image.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\ImgCCITT.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\ImgJBIG2.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\ImgRaw.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\ImgTemplate.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\ImgWMF.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\IRtfElementInterface.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\ISplitCharacter.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\ITextElementArray.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\Jpeg.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\Jpeg2000.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\List.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\ListItem.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\MarkedObject.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\MarkedSection.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\Meta.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\PageSize.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\Paragraph.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\AcroFields.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\ArabicLigaturizer.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\BadPasswordException.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\BadPdfFormatException.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\Barcode.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\Barcode128.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\Barcode39.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\BarcodeCodabar.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\BarcodeDatamatrix.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\BarcodeEAN.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\BarcodeEANSUPP.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\BarcodeInter25.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\BarcodePDF417.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\BarcodePostnet.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\BaseField.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\BaseFont.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\BidiLine.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\BidiOrder.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\ByteBuffer.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\CFFFont.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\CFFFontSubset.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\CJKFont.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\CMYKColor.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\codec\BmpImage.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\codec\CCITTG4Encoder.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\codec\GifImage.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\codec\JBIG2Image.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\codec\JBIG2SegmentReader.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\codec\PngImage.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\codec\TIFFConstants.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\codec\TIFFDirectory.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\codec\TIFFFaxDecoder.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\codec\TIFFField.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\codec\TiffImage.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\codec\TIFFLZWDecoder.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\codec\wmf\InputMeta.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\codec\wmf\MetaBrush.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\codec\wmf\MetaDo.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\codec\wmf\MetaFont.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\codec\wmf\MetaObject.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\codec\wmf\MetaPen.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\codec\wmf\MetaState.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\CodeFile1.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\collection\PdfCollection.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\collection\PdfCollectionField.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\collection\PdfCollectionItem.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\collection\PdfCollectionSchema.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\collection\PdfCollectionSort.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\collection\PdfTargetDictionary.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\ColorDetails.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\ColumnText.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\crypto\AESCipher.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\crypto\ARCFOUREncryption.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\crypto\IVGenerator.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\DefaultSplitCharacter.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\DocumentFont.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\draw\DottedLineSeparator.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\draw\IDrawInterface.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\draw\LineSeparator.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\draw\VerticalPositionMark.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\EnumerateTTC.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\events\FieldPositioningEvents.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\events\IndexEvents.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\events\PdfPageEventForwarder.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\events\PdfPCellEventForwarder.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\events\PdfPTableEventForwarder.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\ExtendedColor.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\FdfReader.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\FdfWriter.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\FontDetails.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\FontSelector.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\GlyphList.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\GrayColor.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\HyphenationAuto.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\hyphenation\ByteVector.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\hyphenation\CharVector.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\hyphenation\Hyphen.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\hyphenation\Hyphenation.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\hyphenation\HyphenationException.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\hyphenation\HyphenationTree.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\hyphenation\Hyphenator.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\hyphenation\IPatternConsumer.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\hyphenation\SimplePatternParser.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\hyphenation\TernaryTree.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\ICC_Profile.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\IExtraEncoding.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\IHyphenationEvent.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\interfaces\IPdfAnnotations.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\interfaces\IPdfDocumentActions.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\interfaces\IPdfEncryptionSettings.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\interfaces\IPdfPageActions.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\interfaces\IPdfRunDirection.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\interfaces\IPdfVersion.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\interfaces\IPdfViewerPreferences.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\interfaces\IPdfXConformance.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\intern\PdfAnnotationsImp.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\intern\PdfVersionImp.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\intern\PdfViewerPreferencesImp.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\intern\PdfXConformanceImp.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\IntHashtable.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\IOcspClient.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\IPdfOCG.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\IPdfPageEvent.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\IPdfPCellEvent.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\IPdfPTableEvent.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\ITSAClient.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\LZWDecoder.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\MultiColumnText.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\OcspClientBouncyCastle.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\OutputStreamCounter.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\OutputStreamEncryption.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PageResources.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PatternColor.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfAcroForm.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfAction.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfAnnotation.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfAppearance.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfArray.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfBoolean.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfBorderArray.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfBorderDictionary.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfCell.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfChunk.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfColor.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfContentByte.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfContentParser.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfContents.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfCopy.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfCopyFields.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfCopyFieldsImp.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfCopyForms.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfCopyFormsImp.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfDashPattern.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfDate.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfDestination.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfDeveloperExtension.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfDictionary.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfDocument.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfEFStream.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfEncodings.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfEncryption.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfEncryptor.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfException.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfFileSpecification.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfFont.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfFormField.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfFormXObject.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfFunction.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfGState.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfICCBased.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfImage.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfImportedPage.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfIndirectObject.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfIndirectReference.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfLayer.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfLayerMembership.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfLine.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfLiteral.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfMediaClipData.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfName.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfNameTree.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfNull.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfNumber.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfNumberTree.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfObject.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfOCProperties.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfOutline.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfPage.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfPageEventHelper.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfPageLabels.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfPages.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfPattern.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfPatternPainter.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfPCell.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfPKCS7.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfPRow.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfPSXObject.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfPTable.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfPublicKeyRecipient.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfPublicKeySecurityHandler.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfReader.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfReaderInstance.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfRectangle.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfRendition.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfResources.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfShading.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfShadingPattern.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfSigGenericPKCS.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfSignature.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfSignatureAppearance.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfSmartCopy.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfSpotColor.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfStamper.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfStamperImp.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfStream.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfString.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfStructureElement.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfStructureTreeRoot.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfTable.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfTemplate.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfTextArray.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfTransition.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfTransparencyGroup.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfWriter.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PdfXConformanceException.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\Pfm2afm.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PRAcroForm.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PRIndirectReference.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PRStream.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PRTokeniser.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\PushbuttonField.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\RadioCheckField.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\RandomAccessFileOrArray.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\SequenceList.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\ShadingColor.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\SimpleBookmark.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\SimpleNamedDestination.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\SpotColor.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\StampContent.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\StandardDecryption.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\TextField.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\TrueTypeFont.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\TrueTypeFontSubSet.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\TrueTypeFontUnicode.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\TSAClientBouncyCastle.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\Type1Font.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\Type3Font.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\Type3Glyph.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\VerticalText.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\XfaForm.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\XfdfReader.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\Phrase.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\Rectangle.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\RectangleReadOnly.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\RomanList.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\Row.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\direct\RtfDirectContent.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\document\output\IRtfDataCache.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\document\output\RtfByteArrayBuffer.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\document\output\RtfDiskCache.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\document\output\RtfEfficientMemoryCache.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\document\output\RtfMemoryCache.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\document\output\RtfNilOutputStream.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\document\RtfCodePage.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\document\RtfDocument.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\document\RtfDocumentHeader.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\document\RtfDocumentSettings.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\document\RtfGenerator.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\document\RtfInfoElement.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\document\RtfInfoGroup.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\document\RtfPageSetting.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\document\RtfProtection.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\document\RtfProtectionSetting.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\field\RtfAnchor.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\field\RtfField.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\field\RtfPageNumber.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\field\RtfTableOfContents.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\field\RtfTOCEntry.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\field\RtfTotalPageNumber.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\graphic\RtfImage.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\graphic\RtfShape.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\graphic\RtfShapePosition.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\graphic\RtfShapeProperty.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\headerfooter\RtfHeaderFooter.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\headerfooter\RtfHeaderFooterGroup.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\IEventListener.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\IRtfBasicElement.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\IRtfExtendedElement.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\list\RtfList.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\list\RtfListItem.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\list\RtfListLevel.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\list\RtfListTable.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\list\RtfPictureList.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\parser\ctrlwords\IRtfCtrlWordListener.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\parser\ctrlwords\RtfCtrlWordData.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\parser\ctrlwords\RtfCtrlWordHandler.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\parser\ctrlwords\RtfCtrlWordMap.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\parser\ctrlwords\RtfCtrlWordMgr.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\parser\ctrlwords\RtfCtrlWordType.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\parser\destinations\IRtfDestinationListener.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\parser\destinations\RtfDestination.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\parser\destinations\RtfDestinationColorTable.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\parser\destinations\RtfDestinationDocument.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\parser\destinations\RtfDestinationFontTable.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\parser\destinations\RtfDestinationInfo.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\parser\destinations\RtfDestinationListTable.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\parser\destinations\RtfDestinationMgr.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\parser\destinations\RtfDestinationNull.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\parser\destinations\RtfDestinationShppict.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\parser\destinations\RtfDestinationStylesheetTable.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\parser\enumerations\RtfColorThemes.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\parser\exceptions\RtfParserException.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\parser\exceptions\RtfUnknownCtrlWordException.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\parser\properties\IRtfPropertyListener.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\parser\properties\RtfCtrlWordPropertyType.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\parser\properties\RtfProperty.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\parser\PushbackStream.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\parser\RtfImportMappings.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\parser\RtfImportMgr.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\parser\RtfParser.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\parser\RtfParserState.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\RtfAddableElement.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\RtfElement.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\RtfMapper.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\RtfWriter2.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\style\RtfColor.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\style\RtfColorList.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\style\RtfFont.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\style\RtfFontList.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\style\RtfParagraphStyle.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\style\RtfStylesheetList.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\style\RtfStyleTypes.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\table\RtfBorder.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\table\RtfBorderGroup.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\table\RtfCell.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\table\RtfRow.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\table\RtfTable.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\text\RtfAnnotation.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\text\RtfChapter.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\text\RtfChunk.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\text\RtfNewPage.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\text\RtfParagraph.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\text\RtfPhrase.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\text\RtfSection.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\text\RtfTab.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\rtf\text\RtfTabGroup.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\Section.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\SimpleCell.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\SimpleTable.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\SpecialSymbol.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\Table.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\Utilities.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\xml\ITextHandler.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\xml\ITextmyHandler.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\xml\ParserBase.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\xml\simpleparser\EntitiesToSymbol.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\xml\simpleparser\EntitiesToUnicode.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\xml\simpleparser\IanaEncodings.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\xml\simpleparser\ISimpleXMLDocHandler.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\xml\simpleparser\ISimpleXMLDocHandlerComment.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\xml\simpleparser\SimpleXMLParser.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\xml\TagMap.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\xml\XmlParser.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\xml\XmlPeer.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\xml\xmp\DublinCoreSchema.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\xml\xmp\EncodingNoPreamble.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\xml\xmp\LangAlt.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\xml\xmp\PdfA1Schema.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\xml\xmp\PdfSchema.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\xml\xmp\XmpArray.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\xml\xmp\XmpBasicSchema.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\xml\xmp\XmpMMSchema.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\xml\xmp\XmpReader.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\xml\xmp\XmpSchema.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\xml\xmp\XmpWriter.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\ZapfDingbatsList.cs" />
+    <Compile Include="Pades_Utils\dpaItextSharp\iTextSharp\text\ZapfDingbatsNumberList.cs" />
+    <Compile Include="Pades_Utils\Pades.cs" />
+    <Compile Include="PKCS_Utils\CryptoFiles.cs" />
+    <Compile Include="PKCS_Utils\ITimeStampedContainer.cs" />
+    <Compile Include="PKCS_Utils\m7m.cs" />
+    <Compile Include="PKCS_Utils\Pkcs.cs" />
+    <Compile Include="PKCS_Utils\SharpMime\SharpMessage.cs" />
+    <Compile Include="PKCS_Utils\SharpMime\SharpMimeHeader.cs" />
+    <Compile Include="PKCS_Utils\SharpMime\SharpMimeMessage.cs" />
+    <Compile Include="PKCS_Utils\SharpMime\SharpMimeMessageStream.cs" />
+    <Compile Include="PKCS_Utils\SharpMime\SharpMimeTools.cs" />
+    <Compile Include="PKCS_Utils\tsd.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RemotePdfStamper.cs" />
+    <Compile Include="RemoteSignature.cs" />
+    <Compile Include="SignedDocument.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VerifySignature.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VerifyTimeStamp.cs" />
+    <Compile Include="Web References\externalService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\externalSign\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\externalStamper\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\fonts\Courier-Bold.afm" />
+    <EmbeddedResource Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\fonts\Courier-BoldOblique.afm" />
+    <EmbeddedResource Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\fonts\Courier-Oblique.afm" />
+    <EmbeddedResource Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\fonts\Courier.afm" />
+    <EmbeddedResource Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\fonts\Helvetica-Bold.afm" />
+    <EmbeddedResource Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\fonts\Helvetica-BoldOblique.afm" />
+    <EmbeddedResource Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\fonts\Helvetica-Oblique.afm" />
+    <EmbeddedResource Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\fonts\Helvetica.afm" />
+    <EmbeddedResource Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\fonts\Symbol.afm" />
+    <EmbeddedResource Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\fonts\Times-Bold.afm" />
+    <EmbeddedResource Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\fonts\Times-BoldItalic.afm" />
+    <EmbeddedResource Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\fonts\Times-Italic.afm" />
+    <EmbeddedResource Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\fonts\Times-Roman.afm" />
+    <EmbeddedResource Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\fonts\ZapfDingbats.afm" />
+    <None Include="Web References\externalService\ClrVerification.disco" />
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\externalService\ClrVerification.wsdl" />
+    <None Include="Web References\externalService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\externalSign\HSMService.wsdl" />
+    <None Include="Web References\externalSign\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\externalStamper\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\externalStamper\RemotePdfStamper.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost/Vt-Docs/ClrVerificationService/ClrVerification.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\externalService\</RelPath>
+      <UpdateFromURL>http://localhost/Vt-Docs/ClrVerificationService/ClrVerification.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DocsPaDigitalSignature_externalService_ClrVerification</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost/Vt-Docs/ClrVerificationService/HSMService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\externalSign\</RelPath>
+      <UpdateFromURL>http://localhost/Vt-Docs/ClrVerificationService/HSMService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DocsPaDigitalSignature_externalSign_HSMService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:49820/RemotePdfStamper.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\externalStamper\</RelPath>
+      <UpdateFromURL>http://localhost:49820/RemotePdfStamper.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DocsPaDigitalSignature_externalStamper_RemotePdfStamper</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\externalSign\HSMService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\externalStamper\RemotePdfStamper.disco" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\fonts\glyphlist.txt" />
+    <Content Include="Pades_Utils\dpaItextSharp\iTextSharp\text\pdf\fonts\mustRead.html" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

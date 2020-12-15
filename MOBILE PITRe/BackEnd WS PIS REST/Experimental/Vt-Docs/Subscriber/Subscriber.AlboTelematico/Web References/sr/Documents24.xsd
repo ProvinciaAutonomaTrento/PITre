@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://nttdata.com/2012/Pi3/StateOfDiagram" elementFormDefault="qualified" targetNamespace="http://nttdata.com/2012/Pi3/StateOfDiagram" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfStateOfDiagram">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StateOfDiagram" nillable="true" type="tns:StateOfDiagram" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStateOfDiagram" nillable="true" type="tns:ArrayOfStateOfDiagram" />
+  <xs:complexType name="StateOfDiagram">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiagramId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FinaleState" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InitialState" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StateOfDiagram" nillable="true" type="tns:StateOfDiagram" />
+</xs:schema>

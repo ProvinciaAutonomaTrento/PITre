@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.adlibsoftware.com/UserManagement/" elementFormDefault="qualified" targetNamespace="http://schemas.adlibsoftware.com/UserManagement/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/Adlib/Services/ComponentManagement/ComponentManagementService.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost/Adlib/Services/ComponentManagement/ComponentManagementService.svc?xsd=xsd4" namespace="http://schemas.adlibsoftware.com/Common/" />
+  <xs:complexType name="AdministrativeScope">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Role" nillable="true" type="tns:UserRole" />
+      <xs:element xmlns:q1="http://schemas.adlibsoftware.com/Common/" name="PendingChanges" type="q1:PendingChangesType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AdministrativeScope" nillable="true" type="tns:AdministrativeScope" />
+  <xs:complexType name="UserRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.adlibsoftware.com/Common/" name="PendingChanges" type="q2:PendingChangesType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserRole" nillable="true" type="tns:UserRole" />
+  <xs:complexType name="UserCredentials">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="AdministrativeScopes" nillable="true" type="tns:ArrayOfAdministrativeScope" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrefferedCultureCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastActivityOnUtc" type="xs:long" />
+      <xs:element minOccurs="0" name="Hash" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SessionTimeoutMinutes" type="xs:long" />
+      <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserCredentials" nillable="true" type="tns:UserCredentials" />
+  <xs:complexType name="ArrayOfAdministrativeScope">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AdministrativeScope" nillable="true" type="tns:AdministrativeScope" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAdministrativeScope" nillable="true" type="tns:ArrayOfAdministrativeScope" />
+</xs:schema>

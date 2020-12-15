@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:intf="http://adobe.com/idp/services" xmlns:impl="http://adobe.com/idp/services" targetNamespace="http://adobe.com/idp/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://adobe.com/idp/services">
+      <xsd:element name="invoke">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="formPdf" type="impl:BLOB" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="BLOB">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="contentType" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="binaryData" type="xsd:base64Binary" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="attachmentID" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="remoteURL" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="invokeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="signatureResult" type="xsd:boolean" />
+            <xsd:element name="xmlOutput" type="impl:XML" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="XML">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="document" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="element" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="MyArrayOf_xsd_anyType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="xsd:anyType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="FormInstanceBase">
+        <xsd:sequence>
+          <xsd:element name="XFAData" nillable="true" type="xsd:base64Binary" />
+          <xsd:element name="actionList" nillable="true" type="impl:MyArrayOf_xsd_anyType" />
+          <xsd:element name="hardenedTemplatePath" nillable="true" type="xsd:string" />
+          <xsd:element name="selectedAction" nillable="true" type="xsd:string" />
+          <xsd:element name="templatePath" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="FormDataTypeInstance">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="impl:FormInstanceBase">
+            <xsd:sequence />
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="SetValueMapping">
+        <xsd:sequence>
+          <xsd:element name="locationExpr" nillable="true" type="xsd:string" />
+          <xsd:element name="valueExpr" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="invokeResponse">
+    <wsdl:part name="parameters" element="impl:invokeResponse" />
+  </wsdl:message>
+  <wsdl:message name="invokeRequest">
+    <wsdl:part name="parameters" element="impl:invoke" />
+  </wsdl:message>
+  <wsdl:portType name="ProcessForm">
+    <wsdl:operation name="invoke">
+      <wsdl:input name="invokeRequest" message="impl:invokeRequest" />
+      <wsdl:output name="invokeResponse" message="impl:invokeResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProcessFormSoapBinding" type="impl:ProcessForm">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="invoke">
+      <wsdlsoap:operation soapAction="invoke" />
+      <wsdl:input name="invokeRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="invokeResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProcessFormService">
+    <wsdl:port name="ProcessForm" binding="impl:ProcessFormSoapBinding">
+      <wsdlsoap:address location="http://ets3111:8080/soap/services/ProcessForm" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

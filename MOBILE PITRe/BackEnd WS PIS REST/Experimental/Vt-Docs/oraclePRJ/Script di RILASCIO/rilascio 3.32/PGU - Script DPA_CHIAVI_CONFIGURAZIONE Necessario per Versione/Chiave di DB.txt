@@ -1,0 +1,22 @@
+Aggiungere la chiave di DB:
+
+Tabella:
+DPA_CHIAVI_CONFIGURAZIONE
+
+begin
+  Utl_Insert_Chiave_Config
+  (
+  'PGU_FE_DISABLE_AMM_GEST_CONS',															-- Codice
+  'Disabilita le operazioni di configurazione per la conservazione dal tool di amministrazione',  	-- Descrizione
+  '0',																								-- Valore
+  'F',																								-- Tipo_Chiave
+  '1',                            																	-- Visibile
+  '1',																								-- Modificabile
+  '1',																								-- Globale
+  'CSC 1.3',                  					  													-- myversione_CD
+  NULL, 																							-- Codice_Old_Webconfig 
+  NULL, 																							-- Forza_Update_Valore
+  NULL																								-- RFU
+  );
+  end;  
+/

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.EditDocument" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.EditDocument" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://vt-ferlitoca.valueteam.com/Vt-Docs/DocsPaWS/VtDocsWS/WebServices/Documents.svc?xsd=xsd5" namespace="http://nttdata.com/2012/Pi3/Document" />
+  <xs:import schemaLocation="http://vt-ferlitoca.valueteam.com/Vt-Docs/DocsPaWS/VtDocsWS/WebServices/Documents.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" />
+  <xs:complexType name="EditDocumentRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q1:Request">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://nttdata.com/2012/Pi3/Document" minOccurs="0" name="Document" nillable="true" type="q2:Document" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EditDocumentRequest" nillable="true" type="tns:EditDocumentRequest" />
+  <xs:complexType name="EditDocumentResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q3:Response">
+        <xs:sequence>
+          <xs:element xmlns:q4="http://nttdata.com/2012/Pi3/Document" minOccurs="0" name="Document" nillable="true" type="q4:Document" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EditDocumentResponse" nillable="true" type="tns:EditDocumentResponse" />
+</xs:schema>

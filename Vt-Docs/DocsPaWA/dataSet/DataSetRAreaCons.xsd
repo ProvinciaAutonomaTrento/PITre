@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetRAreaCons" targetNamespace="http://tempuri.org/DataSetRAreaCons.xsd" xmlns:mstns="http://tempuri.org/DataSetRAreaCons.xsd" xmlns="http://tempuri.org/DataSetRAreaCons.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetRAreaCons" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetRAreaCons" msprop:Generator_UserDSName="DataSetRAreaCons">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idIstanza" msprop:Generator_ColumnVarNameInTable="columnidIstanza" msprop:Generator_ColumnPropNameInRow="idIstanza" msprop:Generator_ColumnPropNameInTable="idIstanzaColumn" msprop:Generator_UserColumnName="idIstanza" type="xs:string" minOccurs="0" />
+              <xs:element name="stato" msprop:Generator_ColumnVarNameInTable="columnstato" msprop:Generator_ColumnPropNameInRow="stato" msprop:Generator_ColumnPropNameInTable="statoColumn" msprop:Generator_UserColumnName="stato" type="xs:string" minOccurs="0" />
+              <xs:element name="supporto" msprop:Generator_ColumnVarNameInTable="columnsupporto" msprop:Generator_ColumnPropNameInRow="supporto" msprop:Generator_ColumnPropNameInTable="supportoColumn" msprop:Generator_UserColumnName="supporto" type="xs:string" minOccurs="0" />
+              <xs:element name="note" msprop:Generator_ColumnVarNameInTable="columnnote" msprop:Generator_ColumnPropNameInRow="note" msprop:Generator_ColumnPropNameInTable="noteColumn" msprop:Generator_UserColumnName="note" type="xs:string" minOccurs="0" />
+              <xs:element name="descrizione" msprop:Generator_ColumnVarNameInTable="columndescrizione" msprop:Generator_ColumnPropNameInRow="descrizione" msprop:Generator_ColumnPropNameInTable="descrizioneColumn" msprop:Generator_UserColumnName="descrizione" type="xs:string" minOccurs="0" />
+              <xs:element name="data_apertura" msprop:Generator_ColumnVarNameInTable="columndata_apertura" msprop:Generator_ColumnPropNameInRow="data_apertura" msprop:Generator_ColumnPropNameInTable="data_aperturaColumn" msprop:Generator_UserColumnName="data_apertura" type="xs:string" minOccurs="0" />
+              <xs:element name="data_invio" msprop:Generator_ColumnVarNameInTable="columndata_invio" msprop:Generator_ColumnPropNameInRow="data_invio" msprop:Generator_ColumnPropNameInTable="data_invioColumn" msprop:Generator_UserColumnName="data_invio" type="xs:string" minOccurs="0" />
+              <xs:element name="data_conservazione" msprop:Generator_ColumnVarNameInTable="columndata_conservazione" msprop:Generator_ColumnPropNameInRow="data_conservazione" msprop:Generator_ColumnPropNameInTable="data_conservazioneColumn" msprop:Generator_UserColumnName="data_conservazione" type="xs:string" minOccurs="0" />
+              <xs:element name="tipo_cons" msprop:Generator_ColumnVarNameInTable="columntipo_cons" msprop:Generator_ColumnPropNameInRow="tipo_cons" msprop:Generator_ColumnPropNameInTable="tipo_consColumn" msprop:Generator_UserColumnName="tipo_cons" type="xs:string" minOccurs="0" />
+              <xs:element name="note_rifiuto" msprop:Generator_ColumnVarNameInTable="columnnote_rifiuto" msprop:Generator_ColumnPropNameInRow="note_rifiuto" msprop:Generator_ColumnPropNameInTable="note_rifiutoColumn" msprop:Generator_UserColumnName="note_rifiuto" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:tns="http://arubasignservice.arubapec.it/" targetNamespace="http://arubasignservice.arubapec.it/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://www.w3.org/2005/05/xmlmime" namespace="http://www.w3.org/2005/05/xmlmime" />
+  <xs:element name="TypeOfTransportNotImplemented" type="tns:TypeOfTransportNotImplemented" />
+  <xs:element name="addpkcs7sign" type="tns:addpkcs7sign" />
+  <xs:element name="addpkcs7signResponse" type="tns:addpkcs7signResponse" />
+  <xs:element name="closesession" type="tns:closesession" />
+  <xs:element name="closesessionResponse" type="tns:closesessionResponse" />
+  <xs:element name="getVersion" type="tns:getVersion" />
+  <xs:element name="getVersionResponse" type="tns:getVersionResponse" />
+  <xs:element name="listCert" type="tns:listCert" />
+  <xs:element name="listCertResponse" type="tns:listCertResponse" />
+  <xs:element name="listprocess" type="tns:listprocess" />
+  <xs:element name="listprocessResponse" type="tns:listprocessResponse" />
+  <xs:element name="m7m" type="tns:m7m" />
+  <xs:element name="m7mResponse" type="tns:m7mResponse" />
+  <xs:element name="opensession" type="tns:opensession" />
+  <xs:element name="opensessionResponse" type="tns:opensessionResponse" />
+  <xs:element name="pdfsignature" type="tns:pdfsignature" />
+  <xs:element name="pdfsignatureResponse" type="tns:pdfsignatureResponse" />
+  <xs:element name="pdfsignatureV2" type="tns:pdfsignatureV2" />
+  <xs:element name="pdfsignatureV2Response" type="tns:pdfsignatureV2Response" />
+  <xs:element name="pdfsignatureV2_multiple" type="tns:pdfsignatureV2_multiple" />
+  <xs:element name="pdfsignatureV2_multipleResponse" type="tns:pdfsignatureV2_multipleResponse" />
+  <xs:element name="ping" type="tns:ping" />
+  <xs:element name="pingResponse" type="tns:pingResponse" />
+  <xs:element name="pkcs7sign" type="tns:pkcs7sign" />
+  <xs:element name="pkcs7signResponse" type="tns:pkcs7signResponse" />
+  <xs:element name="pkcs7signV2" type="tns:pkcs7signV2" />
+  <xs:element name="pkcs7signV2Response" type="tns:pkcs7signV2Response" />
+  <xs:element name="pkcs7signV2_multiple" type="tns:pkcs7signV2_multiple" />
+  <xs:element name="pkcs7signV2_multipleResponse" type="tns:pkcs7signV2_multipleResponse" />
+  <xs:element name="pkcs7signhash" type="tns:pkcs7signhash" />
+  <xs:element name="pkcs7signhashResponse" type="tns:pkcs7signhashResponse" />
+  <xs:element name="pkcs7signhash_multiple" type="tns:pkcs7signhash_multiple" />
+  <xs:element name="pkcs7signhash_multipleResponse" type="tns:pkcs7signhash_multipleResponse" />
+  <xs:element name="retriveCredential" type="tns:retriveCredential" />
+  <xs:element name="retriveCredentialResponse" type="tns:retriveCredentialResponse" />
+  <xs:element name="sendCredential" type="tns:sendCredential" />
+  <xs:element name="sendCredentialResponse" type="tns:sendCredentialResponse" />
+  <xs:element name="signhash" type="tns:signhash" />
+  <xs:element name="signhashResponse" type="tns:signhashResponse" />
+  <xs:element name="tsd" type="tns:tsd" />
+  <xs:element name="tsdResponse" type="tns:tsdResponse" />
+  <xs:element name="tsr" type="tns:tsr" />
+  <xs:element name="tsrResponse" type="tns:tsrResponse" />
+  <xs:element name="verifyOtp" type="tns:verifyOtp" />
+  <xs:element name="verifyOtpResponse" type="tns:verifyOtpResponse" />
+  <xs:element name="xmlsignature" type="tns:xmlsignature" />
+  <xs:element name="xmlsignatureResponse" type="tns:xmlsignatureResponse" />
+  <xs:element name="xmlsignature_multiple" type="tns:xmlsignature_multiple" />
+  <xs:element name="xmlsignature_multipleResponse" type="tns:xmlsignature_multipleResponse" />
+  <xs:complexType name="opensession">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Identity" type="tns:auth" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="auth">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="delegated_domain" type="xs:string" />
+      <xs:element minOccurs="0" name="delegated_password" type="xs:string" />
+      <xs:element minOccurs="0" name="delegated_user" type="xs:string" />
+      <xs:element minOccurs="0" name="ext_auth_blobvalue" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="ext_auth_value" type="xs:string" />
+      <xs:element minOccurs="0" name="ext_authtype" type="tns:credentialsType" />
+      <xs:element minOccurs="0" name="otpPwd" type="xs:string" />
+      <xs:element minOccurs="0" name="typeHSM" type="xs:string" />
+      <xs:element minOccurs="0" name="typeOtpAuth" type="xs:string" />
+      <xs:element minOccurs="0" name="user" type="xs:string" />
+      <xs:element minOccurs="0" name="userPWD" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="opensessionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pdfsignatureV2_multiple">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="identity" type="tns:auth" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SignRequestV2" nillable="true" type="tns:signRequestV2" />
+      <xs:element minOccurs="0" name="Apparence" type="tns:pdfSignApparence" />
+      <xs:element minOccurs="0" name="pdfprofile" type="tns:pdfProfile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="signRequestV2">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="binaryinput" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="certID" type="xs:string" />
+      <xs:element minOccurs="0" name="dstName" type="xs:string" />
+      <xs:element minOccurs="0" name="identity" type="tns:auth" />
+      <xs:element minOccurs="0" name="notify_id" type="xs:string" />
+      <xs:element minOccurs="0" name="notifymail" type="xs:string" />
+      <xs:element minOccurs="0" name="profile" type="xs:string" />
+      <xs:element name="requiredmark" type="xs:boolean" />
+      <xs:element minOccurs="0" name="session_id" type="xs:string" />
+      <xs:element minOccurs="0" name="signingTime" type="xs:string" />
+      <xs:element minOccurs="0" name="srcName" type="xs:string" />
+      <xs:element xmime:expectedContentTypes="application/octet-stream" minOccurs="0" name="stream" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="transport" type="tns:typeTransport" />
+      <xs:element minOccurs="0" name="tsa_identity" type="tns:tsaAuth" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tsaAuth">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="password" type="xs:string" />
+      <xs:element minOccurs="0" name="user" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pdfSignApparence">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="image" type="xs:string" />
+      <xs:element name="leftx" type="xs:int" />
+      <xs:element name="lefty" type="xs:int" />
+      <xs:element minOccurs="0" name="location" type="xs:string" />
+      <xs:element name="page" type="xs:int" />
+      <xs:element minOccurs="0" name="reason" type="xs:string" />
+      <xs:element name="rightx" type="xs:int" />
+      <xs:element name="righty" type="xs:int" />
+      <xs:element minOccurs="0" name="testo" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pdfsignatureV2_multipleResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:signReturnV2Multiple" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="signReturnV2Multiple">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="description" type="xs:string" />
+      <xs:element minOccurs="0" name="return_code" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return_signs" nillable="true" type="tns:signReturnV2" />
+      <xs:element minOccurs="0" name="status" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="signReturnV2">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="binaryoutput" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="description" type="xs:string" />
+      <xs:element minOccurs="0" name="dstPath" type="xs:string" />
+      <xs:element minOccurs="0" name="return_code" type="xs:string" />
+      <xs:element minOccurs="0" name="status" type="xs:string" />
+      <xs:element xmime:expectedContentTypes="application/octet-stream" minOccurs="0" name="stream" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TypeOfTransportNotImplemented">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="m7m">
+    <xs:sequence>
+      <xs:element name="MarkRequest" type="tns:MarkRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MarkRequest">
+    <xs:sequence>
+      <xs:element name="a" type="xs:string" />
+      <xs:element name="b" type="xs:string" />
+      <xs:element name="c" type="tns:typeTransport" />
+      <xs:element minOccurs="0" name="d" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="e" type="xs:string" />
+      <xs:element minOccurs="0" name="f" type="xs:string" />
+      <xs:element minOccurs="0" name="g" type="xs:string" />
+      <xs:element minOccurs="0" name="h" type="xs:string" />
+      <xs:element xmime:expectedContentTypes="application/octet-stream" minOccurs="0" name="i" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="m7mResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:markReturn" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="markReturn">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="binaryoutput" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="description" type="xs:string" />
+      <xs:element minOccurs="0" name="dstPath" type="xs:string" />
+      <xs:element minOccurs="0" name="return_code" type="xs:string" />
+      <xs:element minOccurs="0" name="status" type="xs:string" />
+      <xs:element minOccurs="0" name="stream" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="addpkcs7sign">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SignRequestV2" type="tns:signRequestV2" />
+      <xs:element name="detached" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="addpkcs7signResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:signReturnV2" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="xmlsignature_multiple">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="identity" type="tns:auth" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SignRequestV2" nillable="true" type="tns:signRequestV2" />
+      <xs:element minOccurs="0" name="parameter" type="tns:xmlSignatureParameter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="xmlSignatureParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="canonicalizedType" type="tns:canonicalizedType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="transforms" nillable="true" type="tns:transform" />
+      <xs:element minOccurs="0" name="type" type="tns:xmlSignatureType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="transform">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="type" type="tns:transformType" />
+      <xs:element minOccurs="0" name="value" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="xmlsignature_multipleResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:signReturnV2Multiple" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pdfsignatureV2">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SignRequestV2" type="tns:signRequestV2" />
+      <xs:element minOccurs="0" name="Apparence" type="tns:pdfSignApparence" />
+      <xs:element minOccurs="0" name="pdfprofile" type="tns:pdfProfile" />
+      <xs:element minOccurs="0" name="password" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pdfsignatureV2Response">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:signReturnV2" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ping">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="pingResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="xmlsignature">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SignRequestV2" type="tns:signRequestV2" />
+      <xs:element minOccurs="0" name="parameter" type="tns:xmlSignatureParameter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="xmlsignatureResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:signReturnV2" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tsr">
+    <xs:sequence>
+      <xs:element name="MarkRequest" type="tns:MarkRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tsrResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:markReturn" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getVersion">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getVersionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pkcs7signhash">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SignRequestV2" type="tns:signRequestV2" />
+      <xs:element name="countersignature" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pkcs7signhashResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:signReturnV2" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="signhash">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SignHashRequest" type="tns:signHashRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="signHashRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="certID" type="xs:string" />
+      <xs:element minOccurs="0" name="hash" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="hashtype" type="xs:string" />
+      <xs:element minOccurs="0" name="identity" type="tns:auth" />
+      <xs:element name="requirecert" type="xs:boolean" />
+      <xs:element minOccurs="0" name="session_id" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="signhashResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:signHashReturn" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="signHashReturn">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cert" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="certID" type="xs:string" />
+      <xs:element minOccurs="0" name="description" type="xs:string" />
+      <xs:element minOccurs="0" name="return_code" type="xs:string" />
+      <xs:element minOccurs="0" name="signature" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="status" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pkcs7signhash_multiple">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="identity" type="tns:auth" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SignRequestV2" nillable="true" type="tns:signRequestV2" />
+      <xs:element name="countersignature" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pkcs7signhash_multipleResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:signReturnV2Multiple" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="closesession">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Identity" type="tns:auth" />
+      <xs:element minOccurs="0" name="sessionid" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="closesessionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="verifyOtp">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Identity" type="tns:auth" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="verifyOtpResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:arssReturn" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="arssReturn">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="description" type="xs:string" />
+      <xs:element minOccurs="0" name="return_code" type="xs:string" />
+      <xs:element minOccurs="0" name="status" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pkcs7signV2">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SignRequestV2" type="tns:signRequestV2" />
+      <xs:element name="detached" type="xs:boolean" />
+      <xs:element name="returnder" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pkcs7signV2Response">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:signReturnV2" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listCert">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Identity" type="tns:auth" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listCertResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:userCertList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="userCertList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="app1" nillable="true" type="tns:cert" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="app2" nillable="true" type="tns:cert" />
+      <xs:element minOccurs="0" name="description" type="xs:string" />
+      <xs:element minOccurs="0" name="status" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cert">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string" />
+      <xs:element minOccurs="0" name="value" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pkcs7sign">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SignRequest" type="tns:signRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="signRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bynaryinput" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="certID" type="xs:string" />
+      <xs:element minOccurs="0" name="dstNmae" type="xs:string" />
+      <xs:element minOccurs="0" name="identity" type="tns:auth" />
+      <xs:element minOccurs="0" name="notity_id" type="xs:string" />
+      <xs:element minOccurs="0" name="notitymail" type="xs:string" />
+      <xs:element minOccurs="0" name="srcName" type="xs:string" />
+      <xs:element minOccurs="0" name="transport" type="tns:typeTransport" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pkcs7signResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:signReturn" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="signReturn">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bynaryoutput" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="description" type="xs:string" />
+      <xs:element minOccurs="0" name="dstPath" type="xs:string" />
+      <xs:element minOccurs="0" name="return_code" type="xs:string" />
+      <xs:element minOccurs="0" name="status" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listprocess">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Identity" type="tns:auth" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listprocessResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sendCredential">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Identity" type="tns:auth" />
+      <xs:element minOccurs="0" name="type" type="tns:credentialsType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sendCredentialResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:arssReturn" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="retriveCredential">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="identity" type="tns:auth" />
+      <xs:element minOccurs="0" name="type" type="tns:credentialsType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="retriveCredentialResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:retriveCredentialReturn" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="retriveCredentialReturn">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="blob" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="description" type="xs:string" />
+      <xs:element minOccurs="0" name="return_code" type="xs:string" />
+      <xs:element minOccurs="0" name="status" type="xs:string" />
+      <xs:element minOccurs="0" name="textvalue" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tsd">
+    <xs:sequence>
+      <xs:element name="MarkRequest" type="tns:MarkRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tsdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:markReturn" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pkcs7signV2_multiple">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="identity" type="tns:auth" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SignRequestV2" nillable="true" type="tns:signRequestV2" />
+      <xs:element name="detached" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pkcs7signV2_multipleResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:signReturnV2Multiple" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pdfsignature">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SignRequest" type="tns:signRequest" />
+      <xs:element minOccurs="0" name="Apparence" type="tns:pdfSignApparence" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pdfsignatureResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:signReturn" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="credentialsType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SMS" />
+      <xs:enumeration value="ARUBACALL" />
+      <xs:enumeration value="CNS2" />
+      <xs:enumeration value="PAPERTOKEN" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typeTransport">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BYNARYNET" />
+      <xs:enumeration value="FILENAME" />
+      <xs:enumeration value="DIRECTORYNAME" />
+      <xs:enumeration value="STREAM" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="pdfProfile">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BASIC" />
+      <xs:enumeration value="PADESBES" />
+      <xs:enumeration value="PADESLTV" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="canonicalizedType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ALGO_ID_C14N11_OMIT_COMMENTS" />
+      <xs:enumeration value="ALGO_ID_C14N11_WITH_COMMENTS" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="transformType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CANONICAL_WITH_COMMENT" />
+      <xs:enumeration value="CANONICAL_OMIT_COMMENT" />
+      <xs:enumeration value="BASE64" />
+      <xs:enumeration value="XPATH2_INTERSECT" />
+      <xs:enumeration value="XPATH2_SUBTRACT" />
+      <xs:enumeration value="XPATH2_UNION" />
+      <xs:enumeration value="XSLT" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="xmlSignatureType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="XMLENVELOPED" />
+      <xs:enumeration value="XMLENVELOPING" />
+      <xs:enumeration value="XMLDETACHED_INTERNAL" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocumentsInProject" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocumentsInProject" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" />
+  <xs:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd5" namespace="http://nttdata.com/2012/Pi3/Document" />
+  <xs:complexType name="GetDocumentsInProjectRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q1:Request">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ClassificationSchemeId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CodeProject" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ElementsInPage" nillable="true" type="xs:int">
+            <xs:annotation>
+              <xs:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="GetTotalDocumentsNumber" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IdProject" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PageNumber" nillable="true" type="xs:int">
+            <xs:annotation>
+              <xs:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetDocumentsInProjectRequest" nillable="true" type="tns:GetDocumentsInProjectRequest" />
+  <xs:complexType name="GetDocumentsInProjectResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q2:Response">
+        <xs:sequence>
+          <xs:element xmlns:q3="http://nttdata.com/2012/Pi3/Document" minOccurs="0" name="Documents" nillable="true" type="q3:ArrayOfDocument" />
+          <xs:element minOccurs="0" name="TotalDocumentsNumber" nillable="true" type="xs:int">
+            <xs:annotation>
+              <xs:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetDocumentsInProjectResponse" nillable="true" type="tns:GetDocumentsInProjectResponse" />
+</xs:schema>

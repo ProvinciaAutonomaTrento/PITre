@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetTrasmEff" targetNamespace="http://tempuri.org/DataSetTrasmEff.xsd" xmlns:mstns="http://tempuri.org/DataSetTrasmEff.xsd" xmlns="http://tempuri.org/DataSetTrasmEff.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetTrasmEff" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetTrasmEff" msprop:Generator_UserDSName="DataSetTrasmEff">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="element1" msprop:Generator_TableClassName="element1DataTable" msprop:Generator_TableVarName="tableelement1" msprop:Generator_TablePropName="element1" msprop:Generator_RowDeletingName="element1RowDeleting" msprop:Generator_UserTableName="element1" msprop:Generator_RowChangingName="element1RowChanging" msprop:Generator_RowEvHandlerName="element1RowChangeEventHandler" msprop:Generator_RowDeletedName="element1RowDeleted" msprop:Generator_RowEvArgName="element1RowChangeEvent" msprop:Generator_RowChangedName="element1RowChanged" msprop:Generator_RowClassName="element1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Data" msprop:Generator_ColumnVarNameInTable="columnData" msprop:Generator_ColumnPropNameInRow="Data" msprop:Generator_ColumnPropNameInTable="DataColumn" msprop:Generator_UserColumnName="Data" type="xs:string" minOccurs="0" />
+              <xs:element name="Utente" msprop:Generator_ColumnVarNameInTable="columnUtente" msprop:Generator_ColumnPropNameInRow="Utente" msprop:Generator_ColumnPropNameInTable="UtenteColumn" msprop:Generator_UserColumnName="Utente" type="xs:string" minOccurs="0" />
+              <xs:element name="Ruolo" msprop:Generator_ColumnVarNameInTable="columnRuolo" msprop:Generator_ColumnPropNameInRow="Ruolo" msprop:Generator_ColumnPropNameInTable="RuoloColumn" msprop:Generator_UserColumnName="Ruolo" type="xs:string" minOccurs="0" />
+              <xs:element name="DataScad" msprop:Generator_ColumnVarNameInTable="columnDataScad" msprop:Generator_ColumnPropNameInRow="DataScad" msprop:Generator_ColumnPropNameInTable="DataScadColumn" msprop:Generator_UserColumnName="DataScad" type="xs:string" minOccurs="0" />
+              <xs:element name="Chiave" msprop:Generator_ColumnVarNameInTable="columnChiave" msprop:Generator_ColumnPropNameInRow="Chiave" msprop:Generator_ColumnPropNameInTable="ChiaveColumn" msprop:Generator_UserColumnName="Chiave" type="xs:int" />
+              <xs:element name="InfoOggTrasm" msprop:Generator_ColumnVarNameInTable="columnInfoOggTrasm" msprop:Generator_ColumnPropNameInRow="InfoOggTrasm" msprop:Generator_ColumnPropNameInTable="InfoOggTrasmColumn" msprop:Generator_UserColumnName="InfoOggTrasm" type="xs:string" minOccurs="0" />
+              <xs:element name="segnData" msprop:Generator_ColumnVarNameInTable="columnsegnData" msprop:Generator_ColumnPropNameInRow="segnData" msprop:Generator_ColumnPropNameInTable="segnDataColumn" msprop:Generator_UserColumnName="segnData" type="xs:string" minOccurs="0" />
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="DataSetTrasmEffKey1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:element1" />
+      <xs:field xpath="mstns:Chiave" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

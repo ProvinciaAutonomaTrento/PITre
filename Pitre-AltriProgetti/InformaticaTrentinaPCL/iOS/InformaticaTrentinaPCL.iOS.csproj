@@ -1,0 +1,934 @@
+﻿<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Xamarin.Build.Download.0.4.7\build\Xamarin.Build.Download.props" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.7\build\Xamarin.Build.Download.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectGuid>{AF00D03A-F6D8-4319-9FF7-BE805A62969A}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>InformaticaTrentinaPCL.iOS</RootNamespace>
+    <AssemblyName>InformaticaTrentinaPCL.iOS</AssemblyName>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <ProvisioningType>manual</ProvisioningType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer: daniele mangiarano (YQNX8752KA)</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFastDev>true</MtouchFastDev>
+    <IOSDebuggerPort>59259</IOSDebuggerPort>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+    <CodesignExtraArgs />
+    <CodesignResourceRules />
+    <CodesignEntitlements />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <DefineConstants>__IOS__;__MOBILE__;__UNIFIED__;RELEASE;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>
+    </CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <CodesignProvision>
+    </CodesignProvision>
+    <MtouchUseLlvm>true</MtouchUseLlvm>
+    <CodesignExtraArgs />
+    <CodesignResourceRules />
+    <BuildIpa>true</BuildIpa>
+    <IpaMetadata>
+    </IpaMetadata>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <DefineConstants>__IOS__;__MOBILE__;__UNIFIED__;RELEASE;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Distribution: NTT DATA Italia S.p.a</CodesignKey>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <CodesignProvision>
+    </CodesignProvision>
+    <CodesignExtraArgs />
+    <CodesignResourceRules />
+    <CodesignEntitlements />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <DeviceSpecificBuild>false</DeviceSpecificBuild>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchNoSymbolStrip>false</MtouchNoSymbolStrip>
+    <MtouchFastDev>false</MtouchFastDev>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <IOSDebuggerPort>54183</IOSDebuggerPort>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodesignProvision>
+    </CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <AppExtensionDebugBundleId />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="SDWebImage">
+      <HintPath>..\packages\Xamarin.SDWebImage.3.7.5\lib\Xamarin.iOS\SDWebImage.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Text.Encodings.Web">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.4.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Refit">
+      <HintPath>..\packages\Refit.4.0.1\lib\netstandard1.4\Refit.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.iOS.DGActivityIndicatorViewBinding">
+      <HintPath>..\packages\Xamarin.iOS.DGActivityIndicatorView.1.0.0\lib\Xamarin.iOS10\Xamarin.iOS.DGActivityIndicatorViewBinding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.4.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.2.0.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers">
+      <HintPath>..\packages\Microsoft.Net.Http.Headers.2.0.0\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.WebUtilities">
+      <HintPath>..\packages\Microsoft.AspNetCore.WebUtilities.2.0.0\lib\netstandard2.0\Microsoft.AspNetCore.WebUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.Core">
+      <HintPath>..\packages\Xamarin.Firebase.iOS.Core.4.0.3\lib\Xamarin.iOS10\Firebase.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.InstanceID">
+      <HintPath>..\packages\Xamarin.Firebase.iOS.InstanceID.2.0.0\lib\Xamarin.iOS10\Firebase.InstanceID.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.Analytics">
+      <HintPath>..\packages\Xamarin.Firebase.iOS.Analytics.4.0.2\lib\Xamarin.iOS10\Firebase.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="HockeySDK">
+      <HintPath>..\packages\HockeySDK.Xamarin.5.0.0\lib\Xamarin.iOS10\HockeySDK.dll</HintPath>
+    </Reference>
+    <Reference Include="HockeySDK.iOSBindings">
+      <HintPath>..\packages\HockeySDK.Xamarin.5.0.0\lib\Xamarin.iOS10\HockeySDK.iOSBindings.dll</HintPath>
+    </Reference>
+    <Reference Include="MBProgressHUD">
+      <HintPath>..\packages\mbprogresshud.0.9.2.0\lib\Xamarin.iOS\MBProgressHUD.dll</HintPath>
+    </Reference>
+    <Reference Include="ModernHttpClient">
+      <HintPath>..\packages\modernhttpclient.2.4.2\lib\Xamarin.iOS10\ModernHttpClient.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InformaticaTrentinaPCL\InformaticaTrentinaPCL.csproj">
+      <Project>{2C33DEBD-467C-4860-A693-9FB6E07001FA}</Project>
+      <Name>InformaticaTrentinaPCL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\ico_ios.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\First.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\First.imageset\tab_feed.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\First.imageset\tab_feed%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\First.imageset\tab_feed%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\ProfileImage.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\ProfileImage.imageset\profile_generic.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\ProfileImage.imageset\profile_generic%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\ProfileImage.imageset\profile_generic%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Second.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Second.imageset\tab_about.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Second.imageset\tab_about%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Second.imageset\tab_about%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\XamarinLogo.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\XamarinLogo.imageset\xamarin_logo.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\XamarinLogo.imageset\xamarin_logo%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\XamarinLogo.imageset\xamarin_logo%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\menu.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\menu_navigation.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\tab1.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\tab2.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\tab3.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\tab4.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\action_close.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\search.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\arrow_blue_right.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\filters.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\icon_yellows.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\close.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\tab2.imageset\ico_firma.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\tab3.imageset\ico_dafare.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\tab4.imageset\ico_delega.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\tab1.imageset\ico_ADL.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\search.imageset\ico_cerca_bianca.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\menu_navigation.imageset\burger_menu.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\menu.imageset\burger_menu.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\icon_yellows.imageset\ico_fascicoli.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\icon_document.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\icon_document.imageset\ICO.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\icon_document.imageset\ico_documenti.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\filters.imageset\ico_filtra_grigia.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\close.imageset\ico_chiudi.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\arrow_blue_right.imageset\ico_arrow-blu.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\action_close.imageset\ico_arrow-modali.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\leftback.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\leftback.imageset\ico_back_grigia.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\tab5sele.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\tab5sele.imageset\selezione_menu.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\settings.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\exit.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\settings.imageset\ico_impostazioni.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\exit.imageset\ico_logout.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\plus.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\plus.imageset\ico_aggiungi-delega.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\iconAccept.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\iconAccept.imageset\ico_conferma-documenti.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\iconsignature.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\iconsignature.imageset\ico_conferma-firma.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\iconDelegation.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\iconDelegation.imageset\ico_conferma-delega.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\listEmpty.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\listEmpty.imageset\ico_listaVuota.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\start_full.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\closered.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\closered.imageset\ico_chiudi-rossa.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\plus_blue.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\plus_blue.imageset\ico_aggiungi.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\imageUserDefault.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\imageUserDefault.imageset\ICO_persona.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\start_empty.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\start_full.imageset\ico_fav_selected.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\start_empty.imageset\ico_fullpreferiti.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\d.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\d.imageset\ic_documento_tmp.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\f.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\f.imageset\ic_fascicolo_tmp.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\office.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\role.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\role.imageset\ICO-ruolo.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\office.imageset\ICO-office.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-20x20%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-20x20%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-29x29%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-29x29%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-40x40%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-40x40%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-60x60%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-60x60%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-20x20%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-29x29%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-40x40%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-76x76%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-76x76%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-83.5x83.5%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\ic_done_all_white.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\ic_done_all_white.imageset\ic_done_all_white.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\ic_more.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\ic_more.imageset\ic_more.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\icon_attachment.imageset\allegati.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\icon_attachment.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="LaunchScreen.storyboard" />
+    <InterfaceDefinition Include="Main.storyboard" />
+    <InterfaceDefinition Include="Login\Storyboard\Storyboard_Login_ori.storyboard" />
+    <InterfaceDefinition Include="Menu\Storyboard\Storyboard_Sidebar.storyboard" />
+    <InterfaceDefinition Include="TabBar\Root\Storyboard\Storyboard_TabBar.storyboard" />
+    <InterfaceDefinition Include="TabBar\Document\Common\Storyboard\Storyboard_Document.storyboard" />
+    <InterfaceDefinition Include="PopUp\Storyboard\Storyboard_PopUp.storyboard" />
+    <InterfaceDefinition Include="TabBar\Document\Open\Storyboard\Storyboard_OpenDocument.storyboard" />
+    <InterfaceDefinition Include="Role\Storyboard\Storyboard_Role.storyboard" />
+    <InterfaceDefinition Include="Filter\Storyboard_Filter.storyboard" />
+    <InterfaceDefinition Include="TabBar\Document\Action\Root\Storyboard\Storyboard_ActionDocument.storyboard" />
+    <InterfaceDefinition Include="TabBar\Document\Action\Assign\Storyboard\Storyboard_SelectedAssign.storyboard" />
+    <InterfaceDefinition Include="TabBar\Document\TabDelega\Storyboard\Storyboard_Delegation.storyboard" />
+    <InterfaceDefinition Include="PasswordExpired\Storyboard_password.storyboard" />
+    <InterfaceDefinition Include="EmbedComponent\Storyboard_embed.storyboard" />
+    <InterfaceDefinition Include="ChooseInstance\Storyboard\Storyboard_Choose_Instance.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Entitlements.plist" />
+    <InterfaceDefinition Include="Login\Storyboard\Storyboard_Login.storyboard" />
+    <None Include="packages.config" />
+    <InterfaceDefinition Include="PasswordDimenticata\Storyboard_passworddimeticata.storyboard" />
+    <InterfaceDefinition Include="PasswordDimenticata\Storyboard_passworddimeticatagetotp.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helper\IosNativeFactory.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="Login\Controller\UIViewControllerLogin.cs" />
+    <Compile Include="Login\Controller\UIViewControllerLogin.designer.cs">
+      <DependentUpon>UIViewControllerLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\Alert.cs" />
+    <Compile Include="Helper\Colors.cs" />
+    <Compile Include="Helper\Keychain.cs" />
+    <Compile Include="Helper\LoaderOverlay.cs" />
+    <Compile Include="Helper\Preferences.cs" />
+    <Compile Include="Helper\Utility.cs" />
+    <Compile Include="Login\Session\SessionDataManager.cs" />
+    <Compile Include="Menu\Controller\Master\UITableViewCellMaster.cs" />
+    <Compile Include="Menu\Controller\Master\UITableViewCellMaster.designer.cs">
+      <DependentUpon>UITableViewCellMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Controller\Master\UIViewControllerMaster.cs" />
+    <Compile Include="Menu\Controller\Master\UIViewControllerMaster.designer.cs">
+      <DependentUpon>UIViewControllerMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Controller\Detail\UIViewControllerDetail.cs" />
+    <Compile Include="Menu\Controller\Detail\UIViewControllerDetail.designer.cs">
+      <DependentUpon>UIViewControllerDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Controller\UIViewControllerRootSideMenu.cs" />
+    <Compile Include="Menu\Controller\UIViewControllerRootSideMenu.designer.cs">
+      <DependentUpon>UIViewControllerRootSideMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordDimenticata\UITVCellPasswordDimenticataGetOtp.cs" />
+    <Compile Include="PasswordDimenticata\UITVCellPasswordDimenticataGetOtp.designer.cs">
+      <DependentUpon>UITVCellPasswordDimenticataGetOtp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordDimenticata\UITVCellPasswordDimenticata.cs" />
+    <Compile Include="PasswordDimenticata\UITVCellPasswordDimenticata.designer.cs">
+      <DependentUpon>UITVCellPasswordDimenticata.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordDimenticata\UIVControllerPasswordDimenticataGetOtp.cs" />
+    <Compile Include="PasswordDimenticata\UIVControllerPasswordDimenticataGetOtp.designer.cs">
+      <DependentUpon>UIVControllerPasswordDimenticataGetOtp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordDimenticata\UIVControllerPasswordDimenticata.cs" />
+    <Compile Include="PasswordDimenticata\UIVControllerPasswordDimenticata.designer.cs">
+      <DependentUpon>UIVControllerPasswordDimenticata.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Root\Controller\UITabBarControllerRoot.cs" />
+    <Compile Include="TabBar\Root\Controller\UITabBarControllerRoot.designer.cs">
+      <DependentUpon>UITabBarControllerRoot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\Send\Controller\UIViewControllerDocumentSend.cs" />
+    <Compile Include="TabBar\Document\Send\Controller\UIViewControllerDocumentSend.designer.cs">
+      <DependentUpon>UIViewControllerDocumentSend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\TabTodo\Controller\UIViewControllerDocumentToDo.cs" />
+    <Compile Include="TabBar\Document\TabTodo\Controller\UIViewControllerDocumentToDo.designer.cs">
+      <DependentUpon>UIViewControllerDocumentToDo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\TabSignature\Controller\UIViewControllerSignature.cs" />
+    <Compile Include="TabBar\Document\TabSignature\Controller\UIViewControllerSignature.designer.cs">
+      <DependentUpon>UIViewControllerSignature.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\Common\Controller\UITableViewCellDocument.cs" />
+    <Compile Include="TabBar\Document\Common\Controller\UITableViewCellDocument.designer.cs">
+      <DependentUpon>UITableViewCellDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\Common\Controller\UIViewControllerDocumentList.cs" />
+    <Compile Include="TabBar\Document\Common\Controller\UIViewControllerDocumentList.designer.cs">
+      <DependentUpon>UIViewControllerDocumentList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\Controller\UIViewControllerPopUpDocumentState.cs" />
+    <Compile Include="PopUp\Controller\UIViewControllerPopUpDocumentState.designer.cs">
+      <DependentUpon>UIViewControllerPopUpDocumentState.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\Open\Storyboard\UIViewControllerOpenDocumentList.cs" />
+    <Compile Include="TabBar\Document\Open\Storyboard\UIViewControllerOpenDocumentList.designer.cs">
+      <DependentUpon>UIViewControllerOpenDocumentList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\Open\Storyboard\UITVCellOpenListDocument.cs" />
+    <Compile Include="TabBar\Document\Open\Storyboard\UITVCellOpenListDocument.designer.cs">
+      <DependentUpon>UITVCellOpenListDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Role\Storyboard\UIViewControllerChangeRole.cs" />
+    <Compile Include="Role\Storyboard\UIViewControllerChangeRole.designer.cs">
+      <DependentUpon>UIViewControllerChangeRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Role\Storyboard\UITVCellChangeRole.cs" />
+    <Compile Include="Role\Storyboard\UITVCellChangeRole.designer.cs">
+      <DependentUpon>UITVCellChangeRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\Animation.cs" />
+    <Compile Include="TabBar\Document\Open\Storyboard\UIViewControllerSeeDocument.cs" />
+    <Compile Include="TabBar\Document\Open\Storyboard\UIViewControllerSeeDocument.designer.cs">
+      <DependentUpon>UIViewControllerSeeDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Filter\UIVControllerFilter.cs" />
+    <Compile Include="Filter\UIVControllerFilter.designer.cs">
+      <DependentUpon>UIVControllerFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Filter\UITVCellTitleFilter.cs" />
+    <Compile Include="Filter\UITVCellTitleFilter.designer.cs">
+      <DependentUpon>UITVCellTitleFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Filter\UITVCellEnableFilter.cs" />
+    <Compile Include="Filter\UITVCellEnableFilter.designer.cs">
+      <DependentUpon>UITVCellEnableFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\Navigation.cs" />
+    <Compile Include="TabBar\Document\Action\Root\Controller\UITVCellHeaderActionDocument.cs" />
+    <Compile Include="TabBar\Document\Action\Root\Controller\UITVCellHeaderActionDocument.designer.cs">
+      <DependentUpon>..\..\Controller\UITVCellHeaderActionDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\Action\Root\Controller\UITVCellRowActionDocument.cs" />
+    <Compile Include="TabBar\Document\Action\Root\Controller\UITVCellRowActionDocument.designer.cs">
+      <DependentUpon>..\..\Controller\UITVCellRowActionDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\Action\Root\Controller\UIViewControllerActionDocument.cs" />
+    <Compile Include="TabBar\Document\Action\Root\Controller\UIViewControllerActionDocument.designer.cs">
+      <DependentUpon>..\..\Controller\UIViewControllerActionDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\Constant.cs" />
+    <Compile Include="Helper\Font.cs" />
+    <Compile Include="Helper\StyleFont.cs" />
+    <Compile Include="TabBar\Document\TabSignature\Controller\UIVControllerSign.cs" />
+    <Compile Include="TabBar\Document\TabSignature\Controller\UIVControllerSign.designer.cs">
+      <DependentUpon>UIVControllerSign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\Action\Assign\UIVControllerAssign.cs" />
+    <Compile Include="TabBar\Document\Action\Assign\UIVControllerAssign.designer.cs">
+      <DependentUpon>UIVControllerAssign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\TabAreaDiLavoro\UIVControllerADL.cs" />
+    <Compile Include="TabBar\Document\TabAreaDiLavoro\UIVControllerADL.designer.cs">
+      <DependentUpon>UIVControllerADL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IOSAnalyticsManager.cs" />
+    <Compile Include="TabBar\Document\Action\Accept_ADL_Refuse\UIVControllerIActionPresenter.cs" />
+    <Compile Include="TabBar\Document\Action\Accept_ADL_Refuse\UIVControllerIActionPresenter.designer.cs">
+      <DependentUpon>UIVControllerIActionPresenter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\TabDelega\Cell\UITVCellDelegation.cs" />
+    <Compile Include="TabBar\Document\TabDelega\Cell\UITVCellDelegation.designer.cs">
+      <DependentUpon>UITVCellDelegation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\TabDelega\Cell\UITVCellDelegationDate.cs" />
+    <Compile Include="TabBar\Document\TabDelega\Cell\UITVCellDelegationDate.designer.cs">
+      <DependentUpon>UITVCellDelegationDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\TabDelega\Cell\UITVCellDelegationTitle.cs" />
+    <Compile Include="TabBar\Document\TabDelega\Cell\UITVCellDelegationTitle.designer.cs">
+      <DependentUpon>UITVCellDelegationTitle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\TabDelega\Cell\UITVCellNewSelected.cs" />
+    <Compile Include="TabBar\Document\TabDelega\Cell\UITVCellNewSelected.designer.cs">
+      <DependentUpon>UITVCellNewSelected.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\TabDelega\Cell\UITVCellPeopleFavorite.cs" />
+    <Compile Include="TabBar\Document\TabDelega\Cell\UITVCellPeopleFavorite.designer.cs">
+      <DependentUpon>UITVCellPeopleFavorite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\TabDelega\Controller\UIViewControllerListDelegation.cs" />
+    <Compile Include="TabBar\Document\TabDelega\Controller\UIViewControllerListDelegation.designer.cs">
+      <DependentUpon>UIViewControllerListDelegation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\TabDelega\Controller\UIViewControllerNewDelegation.cs" />
+    <Compile Include="TabBar\Document\TabDelega\Controller\UIViewControllerNewDelegation.designer.cs">
+      <DependentUpon>UIViewControllerNewDelegation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\TabDelega\Controller\UIViewControllerPeopleChooseFavorite.cs" />
+    <Compile Include="TabBar\Document\TabDelega\Controller\UIViewControllerPeopleChooseFavorite.designer.cs">
+      <DependentUpon>UIViewControllerPeopleChooseFavorite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\TabDelega\Controller\UIViewControllerPickerData.cs" />
+    <Compile Include="TabBar\Document\TabDelega\Controller\UIViewControllerPickerData.designer.cs">
+      <DependentUpon>UIViewControllerPickerData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\TabDelega\Controller\UIViewControllerRevocationDelegation.cs" />
+    <Compile Include="TabBar\Document\TabDelega\Controller\UIViewControllerRevocationDelegation.designer.cs">
+      <DependentUpon>UIViewControllerRevocationDelegation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Root\Controller\ExtensionTabBarControllerRoot.cs" />
+    <Compile Include="Helper\MyUIViewController.cs" />
+    <Compile Include="Helper\StyleTablet.cs" />
+    <Compile Include="Filter\UITVCellSelectedData.cs" />
+    <Compile Include="Filter\UITVCellSelectedData.designer.cs">
+      <DependentUpon>UITVCellSelectedData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordExpired\UIVControllerPasswordExpired.cs" />
+    <Compile Include="PasswordExpired\UIVControllerPasswordExpired.designer.cs">
+      <DependentUpon>UIVControllerPasswordExpired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordExpired\UITVCellPassword.cs" />
+    <Compile Include="PasswordExpired\UITVCellPassword.designer.cs">
+      <DependentUpon>UITVCellPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordExpired\UITCellPasswordAmm.cs" />
+    <Compile Include="PasswordExpired\UITCellPasswordAmm.designer.cs">
+      <DependentUpon>UITCellPasswordAmm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordExpired\UIViewControllerChooseAdministrator.cs" />
+    <Compile Include="PasswordExpired\UIViewControllerChooseAdministrator.designer.cs">
+      <DependentUpon>UIViewControllerChooseAdministrator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Root\Controller\TabBarNavigationManager.cs" />
+    <Compile Include="TabBar\Root\Controller\TabBarNavigationManager.designer.cs">
+      <DependentUpon>TabBarNavigationManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\Common\Cell\UITVCellLoader.cs" />
+    <Compile Include="TabBar\Document\Common\Cell\UITVCellLoader.designer.cs">
+      <DependentUpon>UITVCellLoader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Root\Storyboard\SegueEmbedSearch.cs" />
+    <Compile Include="TabBar\Root\Storyboard\SegueEmbedSearch.designer.cs">
+      <DependentUpon>SegueEmbedSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Root\Controller\InterfaceNavigation.cs" />
+    <Compile Include="Helper\Extensions.cs" />
+    <Compile Include="TabBar\Document\Open\Storyboard\UIViewControllerSearchDossier.cs" />
+    <Compile Include="TabBar\Document\Open\Storyboard\UIViewControllerSearchDossier.designer.cs">
+      <DependentUpon>UIViewControllerSearchDossier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmbedComponent\EmbedComponentSearch.cs" />
+    <Compile Include="EmbedComponent\EmbedComponentSearch.designer.cs">
+      <DependentUpon>EmbedComponentSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\Keyboard.cs" />
+    <Compile Include="Helper\Reachability\IosReachabilityManager.cs" />
+    <Compile Include="Helper\Reachability\Reachability.cs" />
+    <Compile Include="Helper\FileManager\FileManager.cs" />
+    <Compile Include="EmbedComponent\EmbedComponentTableView.cs" />
+    <Compile Include="EmbedComponent\EmbedComponentTableView.designer.cs">
+      <DependentUpon>EmbedComponentTableView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmbedComponent\CellTitleEmbed.cs" />
+    <Compile Include="EmbedComponent\CellTitleEmbed.designer.cs">
+      <DependentUpon>CellTitleEmbed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\Action\Assign\ChooseRole\ControllerAssignChooseRole.cs" />
+    <Compile Include="TabBar\Document\Action\Assign\ChooseRole\ControllerAssignChooseRole.designer.cs">
+      <DependentUpon>ControllerAssignChooseRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\Action\Assign\Tab\TabBarAssign.cs" />
+    <Compile Include="TabBar\Document\Action\Assign\Tab\TabBarAssign.designer.cs">
+      <DependentUpon>TabBarAssign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmbedComponent\CellUtility.cs" />
+    <Compile Include="EmbedComponent\CellAssignStar.cs" />
+    <Compile Include="EmbedComponent\CellAssignStar.designer.cs">
+      <DependentUpon>CellAssignStar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmbedComponent\CellPhotoTitleStar.cs" />
+    <Compile Include="EmbedComponent\CellPhotoTitleStar.designer.cs">
+      <DependentUpon>CellPhotoTitleStar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\Action\Assign\CelleTable\CellPhotoTitleClose.cs" />
+    <Compile Include="TabBar\Document\Action\Assign\CelleTable\CellPhotoTitleClose.designer.cs">
+      <DependentUpon>CellPhotoTitleClose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmbedComponent\CellPhotoTitle.cs" />
+    <Compile Include="EmbedComponent\CellPhotoTitle.designer.cs">
+      <DependentUpon>CellPhotoTitle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\TabDelega\Cell\CellTabletListDelegation.cs" />
+    <Compile Include="TabBar\Document\TabDelega\Cell\CellTabletListDelegation.designer.cs">
+      <DependentUpon>CellTabletListDelegation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\NSLayoutConstraintChangeMultiplier.cs" />
+    <Compile Include="TabBar\Document\Action\Assign\Storyboard\ControllerMyTabBar.cs" />
+    <Compile Include="TabBar\Document\Action\Assign\Storyboard\ControllerMyTabBar.designer.cs">
+      <DependentUpon>ControllerMyTabBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\Action\Assign\Storyboard\ControllerAssignSearch.cs" />
+    <Compile Include="TabBar\Document\Action\Assign\Storyboard\ControllerAssignSearch.designer.cs">
+      <DependentUpon>ControllerAssignSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\Action\Assign\Tab\UIVControllerSearchAssign.cs" />
+    <Compile Include="TabBar\Document\Action\Assign\Tab\UIVControllerSearchAssign.designer.cs" />
+    <Compile Include="EmbedComponent\EmbedComponentListEmpty.cs" />
+    <Compile Include="EmbedComponent\EmbedComponentListEmpty.designer.cs">
+      <DependentUpon>EmbedComponentListEmpty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmbedComponent\CellImgStarTwoTitle.cs" />
+    <Compile Include="EmbedComponent\CellImgStarTwoTitle.designer.cs">
+      <DependentUpon>CellImgStarTwoTitle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmbedComponent\CellEmpty.cs" />
+    <Compile Include="EmbedComponent\CellEmpty.designer.cs">
+      <DependentUpon>CellEmpty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\ShowErrorHelper.cs" />
+    <Compile Include="Helper\UIImageExt.cs" />
+    <Compile Include="TabBar\Document\Action\Root\Storyboard\ControllerDetailAction.cs" />
+    <Compile Include="TabBar\Document\Action\Root\Storyboard\ControllerDetailAction.designer.cs">
+      <DependentUpon>ControllerDetailAction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\Action\Root\Storyboard\ControllerAssignTo.cs" />
+    <Compile Include="TabBar\Document\Action\Root\Storyboard\ControllerAssignTo.designer.cs">
+      <DependentUpon>ControllerAssignTo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\Action\Root\Storyboard\ControllerNote.cs" />
+    <Compile Include="TabBar\Document\Action\Root\Storyboard\ControllerNote.designer.cs">
+      <DependentUpon>ControllerNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\Action\Root\Storyboard\ControllerAssignToDelete.cs" />
+    <Compile Include="TabBar\Document\Action\Root\Storyboard\ControllerAssignToDelete.designer.cs">
+      <DependentUpon>ControllerAssignToDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\Action\Root\Storyboard\ControllerData.cs" />
+    <Compile Include="TabBar\Document\Action\Root\Storyboard\ControllerData.designer.cs">
+      <DependentUpon>ControllerData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\Action\Root\Storyboard\ControllerPinOtp.cs" />
+    <Compile Include="TabBar\Document\Action\Root\Storyboard\ControllerPinOtp.designer.cs">
+      <DependentUpon>ControllerPinOtp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\Open\Storyboard\CellLoaderDossier.cs" />
+    <Compile Include="TabBar\Document\Open\Storyboard\CellLoaderDossier.designer.cs">
+      <DependentUpon>CellLoaderDossier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Filter\UITVCellTextFilter.cs" />
+    <Compile Include="Filter\UITVCellTextFilter.designer.cs">
+      <DependentUpon>UITVCellTextFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PinningSSL\ServicePointConfig.cs" />
+    <Compile Include="PopUp\Storyboard\CellTableInfo.cs" />
+    <Compile Include="PopUp\Storyboard\CellTableInfo.designer.cs">
+      <DependentUpon>CellTableInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar\Document\TabDelega\Cell\UITVCellNewRoleSelected.cs" />
+    <Compile Include="TabBar\Document\TabDelega\Cell\UITVCellNewRoleSelected.designer.cs">
+      <DependentUpon>UITVCellNewRoleSelected.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChooseInstance\Storyboard\UITableViewCellChooseInstance.cs" />
+    <Compile Include="ChooseInstance\Storyboard\UITableViewCellChooseInstance.designer.cs">
+      <DependentUpon>UITableViewCellChooseInstance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChooseInstance\Storyboard\UIViewControllerChooseInstance.cs" />
+    <Compile Include="ChooseInstance\Storyboard\UIViewControllerChooseInstance.designer.cs">
+      <DependentUpon>UIViewControllerChooseInstance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIVIEW.cs" />
+    <Compile Include="UIVIEW.designer.cs">
+      <DependentUpon>UIVIEW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewController.cs" />
+    <Compile Include="ViewController.designer.cs">
+      <DependentUpon>ViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\VersionManager\VersionManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\action_close.imageset\" />
+    <Folder Include="Assets.xcassets\arrow_blue_right.imageset\" />
+    <Folder Include="Assets.xcassets\close.imageset\" />
+    <Folder Include="Assets.xcassets\closered.imageset\" />
+    <Folder Include="Assets.xcassets\d.imageset\" />
+    <Folder Include="Assets.xcassets\exit.imageset\" />
+    <Folder Include="Assets.xcassets\f.imageset\" />
+    <Folder Include="Assets.xcassets\filters.imageset\" />
+    <Folder Include="Assets.xcassets\iconAccept.imageset\" />
+    <Folder Include="Assets.xcassets\iconDelegation.imageset\" />
+    <Folder Include="Assets.xcassets\iconsignature.imageset\" />
+    <Folder Include="Assets.xcassets\icon_attachment.imageset\" />
+    <Folder Include="Assets.xcassets\icon_document.imageset\" />
+    <Folder Include="Assets.xcassets\icon_pdf.imageset\" />
+    <Folder Include="Assets.xcassets\icon_word.imageset\" />
+    <Folder Include="Assets.xcassets\icon_yellows.imageset\" />
+    <Folder Include="Assets.xcassets\ic_done_all_white.imageset\" />
+    <Folder Include="Assets.xcassets\imageUserDefault.imageset\" />
+    <Folder Include="Assets.xcassets\leftback.imageset\" />
+    <Folder Include="Assets.xcassets\listEmpty.imageset\" />
+    <Folder Include="Assets.xcassets\logo.imageset\" />
+    <Folder Include="Assets.xcassets\menu.imageset\" />
+    <Folder Include="Assets.xcassets\menu_navigation.imageset\" />
+    <Folder Include="Assets.xcassets\office.imageset\" />
+    <Folder Include="Assets.xcassets\plus.imageset\" />
+    <Folder Include="Assets.xcassets\plus_blue.imageset\" />
+    <Folder Include="Assets.xcassets\role.imageset\" />
+    <Folder Include="Assets.xcassets\search.imageset\" />
+    <Folder Include="Assets.xcassets\search_navigation.imageset\" />
+    <Folder Include="Assets.xcassets\settings.imageset\" />
+    <Folder Include="Assets.xcassets\start_empty.imageset\" />
+    <Folder Include="Assets.xcassets\start_full.imageset\" />
+    <Folder Include="Assets.xcassets\tab1.imageset\" />
+    <Folder Include="Assets.xcassets\tab2.imageset\" />
+    <Folder Include="Assets.xcassets\tab3.imageset\" />
+    <Folder Include="Assets.xcassets\tab4.imageset\" />
+    <Folder Include="Assets.xcassets\tab5sele.imageset\" />
+    <Folder Include="ChooseInstance\Controller\" />
+    <Folder Include="Login\Interface\" />
+    <Folder Include="TabBar\Document\Action\Common\" />
+    <Folder Include="TabBar\Document\Download\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\en.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\it.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\font\OFL.txt" />
+    <BundleResource Include="Resources\jsonImg\account_success.json" />
+    <BundleResource Include="Resources\jsonImg\camera.json" />
+    <BundleResource Include="Resources\jsonImg\gears.json" />
+    <BundleResource Include="Resources\jsonImg\ModernPictogramsForLottie_Camera.aep" />
+    <BundleResource Include="Resources\jsonImg\ModernPictogramsForLottie_Camera.json" />
+    <BundleResource Include="Resources\jsonImg\simple_check.json" />
+    <BundleResource Include="Resources\font\SourceSansPro-Black.ttf" />
+    <BundleResource Include="Resources\font\SourceSansPro-BlackItalic.ttf" />
+    <BundleResource Include="Resources\font\SourceSansPro-Bold.ttf" />
+    <BundleResource Include="Resources\font\SourceSansPro-BoldItalic.ttf" />
+    <BundleResource Include="Resources\font\SourceSansPro-ExtraLight.ttf" />
+    <BundleResource Include="Resources\font\SourceSansPro-ExtraLightItalic.ttf" />
+    <BundleResource Include="Resources\font\SourceSansPro-Italic.ttf" />
+    <BundleResource Include="Resources\font\SourceSansPro-Light.ttf" />
+    <BundleResource Include="Resources\font\SourceSansPro-LightItalic.ttf" />
+    <BundleResource Include="Resources\font\SourceSansPro-Regular.ttf" />
+    <BundleResource Include="Resources\font\SourceSansPro-SemiBold.ttf" />
+    <BundleResource Include="Resources\font\SourceSansPro-SemiBoldItalic.ttf" />
+    <BundleResource Include="GoogleService-Info.plist" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="..\packages\Refit.4.0.1\build\netstandard1.4\refit.targets" Condition="Exists('..\packages\Refit.4.0.1\build\netstandard1.4\refit.targets')" />
+  <Import Project="..\packages\Xamarin.Firebase.iOS.Core.4.0.3\build\Xamarin.Firebase.iOS.Core.targets" Condition="Exists('..\packages\Xamarin.Firebase.iOS.Core.4.0.3\build\Xamarin.Firebase.iOS.Core.targets')" />
+  <Import Project="..\packages\Xamarin.Firebase.iOS.InstanceID.2.0.0\build\Xamarin.Firebase.iOS.InstanceID.targets" Condition="Exists('..\packages\Xamarin.Firebase.iOS.InstanceID.2.0.0\build\Xamarin.Firebase.iOS.InstanceID.targets')" />
+  <Import Project="..\packages\Xamarin.Firebase.iOS.Analytics.4.0.2\build\Xamarin.Firebase.iOS.Analytics.targets" Condition="Exists('..\packages\Xamarin.Firebase.iOS.Analytics.4.0.2\build\Xamarin.Firebase.iOS.Analytics.targets')" />
+  <Import Project="..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets')" />
+  <Import Project="..\packages\Xamarin.Build.Download.0.4.7\build\Xamarin.Build.Download.targets" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.7\build\Xamarin.Build.Download.targets')" />
+</Project>

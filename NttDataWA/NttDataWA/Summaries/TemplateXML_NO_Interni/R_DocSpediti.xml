@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XMLReport.xsd">
+  <pagina formato="A4" orientamento="ORIZZONTALE">
+    <dta_stampa align="RIGHT" target="footer" font="Arial" size="10" style="PLAIN" color="#000000">Stampa effettuata il: </dta_stampa>
+    <num_pagine align="CENTER" target="footer" font="Arial" size="8" style="PLAIN" color="#000000" total="1" separator="/" widthTot="5">Pag. </num_pagine>
+  </pagina>
+  <header align="LEFT" font="Arial" size="16" style="BOLD" color="#000000" bgcolor="#FFFFFF" border="1">Documenti Spediti</header>
+  <logo align="LEFT" file="" bgcolor="#FFFFFF"/>
+  <dati>
+    <paragrafo align="LEFT" font="Arial" size="10" style="BOLD" color="#000000" bgcolor="#FFFFFF" target="PAR_DOC_SPEDITI">Spedizioni effettuate: @param1</paragrafo>
+    <paragrafo align="LEFT" font="Arial" size="10" style="BOLD" color="#000000" bgcolor="#FFFFFF" target="PAR_RICEVUTE">Conferme ricevute: @param2</paragrafo>
+    <paragrafo align="LEFT" font="Arial" size="10" style="BOLD" color="#000000" bgcolor="#FFFFFF" target="PAR_MANCANTI">Conferme mancanti: @param3</paragrafo>
+  </dati>
+  <dati>
+    <tabella showBorder="true" target="TABLE_ANNO" padding="2" spacing="0">
+      <header_tabella align="CENTER" font="Arial" size="10" style="BOLD" color="#000000" bgcolor="#C0C0C0" valign="middle"/>
+      <dati_tabella align="LEFT" font="Arial" size="8" style="PLAIN" color="#000000" bgcolor="#C0C0C0" valign="bottom"/>
+      <colonne>
+        <colonna name="VAR_SEGNATURA" alias="Prot" visible="true" width="30" align="left" valign="top"/>
+        <colonna name="OGGETTO" alias="Oggetto" visible="true" width="20" align="left" valign="top"/>
+        <colonna name="DTA_SPEDIZIONE" alias="Data Spedizione" visible="true" width="20" align="center" valign="top"/>
+        <colonna name="DESTINATARIO" alias="Destinatario" visible="true" width="25" align="center" valign="top"/>
+        <colonna name="PROTO_DEST" alias="Prot. Destinatario" visible="true" width="15" align="center" valign="top"/>
+      </colonne>
+    </tabella>
+  </dati>
+  <footer align="LEFT" font="Arial" size="8" style="PLAIN" color="#000000" bgcolor="#FFFFFF" border="1">
+
+  </footer>
+</report>

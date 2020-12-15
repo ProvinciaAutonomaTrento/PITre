@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/textView_select_date_str"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/activity_new_delegation_select_date"
+        style="@style/details_page_label"
+        app:layout_constraintTop_toBottomOf="@+id/assigneeView_container"
+        app:layout_constraintLeft_toLeftOf="parent" />
+    <TextView
+        android:id="@+id/textView_select_date_start_str"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/activity_new_delegation_start"
+        style="@style/details_page_details"
+        android:layout_marginTop="@dimen/margin_40px"
+        android:layout_marginRight="@dimen/margin_40px"
+        app:layout_constraintTop_toBottomOf="@+id/textView_select_date_str"
+        app:layout_constraintLeft_toLeftOf="parent" />
+    <TextView
+        android:id="@+id/editText_from_day"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="@string/activity_new_delegation_day"
+        style="@style/input_text_for_textview"
+        app:layout_constraintBaseline_toBaselineOf="@id/textView_select_date_start_str"
+        app:layout_constraintTop_toBottomOf="@+id/textView_select_date_str"
+        app:layout_constraintLeft_toRightOf="@+id/guideline" />
+    <TextView
+        android:id="@+id/editText_from_month"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="@string/activity_new_delegation_month"
+        style="@style/input_text_for_textview"
+        android:layout_marginStart="@dimen/margin_20px"
+        app:layout_constraintBaseline_toBaselineOf="@id/textView_select_date_start_str"
+        app:layout_constraintLeft_toRightOf="@+id/editText_from_day" />
+    <TextView
+        android:id="@+id/editText_from_year"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="@string/activity_new_delegation_year"
+        style="@style/input_text_for_textview"
+        android:layout_marginStart="@dimen/margin_20px"
+        app:layout_constraintBaseline_toBaselineOf="@id/textView_select_date_start_str"
+        app:layout_constraintLeft_toRightOf="@+id/editText_from_month" />
+    <TextView
+        android:id="@+id/editText_from_hour"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="@string/activity_new_delegation_hour"
+        style="@style/input_text_for_textview"
+        android:layout_marginStart="@dimen/margin_20px"
+        app:layout_constraintBaseline_toBaselineOf="@id/textView_select_date_start_str"
+        app:layout_constraintLeft_toRightOf="@+id/editText_from_year" />
+    <TextView
+        android:id="@+id/editText_from_minute"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="@string/activity_new_delegation_minute"
+        style="@style/input_text_for_textview"
+        android:layout_marginStart="@dimen/margin_20px"
+        app:layout_constraintBaseline_toBaselineOf="@id/textView_select_date_start_str"
+        app:layout_constraintLeft_toRightOf="@+id/editText_from_hour" />
+    <View
+        android:id="@+id/view_fromDateClickArea"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/editText_from_day"
+        app:layout_constraintRight_toRightOf="@+id/editText_from_minute"
+        app:layout_constraintTop_toTopOf="@+id/editText_from_day"
+        app:layout_constraintBottom_toBottomOf="@id/editText_from_day" />
+    <TextView
+        android:id="@+id/textView_select_date_end_str"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/activity_new_delegation_end"
+        style="@style/details_page_details"
+        android:layout_marginTop="@dimen/margin_40px"
+        app:layout_constraintTop_toBottomOf="@+id/textView_select_date_start_str"
+        app:layout_constraintLeft_toLeftOf="parent" />
+    <TextView
+        android:id="@+id/editText_end_day"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="@string/activity_new_delegation_day"
+        style="@style/input_text_for_textview"
+        app:layout_constraintBaseline_toBaselineOf="@id/textView_select_date_end_str"
+        app:layout_constraintTop_toBottomOf="@+id/textView_select_date_str"
+        app:layout_constraintLeft_toRightOf="@+id/guideline" />
+    <TextView
+        android:id="@+id/editText_end_month"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="@string/activity_new_delegation_month"
+        style="@style/input_text_for_textview"
+        android:layout_marginStart="@dimen/margin_20px"
+        app:layout_constraintBaseline_toBaselineOf="@id/textView_select_date_end_str"
+        app:layout_constraintLeft_toRightOf="@+id/editText_end_day" />
+    <TextView
+        android:id="@+id/editText_end_year"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="@string/activity_new_delegation_year"
+        style="@style/input_text_for_textview"
+        android:layout_marginStart="@dimen/margin_20px"
+        app:layout_constraintBaseline_toBaselineOf="@id/textView_select_date_end_str"
+        app:layout_constraintLeft_toRightOf="@+id/editText_end_month" />
+    <TextView
+        android:id="@+id/editText_end_hour"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="@string/activity_new_delegation_hour"
+        style="@style/input_text_for_textview"
+        android:layout_marginStart="@dimen/margin_20px"
+        app:layout_constraintBaseline_toBaselineOf="@id/textView_select_date_end_str"
+        app:layout_constraintLeft_toRightOf="@+id/editText_end_year" />
+    <TextView
+        android:id="@+id/editText_end_minute"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="@string/activity_new_delegation_minute"
+        style="@style/input_text_for_textview"
+        android:layout_marginStart="@dimen/margin_20px"
+        app:layout_constraintBaseline_toBaselineOf="@id/textView_select_date_end_str"
+        app:layout_constraintLeft_toRightOf="@+id/editText_end_hour" />
+    <View
+        android:id="@+id/view_endDateClickArea"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/editText_end_day"
+        app:layout_constraintRight_toRightOf="@+id/editText_end_minute"
+        app:layout_constraintTop_toTopOf="@+id/editText_end_day"
+        app:layout_constraintBottom_toBottomOf="@id/editText_end_day" />
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.25" />
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,17 @@
+CREATE OR REPLACE PROCEDURE CDC_SP_ALERT_GET_STATE  (START_DATE IN Varchar2, STATO OUT number)
+IS
+BEGIN
+   
+    SELECT CDC_ALERT_STATE.STATE into STATO FROM CDC_ALERT_STATE where 
+         SUBSTR(DATESTART,0,10) = START_DATE;      
+
+
+   EXCEPTION
+     WHEN NO_DATA_FOUND THEN
+       STATO:= 100;
+     WHEN OTHERS THEN
+       -- Consider logging the error and then re-raise
+        STATO:= 100;
+       RAISE;
+END CDC_SP_ALERT_GET_STATE;
+/

@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:intf="http://arca.services.soa.sistinf.it" targetNamespace="http://arca.services.soa.sistinf.it" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://arca.services.soa.sistinf.it">
+      <xsd:element name="RichiestaPerCodiceFiscale">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Profilo" type="intf:tProfilo" />
+            <xsd:element name="CodiceFiscale" type="intf:tCodiceFiscale" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="RichiestaPerCodiceFiscaleParziale">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Profilo" type="intf:tProfilo" />
+            <xsd:element name="CodiceFiscale" type="intf:tCodiceFiscale" />
+            <xsd:element name="Cognome" nillable="true" type="xsd:string" />
+            <xsd:element name="Nome" nillable="true" type="xsd:string" />
+            <xsd:element name="Sesso" nillable="true" type="xsd:string" />
+            <xsd:element name="DataNascita" nillable="true" type="intf:tData2" />
+            <xsd:element name="ComuneNascita" nillable="true" type="intf:tLuogo" />
+            <xsd:element name="ProvinciaNascita" nillable="true" type="xsd:string" />
+            <xsd:element name="StatoEsteroNascita" nillable="true" type="intf:tLuogo" />
+            <xsd:element minOccurs="0" maxOccurs="5" name="FonteArchivio" type="intf:tFonteArchivio2" />
+            <xsd:element name="ProvinciaCompetenza" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="RichiestaPerDatiAnagrafici">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Profilo" type="intf:tProfilo" />
+            <xsd:element name="DatiPersonali" type="intf:tDatiPersonaliParziali" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="RichiestaPerDatiAnagraficiParziali">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Profilo" type="intf:tProfilo" />
+            <xsd:element name="DatiPersonali" type="intf:tDatiPersonaliParziali2" />
+            <xsd:element minOccurs="0" maxOccurs="5" name="FonteArchivio" type="intf:tFonteArchivio2" />
+            <xsd:element name="ProvinciaCompetenza" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="RichiestaPerCodiceIndividuale">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Profilo" type="intf:tProfilo" />
+            <xsd:element name="ChiaveIndividuale" type="intf:tCodiceIndividualeIn" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="RichiestaDettaglio">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Profilo" type="intf:tProfilo" />
+            <xsd:element name="ChiaveArca" type="intf:tChiaveArca" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="tProfilo">
+        <xsd:sequence>
+          <xsd:element name="Provenienza">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="2" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="Matricola">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="8" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="Password">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="8" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="Applicazione">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="8" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="PIN" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CodiceFiscaleRichiedente">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:pattern value="[A-Z]{3}[A-Z]{3}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="IpClient">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:pattern value="\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="Ruolo" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tDatiPersonaliParziali">
+        <xsd:sequence>
+          <xsd:element name="Cognome" type="xsd:string" />
+          <xsd:element name="Nome" type="xsd:string" />
+          <xsd:element name="DataNascita" type="intf:tData" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tDatiPersonaliParziali2">
+        <xsd:sequence>
+          <xsd:element name="Cognome" type="xsd:string" />
+          <xsd:element name="Nome" nillable="true" type="xsd:string" />
+          <xsd:element name="DataNascita" nillable="true" type="intf:tData2" />
+          <xsd:element name="Sesso" nillable="true" type="xsd:string" />
+          <xsd:element name="ComuneNascita" nillable="true" type="intf:tLuogo" />
+          <xsd:element name="ProvinciaNascita" nillable="true">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="3" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="StatoEsteroNascita" nillable="true" type="intf:tLuogo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DatiRisposta">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Esito" type="intf:tEsito" />
+            <xsd:element minOccurs="0" name="Abilitazioni" type="intf:tAbilitazioni" />
+            <xsd:element minOccurs="0" maxOccurs="200" name="Sinonimi" type="intf:tSinonimi" />
+            <xsd:element minOccurs="0" name="Dettaglio" type="intf:tDettaglio" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="tEsito">
+        <xsd:sequence>
+          <xsd:element name="ReturnCode" type="xsd:string" />
+          <xsd:element name="Descrizione" type="xsd:string" />
+          <xsd:element name="TotaleSinonimiGenerati" type="xsd:int" />
+          <xsd:element name="TotaleSinonimiRestituiti" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tSinonimi">
+        <xsd:sequence>
+          <xsd:element name="ChiaveArca" type="intf:tChiaveArca" />
+          <xsd:element name="LowProfile" type="intf:tLowProfileSin" />
+          <xsd:element name="Annotazione" nillable="true" type="intf:tElenco" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tDettaglio">
+        <xsd:sequence>
+          <xsd:element name="ChiaveArca" type="intf:tChiaveArca" />
+          <xsd:element minOccurs="0" name="LowProfile" type="intf:tLowProfile" />
+          <xsd:element minOccurs="0" name="MediumProfile" type="intf:tMediumProfile" />
+          <xsd:element minOccurs="0" name="HighProfile" type="intf:tHighProfile" />
+          <xsd:element minOccurs="0" name="AllProfile" type="intf:tAllProfile" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tLowProfile">
+        <xsd:sequence>
+          <xsd:element name="FormatoLuogoNascita" type="intf:tElenco" />
+          <xsd:element name="DatiPersonali" type="intf:tDatiPersonali" />
+          <xsd:element minOccurs="0" name="DatiEstero" type="intf:tDatiAggiuntivi" />
+          <xsd:element name="CodiceFiscale" type="intf:tCodiceFiscale" />
+          <xsd:element name="TipoValidazioneCodiceFiscale" type="intf:tValidCodFisc" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tLowProfileSin">
+        <xsd:sequence>
+          <xsd:element name="DatiPersonali" type="intf:tDatiPersonali" />
+          <xsd:element name="CodiceFiscale" type="intf:tCodiceFiscale" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tMediumProfile">
+        <xsd:sequence>
+          <xsd:element name="FormatoLuogoNascita" type="intf:tElenco" />
+          <xsd:element name="DatiPersonali" type="intf:tDatiPersonali" />
+          <xsd:element minOccurs="0" name="DatiEstero" type="intf:tDatiAggiuntivi" />
+          <xsd:element name="CodiceFiscale" type="intf:tCodiceFiscale" />
+          <xsd:element name="TipoValidazioneCodiceFiscale" type="intf:tValidCodFisc" />
+          <xsd:element name="UlterioriDatiPersonali" type="intf:tUlterioriDatiPersonali" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tHighProfile">
+        <xsd:sequence>
+          <xsd:element name="FormatoLuogoNascita" type="intf:tElenco" />
+          <xsd:element name="DatiPersonali" type="intf:tDatiPersonali" />
+          <xsd:element minOccurs="0" name="DatiEstero" type="intf:tDatiAggiuntivi" />
+          <xsd:element name="CodiceFiscale" type="intf:tCodiceFiscale" />
+          <xsd:element name="TipoValidazioneCodiceFiscale" type="intf:tValidCodFisc" />
+          <xsd:element name="UlterioriDatiPersonali" type="intf:tUlterioriDatiPersonali" />
+          <xsd:element minOccurs="0" name="DatiIndirizzo" type="intf:tDatiIndirizzo" />
+          <xsd:element minOccurs="0" name="DatiIndirizzoEstero" type="intf:tDatiIndirizzoEstero" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tAllProfile">
+        <xsd:sequence>
+          <xsd:element name="FormatoLuogoNascita" type="intf:tElenco" />
+          <xsd:element name="DatiPersonali" type="intf:tDatiPersonali" />
+          <xsd:element minOccurs="0" name="DatiEstero" type="intf:tDatiAggiuntivi" />
+          <xsd:element name="CodiceFiscale" type="intf:tCodiceFiscale" />
+          <xsd:element name="TipoValidazioneCodiceFiscale" type="intf:tValidCodFisc" />
+          <xsd:element name="UlterioriDatiPersonali" type="intf:tUlterioriDatiPersonali" />
+          <xsd:element minOccurs="0" name="DatiIndirizzo" type="intf:tDatiIndirizzo" />
+          <xsd:element minOccurs="0" name="DatiIndirizzoEstero" type="intf:tDatiIndirizzoEstero" />
+          <xsd:element maxOccurs="600" name="Riferimenti" type="intf:tRiferimenti" />
+          <xsd:element name="DatiAnagraficiInterni" type="intf:tDatiAnagraficiInterni" />
+          <xsd:element name="DatiIndirizzoInterni" type="intf:tDatiIndirizzoInterni" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tDatiAnagraficiInterni">
+        <xsd:sequence>
+          <xsd:element name="CFStatus" type="xsd:string" />
+          <xsd:element name="Status1" type="xsd:string" />
+          <xsd:element name="Status2" type="xsd:string" />
+          <xsd:element name="Status3" type="xsd:string" />
+          <xsd:element name="Status4" type="xsd:string" />
+          <xsd:element name="Status5" type="xsd:string" />
+          <xsd:element name="Provenie" type="xsd:string" />
+          <xsd:element name="LivelloDefinizione" type="xsd:string" />
+          <xsd:element name="SedeINPS" type="xsd:string" />
+          <xsd:element name="DataMovimentazione" type="xsd:string" />
+          <xsd:element name="OraMovimentazione" type="xsd:string" />
+          <xsd:element name="SedeMovimentazione" type="xsd:string" />
+          <xsd:element name="CodiceOperatore" type="xsd:string" />
+          <xsd:element name="CodiceProgramma" type="xsd:string" />
+          <xsd:element name="ErroreAnagrafico" type="xsd:string" />
+          <xsd:element name="ErroreGenerico" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tDatiIndirizzoInterni">
+        <xsd:sequence>
+          <xsd:element name="StatInd" type="xsd:string" />
+          <xsd:element name="Proveni3" type="xsd:string" />
+          <xsd:element name="DataMovimentazione" type="xsd:string" />
+          <xsd:element minOccurs="0" name="OraMovimentazione" type="xsd:string" />
+          <xsd:element name="SedeMovimentazione" type="xsd:string" />
+          <xsd:element name="CodiceOperatore" type="xsd:string" />
+          <xsd:element name="CodiceProgramma" type="xsd:string" />
+          <xsd:element name="ErroreIndirizzo" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tChiaveArca">
+        <xsd:sequence>
+          <xsd:element name="Codice" type="xsd:string" />
+          <xsd:element name="Progressivo" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tCodiceFiscale">
+        <xsd:sequence>
+          <xsd:element name="Cognome" type="intf:tCognCodFisc" />
+          <xsd:element name="Nome" type="intf:tNomeCodFisc" />
+          <xsd:element name="Anno" nillable="true" type="intf:tAnnoCodFisc" />
+          <xsd:element name="Mese" nillable="true" type="intf:tMeseCodFisc" />
+          <xsd:element name="Giorno" nillable="true" type="intf:tGiornoCodFisc" />
+          <xsd:element name="Comune" nillable="true" type="intf:tComuneCodFisc" />
+          <xsd:element name="CodControllo" nillable="true" type="intf:tCodControlloCodFisc" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="tCognCodFisc">
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="[A-Z]{3}" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="tNomeCodFisc">
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="[A-Z]{3}" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="tAnnoCodFisc">
+        <xsd:restriction base="xsd:int">
+          <xsd:maxInclusive value="99" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="tMeseCodFisc">
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="[A-Z]" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="tGiornoCodFisc">
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="\d{2}" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="tComuneCodFisc">
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="[A-Z]\d{3}" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="tCodControlloCodFisc">
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="[A-Z]" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="tDatiPersonaliSin">
+        <xsd:sequence>
+          <xsd:element name="Cognome" type="xsd:string" />
+          <xsd:element name="Nome" type="xsd:string" />
+          <xsd:element name="DataNascita" type="intf:tData" />
+          <xsd:element name="Sesso" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ComuneNascita" type="intf:tLuogo2" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tDatiPersonali">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="intf:tDatiPersonaliSin">
+            <xsd:sequence>
+              <xsd:element name="Paese" type="xsd:string" />
+              <xsd:element name="StatoNascita" type="intf:tLuogo" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="tDatiAggiuntivi">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="SecondoCognome" type="xsd:string" />
+          <xsd:element minOccurs="0" name="SecondoCognomeAcquisito" type="xsd:string" />
+          <xsd:element name="CodiceDipartimento" type="xsd:string" />
+          <xsd:element name="ProvinciaNascita" type="xsd:string" />
+          <xsd:element name="LuogoNascita" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tLuogo">
+        <xsd:sequence>
+          <xsd:element name="Codice" type="xsd:string" />
+          <xsd:element name="Nome" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tLuogo2">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="intf:tLuogo">
+            <xsd:sequence>
+              <xsd:element name="Provincia" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="tData2">
+        <xsd:sequence>
+          <xsd:element name="Giorno" nillable="true" type="xsd:string" />
+          <xsd:element name="Mese" nillable="true" type="xsd:string" />
+          <xsd:element name="Anno" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tData">
+        <xsd:sequence>
+          <xsd:element name="Giorno" type="intf:tGiorno" />
+          <xsd:element name="Mese" type="intf:tMese" />
+          <xsd:element name="Anno" type="intf:tAnno" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="tGiorno">
+        <xsd:restriction base="xsd:int">
+          <xsd:pattern value="\d{2}" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="tMese">
+        <xsd:restriction base="xsd:int">
+          <xsd:minInclusive value="01" />
+          <xsd:maxInclusive value="12" />
+          <xsd:pattern value="\d{2}" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="tAnno">
+        <xsd:restriction base="xsd:int">
+          <xsd:minInclusive value="0000" />
+          <xsd:pattern value="\d{4}" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="tUlterioriDatiPersonali">
+        <xsd:sequence>
+          <xsd:element name="CodiceNome" type="intf:tElenco" />
+          <xsd:element name="CognomeAcquisito" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DataMorte" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DataEliminazione" type="xsd:string" />
+          <xsd:element name="Nazionalita" type="xsd:string" />
+          <xsd:element name="NazionalitaBelfiore" type="intf:tElenco" />
+          <xsd:element name="Cittadinanza" type="intf:tElenco" />
+          <xsd:element name="Residenza" type="intf:tElenco" />
+          <xsd:element name="StatoCivile" type="intf:tElenco" />
+          <xsd:element name="TitoloStudio" type="intf:tElenco" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tDatiIndirizzo">
+        <xsd:sequence>
+          <xsd:element name="CodiceResidenza" type="intf:tElenco" />
+          <xsd:element name="Paese" type="xsd:string" />
+          <xsd:element name="StatoResidenza" type="intf:tElenco" />
+          <xsd:element name="ComuneResidenza" type="intf:tLuogo2" />
+          <xsd:element name="Frazione" type="xsd:string" />
+          <xsd:element name="Cap" type="xsd:string" />
+          <xsd:element name="Civico" type="xsd:string" />
+          <xsd:element name="Indirizzo" type="intf:tIndirizzo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tDatiIndirizzoEstero">
+        <xsd:sequence>
+          <xsd:element name="CodiceResidenza" type="intf:tElenco" />
+          <xsd:element name="Paese" type="xsd:string" />
+          <xsd:element name="StatoResidenza" type="intf:tElenco" />
+          <xsd:element name="Dipartimento" type="xsd:string" />
+          <xsd:element name="CityName" type="xsd:string" />
+          <xsd:element name="Cap" type="xsd:string" />
+          <xsd:element name="Civico" type="xsd:string" />
+          <xsd:element name="Indirizzo" type="intf:tIndirizzoEstero" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tRiferimenti">
+        <xsd:sequence>
+          <xsd:element name="ChiaveIndividuale" type="intf:tCodiceIndividualeOut" />
+          <xsd:element name="DataDefinizione" type="xsd:string" />
+          <xsd:element minOccurs="0" name="TipocodiceIndividuale" type="intf:tElenco" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tElenco">
+        <xsd:sequence>
+          <xsd:element name="Codice" type="xsd:string" />
+          <xsd:element name="Descrizione" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="tValidCodFisc">
+        <xsd:restriction base="xsd:string" />
+      </xsd:simpleType>
+      <xsd:complexType name="tCodiceIndividuale">
+        <xsd:sequence>
+          <xsd:element name="FonteArchivio" type="intf:tFonteArchivio" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tCodiceIndividualeIn">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="intf:tCodiceIndividuale">
+            <xsd:sequence>
+              <xsd:element name="CodiceIndividuale" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="tCodiceIndividualeOut">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="intf:tCodiceIndividuale">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" name="CodiceIndividuale" type="xsd:string" />
+              <xsd:element minOccurs="0" name="CodiceIndividualePensione" type="intf:tCodicePensione" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="tFonteArchivio">
+        <xsd:sequence>
+          <xsd:element name="Archivio" type="xsd:string" />
+          <xsd:element name="Progetto" type="xsd:string" />
+          <xsd:element name="Descrizione" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tFonteArchivio2">
+        <xsd:sequence>
+          <xsd:element name="Archivio" type="xsd:string" />
+          <xsd:element name="Progetto" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tCodicePensione">
+        <xsd:sequence>
+          <xsd:element name="Categoria" type="intf:tElenco" />
+          <xsd:element name="Sede" type="xsd:string" />
+          <xsd:element name="Certificato" type="xsd:string" />
+          <xsd:element name="TipoComponente" type="intf:tElenco" />
+          <xsd:element name="FlagEliminazione" type="xsd:string" />
+          <xsd:element name="Decorrenza" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tIndirizzo">
+        <xsd:sequence>
+          <xsd:element name="PrimaParte" type="xsd:string" />
+          <xsd:element minOccurs="0" name="SecondaParte" type="xsd:string" />
+          <xsd:element minOccurs="0" name="TerzaParte" type="xsd:string" />
+          <xsd:element minOccurs="0" name="QuartaParte" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tIndirizzoEstero">
+        <xsd:sequence>
+          <xsd:element name="PrimaParte" type="xsd:string" />
+          <xsd:element minOccurs="0" name="SecondaParte" type="xsd:string" />
+          <xsd:element minOccurs="0" name="TerzaParte" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tAbilitazioni">
+        <xsd:sequence>
+          <xsd:element name="ConsultazioneArchiviGest" type="xsd:string" />
+          <xsd:element name="LivelloAut" type="xsd:string" />
+          <xsd:element name="PrelievoAnag" type="xsd:string" />
+          <xsd:element name="PrelievoAnagAltreSedi" type="xsd:string" />
+          <xsd:element name="VariazioneAnag" type="xsd:string" />
+          <xsd:element name="VariazioneArchiviGest" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ricercaPerCodiceArcaRequest">
+    <wsdl:part name="parameter" element="intf:RichiestaDettaglio" />
+  </wsdl:message>
+  <wsdl:message name="ricercaPerDatiPersonaliResponse">
+    <wsdl:part name="parameter" element="intf:DatiRisposta" />
+  </wsdl:message>
+  <wsdl:message name="ricercaPerCodiceIndividualeRequest">
+    <wsdl:part name="parameter" element="intf:RichiestaPerCodiceIndividuale" />
+  </wsdl:message>
+  <wsdl:message name="ricercaPerDatiPersonaliParzialiResponse">
+    <wsdl:part name="parameter" element="intf:DatiRisposta" />
+  </wsdl:message>
+  <wsdl:message name="ricercaPerCodiceArcaResponse">
+    <wsdl:part name="parameter" element="intf:DatiRisposta" />
+  </wsdl:message>
+  <wsdl:message name="ricercaPerCodiceIndividualeResponse">
+    <wsdl:part name="parameter" element="intf:DatiRisposta" />
+  </wsdl:message>
+  <wsdl:message name="ricercaPerCodiceFiscaleResponse">
+    <wsdl:part name="parameter" element="intf:DatiRisposta" />
+  </wsdl:message>
+  <wsdl:message name="ricercaPerCodiceFiscaleParzialeRequest">
+    <wsdl:part name="parameter" element="intf:RichiestaPerCodiceFiscaleParziale" />
+  </wsdl:message>
+  <wsdl:message name="ricercaPerCodiceFiscaleParzialeResponse">
+    <wsdl:part name="parameter" element="intf:DatiRisposta" />
+  </wsdl:message>
+  <wsdl:message name="ricercaPerDatiPersonaliRequest">
+    <wsdl:part name="parameter" element="intf:RichiestaPerDatiAnagrafici" />
+  </wsdl:message>
+  <wsdl:message name="ricercaPerCodiceFiscaleRequest">
+    <wsdl:part name="parameter" element="intf:RichiestaPerCodiceFiscale" />
+  </wsdl:message>
+  <wsdl:message name="ricercaPerDatiPersonaliParzialiRequest">
+    <wsdl:part name="parameter" element="intf:RichiestaPerDatiAnagraficiParziali" />
+  </wsdl:message>
+  <wsdl:portType name="ArcaIntraWS">
+    <wsdl:operation name="ricercaPerCodiceFiscale">
+      <wsdl:input name="ricercaPerCodiceFiscaleRequest" message="intf:ricercaPerCodiceFiscaleRequest" />
+      <wsdl:output name="ricercaPerCodiceFiscaleResponse" message="intf:ricercaPerCodiceFiscaleResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ricercaPerCodiceFiscaleParziale">
+      <wsdl:input name="ricercaPerCodiceFiscaleParzialeRequest" message="intf:ricercaPerCodiceFiscaleParzialeRequest" />
+      <wsdl:output name="ricercaPerCodiceFiscaleParzialeResponse" message="intf:ricercaPerCodiceFiscaleParzialeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ricercaPerDatiPersonali">
+      <wsdl:input name="ricercaPerDatiPersonaliRequest" message="intf:ricercaPerDatiPersonaliRequest" />
+      <wsdl:output name="ricercaPerDatiPersonaliResponse" message="intf:ricercaPerDatiPersonaliResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ricercaPerCodiceIndividuale">
+      <wsdl:input name="ricercaPerCodiceIndividualeRequest" message="intf:ricercaPerCodiceIndividualeRequest" />
+      <wsdl:output name="ricercaPerCodiceIndividualeResponse" message="intf:ricercaPerCodiceIndividualeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ricercaPerCodiceArca">
+      <wsdl:input name="ricercaPerCodiceArcaRequest" message="intf:ricercaPerCodiceArcaRequest" />
+      <wsdl:output name="ricercaPerCodiceArcaResponse" message="intf:ricercaPerCodiceArcaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ricercaPerDatiPersonaliParziali">
+      <wsdl:input name="ricercaPerDatiPersonaliParzialiRequest" message="intf:ricercaPerDatiPersonaliParzialiRequest" />
+      <wsdl:output name="ricercaPerDatiPersonaliParzialiResponse" message="intf:ricercaPerDatiPersonaliParzialiResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ArcaIntraWSSoapBinding" type="intf:ArcaIntraWS">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ricercaPerCodiceFiscale">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ricercaPerCodiceFiscaleParziale">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ricercaPerDatiPersonali">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ricercaPerCodiceIndividuale">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ricercaPerCodiceArca">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ricercaPerDatiPersonaliParziali">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ArcaIntraWSService">
+    <wsdl:port name="ArcaIntraWS" binding="intf:ArcaIntraWSSoapBinding">
+      <wsdlsoap:address location="http://sva.host.inps:9080/ArcaIntraWS/services/ArcaIntraWS" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

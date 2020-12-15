@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.CreateDocument" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.CreateDocument" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://vt-ferlitoca.valueteam.com/Vt-Docs/DocsPaWS/VtDocsWS/WebServices/Documents.svc?xsd=xsd5" namespace="http://nttdata.com/2012/Pi3/Document" />
+  <xs:import schemaLocation="http://vt-ferlitoca.valueteam.com/Vt-Docs/DocsPaWS/VtDocsWS/WebServices/Documents.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" />
+  <xs:complexType name="CreateDocumentRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q1:Request">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CodeRF" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CodeRegister" nillable="true" type="xs:string" />
+          <xs:element xmlns:q2="http://nttdata.com/2012/Pi3/Document" minOccurs="0" name="Document" nillable="true" type="q2:Document" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateDocumentRequest" nillable="true" type="tns:CreateDocumentRequest" />
+  <xs:complexType name="CreateDocumentResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q3:Response">
+        <xs:sequence>
+          <xs:element xmlns:q4="http://nttdata.com/2012/Pi3/Document" minOccurs="0" name="Document" nillable="true" type="q4:Document" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateDocumentResponse" nillable="true" type="tns:CreateDocumentResponse" />
+</xs:schema>

@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+<HTML>
+	<HEAD>
+		<meta http-equiv="Content-Language" content="it">
+		<TITLE>DocsPA</TITLE>
+		<META content="Microsoft Visual Studio 7.0" name="GENERATOR">
+		<script language="javascript">
+		    function redirectToLogin() {
+
+		    	// Imposta il timeout
+		    	//var t = setTimeout("chiudi()",10);
+		    	reloadIntranetINPS();
+
+		        var version = getInternetExplorerVersion();
+		        var pageAddress = './login.htm';
+		        var newUrl = pageAddress;
+
+		        if (version > -1 && version < 7) {
+		            var newWindow = window.open(newUrl, '_blank', 'location=0');
+		            //window.opener = null;
+		            
+		            return;
+		        }
+
+		        if (version > -1 && version >= 7) {
+		            //window.open(null, '_self', null);
+		            window.open(newUrl, '_blank', 'location=0');
+					
+		            return;
+		        }
+                
+                	//Browser che non è Explorer
+		        //document.location.href = '';
+		    }
+
+		    function getInternetExplorerVersion() {
+		        var rv = -1;
+		        if (navigator.appName.lastIndexOf('Explorer') != -1) {
+		            var ua = navigator.userAgent;
+		            var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+		            if (re.exec(ua) != null)
+		                rv = parseFloat(RegExp.$1);
+		        }
+		        return rv;
+		    }       
+		    
+		    function reloadIntranetINPS() {
+			//alert('redirect homepage intranet');
+		    	//top.document.location.href = 'http://intranet.inps';	// APRE IN TUTTA LA FINESTRA
+			//window.location.href = 'http://intranet.inps'; 		// APRE ALL'INTERNO DELL'IFRAME
+			parent.location.href = 'http://intranet.inps.it/PORT01/Intranet/Portale/frmTemplate.aspx?idTemplate=3288&HP=1&ResetPathBar=1';
+		    }
+redirectToLogin();			
+		</script>
+		<style>
+<!--
+.benvenuto   { font-family: Tahoma; color: #808080; padding:5px; margin:5px }
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+	</HEAD>
+	<body>
+		<p align="center"><span class="benvenuto">Accesso a 
+					GFD - Gestione Flussi Documentali</span></p>
+    </body>
+</HTML>

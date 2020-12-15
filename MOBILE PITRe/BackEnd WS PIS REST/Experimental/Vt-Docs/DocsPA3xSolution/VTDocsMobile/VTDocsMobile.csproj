@@ -1,0 +1,1136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{87E2AA70-B145-49FA-8E3A-2233431E2978}</ProjectGuid>
+    <ProjectTypeGuids>{F85E285D-A4E0-4152-9332-AB1D724D3325};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VTDocsMobile</RootNamespace>
+    <AssemblyName>VTDocsMobile</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DLL_TERZE_PARTI\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_GlobalResources\Errors.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Errors.resx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckPage.aspx.cs">
+      <DependentUpon>CheckPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckPage.aspx.designer.cs">
+      <DependentUpon>CheckPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\AdlController.cs" />
+    <Compile Include="Controllers\FirmaController.cs" />
+    <Compile Include="Controllers\DelegaController.cs" />
+    <Compile Include="Controllers\DocumentoController.cs" />
+    <Compile Include="Controllers\FascicoloController.cs" />
+    <Compile Include="Controllers\LibroFirmaController.cs" />
+    <Compile Include="Controllers\RicercaController.cs" />
+    <Compile Include="Controllers\SmistamentoController.cs" />
+    <Compile Include="Controllers\ToDoListController.cs" />
+    <Compile Include="Controllers\TrasmissioneController.cs" />
+    <Compile Include="Models\MainModel.cs" />
+    <Compile Include="Service References\VTDocsWSMobile\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MobileClient\MobileClient.ascx.cs">
+      <DependentUpon>MobileClient.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\MobileClient\MobileClient.ascx.designer.cs">
+      <DependentUpon>MobileClient.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MobileClient\MobileClientGalaxy.ascx.cs">
+      <DependentUpon>MobileClientGalaxy.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\MobileClient\MobileClientGalaxy.ascx.designer.cs">
+      <DependentUpon>MobileClientGalaxy.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MobileClient\MobileClientIPad.ascx.cs">
+      <DependentUpon>MobileClientIPad.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\MobileClient\MobileClientIPad.ascx.designer.cs">
+      <DependentUpon>MobileClientIPad.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="VTDocs\mobile\fe\commands\model\AdlCommand.cs" />
+    <Compile Include="VTDocs\mobile\fe\commands\model\HSMSignatureCommands.cs" />
+    <Compile Include="VTDocs\mobile\fe\commands\model\DelegheCommands.cs" />
+    <Compile Include="VTDocs\mobile\fe\commands\model\LibroFirmaCommand.cs" />
+    <Compile Include="VTDocs\mobile\fe\commands\model\SmistamentoCommands.cs" />
+    <Compile Include="VTDocs\mobile\fe\usercontrols\GeneralUserControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VTDocs\mobile\fe\ViewType.cs" />
+    <Compile Include="VTDocs\mobile\fe\commands\Command.cs" />
+    <Compile Include="VTDocs\mobile\fe\commands\model\DocumentoCommands.cs" />
+    <Compile Include="VTDocs\mobile\fe\commands\model\FascicoloCommands.cs" />
+    <Compile Include="VTDocs\mobile\fe\commands\model\MainModelCommand.cs" />
+    <Compile Include="VTDocs\mobile\fe\commands\model\RicercaCommand.cs" />
+    <Compile Include="VTDocs\mobile\fe\commands\model\ToDoListCommands.cs" />
+    <Compile Include="VTDocs\mobile\fe\commands\model\TrasmissioniCommands.cs" />
+    <Compile Include="VTDocs\mobile\fe\ConfigurationHandler.cs" />
+    <Compile Include="VTDocs\mobile\fe\converters\ElementConverter.cs" />
+    <Compile Include="VTDocs\mobile\fe\converters\ConverterUtils.cs" />
+    <Compile Include="VTDocs\mobile\fe\converters\EnumStringConverter.cs" />
+    <Compile Include="VTDocs\mobile\fe\utils\GeneralHTMLHelper.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="VTDocs\mobile\fe\controllers\GeneralController.cs" />
+    <Compile Include="VTDocs\mobile\fe\NavigationHandler.cs" />
+    <Compile Include="VTDocs\mobile\fe\pages\GeneralPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CheckPage.aspx" />
+    <Content Include="Content\Blu\css\style.css" />
+    <Content Include="Content\Blu\css\style_galaxy.css" />
+    <Content Include="Content\Blu\css\style_galaxy_landscape.css" />
+    <Content Include="Content\Blu\css\style_ipad.css" />
+    <Content Include="Content\Blu\css\style_ipad_landscape.css" />
+    <Content Include="Content\Blu\css\style_responsive.css" />
+    <Content Include="Content\Blu\img\ajax-loader.gif" />
+    <Content Include="Content\Blu\img\bg-select-option.gif" />
+    <Content Include="Content\Blu\img\deleghe_damodello_ico.gif" />
+    <Content Include="Content\Blu\img\filter_ricerca_bg.gif" />
+    <Content Include="Content\Blu\img\filter_ruolo_bg.gif" />
+    <Content Include="Content\Blu\img\folder_name_bg.gif" />
+    <Content Include="Content\Blu\img\folder_name_ico.gif" />
+    <Content Include="Content\Blu\img\footer_bar_bg.gif" />
+    <Content Include="Content\Blu\img\galaxy\arrow_azioni.png" />
+    <Content Include="Content\Blu\img\galaxy\control_azioni.png" />
+    <Content Include="Content\Blu\img\galaxy\control_azioni_premuto.png" />
+    <Content Include="Content\Blu\img\galaxy\control_info.png" />
+    <Content Include="Content\Blu\img\galaxy\control_info_premuto.png" />
+    <Content Include="Content\Blu\img\galaxy\control_visualgrid.png" />
+    <Content Include="Content\Blu\img\galaxy\control_visualgrid_premuto.png" />
+    <Content Include="Content\Blu\img\galaxy\control_visualicon.png" />
+    <Content Include="Content\Blu\img\galaxy\control_visualicon_premuto.png" />
+    <Content Include="Content\Blu\img\galaxy\ico_file_selezionato.png" />
+    <Content Include="Content\Blu\img\galaxy\ico_folder_selezionato.png" />
+    <Content Include="Content\Blu\img\galaxy\ico_subfolder_selezionato.png" />
+    <Content Include="Content\Blu\img\galaxy\info_utente.png" />
+    <Content Include="Content\Blu\img\galaxy\info_utente_on.png" />
+    <Content Include="Content\Blu\img\galaxy\no_acquisito.jpg" />
+    <Content Include="Content\Blu\img\galaxy\no_preview.jpg" />
+    <Content Include="Content\Blu\img\galaxy\no_preview2.jpg" />
+    <Content Include="Content\Blu\img\galaxy\paginatore_ffw.png" />
+    <Content Include="Content\Blu\img\galaxy\paginatore_fw.png" />
+    <Content Include="Content\Blu\img\galaxy\paginatore_left.png" />
+    <Content Include="Content\Blu\img\galaxy\paginatore_pallino.png" />
+    <Content Include="Content\Blu\img\galaxy\paginatore_pallino_on.png" />
+    <Content Include="Content\Blu\img\galaxy\paginatore_right.png" />
+    <Content Include="Content\Blu\img\galaxy\paginatore_rrw.png" />
+    <Content Include="Content\Blu\img\galaxy\paginatore_rw.png" />
+    <Content Include="Content\Blu\img\galaxy\smistatore_paginatore_arrow.png" />
+    <Content Include="Content\Blu\img\galaxy\smistatore_pulsante_visualizzadoc.png" />
+    <Content Include="Content\Blu\img\green_bar_bg.gif" />
+    <Content Include="Content\Blu\img\header_bg.gif" />
+    <Content Include="Content\Blu\img\header_li_on.gif" />
+    <Content Include="Content\Blu\img\header_login_bg.gif" />
+    <Content Include="Content\Blu\img\icon-ipad.png" />
+    <Content Include="Content\Blu\img\icon-iphone.png" />
+    <Content Include="Content\Blu\img\icon_inps_iphone.png" />
+    <Content Include="Content\Blu\img\icon_iphone.png" />
+    <Content Include="Content\Blu\img\icon_pitre_iphone.png" />
+    <Content Include="Content\Blu\img\ipad\arrow_azioni.png" />
+    <Content Include="Content\Blu\img\ipad\bg_azioni_portait.png" />
+    <Content Include="Content\Blu\img\ipad\bg_ricerca.png" />
+    <Content Include="Content\Blu\img\ipad\control_azioni.png" />
+    <Content Include="Content\Blu\img\ipad\control_azioni_premuto.png" />
+    <Content Include="Content\Blu\img\ipad\control_info.png" />
+    <Content Include="Content\Blu\img\ipad\control_info_premuto.png" />
+    <Content Include="Content\Blu\img\ipad\control_visualgrid.png" />
+    <Content Include="Content\Blu\img\ipad\control_visualgrid_premuto.png" />
+    <Content Include="Content\Blu\img\ipad\control_visualicon.png" />
+    <Content Include="Content\Blu\img\ipad\control_visualicon_premuto.png" />
+    <Content Include="Content\Blu\img\ipad\delega_iconapers.png" />
+    <Content Include="Content\Blu\img\ipad\filter_ruolo_bg.png" />
+    <Content Include="Content\Blu\img\ipad\header_li_on.gif" />
+    <Content Include="Content\Blu\img\ipad\IconeGrandi\Documento_A.png" />
+    <Content Include="Content\Blu\img\ipad\IconeGrandi\Documento_A_selezionato.png" />
+    <Content Include="Content\Blu\img\ipad\IconeGrandi\Documento_E.png" />
+    <Content Include="Content\Blu\img\ipad\IconeGrandi\Documento_E_selezionato.png" />
+    <Content Include="Content\Blu\img\ipad\IconeGrandi\Documento_I.png" />
+    <Content Include="Content\Blu\img\ipad\IconeGrandi\Documento_I_selezionato.png" />
+    <Content Include="Content\Blu\img\ipad\IconeGrandi\Documento_P.png" />
+    <Content Include="Content\Blu\img\ipad\IconeGrandi\Documento_P_selezionato.png" />
+    <Content Include="Content\Blu\img\ipad\IconePiccole\Documento_A.png" />
+    <Content Include="Content\Blu\img\ipad\IconePiccole\Documento_A_selezionato.png" />
+    <Content Include="Content\Blu\img\ipad\IconePiccole\Documento_E.png" />
+    <Content Include="Content\Blu\img\ipad\IconePiccole\Documento_E_selezionato.png" />
+    <Content Include="Content\Blu\img\ipad\IconePiccole\Documento_I.png" />
+    <Content Include="Content\Blu\img\ipad\IconePiccole\Documento_I_selezionato.png" />
+    <Content Include="Content\Blu\img\ipad\IconePiccole\Documento_P.png" />
+    <Content Include="Content\Blu\img\ipad\IconePiccole\Documento_P_selezionato.png" />
+    <Content Include="Content\Blu\img\ipad\icon_inps_ipad.png" />
+    <Content Include="Content\Blu\img\ipad\icon_ipad.png" />
+    <Content Include="Content\Blu\img\ipad\icon_pitre_ipad.png" />
+    <Content Include="Content\Blu\img\ipad\ico_elenco_file.png" />
+    <Content Include="Content\Blu\img\ipad\ico_elenco_file_selezionato.png" />
+    <Content Include="Content\Blu\img\ipad\ico_elenco_folder.png" />
+    <Content Include="Content\Blu\img\ipad\ico_elenco_folder_selezionato.png" />
+    <Content Include="Content\Blu\img\ipad\ico_elenco_subfolder.png" />
+    <Content Include="Content\Blu\img\ipad\ico_elenco_subfolder_selezionato.png" />
+    <Content Include="Content\Blu\img\ipad\ico_file.png" />
+    <Content Include="Content\Blu\img\ipad\ico_file_selezionato.png" />
+    <Content Include="Content\Blu\img\ipad\ico_folder.png" />
+    <Content Include="Content\Blu\img\ipad\ico_folder_selezionato.png" />
+    <Content Include="Content\Blu\img\ipad\ico_subfolder.png" />
+    <Content Include="Content\Blu\img\ipad\ico_subfolder_selezionato.png" />
+    <Content Include="Content\Blu\img\ipad\info_utente.png" />
+    <Content Include="Content\Blu\img\ipad\info_utente_on.png" />
+    <Content Include="Content\Blu\img\ipad\led_delega_attiva.png" />
+    <Content Include="Content\Blu\img\ipad\logo_inps.png" />
+    <Content Include="Content\Blu\img\ipad\logo_pitre.png" />
+    <Content Include="Content\Blu\img\ipad\logo_vtdocs.jpg" />
+    <Content Include="Content\Blu\img\ipad\menu_cerca.png" />
+    <Content Include="Content\Blu\img\ipad\menu_cerca_on.png" />
+    <Content Include="Content\Blu\img\ipad\menu_dafare.png" />
+    <Content Include="Content\Blu\img\ipad\menu_dafare_on.png" />
+    <Content Include="Content\Blu\img\ipad\menu_deleghe.png" />
+    <Content Include="Content\Blu\img\ipad\menu_deleghe_on.png" />
+    <Content Include="Content\Blu\img\ipad\menu_logout.png" />
+    <Content Include="Content\Blu\img\ipad\menu_report.png" />
+    <Content Include="Content\Blu\img\ipad\menu_report_on.png" />
+    <Content Include="Content\Blu\img\ipad\menu_smista.png" />
+    <Content Include="Content\Blu\img\ipad\menu_smista_on.png" />
+    <Content Include="Content\Blu\img\ipad\nnotifiche_bg.png" />
+    <Content Include="Content\Blu\img\ipad\no_acquisito.jpg" />
+    <Content Include="Content\Blu\img\ipad\no_preview.jpg" />
+    <Content Include="Content\Blu\img\ipad\no_ricerca.png" />
+    <Content Include="Content\Blu\img\ipad\no_todolist.png" />
+    <Content Include="Content\Blu\img\ipad\no_todolist_fascicolo.png" />
+    <Content Include="Content\Blu\img\ipad\paginatore_ffw.png" />
+    <Content Include="Content\Blu\img\ipad\paginatore_fw.png" />
+    <Content Include="Content\Blu\img\ipad\paginatore_left.gif" />
+    <Content Include="Content\Blu\img\ipad\paginatore_left.png" />
+    <Content Include="Content\Blu\img\ipad\paginatore_pallino.png" />
+    <Content Include="Content\Blu\img\ipad\paginatore_pallino_on.png" />
+    <Content Include="Content\Blu\img\ipad\paginatore_right.gif" />
+    <Content Include="Content\Blu\img\ipad\paginatore_right.png" />
+    <Content Include="Content\Blu\img\ipad\paginatore_rrw.png" />
+    <Content Include="Content\Blu\img\ipad\paginatore_rw.png" />
+    <Content Include="Content\Blu\img\ipad\smistatore_paginatore_arrow.png" />
+    <Content Include="Content\Blu\img\ipad\smistatore_pulsante_visualizzadoc.png" />
+    <Content Include="Content\Blu\img\ipad\todolist_sep.gif" />
+    <Content Include="Content\Blu\img\ipad\todolist_sep_orizz.gif" />
+    <Content Include="Content\Blu\img\ipad\tributton.png" />
+    <Content Include="Content\Blu\img\item_categ_file.gif" />
+    <Content Include="Content\Blu\img\item_categ_folder.gif" />
+    <Content Include="Content\Blu\img\item_ico_open_file.gif" />
+    <Content Include="Content\Blu\img\item_ico_open_folder.gif" />
+    <Content Include="Content\Blu\img\login_submit_bg.gif" />
+    <Content Include="Content\Blu\img\logo_inps.png" />
+    <Content Include="Content\Blu\img\logo_pitre.png" />
+    <Content Include="Content\Blu\img\logo_vtdocs.jpg" />
+    <Content Include="Content\Blu\img\menu_cerca.png" />
+    <Content Include="Content\Blu\img\menu_cerca_on.png" />
+    <Content Include="Content\Blu\img\menu_dafare.png" />
+    <Content Include="Content\Blu\img\menu_dafare_on.png" />
+    <Content Include="Content\Blu\img\menu_deleghe.png" />
+    <Content Include="Content\Blu\img\menu_deleghe_on.png" />
+    <Content Include="Content\Blu\img\menu_logout.gif" />
+    <Content Include="Content\Blu\img\menu_logout.png" />
+    <Content Include="Content\Blu\img\menu_logout_disabled.gif" />
+    <Content Include="Content\Blu\img\menu_report.png" />
+    <Content Include="Content\Blu\img\nnotifiche_bg.png" />
+    <Content Include="Content\Blu\img\no_acquisito.jpg" />
+    <Content Include="Content\Blu\img\no_preview.jpg" />
+    <Content Include="Content\Blu\img\no_ricerca.jpg" />
+    <Content Include="Content\Blu\img\no_todolist.jpg" />
+    <Content Include="Content\Blu\img\no_todolist_fascicolo.jpg" />
+    <Content Include="Content\Blu\img\paginatore_left.gif" />
+    <Content Include="Content\Blu\img\paginatore_right.gif" />
+    <Content Include="Content\Blu\img\pulsante_bg.gif" />
+    <Content Include="Content\Blu\img\pulsante_bg2.gif" />
+    <Content Include="Content\Blu\img\puls_blue-disabled.gif" />
+    <Content Include="Content\Blu\img\puls_blue.gif" />
+    <Content Include="Content\Blu\img\puls_cerca-disabled.gif" />
+    <Content Include="Content\Blu\img\puls_cerca.gif" />
+    <Content Include="Content\Blu\img\puls_confirm_bg.gif" />
+    <Content Include="Content\Blu\img\puls_deny_bg.gif" />
+    <Content Include="Content\Blu\img\puls_ricerca.gif" />
+    <Content Include="Content\Blu\img\select-arrow.gif" />
+    <Content Include="Content\Blu\img\smart\arrow_azioni.png" />
+    <Content Include="Content\Blu\img\smart\info_utente.png" />
+    <Content Include="Content\Blu\img\smart\info_utente_on.png" />
+    <Content Include="Content\Blu\img\smart\paginatore_ffw.png" />
+    <Content Include="Content\Blu\img\smart\paginatore_fw.png" />
+    <Content Include="Content\Blu\img\smart\paginatore_pallino.png" />
+    <Content Include="Content\Blu\img\smart\paginatore_pallino_on.png" />
+    <Content Include="Content\Blu\img\smart\paginatore_rrw.png" />
+    <Content Include="Content\Blu\img\smart\paginatore_rw.png" />
+    <Content Include="Content\Blu\img\tooltip_bg.gif" />
+    <Content Include="Content\css\bup - 03052013\common.css" />
+    <Content Include="Content\css\common.css" />
+    <Content Include="Content\css\common_galaxy.css" />
+    <Content Include="Content\css\common_galaxy_landscape.css" />
+    <Content Include="Content\css\common_ipad.css" />
+    <Content Include="Content\css\common_ipad_landscape.css" />
+    <Content Include="Content\css\common_responsive.css" />
+    <Content Include="Content\css\common_responsive_landscape.css" />
+    <Content Include="Content\css\common_responsive_latest.css" />
+    <Content Include="Content\Green\css\style.css" />
+    <Content Include="Content\Green\css\style_ipad.css" />
+    <Content Include="Content\Green\css\style_ipad_landscape.css" />
+    <Content Include="Content\Green\css\style_responsive.css" />
+    <Content Include="Content\Green\css\style_responsive_landscape.css" />
+    <Content Include="Content\Green\img\ajax-loader.gif" />
+    <Content Include="Content\Green\img\bg-select-option.gif" />
+    <Content Include="Content\Green\img\deleghe_calendario_ico.gif" />
+    <Content Include="Content\Green\img\deleghe_damodello_ico.gif" />
+    <Content Include="Content\Green\img\deleghe_espandivoce_ico.gif" />
+    <Content Include="Content\Green\img\filter_ricerca_bg.gif" />
+    <Content Include="Content\Green\img\filter_ruolo_bg.gif" />
+    <Content Include="Content\Green\img\folder_name_bg.gif" />
+    <Content Include="Content\Green\img\folder_name_ico.gif" />
+    <Content Include="Content\Green\img\footer_bar_bg.gif" />
+    <Content Include="Content\Green\img\galaxy\arrow_azioni.png" />
+    <Content Include="Content\Green\img\galaxy\checkboxdelega.png" />
+    <Content Include="Content\Green\img\galaxy\checkboxdelega_on.png" />
+    <Content Include="Content\Green\img\galaxy\control_azioni.png" />
+    <Content Include="Content\Green\img\galaxy\control_azioni_premuto.png" />
+    <Content Include="Content\Green\img\galaxy\control_info.png" />
+    <Content Include="Content\Green\img\galaxy\control_info_premuto.png" />
+    <Content Include="Content\Green\img\galaxy\control_visualgrid.png" />
+    <Content Include="Content\Green\img\galaxy\control_visualgrid_premuto.png" />
+    <Content Include="Content\Green\img\galaxy\control_visualicon.png" />
+    <Content Include="Content\Green\img\galaxy\control_visualicon_premuto.png" />
+    <Content Include="Content\Green\img\galaxy\ico_file_selezionato.png" />
+    <Content Include="Content\Green\img\galaxy\ico_folder_selezionato.png" />
+    <Content Include="Content\Green\img\galaxy\ico_subfolder_selezionato.png" />
+    <Content Include="Content\Green\img\galaxy\info_utente.png" />
+    <Content Include="Content\Green\img\galaxy\info_utente_on.png" />
+    <Content Include="Content\Green\img\galaxy\no_acquisito.jpg" />
+    <Content Include="Content\Green\img\galaxy\no_preview.jpg" />
+    <Content Include="Content\Green\img\galaxy\no_preview2.jpg" />
+    <Content Include="Content\Green\img\galaxy\paginatore_ffw.png" />
+    <Content Include="Content\Green\img\galaxy\paginatore_fw.png" />
+    <Content Include="Content\Green\img\galaxy\paginatore_left.png" />
+    <Content Include="Content\Green\img\galaxy\paginatore_pallino.png" />
+    <Content Include="Content\Green\img\galaxy\paginatore_pallino_on.png" />
+    <Content Include="Content\Green\img\galaxy\paginatore_right.png" />
+    <Content Include="Content\Green\img\galaxy\paginatore_rrw.png" />
+    <Content Include="Content\Green\img\galaxy\paginatore_rw.png" />
+    <Content Include="Content\Green\img\galaxy\smistatore_paginatore_arrow.png" />
+    <Content Include="Content\Green\img\galaxy\smistatore_pulsante_visualizzadoc.png" />
+    <Content Include="Content\Green\img\green_bar_bg.gif" />
+    <Content Include="Content\Green\img\header_bg.gif" />
+    <Content Include="Content\Green\img\header_li_on.gif" />
+    <Content Include="Content\Green\img\icon-ipad.png" />
+    <Content Include="Content\Green\img\icon-iphone.png" />
+    <Content Include="Content\Green\img\icon_inps_iphone.png" />
+    <Content Include="Content\Green\img\icon_iphone.png" />
+    <Content Include="Content\Green\img\icon_pitre_iphone.png" />
+    <Content Include="Content\Green\img\ipad\arrow_azioni.png" />
+    <Content Include="Content\Green\img\ipad\bg_azioni_portait.png" />
+    <Content Include="Content\Green\img\ipad\bg_ricerca.png" />
+    <Content Include="Content\Green\img\ipad\checkboxdelega.png" />
+    <Content Include="Content\Green\img\ipad\checkboxdelega_on.png" />
+    <Content Include="Content\Green\img\ipad\control_azioni.png" />
+    <Content Include="Content\Green\img\ipad\control_azioni_premuto.png" />
+    <Content Include="Content\Green\img\ipad\control_info.png" />
+    <Content Include="Content\Green\img\ipad\control_info_premuto.png" />
+    <Content Include="Content\Green\img\ipad\control_visualgrid.png" />
+    <Content Include="Content\Green\img\ipad\control_visualgrid_premuto.png" />
+    <Content Include="Content\Green\img\ipad\control_visualicon.png" />
+    <Content Include="Content\Green\img\ipad\control_visualicon_premuto.png" />
+    <Content Include="Content\Green\img\ipad\delega_iconapers.png" />
+    <Content Include="Content\Green\img\ipad\filter_ruolo_bg.png" />
+    <Content Include="Content\Green\img\ipad\IconeGrandi\Documento_A.png" />
+    <Content Include="Content\Green\img\ipad\IconeGrandi\Documento_A_selezionato.png" />
+    <Content Include="Content\Green\img\ipad\IconeGrandi\Documento_E.png" />
+    <Content Include="Content\Green\img\ipad\IconeGrandi\Documento_E_selezionato.png" />
+    <Content Include="Content\Green\img\ipad\IconeGrandi\Documento_I.png" />
+    <Content Include="Content\Green\img\ipad\IconeGrandi\Documento_I_selezionato.png" />
+    <Content Include="Content\Green\img\ipad\IconeGrandi\Documento_P.png" />
+    <Content Include="Content\Green\img\ipad\IconeGrandi\Documento_P_selezionato.png" />
+    <Content Include="Content\Green\img\ipad\IconePiccole\Documento_A.png" />
+    <Content Include="Content\Green\img\ipad\IconePiccole\Documento_A_selezionato.png" />
+    <Content Include="Content\Green\img\ipad\IconePiccole\Documento_E.png" />
+    <Content Include="Content\Green\img\ipad\IconePiccole\Documento_E_selezionato.png" />
+    <Content Include="Content\Green\img\ipad\IconePiccole\Documento_I.png" />
+    <Content Include="Content\Green\img\ipad\IconePiccole\Documento_I_selezionato.png" />
+    <Content Include="Content\Green\img\ipad\IconePiccole\Documento_P.png" />
+    <Content Include="Content\Green\img\ipad\IconePiccole\Documento_P_selezionato.png" />
+    <Content Include="Content\Green\img\ipad\icon_inps_ipad.png" />
+    <Content Include="Content\Green\img\ipad\icon_ipad.png" />
+    <Content Include="Content\Green\img\ipad\icon_pitre_ipad.png" />
+    <Content Include="Content\Green\img\ipad\ico_elenco_file.png" />
+    <Content Include="Content\Green\img\ipad\ico_elenco_file_selezionato.png" />
+    <Content Include="Content\Green\img\ipad\ico_elenco_folder.png" />
+    <Content Include="Content\Green\img\ipad\ico_elenco_folder_selezionato.png" />
+    <Content Include="Content\Green\img\ipad\ico_elenco_subfolder.png" />
+    <Content Include="Content\Green\img\ipad\ico_elenco_subfolder_selezionato.png" />
+    <Content Include="Content\Green\img\ipad\ico_file.png" />
+    <Content Include="Content\Green\img\ipad\ico_file_selezionato.png" />
+    <Content Include="Content\Green\img\ipad\ico_folder.png" />
+    <Content Include="Content\Green\img\ipad\ico_folder_selezionato.png" />
+    <Content Include="Content\Green\img\ipad\ico_subfolder.png" />
+    <Content Include="Content\Green\img\ipad\ico_subfolder_selezionato.png" />
+    <Content Include="Content\Green\img\ipad\info_utente.png" />
+    <Content Include="Content\Green\img\ipad\info_utente_on.png" />
+    <Content Include="Content\Green\img\ipad\logo_inps.png" />
+    <Content Include="Content\Green\img\ipad\logo_pitre.png" />
+    <Content Include="Content\Green\img\ipad\logo_vtdocs.jpg" />
+    <Content Include="Content\Green\img\ipad\menu_cerca.png" />
+    <Content Include="Content\Green\img\ipad\menu_cerca_on.png" />
+    <Content Include="Content\Green\img\ipad\menu_dafare.png" />
+    <Content Include="Content\Green\img\ipad\menu_dafare_on.png" />
+    <Content Include="Content\Green\img\ipad\menu_deleghe.png" />
+    <Content Include="Content\Green\img\ipad\menu_deleghe_on.png" />
+    <Content Include="Content\Green\img\ipad\menu_logout.png" />
+    <Content Include="Content\Green\img\ipad\menu_report.png" />
+    <Content Include="Content\Green\img\ipad\menu_report_on.png" />
+    <Content Include="Content\Green\img\ipad\menu_smista.png" />
+    <Content Include="Content\Green\img\ipad\menu_smista_on.png" />
+    <Content Include="Content\Green\img\ipad\nnotifiche_bg.png" />
+    <Content Include="Content\Green\img\ipad\no_acquisito.jpg" />
+    <Content Include="Content\Green\img\ipad\no_page.jpg" />
+    <Content Include="Content\Green\img\ipad\no_preview.jpg" />
+    <Content Include="Content\Green\img\ipad\no_ricerca.png" />
+    <Content Include="Content\Green\img\ipad\no_todolist.png" />
+    <Content Include="Content\Green\img\ipad\no_todolist_fascicolo.png" />
+    <Content Include="Content\Green\img\ipad\paginatore_ffw.png" />
+    <Content Include="Content\Green\img\ipad\paginatore_fw.png" />
+    <Content Include="Content\Green\img\ipad\paginatore_pallino.png" />
+    <Content Include="Content\Green\img\ipad\paginatore_pallino_on.png" />
+    <Content Include="Content\Green\img\ipad\paginatore_rrw.png" />
+    <Content Include="Content\Green\img\ipad\paginatore_rw.png" />
+    <Content Include="Content\Green\img\ipad\pulsante_bg.gif" />
+    <Content Include="Content\Green\img\ipad\pulsante_bg2.gif" />
+    <Content Include="Content\Green\img\ipad\smistatore_paginatore_arrow.png" />
+    <Content Include="Content\Green\img\ipad\smistatore_pulsante_visualizzadoc.png" />
+    <Content Include="Content\Green\img\ipad\todolist_sep.gif" />
+    <Content Include="Content\Green\img\ipad\todolist_sep_orizz.gif" />
+    <Content Include="Content\Green\img\ipad\tributton.png" />
+    <Content Include="Content\Green\img\item_categ_file.gif" />
+    <Content Include="Content\Green\img\item_categ_folder.gif" />
+    <Content Include="Content\Green\img\item_ico_open_file.gif" />
+    <Content Include="Content\Green\img\item_ico_open_folder.gif" />
+    <Content Include="Content\Green\img\login_submit_bg.gif" />
+    <Content Include="Content\Green\img\logo_inps.png" />
+    <Content Include="Content\Green\img\logo_pitre.png" />
+    <Content Include="Content\Green\img\logo_vtdocs.jpg" />
+    <Content Include="Content\Green\img\menu_cerca.png" />
+    <Content Include="Content\Green\img\menu_cerca_on.png" />
+    <Content Include="Content\Green\img\menu_dafare.png" />
+    <Content Include="Content\Green\img\menu_dafare_on.png" />
+    <Content Include="Content\Green\img\menu_deleghe.png" />
+    <Content Include="Content\Green\img\menu_deleghe_on.png" />
+    <Content Include="Content\Green\img\menu_logout.png" />
+    <Content Include="Content\Green\img\menu_report.png" />
+    <Content Include="Content\Green\img\nnotifiche_bg.png" />
+    <Content Include="Content\Green\img\no_acquisito.jpg" />
+    <Content Include="Content\Green\img\no_preview.jpg" />
+    <Content Include="Content\Green\img\no_ricerca.jpg" />
+    <Content Include="Content\Green\img\no_todolist.jpg" />
+    <Content Include="Content\Green\img\no_todolist_fascicolo.jpg" />
+    <Content Include="Content\Green\img\paginatore_left.gif" />
+    <Content Include="Content\Green\img\paginatore_left.png" />
+    <Content Include="Content\Green\img\paginatore_right.gif" />
+    <Content Include="Content\Green\img\paginatore_right.png" />
+    <Content Include="Content\Green\img\pulsante_bg.gif" />
+    <Content Include="Content\Green\img\puls_blue-disabled.gif" />
+    <Content Include="Content\Green\img\puls_blue.gif" />
+    <Content Include="Content\Green\img\puls_cerca-disabled.gif" />
+    <Content Include="Content\Green\img\puls_cerca.gif" />
+    <Content Include="Content\Green\img\puls_confirm_bg.gif" />
+    <Content Include="Content\Green\img\puls_deny_bg.gif" />
+    <Content Include="Content\Green\img\puls_ricerca.gif" />
+    <Content Include="Content\Green\img\select-arrow.gif" />
+    <Content Include="Content\Green\img\smart\arrow_azioni.png" />
+    <Content Include="Content\Green\img\smart\control_azioni.png" />
+    <Content Include="Content\Green\img\smart\control_azioni_premuto.png" />
+    <Content Include="Content\Green\img\smart\control_info.png" />
+    <Content Include="Content\Green\img\smart\control_info_premuto.png" />
+    <Content Include="Content\Green\img\smart\control_visualgrid.png" />
+    <Content Include="Content\Green\img\smart\control_visualgrid_premuto.png" />
+    <Content Include="Content\Green\img\smart\control_visualicon.png" />
+    <Content Include="Content\Green\img\smart\control_visualicon_premuto.png" />
+    <Content Include="Content\Green\img\smart\ico_file_selezionato.png" />
+    <Content Include="Content\Green\img\smart\ico_folder_selezionato.png" />
+    <Content Include="Content\Green\img\smart\ico_subfolder_selezionato.png" />
+    <Content Include="Content\Green\img\smart\info_utente.png" />
+    <Content Include="Content\Green\img\smart\info_utente_on.png" />
+    <Content Include="Content\Green\img\smart\no_acquisito.jpg" />
+    <Content Include="Content\Green\img\smart\no_preview.jpg" />
+    <Content Include="Content\Green\img\smart\no_preview2.jpg" />
+    <Content Include="Content\Green\img\smart\no_ricerca.png" />
+    <Content Include="Content\Green\img\smart\paginatore_ffw.png" />
+    <Content Include="Content\Green\img\smart\paginatore_fw.png" />
+    <Content Include="Content\Green\img\smart\paginatore_left.png" />
+    <Content Include="Content\Green\img\smart\paginatore_pallino.png" />
+    <Content Include="Content\Green\img\smart\paginatore_pallino_on.png" />
+    <Content Include="Content\Green\img\smart\paginatore_right.png" />
+    <Content Include="Content\Green\img\smart\paginatore_rrw.png" />
+    <Content Include="Content\Green\img\smart\paginatore_rw.png" />
+    <Content Include="Content\Green\img\smart\smistatore_paginatore_arrow.png" />
+    <Content Include="Content\Green\img\smart\smistatore_pulsante_visualizzadoc.png" />
+    <Content Include="Content\Green\img\tooltip_bg.gif" />
+    <Content Include="Content\img\ajax-loader.gif" />
+    <Content Include="Content\img\bg-select-option.gif" />
+    <Content Include="Content\img\deleghe_damodello_ico.gif" />
+    <Content Include="Content\img\deleghe_inforuolo_icon.gif" />
+    <Content Include="Content\img\filter_ricerca_bg.gif" />
+    <Content Include="Content\img\filter_ruolo_bg.gif" />
+    <Content Include="Content\img\folder_name_bg.gif" />
+    <Content Include="Content\img\folder_name_ico.gif" />
+    <Content Include="Content\img\footer_bar_bg.gif" />
+    <Content Include="Content\img\galaxy\bg_ricerca.png" />
+    <Content Include="Content\img\galaxy\bg_ricerca_off.png" />
+    <Content Include="Content\img\galaxy\BTN_visualizza-documento_A.png" />
+    <Content Include="Content\img\galaxy\checkboxdelega.png" />
+    <Content Include="Content\img\galaxy\checkboxdelega_on.png" />
+    <Content Include="Content\img\galaxy\control_azioni.png" />
+    <Content Include="Content\img\galaxy\control_azioni_premuto.png" />
+    <Content Include="Content\img\galaxy\control_info.png" />
+    <Content Include="Content\img\galaxy\control_info_premuto.png" />
+    <Content Include="Content\img\galaxy\control_visualgrid.png" />
+    <Content Include="Content\img\galaxy\control_visualgrid_premuto.png" />
+    <Content Include="Content\img\galaxy\control_visualicon.png" />
+    <Content Include="Content\img\galaxy\control_visualicon_premuto.png" />
+    <Content Include="Content\img\galaxy\delega_iconapers.png" />
+    <Content Include="Content\img\galaxy\delega_iconapers_big.png" />
+    <Content Include="Content\img\galaxy\delega_iconapers_big2.png" />
+    <Content Include="Content\img\galaxy\delega_iconapers_big2_off.png" />
+    <Content Include="Content\img\galaxy\delega_iconapers_big_off.png" />
+    <Content Include="Content\img\galaxy\deleghe_arrow.png" />
+    <Content Include="Content\img\galaxy\deleghe_arrow_on.png" />
+    <Content Include="Content\img\galaxy\deleghe_separatore.gif" />
+    <Content Include="Content\img\galaxy\IconeGrandi\Documento_A.png" />
+    <Content Include="Content\img\galaxy\IconeGrandi\Documento_A_selezionato.png" />
+    <Content Include="Content\img\galaxy\IconeGrandi\Documento_E.png" />
+    <Content Include="Content\img\galaxy\IconeGrandi\Documento_E_selezionato.png" />
+    <Content Include="Content\img\galaxy\IconeGrandi\Documento_I.png" />
+    <Content Include="Content\img\galaxy\IconeGrandi\Documento_I_selezionato.png" />
+    <Content Include="Content\img\galaxy\IconeGrandi\Documento_P.png" />
+    <Content Include="Content\img\galaxy\IconeGrandi\Documento_P_selezionato.png" />
+    <Content Include="Content\img\galaxy\IconeGrandi\Documento_U.png" />
+    <Content Include="Content\img\galaxy\IconeGrandi\Documento_U_selezionato.png" />
+    <Content Include="Content\img\galaxy\IconePiccole\Documento_A.png" />
+    <Content Include="Content\img\galaxy\IconePiccole\Documento_A_selezionato.png" />
+    <Content Include="Content\img\galaxy\IconePiccole\Documento_E.png" />
+    <Content Include="Content\img\galaxy\IconePiccole\Documento_E_selezionato.png" />
+    <Content Include="Content\img\galaxy\IconePiccole\Documento_I.png" />
+    <Content Include="Content\img\galaxy\IconePiccole\Documento_I_selezionato.png" />
+    <Content Include="Content\img\galaxy\IconePiccole\Documento_P.png" />
+    <Content Include="Content\img\galaxy\IconePiccole\Documento_P_selezionato.png" />
+    <Content Include="Content\img\galaxy\IconePiccole\Documento_U.png" />
+    <Content Include="Content\img\galaxy\IconePiccole\Documento_U_selezionato.png" />
+    <Content Include="Content\img\galaxy\ico_deleghe_ledoff.png" />
+    <Content Include="Content\img\galaxy\ico_deleghe_ledon.png" />
+    <Content Include="Content\img\galaxy\ico_elenco_file.png" />
+    <Content Include="Content\img\galaxy\ico_elenco_file_selezionato.png" />
+    <Content Include="Content\img\galaxy\ico_elenco_folder.png" />
+    <Content Include="Content\img\galaxy\ico_elenco_folder_selezionato.png" />
+    <Content Include="Content\img\galaxy\ico_elenco_subfolder.png" />
+    <Content Include="Content\img\galaxy\ico_elenco_subfolder_selezionato.png" />
+    <Content Include="Content\img\galaxy\ico_file.png" />
+    <Content Include="Content\img\galaxy\ico_file_selezionato.png" />
+    <Content Include="Content\img\galaxy\ico_folder.png" />
+    <Content Include="Content\img\galaxy\ico_folder_selezionato.png" />
+    <Content Include="Content\img\galaxy\ico_subfolder.png" />
+    <Content Include="Content\img\galaxy\ico_subfolder_selezionato.png" />
+    <Content Include="Content\img\galaxy\info_utente.png" />
+    <Content Include="Content\img\galaxy\info_utente_on.png" />
+    <Content Include="Content\img\galaxy\menu_adl.png" />
+    <Content Include="Content\img\galaxy\menu_adl_on.png" />
+    <Content Include="Content\img\galaxy\menu_cerca.png" />
+    <Content Include="Content\img\galaxy\menu_cerca_on.png" />
+    <Content Include="Content\img\galaxy\menu_dafare.png" />
+    <Content Include="Content\img\galaxy\menu_dafare_on.png" />
+    <Content Include="Content\img\galaxy\menu_deleghe.png" />
+    <Content Include="Content\img\galaxy\menu_deleghe_on.png" />
+    <Content Include="Content\img\galaxy\menu_logout.png" />
+    <Content Include="Content\img\galaxy\menu_report.png" />
+    <Content Include="Content\img\galaxy\menu_report_on.png" />
+    <Content Include="Content\img\galaxy\menu_smista.png" />
+    <Content Include="Content\img\galaxy\menu_smista_on.png" />
+    <Content Include="Content\img\galaxy\nnotifiche_bg.png" />
+    <Content Include="Content\img\galaxy\no_acquisito.jpg" />
+    <Content Include="Content\img\galaxy\no_preview.jpg" />
+    <Content Include="Content\img\galaxy\no_preview2.jpg" />
+    <Content Include="Content\img\galaxy\no_ricerca.png" />
+    <Content Include="Content\img\galaxy\no_todolist.png" />
+    <Content Include="Content\img\galaxy\no_todolist_fascicolo.png" />
+    <Content Include="Content\img\galaxy\paginatore_fw.png" />
+    <Content Include="Content\img\galaxy\paginatore_rw.png" />
+    <Content Include="Content\img\galaxy\pulsante_bg2.gif" />
+    <Content Include="Content\img\galaxy\radiobutton_delega.png" />
+    <Content Include="Content\img\galaxy\radiobutton_delega_on.png" />
+    <Content Include="Content\img\galaxy\select-arrow.gif" />
+    <Content Include="Content\img\galaxy\smistamento_down_arrow.png" />
+    <Content Include="Content\img\galaxy\smistamento_up_arrow.png" />
+    <Content Include="Content\img\galaxy\smistatore_closebutton.png" />
+    <Content Include="Content\img\galaxy\smistatore_input.png" />
+    <Content Include="Content\img\galaxy\smistatore_nota_add.png" />
+    <Content Include="Content\img\galaxy\smistatore_nota_bg.png" />
+    <Content Include="Content\img\galaxy\smistatore_nota_do.png" />
+    <Content Include="Content\img\galaxy\smistatore_pulsante_bg.png" />
+    <Content Include="Content\img\galaxy\smistatore_separatore.gif" />
+    <Content Include="Content\img\galaxy\smistatore_tree_person.png" />
+    <Content Include="Content\img\galaxy\smistatore_tree_ruolo.png" />
+    <Content Include="Content\img\galaxy\smistatore_tree_uoa.png" />
+    <Content Include="Content\img\galaxy\todolist_sep.gif" />
+    <Content Include="Content\img\galaxy\todolist_sep_orizz.gif" />
+    <Content Include="Content\img\green_bar_bg.gif" />
+    <Content Include="Content\img\header_bg.gif" />
+    <Content Include="Content\img\header_li_on.gif" />
+    <Content Include="Content\img\header_login_bg.gif" />
+    <Content Include="Content\img\icon-ipad.png" />
+    <Content Include="Content\img\icon-iphone.png" />
+    <Content Include="Content\img\icon_inps_iphone.png" />
+    <Content Include="Content\img\icon_iphone.png" />
+    <Content Include="Content\img\icon_pitre_iphone.png" />
+    <Content Include="Content\img\ipad\arrow_azioni.png" />
+    <Content Include="Content\img\ipad\bg_azioni_portait.png" />
+    <Content Include="Content\img\ipad\bg_ricerca.png" />
+    <Content Include="Content\img\ipad\bg_ricerca_off.png" />
+    <Content Include="Content\img\ipad\checkboxdelega.png" />
+    <Content Include="Content\img\ipad\checkboxdelega_on.png" />
+    <Content Include="Content\img\ipad\control_azioni.png" />
+    <Content Include="Content\img\ipad\control_azioni_premuto.png" />
+    <Content Include="Content\img\ipad\control_info.png" />
+    <Content Include="Content\img\ipad\control_info_premuto.png" />
+    <Content Include="Content\img\ipad\control_visualgrid.png" />
+    <Content Include="Content\img\ipad\control_visualgrid_premuto.png" />
+    <Content Include="Content\img\ipad\control_visualicon.png" />
+    <Content Include="Content\img\ipad\control_visualicon_premuto.png" />
+    <Content Include="Content\img\ipad\delega_iconapers.png" />
+    <Content Include="Content\img\ipad\delega_iconapers_big.png" />
+    <Content Include="Content\img\ipad\delega_iconapers_big_off.png" />
+    <Content Include="Content\img\ipad\deleghe_arrow.png" />
+    <Content Include="Content\img\ipad\deleghe_arrow_on.png" />
+    <Content Include="Content\img\ipad\deleghe_separatore.gif" />
+    <Content Include="Content\img\ipad\filter_ruolo_bg.png" />
+    <Content Include="Content\img\ipad\header_li_on.gif" />
+    <Content Include="Content\img\ipad\IconeGrandi\Documento_A.png" />
+    <Content Include="Content\img\ipad\IconeGrandi\Documento_A_selezionato.png" />
+    <Content Include="Content\img\ipad\IconeGrandi\Documento_E.png" />
+    <Content Include="Content\img\ipad\IconeGrandi\Documento_E_selezionato.png" />
+    <Content Include="Content\img\ipad\IconeGrandi\Documento_I.png" />
+    <Content Include="Content\img\ipad\IconeGrandi\Documento_I_selezionato.png" />
+    <Content Include="Content\img\ipad\IconeGrandi\Documento_P.png" />
+    <Content Include="Content\img\ipad\IconeGrandi\Documento_P_selezionato.png" />
+    <Content Include="Content\img\ipad\IconeGrandi\Documento_U.png" />
+    <Content Include="Content\img\ipad\IconeGrandi\Documento_U_selezionato.png" />
+    <Content Include="Content\img\ipad\IconeGrandi\IMG PROTO\Documento_A.png" />
+    <Content Include="Content\img\ipad\IconeGrandi\IMG PROTO\Documento_A_selezionato.png" />
+    <Content Include="Content\img\ipad\IconeGrandi\IMG PROTO\Documento_E.png" />
+    <Content Include="Content\img\ipad\IconeGrandi\IMG PROTO\Documento_E_selezionato.png" />
+    <Content Include="Content\img\ipad\IconeGrandi\IMG PROTO\Documento_I.png" />
+    <Content Include="Content\img\ipad\IconeGrandi\IMG PROTO\Documento_I_selezionato.png" />
+    <Content Include="Content\img\ipad\IconeGrandi\IMG PROTO\Documento_P.png" />
+    <Content Include="Content\img\ipad\IconeGrandi\IMG PROTO\Documento_P_selezionato.png" />
+    <Content Include="Content\img\ipad\IconeGrandi\IMG PROTO\Documento_U.png" />
+    <Content Include="Content\img\ipad\IconeGrandi\IMG PROTO\Documento_U_selezionato.png" />
+    <Content Include="Content\img\ipad\IconePiccole\Documento_A.png" />
+    <Content Include="Content\img\ipad\IconePiccole\Documento_A_selezionato.png" />
+    <Content Include="Content\img\ipad\IconePiccole\Documento_E.png" />
+    <Content Include="Content\img\ipad\IconePiccole\Documento_E_selezionato.png" />
+    <Content Include="Content\img\ipad\IconePiccole\Documento_I.png" />
+    <Content Include="Content\img\ipad\IconePiccole\Documento_I_selezionato.png" />
+    <Content Include="Content\img\ipad\IconePiccole\Documento_P.png" />
+    <Content Include="Content\img\ipad\IconePiccole\Documento_P_selezionato.png" />
+    <Content Include="Content\img\ipad\IconePiccole\Documento_U.png" />
+    <Content Include="Content\img\ipad\IconePiccole\Documento_U_selezionato.png" />
+    <Content Include="Content\img\ipad\IconePiccole\IMG PROTO\Documento_A.png" />
+    <Content Include="Content\img\ipad\IconePiccole\IMG PROTO\Documento_A_selezionato.png" />
+    <Content Include="Content\img\ipad\IconePiccole\IMG PROTO\Documento_E.png" />
+    <Content Include="Content\img\ipad\IconePiccole\IMG PROTO\Documento_E_selezionato.png" />
+    <Content Include="Content\img\ipad\IconePiccole\IMG PROTO\Documento_I.png" />
+    <Content Include="Content\img\ipad\IconePiccole\IMG PROTO\Documento_I_selezionato.png" />
+    <Content Include="Content\img\ipad\IconePiccole\IMG PROTO\Documento_P.png" />
+    <Content Include="Content\img\ipad\IconePiccole\IMG PROTO\Documento_P_selezionato.png" />
+    <Content Include="Content\img\ipad\IconePiccole\IMG PROTO\Documento_U.png" />
+    <Content Include="Content\img\ipad\IconePiccole\IMG PROTO\Documento_U_selezionato.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\All_Pades_People.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\All_Pades_People_Sel.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\All_Pades_Role.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\All_Pades_Role_Sel.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\All_Sign_People.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\All_Sign_People_Sel.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\All_Sign_Role.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\All_Sign_Role_Sel.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\All_Step_People.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\All_Step_People_Sel.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\All_Step_Role.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\All_Step_Role_Sel.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\All_Verify_People.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\All_Verify_People_Sel.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\All_Verify_Role.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\All_Verify_Role_Sel.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\Doc_Pades_People.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\Doc_Pades_People_Sel.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\Doc_Pades_Role.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\Doc_Pades_Role_Sel.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\Doc_Sign_People.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\Doc_Sign_People_Sel.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\Doc_Sign_Role.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\Doc_Sign_Role_Sel.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\Doc_Step_People.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\Doc_Step_People_Sel.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\Doc_Step_Role.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\Doc_Step_Role_Sel.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\Doc_Verify_People.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\Doc_Verify_People_Sel.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\Doc_Verify_Role.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\Doc_Verify_Role_Sel.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\Sel_Firma.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\Sel_None.png" />
+    <Content Include="Content\img\ipad\IconePiccole\LibroFirma\Sel_Rifiuta.png" />
+    <Content Include="Content\img\ipad\icon_inps_ipad.png" />
+    <Content Include="Content\img\ipad\icon_ipad.png" />
+    <Content Include="Content\img\ipad\icon_pitre_ipad.png" />
+    <Content Include="Content\img\ipad\ico_deleghe_ledoff.png" />
+    <Content Include="Content\img\ipad\ico_deleghe_ledon.png" />
+    <Content Include="Content\img\ipad\ico_elenco_file.png" />
+    <Content Include="Content\img\ipad\ico_elenco_file_selezionato.png" />
+    <Content Include="Content\img\ipad\ico_elenco_folder.png" />
+    <Content Include="Content\img\ipad\ico_elenco_folder_selezionato.png" />
+    <Content Include="Content\img\ipad\ico_elenco_subfolder.png" />
+    <Content Include="Content\img\ipad\ico_elenco_subfolder_selezionato.png" />
+    <Content Include="Content\img\ipad\ico_file.png" />
+    <Content Include="Content\img\ipad\ico_file_selezionato.png" />
+    <Content Include="Content\img\ipad\ico_folder.png" />
+    <Content Include="Content\img\ipad\ico_folder_selezionato.png" />
+    <Content Include="Content\img\ipad\ico_subfolder.png" />
+    <Content Include="Content\img\ipad\ico_subfolder_selezionato.png" />
+    <Content Include="Content\img\ipad\info_utente.png" />
+    <Content Include="Content\img\ipad\info_utente_on.png" />
+    <Content Include="Content\img\ipad\logo_inps.png" />
+    <Content Include="Content\img\ipad\logo_pitre.png" />
+    <Content Include="Content\img\ipad\logo_vtdocs.jpg" />
+    <Content Include="Content\img\ipad\menu_adl.png" />
+    <Content Include="Content\img\ipad\menu_adl_on.png" />
+    <Content Include="Content\img\ipad\menu_cerca.png" />
+    <Content Include="Content\img\ipad\menu_cerca_on.png" />
+    <Content Include="Content\img\ipad\menu_dafare.png" />
+    <Content Include="Content\img\ipad\menu_dafare_on.png" />
+    <Content Include="Content\img\ipad\menu_deleghe.png" />
+    <Content Include="Content\img\ipad\menu_deleghe_on.png" />
+    <Content Include="Content\img\ipad\menu_libro.png" />
+    <Content Include="Content\img\ipad\menu_libro_on.png" />
+    <Content Include="Content\img\ipad\menu_logout.png" />
+    <Content Include="Content\img\ipad\menu_report.png" />
+    <Content Include="Content\img\ipad\menu_report_on.png" />
+    <Content Include="Content\img\ipad\menu_smista.png" />
+    <Content Include="Content\img\ipad\menu_smista_on.png" />
+    <Content Include="Content\img\ipad\nnotifiche_bg.png" />
+    <Content Include="Content\img\ipad\no_acquisito.jpg" />
+    <Content Include="Content\img\ipad\no_preview.jpg" />
+    <Content Include="Content\img\ipad\no_preview2.jpg" />
+    <Content Include="Content\img\ipad\no_ricerca.png" />
+    <Content Include="Content\img\ipad\no_todolist.png" />
+    <Content Include="Content\img\ipad\no_todolist_fascicolo.png" />
+    <Content Include="Content\img\ipad\paginatore_ffw.png" />
+    <Content Include="Content\img\ipad\paginatore_fw.png" />
+    <Content Include="Content\img\ipad\paginatore_left.gif" />
+    <Content Include="Content\img\ipad\paginatore_left.png" />
+    <Content Include="Content\img\ipad\paginatore_pallino.png" />
+    <Content Include="Content\img\ipad\paginatore_pallino_on.png" />
+    <Content Include="Content\img\ipad\paginatore_right.gif" />
+    <Content Include="Content\img\ipad\paginatore_right.png" />
+    <Content Include="Content\img\ipad\paginatore_rrw.png" />
+    <Content Include="Content\img\ipad\paginatore_rw.png" />
+    <Content Include="Content\img\ipad\radiobutton_delega.png" />
+    <Content Include="Content\img\ipad\radiobutton_delega_on.png" />
+    <Content Include="Content\img\ipad\smistamento_down_arrow.png" />
+    <Content Include="Content\img\ipad\smistamento_up_arrow.png" />
+    <Content Include="Content\img\ipad\smistatore_closebutton.png" />
+    <Content Include="Content\img\ipad\smistatore_input.png" />
+    <Content Include="Content\img\ipad\smistatore_nota_add.png" />
+    <Content Include="Content\img\ipad\smistatore_nota_bg.png" />
+    <Content Include="Content\img\ipad\smistatore_nota_do.png" />
+    <Content Include="Content\img\ipad\smistatore_pulsante_bg.png" />
+    <Content Include="Content\img\ipad\smistatore_separatore.gif" />
+    <Content Include="Content\img\ipad\smistatore_tree_person.gif" />
+    <Content Include="Content\img\ipad\smistatore_tree_ruolo.gif" />
+    <Content Include="Content\img\ipad\smistatore_tree_uoa.gif" />
+    <Content Include="Content\img\ipad\todolist_sep.gif" />
+    <Content Include="Content\img\ipad\todolist_sep_orizz.gif" />
+    <Content Include="Content\img\ipad\tributton.png" />
+    <Content Include="Content\img\item_categ_file.gif" />
+    <Content Include="Content\img\item_categ_folder.gif" />
+    <Content Include="Content\img\item_ico_open_file.gif" />
+    <Content Include="Content\img\item_ico_open_folder.gif" />
+    <Content Include="Content\img\login_submit_bg.gif" />
+    <Content Include="Content\img\logo_inps.png" />
+    <Content Include="Content\img\logo_pitre.png" />
+    <Content Include="Content\img\logo_vtdocs.jpg" />
+    <Content Include="Content\img\menu_cerca.png" />
+    <Content Include="Content\img\menu_cerca_on.png" />
+    <Content Include="Content\img\menu_dafare.png" />
+    <Content Include="Content\img\menu_dafare_on.png" />
+    <Content Include="Content\img\menu_deleghe.png" />
+    <Content Include="Content\img\menu_deleghe_on.png" />
+    <Content Include="Content\img\menu_logout.gif" />
+    <Content Include="Content\img\menu_logout.png" />
+    <Content Include="Content\img\menu_logout_disabled.gif" />
+    <Content Include="Content\img\menu_report.png" />
+    <Content Include="Content\img\multiple_pulsante_bg.gif" />
+    <Content Include="Content\img\nnotifiche_bg.png" />
+    <Content Include="Content\img\no_acquisito.jpg" />
+    <Content Include="Content\img\no_preview.jpg" />
+    <Content Include="Content\img\no_ricerca.jpg" />
+    <Content Include="Content\img\no_todolist.jpg" />
+    <Content Include="Content\img\no_todolist_fascicolo.jpg" />
+    <Content Include="Content\img\paginatore_left.gif" />
+    <Content Include="Content\img\paginatore_right.gif" />
+    <Content Include="Content\img\pulsante_bg.gif" />
+    <Content Include="Content\img\pulsante_bg2.gif" />
+    <Content Include="Content\img\pulsante_classic_big_red.gif" />
+    <Content Include="Content\img\puls_blue-disabled.gif" />
+    <Content Include="Content\img\puls_blue.gif" />
+    <Content Include="Content\img\puls_cerca-disabled.gif" />
+    <Content Include="Content\img\puls_cerca.gif" />
+    <Content Include="Content\img\puls_confirm_bg.gif" />
+    <Content Include="Content\img\puls_deny_bg.gif" />
+    <Content Include="Content\img\puls_ricerca.gif" />
+    <Content Include="Content\img\select-arrow.gif" />
+    <Content Include="Content\img\smart\no_acquisito.jpg" />
+    <Content Include="Content\img\smart\no_preview.jpg" />
+    <Content Include="Content\img\smart\no_ricerca.jpg" />
+    <Content Include="Content\img\smart\no_todolist.jpg" />
+    <Content Include="Content\img\smart\no_todolist_fascicolo.jpg" />
+    <Content Include="Content\img\tab_deleghe_mobile_off.gif" />
+    <Content Include="Content\img\tab_deleghe_mobile_on.gif" />
+    <Content Include="Content\img\tooltip_bg.gif" />
+    <Content Include="Global.asax" />
+    <None Include="Content\Blu\img\galaxy\Thumbs.db" />
+    <None Include="Content\Blu\img\ipad\Thumbs.db" />
+    <None Include="Content\Blu\img\Thumbs.db" />
+    <None Include="Content\Green\img\galaxy\Thumbs.db" />
+    <None Include="Content\Green\img\ipad\Thumbs.db" />
+    <None Include="Content\Green\img\Thumbs.db" />
+    <None Include="Content\img\galaxy\IconeGrandi\Thumbs.db" />
+    <None Include="Content\img\galaxy\IconePiccole\Thumbs.db" />
+    <None Include="Content\img\galaxy\Thumbs.db" />
+    <None Include="Content\img\ipad\IconeGrandi\IMG PROTO\Thumbs.db" />
+    <None Include="Content\img\ipad\IconeGrandi\Thumbs.db" />
+    <None Include="Content\img\ipad\IconePiccole\IMG PROTO\Thumbs.db" />
+    <None Include="Content\img\ipad\IconePiccole\Thumbs.db" />
+    <None Include="Content\img\ipad\Thumbs.db" />
+    <None Include="Content\img\Thumbs.db" />
+    <Content Include="Scripts\bup - 07032013\default_tablet.js" />
+    <Content Include="Scripts\bup - 30042013\default_cell_per_allegati.js" />
+    <Content Include="Scripts\bup - 30042013\default_tablet_dopo_collaudo.js" />
+    <Content Include="Scripts\bup - 30042013\default_tablet_pre_modifiche.js" />
+    <Content Include="Scripts\default.js" />
+    <Content Include="Scripts\default_tablet - v2.js" />
+    <Content Include="Scripts\default_tablet.js" />
+    <Content Include="Scripts\default_tablet_latest.js" />
+    <Content Include="Scripts\fixpng.js" />
+    <Content Include="Scripts\hammer.min.js" />
+    <Content Include="Scripts\iscroll-min.js" />
+    <Content Include="Scripts\iscroll-min_mobile.js" />
+    <Content Include="Scripts\iscroll_ipad.js" />
+    <Content Include="Scripts\jquery-1.4.2.min.js" />
+    <Content Include="Scripts\jquery-1.7.2.min.js" />
+    <Content Include="Scripts\jquery.nicescroll.min.js" />
+    <Content Include="Scripts\login.js" />
+    <Content Include="Scripts\tooltip.js" />
+    <None Include="Service References\VTDocsWSMobile\VTDocsMobile.VTDocsWSMobile.AccettaDelegaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsMobile.VTDocsWSMobile.AccettaRifiutaTrasmResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsMobile.VTDocsWSMobile.ADLActionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsMobile.VTDocsWSMobile.CountDelegheAttiveResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsMobile.VTDocsWSMobile.CreaDelegaDaModelloResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsMobile.VTDocsWSMobile.CreaDelegaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsMobile.VTDocsWSMobile.DelegheResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsMobile.VTDocsWSMobile.DismettiDelegaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsMobile.VTDocsWSMobile.EseguiSmistamentoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsMobile.VTDocsWSMobile.EseguiTrasmResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsMobile.VTDocsWSMobile.GetDocInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsMobile.VTDocsWSMobile.GetFascInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsMobile.VTDocsWSMobile.GetFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsMobile.VTDocsWSMobile.GetPreviewResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsMobile.VTDocsWSMobile.GetRicSalvateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsMobile.VTDocsWSMobile.GetSmistamentoElementsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsMobile.VTDocsWSMobile.GetSmistamentoTreeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsMobile.VTDocsWSMobile.HSMSignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsMobile.VTDocsWSMobile.LibroFirmaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsMobile.VTDocsWSMobile.ListaModelliDelegaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsMobile.VTDocsWSMobile.ListaModelliTrasmResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsMobile.VTDocsWSMobile.ListaTipiRuoloResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsMobile.VTDocsWSMobile.ListaUtentiResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsMobile.VTDocsWSMobile.LoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsMobile.VTDocsWSMobile.LogoutResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsMobile.VTDocsWSMobile.RevocaDelegheResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsMobile.VTDocsWSMobile.RicercaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsMobile.VTDocsWSMobile.RicercaSmistamentoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsMobile.VTDocsWSMobile.RicercaUtentiResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsMobile.VTDocsWSMobile.ToDoListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsWSMobile.disco" />
+    <None Include="Service References\VTDocsWSMobile\configuration91.svcinfo" />
+    <None Include="Service References\VTDocsWSMobile\configuration.svcinfo" />
+    <None Include="Service References\VTDocsWSMobile\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsWSMobile1.disco" />
+    <None Include="Service References\VTDocsWSMobile\VTDocsWSMobile19.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsWSMobile2.disco" />
+    <Content Include="UserControls\DocInfo\DocInfo.ascx" />
+    <Content Include="UserControls\MobileClient\MobileClient.ascx" />
+    <Content Include="UserControls\MobileClient\MobileClientGalaxy.ascx" />
+    <Content Include="UserControls\MobileClient\MobileClientIPad.ascx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="UserControls\ToDoList\ToDoList.ascx" />
+    <Content Include="Views\Home\Index.aspx" />
+    <Content Include="Views\Login\Login.aspx" />
+    <Content Include="Views\Shared\DocNotFound.aspx" />
+    <Content Include="Views\Shared\Error.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <None Include="Service References\VTDocsWSMobile\VTDocsWSMobile.wsdl" />
+    <None Include="Service References\VTDocsWSMobile\VTDocsWSMobile.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsWSMobile1.wsdl" />
+    <None Include="Service References\VTDocsWSMobile\VTDocsWSMobile1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsWSMobile10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsWSMobile11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsWSMobile12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsWSMobile13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsWSMobile17.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsWSMobile18.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsWSMobile2.wsdl" />
+    <None Include="Service References\VTDocsWSMobile\VTDocsWSMobile2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsWSMobile20.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsWSMobile21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsWSMobile22.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsWSMobile23.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsWSMobile3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsWSMobile4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsWSMobile5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsWSMobile6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsWSMobile7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsWSMobile8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VTDocsWSMobile\VTDocsWSMobile9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\VTDocs\mobile\fe\" />
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Errors.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Errors.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\VTDocsWSMobile\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target> -->
+  <Target Name="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(ProjectDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

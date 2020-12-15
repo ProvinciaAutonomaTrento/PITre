@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://vt-furnarisa.valueteam.com/NotificationsCenter.Services/NotificationServiceOperations.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/NotificationsCenter.Domain" />
+  <xs:element name="InsertChannel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/NotificationsCenter.Domain" minOccurs="0" name="channel" nillable="true" type="q1:Channel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertChannelResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadChannels">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadChannelsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/NotificationsCenter.Domain" minOccurs="0" name="LoadChannelsResult" nillable="true" type="q2:ArrayOfChannel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadChannelByLabel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="label" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadChannelByLabelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/NotificationsCenter.Domain" minOccurs="0" name="LoadChannelByLabelResult" nillable="true" type="q3:Channel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssociateChannelToInstance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/NotificationsCenter.Domain" minOccurs="0" name="channel" nillable="true" type="q4:Channel" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/NotificationsCenter.Domain" minOccurs="0" name="instance" nillable="true" type="q5:Instance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssociateChannelToInstanceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadChannelsRelatedToInstance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="instanceId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadChannelsRelatedToInstanceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/NotificationsCenter.Domain" minOccurs="0" name="LoadChannelsRelatedToInstanceResult" nillable="true" type="q6:ArrayOfChannel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadChannelRelatedToItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="itemId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadChannelRelatedToItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/NotificationsCenter.Domain" minOccurs="0" name="LoadChannelRelatedToItemResult" nillable="true" type="q7:ArrayOfChannel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/NotificationsCenter.Domain" minOccurs="0" name="user" nillable="true" type="q8:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertUserResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetItemViewed">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="itemId" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="instanceId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetItemViewedResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/NotificationsCenter.Domain" minOccurs="0" name="item" nillable="true" type="q9:Item" />
+        <xs:element minOccurs="0" name="channelId" type="xs:int" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/NotificationsCenter.Domain" minOccurs="0" name="users" nillable="true" type="q10:ArrayOfUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertItemResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssociateItemToChannel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="itemId" type="xs:int" />
+        <xs:element minOccurs="0" name="channelId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssociateItemToChannelResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="itemId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/NotificationsCenter.Domain" minOccurs="0" name="LoadItemResult" nillable="true" type="q11:Item" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertInstance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/NotificationsCenter.Domain" minOccurs="0" name="instance" nillable="true" type="q12:Instance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertInstanceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadInstances">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadInstancesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/NotificationsCenter.Domain" minOccurs="0" name="LoadInstancesResult" nillable="true" type="q13:ArrayOfInstance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadInstanceByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadInstanceByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/NotificationsCenter.Domain" minOccurs="0" name="LoadInstanceByNameResult" nillable="true" type="q14:Instance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchItemByChannelId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="channelId" type="xs:int" />
+        <xs:element minOccurs="0" name="instanceId" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchItemByChannelIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/NotificationsCenter.Domain" minOccurs="0" name="SearchItemByChannelIdResult" nillable="true" type="q15:ArrayOfItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchItemByDateRange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lowDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="hightDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="instanceId" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchItemByDateRangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/NotificationsCenter.Domain" minOccurs="0" name="SearchItemByDateRangeResult" nillable="true" type="q16:ArrayOfItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchItemByMessageIdRange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lowId" type="xs:int" />
+        <xs:element minOccurs="0" name="hightId" type="xs:int" />
+        <xs:element minOccurs="0" name="instanceId" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchItemByMessageIdRangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/NotificationsCenter.Domain" minOccurs="0" name="SearchItemByMessageIdRangeResult" nillable="true" type="q17:ArrayOfItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchItemsNotViewedByUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="channelId" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageNumber" type="xs:int" />
+        <xs:element minOccurs="0" name="instanceId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchItemsNotViewedByUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/NotificationsCenter.Domain" minOccurs="0" name="SearchItemsNotViewedByUserResult" nillable="true" type="q18:ArrayOfItem" />
+        <xs:element minOccurs="0" name="itemCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountNotViewedItems">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="instanceId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountNotViewedItemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CountNotViewedItemsResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="searchForMessageId" type="xs:boolean" />
+        <xs:element minOccurs="0" name="lowMessageId" type="xs:int" />
+        <xs:element minOccurs="0" name="hightMessageId" type="xs:int" />
+        <xs:element minOccurs="0" name="searchForDate" type="xs:boolean" />
+        <xs:element minOccurs="0" name="lowDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="hightDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="searchForTitle" type="xs:boolean" />
+        <xs:element minOccurs="0" name="itemText" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="instanceId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/NotificationsCenter.Domain" minOccurs="0" name="SearchItemResult" nillable="true" type="q19:ArrayOfItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

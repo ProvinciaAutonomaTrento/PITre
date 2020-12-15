@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<DOCSPA>
+
+	<CORRISPONDENTI>
+		<CORRISPONDENTE>			
+			<SYSTEM_ID></SYSTEM_ID>
+			<REGISTRO></REGISTRO>
+			<AMMINISTRAZIONE></AMMINISTRAZIONE>
+			<COD_RUBRICA></COD_RUBRICA>
+			<DESC_CORR></DESC_CORR>
+			<DATA_INIZIO></DATA_INIZIO>
+			<DATA_FINE></DATA_FINE>
+			<CODICE></CODICE>
+			<COGNOME></COGNOME>
+			<NOME></NOME>
+			<TIPO_CORR></TIPO_CORR>
+			<TIPO_IE></TIPO_IE>
+			<CODICE_AOO></CODICE_AOO>
+			<INDIRIZZO></INDIRIZZO>
+			<CITTA></CITTA>
+			<CAP></CAP>
+			<PROVINCIA></PROVINCIA>
+			<NAZIONE></NAZIONE>
+			<COD_FISCALE></COD_FISCALE>
+			<TELEFONO></TELEFONO>
+			<TELEFONO2></TELEFONO2>
+			<FAX></FAX>
+			<NOTE></NOTE>
+		</CORRISPONDENTE>
+	</CORRISPONDENTI>
+
+	<TIPI_DOCUMENTO> 
+		<TIPO>
+			<ID></ID>
+			<DESCRIZIONE></DESCRIZIONE>
+			<TIPO_CANALE></TIPO_CANALE>
+		</TIPO>
+	</TIPI_DOCUMENTO>
+	
+	<TIPI_ATTO> 
+		<TIPO></TIPO>
+	</TIPI_ATTO>
+	
+	<DOCUMENTI> <!-- Tabella profile -->
+		<DOCUMENTO protocollato="false">
+			<DATI>
+				<NUMERO>document number</NUMERO>				
+				<TIPO_PROTO></TIPO_PROTO>								
+				<IMG></IMG>				
+				<INVIO_CONFERMA></INVIO_CONFERMA>
+				<CONGELATO></CONGELATO>
+				<CONSOLIDATO></CONSOLIDATO>
+				<PRIVATO>true</PRIVATO>
+				<ASSEGNATO>false</ASSEGNATO>
+				<FASCICOLATO>false</FASCICOLATO>			
+				<DATA_CREAZIONE>25/04/2004 12:32:05</DATA_CREAZIONE>		
+				<NOTE>Note</NOTE>			
+				<TIPO>LETTERA</TIPO>
+				<TIPO_ATTO>DECRETO</TIPO_ATTO>	
+				
+				<OGGETTO>
+					<AMMINISTRAZIONE></AMMINISTRAZIONE>
+					<REGISTRO></REGISTRO>
+					<DESCRIZIONE></DESCRIZIONE>
+				</OGGETTO>
+				
+				<!-- Solo per documenti protocollati (type="protocollato") -->
+				<PROTOCOLLO>
+					<TIPO></TIPO>
+					<NUMERO></NUMERO>
+					<ANNO></ANNO>
+					<DATA></DATA>
+					<SEGNATURA></SEGNATURA>
+					<CHIAVE></CHIAVE>
+					<REGISTRO>id registro</REGISTRO>
+					
+					<EMERGENZA>
+						<NUMERO></NUMERO>
+						<DATA></DATA>
+						<NOME></NOME>
+						<COGNOME></COGNOME>					
+					</EMERGENZA>
+					
+				</PROTOCOLLO>
+				
+			</DATI>
+			
+			<CORRISPONDENTI>
+				<CORRISPONDENTE>
+					<TIPO_MITT_DEST></TIPO_MITT_DEST>
+					<ID></ID>
+				</CORRISPONDENTE>
+			</CORRISPONDENTI>
+		      
+		    <PAROLE>
+				<PAROLA></PAROLA>
+		    </PAROLE>
+		    
+			<VERSIONI> 
+				<VERSIONE>
+					<DATI>				
+						<ID></ID>	
+						<SUBVERSION></SUBVERSION>
+						<LABEL>1</LABEL>
+						<COMMENTO>Commento</COMMENTO>
+						<DATA_CREAZIONE>25/04/2004 12:32:05</DATA_CREAZIONE>	
+						<DATA_ARRIVO></DATA_ARRIVO>
+						<TYPIST></TYPIST>
+						<AUTORE></AUTORE>
+						<DA_INVIARE></DA_INVIARE>						
+					</DATI>
+					
+					<FILE> 					
+						<NOME>file name</NOME>
+						<SIZE>file size</SIZE>
+						<IMPRONTA>XYZ</IMPRONTA>
+					</FILE>	
+							
+				</VERSIONE>
+			</VERSIONI>
+			
+			<ALLEGATI> 
+				<ALLEGATO>
+					<DATI>
+						<LABEL>A01</LABEL>
+						<COMMENTO>Commento</COMMENTO>
+						<DATA_CREAZIONE>25/04/2004 12:32:05</DATA_CREAZIONE>	
+						<DATA_ARRIVO></DATA_ARRIVO>
+						<TYPIST></TYPIST>
+						<AUTORE></AUTORE>
+						<DA_INVIARE></DA_INVIARE>									
+						<PAGINE></PAGINE>
+					</DATI>
+					
+					<FILE>				
+						<NOME>file name</NOME>
+						<SIZE>file size</SIZE>
+						<IMPRONTA>XYZ</IMPRONTA>
+					</FILE>	
+							
+				</ALLEGATO>
+			</ALLEGATI>	
+						
+			<TRASMISSIONI>
+				<TRASMISSIONE>
+					<DATI>
+						<RUOLO></RUOLO>
+						<UTENTE></UTENTE>
+						<TIPO_OGGETTO></TIPO_OGGETTO>
+						<DATA_INVIO></DATA_INVIO>
+						<NOTE_GENERALI></NOTE_GENERALI>
+					</DATI>
+					
+					<TRASMISSIONI_SINGOLE>
+						<TRASMISSIONE_SINGOLA>
+							<DATI>
+								<RAGIONE></RAGIONE>
+								<TIPO_DEST></TIPO_DEST>
+								<CORRISPONDENTE></CORRISPONDENTE>
+								<NOTE_SING></NOTE_SING>
+								<TIPO></TIPO>
+								<DATA_SCADENZA></DATA_SCADENZA>
+							</DATI>
+							
+							<TRASMISSIONI_UTENTE>
+								<TRASMISSIONE_UTENTE>
+									<CORRISPONDENTE></CORRISPONDENTE>
+									<DATA_VISTA></DATA_VISTA>
+									<DATA_ACCETTATA></DATA_ACCETTATA>
+									<DATA_RIFIUTATA></DATA_RIFIUTATA>
+									<DATA_RISPOSTA></DATA_RISPOSTA>
+									<VISTA></VISTA>
+									<ACCETTATA></ACCETTATA>
+									<RIFIUTATA></RIFIUTATA>
+									<NOTE_ACC></NOTE_ACC>
+									<NOTE_RIF></NOTE_RIF>
+									<VALIDA></VALIDA>
+								</TRASMISSIONE_UTENTE>
+							</TRASMISSIONI_UTENTE>
+							
+						</TRASMISSIONE_SINGOLA>
+					</TRASMISSIONI_SINGOLE>
+					
+				</TRASMISSIONE>
+			</TRASMISSIONI>
+      
+			<SICUREZZA> 
+				<ACCESSO>
+					<UTENTE>id person or group</UTENTE>
+					<RUOLO></RUOLO>	
+					<DIRITTI>access rights</DIRITTI>					
+				</ACCESSO>
+			</SICUREZZA>
+			
+			<FASCICOLATURA>
+				<FASCICOLO>
+					<CODICE></CODICE>
+					<TIPO></TIPO>
+					<AMMINISTRAZIONE></AMMINISTRAZIONE>
+				</FASCICOLO>
+				<FASCICOLO>
+					<CODICE></CODICE>
+					<TIPO></TIPO>
+					<AMMINISTRAZIONE></AMMINISTRAZIONE>
+				</FASCICOLO>
+			</FASCICOLATURA>
+			
+		</DOCUMENTO>
+	</DOCUMENTI>
+</DOCSPA>

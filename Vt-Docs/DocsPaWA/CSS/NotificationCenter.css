@@ -1,0 +1,159 @@
+﻿/* Background della lista degli item */
+.listBackgroud
+{
+    float: left;
+    background-color: #f2f2f2;
+    border-right: 1px solid #800000;
+    border-top: 1px solid #800000;
+    border-left: 1px solid #800000;
+    border-bottom: 1px solid #800000;
+    width: 100%;
+}
+
+/* Riga con l'icona del feed e l'icona per la chiusura dell'item */
+.feedRow
+{
+    text-align: right;
+}
+
+/* Label con il titolo del feed */
+.feedLabel
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: smaller;
+    font-weight: bold;
+    color: #000000;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Testo del feed */
+.feedText
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: smaller;
+}
+
+/* Id del feed */
+a.feedId:link, a.feedId:visited, a.feedId:hover
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: smaller;
+    font-weight: bold;
+    color: #FF0000;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 66%;
+}
+
+/* Stile dell'item */
+.itemStyle
+{
+    border: 1pt solid #000000;
+    padding: 5px;
+    background-color: #f2f2f2;
+    height: 40px;
+    width: 205px;
+}
+
+/* Stile della finestra che contiene gli item */
+.items
+{
+    width: 90%;
+    overflow: auto;
+}
+
+/* Stile icona del feed RSS */
+.feedIcon
+{
+    height: 18px;
+    width: 18px;
+}
+
+/* Stile per l'icona per l'eliminazione dell'item dalla lista dei feed */
+.deleteItem
+{
+    height: 10px;
+    width: 10px;
+    vertical-align: top;
+}
+
+/* Titolo della sezione dei feed */
+.title
+{
+    border-width: 1pt;
+    border-color: #DFDFDF;
+    font-size: 10px;
+    font-weight: bold;
+    border-bottom-style: solid;
+    text-transform: uppercase;
+    color: #810d06;
+    text-indent: 2px;
+    font-family: Verdana;
+    margin-left: 5px;
+}
+
+/* Freccia per lo scorrimento a sinistra degli item */
+.leftArrow
+{
+    float: left;
+    height: 30px;
+    top: 40%;
+    margin-top: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+/* Freccia per lo scorrimento a destra degli item */
+.rightArrow
+{
+    float: right;
+    height: 30px;
+    top: 40%;
+    margin-top: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.searchRow
+{
+    float: left;
+    margin: 5px;
+}
+
+.searchRowClear
+{
+    clear: both;
+}
+
+.searchButtonRow
+{
+    text-align: center;
+}
+
+.searchResultBox
+{
+    margin: 20px;
+    text-align: center;
+    width: 90%;
+}
+
+.datagrid
+{
+    border-color: Gray;
+    border-width: 1px;
+    padding: 1;
+    text-align: center;
+    width: 100%;
+}
+
+/* Segnatura del documento nella maschera di ricerca */
+.signature
+{
+    color: Red;
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://nttdata.com/2012/Pi3/Filter" elementFormDefault="qualified" targetNamespace="http://nttdata.com/2012/Pi3/Filter" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://vt-ferlitoca.valueteam.com/Vt-Docs/DocsPaWS/VtDocsWS/WebServices/Documents.svc?xsd=xsd11" namespace="http://nttdata.com/2012/Pi3/Template" />
+  <xs:complexType name="ArrayOfFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Filter" nillable="true" type="tns:Filter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFilter" nillable="true" type="tns:ArrayOfFilter" />
+  <xs:complexType name="Filter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://nttdata.com/2012/Pi3/Template" minOccurs="0" name="Template" nillable="true" type="q1:Template" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Filter" nillable="true" type="tns:Filter" />
+</xs:schema>

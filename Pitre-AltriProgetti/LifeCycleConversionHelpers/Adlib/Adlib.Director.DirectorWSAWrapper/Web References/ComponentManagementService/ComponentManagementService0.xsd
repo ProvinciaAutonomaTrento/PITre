@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.adlibsoftware.com/ComponentManagement/" elementFormDefault="qualified" targetNamespace="http://schemas.adlibsoftware.com/ComponentManagement/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/Adlib/Services/ComponentManagement/ComponentManagementService.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost/Adlib/Services/ComponentManagement/ComponentManagementService.svc?xsd=xsd3" namespace="http://schemas.adlibsoftware.com/UserManagement/" />
+  <xs:import schemaLocation="http://localhost/Adlib/Services/ComponentManagement/ComponentManagementService.svc?xsd=xsd2" namespace="http://schemas.adlibsoftware.com/Common/Types/" />
+  <xs:import schemaLocation="http://localhost/Adlib/Services/ComponentManagement/ComponentManagementService.svc?xsd=xsd1" namespace="http://schemas.adlibsoftware.com/GlobalClasses/" />
+  <xs:complexType name="ArrayOfGetComponentsByRepositoryTypeAndAdministrativeScopeRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GetComponentsByRepositoryTypeAndAdministrativeScopeRequest" nillable="true" type="tns:GetComponentsByRepositoryTypeAndAdministrativeScopeRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGetComponentsByRepositoryTypeAndAdministrativeScopeRequest" nillable="true" type="tns:ArrayOfGetComponentsByRepositoryTypeAndAdministrativeScopeRequest" />
+  <xs:complexType name="GetComponentsByRepositoryTypeAndAdministrativeScopeRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdministrativeScopeId" type="ser:guid" />
+      <xs:element minOccurs="0" name="RepositoryTypeId" type="ser:guid" />
+      <xs:element xmlns:q1="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="UserCredentials" nillable="true" type="q1:UserCredentials" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetComponentsByRepositoryTypeAndAdministrativeScopeRequest" nillable="true" type="tns:GetComponentsByRepositoryTypeAndAdministrativeScopeRequest" />
+  <xs:complexType name="ArrayOfGetComponentsByRepositoryTypeAndAdministrativeScopeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GetComponentsByRepositoryTypeAndAdministrativeScopeResponse" nillable="true" type="tns:GetComponentsByRepositoryTypeAndAdministrativeScopeResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGetComponentsByRepositoryTypeAndAdministrativeScopeResponse" nillable="true" type="tns:ArrayOfGetComponentsByRepositoryTypeAndAdministrativeScopeResponse" />
+  <xs:complexType name="GetComponentsByRepositoryTypeAndAdministrativeScopeResponse">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.adlibsoftware.com/Common/Types/" minOccurs="0" name="AssignedComponents" nillable="true" type="q2:ArrayOfComponent" />
+      <xs:element xmlns:q3="http://schemas.adlibsoftware.com/GlobalClasses/" minOccurs="0" name="ServiceException" nillable="true" type="q3:DetailException" />
+      <xs:element xmlns:q4="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="UserCredentials" nillable="true" type="q4:UserCredentials" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetComponentsByRepositoryTypeAndAdministrativeScopeResponse" nillable="true" type="tns:GetComponentsByRepositoryTypeAndAdministrativeScopeResponse" />
+  <xs:complexType name="ArrayOfGetComponentsByRepositoryTypeAndWorkspaceRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GetComponentsByRepositoryTypeAndWorkspaceRequest" nillable="true" type="tns:GetComponentsByRepositoryTypeAndWorkspaceRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGetComponentsByRepositoryTypeAndWorkspaceRequest" nillable="true" type="tns:ArrayOfGetComponentsByRepositoryTypeAndWorkspaceRequest" />
+  <xs:complexType name="GetComponentsByRepositoryTypeAndWorkspaceRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="WorkspaceId" type="ser:guid" />
+      <xs:element minOccurs="0" name="RepositoryTypeId" type="ser:guid" />
+      <xs:element xmlns:q5="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="UserCredentials" nillable="true" type="q5:UserCredentials" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetComponentsByRepositoryTypeAndWorkspaceRequest" nillable="true" type="tns:GetComponentsByRepositoryTypeAndWorkspaceRequest" />
+  <xs:complexType name="ArrayOfGetComponentsByRepositoryTypeAndWorkspaceResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GetComponentsByRepositoryTypeAndWorkspaceResponse" nillable="true" type="tns:GetComponentsByRepositoryTypeAndWorkspaceResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGetComponentsByRepositoryTypeAndWorkspaceResponse" nillable="true" type="tns:ArrayOfGetComponentsByRepositoryTypeAndWorkspaceResponse" />
+  <xs:complexType name="GetComponentsByRepositoryTypeAndWorkspaceResponse">
+    <xs:sequence>
+      <xs:element xmlns:q6="http://schemas.adlibsoftware.com/Common/Types/" minOccurs="0" name="AssignedComponents" nillable="true" type="q6:ArrayOfComponent" />
+      <xs:element xmlns:q7="http://schemas.adlibsoftware.com/GlobalClasses/" minOccurs="0" name="ServiceException" nillable="true" type="q7:DetailException" />
+      <xs:element xmlns:q8="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="UserCredentials" nillable="true" type="q8:UserCredentials" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetComponentsByRepositoryTypeAndWorkspaceResponse" nillable="true" type="tns:GetComponentsByRepositoryTypeAndWorkspaceResponse" />
+  <xs:complexType name="ArrayOfGetAssignedComponentsRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GetAssignedComponentsRequest" nillable="true" type="tns:GetAssignedComponentsRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGetAssignedComponentsRequest" nillable="true" type="tns:ArrayOfGetAssignedComponentsRequest" />
+  <xs:complexType name="GetAssignedComponentsRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ComponentWorkspaceId" type="ser:guid" />
+      <xs:element xmlns:q9="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="UserCredentials" nillable="true" type="q9:UserCredentials" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetAssignedComponentsRequest" nillable="true" type="tns:GetAssignedComponentsRequest" />
+  <xs:complexType name="ArrayOfGetAssignedComponentsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GetAssignedComponentsResponse" nillable="true" type="tns:GetAssignedComponentsResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGetAssignedComponentsResponse" nillable="true" type="tns:ArrayOfGetAssignedComponentsResponse" />
+  <xs:complexType name="GetAssignedComponentsResponse">
+    <xs:sequence>
+      <xs:element xmlns:q10="http://schemas.adlibsoftware.com/Common/Types/" minOccurs="0" name="AssignedComponents" nillable="true" type="q10:ArrayOfComponent" />
+      <xs:element xmlns:q11="http://schemas.adlibsoftware.com/GlobalClasses/" minOccurs="0" name="ServiceException" nillable="true" type="q11:DetailException" />
+      <xs:element xmlns:q12="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="UserCredentials" nillable="true" type="q12:UserCredentials" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetAssignedComponentsResponse" nillable="true" type="tns:GetAssignedComponentsResponse" />
+  <xs:complexType name="ArrayOfGetUnassignedComponentsRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GetUnassignedComponentsRequest" nillable="true" type="tns:GetUnassignedComponentsRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGetUnassignedComponentsRequest" nillable="true" type="tns:ArrayOfGetUnassignedComponentsRequest" />
+  <xs:complexType name="GetUnassignedComponentsRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdministrativeScopeId" type="ser:guid" />
+      <xs:element xmlns:q13="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="UserCredentials" nillable="true" type="q13:UserCredentials" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetUnassignedComponentsRequest" nillable="true" type="tns:GetUnassignedComponentsRequest" />
+  <xs:complexType name="ArrayOfGetUnassignedComponentsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GetUnassignedComponentsResponse" nillable="true" type="tns:GetUnassignedComponentsResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGetUnassignedComponentsResponse" nillable="true" type="tns:ArrayOfGetUnassignedComponentsResponse" />
+  <xs:complexType name="GetUnassignedComponentsResponse">
+    <xs:sequence>
+      <xs:element xmlns:q14="http://schemas.adlibsoftware.com/GlobalClasses/" minOccurs="0" name="ServiceException" nillable="true" type="q14:DetailException" />
+      <xs:element xmlns:q15="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="UserCredentials" nillable="true" type="q15:UserCredentials" />
+      <xs:element xmlns:q16="http://schemas.adlibsoftware.com/Common/Types/" minOccurs="0" name="UnassignedComponents" nillable="true" type="q16:ArrayOfComponent" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetUnassignedComponentsResponse" nillable="true" type="tns:GetUnassignedComponentsResponse" />
+  <xs:complexType name="ArrayOfRegisterComponentsRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RegisterComponentsRequest" nillable="true" type="tns:RegisterComponentsRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRegisterComponentsRequest" nillable="true" type="tns:ArrayOfRegisterComponentsRequest" />
+  <xs:complexType name="RegisterComponentsRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdministrativeScopeId" type="ser:guid" />
+      <xs:element minOccurs="0" name="ComponentInstallPath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ComponentMachineId" type="ser:guid" />
+      <xs:element minOccurs="0" name="ComponentMachineIp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ComponentMachineName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ComponentNetworkName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ComponentVersion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ConfigurableEntityId" type="ser:guid" />
+      <xs:element xmlns:q17="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="UserCredentials" nillable="true" type="q17:UserCredentials" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegisterComponentsRequest" nillable="true" type="tns:RegisterComponentsRequest" />
+  <xs:complexType name="ArrayOfRegisterComponentsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RegisterComponentsResponse" nillable="true" type="tns:RegisterComponentsResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRegisterComponentsResponse" nillable="true" type="tns:ArrayOfRegisterComponentsResponse" />
+  <xs:complexType name="RegisterComponentsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RegisteredComponentId" type="ser:guid" />
+      <xs:element xmlns:q18="http://schemas.adlibsoftware.com/GlobalClasses/" minOccurs="0" name="ServiceException" nillable="true" type="q18:DetailException" />
+      <xs:element xmlns:q19="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="UserCredentials" nillable="true" type="q19:UserCredentials" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegisterComponentsResponse" nillable="true" type="tns:RegisterComponentsResponse" />
+  <xs:complexType name="ArrayOfUnregisterComponentsRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UnregisterComponentsRequest" nillable="true" type="tns:UnregisterComponentsRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUnregisterComponentsRequest" nillable="true" type="tns:ArrayOfUnregisterComponentsRequest" />
+  <xs:complexType name="UnregisterComponentsRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ComponentId" type="ser:guid" />
+      <xs:element xmlns:q20="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="UserCredentials" nillable="true" type="q20:UserCredentials" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UnregisterComponentsRequest" nillable="true" type="tns:UnregisterComponentsRequest" />
+  <xs:complexType name="ArrayOfUnregisterComponentsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UnregisterComponentsResponse" nillable="true" type="tns:UnregisterComponentsResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUnregisterComponentsResponse" nillable="true" type="tns:ArrayOfUnregisterComponentsResponse" />
+  <xs:complexType name="UnregisterComponentsResponse">
+    <xs:sequence>
+      <xs:element xmlns:q21="http://schemas.adlibsoftware.com/GlobalClasses/" minOccurs="0" name="ServiceException" nillable="true" type="q21:DetailException" />
+      <xs:element xmlns:q22="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="UserCredentials" nillable="true" type="q22:UserCredentials" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UnregisterComponentsResponse" nillable="true" type="tns:UnregisterComponentsResponse" />
+  <xs:complexType name="GetComponentTypesRequest">
+    <xs:sequence>
+      <xs:element xmlns:q23="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="UserCredentials" nillable="true" type="q23:UserCredentials" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetComponentTypesRequest" nillable="true" type="tns:GetComponentTypesRequest" />
+  <xs:complexType name="GetComponentTypesResponse">
+    <xs:sequence>
+      <xs:element xmlns:q24="http://schemas.adlibsoftware.com/Common/Types/" minOccurs="0" name="ComponentTypes" nillable="true" type="q24:ArrayOfComponentType" />
+      <xs:element xmlns:q25="http://schemas.adlibsoftware.com/GlobalClasses/" minOccurs="0" name="ServiceException" nillable="true" type="q25:DetailException" />
+      <xs:element xmlns:q26="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="UserCredentials" nillable="true" type="q26:UserCredentials" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetComponentTypesResponse" nillable="true" type="tns:GetComponentTypesResponse" />
+  <xs:complexType name="ArrayOfGetAllInstalledComponentsRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GetAllInstalledComponentsRequest" nillable="true" type="tns:GetAllInstalledComponentsRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGetAllInstalledComponentsRequest" nillable="true" type="tns:ArrayOfGetAllInstalledComponentsRequest" />
+  <xs:complexType name="GetAllInstalledComponentsRequest">
+    <xs:sequence>
+      <xs:element xmlns:q27="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="UserCredentials" nillable="true" type="q27:UserCredentials" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetAllInstalledComponentsRequest" nillable="true" type="tns:GetAllInstalledComponentsRequest" />
+  <xs:complexType name="ArrayOfGetAllInstalledComponentsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GetAllInstalledComponentsResponse" nillable="true" type="tns:GetAllInstalledComponentsResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGetAllInstalledComponentsResponse" nillable="true" type="tns:ArrayOfGetAllInstalledComponentsResponse" />
+  <xs:complexType name="GetAllInstalledComponentsResponse">
+    <xs:sequence>
+      <xs:element xmlns:q28="http://schemas.adlibsoftware.com/Common/Types/" minOccurs="0" name="AssignedComponents" nillable="true" type="q28:ArrayOfComponent" />
+      <xs:element xmlns:q29="http://schemas.adlibsoftware.com/GlobalClasses/" minOccurs="0" name="ServiceException" nillable="true" type="q29:DetailException" />
+      <xs:element xmlns:q30="http://schemas.adlibsoftware.com/UserManagement/" minOccurs="0" name="UserCredentials" nillable="true" type="q30:UserCredentials" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetAllInstalledComponentsResponse" nillable="true" type="tns:GetAllInstalledComponentsResponse" />
+</xs:schema>

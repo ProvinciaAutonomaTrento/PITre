@@ -1,0 +1,50 @@
+<%@ ContentType="text/css" %>
+
+
+#header UL LI:last-child{width:18%}
+
+.visualicon .item{margin-right:30px!important;}
+.visualicon .item:nth-child(4n){margin-right:0px;float:left;}
+
+#box_azioni .pop{
+	float:left;background:#fff;
+	margin:10px 0px 0px 10px;
+	}
+	#box_azioni UL
+{float:right}	
+
+
+
+#smista_form .label_tabella P:nth-child(1){width: 508px;}
+#smista_doc .other table{height:65px;}
+
+.info_deleghe{
+background:url(<%= Request.ApplicationPath %>/Content/img/galaxy/deleghe_separatore.gif) 180px 30px repeat-y;}	
+
+.info_deleghe .spalla {	width: 180px;}
+.info_deleghe .contenuto{width:455px;}
+
+
+#smista_doc .info,#smista_doc .other{float:left;width:49%;}
+#lista_documenti{margin:1px 0px 0px 20px;background:url(<%= Request.ApplicationPath %>/Content/img/ipad/smistatore_separatore.gif) repeat-y 48% top;}
+
+#filter_ruolo{
+	width: 60%;
+	height:100%;
+	float:left;
+	text-align:left;
+	padding:0px 0px 0px 0px;
+}
+
+.filter_ricerca{width:263px;}
+.box_ricerche .arrow_azioni{right:25px;}
+
+
+.visualgrid .info_item1{width:130px;float:left;}
+.visualgrid .info_item2{width:230px;float:left;margin:0px 0px 0px 0px}
+
+
+.info_deleghe .spalla .imgBig{background:url(<%= Request.ApplicationPath %>/Content/img/galaxy/delega_iconapers_big2.png) no-repeat left top;}
+.info_deleghe.off .spalla .imgBig{background:url(<%= Request.ApplicationPath %>/Content/img/galaxy/delega_iconapers_big2_off.png) no-repeat left top;}
+
+#name_onservicebar{width:440px;}

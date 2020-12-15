@@ -1,0 +1,38 @@
+-- =============================================
+-- Author:		FRANCESCO FONZO
+-- Create date: 05/03/2013
+-- Description:	CONVERSIONE DA ORACLE A SQL SERVER
+-- GETESITOPUBBLICAZIONE
+-- =============================================
+
+
+ALTER FUNCTION [DOCSADM].[GETESITOPUBBLICAZIONE] 
+(
+	@p_systemid INT
+)
+RETURNS VARCHAR(256)
+AS
+BEGIN
+
+	DECLARE @VARESITOPUBBLICAZIONE	VARCHAR(256)
+	DECLARE @ESITO					VARCHAR(256)
+	DECLARE @ERRORE					VARCHAR(256)
+
+
+	SELECT @ESITO = ESITO_PUBBLICAZIONE
+		, @ERRORE = ERRORE_PUBBLICAZIONE
+    FROM DOCSADM.PUBBLICAZIONI_DOCUMENTI
+    WHERE ID_PROFILE = @P_SYSTEMID
+    
+    IF (@ERRORE IS NOT NULL)
+        SET @VARESITOPUBBLICAZIONE = 'Il documento non è stato pubblicato ' + @ERRORE
+	ELSE IF (@ESITO = '1' AND @ERRORE IS NULL)
+        SET @VARESITOPUBBLICAZIONE = 'Il documento è stato pubblicato'
+    ELSE IF (@ESITO = '0' AND @ERRORE IS NULL)
+        SET @VARESITOPUBBLICAZIONE = 'Il documento non è stato pubblicato'
+
+
+	RETURN @VARESITOPUBBLICAZIONE
+
+END
+

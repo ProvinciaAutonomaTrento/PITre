@@ -1,0 +1,159 @@
+<html>
+	<head>
+		<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+        <META HTTP-EQUIV="Expires" CONTENT="-1">	
+        <title></title>
+		<object id="ctrlPrintPen"
+				classid="CLSID:2860F27F-FC9F-4CDA-B0CB-55A5BD09C52E"
+				codebase="../activex/DocsPa_PrintPen.CAB#version=1,1,0,0" VIEWASTEXT>
+		</object>				
+		<object id="Timbro"
+				classid="CLSID:082E84B3-1315-4729-8F0D-8E93658E02DA"
+				codebase="../activex/DocsPa_PrintPen.CAB#version=1,1,0,0" VIEWASTEXT>
+		</object>
+
+		<script type="text/javascript">
+		function body_onLoad() {
+			if(parent.document.docProtocollo.lbl_segnatura.value != "") {
+				if(parent.document.docProtocollo.hd_num_proto.value != "") {
+					var l_segnatura=parent.document.docProtocollo.lbl_segnatura.value;
+					pf_printSignatureWithPenna(l_segnatura);	
+				} 
+				else 
+				{
+					alert('Numero di protocollo non assegnato!');
+				}
+			}
+		}
+
+		function pf_printSignatureWithTimbro(timbro,signature)
+		{	
+			timbro.setBuffer(10, 32);
+			timbro.printString(signature);
+			if (timbro.lastErrorDescription!="")
+			{
+				alert('Errore: '+timbro.lastErrorDescription);
+				alert('Stampa della segnatura: '+timbro.DocsPaTimbro.Buffer.bufferString+' non risucita');
+			}
+			else
+			{
+				alert('Stampa effettuata correttamente');
+			}
+		}
+		
+		function pf_printSignatureWithPenna(signature)
+		{
+			try 
+			{
+				ctrlPrintPen.Classifica = parent.document.docProtocollo.hd_classifica.value;
+				ctrlPrintPen.Fascicolo = parent.document.docProtocollo.hd_fascicolo.value;
+				ctrlPrintPen.Amministrazione_Etichetta= parent.document.docProtocollo.hd_amministrazioneEtichetta.value;
+				ctrlPrintPen.NumeroDocumento = parent.document.docProtocollo.hd_num_doc.value;
+			    ctrlPrintPen.CodiceUoProtocollatore = parent.document.docProtocollo.hd_coduo_proto.value;
+			    ctrlPrintPen.CodiceRegistroProtocollo = parent.document.docProtocollo.hd_codreg_proto.value;
+			    ctrlPrintPen.TipoProtocollo = parent.document.docProtocollo.hd_tipo_proto.value;
+			    ctrlPrintPen.NumeroProtocollo = parent.document.docProtocollo.hd_num_proto.value;
+			    ctrlPrintPen.AnnoProtocollo = parent.document.docProtocollo.hd_anno_proto.value;
+			    ctrlPrintPen.DataProtocollo = parent.document.docProtocollo.hd_data_proto.value;
+			}
+			catch(e) 
+			{
+			}
+			
+			try
+			{
+                //NB: attributi presente a partire dalla versione 3.5.0 dell'ocx printpen
+			    ctrlPrintPen.NumeroAllegati = parent.document.docProtocollo.hd_numero_allegati.value;
+			}
+			catch (e)
+			{
+			}
+			
+            try
+		    {   
+		        // NB: attributo presente a partire dalla versione 3.6.1 dell'ocx printpen
+		        ctrlPrintPen.DataCreazione = parent.document.docProtocollo.hd_dataCreazione.value;
+		        ctrlPrintPen.CodiceUoCreatore = parent.document.docProtocollo.hd_codiceUoCreatore.value;
+		    }
+		    catch(ex)
+		    {}
+		    
+		    try
+		    {
+		        // NB: attributo presente a partire dalla versione 3.7.12 dell'ocx printpen
+		        ctrlPrintPen.DescrizioneRegistroProtocollo = parent.document.docProtocollo.hd_descreg_proto.value;
+		    }
+		    catch (ex)
+		    {}
+
+			try 
+			{
+				ctrlPrintPen.UrlFileIni = parent.document.docProtocollo.hd_UrlIniFileDispositivo.value;
+				ctrlPrintPen.Amministrazione= parent.document.docProtocollo.hd_descrizioneAmministrazione.value;
+			}
+			catch(e) 
+			{
+			}
+			try 
+            {
+			    ctrlPrintPen.DataArrivo = parent.document.docProtocollo.hd_dataArrivo.value;
+			    ctrlPrintPen.DataArrivoEstesa = parent.document.docProtocollo.hd_dataArrivoEstesa.value;
+			}
+			catch (e) 
+            {
+			}
+			try 
+			{
+			    ctrlPrintPen.Dispositivo = parent.document.docProtocollo.hd_dispositivo.value;
+			    ctrlPrintPen.ModelloDispositivo = parent.document.docProtocollo.hd_modello_dispositivo.value;
+			    ctrlPrintPen.NumeroStampe = parent.document.docProtocollo.hd_num_stampe.value;
+			    ctrlPrintPen.NumeroStampeEffettuate = parent.document.docProtocollo.hd_num_stampe_effettuate.value;
+			    ctrlPrintPen.NumeroStampaCorrente = parent.document.docProtocollo.hd_num_stampe_effettuate.value;
+			    ctrlPrintPen.OraCreazione = parent.document.docProtocollo.hd_ora_creazione.value;
+			    ctrlPrintPen.Text = signature;
+                var retValue=false;
+                var i;
+                var num_stampa_corr=parent.document.docProtocollo.hd_num_stampe_effettuate.value;
+			    for (i = 0; i < parent.document.docProtocollo.hd_num_stampe.value; i++)
+			    {
+			        retValue = ctrlPrintPen.Stampa();
+			        ++num_stampa_corr;
+			        ctrlPrintPen.NumeroStampaCorrente = num_stampa_corr.toString();
+                }
+				retValue = true;
+				if (retValue) {
+				    // Stampa eseguita correttamente,
+				    // aggiornamento contatore numero stampe effettuate
+				    // richiamando la pagina "WriteContatoreStampaEtichetta.aspx"
+				    // fornendo, come parametri da querystring, 
+                    // - il numero di stampe effettuate finora
+                    // - il numero di stampe da effettuare
+				    var http = CreateObject("MSXML2.XMLHTTP");
+				    /*http.Open("POST",
+                        "WriteContatoreStampaEtichetta.aspx?numeroStampeEffettuate=" + ctrlPrintPen.NumeroStampeEffettuate + "&numeroStampeDaEffettuare=" + ctrlPrintPen.NumeroStampe, false);*/
+				    http.Open("POST",   
+                         "WriteContatoreStampaEtichetta.aspx?numeroStampeEffettuate=" +(parseInt(ctrlPrintPen.NumeroStampeEffettuate)-1).toString() + "&numeroStampeDaEffettuare=" + ctrlPrintPen.NumeroStampe, false);
+                    http.send();
+				}
+			}
+            catch (e) 
+            {
+			    alert("Errore.\n" + e.message.toString());
+			}
+        }
+
+        // Creazione oggetto activex con gestione errore
+        function CreateObject(objectType) {
+            try {
+                return new ActiveXObject(objectType);
+            }
+            catch (ex) {
+                alert("Oggetto '" + objectType + "' non istanziato");
+            }
+        }	
+		
+		</script>
+	</head>
+	<body onload="body_onLoad()">		
+	</body>
+</html>

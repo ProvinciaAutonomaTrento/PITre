@@ -1,0 +1,1 @@
+<%@ WebService Language="C#" Class="Publisher.Hosts.PublisherWebService" %> 

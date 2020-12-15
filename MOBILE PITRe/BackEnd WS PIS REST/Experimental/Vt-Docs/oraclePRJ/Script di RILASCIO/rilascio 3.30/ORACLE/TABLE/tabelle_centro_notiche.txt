@@ -1,0 +1,96 @@
+begin
+	declare cnt int;
+    begin
+        
+        select count(*) into cnt from user_tables where table_name='DPA_NOTIFY';
+        if (cnt = 0) then
+          execute immediate    
+			'CREATE TABLE DPA_NOTIFY
+			(
+				SYSTEM_ID          NUMBER(10, 0) NOT NULL ,
+				ID_EVENT           NUMBER(10, 0) NOT NULL ,
+				DESC_PRODUCER      VARCHAR2(500 CHAR) NOT NULL ,
+				ID_PEOPLE_RECEIVER NUMBER(10, 0) NOT NULL ,
+				ID_GROUP_RECEIVER  NUMBER(10, 0) ,
+				TYPE_NOTIFY        CHAR(1 CHAR) NOT NULL ,
+				DTA_NOTIFY DATE NOT NULL ,
+				FIELD_1               VARCHAR2(4000 CHAR) ,
+				FIELD_2               VARCHAR2(4000 CHAR) ,
+				FIELD_3               VARCHAR2(4000 CHAR) ,
+				FIELD_4               VARCHAR2(4000 CHAR) ,
+				MULTIPLICITY          CHAR(3 CHAR) DEFAULT ''ONE'',
+				SPECIALIZED_FIELD     VARCHAR2(4000 CHAR),
+				TYPE_EVENT            VARCHAR2(256 CHAR),
+				DOMAINOBJECT          VARCHAR2(128 BYTE),
+				ID_OBJECT             NUMBER(10,0),
+				ID_SPECIALIZED_OBJECT NUMBER(10,0),
+				DTA_EVENT DATE NOT NULL ,
+				READ_NOTIFICATION CHAR(1 CHAR) DEFAULT ''0'',
+				COLOR             VARCHAR2(200 CHAR) DEFAULT ''BLUE'',
+				CONSTRAINT DPA_NOTIFY_PK PRIMARY KEY ( SYSTEM_ID ) ENABLE
+			)';
+		end if;
+	end;
+end;
+/
+
+begin
+	declare cnt int;
+    begin
+        
+        select count(*) into cnt from user_tables where table_name='DPA_NOTIFY_HISTORY';
+        if (cnt = 0) then
+          execute immediate    
+			'CREATE TABLE DPA_NOTIFY_HISTORY
+			  (
+				SYSTEM_ID          NUMBER(10, 0) NOT NULL ,
+				ID_NOTIFY          NUMBER(10, 0) NOT NULL ,
+				ID_EVENT           NUMBER(10, 0) NOT NULL ,
+				DESC_PRODUCER      VARCHAR2(500 CHAR) NOT NULL ,
+				ID_PEOPLE_RECEIVER NUMBER(10, 0) NOT NULL ,
+				ID_GROUP_RECEIVER  NUMBER(10, 0) ,
+				TYPE_NOTIFY        CHAR(1 CHAR) NOT NULL ,
+				DTA_NOTIFY DATE NOT NULL ,
+				FIELD_1               VARCHAR2(4000 CHAR) ,
+				FIELD_2               VARCHAR2(4000 CHAR) ,
+				FIELD_3               VARCHAR2(4000 CHAR) ,
+				FIELD_4               VARCHAR2(4000 CHAR) ,
+				MULTIPLICITY          CHAR(3 CHAR) DEFAULT ''ONE'',
+				SPECIALIZED_FIELD     VARCHAR2(4000 CHAR),
+				TYPE_EVENT            VARCHAR2(256 CHAR),
+				DOMAINOBJECT          VARCHAR2(128 BYTE),
+				ID_OBJECT             NUMBER(10,0),
+				ID_SPECIALIZED_OBJECT NUMBER(10,0),
+				DTA_EVENT DATE NOT NULL ,
+				READ_NOTIFICATION CHAR(1 CHAR) DEFAULT ''0'',
+				CONSTRAINT DPA_NOTIFY_HISTORY_PK PRIMARY KEY ( SYSTEM_ID ) ENABLE
+			  )';
+		end if;
+	end;
+end;
+/
+
+begin
+	declare cnt int;
+    begin
+        
+        select count(*) into cnt from user_tables where table_name='DPA_EVENT_TYPE_ASSERTIONS';
+        if (cnt = 0) then
+          execute immediate    
+			'CREATE TABLE DPA_EVENT_TYPE_ASSERTIONS
+			  (
+				SYSTEM_ID     NUMBER(10, 0) NOT NULL ,
+				ID_TYPE_EVENT NUMBER(10, 0) NOT NULL ,
+				DESC_TYPE_EVENT VARCHAR2(128 char),
+				ID_AUR        NUMBER(10, 0) ,
+				DESC_AUR      VARCHAR2 (500 CHAR),
+				TYPE_AUR   VARCHAR2(50 char) ,
+				TYPE_NOTIFY   CHAR(1 CHAR) NOT NULL ,
+				IS_EXERCISE   CHAR (1CHAR) DEFAULT ''0'',
+				ID_AMM          NUMBER(10,0) NOT NULL,
+				CONSTRAINT DPA_EVENT_TYPE_ASSERTIONS_PK PRIMARY KEY ( SYSTEM_ID ) ENABLE
+			  )';
+		end if;
+	end;
+end;
+/

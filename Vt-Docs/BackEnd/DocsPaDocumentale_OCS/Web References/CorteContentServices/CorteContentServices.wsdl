@@ -1,0 +1,2147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="urn:it:CorteConti:Servizi:CorteContentServices:wsdl:types" xmlns:tns="urn:it:CorteConti:Servizi:CorteContentServices:wsdl" xmlns:ns2="urn:it:CorteConti:Servizi:CorteContentServices_Schema:xsd" xmlns:ns="http://schemas.xmlsoap.org/soap/encoding/" xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:ns4="urn:it:CorteConti:Servizi:CorteContentServicesResponse_Schema:xsd" xmlns:ns3="urn:it:CorteConti:Servizi:CorteContentServicesRequest_Schema:xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" name="CorteContentServices" targetNamespace="urn:it:CorteConti:Servizi:CorteContentServices:wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="urn:it:CorteConti:Servizi:CorteContentServices:wsdl:types">
+      <xsd:import schemaLocation="CorteContentServices_Schema.xsd" namespace="urn:it:CorteConti:Servizi:CorteContentServices_Schema:xsd" />
+      <xsd:import schemaLocation="CorteContentServicesRequest_Schema.xsd" namespace="urn:it:CorteConti:Servizi:CorteContentServicesRequest_Schema:xsd" />
+      <xsd:import schemaLocation="CorteContentServicesResponse_Schema.xsd" namespace="urn:it:CorteConti:Servizi:CorteContentServicesResponse_Schema:xsd" />
+      <xsd:element name="loginRequest" type="ns3:UserCredentialsRequestType" />
+      <xsd:element name="createGroupRequest" type="ns3:GroupRequestType" />
+      <xsd:element name="modifyGroupRequest" type="ns3:GroupRequestType" />
+      <xsd:element name="deleteGroupRequest" type="ns3:GroupDefinitionRequestType" />
+      <xsd:element name="addGroupUsersRequest" type="ns3:GroupRequestType" />
+      <xsd:element name="removeGroupUsersRequest" type="ns3:GroupRequestType" />
+      <xsd:element name="getGroupUsersRequest" type="ns3:GroupDefinitionRequestType" />
+      <xsd:element name="getGroupsRequest" type="ns3:UserCredentialsRequestType" />
+      <xsd:element name="removeAllUsersRequest" type="ns3:GroupDefinitionRequestType" />
+      <xsd:element name="createDocumentRequest" type="ns3:DocumentCreateRequestType" />
+      <xsd:element name="modifyDocumentRequest" type="ns3:DocumentModifyRequestType" />
+      <xsd:element name="deleteDocumentRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="lockDocumentRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="unlockDocumentRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="isLockedDocumentRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="getLockedDocumentsRequest" type="ns3:UsersRequestType" />
+      <xsd:element name="addDocumentGrantsRequest" type="ns3:ItemGrantsRequestType" />
+      <xsd:element name="setDocumentGrantsRequest" type="ns3:ItemGrantsRequestType" />
+      <xsd:element name="removeDocumentGrantsRequest" type="ns3:ItemGrantsRequestType" />
+      <xsd:element name="getDocumentGrantsRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="getDocumentGeneralInfoRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="getDocumentMetadataRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="getDocumentAttachmentsRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="getDocumentVersionsRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="copyDocumentRequest" type="ns3:ItemFolderRequestType" />
+      <xsd:element name="moveDocumentRequest" type="ns3:ItemFolderRequestType" />
+      <xsd:element name="getLastVersionDocumentRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="addAttachDocumentRequest" type="ns3:DocumentAddAttachRequestType" />
+      <xsd:element name="createNewVersionDocumentRequest" type="ns3:ItemCreateVersionRequestType" />
+      <xsd:element name="uploadDocumentRequest" type="ns3:ItemUploadRequestType" />
+      <xsd:element name="downloadDocumentRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="setMetadataDocumentRequest" type="ns3:ItemMetadataRequestType" />
+      <xsd:element name="setGeneralInfoDocumentRequest" type="ns3:ItemInfoRequestType" />
+      <xsd:element name="searchDocumentsRequest" type="ns3:FilterSearchRequestType" />
+      <xsd:element name="getDocumentByNameRequest" type="ns3:DocumentNameSearchRequestType" />
+      <xsd:element name="getVersionDocumentRequest" type="ns3:ItemVersionNumberSearchRequestType" />
+      <xsd:element name="getPhysicalDataDocumentRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="createFolderRequest" type="ns3:FolderCreateRequestType" />
+      <xsd:element name="modifyFolderRequest" type="ns3:FolderModifyRequestType" />
+      <xsd:element name="deleteFolderRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="getDocumentsRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="moveFolderRequest" type="ns3:ItemFolderRequestType" />
+      <xsd:element name="addGrantsFolderRequest" type="ns3:ItemGrantsRequestType" />
+      <xsd:element name="setGrantsFolderRequest" type="ns3:ItemGrantsRequestType" />
+      <xsd:element name="removeGrantsFolderRequest" type="ns3:ItemGrantsRequestType" />
+      <xsd:element name="getGrantsFolderRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="getGeneralInfoFolderRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="getMetadataFolderRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="setGeneralInfoFolderRequest" type="ns3:ItemInfoRequestType" />
+      <xsd:element name="setMetadataFolderRequest" type="ns3:ItemMetadataRequestType" />
+      <xsd:element name="searchFoldersRequest" type="ns3:FilterSearchRequestType" />
+      <xsd:element name="getFolderByNameRequest" type="ns3:FolderNameSearchRequestType" />
+      <xsd:element name="createLinkRequest" type="ns3:LinkCreateRequestType" />
+      <xsd:element name="modifyLinkRequest" type="ns3:LinkModifyRequestType" />
+      <xsd:element name="deleteLinkRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="moveLinkRequest" type="ns3:ItemFolderRequestType" />
+      <xsd:element name="getGeneralInfoLinkRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="setGeneralInfoLinkRequest" type="ns3:ItemInfoRequestType" />
+      <xsd:element name="addGrantsLinkRequest" type="ns3:ItemGrantsRequestType" />
+      <xsd:element name="setGrantsLinkRequest" type="ns3:ItemGrantsRequestType" />
+      <xsd:element name="removeGrantsLinkRequest" type="ns3:ItemGrantsRequestType" />
+      <xsd:element name="getGrantsLinkRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="getLinkByNameRequest" type="ns3:LinkNameSearchRequestType" />
+      <xsd:element name="createDocumentVersionRequest" type="ns3:VersionCreateDocumentRequestType" />
+      <xsd:element name="modifyVersionRequest" type="ns3:VersionModifyRequestType" />
+      <xsd:element name="deleteVersionRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="getGeneralInfoVersionRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="getMetadataVersionRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="getPhysicalDataVersionRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="setMetadataVersionRequest" type="ns3:ItemMetadataRequestType" />
+      <xsd:element name="uploadVersionRequest" type="ns3:ItemUploadRequestType" />
+      <xsd:element name="downloadVersionRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="searchVersionsRequest" type="ns3:FilterSearchRequestType" />
+      <xsd:element name="createAttachRequest" type="ns3:AttachCreateRequestType" />
+      <xsd:element name="modifyAttachRequest" type="ns3:AttachModifyRequestType" />
+      <xsd:element name="deleteAttachRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="lockAttachRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="unlockAttachRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="isLockedAttachRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="getLockedAttachmentsRequest" type="ns3:UsersRequestType" />
+      <xsd:element name="addAttachGrantsRequest" type="ns3:ItemGrantsRequestType" />
+      <xsd:element name="setAttachGrantsRequest" type="ns3:ItemGrantsRequestType" />
+      <xsd:element name="removeAttachGrantsRequest" type="ns3:ItemGrantsRequestType" />
+      <xsd:element name="getAttachGrantsRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="getAttachGeneralInfoRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="getAttachMetadataRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="getAttachVersionsRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="getLastVersionAttachRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="createNewVersionAttachRequest" type="ns3:ItemCreateVersionRequestType" />
+      <xsd:element name="uploadAttachRequest" type="ns3:ItemUploadRequestType" />
+      <xsd:element name="downloadAttachRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="setMetadataAttachRequest" type="ns3:ItemMetadataRequestType" />
+      <xsd:element name="setGeneralInfoAttachRequest" type="ns3:ItemInfoRequestType" />
+      <xsd:element name="searchAttachmentsRequest" type="ns3:FilterSearchRequestType" />
+      <xsd:element name="getAttachByNameRequest" type="ns3:DocumentNameSearchRequestType" />
+      <xsd:element name="getVersionAttachRequest" type="ns3:ItemVersionNumberSearchRequestType" />
+      <xsd:element name="getPhysicalDataAttachRequest" type="ns3:ItemIdRequestType" />
+      <xsd:element name="changeVersionRequest" type="ns3:ChangeVersionRequestType" />
+      <xsd:element name="createVersionedAttachRequest" type="ns3:ItemCreateVersionRequestType" />
+      <xsd:element name="loginResult" type="ns2:ResultType" />
+      <xsd:element name="createGroupResult" type="ns2:ResultType" />
+      <xsd:element name="modifyGroupResult" type="ns2:ResultType" />
+      <xsd:element name="deleteGroupResult" type="ns2:ResultType" />
+      <xsd:element name="addGroupUsersResult" type="ns2:ResultType" />
+      <xsd:element name="removeGroupUsersResult" type="ns2:ResultType" />
+      <xsd:element name="getGroupUsersResult" type="ns4:UsersResponseType" />
+      <xsd:element name="getGroupsResult" type="ns4:GroupsResponseType" />
+      <xsd:element name="removeAllUsersResult" type="ns2:ResultType" />
+      <xsd:element name="createDocumentResult" type="ns4:ItemIdResponseType" />
+      <xsd:element name="modifyDocumentResult" type="ns2:ResultType" />
+      <xsd:element name="deleteDocumentResult" type="ns2:ResultType" />
+      <xsd:element name="lockDocumentResult" type="ns2:ResultType" />
+      <xsd:element name="unlockDocumentResult" type="ns2:ResultType" />
+      <xsd:element name="isLockedDocumentResult" type="ns4:ResponseType" />
+      <xsd:element name="getLockedDocumentsResult" type="ns4:ItemLockedListResponseType" />
+      <xsd:element name="addDocumentGrantsResult" type="ns2:ResultType" />
+      <xsd:element name="setDocumentGrantsResult" type="ns2:ResultType" />
+      <xsd:element name="removeDocumentGrantsResult" type="ns2:ResultType" />
+      <xsd:element name="getDocumentGrantsResult" type="ns4:ItemGrantsResponseType" />
+      <xsd:element name="getDocumentGeneralInfoResult" type="ns4:ItemInfoResponseType" />
+      <xsd:element name="getDocumentMetadataResult" type="ns4:ItemMetadataResponseType" />
+      <xsd:element name="getDocumentAttachmentsResult" type="ns4:DocumentAttachListResponseType" />
+      <xsd:element name="getDocumentVersionsResult" type="ns4:DocumentVersionListResponseType" />
+      <xsd:element name="copyDocumentResult" type="ns4:ItemIdResponseType" />
+      <xsd:element name="moveDocumentResult" type="ns2:ResultType" />
+      <xsd:element name="getLastVersionDocumentResult" type="ns4:VersionResponseType" />
+      <xsd:element name="addAttachDocumentResult" type="ns4:DocumentAttachListResponseType" />
+      <xsd:element name="createNewVersionDocumentResult" type="ns4:ItemIdResponseType" />
+      <xsd:element name="uploadDocumentResult" type="ns2:ResultType" />
+      <xsd:element name="downloadDocumentResult" type="ns4:PhysicalDataResponseType" />
+      <xsd:element name="setMetadataDocumentResult" type="ns2:ResultType" />
+      <xsd:element name="setGeneralInfoDocumentResult" type="ns2:ResultType" />
+      <xsd:element name="searchDocumentsResult" type="ns4:ItemSearchListResponseType" />
+      <xsd:element name="getDocumentByNameResult" type="ns4:ItemIdResponseType" />
+      <xsd:element name="getVersionDocumentResult" type="ns4:VersionResponseType" />
+      <xsd:element name="getPhysicalDataDocumentResult" type="ns4:PhysicalDataResponseType" />
+      <xsd:element name="createFolderResult" type="ns4:ItemIdResponseType" />
+      <xsd:element name="modifyFolderResult" type="ns2:ResultType" />
+      <xsd:element name="deleteFolderResult" type="ns2:ResultType" />
+      <xsd:element name="getDocumentsResult" type="ns4:FolderDocumentListResponseType" />
+      <xsd:element name="moveFolderResult" type="ns2:ResultType" />
+      <xsd:element name="addGrantsFolderResult" type="ns2:ResultType" />
+      <xsd:element name="setGrantsFolderResult" type="ns2:ResultType" />
+      <xsd:element name="removeGrantsFolderResult" type="ns2:ResultType" />
+      <xsd:element name="getGrantsFolderResult" type="ns4:ItemGrantsResponseType" />
+      <xsd:element name="getGeneralInfoFolderResult" type="ns4:ItemInfoResponseType" />
+      <xsd:element name="getMetadataFolderResult" type="ns4:ItemMetadataResponseType" />
+      <xsd:element name="setGeneralInfoFolderResult" type="ns2:ResultType" />
+      <xsd:element name="setMetadataFolderResult" type="ns2:ResultType" />
+      <xsd:element name="searchFoldersResult" type="ns4:ItemSearchListResponseType" />
+      <xsd:element name="getFolderByNameResult" type="ns4:ItemIdResponseType" />
+      <xsd:element name="createLinkResult" type="ns4:ItemIdResponseType" />
+      <xsd:element name="modifyLinkResult" type="ns2:ResultType" />
+      <xsd:element name="deleteLinkResult" type="ns2:ResultType" />
+      <xsd:element name="moveLinkResult" type="ns2:ResultType" />
+      <xsd:element name="addGrantsLinkResult" type="ns2:ResultType" />
+      <xsd:element name="setGrantsLinkResult" type="ns2:ResultType" />
+      <xsd:element name="removeGrantsLinkResult" type="ns2:ResultType" />
+      <xsd:element name="getGrantsLinkResult" type="ns4:ItemGrantsResponseType" />
+      <xsd:element name="getGeneralInfoLinkResult" type="ns4:ItemInfoResponseType" />
+      <xsd:element name="setGeneralInfoLinkResult" type="ns2:ResultType" />
+      <xsd:element name="getLinkByNameResult" type="ns4:ItemIdResponseType" />
+      <xsd:element name="createDocumentVersionResult" type="ns4:ItemIdResponseType" />
+      <xsd:element name="modifyVersionResult" type="ns2:ResultType" />
+      <xsd:element name="deleteVersionResult" type="ns2:ResultType" />
+      <xsd:element name="getGeneralInfoVersionResult" type="ns4:ItemInfoResponseType" />
+      <xsd:element name="getMetadataVersionResult" type="ns4:ItemMetadataResponseType" />
+      <xsd:element name="getPhysicalDataVersionResult" type="ns4:PhysicalDataResponseType" />
+      <xsd:element name="setMetadataVersionResult" type="ns2:ResultType" />
+      <xsd:element name="uploadVersionResult" type="ns2:ResultType" />
+      <xsd:element name="downloadVersionResult" type="ns4:PhysicalDataResponseType" />
+      <xsd:element name="searchVersionsResult" type="ns4:ItemSearchListResponseType" />
+      <xsd:element name="createAttachResult" type="ns4:ItemIdResponseType" />
+      <xsd:element name="modifyAttachResult" type="ns2:ResultType" />
+      <xsd:element name="deleteAttachResult" type="ns2:ResultType" />
+      <xsd:element name="lockAttachResult" type="ns2:ResultType" />
+      <xsd:element name="unlockAttachResult" type="ns2:ResultType" />
+      <xsd:element name="isLockedAttachResult" type="ns4:ResponseType" />
+      <xsd:element name="getLockedAttachmentsResult" type="ns4:ItemLockedListResponseType" />
+      <xsd:element name="addAttachGrantsResult" type="ns2:ResultType" />
+      <xsd:element name="setAttachGrantsResult" type="ns2:ResultType" />
+      <xsd:element name="removeAttachGrantsResult" type="ns2:ResultType" />
+      <xsd:element name="getAttachGrantsResult" type="ns4:ItemGrantsResponseType" />
+      <xsd:element name="getAttachGeneralInfoResult" type="ns4:ItemInfoResponseType" />
+      <xsd:element name="getAttachMetadataResult" type="ns4:ItemMetadataResponseType" />
+      <xsd:element name="getAttachVersionsResult" type="ns4:DocumentVersionListResponseType" />
+      <xsd:element name="getLastVersionAttachResult" type="ns4:VersionResponseType" />
+      <xsd:element name="createNewVersionAttachResult" type="ns4:ItemIdResponseType" />
+      <xsd:element name="uploadAttachResult" type="ns2:ResultType" />
+      <xsd:element name="downloadAttachResult" type="ns4:PhysicalDataResponseType" />
+      <xsd:element name="setMetadataAttachResult" type="ns2:ResultType" />
+      <xsd:element name="setGeneralInfoAttachResult" type="ns2:ResultType" />
+      <xsd:element name="searchAttachmentsResult" type="ns4:ItemSearchListResponseType" />
+      <xsd:element name="getAttachByNameResult" type="ns4:ItemIdResponseType" />
+      <xsd:element name="getVersionAttachResult" type="ns4:VersionResponseType" />
+      <xsd:element name="getPhysicalDataAttachResult" type="ns4:PhysicalDataResponseType" />
+      <xsd:element name="changeVersionResult" type="ns2:ResultType" />
+      <xsd:element name="createVersionedAttachResult" type="ns4:ItemIdResponseType" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="CreateFolderMsg">
+    <wsdl:part name="content" element="ns1:createFolderRequest" />
+  </wsdl:message>
+  <wsdl:message name="CreateFolderResultMsg">
+    <wsdl:part name="content" element="ns1:createFolderResult" />
+  </wsdl:message>
+  <wsdl:message name="ModifyFolderMsg">
+    <wsdl:part name="content" element="ns1:modifyFolderRequest" />
+  </wsdl:message>
+  <wsdl:message name="ModifyFolderResultMsg">
+    <wsdl:part name="content" element="ns1:modifyFolderResult" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFolderMsg">
+    <wsdl:part name="content" element="ns1:deleteFolderRequest" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFolderResultMsg">
+    <wsdl:part name="content" element="ns1:deleteFolderResult" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentsMsg">
+    <wsdl:part name="content" element="ns1:getDocumentsRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentsResultMsg">
+    <wsdl:part name="content" element="ns1:getDocumentsResult" />
+  </wsdl:message>
+  <wsdl:message name="MoveFolderMsg">
+    <wsdl:part name="content" element="ns1:moveFolderRequest" />
+  </wsdl:message>
+  <wsdl:message name="MoveFolderResultMsg">
+    <wsdl:part name="content" element="ns1:moveFolderResult" />
+  </wsdl:message>
+  <wsdl:message name="AddGrantsFolderMsg">
+    <wsdl:part name="content" element="ns1:addGrantsFolderRequest" />
+  </wsdl:message>
+  <wsdl:message name="AddGrantsFolderResultMsg">
+    <wsdl:part name="content" element="ns1:addGrantsFolderResult" />
+  </wsdl:message>
+  <wsdl:message name="SetGrantsFolderMsg">
+    <wsdl:part name="content" element="ns1:setGrantsFolderRequest" />
+  </wsdl:message>
+  <wsdl:message name="SetGrantsFolderResultMsg">
+    <wsdl:part name="content" element="ns1:setGrantsFolderResult" />
+  </wsdl:message>
+  <wsdl:message name="RemoveGrantsFolderMsg">
+    <wsdl:part name="content" element="ns1:removeGrantsFolderRequest" />
+  </wsdl:message>
+  <wsdl:message name="RemoveGrantsFolderResultMsg">
+    <wsdl:part name="content" element="ns1:removeGrantsFolderResult" />
+  </wsdl:message>
+  <wsdl:message name="GetGrantsFolderMsg">
+    <wsdl:part name="content" element="ns1:getGrantsFolderRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetGrantsFolderResultMsg">
+    <wsdl:part name="content" element="ns1:getGrantsFolderResult" />
+  </wsdl:message>
+  <wsdl:message name="GetGeneralInfoFolderMsg">
+    <wsdl:part name="content" element="ns1:getGeneralInfoFolderRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetGeneralInfoFolderResultMsg">
+    <wsdl:part name="content" element="ns1:getGeneralInfoFolderResult" />
+  </wsdl:message>
+  <wsdl:message name="GetMetadataFolderMsg">
+    <wsdl:part name="content" element="ns1:getMetadataFolderRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetMetadataFolderResultMsg">
+    <wsdl:part name="content" element="ns1:getMetadataFolderResult" />
+  </wsdl:message>
+  <wsdl:message name="SetGeneralInfoFolderMsg">
+    <wsdl:part name="content" element="ns1:setGeneralInfoFolderRequest" />
+  </wsdl:message>
+  <wsdl:message name="SetGeneralInfoFolderResultMsg">
+    <wsdl:part name="content" element="ns1:setGeneralInfoFolderResult" />
+  </wsdl:message>
+  <wsdl:message name="SetMetadataFolderMsg">
+    <wsdl:part name="content" element="ns1:setMetadataFolderRequest" />
+  </wsdl:message>
+  <wsdl:message name="SetMetadataFolderResultMsg">
+    <wsdl:part name="content" element="ns1:setMetadataFolderResult" />
+  </wsdl:message>
+  <wsdl:message name="SearchFoldersMsg">
+    <wsdl:part name="content" element="ns1:searchFoldersRequest" />
+  </wsdl:message>
+  <wsdl:message name="SearchFoldersResultMsg">
+    <wsdl:part name="content" element="ns1:searchFoldersResult" />
+  </wsdl:message>
+  <wsdl:message name="GetFolderByNameMsg">
+    <wsdl:part name="content" element="ns1:getFolderByNameRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetFolderByNameResultMsg">
+    <wsdl:part name="content" element="ns1:getFolderByNameResult" />
+  </wsdl:message>
+  <wsdl:message name="CreateDocumentVersionMsg">
+    <wsdl:part name="content" element="ns1:createDocumentVersionRequest" />
+  </wsdl:message>
+  <wsdl:message name="CreateDocumentVersionResultMsg">
+    <wsdl:part name="content" element="ns1:createDocumentVersionResult" />
+  </wsdl:message>
+  <wsdl:message name="ModifyVersionMsg">
+    <wsdl:part name="content" element="ns1:modifyVersionRequest" />
+  </wsdl:message>
+  <wsdl:message name="ModifyVersionResultMsg">
+    <wsdl:part name="content" element="ns1:modifyVersionResult" />
+  </wsdl:message>
+  <wsdl:message name="DeleteVersionMsg">
+    <wsdl:part name="content" element="ns1:deleteVersionRequest" />
+  </wsdl:message>
+  <wsdl:message name="DeleteVersionResultMsg">
+    <wsdl:part name="content" element="ns1:deleteVersionResult" />
+  </wsdl:message>
+  <wsdl:message name="GetGeneralInfoVersionMsg">
+    <wsdl:part name="content" element="ns1:getGeneralInfoVersionRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetGeneralInfoVersionResultMsg">
+    <wsdl:part name="content" element="ns1:getGeneralInfoVersionResult" />
+  </wsdl:message>
+  <wsdl:message name="GetMetadataVersionMsg">
+    <wsdl:part name="content" element="ns1:getMetadataVersionRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetMetadataVersionResultMsg">
+    <wsdl:part name="content" element="ns1:getMetadataVersionResult" />
+  </wsdl:message>
+  <wsdl:message name="GetPhysicalDataVersionMsg">
+    <wsdl:part name="content" element="ns1:getPhysicalDataVersionRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetPhysicalDataVersionResultMsg">
+    <wsdl:part name="content" element="ns1:getPhysicalDataVersionResult" />
+  </wsdl:message>
+  <wsdl:message name="UploadVersionMsg">
+    <wsdl:part name="content" element="ns1:uploadVersionRequest" />
+  </wsdl:message>
+  <wsdl:message name="UploadVersionResultMsg">
+    <wsdl:part name="content" element="ns1:uploadVersionResult" />
+  </wsdl:message>
+  <wsdl:message name="DownloadVersionMsg">
+    <wsdl:part name="content" element="ns1:downloadVersionRequest" />
+  </wsdl:message>
+  <wsdl:message name="DownloadVersionResultMsg">
+    <wsdl:part name="content" element="ns1:downloadVersionResult" />
+  </wsdl:message>
+  <wsdl:message name="SetMetadataVersionMsg">
+    <wsdl:part name="content" element="ns1:setMetadataVersionRequest" />
+  </wsdl:message>
+  <wsdl:message name="SetMetadataVersionResultMsg">
+    <wsdl:part name="content" element="ns1:setMetadataVersionResult" />
+  </wsdl:message>
+  <wsdl:message name="SearchVersionsMsg">
+    <wsdl:part name="content" element="ns1:searchVersionsRequest" />
+  </wsdl:message>
+  <wsdl:message name="SearchVersionsResultMsg">
+    <wsdl:part name="content" element="ns1:searchVersionsResult" />
+  </wsdl:message>
+  <wsdl:message name="LoginMsg">
+    <wsdl:part name="content" element="ns1:loginRequest" />
+  </wsdl:message>
+  <wsdl:message name="LoginResultMsg">
+    <wsdl:part name="content" element="ns1:loginResult" />
+  </wsdl:message>
+  <wsdl:message name="CreateGroupMsg">
+    <wsdl:part name="content" element="ns1:createGroupRequest" />
+  </wsdl:message>
+  <wsdl:message name="CreateGroupResultMsg">
+    <wsdl:part name="content" element="ns1:createGroupResult" />
+  </wsdl:message>
+  <wsdl:message name="ModifyGroupMsg">
+    <wsdl:part name="content" element="ns1:modifyGroupRequest" />
+  </wsdl:message>
+  <wsdl:message name="ModifyGroupResultMsg">
+    <wsdl:part name="content" element="ns1:modifyGroupResult" />
+  </wsdl:message>
+  <wsdl:message name="DeleteGroupMsg">
+    <wsdl:part name="content" element="ns1:deleteGroupRequest" />
+  </wsdl:message>
+  <wsdl:message name="DeleteGroupResultMsg">
+    <wsdl:part name="content" element="ns1:deleteGroupResult" />
+  </wsdl:message>
+  <wsdl:message name="AddGroupUsersMsg">
+    <wsdl:part name="content" element="ns1:addGroupUsersRequest" />
+  </wsdl:message>
+  <wsdl:message name="AddGroupUsersResultMsg">
+    <wsdl:part name="content" element="ns1:addGroupUsersResult" />
+  </wsdl:message>
+  <wsdl:message name="RemoveGroupUsersMsg">
+    <wsdl:part name="content" element="ns1:removeGroupUsersRequest" />
+  </wsdl:message>
+  <wsdl:message name="RemoveGroupUsersResultMsg">
+    <wsdl:part name="content" element="ns1:removeGroupUsersResult" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupUsersMsg">
+    <wsdl:part name="content" element="ns1:getGroupUsersRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupUsersResultMsg">
+    <wsdl:part name="content" element="ns1:getGroupUsersResult" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsMsg">
+    <wsdl:part name="content" element="ns1:getGroupsRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsResultMsg">
+    <wsdl:part name="content" element="ns1:getGroupsResult" />
+  </wsdl:message>
+  <wsdl:message name="RemoveAllUsersMsg">
+    <wsdl:part name="content" element="ns1:removeAllUsersRequest" />
+  </wsdl:message>
+  <wsdl:message name="RemoveAllUsersResultMsg">
+    <wsdl:part name="content" element="ns1:removeAllUsersResult" />
+  </wsdl:message>
+  <wsdl:message name="CreateDocumentMsg">
+    <wsdl:part name="content" element="ns1:createDocumentRequest" />
+  </wsdl:message>
+  <wsdl:message name="CreateDocumentResultMsg">
+    <wsdl:part name="content" element="ns1:createDocumentResult" />
+  </wsdl:message>
+  <wsdl:message name="ModifyDocumentMsg">
+    <wsdl:part name="content" element="ns1:modifyDocumentRequest" />
+  </wsdl:message>
+  <wsdl:message name="ModifyDocumentResultMsg">
+    <wsdl:part name="content" element="ns1:modifyDocumentResult" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDocumentMsg">
+    <wsdl:part name="content" element="ns1:deleteDocumentRequest" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDocumentResultMsg">
+    <wsdl:part name="content" element="ns1:deleteDocumentResult" />
+  </wsdl:message>
+  <wsdl:message name="LockDocumentMsg">
+    <wsdl:part name="content" element="ns1:lockDocumentRequest" />
+  </wsdl:message>
+  <wsdl:message name="LockDocumentResultMsg">
+    <wsdl:part name="content" element="ns1:lockDocumentResult" />
+  </wsdl:message>
+  <wsdl:message name="UnlockDocumentMsg">
+    <wsdl:part name="content" element="ns1:unlockDocumentRequest" />
+  </wsdl:message>
+  <wsdl:message name="UnlockDocumentResultMsg">
+    <wsdl:part name="content" element="ns1:unlockDocumentResult" />
+  </wsdl:message>
+  <wsdl:message name="IsLockedDocumentMsg">
+    <wsdl:part name="content" element="ns1:isLockedDocumentRequest" />
+  </wsdl:message>
+  <wsdl:message name="IsLockedDocumentResultMsg">
+    <wsdl:part name="content" element="ns1:isLockedDocumentResult" />
+  </wsdl:message>
+  <wsdl:message name="GetLockedDocumentsMsg">
+    <wsdl:part name="content" element="ns1:getLockedDocumentsRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetLockedDocumentsResultMsg">
+    <wsdl:part name="content" element="ns1:getLockedDocumentsResult" />
+  </wsdl:message>
+  <wsdl:message name="AddDocumentGrantsMsg">
+    <wsdl:part name="content" element="ns1:addDocumentGrantsRequest" />
+  </wsdl:message>
+  <wsdl:message name="AddDocumentGrantsResultMsg">
+    <wsdl:part name="content" element="ns1:addDocumentGrantsResult" />
+  </wsdl:message>
+  <wsdl:message name="SetDocumentGrantsMsg">
+    <wsdl:part name="content" element="ns1:setDocumentGrantsRequest" />
+  </wsdl:message>
+  <wsdl:message name="SetDocumentGrantsResultMsg">
+    <wsdl:part name="content" element="ns1:setDocumentGrantsResult" />
+  </wsdl:message>
+  <wsdl:message name="RemoveDocumentGrantsMsg">
+    <wsdl:part name="content" element="ns1:removeDocumentGrantsRequest" />
+  </wsdl:message>
+  <wsdl:message name="RemoveDocumentGrantsResultMsg">
+    <wsdl:part name="content" element="ns1:removeDocumentGrantsResult" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentGrantsMsg">
+    <wsdl:part name="content" element="ns1:getDocumentGrantsRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentGrantsResultMsg">
+    <wsdl:part name="content" element="ns1:getDocumentGrantsResult" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentGeneralInfoMsg">
+    <wsdl:part name="content" element="ns1:getDocumentGeneralInfoRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentGeneralInfoResultMsg">
+    <wsdl:part name="content" element="ns1:getDocumentGeneralInfoResult" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentMetadataMsg">
+    <wsdl:part name="content" element="ns1:getDocumentMetadataRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentMetadataResultMsg">
+    <wsdl:part name="content" element="ns1:getDocumentMetadataResult" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentAttachmentsMsg">
+    <wsdl:part name="content" element="ns1:getDocumentAttachmentsRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentAttachmentsResultMsg">
+    <wsdl:part name="content" element="ns1:getDocumentAttachmentsResult" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentVersionsMsg">
+    <wsdl:part name="content" element="ns1:getDocumentVersionsRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentVersionsResultMsg">
+    <wsdl:part name="content" element="ns1:getDocumentVersionsResult" />
+  </wsdl:message>
+  <wsdl:message name="CopyDocumentMsg">
+    <wsdl:part name="content" element="ns1:copyDocumentRequest" />
+  </wsdl:message>
+  <wsdl:message name="CopyDocumentResultMsg">
+    <wsdl:part name="content" element="ns1:copyDocumentResult" />
+  </wsdl:message>
+  <wsdl:message name="MoveDocumentMsg">
+    <wsdl:part name="content" element="ns1:moveDocumentRequest" />
+  </wsdl:message>
+  <wsdl:message name="MoveDocumentResultMsg">
+    <wsdl:part name="content" element="ns1:moveDocumentResult" />
+  </wsdl:message>
+  <wsdl:message name="GetLastVersionDocumentMsg">
+    <wsdl:part name="content" element="ns1:getLastVersionDocumentRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetLastVersionDocumentResultMsg">
+    <wsdl:part name="content" element="ns1:getLastVersionDocumentResult" />
+  </wsdl:message>
+  <wsdl:message name="AddAttachDocumentMsg">
+    <wsdl:part name="content" element="ns1:addAttachDocumentRequest" />
+  </wsdl:message>
+  <wsdl:message name="AddAttachDocumentResultMsg">
+    <wsdl:part name="content" element="ns1:addAttachDocumentResult" />
+  </wsdl:message>
+  <wsdl:message name="CreateNewVersionDocumentMsg">
+    <wsdl:part name="content" element="ns1:createNewVersionDocumentRequest" />
+  </wsdl:message>
+  <wsdl:message name="CreateNewVersionDocumentResultMsg">
+    <wsdl:part name="content" element="ns1:createNewVersionDocumentResult" />
+  </wsdl:message>
+  <wsdl:message name="UploadDocumentMsg">
+    <wsdl:part name="content" element="ns1:uploadDocumentRequest" />
+  </wsdl:message>
+  <wsdl:message name="UploadDocumentResultMsg">
+    <wsdl:part name="content" element="ns1:uploadDocumentResult" />
+  </wsdl:message>
+  <wsdl:message name="DownloadDocumentMsg">
+    <wsdl:part name="content" element="ns1:downloadDocumentRequest" />
+  </wsdl:message>
+  <wsdl:message name="DownloadDocumentResultMsg">
+    <wsdl:part name="content" element="ns1:downloadDocumentResult" />
+  </wsdl:message>
+  <wsdl:message name="SetMetadataDocumentMsg">
+    <wsdl:part name="content" element="ns1:setMetadataDocumentRequest" />
+  </wsdl:message>
+  <wsdl:message name="SetMetadataDocumentResultMsg">
+    <wsdl:part name="content" element="ns1:setMetadataDocumentResult" />
+  </wsdl:message>
+  <wsdl:message name="SetGeneralInfoDocumentMsg">
+    <wsdl:part name="content" element="ns1:setGeneralInfoDocumentRequest" />
+  </wsdl:message>
+  <wsdl:message name="SetGeneralInfoDocumentResultMsg">
+    <wsdl:part name="content" element="ns1:setGeneralInfoDocumentResult" />
+  </wsdl:message>
+  <wsdl:message name="SearchDocumentsMsg">
+    <wsdl:part name="content" element="ns1:searchDocumentsRequest" />
+  </wsdl:message>
+  <wsdl:message name="SearchDocumentsResultMsg">
+    <wsdl:part name="content" element="ns1:searchDocumentsResult" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentByNameMsg">
+    <wsdl:part name="content" element="ns1:getDocumentByNameRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentByNameResultMsg">
+    <wsdl:part name="content" element="ns1:getDocumentByNameResult" />
+  </wsdl:message>
+  <wsdl:message name="GetVersionDocumentMsg">
+    <wsdl:part name="content" element="ns1:getVersionDocumentRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetVersionDocumentResultMsg">
+    <wsdl:part name="content" element="ns1:getVersionDocumentResult" />
+  </wsdl:message>
+  <wsdl:message name="GetPhysicalDataDocumentMsg">
+    <wsdl:part name="content" element="ns1:getPhysicalDataDocumentRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetPhysicalDataDocumentResultMsg">
+    <wsdl:part name="content" element="ns1:getPhysicalDataDocumentResult" />
+  </wsdl:message>
+  <wsdl:message name="CreateLinkMsg">
+    <wsdl:part name="content" element="ns1:createLinkRequest" />
+  </wsdl:message>
+  <wsdl:message name="CreateLinkResultMsg">
+    <wsdl:part name="content" element="ns1:createLinkResult" />
+  </wsdl:message>
+  <wsdl:message name="ModifyLinkMsg">
+    <wsdl:part name="content" element="ns1:modifyLinkRequest" />
+  </wsdl:message>
+  <wsdl:message name="ModifyLinkResultMsg">
+    <wsdl:part name="content" element="ns1:modifyLinkResult" />
+  </wsdl:message>
+  <wsdl:message name="DeleteLinkMsg">
+    <wsdl:part name="content" element="ns1:deleteLinkRequest" />
+  </wsdl:message>
+  <wsdl:message name="DeleteLinkResultMsg">
+    <wsdl:part name="content" element="ns1:deleteLinkResult" />
+  </wsdl:message>
+  <wsdl:message name="MoveLinkMsg">
+    <wsdl:part name="content" element="ns1:moveLinkRequest" />
+  </wsdl:message>
+  <wsdl:message name="MoveLinkResultMsg">
+    <wsdl:part name="content" element="ns1:moveLinkResult" />
+  </wsdl:message>
+  <wsdl:message name="AddGrantsLinkMsg">
+    <wsdl:part name="content" element="ns1:addGrantsLinkRequest" />
+  </wsdl:message>
+  <wsdl:message name="AddGrantsLinkResultMsg">
+    <wsdl:part name="content" element="ns1:addGrantsLinkResult" />
+  </wsdl:message>
+  <wsdl:message name="SetGrantsLinkMsg">
+    <wsdl:part name="content" element="ns1:setGrantsLinkRequest" />
+  </wsdl:message>
+  <wsdl:message name="SetGrantsLinkResultMsg">
+    <wsdl:part name="content" element="ns1:setGrantsLinkResult" />
+  </wsdl:message>
+  <wsdl:message name="RemoveGrantsLinkMsg">
+    <wsdl:part name="content" element="ns1:removeGrantsLinkRequest" />
+  </wsdl:message>
+  <wsdl:message name="RemoveGrantsLinkResultMsg">
+    <wsdl:part name="content" element="ns1:removeGrantsLinkResult" />
+  </wsdl:message>
+  <wsdl:message name="GetGrantsLinkMsg">
+    <wsdl:part name="content" element="ns1:getGrantsLinkRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetGrantsLinkResultMsg">
+    <wsdl:part name="content" element="ns1:getGrantsLinkResult" />
+  </wsdl:message>
+  <wsdl:message name="GetGeneralInfoLinkMsg">
+    <wsdl:part name="content" element="ns1:getGeneralInfoLinkRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetGeneralInfoLinkResultMsg">
+    <wsdl:part name="content" element="ns1:getGeneralInfoLinkResult" />
+  </wsdl:message>
+  <wsdl:message name="SetGeneralInfoLinkMsg">
+    <wsdl:part name="content" element="ns1:setGeneralInfoLinkRequest" />
+  </wsdl:message>
+  <wsdl:message name="SetGeneralInfoLinkResultMsg">
+    <wsdl:part name="content" element="ns1:setGeneralInfoLinkResult" />
+  </wsdl:message>
+  <wsdl:message name="GetLinkByNameMsg">
+    <wsdl:part name="content" element="ns1:getLinkByNameRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetLinkByNameResultMsg">
+    <wsdl:part name="content" element="ns1:getLinkByNameResult" />
+  </wsdl:message>
+  <wsdl:message name="CreateAttachMsg">
+    <wsdl:part name="content" element="ns1:createAttachRequest" />
+  </wsdl:message>
+  <wsdl:message name="CreateAttachResultMsg">
+    <wsdl:part name="content" element="ns1:createAttachResult" />
+  </wsdl:message>
+  <wsdl:message name="ModifyAttachMsg">
+    <wsdl:part name="content" element="ns1:modifyAttachRequest" />
+  </wsdl:message>
+  <wsdl:message name="ModifyAttachResultMsg">
+    <wsdl:part name="content" element="ns1:modifyAttachResult" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAttachMsg">
+    <wsdl:part name="content" element="ns1:deleteAttachRequest" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAttachResultMsg">
+    <wsdl:part name="content" element="ns1:deleteAttachResult" />
+  </wsdl:message>
+  <wsdl:message name="LockAttachMsg">
+    <wsdl:part name="content" element="ns1:lockAttachRequest" />
+  </wsdl:message>
+  <wsdl:message name="LockAttachResultMsg">
+    <wsdl:part name="content" element="ns1:lockAttachResult" />
+  </wsdl:message>
+  <wsdl:message name="UnlockAttachMsg">
+    <wsdl:part name="content" element="ns1:unlockAttachRequest" />
+  </wsdl:message>
+  <wsdl:message name="UnlockAttachResultMsg">
+    <wsdl:part name="content" element="ns1:unlockAttachResult" />
+  </wsdl:message>
+  <wsdl:message name="IsLockedAttachMsg">
+    <wsdl:part name="content" element="ns1:isLockedAttachRequest" />
+  </wsdl:message>
+  <wsdl:message name="IsLockedAttachResultMsg">
+    <wsdl:part name="content" element="ns1:isLockedAttachResult" />
+  </wsdl:message>
+  <wsdl:message name="GetLockedAttachmentsMsg">
+    <wsdl:part name="content" element="ns1:getLockedAttachmentsRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetLockedAttachmentsResultMsg">
+    <wsdl:part name="content" element="ns1:getLockedAttachmentsResult" />
+  </wsdl:message>
+  <wsdl:message name="AddAttachGrantsMsg">
+    <wsdl:part name="content" element="ns1:addAttachGrantsRequest" />
+  </wsdl:message>
+  <wsdl:message name="AddAttachGrantsResultMsg">
+    <wsdl:part name="content" element="ns1:addAttachGrantsResult" />
+  </wsdl:message>
+  <wsdl:message name="SetAttachGrantsMsg">
+    <wsdl:part name="content" element="ns1:setAttachGrantsRequest" />
+  </wsdl:message>
+  <wsdl:message name="SetAttachGrantsResultMsg">
+    <wsdl:part name="content" element="ns1:setAttachGrantsResult" />
+  </wsdl:message>
+  <wsdl:message name="RemoveAttachGrantsMsg">
+    <wsdl:part name="content" element="ns1:removeAttachGrantsRequest" />
+  </wsdl:message>
+  <wsdl:message name="RemoveAttachGrantsResultMsg">
+    <wsdl:part name="content" element="ns1:removeAttachGrantsResult" />
+  </wsdl:message>
+  <wsdl:message name="GetAttachGrantsMsg">
+    <wsdl:part name="content" element="ns1:getAttachGrantsRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetAttachGrantsResultMsg">
+    <wsdl:part name="content" element="ns1:getAttachGrantsResult" />
+  </wsdl:message>
+  <wsdl:message name="GetAttachGeneralInfoMsg">
+    <wsdl:part name="content" element="ns1:getAttachGeneralInfoRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetAttachGeneralInfoResultMsg">
+    <wsdl:part name="content" element="ns1:getAttachGeneralInfoResult" />
+  </wsdl:message>
+  <wsdl:message name="ChangeVersionMsg">
+    <wsdl:part name="content" element="ns1:changeVersionRequest" />
+  </wsdl:message>
+  <wsdl:message name="ChangeVersionResultMsg">
+    <wsdl:part name="content" element="ns1:changeVersionResult" />
+  </wsdl:message>
+  <wsdl:message name="GetAttachMetadataMsg">
+    <wsdl:part name="content" element="ns1:getAttachMetadataRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetAttachMetadataResultMsg">
+    <wsdl:part name="content" element="ns1:getAttachMetadataResult" />
+  </wsdl:message>
+  <wsdl:message name="GetAttachVersionsMsg">
+    <wsdl:part name="content" element="ns1:getAttachVersionsRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetAttachVersionsResultMsg">
+    <wsdl:part name="content" element="ns1:getAttachVersionsResult" />
+  </wsdl:message>
+  <wsdl:message name="GetLastVersionAttachMsg">
+    <wsdl:part name="content" element="ns1:getLastVersionAttachRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetLastVersionAttachResultMsg">
+    <wsdl:part name="content" element="ns1:getLastVersionAttachResult" />
+  </wsdl:message>
+  <wsdl:message name="CreateNewVersionAttachMsg">
+    <wsdl:part name="content" element="ns1:createNewVersionAttachRequest" />
+  </wsdl:message>
+  <wsdl:message name="CreateNewVersionAttachResultMsg">
+    <wsdl:part name="content" element="ns1:createNewVersionAttachResult" />
+  </wsdl:message>
+  <wsdl:message name="UploadAttachMsg">
+    <wsdl:part name="content" element="ns1:uploadAttachRequest" />
+  </wsdl:message>
+  <wsdl:message name="UploadAttachResultMsg">
+    <wsdl:part name="content" element="ns1:uploadAttachResult" />
+  </wsdl:message>
+  <wsdl:message name="DownloadAttachMsg">
+    <wsdl:part name="content" element="ns1:downloadAttachRequest" />
+  </wsdl:message>
+  <wsdl:message name="DownloadAttachResultMsg">
+    <wsdl:part name="content" element="ns1:downloadAttachResult" />
+  </wsdl:message>
+  <wsdl:message name="SetMetadataAttachMsg">
+    <wsdl:part name="content" element="ns1:setMetadataAttachRequest" />
+  </wsdl:message>
+  <wsdl:message name="SetMetadataAttachResultMsg">
+    <wsdl:part name="content" element="ns1:setMetadataAttachResult" />
+  </wsdl:message>
+  <wsdl:message name="SetGeneralInfoAttachMsg">
+    <wsdl:part name="content" element="ns1:setGeneralInfoAttachRequest" />
+  </wsdl:message>
+  <wsdl:message name="SetGeneralInfoAttachResultMsg">
+    <wsdl:part name="content" element="ns1:setGeneralInfoAttachResult" />
+  </wsdl:message>
+  <wsdl:message name="SearchAttachmentsMsg">
+    <wsdl:part name="content" element="ns1:searchAttachmentsRequest" />
+  </wsdl:message>
+  <wsdl:message name="SearchAttachmentsResultMsg">
+    <wsdl:part name="content" element="ns1:searchAttachmentsResult" />
+  </wsdl:message>
+  <wsdl:message name="GetAttachByNameMsg">
+    <wsdl:part name="content" element="ns1:getAttachByNameRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetAttachByNameResultMsg">
+    <wsdl:part name="content" element="ns1:getAttachByNameResult" />
+  </wsdl:message>
+  <wsdl:message name="GetVersionAttachMsg">
+    <wsdl:part name="content" element="ns1:getVersionAttachRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetVersionAttachResultMsg">
+    <wsdl:part name="content" element="ns1:getVersionAttachResult" />
+  </wsdl:message>
+  <wsdl:message name="GetPhysicalDataAttachMsg">
+    <wsdl:part name="content" element="ns1:getPhysicalDataAttachRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetPhysicalDataAttachResultMsg">
+    <wsdl:part name="content" element="ns1:getPhysicalDataAttachResult" />
+  </wsdl:message>
+  <wsdl:message name="CreateVersionedAttachMsg">
+    <wsdl:part name="content" element="ns1:createVersionedAttachRequest" />
+  </wsdl:message>
+  <wsdl:message name="CreateVersionedAttachResultMsg">
+    <wsdl:part name="content" element="ns1:createVersionedAttachResult" />
+  </wsdl:message>
+  <wsdl:portType name="FolderManagementPortType">
+    <wsdl:operation name="CreateFolder">
+      <wsdl:input name="CreateFolderInput" message="tns:CreateFolderMsg" />
+      <wsdl:output name="CreateFolderResultOutput" message="tns:CreateFolderResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyFolder">
+      <wsdl:input name="ModifyFolderInput" message="tns:ModifyFolderMsg" />
+      <wsdl:output name="ModifyFolderResultOutput" message="tns:ModifyFolderResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFolder">
+      <wsdl:input name="DeleteFolderInput" message="tns:DeleteFolderMsg" />
+      <wsdl:output name="DeleteFolderResultOutput" message="tns:DeleteFolderResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocuments">
+      <wsdl:input name="GetDocumentsInput" message="tns:GetDocumentsMsg" />
+      <wsdl:output name="GetDocumentsResultOutput" message="tns:GetDocumentsResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="MoveFolder">
+      <wsdl:input name="MoveFolderInput" message="tns:MoveFolderMsg" />
+      <wsdl:output name="MoveFolderResultOutput" message="tns:MoveFolderResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="AddGrantsFolder">
+      <wsdl:input name="AddGrantsFolderInput" message="tns:AddGrantsFolderMsg" />
+      <wsdl:output name="AddGrantsFolderResultOutput" message="tns:AddGrantsFolderResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="SetGrantsFolder">
+      <wsdl:input name="SetGrantsFolderInput" message="tns:SetGrantsFolderMsg" />
+      <wsdl:output name="SetGrantsFolderResultOutput" message="tns:SetGrantsFolderResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveGrantsFolder">
+      <wsdl:input name="RemoveGrantsFolderInput" message="tns:RemoveGrantsFolderMsg" />
+      <wsdl:output name="RemoveGrantsFolderResultOutput" message="tns:RemoveGrantsFolderResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGrantsFolder">
+      <wsdl:input name="GetGrantsFolderInput" message="tns:GetGrantsFolderMsg" />
+      <wsdl:output name="GetGrantsFolderResultOutput" message="tns:GetGrantsFolderResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGeneralInfoFolder">
+      <wsdl:input name="GetGeneralInfoFolderInput" message="tns:GetGeneralInfoFolderMsg" />
+      <wsdl:output name="GetGeneralInfoFolderResultOutput" message="tns:GetGeneralInfoFolderResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMetadataFolder">
+      <wsdl:input name="GetMetadataFolderInput" message="tns:GetMetadataFolderMsg" />
+      <wsdl:output name="GetMetadataFolderResultOutput" message="tns:GetMetadataFolderResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="SetGeneralInfoFolder">
+      <wsdl:input name="SetGeneralInfoFolderInput" message="tns:SetGeneralInfoFolderMsg" />
+      <wsdl:output name="SetGeneralInfoFolderResultOutput" message="tns:SetGeneralInfoFolderResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="SetMetadataFolder">
+      <wsdl:input name="SetMetadataFolderInput" message="tns:SetMetadataFolderMsg" />
+      <wsdl:output name="SetMetadataFolderResultOutput" message="tns:SetMetadataFolderResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchFolders">
+      <wsdl:input name="SearchFoldersInput" message="tns:SearchFoldersMsg" />
+      <wsdl:output name="SearchFoldersResultOutput" message="tns:SearchFoldersResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFolderByName">
+      <wsdl:input name="GetFolderByNameInput" message="tns:GetFolderByNameMsg" />
+      <wsdl:output name="GetFolderByNameResultOutput" message="tns:GetFolderByNameResultMsg" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="VersionManagementPortType">
+    <wsdl:operation name="CreateDocumentVersion">
+      <wsdl:input name="CreateDocumentVersionInput" message="tns:CreateDocumentVersionMsg" />
+      <wsdl:output name="CreateDocumentVersionOutput" message="tns:CreateDocumentVersionResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyVersion">
+      <wsdl:input name="ModifyVersionInput" message="tns:ModifyVersionMsg" />
+      <wsdl:output name="ModifyVersionResultOutput" message="tns:ModifyVersionResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVersion">
+      <wsdl:input name="DeleteVersionInput" message="tns:DeleteVersionMsg" />
+      <wsdl:output name="DeleteVersionResultOutput" message="tns:DeleteVersionResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGeneralInfoVersion">
+      <wsdl:input name="GetGeneralInfoVersionInput" message="tns:GetGeneralInfoVersionMsg" />
+      <wsdl:output name="GetGeneralInfoVersionResultOutput" message="tns:GetGeneralInfoVersionResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMetadataVersion">
+      <wsdl:input name="GetMetadataVersionInput" message="tns:GetMetadataVersionMsg" />
+      <wsdl:output name="GetMetadataVersionResultOutput" message="tns:GetMetadataVersionResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPhysicalDataVersion">
+      <wsdl:input name="GetPhysicalDataVersionInput" message="tns:GetPhysicalDataVersionMsg" />
+      <wsdl:output name="GetPhysicalDataVersionResultOutput" message="tns:GetPhysicalDataVersionResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadVersion">
+      <wsdl:input name="UploadVersionInput" message="tns:UploadVersionMsg" />
+      <wsdl:output name="UploadVersionResultOutput" message="tns:UploadVersionResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadVersion">
+      <wsdl:input name="DownloadVersionInput" message="tns:DownloadVersionMsg" />
+      <wsdl:output name="DownloadVersionResultOutput" message="tns:DownloadVersionResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="SetMetadataVersion">
+      <wsdl:input name="SetMetadataVersionInput" message="tns:SetMetadataVersionMsg" />
+      <wsdl:output name="SetMetadataVersionResultOutput" message="tns:SetMetadataVersionResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchVersions">
+      <wsdl:input name="SearchVersionsInput" message="tns:SearchVersionsMsg" />
+      <wsdl:output name="SearchVersionsResultOutput" message="tns:SearchVersionsResultMsg" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="UserPortType">
+    <wsdl:operation name="Login">
+      <wsdl:input name="LoginInput" message="tns:LoginMsg" />
+      <wsdl:output name="LoginResultOutput" message="tns:LoginResultMsg" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="GroupManagementPortType">
+    <wsdl:operation name="CreateGroup">
+      <wsdl:input name="CreateGroupInput" message="tns:CreateGroupMsg" />
+      <wsdl:output name="CreateGroupResultOutput" message="tns:CreateGroupResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyGroup">
+      <wsdl:input name="ModifyGroupInput" message="tns:ModifyGroupMsg" />
+      <wsdl:output name="ModifyGroupResultOutput" message="tns:ModifyGroupResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroup">
+      <wsdl:input name="DeleteGroupInput" message="tns:DeleteGroupMsg" />
+      <wsdl:output name="DeleteGroupResultOutput" message="tns:DeleteGroupResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="AddGroupUsers">
+      <wsdl:input name="AddGroupUsersInput" message="tns:AddGroupUsersMsg" />
+      <wsdl:output name="AddGroupUsersResultOutput" message="tns:AddGroupUsersResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveGroupUsers">
+      <wsdl:input name="RemoveGroupUsersInput" message="tns:RemoveGroupUsersMsg" />
+      <wsdl:output name="RemoveGroupUsersResultOutput" message="tns:RemoveGroupUsersResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupUsers">
+      <wsdl:input name="GetGroupUsersInput" message="tns:GetGroupUsersMsg" />
+      <wsdl:output name="GetGroupUsersResultOutput" message="tns:GetGroupUsersResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups">
+      <wsdl:input name="GetGroupsInput" message="tns:GetGroupsMsg" />
+      <wsdl:output name="GetGroupsResultOutput" message="tns:GetGroupsResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAllUsers">
+      <wsdl:input name="RemoveAllUsersInput" message="tns:RemoveAllUsersMsg" />
+      <wsdl:output name="RemoveAllUsersResultOutput" message="tns:RemoveAllUsersResultMsg" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="DocumentManagementPortType">
+    <wsdl:operation name="CreateDocument">
+      <wsdl:input name="CreateDocumentInput" message="tns:CreateDocumentMsg" />
+      <wsdl:output name="CreateDocumentResultOutput" message="tns:CreateDocumentResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyDocument">
+      <wsdl:input name="ModifyDocumentInput" message="tns:ModifyDocumentMsg" />
+      <wsdl:output name="ModifyDocumentResultOutput" message="tns:ModifyDocumentResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDocument">
+      <wsdl:input name="DeleteDocumentInput" message="tns:DeleteDocumentMsg" />
+      <wsdl:output name="DeleteDocumentResultOutput" message="tns:DeleteDocumentResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="LockDocument">
+      <wsdl:input name="LockDocumentInput" message="tns:LockDocumentMsg" />
+      <wsdl:output name="LockDocumentResultOutput" message="tns:LockDocumentResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="UnlockDocument">
+      <wsdl:input name="UnlockDocumentInput" message="tns:UnlockDocumentMsg" />
+      <wsdl:output name="UnlockDocumentResultOutput" message="tns:UnlockDocumentResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="IsLockedDocument">
+      <wsdl:input name="IsLockedDocumentInput" message="tns:IsLockedDocumentMsg" />
+      <wsdl:output name="IsLockedDocumentResultOutput" message="tns:IsLockedDocumentResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLockedDocuments">
+      <wsdl:input name="GetLockedDocumentsInput" message="tns:GetLockedDocumentsMsg" />
+      <wsdl:output name="GetLockedDocumentsResultOutput" message="tns:GetLockedDocumentsResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDocumentGrants">
+      <wsdl:input name="AddDocumentGrantsInput" message="tns:AddDocumentGrantsMsg" />
+      <wsdl:output name="AddDocumentGrantsResultOutput" message="tns:AddDocumentGrantsResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDocumentGrants">
+      <wsdl:input name="SetDocumentGrantsInput" message="tns:SetDocumentGrantsMsg" />
+      <wsdl:output name="SetDocumentGrantsResultOutput" message="tns:SetDocumentGrantsResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveDocumentGrants">
+      <wsdl:input name="RemoveDocumentGrantsInput" message="tns:RemoveDocumentGrantsMsg" />
+      <wsdl:output name="RemoveDocumentGrantsResultOutput" message="tns:RemoveDocumentGrantsResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentGrants">
+      <wsdl:input name="GetDocumentGrantsInput" message="tns:GetDocumentGrantsMsg" />
+      <wsdl:output name="GetDocumentGrantsResultOutput" message="tns:GetDocumentGrantsResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentGeneralInfo">
+      <wsdl:input name="GetDocumentGeneralInfoInput" message="tns:GetDocumentGeneralInfoMsg" />
+      <wsdl:output name="GetDocumentGeneralInfoResultOutput" message="tns:GetDocumentGeneralInfoResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentMetadata">
+      <wsdl:input name="GetDocumentMetadataInput" message="tns:GetDocumentMetadataMsg" />
+      <wsdl:output name="GetDocumentMetadataResultOutput" message="tns:GetDocumentMetadataResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentAttachments">
+      <wsdl:input name="GetDocumentAttachmentsInput" message="tns:GetDocumentAttachmentsMsg" />
+      <wsdl:output name="GetDocumentAttachmentsResultOutput" message="tns:GetDocumentAttachmentsResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentVersions">
+      <wsdl:input name="GetDocumentVersionsInput" message="tns:GetDocumentVersionsMsg" />
+      <wsdl:output name="GetDocumentVersionsResultOutput" message="tns:GetDocumentVersionsResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="CopyDocument">
+      <wsdl:input name="CopyDocumentInput" message="tns:CopyDocumentMsg" />
+      <wsdl:output name="CopyDocumentResultOutput" message="tns:CopyDocumentResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="MoveDocument">
+      <wsdl:input name="MoveDocumentInput" message="tns:MoveDocumentMsg" />
+      <wsdl:output name="MoveDocumentResultOutput" message="tns:MoveDocumentResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastVersionDocument">
+      <wsdl:input name="GetLastVersionDocumentInput" message="tns:GetLastVersionDocumentMsg" />
+      <wsdl:output name="GetLastVersionDocumentResultOutput" message="tns:GetLastVersionDocumentResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAttachDocument">
+      <wsdl:input name="AddAttachDocumentInput" message="tns:AddAttachDocumentMsg" />
+      <wsdl:output name="AddAttachDocumentResultOutput" message="tns:AddAttachDocumentResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewVersionDocument">
+      <wsdl:input name="CreateNewVersionDocumentInput" message="tns:CreateNewVersionDocumentMsg" />
+      <wsdl:output name="CreateNewVersionDocumentResultOutput" message="tns:CreateNewVersionDocumentResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocument">
+      <wsdl:input name="UploadDocumentInput" message="tns:UploadDocumentMsg" />
+      <wsdl:output name="UploadDocumentResultOutput" message="tns:UploadDocumentResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadDocument">
+      <wsdl:input name="DownloadDocumentInput" message="tns:DownloadDocumentMsg" />
+      <wsdl:output name="DownloadDocumentResultOutput" message="tns:DownloadDocumentResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="SetMetadataDocument">
+      <wsdl:input name="SetMetadataDocumentInput" message="tns:SetMetadataDocumentMsg" />
+      <wsdl:output name="SetMetadataDocumentResultOutput" message="tns:SetMetadataDocumentResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="SetGeneralInfoDocument">
+      <wsdl:input name="SetGeneralInfoDocumentInput" message="tns:SetGeneralInfoDocumentMsg" />
+      <wsdl:output name="SetGeneralInfoDocumentResultOutput" message="tns:SetGeneralInfoDocumentResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchDocuments">
+      <wsdl:input name="SearchDocumentsInput" message="tns:SearchDocumentsMsg" />
+      <wsdl:output name="SearchDocumentsResultOutput" message="tns:SearchDocumentsResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentByName">
+      <wsdl:input name="GetDocumentByNameInput" message="tns:GetDocumentByNameMsg" />
+      <wsdl:output name="GetDocumentByNameResultOutput" message="tns:GetDocumentByNameResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVersionDocument">
+      <wsdl:input name="GetVersionDocumentInput" message="tns:GetVersionDocumentMsg" />
+      <wsdl:output name="GetVersionDocumentResultOutput" message="tns:GetVersionDocumentResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPhysicalDataDocument">
+      <wsdl:input name="GetPhysicalDataDocumentInput" message="tns:GetPhysicalDataDocumentMsg" />
+      <wsdl:output name="GetPhysicalDataDocumentResultOutput" message="tns:GetPhysicalDataDocumentResultMsg" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="LinkManagementPortType">
+    <wsdl:operation name="CreateLink">
+      <wsdl:input name="CreateLinkInput" message="tns:CreateLinkMsg" />
+      <wsdl:output name="CreateLinkResultOutput" message="tns:CreateLinkResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyLink">
+      <wsdl:input name="ModifyLinkInput" message="tns:ModifyLinkMsg" />
+      <wsdl:output name="ModifyLinkResultOutput" message="tns:ModifyLinkResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLink">
+      <wsdl:input name="DeleteLinkInput" message="tns:DeleteLinkMsg" />
+      <wsdl:output name="DeleteLinkResultOutput" message="tns:DeleteLinkResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="MoveLink">
+      <wsdl:input name="MoveLinkInput" message="tns:MoveLinkMsg" />
+      <wsdl:output name="MoveLinkResultOutput" message="tns:MoveLinkResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="AddGrantsLink">
+      <wsdl:input name="AddGrantsLinkInput" message="tns:AddGrantsLinkMsg" />
+      <wsdl:output name="AddGrantsLinkResultOutput" message="tns:AddGrantsLinkResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="SetGrantsLink">
+      <wsdl:input name="SetGrantsLinkInput" message="tns:SetGrantsLinkMsg" />
+      <wsdl:output name="SetGrantsLinkResultOutput" message="tns:SetGrantsLinkResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveGrantsLink">
+      <wsdl:input name="RemoveGrantsLinkInput" message="tns:RemoveGrantsLinkMsg" />
+      <wsdl:output name="RemoveGrantsLinkResultOutput" message="tns:RemoveGrantsLinkResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGrantsLink">
+      <wsdl:input name="GetGrantsLinkInput" message="tns:GetGrantsLinkMsg" />
+      <wsdl:output name="GetGrantsLinkResultOutput" message="tns:GetGrantsLinkResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGeneralInfoLink">
+      <wsdl:input name="GetGeneralInfoLinkInput" message="tns:GetGeneralInfoLinkMsg" />
+      <wsdl:output name="GetGeneralInfoLinkResultOutput" message="tns:GetGeneralInfoLinkResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="SetGeneralInfoLink">
+      <wsdl:input name="SetGeneralInfoLinkInput" message="tns:SetGeneralInfoLinkMsg" />
+      <wsdl:output name="SetGeneralInfoLinkResultOutput" message="tns:SetGeneralInfoLinkResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkByName">
+      <wsdl:input name="GetLinkByNameInput" message="tns:GetLinkByNameMsg" />
+      <wsdl:output name="GetLinkByNameResultOutput" message="tns:GetLinkByNameResultMsg" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="AttachmentManagementPortType">
+    <wsdl:operation name="CreateAttach">
+      <wsdl:input name="CreateAttachInput" message="tns:CreateAttachMsg" />
+      <wsdl:output name="CreateAttachResultOutput" message="tns:CreateAttachResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyAttach">
+      <wsdl:input name="ModifyAttachInput" message="tns:ModifyAttachMsg" />
+      <wsdl:output name="ModifyAttachResultOutput" message="tns:ModifyAttachResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAttach">
+      <wsdl:input name="DeleteAttachInput" message="tns:DeleteAttachMsg" />
+      <wsdl:output name="DeleteAttachResultOutput" message="tns:DeleteAttachResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="LockAttach">
+      <wsdl:input name="LockAttachInput" message="tns:LockAttachMsg" />
+      <wsdl:output name="LockAttachResultOutput" message="tns:LockAttachResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="UnlockAttach">
+      <wsdl:input name="UnlockAttachInput" message="tns:UnlockAttachMsg" />
+      <wsdl:output name="UnlockAttachResultOutput" message="tns:UnlockAttachResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="IsLockedAttach">
+      <wsdl:input name="IsLockedAttachInput" message="tns:IsLockedAttachMsg" />
+      <wsdl:output name="IsLockedAttachResultOutput" message="tns:IsLockedAttachResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLockedAttachments">
+      <wsdl:input name="GetLockedAttachmentsInput" message="tns:GetLockedAttachmentsMsg" />
+      <wsdl:output name="GetLockedAttachmentsResultOutput" message="tns:GetLockedAttachmentsResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAttachGrants">
+      <wsdl:input name="AddAttachGrantsInput" message="tns:AddAttachGrantsMsg" />
+      <wsdl:output name="AddAttachGrantsResultOutput" message="tns:AddAttachGrantsResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAttachGrants">
+      <wsdl:input name="SetAttachGrantsInput" message="tns:SetAttachGrantsMsg" />
+      <wsdl:output name="SetAttachGrantsResultOutput" message="tns:SetAttachGrantsResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAttachGrants">
+      <wsdl:input name="RemoveAttachGrantsInput" message="tns:RemoveAttachGrantsMsg" />
+      <wsdl:output name="RemoveAttachGrantsResultOutput" message="tns:RemoveAttachGrantsResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttachGrants">
+      <wsdl:input name="GetAttachGrantsInput" message="tns:GetAttachGrantsMsg" />
+      <wsdl:output name="GetAttachGrantsResultOutput" message="tns:GetAttachGrantsResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttachGeneralInfo">
+      <wsdl:input name="GetAttachGeneralInfoInput" message="tns:GetAttachGeneralInfoMsg" />
+      <wsdl:output name="GetAttachGeneralInfoResultOutput" message="tns:GetAttachGeneralInfoResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeVersion">
+      <wsdl:input name="ChangeVersionInput" message="tns:ChangeVersionMsg" />
+      <wsdl:output name="ChangeVersionResultOutput" message="tns:ChangeVersionResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttachMetadata">
+      <wsdl:input name="GetAttachMetadataInput" message="tns:GetAttachMetadataMsg" />
+      <wsdl:output name="GetAttachMetadataResultOutput" message="tns:GetAttachMetadataResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttachVersions">
+      <wsdl:input name="GetAttachVersionsInput" message="tns:GetAttachVersionsMsg" />
+      <wsdl:output name="GetAttachVersionsResultOutput" message="tns:GetAttachVersionsResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastVersionAttach">
+      <wsdl:input name="GetLastVersionAttachInput" message="tns:GetLastVersionAttachMsg" />
+      <wsdl:output name="GetLastVersionAttachResultOutput" message="tns:GetLastVersionAttachResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewVersionAttach">
+      <wsdl:input name="CreateNewVersionAttachInput" message="tns:CreateNewVersionAttachMsg" />
+      <wsdl:output name="CreateNewVersionAttachResultOutput" message="tns:CreateNewVersionAttachResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadAttach">
+      <wsdl:input name="UploadAttachInput" message="tns:UploadAttachMsg" />
+      <wsdl:output name="UploadAttachResultOutput" message="tns:UploadAttachResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadAttach">
+      <wsdl:input name="DownloadAttachInput" message="tns:DownloadAttachMsg" />
+      <wsdl:output name="DownloadAttachResultOutput" message="tns:DownloadAttachResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="SetMetadataAttach">
+      <wsdl:input name="SetMetadataAttachInput" message="tns:SetMetadataAttachMsg" />
+      <wsdl:output name="SetMetadataAttachResultOutput" message="tns:SetMetadataAttachResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="SetGeneralInfoAttach">
+      <wsdl:input name="SetGeneralInfoAttachInput" message="tns:SetGeneralInfoAttachMsg" />
+      <wsdl:output name="SetGeneralInfoAttachResultOutput" message="tns:SetGeneralInfoAttachResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchAttachments">
+      <wsdl:input name="SearchAttachmentsInput" message="tns:SearchAttachmentsMsg" />
+      <wsdl:output name="SearchAttachmentsResultOutput" message="tns:SearchAttachmentsResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttachByName">
+      <wsdl:input name="GetAttachByNameInput" message="tns:GetAttachByNameMsg" />
+      <wsdl:output name="GetAttachByNameResultOutput" message="tns:GetAttachByNameResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVersionAttach">
+      <wsdl:input name="GetVersionAttachInput" message="tns:GetVersionAttachMsg" />
+      <wsdl:output name="GetVersionAttachResultOutput" message="tns:GetVersionAttachResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPhysicalDataAttach">
+      <wsdl:input name="GetPhysicalDataAttachInput" message="tns:GetPhysicalDataAttachMsg" />
+      <wsdl:output name="GetPhysicalDataAttachResultOutput" message="tns:GetPhysicalDataAttachResultMsg" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateVersionedAttach">
+      <wsdl:input name="CreateVersionedAttachInput" message="tns:CreateVersionedAttachMsg" />
+      <wsdl:output name="CreateVersionedAttachResultOutput" message="tns:CreateVersionedAttachResultMsg" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GroupManagementSOAPHTTPBinding" type="tns:GroupManagementPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateGroup">
+      <soap:operation soapAction="CreateGroup" style="document" />
+      <wsdl:input name="CreateGroupInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CreateGroupResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyGroup">
+      <soap:operation soapAction="ModifyGroup" style="document" />
+      <wsdl:input name="ModifyGroupInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ModifyGroupResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroup">
+      <soap:operation soapAction="DeleteGroup" style="document" />
+      <wsdl:input name="DeleteGroupInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="DeleteGroupResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddGroupUsers">
+      <soap:operation soapAction="AddGroupUsers" style="document" />
+      <wsdl:input name="AddGroupUsersInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AddGroupUsersResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveGroupUsers">
+      <soap:operation soapAction="RemoveGroupUsers" style="document" />
+      <wsdl:input name="RemoveGroupUsersInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RemoveGroupUsersResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupUsers">
+      <soap:operation soapAction="GetGroupUsers" style="document" />
+      <wsdl:input name="GetGroupUsersInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetGroupUsersResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups">
+      <soap:operation soapAction="GetGroups" style="document" />
+      <wsdl:input name="GetGroupsInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetGroupsResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAllUsers">
+      <soap:operation soapAction="RemoveAllUsers" style="document" />
+      <wsdl:input name="RemoveAllUsersInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RemoveAllUsersResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DocumentManagementSOAPHTTPBinding" type="tns:DocumentManagementPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateDocument">
+      <soap:operation soapAction="CreateDocument" style="document" />
+      <wsdl:input name="CreateDocumentInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CreateDocumentResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyDocument">
+      <soap:operation soapAction="ModifyDocument" style="document" />
+      <wsdl:input name="ModifyDocumentInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ModifyDocumentResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDocument">
+      <soap:operation soapAction="DeleteDocument" style="document" />
+      <wsdl:input name="DeleteDocumentInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="DeleteDocumentResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LockDocument">
+      <soap:operation soapAction="LockDocument" style="document" />
+      <wsdl:input name="LockDocumentInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="LockDocumentResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnlockDocument">
+      <soap:operation soapAction="UnlockDocument" style="document" />
+      <wsdl:input name="UnlockDocumentInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UnlockDocumentResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsLockedDocument">
+      <soap:operation soapAction="IsLockedDocument" style="document" />
+      <wsdl:input name="IsLockedDocumentInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="IsLockedDocumentResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLockedDocuments">
+      <soap:operation soapAction="GetLockedDocuments" style="document" />
+      <wsdl:input name="GetLockedDocumentsInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetLockedDocumentsResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDocumentGrants">
+      <soap:operation soapAction="AddDocumentGrants" style="document" />
+      <wsdl:input name="AddDocumentGrantsInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AddDocumentGrantsResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDocumentGrants">
+      <soap:operation soapAction="SetDocumentGrants" style="document" />
+      <wsdl:input name="SetDocumentGrantsInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SetDocumentGrantsResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveDocumentGrants">
+      <soap:operation soapAction="RemoveDocumentGrants" style="document" />
+      <wsdl:input name="RemoveDocumentGrantsInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RemoveDocumentGrantsResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentGrants">
+      <soap:operation soapAction="GetDocumentGrants" style="document" />
+      <wsdl:input name="GetDocumentGrantsInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetDocumentGrantsResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentGeneralInfo">
+      <soap:operation soapAction="GetDocumentGeneralInfo" style="document" />
+      <wsdl:input name="GetDocumentGeneralInfoInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetDocumentGeneralInfoResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentMetadata">
+      <soap:operation soapAction="GetDocumentMetadata" style="document" />
+      <wsdl:input name="GetDocumentMetadataInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetDocumentMetadataResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentAttachments">
+      <soap:operation soapAction="GetDocumentAttachments" style="document" />
+      <wsdl:input name="GetDocumentAttachmentsInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetDocumentAttachmentsResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentVersions">
+      <soap:operation soapAction="GetDocumentVersions" style="document" />
+      <wsdl:input name="GetDocumentVersionsInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetDocumentVersionsResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CopyDocument">
+      <soap:operation soapAction="CopyDocument" style="document" />
+      <wsdl:input name="CopyDocumentInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CopyDocumentResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveDocument">
+      <soap:operation soapAction="MoveDocument" style="document" />
+      <wsdl:input name="MoveDocumentInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="MoveDocumentResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastVersionDocument">
+      <soap:operation soapAction="GetLastVersionDocument" style="document" />
+      <wsdl:input name="GetLastVersionDocumentInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetLastVersionDocumentResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAttachDocument">
+      <soap:operation soapAction="AddAttachDocument" style="document" />
+      <wsdl:input name="AddAttachDocumentInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AddAttachDocumentResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewVersionDocument">
+      <soap:operation soapAction="CreateNewVersionDocument" style="document" />
+      <wsdl:input name="CreateNewVersionDocumentInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CreateNewVersionDocumentResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocument">
+      <soap:operation soapAction="UploadDocument" style="document" />
+      <wsdl:input name="UploadDocumentInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UploadDocumentResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadDocument">
+      <soap:operation soapAction="DownloadDocument" style="document" />
+      <wsdl:input name="DownloadDocumentInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="DownloadDocumentResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMetadataDocument">
+      <soap:operation soapAction="SetMetadataDocument" style="document" />
+      <wsdl:input name="SetMetadataDocumentInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SetMetadataDocumentResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetGeneralInfoDocument">
+      <soap:operation soapAction="SetGeneralInfoDocument" style="document" />
+      <wsdl:input name="SetGeneralInfoDocumentInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SetGeneralInfoDocumentResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchDocuments">
+      <soap:operation soapAction="SearchDocuments" style="document" />
+      <wsdl:input name="SearchDocumentsInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SearchDocumentsResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentByName">
+      <soap:operation soapAction="GetDocumentByName" style="document" />
+      <wsdl:input name="GetDocumentByNameInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetDocumentByNameResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVersionDocument">
+      <soap:operation soapAction="GetVersionDocument" style="document" />
+      <wsdl:input name="GetVersionDocumentInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetVersionDocumentResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhysicalDataDocument">
+      <soap:operation soapAction="GetPhysicalDataDocument" style="document" />
+      <wsdl:input name="GetPhysicalDataDocumentInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetPhysicalDataDocumentResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FolderManagementSOAPHTTPBinding" type="tns:FolderManagementPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateFolder">
+      <soap:operation soapAction="CreateFolder" style="document" />
+      <wsdl:input name="CreateFolderInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CreateFolderResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyFolder">
+      <soap:operation soapAction="ModifyFolder" style="document" />
+      <wsdl:input name="ModifyFolderInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ModifyFolderResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFolder">
+      <soap:operation soapAction="DeleteFolder" style="document" />
+      <wsdl:input name="DeleteFolderInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="DeleteFolderResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocuments">
+      <soap:operation soapAction="GetDocuments" style="document" />
+      <wsdl:input name="GetDocumentsInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetDocumentsResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveFolder">
+      <soap:operation soapAction="MoveFolder" style="document" />
+      <wsdl:input name="MoveFolderInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="MoveFolderResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddGrantsFolder">
+      <soap:operation soapAction="AddGrantsFolder" style="document" />
+      <wsdl:input name="AddGrantsFolderInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AddGrantsFolderResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetGrantsFolder">
+      <soap:operation soapAction="SetGrantsFolder" style="document" />
+      <wsdl:input name="SetGrantsFolderInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SetGrantsFolderResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveGrantsFolder">
+      <soap:operation soapAction="RemoveGrantsFolder" style="document" />
+      <wsdl:input name="RemoveGrantsFolderInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RemoveGrantsFolderResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGrantsFolder">
+      <soap:operation soapAction="GetGrantsFolder" style="document" />
+      <wsdl:input name="GetGrantsFolderInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetGrantsFolderResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGeneralInfoFolder">
+      <soap:operation soapAction="GetGeneralInfoFolder" style="document" />
+      <wsdl:input name="GetGeneralInfoFolderInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetGeneralInfoFolderResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMetadataFolder">
+      <soap:operation soapAction="GetMetadataFolder" style="document" />
+      <wsdl:input name="GetMetadataFolderInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetMetadataFolderResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetGeneralInfoFolder">
+      <soap:operation soapAction="SetGeneralInfoFolder" style="document" />
+      <wsdl:input name="SetGeneralInfoFolderInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SetGeneralInfoFolderResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMetadataFolder">
+      <soap:operation soapAction="SetMetadataFolder" style="document" />
+      <wsdl:input name="SetMetadataFolderInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SetMetadataFolderResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchFolders">
+      <soap:operation soapAction="SearchFolders" style="document" />
+      <wsdl:input name="SearchFoldersInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SearchFoldersResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFolderByName">
+      <soap:operation soapAction="GetFolderByName" style="document" />
+      <wsdl:input name="GetFolderByNameInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetFolderByNameResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AttachmentManagementSOAPHTTPBinding" type="tns:AttachmentManagementPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateAttach">
+      <soap:operation soapAction="CreateAttach" style="document" />
+      <wsdl:input name="CreateAttachInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CreateAttachResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyAttach">
+      <soap:operation soapAction="ModifyAttach" style="document" />
+      <wsdl:input name="ModifyAttachInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ModifyAttachResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAttach">
+      <soap:operation soapAction="DeleteAttach" style="document" />
+      <wsdl:input name="DeleteAttachInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="DeleteAttachResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LockAttach">
+      <soap:operation soapAction="LockAttach" style="document" />
+      <wsdl:input name="LockAttachInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="LockAttachResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnlockAttach">
+      <soap:operation soapAction="UnlockAttach" style="document" />
+      <wsdl:input name="UnlockAttachInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UnlockAttachResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsLockedAttach">
+      <soap:operation soapAction="IsLockedAttach" style="document" />
+      <wsdl:input name="IsLockedAttachInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="IsLockedAttachResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLockedAttachments">
+      <soap:operation soapAction="GetLockedAttachments" style="document" />
+      <wsdl:input name="GetLockedAttachmentsInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetLockedAttachmentsResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAttachGrants">
+      <soap:operation soapAction="AddAttachGrants" style="document" />
+      <wsdl:input name="AddAttachGrantsInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AddAttachGrantsResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAttachGrants">
+      <soap:operation soapAction="SetAttachGrants" style="document" />
+      <wsdl:input name="SetAttachGrantsInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SetAttachGrantsResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAttachGrants">
+      <soap:operation soapAction="RemoveAttachGrants" style="document" />
+      <wsdl:input name="RemoveAttachGrantsInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RemoveAttachGrantsResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttachGrants">
+      <soap:operation soapAction="GetAttachGrants" style="document" />
+      <wsdl:input name="GetAttachGrantsInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAttachGrantsResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttachGeneralInfo">
+      <soap:operation soapAction="GetAttachGeneralInfo" style="document" />
+      <wsdl:input name="GetAttachGeneralInfoInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAttachGeneralInfoResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeVersion">
+      <soap:operation soapAction="ChangeVersion" style="document" />
+      <wsdl:input name="ChangeVersionInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ChangeVersionResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttachMetadata">
+      <soap:operation soapAction="GetAttachMetadata" style="document" />
+      <wsdl:input name="GetAttachMetadataInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAttachMetadataResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttachVersions">
+      <soap:operation soapAction="GetAttachVersions" style="document" />
+      <wsdl:input name="GetAttachVersionsInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAttachVersionsResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastVersionAttach">
+      <soap:operation soapAction="GetLastVersionAttach" style="document" />
+      <wsdl:input name="GetLastVersionAttachInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetLastVersionAttachResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewVersionAttach">
+      <soap:operation soapAction="CreateNewVersionAttach" style="document" />
+      <wsdl:input name="CreateNewVersionAttachInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CreateNewVersionAttachResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadAttach">
+      <soap:operation soapAction="UploadAttach" style="document" />
+      <wsdl:input name="UploadAttachInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UploadAttachResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadAttach">
+      <soap:operation soapAction="DownloadAttach" style="document" />
+      <wsdl:input name="DownloadAttachInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="DownloadAttachResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMetadataAttach">
+      <soap:operation soapAction="SetMetadataAttach" style="document" />
+      <wsdl:input name="SetMetadataAttachInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SetMetadataAttachResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetGeneralInfoAttach">
+      <soap:operation soapAction="SetGeneralInfoAttach" style="document" />
+      <wsdl:input name="SetGeneralInfoAttachInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SetGeneralInfoAttachResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchAttachments">
+      <soap:operation soapAction="SearchAttachments" style="document" />
+      <wsdl:input name="SearchAttachmentsInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SearchAttachmentsResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttachByName">
+      <soap:operation soapAction="GetAttachByName" style="document" />
+      <wsdl:input name="GetAttachByNameInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAttachByNameResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVersionAttach">
+      <soap:operation soapAction="GetVersionAttach" style="document" />
+      <wsdl:input name="GetVersionAttachInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetVersionAttachResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhysicalDataAttach">
+      <soap:operation soapAction="GetPhysicalDataAttach" style="document" />
+      <wsdl:input name="GetPhysicalDataAttachInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetPhysicalDataAttachResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVersionedAttach">
+      <soap:operation soapAction="CreateNewVersionAttach" style="document" />
+      <wsdl:input name="CreateVersionedAttachInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CreateVersionedAttachResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UserSOAPHTTPBinding" type="tns:UserPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="Login" style="document" />
+      <wsdl:input name="LoginInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="LoginResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LinkManagementSOAPHTTPBinding" type="tns:LinkManagementPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateLink">
+      <soap:operation soapAction="CreateLink" style="document" />
+      <wsdl:input name="CreateLinkInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CreateLinkResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyLink">
+      <soap:operation soapAction="ModifyLink" style="document" />
+      <wsdl:input name="ModifyLinkInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ModifyLinkResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLink">
+      <soap:operation soapAction="DeleteLink" style="document" />
+      <wsdl:input name="DeleteLinkInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="DeleteLinkResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveLink">
+      <soap:operation soapAction="MoveLink" style="document" />
+      <wsdl:input name="MoveLinkInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="MoveLinkResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddGrantsLink">
+      <soap:operation soapAction="AddGrantLinks" style="document" />
+      <wsdl:input name="AddGrantsLinkInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AddGrantsLinkResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetGrantsLink">
+      <soap:operation soapAction="SetGrantsLink" style="document" />
+      <wsdl:input name="SetGrantsLinkInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SetGrantsLinkResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveGrantsLink">
+      <soap:operation soapAction="RemoveGrantsLink" style="document" />
+      <wsdl:input name="RemoveGrantsLinkInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RemoveGrantsLinkResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGrantsLink">
+      <soap:operation soapAction="GetGrantsLink" style="document" />
+      <wsdl:input name="GetGrantsLinkInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetGrantsLinkResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGeneralInfoLink">
+      <soap:operation soapAction="GetGeneralInfoLink" style="document" />
+      <wsdl:input name="GetGeneralInfoLinkInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetGeneralInfoLinkResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetGeneralInfoLink">
+      <soap:operation soapAction="SetGeneralInfoLink" style="document" />
+      <wsdl:input name="SetGeneralInfoLinkInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SetGeneralInfoLinkResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkByName">
+      <soap:operation soapAction="GetLinkByName" style="document" />
+      <wsdl:input name="GetLinkByNameInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetLinkByNameResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="VersionManagementSOAPHTTPBinding" type="tns:VersionManagementPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateDocumentVersion">
+      <soap:operation soapAction="CreateDocumentVersion" style="document" />
+      <wsdl:input name="CreateDocumentVersionInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CreateDocumentVersionOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyVersion">
+      <soap:operation soapAction="ModifyVersion" style="document" />
+      <wsdl:input name="ModifyVersionInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ModifyVersionResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVersion">
+      <soap:operation soapAction="DeleteVersion" style="document" />
+      <wsdl:input name="DeleteVersionInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="DeleteVersionResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGeneralInfoVersion">
+      <soap:operation soapAction="GetGeneralInfoVersion" style="document" />
+      <wsdl:input name="GetGeneralInfoVersionInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetGeneralInfoVersionResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMetadataVersion">
+      <soap:operation soapAction="GetMetadataVersion" style="document" />
+      <wsdl:input name="GetMetadataVersionInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetMetadataVersionResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhysicalDataVersion">
+      <soap:operation soapAction="GetPhysicalDataVersion" style="document" />
+      <wsdl:input name="GetPhysicalDataVersionInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetPhysicalDataVersionResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadVersion">
+      <soap:operation soapAction="UploadVersion" style="document" />
+      <wsdl:input name="UploadVersionInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UploadVersionResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadVersion">
+      <soap:operation soapAction="DownloadVersion" style="document" />
+      <wsdl:input name="DownloadVersionInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="DownloadVersionResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMetadataVersion">
+      <soap:operation soapAction="SetMetadataVersion" style="document" />
+      <wsdl:input name="SetMetadataVersionInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SetMetadataVersionResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchVersions">
+      <soap:operation soapAction="SearchVersions" style="document" />
+      <wsdl:input name="SearchVersionsInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SearchVersionsResultOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CorteContentServices">
+    <wsdl:port name="AttachmentManagementSOAPHTTPPort" binding="tns:AttachmentManagementSOAPHTTPBinding">
+      <soap:address location="http://soatest.corteconti.it:7780/DocumentServices-beta1/AttachmentManagementSOAPHTTPPort" />
+    </wsdl:port>
+    <wsdl:port name="DocumentManagementSOAPHTTPPort" binding="tns:DocumentManagementSOAPHTTPBinding">
+      <soap:address location="http://soatest.corteconti.it:7780/DocumentServices-beta1/DocumentManagementSOAPHTTPPort" />
+    </wsdl:port>
+    <wsdl:port name="FolderManagementSOAPHTTPPort" binding="tns:FolderManagementSOAPHTTPBinding">
+      <soap:address location="http://soatest.corteconti.it:7780/DocumentServices-beta1/FolderManagementSOAPHTTPPort" />
+    </wsdl:port>
+    <wsdl:port name="UserSOAPHTTPPort" binding="tns:UserSOAPHTTPBinding">
+      <soap:address location="http://soatest.corteconti.it:7780/DocumentServices-beta1/UserSOAPHTTPPort" />
+    </wsdl:port>
+    <wsdl:port name="VersionManagementSOAPHTTPPort" binding="tns:VersionManagementSOAPHTTPBinding">
+      <soap:address location="http://soatest.corteconti.it:7780/DocumentServices-beta1/VersionManagementSOAPHTTPPort" />
+    </wsdl:port>
+    <wsdl:port name="LinkManagementSOAPHTTPPort" binding="tns:LinkManagementSOAPHTTPBinding">
+      <soap:address location="http://soatest.corteconti.it:7780/DocumentServices-beta1/LinkManagementSOAPHTTPPort" />
+    </wsdl:port>
+    <wsdl:port name="GroupManagementSOAPHTTPPort" binding="tns:GroupManagementSOAPHTTPBinding">
+      <soap:address location="http://soatest.corteconti.it:7780/DocumentServices-beta1/GroupManagementSOAPHTTPPort" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

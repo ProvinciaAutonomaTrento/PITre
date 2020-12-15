@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://infocertsigner.nttdata.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="Signer" targetNamespace="http://infocertsigner.nttdata.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/InfoCertSigner/Signer?xsd=1" namespace="http://infocertsigner.nttdata.com/" />
+    </xsd:schema>
+  </types>
+  <message name="CADESSingleSigner">
+    <part name="parameters" element="tns:CADESSingleSigner" />
+  </message>
+  <message name="CADESSingleSignerResponse">
+    <part name="parameters" element="tns:CADESSingleSignerResponse" />
+  </message>
+  <portType name="Signer">
+    <operation name="CADESSingleSigner">
+      <input wsam:Action="http://infocertsigner.nttdata.com/Signer/CADESSingleSignerRequest" message="tns:CADESSingleSigner" />
+      <output wsam:Action="http://infocertsigner.nttdata.com/Signer/CADESSingleSignerResponse" message="tns:CADESSingleSignerResponse" />
+    </operation>
+  </portType>
+  <binding name="SignerPortBinding" type="tns:Signer">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="CADESSingleSigner">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="Signer">
+    <port name="SignerPort" binding="tns:SignerPortBinding">
+      <soap:address location="http://localhost:8080/InfoCertSigner/Signer" />
+    </port>
+  </service>
+</definitions>

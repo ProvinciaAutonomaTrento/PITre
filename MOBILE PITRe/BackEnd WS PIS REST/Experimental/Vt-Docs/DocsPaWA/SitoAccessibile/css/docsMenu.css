@@ -1,0 +1,67 @@
+/* DocsPA Accessibile - css menu del documento */
+
+#docsMenu {
+	border-top: none;
+	border-right: none;
+	border-bottom: 1px solid #444444;
+	border-left: none;
+	font-size: 1.1em;
+	margin-top: 2em;
+	padding-top: .6em;
+}
+
+#docsMenu ul, #docsMenu ul li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#docsMenu ul {
+	padding: 5px 0 4px 0;
+	text-align: center;
+}
+
+#docsMenu ul li {
+	display: inline;
+	margin-right: .2em;
+}
+
+#docsMenu ul li.last {
+	margin-right: 0;
+}
+
+#docsMenu ul li a ,
+#docsMenu ul li.current a {
+	background: #810D06 url("../Images/docsMenu-tab-right.png") no-repeat 100% 0;
+	color: #EFEBEF;
+	padding: 5px 0;
+	text-decoration: none;
+}
+
+#docsMenu ul li.current a {
+	background: url("../Images/docsMenu-tab-right-curr.png") no-repeat 100% 0;
+	padding: 5px 0;
+}
+
+* html #docsMenu ul li.current a {padding: 0; }
+
+#docsMenu ul li a span ,
+#docsMenu ul li.current a span {
+	background: url("../Images/docsMenu-tab-left.png") no-repeat;
+	padding: 5px 1em 4px 1em;
+	border-bottom: 1px solid #444444;
+}
+
+#docsMenu ul li.current a span {
+	background: url("../Images/docsMenu-tab-left-curr.png") no-repeat;
+	border-bottom: 0;
+
+}
+
+#docsMenu ul li a:hover span {
+	text-decoration: underline;
+}
+
+* html #docsMenu ul li a {
+	padding: 0;
+}

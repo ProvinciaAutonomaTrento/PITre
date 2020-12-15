@@ -1,0 +1,856 @@
+/* DocsPA Accessibile - css ad elevato contrasto */
+
+/* Struttura */
+
+html, body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	border: none;
+	font: 62.5% Verdana,Tahoma,sans-serif;
+	color: #333333;
+    background-color: #F7F3F7;
+}
+
+#container {
+	min-height: 100%;
+	position: relative;
+}
+
+* html #container { height: 100%;}
+
+#header,
+#headerLogin {
+	padding: 2.5em 0;
+	color: #FFDEBC;
+	background: #810D06 url("../Images/logoDocspa.png") no-repeat 0.6em 0.8em;
+    border-bottom: 1px solid #F7F3F7;
+}
+
+#header {
+	padding: 3em 0;
+	border: none;
+	background-position: 0.6em 1em;
+}
+
+#content,
+#contentLogin {
+	padding: 1em;
+	border-top: 5px solid #9E9E9E;
+}
+
+#content {
+	font-size: 1.1em;
+	padding-top: 2.5em;
+	border: none;
+}
+
+#contentLogin {
+	text-align: center;
+}
+
+* html #content { padding-top: 2.5em;}
+
+* html #content, 
+* html #contentLogin {
+	height: 1px;
+}
+
+/* Elementi */
+
+a {
+	color: #000000;
+	background-color: inherit;
+	font-weight: bold;
+}
+
+a:link {
+	color: #000033;
+	background-color: inherit;
+	text-decoration: underline;
+}
+
+a:visited {
+	color: #333366;
+	background-color: inherit;
+}
+
+a:hover, a:active {
+	color: #AA1018;
+	background-color: inherit;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	color: #AA1018;
+	background-color: inherit;
+}
+
+h1 {
+	font: bold 1.25em Verdana,Tahoma,sans-serif;
+}
+
+h2 {
+	font-size: 1.05em;
+	font-weight: bold;
+}
+
+h3 {
+	font-size: 1em;
+	font-weight: bold;
+}
+
+p {}
+
+em { font-style: normal; }
+
+/* Form */
+
+fieldset {
+	position: relative;
+	color: #333333;
+	background: #EFEFEF;
+	border: 1px solid #999999;
+	margin: 2em 0 1em 0;
+	padding: 0.4em 0.4em 1em 0.4em;
+}
+
+* html fieldset { padding: 0em 0.4em 1em 0.4em; }
+
+legend {
+	position: relative;
+	top: -0.8em;
+	color: #333333;
+	font-weight: bolder;
+	background: #EFEFEF;
+	border: 1px solid #999999;
+	padding: 0.2em 0.4em;
+	margin-left: 0.2em;
+}
+
+fieldset.small {
+	position: static;
+	width: 99%;
+    border: 1px solid #CCCCCC;
+    margin: 0.4em 0;
+    padding: 0 0 0.7em 0.6em;
+    font-size: 85%;
+}
+
+fieldset.small legend {
+	position: static;
+    color: #333333;
+    background-color: inherit;
+    border: none;
+    font-size: 1.2em;
+}
+
+fieldset.small legend {
+	position: static;
+    color: #333333;
+    background-color: inherit;
+    border: none;
+    font-size: 1.2em;
+}
+
+fieldset.small label {
+    font-size: 1.2em;
+}
+
+form {
+	margin: 0;
+	padding: 0;
+}
+
+form pre { /* Fix per viewstate su Firefox e compliant browsers */
+	padding: 0;
+	margin: 0;
+}
+
+input, select, option, label, textarea {
+    color: #333333;
+    background-color: #F7F3F7;
+}
+
+input {
+}
+
+
+textarea, select {
+	border: 1px solid #999999;
+	width: 98%;	
+}
+
+textarea:hover, select:hover {
+	border: 1px solid #666666;	
+}
+
+select {
+	width: 40%;
+	border: 1px solid #999999;
+	background-color: #F7F3F7;
+}
+
+label {
+	font-weight: bold;
+}
+
+.button, .innerButton {
+	font: bold 1em Verdana,Tahoma,sans-serif;
+	color: #131313;
+	background-color: #CCCC99;
+	border-top: 1px solid #FFFFFF; 
+	border-right: 1px solid #666666;
+	border-bottom: 1px solid #666666; 
+	border-left: 1px solid #FFFFFF;
+	padding: 0.2em 0.4em;
+}
+
+.innerButton { font-size: 1.2em; }
+
+.textField {
+	color: #333333;
+    background-color: #F7F3F7;
+	border: 1px solid #999999;	
+}
+
+.textFieldError {
+	color: #333333;
+    background-color: #FFE0E0;
+	border: 1px solid #FF0000;	
+}
+
+.textField:hover {
+	border: 1px solid #666666;	
+}
+
+p.labelFieldPair { display: inline; margin-left: 0.2em;line-height: 140%;}
+p.labelFieldPair label { }
+p.labelFieldPair input {margin-bottom: -0.1em;}
+
+* html form.topRubrica { height: 1px; } /* fix per IE */
+
+fieldset div { /* only used when dual panel  ex form div*/
+	float: left;
+	width: 48%;
+	padding: 0 0.5em;
+	color: #333333;
+	background-color: inherit;
+}
+
+fieldset label {
+	background: #EFEFEF;
+	color: #333333;	
+}
+
+
+.equals label { 
+	position: absolute;
+	text-align: left;
+	width: 10%; 
+	margin-bottom: 1em;
+	color: #333333;
+	background: #EFEFEF;
+}
+
+.equals input,
+.equals select {
+	width: 70%;
+  	margin-left: 25%; 
+  	margin-bottom: 0.1em;  
+}
+
+* html .equals input,
+* html .equals select {
+  	margin-left: 12%; 
+}
+
+.borderedBox,
+.noborderBox {
+	position: static;
+	width: 99%;
+    border: 1px solid #999999;
+    color: #333333;
+    background: #F7F3F7;
+    margin: 0.4em 0;
+    padding: 0.4em 0 0.7em 0.6em;	
+}
+
+.noborderBox {
+	border: none;
+	padding: 0;
+	margin: 0em 0em 0.5em 0em;
+	color: #333333;
+	background: #EFEFEF;
+}
+
+.segnatura {
+	color: #A40000;
+	background-color: inherit;
+}
+
+/* Maschera di login */
+
+#frmLogin, .loginMessage {
+	margin: 0 auto 0 auto;
+	width: 55%;
+	text-align: left;
+	padding-top: 2.5em;
+}
+
+.loginMessage {
+	height: 1em;
+	text-align: center;
+	color: #CB3232;
+    background: #F7F3F7;
+	font-weight: bold; 
+	font-size: 1.2em;
+}
+
+.choice {
+	margin-top: 10%;
+	font-size: 1.1em;
+}
+
+#frmLogin fieldset {
+	padding: 1.2em 1.8em 1.8em 1.8em;
+	font-size: 1.1em;
+}
+
+#frmLogin legend {
+	position: relative;
+	top: -2em;
+	margin-left: -1em;
+}
+
+#frmLogin label { 
+	position: absolute;
+	text-align: left; 
+	width: 7em; 
+	margin-bottom: 1em;
+	color: #333333;
+	background: #EFEFEF;
+}
+
+#frmLogin input,
+#frmLogin select {
+	width: 11em;
+  	margin-left: 10.5em; 
+  	margin-bottom: 0.2em;  
+}
+
+#frmLogin select {
+	width: 50%;
+}
+
+#frmLogin div {
+	width: 90%;
+  	text-align: center;  
+}
+
+#frmLogin div input {
+  	margin: 0;  
+}
+
+#frmLogin input.adminame {
+  	border-color: #F1F1F1;
+  	background: #EFEFEF;
+  	color: #970600;
+  	font-weight: bold;
+  	margin-bottom: 0.2em;
+}
+
+.loginMessage form {
+	float: left;
+	margin: 0;
+}
+
+* html .loginMessage form {
+	width: 3em;
+}
+
+.loginMessage div {
+	margin: 1em 0;
+}
+
+
+.loginMessage #frmSi {
+	display: inline;
+	padding-left: 40%;
+}
+
+.loginMessage #frmNo {
+	display: inline;
+	padding-left: 1em;	
+}
+
+/* Dettagli del documento */
+
+.baseData {
+	float: left;
+	width: 67%;
+	margin: -1.2em 0 0 0;
+}
+
+.baseData div {
+	margin: 0;
+	padding: 0;
+}
+
+.baseData div.left { float: left; width: 53%; }
+.baseData div.right { width: 47%; }
+
+.baseData div p { display: block; margin: 0.2em 0 0.6em 0;}
+
+.baseData label,
+.baseData .regStatusText { 
+	position: absolute;
+	text-align: left;
+	width: 19%;
+	color: #333333;
+	background: #EFEFEF;
+}
+
+* html .baseData label { width: 37%; }
+
+.baseData input,
+.baseData select,
+.baseData textarea {
+	width: 59%;
+  	margin-left: 38%;
+  	color: #333333;
+  	background: #F7F3F7;
+}
+
+* html .baseData input,
+* html .baseData select,
+* html .baseData textarea {
+  	margin-left: 20%;
+}
+
+#txt_numProtocollo,
+#txt_idDocumentoExtra { width: 20%; }
+
+.baseData div.right label { width: 16%;}
+
+.baseData div.right input,
+.baseData div.right textarea { 
+	width: 63%;
+	margin-left: 35%;
+}
+
+* html .baseData div.right label { width: 35%;}
+
+* html .baseData div.right input,
+* html .baseData div.right textarea { 
+	width: 62%;
+	margin-left: 17%;
+}
+
+.extraData {
+	width: 30%;
+	margin: -1.2em 0 0 0;
+	float: right;
+}
+
+/* html .extraData { float: right; }*/
+
+.extraData p { display: block; margin: 0.2em 0 0.6em 0;}
+
+.extraData label { 
+	position: absolute;
+	text-align: left;
+	width: 35%;
+	color: #333333;
+	background: #EFEFEF;
+}
+
+.extraData input,
+.extraData select {
+	width: 50%;
+	margin-left: 47%;
+}
+
+* html .extraData input,
+* html .extraData select {
+	width: 45%;
+	margin-left: 15%;
+}
+
+.extraData select.tipologia { width: 38%; }
+
+.extraData input.showVisibility {
+	width: 6%;
+	border: none;
+	margin-left: 0.2em;
+	padding: 0;
+	color: #333333;
+	background: #EFEFEF url("../Images/user.gif") no-repeat center center;
+	cursor: pointer;
+}
+
+* html .extraData input.showVisibility { padding-bottom: 0.2em;}	
+
+
+.regStatusText { font-weight: bold; }
+
+.regStatusOpen,
+.regStatusYellow,
+.regStatusClosed {
+  	margin-left: 38%;
+	font-weight: bold;
+	padding: 0.2em 1em;
+	border: 1px solid #999999;
+}
+
+.regStatusOpen { color: #ffffff; background: #00DB00; }
+.regStatusYellow { color: #0000B0; background: #FFFF00; }
+.regStatusClosed { color: #ffffff; background: #FF0000; }
+
+
+/* Tabelle dati */
+
+table {
+	width: 100%;
+	padding: 0;
+	border-collapse: collapse;
+	color: #333333;
+	background: red;
+	font-size: 1.2em;
+	margin-bottom: 0.5em;
+	border: 2px solid #CCCCCC;
+}
+
+caption {
+	margin: 0;
+	padding: 0.8em 0 0.4em 0;
+	background: #F7F3F7;
+	text-align: center;
+	color: #810D06;
+	font: bold 1.1em Verdana,Tahoma,sans-serif;
+}
+
+th, td {
+	border: 1px solid #EFEFEF;
+	margin: 0;
+	padding: 0.20em 0.40em;
+}
+
+th {
+	background: #EFEFEF;
+	color: #003366;
+	border-color: #CCCCCC;
+	text-align: center;
+}
+
+th:first-letter { text-transform: uppercase;}
+
+td {
+	color: #333333;
+	background: #FFFFFF;
+	border-bottom: 1px solid #CCCCCC;
+	text-align: left;
+}
+
+tfoot td {
+	background: #EFEFEF;
+	color: #003366;
+	font-weight: bold;
+}
+
+table td.invalidItem { background: #FFE5E5; color: #891E00; }
+
+table th.noteDetailsItem { width: 30% }
+table th.noteDetailsValue { width: 70% }
+
+/* Stili specifici */
+
+.skipLinks {
+	position: absolute;
+	left: 0px;
+	top: -500px;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+.message {
+	text-align: center;
+	color: #810D06;
+    background: #F7F3F7;
+	font-weight: bold; 
+	font-size: 1.2em;	
+}
+
+.selRole {
+	margin-top: 0em;
+	padding: 0;
+}
+
+.selRole fieldset { margin-top: 1em; }
+
+.currRole {
+	margin: 0em;
+	font: bold 1.1em Tahoma,Verdana,sans-serif;
+	line-height: 120%;
+}
+
+.currRole span {
+	color: #064481;
+	background: #F7F3F7;
+}
+
+.userdata {
+	position: absolute;
+	right: 1em;
+	top: 1.8em;
+	z-index: 2;
+	font-size: 1.18em;
+}
+
+.userdata span { font-weight: bold; }
+
+.clear {
+	clear: both; 
+	height: 1px;
+	margin: 0;
+	padding: 0;
+}
+
+.nowrap { white-space: nowrap; }
+.hidden {
+	position: absolute;
+	left: -1000px;
+	width: 990px;
+}
+
+h2.tvheader { text-align: center; }
+
+.centerButtons {
+	margin: 0 auto 0 auto;
+	width: 95%;
+	text-align: center;
+	padding-top: 1em;
+}
+
+.searchResults {
+	margin: 0;
+	padding: 0;
+}
+
+.searchResults caption {
+	padding: 0.2em 0 0.5em 0;
+}
+
+.buttoned { width: 73%; }
+.fullpanel { width: 100%; }
+.halfpanel { width: 23%; }
+
+#containerDettagliDocumento,
+#todoListContainer { 
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#docContent {
+	width: 98%;
+	height: 27em;
+	overflow: scroll;
+	color: #333333;
+	background: #FFE7CE;
+	border: 1px solid #999999;
+	
+}
+
+/* Pager globale esterno ai datagrid e pulsanti datagrid */
+
+.pager ul li input,
+.gridButton {
+	font-weight: bold;
+	font-size: 1em;
+	letter-spacing: 0.1em;
+	width: auto;
+	overflow: visible;
+	cursor: pointer;
+}
+
+.gridButton {
+	color: #003366;
+	background: inherit;
+	margin: 0;
+	padding: 0;
+	border-top: none;
+	border-left: none;
+	border-bottom: 1px solid #003366;
+	border-right: none;
+}
+
+.pager {
+	margin: 0;
+	border: none;
+	background: #F7F3F7;
+	color: #003366;
+	font-weight: bold;
+}
+
+.pager span.hiddenDescription { /* tag span nascosti */
+	position: absolute;
+	left: -1000px;
+	width: 990px;
+}
+
+.pager ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;	
+}
+
+.pager ul li {
+	display: inline;
+	margin: 0;
+}
+
+.pager ul li input {
+	color: #003366;
+	background: #EFEFEF;
+	border: 1px solid #CCCCCC;
+}
+
+* html .pager ul li input { 
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+.pager ul li input.previousPage {
+	color: #003366;
+	background: #EFEFEF url("../Images/pager_arrow_left.gif") no-repeat 0.2em 50%;
+	text-indent: 0.8em;
+}
+
+.pager ul li input.nextPage {
+	color: #003366;
+	background: #EFEFEF url("../Images/pager_arrow_right.gif") no-repeat 98% 70%;
+	padding-right: 1.3em;
+}
+
+* html .pager ul li input.nextPage { padding-right: 1.8em; }
+
+.pager ul li input.currentPage {
+	color: #EFEFEF;
+	background: #003366;
+	border: 1px solid #CCCCCC;
+	cursor: default;
+}
+
+/* Dettagli di vari tipi di documenti */
+
+.corrDetails,
+.fascDetails { 
+	margin: 4% 20% 0% 20%;
+	text-align: left;
+}
+
+.fascDetails {
+	width: 62%;
+	margin: 0;
+}
+
+.corrDetails label,
+.fascDetails label { 
+	position: absolute;
+	text-align: left;
+	width: 40%;
+	color: #333333;
+	background: #EFEFEF;
+}
+
+.corrDetails input,
+.fascDetails input {
+	width: 50%;
+	margin-left: 42%;
+}
+
+* html .corrDetails input { margin-left: 25%; }
+* html .fascDetails input { margin-left: 25%; }
+
+.corrDetails textarea { width: 92%; }
+
+.corrDetails p,
+.fascDetails p{
+	display: block;
+	margin: 0.2em 0 0.8em 1.2em;
+}
+
+.corrDetails input.short,
+.fascDetails input.short {
+	width: 20%;
+}
+
+/* Trasmissioni effettuate e ricevute */
+
+.trasmissioni {
+	padding-bottom: 0.5em;
+}
+
+.trasmissioni label { 
+	position: absolute;
+	text-align: left;
+	width: 18%;
+	color: #333333;
+	background: #EFEFEF;
+}
+
+.trasmissioni input {
+	width: 50%;
+	margin-left: 42%;
+}
+
+* html .trasmissioni label { width: 40%; }
+* html .trasmissioni input { margin-left: 23%; }
+
+.trasmissioni textarea { width: 92%; }
+
+.trasmissioni p {
+	display: block;
+	margin: 0.2em 0 0.8em 1.2em;
+}
+
+.filtroTrasmissioni {
+	margin-top: 0em;
+	margin-bottom: 0em;
+	width: 30%;
+}
+
+* html .filtroTrasmissioni { margin-top: 1em; }
+* html .filtroTrasmissioni span label,
+* html .filtroTrasmissioni span input { background: #EFEFEF; color: #333333;}
+
+/* Dettagli protocollo e profilo */
+
+.dettagliProtocollo,
+.dettaglioProfilo { margin-top: 1.5em; }
+
+div.fullContainer { width: 99%; }
+
+p.usersInRole { font: bold 1.2em Tahoma,Verdana,sans-serif; text-align: left;}
+
+p.usersInRole span { color: #064481; background: inherit; }
+
+/* Notifica e correzione errori */
+
+div.notifyErrors {
+	margin: 0 10% auto;
+	padding: 0.5em;
+	border: 1px solid #FF0000;
+	color: #333333;
+	font-weight: bold;
+	background: #FFE0E0;
+}
+
+div.notifyErrors h2 { font-size: 1.3em; margin: 0; color: #333333; background: inherit; }
+div.notifyErrors p { font-size: 1.2em; margin: 0.2em 0em;}
+div.notifyErrors ul { margin: 0; padding-left: 2em;}
+div.notifyErrors li { padding: 0.2em 0em; font-size: 110%;}

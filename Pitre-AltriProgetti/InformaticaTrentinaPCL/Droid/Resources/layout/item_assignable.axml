@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             android:layout_width="match_parent"
+                                             android:paddingTop="12dp"
+                                             android:paddingBottom="12dp"
+                                             android:layout_height="wrap_content">
+    <ImageView
+            android:id="@+id/imageView_assignableImage"
+            android:layout_width="@dimen/document_icon_dim"
+            android:layout_height="@dimen/document_icon_dim"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    
+    <TextView
+            android:id="@+id/textView_assignableName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/imageView_assignableImage"
+            app:layout_constraintRight_toLeftOf="@+id/guideline_vertical"
+            android:layout_marginLeft="12dp"
+            app:layout_goneMarginLeft="0dp"
+    />
+    
+    <CheckBox
+            android:id="@+id/checkbox_favorite"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:button="@drawable/selector_favorite"
+            android:backgroundTint="@color/colorBlue"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/guideline_vertical"
+            app:layout_constraintRight_toRightOf="parent"
+            android:visibility="gone" />
+    <ImageView
+            android:id="@+id/imageView_remove"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:background="@drawable/ic_ico_chiudi"
+            android:backgroundTint="@color/colorRed"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/guideline_vertical"
+            app:layout_constraintRight_toRightOf="parent"
+            android:visibility="gone" />
+    <android.support.constraint.Guideline
+            android:id="@+id/guideline_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9" />
+</android.support.constraint.ConstraintLayout>

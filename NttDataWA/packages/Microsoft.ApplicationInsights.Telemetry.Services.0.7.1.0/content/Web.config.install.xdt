@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <system.web xdt:Transform="InsertIfMissing">
+    <httpModules xdt:Transform="InsertIfMissing">
+      <add name="ApplicationInsights" type="Microsoft.ApplicationInsights.Telemetry.Web.ApplicationInsightsModule" xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)" />
+    </httpModules>
+  </system.web>
+  <system.webServer xdt:Transform="InsertIfMissing">
+    <modules xdt:Transform="InsertIfMissing">
+      <add name="ApplicationInsights" type="Microsoft.ApplicationInsights.Telemetry.Web.ApplicationInsightsModule" xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)" />
+    </modules>
+    <validation xdt:Transform="InsertIfMissing"/>
+  </system.webServer>
+  <system.webServer>
+    <validation validateIntegratedModeConfiguration="false" xdt:Transform="SetAttributes" />
+  </system.webServer>
+</configuration>

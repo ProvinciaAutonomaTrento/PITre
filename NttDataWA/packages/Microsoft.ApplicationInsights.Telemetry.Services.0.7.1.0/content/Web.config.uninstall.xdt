@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <system.web>
+    <httpModules>
+      <add name="ApplicationInsights" xdt:Transform="Remove" xdt:Locator="Match(name)" />
+    </httpModules>
+    <httpModules xdt:Transform="Remove" xdt:Locator="Condition(count(child::*) = 0)" />
+  </system.web>
+  <system.web xdt:Transform="Remove" xdt:Locator="Condition(count(child::*) = 0)" />
+  <system.webServer>
+    <modules>
+      <add name="ApplicationInsights" xdt:Transform="Remove" xdt:Locator="Match(name)" />
+    </modules>
+    <modules xdt:Transform="Remove" xdt:Locator="Condition(count(child::*) = 0)" />
+    <validation xdt:Transform="Remove" xdt:Locator="Condition(count(/configuration/system.web/httpModules/child::*) = 0)" />
+  </system.webServer>
+  <system.webServer xdt:Transform="Remove" xdt:Locator="Condition(count(child::*) = 0)" />
+</configuration>

@@ -1,0 +1,15 @@
+BEGIN
+declare cntcol int;
+ 
+begin
+select count(*) into cntcol from cols
+                where table_name='DPA_OGG_CUSTOM_COMP' and column_name='OPZIONI_XML_ASSOC';
+ 
+if cntcol = 0 then
+                execute immediate
+                'alter table DPA_OGG_CUSTOM_COMP add (OPZIONI_XML_ASSOC VARCHAR2(2000))';
+end if;
+ 
+end;
+END;
+/

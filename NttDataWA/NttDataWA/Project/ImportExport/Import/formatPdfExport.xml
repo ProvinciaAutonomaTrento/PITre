@@ -1,0 +1,23 @@
+﻿<?xml version="1.0"?>
+<report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="..\..\..\ProspettiRiepilogativi\FrontEnd\TemplateXML\XMLReport.xsd">
+  <pagina formato="A4" orientamento="ORIZZONTALE">
+    <dta_stampa align="RIGHT" target="footer" font="Arial" size="10" style="PLAIN" color="#000000">Stampa effettuata il: </dta_stampa>
+    <num_pagine align="LEFT" target="header" font="Arial" size="8" style="PLAIN" color="#000000" total="1" separator="/" widthTot="5">Pag. </num_pagine>
+  </pagina>
+  <header align="LEFT" font="Arial" size="16" style="BOLD" color="#000000" bgcolor="#FFFFFF" border="1">Stampa riassuntiva dell'esportazione fascicolo</header>
+  <logo align="LEFT" file="" bgcolor="#FFFFFF"/>
+  <dati>
+    <tabella showBorder="true" target="TABLE_DATA" padding="2" spacing="0">
+      <header_tabella align="CENTER" font="Arial" size="10" style="BOLD" color="#000000" bgcolor="#C0C0C0" valign="middle"/>
+      <dati_tabella align="LEFT" font="Arial" size="9" style="PLAIN" color="#000000" bgcolor="#C0C0C0" valign="bottom"/>
+      <colonne>
+        <colonna name="Type" alias="Tipo" visible="true" width="10" align="left" valign="top"/>
+        <colonna name="Path" alias="Percorso" visible="true" width="55" align="left" valign="top"/>
+        <colonna name="Result" alias="Esito" visible="true" width="15" align="left" valign="top"/>
+        <colonna name="Notes" alias="Note" visible="true" width="20" align="left" valign="top" />
+      </colonne>
+    </tabella>
+  </dati>
+  <footer align="LEFT" font="Arial" size="8" style="PLAIN" color="#000000" bgcolor="#FFFFFF" border="1">
+  </footer>
+</report>

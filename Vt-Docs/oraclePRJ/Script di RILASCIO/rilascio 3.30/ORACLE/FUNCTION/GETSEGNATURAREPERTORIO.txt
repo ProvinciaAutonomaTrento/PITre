@@ -1,0 +1,83 @@
+CREATE OR REPLACE FUNCTION GETSEGNATURAREPERTORIO (docId INT, idAmm INT)
+RETURN varchar IS segnatura clob;
+/******************************************************************************
+   NAME:       GETSEGNATURAREPERTORIO
+   PURPOSE:    
+
+   REVISIONS:
+   Ver        Date        Author           Description
+   ---------  ----------  ---------------  ------------------------------------
+   1.0        07/06/2013   FerlitoCa       1. Calcola la segnatura di repertorio.
+
+   NOTES:
+
+   Automatically available Auto Replace Keywords:
+      Object Name:     GETSEGNATURAREPERTORIO
+      Sysdate:         07/06/2013
+      Date and Time:   07/06/2013, 14:26:37, and 07/06/2013 14:26:37
+      Username:        FerlitoCa (set in TOAD Options, Procedure Editor)
+      Table Name:       (set in the "New PL/SQL Object" dialog)
+
+******************************************************************************/
+
+formato_cont VARCHAR2(255 Byte);
+valore_ogg_db VARCHAR2 (100 Byte);
+anno_rep NUMBER;
+cod_db VARCHAR2(50 Byte);
+dta_inserimento DATE;
+idaoorf Number;
+cod_reg Number;
+cod_amm VARCHAR2 (16 Byte);       
+CURSOR cur IS
+SELECT oc.formato_contatore, 
+       t.valore_oggetto_db, 
+       t.anno, 
+       t.codice_db,
+       t.dta_ins,
+       t.id_aoo_rf
+      FROM dpa_associazione_templates t
+      JOIN dpa_oggetti_custom oc
+      ON t.doc_number  = docId
+      AND t.id_oggetto =oc.system_id
+      AND oc.repertorio='1';
+      
+BEGIN
+segnatura := formato_cont;
+OPEN cur;
+LOOP
+FETCH cur INTO formato_cont, valore_ogg_db, anno_rep, cod_db, dta_inserimento, idaoorf;
+IF valore_ogg_db is not null
+THEN 
+ 
+formato_cont := replace(upper(formato_cont), 'ANNO', anno_rep || '');
+formato_cont := replace(upper(formato_cont), 'CONTATORE', valore_ogg_db || '');
+formato_cont := replace(upper(formato_cont), 'COD_UO', cod_db || '');
+formato_cont := replace(upper(formato_cont),'GG/MM/AAAA HH:MM', TO_CHAR(dta_inserimento, 'DD/MM/YYYY HH24:MM') || '');
+formato_cont := replace(upper(formato_cont),'GG/MM/AAAA', TO_CHAR(dta_inserimento, 'DD/MM/YYYY') || '');
+
+IF idaoorf is not null and idaoorf != 0
+THEN
+select var_codice into cod_reg from dpa_el_registri where system_id = idaoorf;
+END IF;
+
+IF cod_reg is not null
+THEN
+formato_cont := replace(upper(formato_cont), 'RF', cod_reg || '');
+formato_cont := replace(upper(formato_cont), 'AOO', cod_reg || '');
+END IF;
+
+
+IF idAmm is not null
+THEN
+select var_codice_amm into cod_amm from dpa_amministra where system_id = idAmm;
+formato_cont := replace(upper(formato_cont), 'COD_AMM', cod_reg || '');
+END IF;
+segnatura:= formato_cont;
+ELSE
+segnatura:='';
+END IF;
+EXIT;
+END LOOP;
+RETURN segnatura;
+END GETSEGNATURAREPERTORIO;
+/

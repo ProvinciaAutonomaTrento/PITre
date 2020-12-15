@@ -1,0 +1,21 @@
+begin
+ EXECUTE IMMEDIATE
+  ' CREATE TABLE CDC_CONTROLLO_SUCC
+    (
+      LISTA              VARCHAR2(20 BYTE),
+      CONTEGGIOA         INTEGER,
+      CONTEGGIOB         INTEGER,
+      CONTEGGIOC         INTEGER,
+      CONTEGGIOD         INTEGER,
+      CONTEGGIOE         INTEGER,
+      CONTEGGIOF         INTEGER,
+      CONTEGGIOG         INTEGER,
+      CONTEGGIOH         INTEGER,
+      CONTEGGIOI         INTEGER,
+      CONTEGGIOL         INTEGER,
+      CONTEGGIOM         INTEGER,
+      CONTEGGION         INTEGER,
+      DATA_ELABORAZIONE  DATE
+    )';
+end;
+/

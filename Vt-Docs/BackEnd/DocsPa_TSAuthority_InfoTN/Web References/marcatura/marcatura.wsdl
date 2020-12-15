@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:conv="http://www.openuri.org/2002/04/wsdl/conversation/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12enc="http://www.w3.org/2003/05/soap-encoding" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.infotn.it/web-services/marcatura" xmlns:wsr="http://www.openuri.org/2002/10/soap/reliability/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.infotn.it/web-services/marcatura" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema xmlns:tp="java:it.sap.infotn.techedge" xmlns:stns="http://www.infotn.it/web-services/marcatura" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://www.infotn.it/web-services/marcatura" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="java:it.sap.infotn.techedge" />
+      <xsd:element name="getTSR" nillable="true" type="tp:InputMarca" />
+      <xsd:element name="getTSRResponse" nillable="true" type="tp:OutputResponseMarca" />
+    </xsd:schema>
+    <xsd:schema xmlns:stns="java:it.sap.infotn.techedge" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="java:it.sap.infotn.techedge" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:complexType name="InputMarca">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="applicazione" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="file_p7m" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="riferimento" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OutputResponseMarca">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="TSA" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="codiceErrore" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="descrizioneErrore" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="docm" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="dsm" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="esito" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="fhash" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="marca" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="sernum" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="getTSR">
+    <part xmlns:partns="http://www.infotn.it/web-services/marcatura" name="inputMarca" element="partns:getTSR" />
+  </message>
+  <message name="getTSRResponse">
+    <part xmlns:partns="http://www.infotn.it/web-services/marcatura" name="result" element="partns:getTSRResponse" />
+  </message>
+  <portType name="marcaturaPort">
+    <operation name="getTSR">
+      <input message="tns:getTSR" />
+      <output message="tns:getTSRResponse" />
+    </operation>
+  </portType>
+  <binding name="marcaturaPort" type="tns:marcaturaPort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getTSR">
+      <soap:operation soapAction="" style="document" />
+      <input>
+        <soap:body use="literal" namespace="http://www.infotn.it/web-services/marcatura" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://www.infotn.it/web-services/marcatura" />
+      </output>
+    </operation>
+  </binding>
+  <service name="marcatura">
+    <port name="marcaturaPort" binding="tns:marcaturaPort">
+      <soap:address location="http://ws-s.epr.intra.infotn.it:80/web-services/marcatura" />
+    </port>
+  </service>
+</definitions>

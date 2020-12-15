@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" EnableSessionState="ReadOnly" CodeBehind="FirmaMultiplaChangeSessionContext.aspx.cs" Inherits="NttDataWA.SmartClient.FirmaMultiplaChangeSessionContext" %>

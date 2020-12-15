@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://nttdata.com/2012/Pi3/StateDiagram" elementFormDefault="qualified" targetNamespace="http://nttdata.com/2012/Pi3/StateDiagram" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd15" namespace="http://nttdata.com/2012/Pi3/StateOfDiagram" />
+  <xs:complexType name="StateDiagram">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://nttdata.com/2012/Pi3/StateOfDiagram" minOccurs="0" name="StateOfDiagram" nillable="true" type="q1:ArrayOfStateOfDiagram" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StateDiagram" nillable="true" type="tns:StateDiagram" />
+</xs:schema>

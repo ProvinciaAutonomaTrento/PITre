@@ -1,0 +1,1846 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E6244EF1-6D71-4856-9226-7467F5B9DE7F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ConservazioneWA</RootNamespace>
+    <AssemblyName>ConservazioneWA</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkProfile />
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=3.0.30930.28736, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DLL_TERZE_PARTI\AjaxControlToolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DocsPaWebCtrlLibrary, Version=3.19.2.17539, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DLL_TERZE_PARTI\DocsPaWebCtrlLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.CAPICOM, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\DLL_TERZE_PARTI\Interop.CAPICOM.dll</HintPath>
+    </Reference>
+    <Reference Include="MessageBox, Version=1.0.0.0, Culture=neutral">
+      <HintPath>..\..\DLL_TERZE_PARTI\MessageBox.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Services3, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\DLL_TERZE_PARTI\Microsoft.Web.Services3.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DLL_TERZE_PARTI\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RJS.Web.WebControl.PopCalendar, Version=10.2.3125.38508, Culture=neutral, PublicKeyToken=5bac9568331177db, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DLL_TERZE_PARTI\RJS.Web.WebControl.PopCalendar.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Extensions.Design" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ActivexWrappers\AdoStreamWrapper.ascx" />
+    <Content Include="ActivexWrappers\CapicomWrapper.ascx" />
+    <Content Include="activex\DocsPa_ActivexWrappers.CAB" />
+    <Content Include="activex\SETUP_EXE\DocsPa_ActivexWrappers\DocsPa_ActivexWrappers.CAB" />
+    <Content Include="activex\SETUP_EXE\DocsPa_ActivexWrappers\setup.exe" />
+    <Content Include="activex\SETUP_EXE\DocsPa_ActivexWrappers\SETUP.LST" />
+    <Content Include="App_Themes\TemaMilano\backgroundlogo.gif" />
+    <Content Include="App_Themes\TemaMilano\Butt_Accedi.jpg" />
+    <Content Include="App_Themes\TemaMilano\gest_conservazione.gif" />
+    <Content Include="App_Themes\TemaMilano\Img_logo.gif" />
+    <Content Include="App_Themes\TemaMilano\logoentelogin1.gif" />
+    <Content Include="App_Themes\TemaMilano\logoentelogin2.gif" />
+    <Content Include="App_Themes\TemaMilano\TemaMilano.css" />
+    <Content Include="bin\SmartClient\bin\DPA.BouncyCastle.dll" />
+    <Content Include="bin\SmartClient\bin\DPA.Common.dll" />
+    <Content Include="bin\SmartClient\bin\DPA.Configurations.ConfigurationFile.dll" />
+    <Content Include="bin\SmartClient\bin\DPA.DigitalSignature.dll" />
+    <Content Include="bin\SmartClient\bin\DPA.DocumentViewer.dll" />
+    <Content Include="bin\SmartClient\bin\DPA.EZTwain.PdfConverter.dll" />
+    <Content Include="bin\SmartClient\bin\DPA.UI.ExceptionViewer.dll" />
+    <Content Include="bin\SmartClient\bin\DPA.UI.Scanner.dll" />
+    <Content Include="bin\SmartClient\bin\DPA.UI.Scanner.EZTwain.dll" />
+    <Content Include="bin\SmartClient\bin\DPA.Web.dll" />
+    <Content Include="CertificaIstanza.aspx" />
+    <Content Include="ChooseProject.aspx" />
+    <Content Include="ConservazioneWA.Publish.xml" />
+    <Content Include="CSS\Conservazione.css" />
+    <Content Include="CSS\ProfilazioneDinamica.css" />
+    <Content Include="DialogFirma.aspx" />
+    <Content Include="ErroreNonGestito.aspx" />
+    <Content Include="Esibizione\DialogVisualizzaDocumento.aspx" />
+    <Content Include="Esibizione\DialogVisualizzaXML.aspx" />
+    <Content Include="Esibizione\HomePageEsibizione.aspx" />
+    <Content Include="Esibizione\PopupMassiveOpeartion.aspx" />
+    <Content Include="Esibizione\PopupSceltaIstanze.aspx" />
+    <Content Include="Esibizione\RicercaDocumentiEsibizione.aspx" />
+    <Content Include="Esibizione\RicercaFascicoliEsibizione.aspx" />
+    <Content Include="Esibizione\RicercaIstanzeConsEsibizione.aspx" />
+    <Content Include="Esibizione\PopupRifiuto.aspx" />
+    <Content Include="Esibizione\RicercaIstanzeEsibizione.aspx" />
+    <Content Include="Esibizione\SalvaCertificazione.aspx" />
+    <Content Include="Esibizione\VisualizzaDocFromStore.aspx" />
+    <Content Include="Esibizione\VisualizzaXMLFromStore.aspx" />
+    <Content Include="HomePage.aspx" />
+    <Content Include="HomePageNew.aspx" />
+    <Content Include="HSM_Signature.aspx" />
+    <Content Include="Img\backgroundlogo.gif" />
+    <Content Include="Img\baddocument.png" />
+    <Content Include="Img\BadSignature.png" />
+    <Content Include="Img\badtimestamp.png" />
+    <Content Include="Img\bg.jpg" />
+    <Content Include="Img\bg.png" />
+    <Content Include="Img\bg_button.jpg" />
+    <Content Include="Img\bg_button_hover.jpg" />
+    <Content Include="Img\bg_content.jpg" />
+    <Content Include="Img\bg_content.png" />
+    <Content Include="Img\bg_content_bottom.png" />
+    <Content Include="Img\bg_content_center.png" />
+    <Content Include="Img\bg_header.png" />
+    <Content Include="Img\bg_menutop.png" />
+    <Content Include="Img\bg_menutop_hover.png" />
+    <Content Include="Img\bg_menutop_no_hover.png" />
+    <Content Include="Img\bg_pager_table.jpg" />
+    <Content Include="Img\bg_tab_header.jpg" />
+    <Content Include="Img\bg_tab_riepologo.jpg" />
+    <Content Include="Img\bg_tab_riepologo_hover.jpg" />
+    <Content Include="Img\bg_title.png" />
+    <Content Include="Img\Butt_Accedi.jpg" />
+    <Content Include="Img\Calendario.gif" />
+    <Content Include="Img\cancella.gif" />
+    <Content Include="Img\Conservazione.gif" />
+    <Content Include="Img\conservazione_d.gif" />
+    <Content Include="Img\conservazione_d_old.gif" />
+    <Content Include="Img\Conservazione_NonAttivo.gif" />
+    <Content Include="Img\dett_lente.gif" />
+    <Content Include="Img\dett_lente_doc.gif" />
+    <Content Include="Img\doc.gif" />
+    <Content Include="Img\estesa_nonattivo.gif" />
+    <Content Include="Img\firmaNonValida.gif" />
+    <Content Include="Img\firmaValida.gif" />
+    <Content Include="Img\gest_conservazione.gif" />
+    <Content Include="Img\ico_allegato.gif" />
+    <Content Include="Img\ico_oggettario.gif" />
+    <Content Include="Img\Img_logo.gif" />
+    <Content Include="Img\InvioEsib.gif" />
+    <Content Include="Img\InvioEsib_old.gif" />
+    <Content Include="Img\loadingNew.gif" />
+    <Content Include="Img\logo.gif" />
+    <Content Include="Img\logoentelogin1.gif" />
+    <Content Include="Img\logoentelogin2.gif" />
+    <Content Include="Img\logo_conservazione.jpg" />
+    <Content Include="Img\policyNonVaida.gif" />
+    <Content Include="Img\rubrica.gif" />
+    <Content Include="Img\rubrica_hover.gif" />
+    <Content Include="Img\sono_qui.png" />
+    <Content Include="Img\sono_qui_hover.png" />
+    <Content Include="Img\spacer.gif" />
+    <Content Include="Img\spaziatore.gif" />
+    <Content Include="Img\Supporti.gif" />
+    <Content Include="Img\Supporti_NonAttivo.gif" />
+    <Content Include="Img\verificapolicynonvalida.gif" />
+    <Content Include="Login.aspx" />
+    <Content Include="login.htm" />
+    <Content Include="PopCalendar2005\Calendar.gif" />
+    <Content Include="PopCalendar2005\CSS\Classic.css" />
+    <Content Include="PopCalendar2005\CSS\Classic_Images\baddate.gif" />
+    <Content Include="PopCalendar2005\CSS\Classic_Images\close.gif" />
+    <Content Include="PopCalendar2005\CSS\Classic_Images\closedown.gif" />
+    <Content Include="PopCalendar2005\CSS\Classic_Images\down.gif" />
+    <Content Include="PopCalendar2005\CSS\Classic_Images\drop1.gif" />
+    <Content Include="PopCalendar2005\CSS\Classic_Images\drop2.gif" />
+    <Content Include="PopCalendar2005\CSS\Classic_Images\left1.gif" />
+    <Content Include="PopCalendar2005\CSS\Classic_Images\left2.gif" />
+    <Content Include="PopCalendar2005\CSS\Classic_Images\right1.gif" />
+    <Content Include="PopCalendar2005\CSS\Classic_Images\right2.gif" />
+    <Content Include="PopCalendar2005\CSS\Classic_Images\special.gif" />
+    <Content Include="PopCalendar2005\CSS\Classic_Images\up.gif" />
+    <Content Include="PopCalendar2005\CSS\Modern.css" />
+    <Content Include="PopCalendar2005\CSS\Modern_Images\baddate.gif" />
+    <Content Include="PopCalendar2005\CSS\Modern_Images\baddatex.gif" />
+    <Content Include="PopCalendar2005\CSS\Modern_Images\close.gif" />
+    <Content Include="PopCalendar2005\CSS\Modern_Images\closedown.gif" />
+    <Content Include="PopCalendar2005\CSS\Modern_Images\down.gif" />
+    <Content Include="PopCalendar2005\CSS\Modern_Images\drop1.gif" />
+    <Content Include="PopCalendar2005\CSS\Modern_Images\drop2.gif" />
+    <Content Include="PopCalendar2005\CSS\Modern_Images\left1.gif" />
+    <Content Include="PopCalendar2005\CSS\Modern_Images\left2.gif" />
+    <Content Include="PopCalendar2005\CSS\Modern_Images\right1.gif" />
+    <Content Include="PopCalendar2005\CSS\Modern_Images\right2.gif" />
+    <Content Include="PopCalendar2005\CSS\Modern_Images\special.gif" />
+    <Content Include="PopCalendar2005\CSS\Modern_Images\up.gif" />
+    <Content Include="PopCalendar2005\CSS\Small.css" />
+    <Content Include="PopCalendar2005\CSS\Small_Images\baddate.gif" />
+    <Content Include="PopCalendar2005\CSS\Small_Images\close.gif" />
+    <Content Include="PopCalendar2005\CSS\Small_Images\closedown.gif" />
+    <Content Include="PopCalendar2005\CSS\Small_Images\down.gif" />
+    <Content Include="PopCalendar2005\CSS\Small_Images\drop1.gif" />
+    <Content Include="PopCalendar2005\CSS\Small_Images\drop2.gif" />
+    <Content Include="PopCalendar2005\CSS\Small_Images\left1.gif" />
+    <Content Include="PopCalendar2005\CSS\Small_Images\left2.gif" />
+    <Content Include="PopCalendar2005\CSS\Small_Images\right1.gif" />
+    <Content Include="PopCalendar2005\CSS\Small_Images\right2.gif" />
+    <Content Include="PopCalendar2005\CSS\Small_Images\special.gif" />
+    <Content Include="PopCalendar2005\CSS\Small_Images\up.gif" />
+    <Content Include="PopCalendar2005\DisableCalendar.gif" />
+    <Content Include="PopCalendar2005\PopCalendar.js" />
+    <Content Include="PopCalendar2005\PopCalendarFunctions.js" />
+    <Content Include="PopUp\CampiProfilati.aspx" />
+    <Content Include="PopUp\ChiusuraIstanza.aspx" />
+    <Content Include="PopUp\documentDL.aspx" />
+    <Content Include="PopUp\docVisualizza.aspx" />
+    <Content Include="FirmaStampa.aspx" />
+    <Content Include="PopUp\docVisualizzaReport.aspx" />
+    <Content Include="PopUp\EsportaLog.aspx" />
+    <Content Include="PopUp\GeneraSupporti.aspx" />
+    <Content Include="PopUp\Note.aspx" />
+    <Content Include="PopUp\NumeroCopie.aspx" />
+    <Content Include="PopUp\RegistraSupporto.aspx" />
+    <Content Include="PopUp\SalvaLogDialog.aspx" />
+    <Content Include="PopUp\SalvaStampaConservazione.aspx" />
+    <Content Include="PopUp\TestLeggibilita.aspx" />
+    <Content Include="PopUp\VerificaLeggibilita.aspx" />
+    <Content Include="PopUp\VerificaSupportoRegistrato.aspx" />
+    <Content Include="PopUp\VerificheIL.aspx" />
+    <Content Include="Proxy.aspx" />
+    <Content Include="RicercaDocumenti.aspx" />
+    <Content Include="RicercaFascicoli.aspx" />
+    <Content Include="RicercaIstanze.aspx" />
+    <Content Include="RicercaLog.aspx" />
+    <Content Include="RicercaNotifiche.aspx" />
+    <Content Include="RicercaStampe.aspx" />
+    <Content Include="RicercaReport.aspx" />
+    <Content Include="RicercaSupporti.aspx" />
+    <Content Include="RicercaSupportiIstanze.aspx" />
+    <Content Include="SalvaSignDoc.aspx" />
+    <Content Include="Script\jquery-1.10.2.min.js" />
+    <Content Include="Script\webclientconnector.js" />
+    <Content Include="SessionAborted.aspx" />
+    <Content Include="ShowDocument.aspx" />
+    <Content Include="SmartClient\bin\DPA.BouncyCastle.dll" />
+    <Content Include="SmartClient\bin\DPA.Common.dll" />
+    <Content Include="SmartClient\bin\DPA.Configurations.ConfigurationFile.dll" />
+    <Content Include="SmartClient\bin\DPA.DigitalSignature.dll" />
+    <Content Include="SmartClient\bin\DPA.DocumentViewer.dll" />
+    <Content Include="SmartClient\bin\DPA.EZTwain.PdfConverter.dll" />
+    <Content Include="SmartClient\bin\DPA.UI.ExceptionViewer.dll" />
+    <Content Include="SmartClient\bin\DPA.UI.Scanner.dll" />
+    <Content Include="SmartClient\bin\DPA.UI.Scanner.EZTwain.dll" />
+    <Content Include="SmartClient\bin\DPA.Web.dll" />
+    <Content Include="SmartClient\bin\VerificaSupporto.dll" />
+    <Content Include="SmartClient\DigitalSignWrapper.ascx" />
+    <Content Include="SmartClient\Librerie\DPA.BouncyCastle.dll" />
+    <Content Include="SmartClient\Librerie\DPA.Common.dll" />
+    <Content Include="SmartClient\Librerie\DPA.Configurations.ConfigurationFile.dll" />
+    <Content Include="SmartClient\Librerie\DPA.DigitalSignature.dll" />
+    <Content Include="SmartClient\Librerie\DPA.DocumentViewer.dll" />
+    <Content Include="SmartClient\Librerie\DPA.EZTwain.PdfConverter.dll" />
+    <Content Include="SmartClient\Librerie\DPA.UI.ExceptionViewer.dll" />
+    <Content Include="SmartClient\Librerie\DPA.UI.Scanner.dll" />
+    <Content Include="SmartClient\Librerie\DPA.UI.Scanner.EZTwain.dll" />
+    <Content Include="SmartClient\Librerie\DPA.Web.dll" />
+    <Content Include="SmartClient\Librerie\VerificaSupporto.dll" />
+    <Content Include="SmartClient\VerificaSupporto.ascx" />
+    <Content Include="UserControl\Corrispondente.ascx" />
+    <Content Include="UserControl\Menu.ascx" />
+    <Content Include="VisualizzaDocFirmato.aspx" />
+    <Content Include="VisualizzaDocumento.aspx" />
+    <Content Include="SalvaSignStampaConservazione.aspx" />
+    <Content Include="SmartClient\bin\DPA.BouncyCastle.dll" />
+    <Content Include="SmartClient\bin\DPA.Common.dll" />
+    <Content Include="SmartClient\bin\DPA.Configurations.ConfigurationFile.dll" />
+    <Content Include="SmartClient\bin\DPA.DigitalSignature.dll" />
+    <Content Include="SmartClient\bin\DPA.DocumentViewer.dll" />
+    <Content Include="SmartClient\bin\DPA.EZTwain.PdfConverter.dll" />
+    <Content Include="SmartClient\bin\DPA.UI.ExceptionViewer.dll" />
+    <Content Include="SmartClient\bin\DPA.UI.Scanner.dll" />
+    <Content Include="SmartClient\bin\DPA.UI.Scanner.EZTwain.dll" />
+    <Content Include="SmartClient\bin\DPA.Web.dll" />
+    <Content Include="SmartClient\bin\VerificaSupporto.dll" />
+    <Content Include="UserControl\Corrispondente.ascx" />
+    <Content Include="App_Themes\TemaMilano\TemaMilano.skin" />
+    <None Include="ClassDiagram1.cd" />
+    <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\ConservazioneWA.pubxml" />
+    <None Include="Web References\DocsPaWR\AddressBookImportResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\AddressBookRowDataContainer.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\AlertConservazione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\Allegato.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\AllToDoList.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\Amministrazione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <Content Include="Web References\DocsPaWR\AnagraficaEventi1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\DocsPaWR\AnelloDocumentale.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ARCHIVE_AUTH_Authorization1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ARCHIVE_AUTH_Authorization_Result1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ARCHIVE_AUTH_AuthorizedObject1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ARCHIVE_AUTH_grid_document1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ARCHIVE_AUTH_grid_project1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ARCHIVE_Disposal1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ARCHIVE_DisposalForSearch1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ARCHIVE_DisposalState1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ARCHIVE_DisposalStateType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ARCHIVE_JOB_Disposal1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ARCHIVE_JOB_Transfer1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ARCHIVE_JOB_TransferPolicy1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ARCHIVE_LOG_TransferAndPolicy1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ARCHIVE_Profile_TransferPolicy.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ARCHIVE_Result_Transfer.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ARCHIVE_Transfer.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ARCHIVE_TransferForSearch.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ARCHIVE_TransferPolicy.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ARCHIVE_TransferPolicy_ProfileType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ARCHIVE_TransferState.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ARCHIVE_TransferStateType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ARCHIVE_View_DocReport1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ARCHIVE_View_DocReportDisposal1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ARCHIVE_View_Documents_Policy.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ARCHIVE_View_FascReport1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ARCHIVE_View_FascReportDisposal1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ARCHIVE_View_Policy.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ARCHIVE_View_Projects_Policy.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\AreaConservazioneValidationResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\AreaLavoro.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\AssDocDiagTrasm.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\AssDocFascRuoli.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\Assertion.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\AssRuoloStatiDiagramma.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\BaseInfoDoc.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\CacheConfig.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\CampoSelezionato.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\Canale.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\CasellaRegistro.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\CertificateInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ChangeRepertorioStateResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\CheckOutStatus.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ChiaveConfigurazione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ConfigSpedizioneDocumento.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\Configurazione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ConfigurazioniRubricaComune.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\Contatore.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ContentDocumento1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\CorrespondentDetails.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\Corrispondente.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\datiAggiuntiviSmistamento.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\DatiInteropAutomatica.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\DatiTrasmissioneDocumento.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\DettItemsConservazione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\Diagnostics.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\DiagrammaStato.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\DispositivoStampaEtichetta.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\Disservizio.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\DocsPaWS.wsdl" />
+    <None Include="Web References\DocsPaWR\DocumentConsolidationStateInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\Documento.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\DocumentoDiritto.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\DocumentoFascicolazione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\DocumentoLogDocumento.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\DocumentoParolaChiave.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\DocumentoSmistamento.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\DocumentoStatoFinale.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\DocumentoStoricoDataArrivo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\DocumentoStoricoMittente.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\DocumentoStoricoOggetto.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <Content Include="Web References\DocsPaWR\DocumentoVisualizzato.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\DocsPaWR\DocumentRowDataContainer.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <Content Include="Web References\DocsPaWR\ElementoInLibroFirma1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\DocsPaWR\ElementoRubrica.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ElementoRubricaRF.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ElementoRubricaUO.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ElStoricoSpedizioni.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <Content Include="Web References\DocsPaWR\EsecuzionePolicy.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\DocsPaWR\EsitoImportPregressi.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\EsitoOperazione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\EsitoRicercaDuplicatiEnum.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\EsitoSmistamentoDocumento.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\EtichettaInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ExtApplication.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\FascicolazioneClassifica.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\FascicolazioneClassificazione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\Fascicolo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\FascicoloArchivio.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\FascicoloDiritto.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\FileDocumento.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\FileInformation1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\FileRequest.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\FiltroRicerca.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\FindAndReplaceResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <Content Include="Web References\DocsPaWR\FirmaElettronica1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\DocsPaWR\FirmaResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\Folder.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\FullTextSearchContext.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\GeneratePrintRepertorioResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\GetRegistersToPrintAutomaticServiceResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\GetRepertorioStateResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\GetRepertoriPrintRangesResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\GetSettingsMinimalInfoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\GetUsersInRoleMinimalInfoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\Grid.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\GridBaseInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ImportResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\InfoAmministrazione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\InfoAtipicita.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\InfoCheckMailbox.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\InfoConservazione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\InfoDelega.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\InfoDocumento.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\InfoDocumentoSpedito1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\InfoFileCaching.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\InfoNota.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <Content Include="Web References\DocsPaWR\infoOggetto.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\DocsPaWR\InfoProtocolloDuplicato.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\InfoScarto.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\infoToDoList.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\InfoTrasmissione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\InfoUtente.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\InfoUtenteAmministratore.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\InstanceAccess.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\InteroperabilitySettings.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <Content Include="Web References\DocsPaWR\IstanzaProcessoDiFirma1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\DocsPaWR\ItemRicCampiComuni.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ItemsConservazione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\LdapConfig.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\LdapSyncronizationHistoryItem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\LdapSyncronizationResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\LogElementCheckMail.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\LoginResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\MailAccountCheckResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\MailCorrispondente.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\MassSignature.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\Menu.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\MetaInfoFascicolo1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\MetodoPIS.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\MezzoSpedizione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ModelloDelega.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ModelloTrasmissione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ModelProcessorInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ModelResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\MTextDocumentInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\NotaElenco.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\Notifica.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\Notification.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\Oggetto.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\OggettoCustom.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\OrgDettagliGlobali.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\OrgFunzione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\OrgFunzioneAnagrafica.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\OrgNodoTitolario.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\OrgRagioneTrasmissione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\OrgRegistro.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\OrgRisultatoRicerca.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\OrgRuolo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\OrgRuoloTitolario.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\OrgTipoFunzione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\OrgTipoRuolo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\OrgTitolario.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\OrgUO.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\OrgUtente.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\OutputResponseMarca.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\Parametro.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <Content Include="Web References\DocsPaWR\PassoFirma1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\DocsPaWR\PasswordConfigurations.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\PeopleGroupsQualifiche.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\Policy.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <Content Include="Web References\DocsPaWR\PolicyPARER1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\DocsPaWR\PrintReportResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ProcessFormOutput.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <Content Include="Web References\DocsPaWR\ProcessoFirma1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\DocsPaWR\ProjectRowData.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ProtocolloDestinatario.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\PR_Amministrazione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\PR_Registro.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\PubblicazioneDocumenti.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\Qualifica.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\RagioneTrasmissione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\DocsPaWR\RegisteredRegistriRepertorioResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\Registro.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\RegistroRepertorio.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\RegistroRepertorioSettingsResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\Report.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ReportFormatiConservazione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ReportPregressi.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ResultCreazioneFascicolo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ResultCreazioneFolder.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ResultProtocollazione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\resultProtoEmergenza.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ResultsContainer.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\RiscontroMittente.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\RoleChainResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\RoleHistoryResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\Ruolo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\RuoloSmistamento.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\SaveChangesToRoleResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\SaveRegistroRepertorioSettingsResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\SchedaDocumento.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\SearchItem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\SearchItemList.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\SearchObject.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\SearchPagingContext.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\SearchResultInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\SelectiveHistoryResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\SendDocumentResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\SistemaEsterno.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\SmartClientConfigurations.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\SmistamentoRubrica.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\SnapshotDocumentiFascicolazione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\SpedizioneDocumento.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\StampaRegistroResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\Stato.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\StatoInvio.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\StatoTrasmissioneUtente.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\StoriaDirittoDocumento.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\StoricoProfilati.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\SupportedFileType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\Tab.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <Content Include="Web References\DocsPaWR\Task.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\DocsPaWR\TemplateLite.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\Templates.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\TemplateTrasmissione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\TimestampDoc.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\TipoIstanzaConservazione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\TipologiaAtto.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\TipoNotifica.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\TipoRuolo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\TipoSupporto.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\Trasmissione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\TrasmissioneUtente.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\UnitaOrganizzativa.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\UOSmistamento.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\UserLogin.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\Utente.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\UtenteSmistamento.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ValidationResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocsPaWR\ValidationResultInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <Content Include="Web References\DocsPaWR\VisualizzaStatoDoc.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\DocsPaWR\VoceIndiceSistematico.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\AreaConservazioneValidationResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\Contatori.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\ContatoriEsibizione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\Corrispondente.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\DocsPaConservazioneWS.disco" />
+    <None Include="Web References\DocsPaWR\DocsPaWS.disco" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Web References\WSConservazioneLocale\DocsPaConservazioneWS.wsdl" />
+    <None Include="Web References\WSConservazioneLocale\ElementoRubrica.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\esitoCons.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\Fascicolo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\FileDocumento.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\Folder.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\InfoAmministrazione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\InfoConservazione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\InfoEsibizione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\InfoNotifica.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\InfoSupporto.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\ItemsConservazione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\ItemsEsibizione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\LogConservazione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\OrgTitolario.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\Policy.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\Registro.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\SchedaDocumento.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\SearchObject.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\SearchResultInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\StampaConservazione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\StatoIstanza.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\StatoSupporto.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\StatoVerificaSupporto.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\TemplateLite.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\Templates.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\TipoIstanzaConservazione.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSConservazioneLocale\TipoSupporto.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActivexWrappers\AdoStreamWrapper.ascx.cs">
+      <DependentUpon>AdoStreamWrapper.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ActivexWrappers\AdoStreamWrapper.ascx.designer.cs">
+      <DependentUpon>AdoStreamWrapper.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ActivexWrappers\CapicomWrapper.ascx.cs">
+      <DependentUpon>CapicomWrapper.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ActivexWrappers\CapicomWrapper.ascx.designer.cs">
+      <DependentUpon>CapicomWrapper.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ActivexWrappers\FsoWrapper.ascx.cs">
+      <DependentUpon>FsoWrapper.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ActivexWrappers\FsoWrapper.ascx.designer.cs">
+      <DependentUpon>FsoWrapper.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ActivexWrappers\ShellWrapper.ascx.cs">
+      <DependentUpon>ShellWrapper.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ActivexWrappers\ShellWrapper.ascx.designer.cs">
+      <DependentUpon>ShellWrapper.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CallContext\CallerContext.cs" />
+    <Compile Include="CallContext\CallerContextStack.cs" />
+    <Compile Include="CertificaIstanza.aspx.cs">
+      <DependentUpon>CertificaIstanza.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CertificaIstanza.aspx.designer.cs">
+      <DependentUpon>CertificaIstanza.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChooseProject.aspx.cs">
+      <DependentUpon>ChooseProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChooseProject.aspx.designer.cs">
+      <DependentUpon>ChooseProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CssPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DataSet\DataSetRCons.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetRCons.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\DataSetRDettaglio.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetRDettaglio.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\DataSetRSupporti.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetRSupporti.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DialogFirma.aspx.cs">
+      <DependentUpon>DialogFirma.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DialogFirma.aspx.designer.cs">
+      <DependentUpon>DialogFirma.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DigitalSignature\DigitalSignManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ErroreNonGestito.aspx.cs">
+      <DependentUpon>ErroreNonGestito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErroreNonGestito.aspx.designer.cs">
+      <DependentUpon>ErroreNonGestito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Esibizione\DialogVisualizzaDocumento.aspx.cs">
+      <DependentUpon>DialogVisualizzaDocumento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Esibizione\DialogVisualizzaDocumento.aspx.designer.cs">
+      <DependentUpon>DialogVisualizzaDocumento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Esibizione\DialogVisualizzaXML.aspx.cs">
+      <DependentUpon>DialogVisualizzaXML.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Esibizione\DialogVisualizzaXML.aspx.designer.cs">
+      <DependentUpon>DialogVisualizzaXML.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Esibizione\HomePageEsibizione.aspx.cs">
+      <DependentUpon>HomePageEsibizione.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Esibizione\HomePageEsibizione.aspx.designer.cs">
+      <DependentUpon>HomePageEsibizione.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Esibizione\PopupMassiveOpeartion.aspx.cs">
+      <DependentUpon>PopupMassiveOpeartion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Esibizione\PopupMassiveOpeartion.aspx.designer.cs">
+      <DependentUpon>PopupMassiveOpeartion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Esibizione\PopupSceltaIstanze.aspx.cs">
+      <DependentUpon>PopupSceltaIstanze.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Esibizione\PopupSceltaIstanze.aspx.designer.cs">
+      <DependentUpon>PopupSceltaIstanze.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Esibizione\RicercaDocumentiEsibizione.aspx.cs">
+      <DependentUpon>RicercaDocumentiEsibizione.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Esibizione\RicercaDocumentiEsibizione.aspx.designer.cs">
+      <DependentUpon>RicercaDocumentiEsibizione.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Esibizione\RicercaFascicoliEsibizione.aspx.cs">
+      <DependentUpon>RicercaFascicoliEsibizione.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Esibizione\RicercaFascicoliEsibizione.aspx.designer.cs">
+      <DependentUpon>RicercaFascicoliEsibizione.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Esibizione\RicercaIstanzeConsEsibizione.aspx.cs">
+      <DependentUpon>RicercaIstanzeConsEsibizione.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Esibizione\RicercaIstanzeConsEsibizione.aspx.designer.cs">
+      <DependentUpon>RicercaIstanzeConsEsibizione.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Esibizione\PopupRifiuto.aspx.cs">
+      <DependentUpon>PopupRifiuto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Esibizione\PopupRifiuto.aspx.designer.cs">
+      <DependentUpon>PopupRifiuto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Esibizione\RicercaIstanzeEsibizione.aspx.cs">
+      <DependentUpon>RicercaIstanzeEsibizione.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Esibizione\RicercaIstanzeEsibizione.aspx.designer.cs">
+      <DependentUpon>RicercaIstanzeEsibizione.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Esibizione\SalvaCertificazione.aspx.cs">
+      <DependentUpon>SalvaCertificazione.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Esibizione\SalvaCertificazione.aspx.designer.cs">
+      <DependentUpon>SalvaCertificazione.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Esibizione\VisualizzaDocFromStore.aspx.cs">
+      <DependentUpon>VisualizzaDocFromStore.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Esibizione\VisualizzaDocFromStore.aspx.designer.cs">
+      <DependentUpon>VisualizzaDocFromStore.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Esibizione\VisualizzaXMLFromStore.aspx.cs">
+      <DependentUpon>VisualizzaXMLFromStore.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Esibizione\VisualizzaXMLFromStore.aspx.designer.cs">
+      <DependentUpon>VisualizzaXMLFromStore.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HomePageNew.aspx.cs">
+      <DependentUpon>HomePageNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePageNew.aspx.designer.cs">
+      <DependentUpon>HomePageNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HSM_Signature.aspx.cs">
+      <DependentUpon>HSM_Signature.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HSM_Signature.aspx.designer.cs">
+      <DependentUpon>HSM_Signature.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Img\DataSetRDettaglioCons.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetRDettaglioCons.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\DataSetRicerca.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetRicerca.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HomePage.aspx.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePage.aspx.designer.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\CampiProfilati.aspx.cs">
+      <DependentUpon>CampiProfilati.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopUp\CampiProfilati.aspx.designer.cs">
+      <DependentUpon>CampiProfilati.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\ChiusuraIstanza.aspx.cs">
+      <DependentUpon>ChiusuraIstanza.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopUp\ChiusuraIstanza.aspx.designer.cs">
+      <DependentUpon>ChiusuraIstanza.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\documentDL.aspx.cs">
+      <DependentUpon>documentDL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopUp\documentDL.aspx.designer.cs">
+      <DependentUpon>documentDL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\docVisualizza.aspx.cs">
+      <DependentUpon>docVisualizza.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopUp\docVisualizza.aspx.designer.cs">
+      <DependentUpon>docVisualizza.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FirmaStampa.aspx.cs">
+      <DependentUpon>FirmaStampa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FirmaStampa.aspx.designer.cs">
+      <DependentUpon>FirmaStampa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\docVisualizzaReport.aspx.cs">
+      <DependentUpon>docVisualizzaReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopUp\docVisualizzaReport.aspx.designer.cs">
+      <DependentUpon>docVisualizzaReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\EsportaLog.aspx.cs">
+      <DependentUpon>EsportaLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopUp\EsportaLog.aspx.designer.cs">
+      <DependentUpon>EsportaLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\GeneraSupporti.aspx.cs">
+      <DependentUpon>GeneraSupporti.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopUp\GeneraSupporti.aspx.designer.cs">
+      <DependentUpon>GeneraSupporti.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\Note.aspx.cs">
+      <DependentUpon>Note.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopUp\Note.aspx.designer.cs">
+      <DependentUpon>Note.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\NumeroCopie.aspx.cs">
+      <DependentUpon>NumeroCopie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopUp\NumeroCopie.aspx.designer.cs">
+      <DependentUpon>NumeroCopie.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\RegistraSupporto.aspx.cs">
+      <DependentUpon>RegistraSupporto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopUp\RegistraSupporto.aspx.designer.cs">
+      <DependentUpon>RegistraSupporto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\SalvaLogDialog.aspx.cs">
+      <DependentUpon>SalvaLogDialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopUp\SalvaLogDialog.aspx.designer.cs">
+      <DependentUpon>SalvaLogDialog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\SalvaStampaConservazione.aspx.cs">
+      <DependentUpon>SalvaStampaConservazione.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopUp\SalvaStampaConservazione.aspx.designer.cs">
+      <DependentUpon>SalvaStampaConservazione.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\TestLeggibilita.aspx.cs">
+      <DependentUpon>TestLeggibilita.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopUp\TestLeggibilita.aspx.designer.cs">
+      <DependentUpon>TestLeggibilita.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\VerificaLeggibilita.aspx.cs">
+      <DependentUpon>VerificaLeggibilita.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopUp\VerificaLeggibilita.aspx.designer.cs">
+      <DependentUpon>VerificaLeggibilita.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\VerificaSupporto.aspx.cs">
+      <DependentUpon>VerificaSupporto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopUp\VerificaSupporto.aspx.designer.cs">
+      <DependentUpon>VerificaSupporto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\VerificaSupportoRegistrato.aspx.cs">
+      <DependentUpon>VerificaSupportoRegistrato.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopUp\VerificaSupportoRegistrato.aspx.designer.cs">
+      <DependentUpon>VerificaSupportoRegistrato.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\VerificheIL.aspx.cs">
+      <DependentUpon>VerificheIL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopUp\VerificheIL.aspx.designer.cs">
+      <DependentUpon>VerificheIL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Proxy.aspx.cs">
+      <DependentUpon>Proxy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Proxy.aspx.designer.cs">
+      <DependentUpon>Proxy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RicercaDocumenti.aspx.cs">
+      <DependentUpon>RicercaDocumenti.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RicercaDocumenti.aspx.designer.cs">
+      <DependentUpon>RicercaDocumenti.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RicercaFascicoli.aspx.cs">
+      <DependentUpon>RicercaFascicoli.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RicercaFascicoli.aspx.designer.cs">
+      <DependentUpon>RicercaFascicoli.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RicercaIstanze.aspx.cs">
+      <DependentUpon>RicercaIstanze.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RicercaIstanze.aspx.designer.cs">
+      <DependentUpon>RicercaIstanze.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RicercaLog.aspx.cs">
+      <DependentUpon>RicercaLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RicercaLog.aspx.designer.cs">
+      <DependentUpon>RicercaLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RicercaNotifiche.aspx.cs">
+      <DependentUpon>RicercaNotifiche.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RicercaNotifiche.aspx.designer.cs">
+      <DependentUpon>RicercaNotifiche.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RicercaStampe.aspx.cs">
+      <DependentUpon>RicercaStampe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RicercaStampe.aspx.designer.cs">
+      <DependentUpon>RicercaStampe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RicercaReport.aspx.cs">
+      <DependentUpon>RicercaReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RicercaReport.aspx.designer.cs">
+      <DependentUpon>RicercaReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RicercaSupporti.aspx.cs">
+      <DependentUpon>RicercaSupporti.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RicercaSupporti.aspx.designer.cs">
+      <DependentUpon>RicercaSupporti.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RicercaSupportiIstanze.aspx.cs">
+      <DependentUpon>RicercaSupportiIstanze.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RicercaSupportiIstanze.aspx.designer.cs">
+      <DependentUpon>RicercaSupportiIstanze.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SalvaSignDoc.aspx.cs">
+      <DependentUpon>SalvaSignDoc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SalvaSignDoc.aspx.designer.cs">
+      <DependentUpon>SalvaSignDoc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SalvaSignStampaConservazione.aspx.cs">
+      <DependentUpon>SalvaSignStampaConservazione.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SalvaSignStampaConservazione.aspx.designer.cs">
+      <DependentUpon>SalvaSignStampaConservazione.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SessionAborted.aspx.cs">
+      <DependentUpon>SessionAborted.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SessionAborted.aspx.designer.cs">
+      <DependentUpon>SessionAborted.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sessione\httpModule.cs" />
+    <Compile Include="ShowDocument.aspx.cs">
+      <DependentUpon>ShowDocument.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShowDocument.aspx.designer.cs">
+      <DependentUpon>ShowDocument.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SmartClient\DigitalSignWrapper.ascx.cs">
+      <DependentUpon>DigitalSignWrapper.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SmartClient\DigitalSignWrapper.ascx.designer.cs">
+      <DependentUpon>DigitalSignWrapper.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="SmartClient\VerificaSupporto.ascx.cs">
+      <DependentUpon>VerificaSupporto.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SmartClient\VerificaSupporto.ascx.designer.cs">
+      <DependentUpon>VerificaSupporto.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Calendar.ascx.cs">
+      <DependentUpon>Calendar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Calendar.ascx.designer.cs">
+      <DependentUpon>Calendar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Corrispondente.ascx.cs">
+      <DependentUpon>Corrispondente.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Corrispondente.ascx.designer.cs">
+      <DependentUpon>Corrispondente.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\CustomButton.cs" />
+    <Compile Include="UserControl\CustomTextArea.cs" />
+    <Compile Include="UserControl\DialogCalendar.aspx.cs">
+      <DependentUpon>DialogCalendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\DialogCalendar.aspx.designer.cs">
+      <DependentUpon>DialogCalendar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Menu.ascx.cs">
+      <DependentUpon>Menu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Menu.ascx.designer.cs">
+      <DependentUpon>Menu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\ConservazioneManager.cs" />
+    <Compile Include="Utils\Debugger.cs" />
+    <Compile Include="Utils\Helpers.cs" />
+    <Compile Include="Utils\ProxyManager.cs" />
+    <Compile Include="Utils\UserManager.cs" />
+    <Compile Include="VisualizzaDocFirmato.aspx.cs">
+      <DependentUpon>VisualizzaDocFirmato.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VisualizzaDocFirmato.aspx.designer.cs">
+      <DependentUpon>VisualizzaDocFirmato.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VisualizzaDocumento.aspx.cs">
+      <DependentUpon>VisualizzaDocumento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VisualizzaDocumento.aspx.designer.cs">
+      <DependentUpon>VisualizzaDocumento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\DocsPaWR\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WSConservazioneLocale\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ActivexWrappers\FsoWrapper.ascx" />
+    <Content Include="ActivexWrappers\ShellWrapper.ascx" />
+    <Content Include="App_Themes\TemaBlu\backgroundlogo.gif" />
+    <Content Include="App_Themes\TemaBlu\Butt_Accedi.jpg" />
+    <Content Include="App_Themes\TemaBlu\gest_conservazione.gif" />
+    <Content Include="App_Themes\TemaBlu\Img_logo.gif" />
+    <Content Include="App_Themes\TemaBlu\logoentelogin1.gif" />
+    <Content Include="App_Themes\TemaBlu\logoentelogin2.gif" />
+    <Content Include="App_Themes\TemaBlu\TemaBlu.css" />
+    <Content Include="App_Themes\TemaRosso\backgroundlogo.gif" />
+    <Content Include="App_Themes\TemaRosso\Butt_Accedi.jpg" />
+    <Content Include="App_Themes\TemaRosso\gest_conservazione.gif" />
+    <Content Include="App_Themes\TemaRosso\Img_logo.gif" />
+    <Content Include="App_Themes\TemaRosso\TemaRosso.css" />
+    <Content Include="CSS\docspa_30.css" />
+    <Content Include="CSS\rubrica.css" />
+    <Content Include="CSS\StyleSheet.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Img\loading.gif" />
+    <Content Include="PopUp\VerificaSupporto.aspx" />
+    <Content Include="UserControl\Calendar.ascx" />
+    <Content Include="UserControl\DialogCalendar.aspx" />
+    <Content Include="xml\logger.xsl" />
+    <Content Include="App_Themes\TemaBlu\TemaBlu.skin" />
+    <Content Include="App_Themes\TemaRosso\TemaRosso.skin" />
+    <None Include="DataSet\DataSetRCons.xsc">
+      <DependentUpon>DataSetRCons.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DataSetRCons.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetRCons.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\DataSetRCons.xss">
+      <DependentUpon>DataSetRCons.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DataSetRDettaglio.xsc">
+      <DependentUpon>DataSetRDettaglio.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DataSetRDettaglio.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetRDettaglio.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\DataSetRDettaglio.xss">
+      <DependentUpon>DataSetRDettaglio.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DataSetRSupporti.xsc">
+      <DependentUpon>DataSetRSupporti.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DataSetRSupporti.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetRSupporti.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\DataSetRSupporti.xss">
+      <DependentUpon>DataSetRSupporti.xsd</DependentUpon>
+    </None>
+    <None Include="Img\DataSetRDettaglioCons.xsc">
+      <DependentUpon>DataSetRDettaglioCons.xsd</DependentUpon>
+    </None>
+    <None Include="Img\DataSetRDettaglioCons.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetRDettaglioCons.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Img\DataSetRDettaglioCons.xss">
+      <DependentUpon>DataSetRDettaglioCons.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DataSetRicerca.xsc">
+      <DependentUpon>DataSetRicerca.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DataSetRicerca.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetRicerca.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\DataSetRicerca.xss">
+      <DependentUpon>DataSetRicerca.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost/vt-docs/docspaws/DocsPaConservazioneWS.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WSConservazioneLocale\</RelPath>
+      <UpdateFromURL>http://localhost/vt-docs/docspaws/DocsPaConservazioneWS.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ConservazioneWA_WSConservazioneLocale_DocsPaConservazioneWS</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost/Vt-Docs/DocsPaWS/DocsPaWS.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\DocsPaWR\</RelPath>
+      <UpdateFromURL>http://localhost/Vt-Docs/DocsPaWS/DocsPaWS.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ConservazioneWA_DocsPaWR_DocsPaWebService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BackEnd\DocsPaUtils\DocsPaUtils.csproj">
+      <Project>{942AD652-BCF7-44CA-AE38-CF0CDA8E0D16}</Project>
+      <Name>DocsPaUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BackEnd\DocsPaVO\DocsPaVO.csproj">
+      <Project>{A8BA40A6-AB86-4DF7-8C0F-8A9BBB7EE885}</Project>
+      <Name>DocsPaVO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,73 @@
+CREATE OR REPLACE PROCEDURE FascCustomControlModifyReset IS
+today DATE:= SYSDATE;
+custom DPA_CONT_CUSTOM_FASC%ROWTYPE;
+datainizionuova DATE;
+datafinenuova DATE;
+CURSOR c_custom IS
+SELECT * FROM DPA_CONT_CUSTOM_FASC;
+BEGIN
+   OPEN c_custom;
+            LOOP
+
+                FETCH c_custom into custom;
+                EXIT WHEN c_custom%NOTFOUND;
+                IF (today > custom.DATA_FINE +1 ) THEN
+                    DECLARE
+                    idtemplate DPA_ASS_TEMPLATES_FASC.ID_TEMPLATE%TYPE;
+                    CURSOR c_template IS
+                    SELECT DISTINCT ID_TEMPLATE FROM DPA_ASS_TEMPLATES_FASC WHERE ID_OGGETTO = custom.ID_OGG_FASC;   
+                            BEGIN
+                            
+                                OPEN c_template;
+                                
+                                LOOP
+                                
+                                FETCH c_template into idtemplate;
+                                EXIT WHEN c_template%NOTFOUND;
+                                    UPDATE DPA_TIPO_FASC
+                                    SET IN_ESERCIZIO = 'NO'
+                                    WHERE SYSTEM_ID = idtemplate;
+                                    commit work;
+                                        DECLARE
+                                        
+                                        BEGIN
+                                        select (custom.DATA_INIZIO + NUMTOYMINTERVAL(1,'YEAR')) into datainizionuova  FROM DUAL;
+                                        select (custom.DATA_FINE + NUMTOYMINTERVAL(1,'YEAR')) into datafinenuova  FROM DUAL;
+                                        UPDATE DPA_CONT_CUSTOM_FASC
+                                        SET DATA_INIZIO = datainizionuova, DATA_FINE=datafinenuova
+                                        WHERE ID_OGG_FASC = custom.ID_OGG_FASC;
+                                        commit work;
+                                        UPDATE DPA_CONTATORI_FASC
+                                        SET VALORE = 0
+                                        WHERE ID_OGG = custom.ID_OGG_FASC;
+                                        commit work;
+                                       
+                                        
+                                        dbms_output.put_line(' la tipologia con idtemplate ' ||idtemplate|| ' ed id_oggetto : ' ||custom.ID_OGG_FASC||  '  è stata modificata :' );
+                                        END;
+                                
+                                END LOOP;
+                                
+                            END;
+                
+
+                UPDATE DPA_CONT_CUSTOM_FASC
+                SET SOSPESO = 'NO'
+                WHERE ID_OGG_FASC = custom.ID_OGG_FASC;
+                commit work;
+
+                END IF;
+                
+                
+
+            END LOOP;
+
+CLOSE c_custom;
+   EXCEPTION
+     WHEN NO_DATA_FOUND THEN
+       NULL;
+     WHEN OTHERS THEN
+       -- Consider logging the error and then re-raise
+       RAISE;
+END FascCustomControlModifyReset;
+/

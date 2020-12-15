@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+    <ActiveProfile xdt:Transform="InsertIfMissing">Production</ActiveProfile>
+    <DebugBuildProfile xdt:Transform="InsertIfMissing">Development</DebugBuildProfile>
+    <Profiles xdt:Transform="InsertIfMissing">
+        <!-- Learn more about Application Insights configuration with ApplicationInsights.config here: 
+             http://go.microsoft.com/fwlink/?LinkID=392530
+        
+             Settings defined under <Defaults> are merged with their overrides specified under active <Profile> element 
+             You can select which profile is active by using <ActiveProfile> element. If this element is missing, default settings 
+             are used. 
+             
+             The <DebugBuildProfile> element defines the profile that will be used when a debug version of the application is built
+             within Visual Studio. -->
+        <Defaults xdt:Transform="InsertIfMissing">
+            <!-- Application Insights component settings -->
+            <ComponentSettings xdt:Transform="InsertIfMissing">
+                <!-- Account id is used to uniquely identify your Application Insights account. -->
+                <AccountID xdt:Transform="InsertIfMissing" />
+                <!-- Security key that ensures that nobody else can send data to your Application Insights account on your behalf. -->
+                <LicenseKey xdt:Transform="InsertIfMissing" />
+                <!-- A unique identifier of the application component in Application Insights. It is used to differentiate data sent 
+                     by different components and from different applications. -->
+                <ComponentID xdt:Transform="InsertIfMissing">00000000-0000-0000-0000-000000000000</ComponentID>
+                <!-- A name under which your monitored application component is displayed in the Application Insights -->
+                <ComponentName xdt:Transform="InsertIfMissing" />
+            </ComponentSettings>
+
+            <!-- <MMAOutputChannels> controls where Microsoft Monitoring Agent sends its collected metrics -->
+            <MMAOutputChannels xdt:Transform="InsertIfMissing">
+                <!-- Controls MMA output channel for Application Insights -->
+                <ApplicationInsights enabled="true" xdt:Transform="InsertIfMissing"/>
+            </MMAOutputChannels>
+
+            <!-- <APMSettings> controls configuration of application performance and reliability monitoring -->
+            <APMSettings xdt:Transform="InsertIfMissing">
+                <!-- Microsoft Monitoring Agent measures the execution time of your application's entry points (top-level functions.)
+                     If an entry point takes longer to execute than the PerformanceThreshold, then the Agent will 
+                     log a performance event. 
+                     If the threshold is not exceeded, then the agent discards the measurement.
+                     The default threshold is 5000 milliseconds (5 seconds). In many modern applications that have very 
+                     quick request times, you might want to lower this to match your application component's performance 
+                     expectation or service level agreement. -->
+                <PerformanceThreshold xdt:Transform="InsertIfMissing">5000</PerformanceThreshold>
+
+                <!-- When MMA reports a performance event, the data it sends shows the internal execution tree, 
+                     so that you can identify where the time was spent. 
+                     However, method calls that take less than the SensitivityThreshold are omitted from the tree. 
+                     If you reduce this threshold, the collected data will be bigger, with a possible impact 
+                     on your application's performance. -->
+                <SensitivityThreshold xdt:Transform="InsertIfMissing">100</SensitivityThreshold>
+
+                <!-- Namespaces to be instrumented for application performance monitoring.
+                     The execution tree that is logged in a performance event will include only methods in the specified namespaces.
+                     (You can add specific methods in other namespaces in <Resources>.)
+    
+                     [All Namespaces] = Include most namespaces, but not Microsoft.*, System.* and some others.
+	                 Fabrikam.Web;Fabrikam.IceCream;... = Include just the specified namespaces. -->
+                <Namespaces xdt:Transform="InsertIfMissing">[All Namespaces]</Namespaces>
+
+                <!-- Additional entry points to monitor. 
+                     By default, the Agent monitors calls into your application from the ASP.NET framework. 
+                     You can add other methods, for example if you want to monitor an asynchronous task. 
+                     Format: Namespace.ClassName.MethodName;... -->
+                <EntryPoints xdt:Transform="InsertIfMissing"></EntryPoints>
+
+                <!-- Methods for which to collect call parameter values. 
+                     Normally the execution tree includes only the names of the called methods. 
+                     Methods in this list will include parameter values. 
+                     For example, if some searches take a long time, include your search method in this list, 
+                     so that you can see what term the user was searching for.
+                     Methods in this list are logged even if they are not in an included namespace.
+                     Format: Namespace.ClassName.MethodName;... -->
+                <Resources xdt:Transform="InsertIfMissing"></Resources>
+
+                <!-- Specify whether to log caught exceptions.
+                     false = Log exceptions that are handled by the standard ASP.NET handlers,
+                             and by your handlers specified in <ExceptionHandlers>.
+                     true =  Log all exceptions in the instrumented namespaces that cross a method boundary. -->
+                <EnableAllExceptions xdt:Transform="InsertIfMissing">true</EnableAllExceptions>
+
+                <!-- A semicolon delimited list of namespaces and methods for which detailed information is 
+                     tracked when monitoring application failures. 
+                     [All Namespaces] = most namespaces except Microsoft.*, System.*
+                     Namespace1;Namespace2; ... = include only the specified namespaces. -->
+                <ExceptionTracking xdt:Transform="InsertIfMissing">[All Namespaces]</ExceptionTracking>
+
+                <!-- When EnableAllExceptions=false, log exceptions that are handled by the methods in this list,
+                     in addition to the standard ASP.NET error handlers.
+                     Format: Namespace.ClassName.MethodName;... -->
+                <ExceptionHandlers xdt:Transform="InsertIfMissing"></ExceptionHandlers>
+            </APMSettings>
+
+            <!-- Memory events can be used to detect runaway .NET memory use in ASP.NET applications, which is typically
+                 caused by memory leaks. Settings for memory events and memory snapshots are defined in this section. -->
+            <MemoryEventSettings enabled="true" xdt:Transform="InsertIfMissing">
+
+                <!-- Memory events and snapshots are created when an ASP.NET application reaches one of the enabled triggers. -->
+                <Triggers xdt:Transform="InsertIfMissing">
+
+                    <!-- If a non-zero limit is set in the [memory] property of the IIS application pool 
+                         (http://technet.microsoft.com/library/cc745955.aspx), a memory event and snapshot will be created
+                         when the virtual memory used by a worker process reaches the following percentage
+                         of the limit. -->
+                    <IISRecycleVirtualBytesPercentage enabled="true" xdt:Transform="InsertIfMissing">90</IISRecycleVirtualBytesPercentage>
+
+                    <!-- If a non-zero limit is set in the [privateMemory] property of the IIS application pool, 
+                         a memory event and snapshot will be created when the the private memory of a worker 
+                         process reaches the following percentage of the limit. -->
+                    <IISRecyclePrivateBytesPercentage enabled="true" xdt:Transform="InsertIfMissing">90</IISRecyclePrivateBytesPercentage>
+
+                    <!-- A memory event and snapshot will be created when the private memory used by a worker process reaches an
+                         absolute value or the specified percentage of the total memory (RAM) on the computer. 
+                         Some examples:
+                            <PrivateBytes enabled="true" unit="percent">50</PrivateBytes>
+                            <PrivateBytes enabled="true" unit="MB">500</PrivateBytes>
+                            <PrivateBytes enabled="true" unit="GB">2.5</PrivateBytes> -->
+                    <PrivateBytes enabled="true" unit="percent" xdt:Transform="InsertIfMissing">50</PrivateBytes>
+                </Triggers>
+
+                <!-- When a memory event occurs, a memory snapshot is always created. 
+                     The settings in this section control additional memory snapshot settings. -->
+                <Snapshots xdt:Transform="InsertIfMissing">
+
+                    <!-- By default, memory snapshots will be uploaded to Application Insights. Set this 
+                         false to keep memory snapshots on the computer where the memory event occurred. -->
+                    <UploadToAzure xdt:Transform="InsertIfMissing">true</UploadToAzure>
+
+                    <!-- A memory baseline is a snapshot that is taken at a lower threshold than a memory event. 
+                         If an event occurs, you can compare it with the baseline to see which objects are using up the memory.
+                         If a memory baseline exists when a memory event occurs, it will be included with the memory snapshot. 
+                         When you inspect the snapshot in Visual Studio, you'll be able to see the comparison.-->
+                    <Baselines xdt:Transform="InsertIfMissing">
+                        <!-- A baseline will be created when the app pool process's private bytes used 
+                             reaches an absolute value or the specified percentage of the total memory (RAM) on the computer. 
+                             Some examples:
+                                  <PrivateBytes enabled="true" unit="percent">25</PrivateBytes>
+                                  <PrivateBytes enabled="true" unit="GB">2</PrivateBytes>
+                             Make sure the values are lower than the values you have set to trigger a memory event. -->
+                        <PrivateBytes enabled="true" unit="percent" xdt:Transform="InsertIfMissing">25</PrivateBytes>
+                    </Baselines>
+                </Snapshots>
+            </MemoryEventSettings>
+
+            <!-- Controlling which performance counters are collected by Microsoft Monitoring Agent. -->
+            <PerformanceCounters enabled="true" xdt:Transform="InsertIfMissing">
+
+                <!-- Microsoft Monitoring Agent always collects a predefined set of performance counters (such as 
+                     Process CPU, Network IO, Exception Rate, Performance index) for every monitored application.  
+                     You can also configure the agent to collect more system or custom performance counters.
+
+                     For example:
+
+                          <PerformanceCounterConfiguration counterSpecifier="\Memory\Available Bytes"/>
+                          <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" />
+    
+                     The format of the counterSpecifier is:
+ 
+                          \PerformanceCounterCategory(Instance)\Counter 
+
+                     Instance must be specified if the performance category is of the multi-instance type.  
+ 	                 Specify * to collect all instances. For example:
+        	              <PerformanceCounterConfiguration counterSpecifier="\LogicalDisk(*)\Disk Reads/sec" />
+
+                     For the following specific category instances, the Agent can discover the right instance for your web application.
+                     For example:
+                          <PerformanceCounterConfiguration counterSpecifier="\Process(w3wp?)\% Processor Time" />
+                          <PerformanceCounterConfiguration counterSpecifier="\.NET CLR Memory(w3wp?)\% Time in GC" />
+                          <PerformanceCounterConfiguration counterSpecifier="\ASP.NET Applications(?)\Request Execution Time" />
+    
+                     For more about performance counters: http://technet.microsoft.com/library/bb734903.aspx
+                     To discover performance counters available in your machine, use 
+                          System.Diagnostics.PerformanceCounterCategory.GetCategories() -->
+            </PerformanceCounters>
+
+        </Defaults>
+
+        <Profile name="Production" xdt:Transform="InsertIfMissing" xdt:Locator="Condition(@name='Production')">
+            <!-- <ServerAnalytics> controls Application Insights Telemetry SDK settings. -->
+            <ServerAnalytics enabled="true"  xdt:Transform="InsertIfMissing">
+                
+                <!-- The frequency in seconds with which the SDK uploads data to Application Insights. -->
+                <DataUploadIntervalInSeconds xdt:Transform="InsertIfMissing">60</DataUploadIntervalInSeconds>
+                
+                <!-- Application Insights SDK for Services collects client data by default from the HTTP request. 
+                     Set it to false to stop collecting data from the HTTP request automatically. 
+                     You can still set the properties by using the ServerAnalytics.CurrentRequest object. -->                
+                <AutoFillClientPropertiesFromRequest xdt:Transform="InsertIfMissing">true</AutoFillClientPropertiesFromRequest>
+                
+                <!-- Application Insights SDK for Services collects the Client IP Address from the HTTP request, if available, by default. 
+                     This value will be null in case of Azure worker roles or if the Client IP Address cannot be extracted. 
+                     Set it to false to omit the IP address from data collected from the HTTP request. -->
+                <CollectClientIPAddress xdt:Transform="InsertIfMissing">true</CollectClientIPAddress>
+                
+                <!-- Determines whether or not events will appear in raw form in the developer dashboard. It is recommended this be set
+                     to true for debug builds when diagnosing your application's use of telemetry events. For deployment, it is
+                     highly recommended that this value be false. -->
+                <SendToRawStream xdt:Transform="InsertIfMissing">false</SendToRawStream>
+                
+                <!-- When CollectUserName is set to true, Application Insights SDK collects user name from the machine sending 
+                     events. This data is only meaningful when SendToRawStream is true. -->
+                <CollectUserName xdt:Transform="InsertIfMissing">false</CollectUserName>
+                
+                <!-- When CollectMachineName is set to true, Application Insights SDK collects machine name from the machine 
+                     sending events. This data is only meaningful when SendToRawStream is true. -->
+                <CollectMachineName xdt:Transform="InsertIfMissing">false</CollectMachineName>
+            </ServerAnalytics>
+        </Profile>
+        <Profile name="Development" xdt:Transform="InsertIfMissing" xdt:Locator="Condition(@name='Development')">
+            <ServerAnalytics enabled="true" xdt:Transform="InsertIfMissing">
+                
+                <!-- The frequency in seconds with which the SDK uploads data to Application Insights. -->
+                <DataUploadIntervalInSeconds xdt:Transform="InsertIfMissing">0.1</DataUploadIntervalInSeconds>
+                
+                <!-- Application Insights SDK for Services collects client data by default from the HTTP request. 
+                     Set it to false to stop collecting data from the HTTP request automatically. 
+                     You can still set the properties by using the ServerAnalytics.CurrentRequest object. -->            
+                <AutoFillClientPropertiesFromRequest xdt:Transform="InsertIfMissing">true</AutoFillClientPropertiesFromRequest>
+                
+                <!-- Application Insights SDK for Services collects the Client IP Address from the HTTP request, if available, by default. 
+                     This value will be null in case of Azure worker roles or if the Client IP Address cannot be extracted. 
+                     Set it to false to omit the IP address from data collected from the HTTP request. -->
+                <CollectClientIPAddress xdt:Transform="InsertIfMissing">true</CollectClientIPAddress>
+                
+                <!-- Determines whether or not events will appear in raw form in the developer dashboard. It is recommended this be set
+                     to true for debug builds when diagnosing your application's use of telemetry events. For deployment, it is
+                     highly recommended that this value be false. -->
+                <SendToRawStream xdt:Transform="InsertIfMissing">true</SendToRawStream>
+                
+                <!-- When CollectUserName is set to true, Application Insights SDK collects user name from the machine sending 
+                     events. This data is only meaningful when SendToRawStream is true. -->
+                <CollectUserName xdt:Transform="InsertIfMissing">true</CollectUserName>
+                
+                <!-- When CollectMachineName is set to true, Application Insights SDK collects machine name from the machine 
+                     sending events. This data is only meaningful when SendToRawStream is true. -->
+                <CollectMachineName xdt:Transform="InsertIfMissing">true</CollectMachineName>
+            </ServerAnalytics>
+        </Profile>
+    </Profiles>
+</ApplicationInsights>

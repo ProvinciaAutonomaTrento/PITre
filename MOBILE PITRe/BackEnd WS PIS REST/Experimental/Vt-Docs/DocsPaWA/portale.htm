@@ -1,0 +1,352 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+<HTML>
+	<HEAD>
+		<META http-equiv="Content-Type" content="text/html; charset=windows-1252"> <!-- JAVASCRIPT (Local Objects) -->
+		<SCRIPT language="JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+// -->
+		</SCRIPT>
+		<SCRIPT language="JavaScript" event="onLoad()" for="window">
+<!--
+window.name="main"
+//-->
+		</SCRIPT>
+		<SCRIPT language="Javascript">
+
+<!-- browsers non abilitati
+function today_date() {
+// setta il default dei campi data ad oggi
+  var pos = 0;
+  var today = new Date();
+  var day = today.getDate();
+  var month = today.getMonth();
+  var year = today.getYear();
+// notazione inglese per il mese
+  month = month + 1;
+  document.rs.Giorno.value = day;
+  document.rs.Mese.value = month;
+
+  document.rs.Anno.value = year;
+  pos = document.rs.Anno.value.length;
+  if(document.rs.Anno.value.length > 2) 
+        document.rs.Anno.value = document.rs.Anno.value.substring(pos-2, pos);
+  gg = day
+
+}
+
+function check() {
+// controllo banale di congruita sulla data
+  var gg = 0;
+  var mm = 0;
+  var aa = 0;
+  var today = new Date();
+  var anno = today.getYear();
+  if(document.rs.Giorno.value.substring(0, 1) == "0")
+        document.rs.Giorno.value = document.rs.Giorno.value.substring(1, 2);
+  gg = parseInt(document.rs.Giorno.value);
+  if(document.rs.Mese.value.substring(0, 1) == "0")
+        document.rs.Mese.value = document.rs.Mese.value.substring(1, 2);
+  mm = parseInt(document.rs.Mese.value);
+  aa = parseInt(document.rs.Anno.value);
+
+ if(gg < 1 || gg > 31) {
+    alert("Il valore GG non e' corretto !");
+    return false;
+  }
+  if(mm < 1 || mm > 12) {
+    alert("Il valore MM non e' corretto !");
+    return false;
+  }
+  if(aa > anno) {
+// valido dal 1997 in poi
+    alert("Il valore AA non e' valido !");
+    return false;
+  }
+  return true;
+}
+
+function call_right_page() {
+// esecuzione richiesta
+  //controllo per rassegne stampa precedenti a tre mesi
+   var today = new Date();
+   // le prossime 5 variabili mi portano ai millisecondi del primo giorno di 3 mesi fa!!!!
+   
+   var primogiornodelmese =  new Date(today.getYear(),today.getMonth(),01);
+   var millisecondiprimogiornodelmese = primogiornodelmese.getTime();
+   var meselimiterassegna = new Date(millisecondiprimogiornodelmese - 6912000000);
+   var primodelmeselimiterassegna = new Date(meselimiterassegna.getYear(),meselimiterassegna.getMonth(),01);
+   var limiterassegna = primodelmeselimiterassegna.getTime();
+
+
+   mm = parseInt(document.rs.Mese.value);
+   gg = parseInt(document.rs.Giorno.value);
+   aa = parseInt(document.rs.Anno.value);
+   aa = 2000+aa;
+   var dataselezionata = new Date(aa, mm-1, gg);   
+   var msdataselezionata = dataselezionata.getTime();
+    if(msdataselezionata < limiterassegna)
+    {
+    mmperalert=primodelmeselimiterassegna.getMonth()+1;
+    alert("La Rassegna Stampa quotidiana è disponibile dal 1 / " + mmperalert);
+    return false;
+    }
+    
+
+if(document.rs.Giorno.value.length == 1)
+    document.rs.Giorno.value = "0" + document.rs.Giorno.value;
+  if(document.rs.Mese.value.length == 1)
+    document.rs.Mese.value = "0" + document.rs.Mese.value;
+	window.location.href = "http://decs2175.etnoteam.it/rassegna/quotidiana/" + document.rs.Anno.value + document.rs.Mese.value + document.rs.Giorno.value;
+
+}
+// fine browser non abilitati -->
+
+		</SCRIPT>
+		<META content="MSHTML 6.00.2716.2200" name="GENERATOR">
+	</HEAD>
+	<BODY text="#000000" vLink="#000000" aLink="#000000" link="#000000" bgColor="#ffffff" topMargin="0">
+		<SCRIPT language="JavaScript">
+	<!--
+	
+	//Date Arrays Initializing
+	var isnMonths=new Array("Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre");
+	var isnDays=new Array("Domenica","Luned&igrave;","Marted&igrave;","Mercoled&igrave;","Gioved&igrave;","Venerd&igrave;","Sabato");   
+	now = new Date();
+	
+	//Netscape Date Defining
+	nsyear = now.getYear() + 1900;
+	
+	
+	//-->
+	function checkIt(objSel) {
+	if (objSel.options[objSel.selectedIndex].value != '') document.location.href = objSel.options[objSel.selectedIndex].value;
+	objSel.selectedIndex = 0;
+	}
+
+	function checkIts(objSel) {
+	if (objSel.options[objSel.selectedIndex].value != '')  window.open(objSel.options[objSel.selectedIndex].value, "", "height=500, width=750, status=yes, toolbar=yes, menubar=yes, location=yes, scrollbars=yes,resizable=yes");
+	objSel.selectedIndex = 0;
+	}
+
+		</SCRIPT>
+		<SCRIPT language="JavaScript" type="">
+<!--
+	var width = "100";
+	var border = "2";
+	var offsetx = 15;
+	var offsety = 6;
+	
+	var fcolor = "#EDEDED";
+	var backcolor = "#808080";
+	var textcolor = "#000000";
+	var capcolor = "#FFFFFF";
+	var closecolor = "#FFFFFF";
+	
+// -->
+		</SCRIPT>
+		<TABLE border="0" cellpadding="0" cellspacing="0" width="100%" ID="Table1" height="100%" bgColor="#f2f2f2">
+			<TR>
+				<TD align="center" valign="middle">
+					<TABLE border="0" cellpadding="0" cellspacing="0" width="200" ID="Table2">
+						<TR>
+							<TD vAlign="center" align="right" bgColor="#840800"><FONT face="arial" color="#ffffff" size="1"><!-- ****** inizio data ****** -->
+									<SCRIPT language="JavaScript1.2">
+		<!--
+		document.open();
+		document.write(isnDays[now.getDay()]+", "+now.getDate()+"  "+isnMonths[now.getMonth()]);
+		if (now.getYear() < 1000) {
+		document.write("&nbsp;" + nsyear); 
+		}
+		else {
+		document.write("&nbsp;" + now.getYear());
+		document.close();
+		}
+		//--></SCRIPT>
+									<!-- ***** fine data ****** --> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</FONT>
+							</TD>
+						</TR>
+			</TR>
+			<TR>
+				<TD vAlign="top" bgColor="#dddddd">
+					<TABLE cellSpacing="0" cellPadding="0" width="100%" bgColor="#dddddd" border="0" ID="Table3">
+						<TBODY>
+							<TR>
+								<TD vAlign="top" align="top" bgColor="#dddddd"><!-- *****  prima parte corpo centrale *****  -->  <!--webbot bot="Include"
+                        U-Include="include/bott_home_ricerche.htm" TAG="BODY" startspan
+                        -->
+									<TABLE cellSpacing="5" cellPadding="2" width="100%" bgColor="#dddddd" border="0" ID="Table4">
+										<TBODY>
+											<TR>
+												<TD vAlign="center" width="17" bgColor="#dddddd"><IMG height="16" src="images/portale/ico_pren_risorse.gif" width="17" border="0"></TD>
+												<TD vAlign="center" bgColor="#dddddd"><A href=""><FONT face="arial" size="1">Regole 
+															organizzative e
+															<br>
+															Manuale di Gestione </FONT></A>
+												</TD>
+												<TD vAlign="center" width="17" bgColor="#dddddd"><IMG height="17" src="images/portale/ico_help_desk.gif" width="17" border="0" align="absmiddle"></TD>
+												<TD vAlign="center" bgColor="#dddddd"><A href=""><FONT face="arial" size="1">Help 
+															e
+															<br>
+															Manuale Utente</FONT></A></TD>
+											</TR>
+											<TR>
+												<TD vAlign="center" width="17" bgColor="#dddddd"><IMG height="17" src="images/portale/ico_come_fare.gif" width="17" border="0"></TD>
+												<TD vAlign="center" bgColor="#dddddd"><A href=""><FONT face="arial" size="1">Come 
+															fare per</FONT></A></TD>
+												<TD vAlign="center" width="17" bgColor="#dddddd"><IMG height="16" src="images/portale/ico_link_utili.gif" width="14" border="0"></TD>
+												<TD vAlign="center" bgColor="#dddddd"><A href=""><FONT face="arial" size="1">Links 
+															utili</FONT></A></TD>
+											</TR>
+											<TR>
+												<TD vAlign="bottom" width="601" bgColor="#dddddd" colSpan="4" height="1"><IMG height="3" src="images/portale/separatore.gif" width="100%" border="0"></TD>
+											</TR>
+											<TR>
+												<TD vAlign="top" align="left" bgColor="#dddddd" colSpan="2"><A href=""><IMG height="17" alt="" src="images/portale/bot_richieste.gif" width="83" border="0"></A><BR>
+													<SELECT onchange="checkIt(this)" align="left" size="1" name="D2" ID="Select1">
+														<OPTION value="http://cww.etnoteam.it" selected>&nbsp;&nbsp;&nbsp;</OPTION>
+														<OPTION value="../servpersonale/vita_aziendale/modulistica/acquisto_libri.htm">Acquisti 
+															libri</OPTION>
+														<OPTION value="../servpersonale/vita_aziendale/modulistica/acquisto_riviste.htm">Acquisti 
+															riviste</OPTION>
+														<OPTION value="../richieste/attiv_accesso_remoto.htm">Accesso remoto</OPTION>
+														<OPTION value="../richieste/cancelleria.htm">Cancelleria</OPTION>
+														<OPTION value="../formazione/iscrizione/default.htm">Formazione</OPTION>
+														<OPTION value="../richieste/manutenzione.htm">Manutenzione uffici</OPTION>
+														<OPTION value="../web_qa/sq/d_template_e_moduli/gestione_personale/ferie_permessoretribuito/pcmod078.doc">Permessi/Ferie</OPTION>
+														<OPTION value="../richieste/traslochi.htm">Traslochi
+														</OPTION>
+													</SELECT>
+												</TD>
+												<TD vAlign="top" align="left" bgColor="#dddddd" colSpan="2">
+													<MAP name="FPMap0_I2">
+														<AREA shape="RECT" coords="120,10,145,17" href="">
+													</MAP><IMG height="16" alt="" src="images/portale/bot_nr_tel.jpg" width="145" useMap="#PMap0_I2" border="0"><BR>
+													<INPUT size="15" name="cerca" ID="Text1">&nbsp; <INPUT onclick="document.rs.action='http://cww.services.etnoteam.it/php/tel2/tel_new2.php'; &#13;&#10;document.rs.submit(); " type="submit" value="go" name="telefono" ID="Submit1">
+												</TD>
+											</TR> <!--  ***** fine prima parte corpo centrale ***** --></TBODY></TABLE> <!--webbot bot="Include" i-checksum="22955" endspan --></TD>
+							</TR>
+							<TR>
+								<TD width="2" bgColor="#ffffff"><IMG height="2" alt="" src="images/portale/transp.gif" width="2" border="0"></TD>
+							</TR>
+							<TR>
+								<TD vAlign="top" align="middle" bgColor="#ededed"><!--  ***** seconda parte corpo centrale ***** -->
+									<TABLE cellSpacing="0" cellPadding="0" width="100%" border="0" ID="Table5">
+										<TBODY>
+											<TR>
+												<TD vAlign="top" width="50%" bgColor="#dddddd">
+													<TABLE cellSpacing="0" cellPadding="3" width="100%" border="0" ID="Table6">
+														<TBODY>
+															<TR>
+																<TD bgColor="#dedfde"><IMG height="15" src="images/portale/bot_com_aziendali.gif" width="130" border="0"></TD>
+																<TD align="right" bgColor="#dedfde"><U><FONT face="Arial" size="1"><A href="">Archivio</A></FONT></U></TD>
+															</TR>
+														</TBODY></TABLE>
+												</TD>
+												<TD vAlign="top" width="2" bgColor="#ffffff"><IMG height="2" alt="" src="images/portale/transp.gif" width="2" border="0"></TD>
+												<TD vAlign="top" width="50%" bgColor="#dddddd">
+													<TABLE cellSpacing="0" cellPadding="3" width="100%" border="0" ID="Table7">
+														<TBODY>
+															<TR>
+																<TD bgColor="#dedfde"><IMG height="15" alt="" src="images/portale/bot_com_servizio.gif" width="135" border="0"></TD>
+																<TD align="right" bgColor="#dedfde"><U><FONT face="Arial" size="1"><A href="">Archivio</A></FONT></U></TD>
+															</TR>
+														</TBODY></TABLE>
+												</TD>
+											</TR>
+										</TBODY></TABLE>
+								</TD>
+							</TR>
+							<TR>
+								<TD width="2" bgColor="#ffffff"><IMG height="2" alt="" src="images/portale/transp.gif" width="2" border="0"></TD>
+							</TR>
+							<TR>
+								<TD vAlign="top" align="middle" bgColor="#ededed">
+									<TABLE cellSpacing="0" cellPadding="0" width="100%" border="0" ID="Table8">
+										<TBODY>
+											<TR>
+												<TD vAlign="top" width="50%" bgColor="#ededed"><!-- inizio tabella comunicati aziendali - parte cenatrale , sx -->
+													<TABLE borderColor="#ffffff" cellSpacing="0" borderColorDark="#ffffff" cellPadding="5" borderColorLight="#ffffff" border="0" ID="Table9">
+														<TBODY>
+															<TR>
+																<TD vAlign="top"><B><FONT face="Verdana" size="1">20/01 - <A href="">
+																				Ordine di servizio n.132.03</A></FONT><FONT face="Arial" size="1"><BR>
+																		</FONT></B><FONT face="Arial" size="1">OGGETTO: Organizzazione della Direzione 
+																		Personale.</FONT></TD>
+															</TR>
+															<TR>
+																<TD vAlign="top"><B><FONT face="Verdana" size="1">15/01 - <A href="">
+																				Dispositivi</A></FONT><FONT face="Arial" size="1"><BR>
+																		</FONT></B><FONT face="Arial" size="1">OGGETTO: Attivata la nuova stampante a 
+																		colori. </FONT>
+																</TD>
+															</TR>
+															<TR>
+																<TD vAlign="top"></TD>
+															</TR>
+														</TBODY></TABLE> <!-- fine tabella comunicati aziendali - parte cenatrale , dx --></TD>
+												<TD vAlign="top" width="2" bgColor="#ffffff"><IMG height="2" alt="" src="images/portale/transp.gif" width="2" border="0"></TD>
+												<TD vAlign="top" width="50%" bgColor="#ededed"><!-- inizio tabella comunicazioni di servizio - parte cenatrale , dx -->
+													<TABLE borderColor="#ffffff" cellSpacing="0" borderColorDark="#ffffff" cellPadding="5" borderColorLight="#ffffff" border="0" ID="Table10">
+														<TBODY>
+															<TR>
+																<TD vAlign="top"><FONT face="Verdana" size="1"><B>14/01 -<FONT color="#a50031"> </FONT></B>
+																		<STRONG>ANOMALIE AL SERVIZIO DI POSTA AZIENDALE&nbsp;</STRONG><B><BR>
+																		</B></FONT><FONT face="Arial" size="1">A causa di anomalie sui server centrali 
+																		il servizio di posta può subire rallentamenti o blocchi sulle mailbox degli 
+																		utenti.<BR>
+																		Non sono stati ancora indicati i tempi di ripristino dell'anomalia.<BR>
+																	</FONT>
+																</TD>
+															</TR>
+														</TBODY></TABLE> <!-- fine tabella comunicazioni di servizio - parte cenatrale , sx --></TD>
+											</TR>
+										</TBODY></TABLE> <!--  ***** fine seconda parte corpo centrale --></TD>
+							</TR>
+							<TR>
+								<TD width="669" bgColor="#ffffff"><IMG height="2" alt="" src="images/portale/transp.gif" width="2" border="0"></TD>
+							</TR>
+							<TR>
+								<TD vAlign="top">
+									<TABLE cellSpacing="0" cellPadding="3" width="100%" border="0" ID="Table11">
+										<TBODY>
+											<TR>
+												<TD vAlign="center" bgColor="#dedfde" height="18"><IMG height="15" alt="" src="images/portale/bot_novita_cww.gif" width="89" border="0"></TD>
+												<TD vAlign="center" align="right" bgColor="#dedfde" height="18">
+													<P align="right"><FONT face="Arial" size="1"><A href="">Archivio</A></FONT>
+													</P>
+												</TD>
+											</TR>
+										</TBODY></TABLE>
+									<TABLE borderColor="#ffffff" cellSpacing="0" borderColorDark="#ffffff" cellPadding="6" width="99%" align="center" borderColorLight="#ffffff" border="1" ID="Table12">
+										<TBODY>
+											<TR>
+												<TD vAlign="top" align="left" width="33%" bgColor="#ededed">
+													<P><FONT face="Verdana" size="1"><STRONG>20/01 - </STRONG><B><A href="">
+																	Vita nell'ente</A> - <A href="">Ristorante</A></B></FONT><FONT face="Arial" size="1"><BR>
+															Nuova convenzione con il ristorante "La Forchetta".<BR>
+															&nbsp;&nbsp;&nbsp;</FONT></P>
+												</TD>
+												<TD vAlign="top" align="left" width="33%" bgColor="#ededed"><FONT face="Verdana" size="1"><STRONG>16/01 
+															- </STRONG><A href=""><B>Formazione
+															</B></A></FONT><FONT face="Arial" size="1">
+														<BR>
+														Sono in linea le <A href="">slides</A> del corso di archivistica.</FONT></TD>
+											</TR>
+										</TBODY></TABLE>
+								</TD>
+							<TR>
+								<TD height="2"><IMG height="2" src="images/portale/transp.gif" width="5" border="0"></TD>
+							</TR>
+						</TBODY></TABLE>
+				</TD>
+			</TR>
+		</TABLE>
+		</TD></TR> </TABLE>
+	</BODY>
+</HTML>

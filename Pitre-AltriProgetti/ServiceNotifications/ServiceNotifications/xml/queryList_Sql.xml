@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="queryListStyle.xsl"?>
+<listeQuery>
+  <query>
+    <name>S_J_DPA_LOG_DPA_ANAGRAFICA_LOG</name>
+    <value>
+      SELECT l.SYSTEM_ID as system_id,
+      l.ID_AMM,
+      convert(varchar, l.DTA_AZIONE, 103) + ' ' + convert(varchar(8), l.DTA_AZIONE, 114) as dta_event,
+      l.VAR_OGGETTO as domain_object,
+      l.ID_OGGETTO as id_object,
+      l.VAR_COD_AZIONE as type_event,
+      l.ID_TRASM_SINGOLA as id_specialized_object,
+      l.ID_PEOPLE_OPERATORE as idUser,
+      l.ID_GRUPPO_OPERATORE as idRole,
+      l.DESC_PRODUCER,
+      l.ID_PEOPLE_DELEGANTE,
+      a.MULTIPLICITY,
+      a.NOTIFICATION_RECIPIENTS,
+      at.NOTIFY,
+      a.COLOR,
+      l.id_amm as id_adm,
+      a.SYSTEM_ID as ID_TYPE_EVENT,
+      a.FOLLOW
+      FROM (DPA_LOG l
+      JOIN DPA_ANAGRAFICA_LOG a
+      ON l.var_cod_azione = a.var_codice
+      AND l.check_notify  = '1'
+      AND (l.id_amm       = a.id_amm
+      OR a.id_amm        IS NULL))
+      JOIN DPA_LOG_ATTIVATI at
+      ON a.system_id = at.system_id_anagrafica
+      AND l.id_amm   = at.id_amm
+    </value>
+  </query>
+
+  <query>
+    <name>S_RECIPIENTS_TRANSMISSION</name>
+    <value>
+      SELECT c.id_gruppo as ID_GRUPPO
+      , u.id_people as ID_PEOPLE
+      FROM dpa_trasm_singola s
+      JOIN dpa_trasm_utente u ON u.id_trasm_singola  = @idSpecializedObject@ AND u.id_trasm_singola = s.system_id
+      LEFT JOIN dpa_corr_globali c ON s.id_corr_globale = c.system_id
+      where u.cha_in_todolist = 1
+    </value>
+  </query>
+
+  <query>
+    <name>S_SENDER_TRANSMISSION</name>
+    <value>
+      (
+      SELECT t.system_id as idtrasm
+      , c.id_gruppo as ID_GRUPPO
+      , t.id_people as ID_PEOPLE
+      , t.id_people_delegato as idUserDelegate
+      FROM DPA_TRASMISSIONE t
+      JOIN DPA_TRASM_SINGOLA s ON s.system_id = @idSpecializedObject@ AND s.id_trasmissione = t.system_id
+      JOIN DPA_CORR_GLOBALI c ON t.id_ruolo_in_uo = c.system_id
+      )
+      UNION
+      (
+      SELECT t.system_id as idtrasm
+      , c.id_gruppo as ID_GRUPPO
+      , t.id_people as ID_PEOPLE
+      , t.id_people_delegato as idUserDelegate
+      FROM DPA_TRASMISSIONE t
+      JOIN DPA_CORR_GLOBALI c ON t.system_id = @idSpecializedObject@ AND t.id_ruolo_in_uo = c.system_id
+      )
+    </value>
+  </query>
+
+  <query>
+    <name>S_SENDER_USERS_ROLE_SENDER_TRANSMISSION</name>
+    <value>
+      SELECT t.system_id     AS idtrasm,
+      pg.groups_system_id  AS ID_GRUPPO,
+      pg.people_system_id  AS ID_PEOPLE
+      FROM DPA_TRASMISSIONE t
+      JOIN DPA_TRASM_SINGOLA s
+      ON s.system_id        = @idSpecializedObject@
+      AND s.id_trasmissione = t.system_id
+      JOIN DPA_CORR_GLOBALI c
+      ON t.id_ruolo_in_uo = c.system_id
+      JOIN peoplegroups pg
+      ON c.id_gruppo   = pg.groups_system_id
+      AND pg.dta_fine IS NULL
+    </value>
+  </query>
+  <query>
+    <name>S_USERS_ROLE_HOLDER_IN_PROCESS</name>
+    <value>
+      SELECT P.ID_RUOLO_COINVOLTO AS ID_GRUPPO,
+      P.ID_UTENTE_LOCKER     AS ID_PEOPLE
+      FROM DPA_ISTANZA_PASSO_FIRMA P
+      JOIN DPA_PASSO_DPA_EVENTO E
+      ON P.ID_ISTANZA_PASSO = E.ID_ISTANZA_PASSO
+      WHERE P.ID_ISTANZA_PROCESSO =
+      (SELECT ID_ISTANZA
+      FROM DPA_ISTANZA_PROCESSO_FIRMA
+      WHERE ID_DOCUMENTO = @idObject@
+      AND CONCLUSO_IL    = @dateEvent@
+      )
+      AND E.ID_EVENTO =
+      (SELECT ID_EVENTO
+      FROM DPA_ANAGRAFICA_EVENTI
+      WHERE VAR_COD_AZIONE = '@typeEvent@'
+      )
+      AND P.STATO_PASSO = 'CLOSE'
+    </value>
+  </query>
+
+  <query>
+    <name>S_USERS_ROLE_HOLDER_IN_PROCESS_ACTIVE</name>
+    <value>
+      SELECT P.ID_RUOLO_COINVOLTO AS ID_GRUPPO,
+      P.ID_UTENTE_LOCKER     AS ID_PEOPLE
+      FROM DPA_ISTANZA_PASSO_FIRMA P
+      WHERE P.ID_ISTANZA_PROCESSO =
+      (SELECT ID_ISTANZA
+      FROM DPA_ISTANZA_PROCESSO_FIRMA
+      WHERE ID_DOCUMENTO = @idObject@
+      AND (CONCLUSO_IL IS NULL OR CONCLUSO_IL = @dateEvent@)
+      )
+      AND P.STATO_PASSO = 'CLOSE'
+    </value>
+  </query>
+
+  <query>
+    <name>S_USER_ROLE_PROPONENT_IN_PROCESS</name>
+    <value>
+      SELECT P.ID_UTENTE_PROPONENTE AS ID_PEOPLE,
+      P.ID_RUOLO_PROPONENTE       AS ID_GRUPPO
+      FROM DPA_ISTANZA_PROCESSO_FIRMA P
+      WHERE P.ID_DOCUMENTO = @idObject@
+      AND P.CONCLUSO_IL    = @dateEvent@
+      AND @conditionNotification@
+    </value>
+  </query>
+
+  <query>
+    <name>S_USER_ROLE_PROPONENT_IN_PROCESS_ACTIVE</name>
+    <value>
+      SELECT P.ID_UTENTE_PROPONENTE AS ID_PEOPLE,
+      P.ID_RUOLO_PROPONENTE       AS ID_GRUPPO
+      FROM DPA_ISTANZA_PROCESSO_FIRMA P
+      WHERE P.ID_DOCUMENTO = @idObject@
+      AND (P.CONCLUSO_IL IS NULL OR P.CONCLUSO_IL  = @dateEvent@)
+    </value>
+  </query>
+  <query>
+    <name>S_ACL_DOCUMENT</name>
+    <value>
+      SELECT distinct pg.groups_system_id as ID_GRUPPO
+      , pg.people_system_id as ID_PEOPLE
+      FROM security s
+      JOIN peoplegroups pg ON s.thing = @idSpecializedObject@ AND s.accessrights >= 45 AND s.personorgroup = pg.groups_system_id AND pg.dta_fine is null
+    </value>
+  </query>
+  <query>
+    <name>S_ITEMS_DOCUMENT</name>
+    <value>
+      SELECT docnumber AS ID_OBJECT
+      , var_segnatura AS SEGNATURA
+      , var_prof_oggetto AS ITEM_DESCRIPTION
+      ,docsadm.GETSEGNATURAREPERTORIO(@systemId@, @idAmm@)  AS NUM_REPERTORIO
+      , cha_tipo_proto AS TYPE_PROTO
+      FROM profile
+      WHERE system_id = @systemId@
+    </value>
+  </query>
+
+  <query>
+    <name>S_ITEMS_FOLDER</name>
+    <value>
+      SELECT VAR_CODICE AS ID_OBJECT,
+      DESCRIPTION     AS ITEM_DESCRIPTION
+      FROM PROJECT
+      WHERE SYSTEM_ID = @systemId@
+    </value>
+  </query>
+
+  <query>
+    <name>S_MULTIPLICITY_EVENT_TRASM</name>
+    <value>
+      SELECT UPPER(cha_tipo_trasm)  as multiplicity
+      FROM DPA_TRASM_SINGOLA
+      WHERE system_id=@idTrasmSing@
+    </value>
+  </query>
+
+  <query>
+    <name>U_DPA_LOG</name>
+    <value>
+      UPDATE DPA_LOG
+      SET CHECK_NOTIFY = '0'
+      WHERE SYSTEM_ID IN (@condition@)
+    </value>
+  </query>
+
+  <query>
+    <name>I_DPA_NOTIFY</name>
+    <value>
+      INSERT INTO DPA_NOTIFY
+      VALUES(@value@)
+    </value>
+  </query>
+
+  <query>
+    <name>S_ITEMS_SPECIALIZED_TRANSMISSION_DOCUMENT</name>
+    <value>
+      SELECT t.var_note_generali AS NOTE_GENERALI
+      , s.var_note_sing as NOTE_SINGOLE
+      , ta.var_desc_atto as TIPO_ATTO
+      , p.var_prof_oggetto as DESC_OBJECT
+      ,  convert(varchar, s.dta_scadenza, 103) + ' ' + convert(varchar(8), s.dta_scadenza, 114)          AS DTA_SCADENZA
+      , docsadm.getsender(t.ID_PROFILE) as DESC_SENDER
+      FROM dpa_trasm_singola s
+      JOIN dpa_trasmissione t ON t.system_id  = s.id_trasmissione AND s.system_id =@idTrasmSing@
+      JOIN PROFILE p ON t.id_profile = p.system_id
+      LEFT JOIN DPA_TIPO_ATTO ta ON p.id_tipo_atto = ta.system_id
+    </value>
+  </query>
+
+  <query>
+    <name>S_ITEMS_SPECIALIZED_TRANSMISSION_FOLDER</name>
+    <value>
+      SELECT t.var_note_generali AS NOTE_GENERALI,
+      s.var_note_sing          AS NOTE_SINGOLE,
+      tf.var_desc_fasc         AS TIPO_FASC,
+      p.description            AS DESC_OBJECT,
+      convert(varchar, s.dta_scadenza, 103) + ' ' + convert(varchar(8), s.dta_scadenza, 114)             AS DTA_SCADENZA
+      FROM dpa_trasm_singola s
+      JOIN dpa_trasmissione t
+      ON t.system_id  = s.id_trasmissione
+      AND s.system_id =@idTrasmSing@
+      JOIN PROJECT p
+      ON t.id_project = p.system_id
+      LEFT JOIN DPA_TIPO_FASC tf
+      ON p.id_tipo_fasc = tf.system_id
+    </value>
+  </query>
+
+  <query>
+    <name>S_ITEMS_SPECIALIZED_REJECT_TRASM_DOCUMENT</name>
+    <value>
+      SELECT u.var_note_rif as note
+      , ta.var_desc_atto as tipo_atto
+      , p.var_prof_oggetto as DESC_OBJECT
+      ,docsadm.getsender(t.ID_PROFILE) as DESC_SENDER
+      FROM DPA_TRASM_UTENTE u
+      JOIN DPA_TRASM_SINGOLA s ON u.id_trasm_singola  = @idTrasmSing@ AND u.id_people = @idUser@ AND u.id_trasm_singola = s.system_id
+      JOIN DPA_TRASMISSIONE t ON s.id_trasmissione = t.system_id
+      JOIN PROFILE p ON t.id_profile = p.system_id
+      LEFT JOIN DPA_TIPO_ATTO ta ON p.id_tipo_atto = ta.system_id
+    </value>
+  </query>
+
+  <query>
+    <name>S_ITEMS_SPECIALIZED_REJECT_TRASM_FOLDER</name>
+    <value>
+      SELECT u.var_note_rif AS note,
+      tf.var_desc_fasc    AS TIPO_FASC,
+      p.description       AS DESC_OBJECT
+      FROM DPA_TRASM_UTENTE u
+      JOIN DPA_TRASM_SINGOLA s
+      ON u.id_trasm_singola  = @idTrasmSing@
+      AND u.id_people        = @idUser@
+      AND u.id_trasm_singola = s.system_id
+      JOIN DPA_TRASMISSIONE t
+      ON s.id_trasmissione = t.system_id
+      JOIN PROJECT p
+      ON t.id_project = p.system_id
+      LEFT JOIN DPA_TIPO_FASC tf
+      ON p.id_tipo_fasc = tf.system_id
+    </value>
+  </query>
+
+  <query>
+    <name>S_ITEMS_SPECIALIZED_ACCEPT_TRASM_FOLDER</name>
+    <value>
+      SELECT u.var_note_acc AS note,
+      tf.var_desc_fasc    AS tipo_fasc,
+      p.description       AS DESC_OBJECT
+      FROM DPA_TRASM_UTENTE u
+      JOIN DPA_TRASM_SINGOLA s
+      ON u.id_trasm_singola  = @idTrasmSing@
+      AND u.id_people        = @idUser@
+      AND u.id_trasm_singola = s.system_id
+      JOIN DPA_TRASMISSIONE t
+      ON s.id_trasmissione = t.system_id
+      JOIN PROJECT p
+      ON t.id_project = p.system_id
+      LEFT JOIN DPA_TIPO_FASC tf
+      ON p.id_tipo_fasc = tf.system_id
+    </value>
+  </query>
+
+  <query>
+    <name>S_ITEMS_SPECIALIZED_ACCEPT_TRASM_DOCUMENT</name>
+    <value>
+      SELECT u.var_note_acc AS note
+      , ta.var_desc_atto AS tipo_atto
+      , p.var_prof_oggetto as DESC_OBJECT
+      ,docsadm.getsender(t.ID_PROFILE) as DESC_SENDER
+      FROM DPA_TRASM_UTENTE u
+      JOIN DPA_TRASM_SINGOLA s ON u.id_trasm_singola = @idTrasmSing@ AND u.id_people = @idUser@ AND u.id_trasm_singola = s.system_id
+      JOIN DPA_TRASMISSIONE t ON s.id_trasmissione = t.system_id
+      JOIN PROFILE p ON t.id_profile = p.system_id
+      LEFT JOIN DPA_TIPO_ATTO ta ON p.id_tipo_atto = ta.system_id
+    </value>
+  </query>
+
+  <query>
+    <name>S_ITEMS_SPECIALIZED_BASIC_INFO_DOC</name>
+    <value>
+      SELECT p.var_prof_oggetto AS DESC_OBJECT
+      , ta.var_desc_atto AS TIPO_ATTO
+      , docsadm.getsender(p.system_id) as DESC_SENDER
+      FROM ( SELECT ID_TIPO_ATTO,var_prof_oggetto,system_id FROM PROFILE WHERE system_id=@idProfile@) p
+      LEFT JOIN DPA_TIPO_ATTO ta ON p.id_tipo_atto = ta.system_id
+    </value>
+  </query>
+
+  <query>
+    <name>S_ITEMS_SPECIALIZED_ABORT_RECORD</name>
+    <value>
+      SELECT p.var_prof_oggetto AS DESC_OBJECT
+      , ta.var_desc_atto AS TIPO_ATTO
+      , docsadm.getsender(p.system_id) as DESC_SENDER
+      ,  convert(varchar, p.dta_annulla, 103) + ' ' + convert(varchar(8), p.dta_annulla, 114)    AS DTA_ABORT_RECORD
+      , p.var_aut_annulla AS DESC_ABORT_RECORD
+      FROM
+      ( SELECT ID_TIPO_ATTO,var_prof_oggetto,system_id, dta_annulla, var_aut_annulla FROM PROFILE WHERE system_id=@idProfile@
+      ) p
+      LEFT JOIN DPA_TIPO_ATTO ta
+      ON p.id_tipo_atto = ta.system_id
+    </value>
+  </query>
+
+  <query>
+    <name>S_ITEMS_SPECIALIZED_BASIC_INFO_FOLDER</name>
+    <value>
+      SELECT p.description AS DESC_OBJECT,
+      tf.var_desc_fasc   AS TIPO_FASC
+      FROM
+      ( SELECT id_tipo_fasc, description FROM PROJECT WHERE system_id=@idProject@
+      ) p
+      LEFT JOIN DPA_TIPO_FASC tf
+      ON p.id_tipo_fasc = tf.system_id
+    </value>
+  </query>
+
+  <query>
+    <name>S_ITEMS_SPECIALIZED_CHANGE_STATE_DOCUMENT</name>
+    <value>
+      SELECT p.var_prof_oggetto AS DESC_OBJECT
+      , ta.var_desc_atto AS TIPO_ATTO
+      , s.var_descrizione AS DESC_STATE
+      , docsadm.getsender(p.system_id) as DESC_SENDER
+      FROM (SELECT ID_TIPO_ATTO, var_prof_oggetto, system_id FROM PROFILE WHERE system_id = @idProfile@ ) p
+      LEFT JOIN DPA_TIPO_ATTO ta ON p.id_tipo_atto = ta.system_id
+      LEFT JOIN dpa_diagrammi d ON p.system_id = d.doc_number
+      LEFT JOIN DPA_STATI s ON d.id_diagramma = s.id_diagramma AND d.id_stato = s.system_id
+    </value>
+  </query>
+
+  <query>
+    <name>S_PRODUCER_EVENT</name>
+    <value>
+      SELECT DISTINCT ID_PEOPLE_OPERATORE AS ID_PEOPLE,
+      ID_GRUPPO_OPERATORE               AS ID_GRUPPO
+      FROM DPA_LOG
+      WHERE system_id = @idEvent@
+    </value>
+  </query>
+
+  <query>
+    <name>S_ITEMS_SPECIALIZED_CONVERT_PDF</name>
+    <value>
+      SELECT p.var_prof_oggetto AS DESC_OBJECT,
+      ta.var_desc_atto        AS TIPO_ATTO,
+      l.var_desc_oggetto      AS ESITO_CONV,
+      docsadm.getsender(l.id_oggetto) as DESC_SENDER
+      FROM PROFILE p
+      JOIN DPA_LOG l
+      ON p.system_id  = l.id_oggetto
+      AND l.system_id = @idEvent@
+      LEFT JOIN DPA_TIPO_ATTO ta
+      ON p.id_tipo_atto = ta.system_id
+    </value>
+  </query>
+  <!-- Modifica PEC 4 requisito 2 -->
+  <query>
+    <name>S_NOTIFIABLE_ROLES_PEC4</name>
+    <value>
+      SELECT B.PEOPLE_SYSTEM_ID AS ID_PEOPLE, A.ID_GRUPPO_OPERATORE AS ID_GRUPPO
+      FROM DPA_LOG A, PEOPLEGROUPS B
+      WHERE
+      B.GROUPS_SYSTEM_ID=A.ID_GRUPPO_OPERATORE
+      AND A.SYSTEM_ID=@idEvent@
+    </value>
+  </query>
+  <query>
+    <name>S_ITEMS_SPECIALIZED_PEC</name>
+    <value>
+      SELECT a.var_desc_oggetto AS DESC_AZIONELOG, b.var_prof_oggetto as DESC_OGGETTO, docsadm.getsender(a.id_oggetto) as DESC_SENDER
+      FROM DPA_LOG A, PROFILE B
+      WHERE
+      A.id_oggetto=b.system_id
+      AND A.SYSTEM_ID=@idEvent@
+    </value>
+  </query>
+
+  <query>
+    <name>S_ITEMS_SPECIALIZED_INSTANCE_ACCESS</name>
+    <value>
+      SELECT p.var_prof_oggetto AS DESC_OBJECT,
+      ta.var_desc_atto        AS TIPO_ATTO,
+      l.var_desc_oggetto      AS ESITO_CREAZIONE_FILE_ZIP,
+      docsadm.getsender(l.id_oggetto) as DESC_SENDER
+      FROM PROFILE p
+      JOIN DPA_LOG l
+      ON p.system_id  = l.id_oggetto
+      AND l.system_id = @idEvent@
+      LEFT JOIN DPA_TIPO_ATTO ta
+      ON p.id_tipo_atto = ta.system_id
+    </value>
+  </query>
+
+  <query>
+    <name>S_ITEMS_SPECIALIZED_EVENT_LIBRO_FIRMA</name>
+    <value>
+      SELECT p.var_prof_oggetto AS DESC_OBJECT,
+      ta.var_desc_atto        AS TIPO_ATTO,
+      docsadm.getsender(l.id_oggetto) as DESC_SENDER,
+      l.VAR_DESC_AZIONE AS DESC_AZIONE,
+      PR.NOTE,
+      PR.MOTIVO_RESPINGIMENTO,
+      PR.DESCRIZIONE AS DESCRIZIONE_PROCESSO
+      FROM PROFILE p
+      JOIN DPA_LOG l
+      ON p.system_id  = l.id_oggetto AND l.system_id = @idEvent@
+      LEFT JOIN DPA_ISTANZA_PROCESSO_FIRMA PR
+      ON L.ID_OGGETTO = PR.ID_DOCUMENTO AND L.DTA_AZIONE = PR.CONCLUSO_IL
+      LEFT JOIN DPA_TIPO_ATTO ta
+      ON p.id_tipo_atto = ta.system_id
+    </value>
+  </query>
+
+  <query>
+    <name>S_ALL_AGGREGATORS_TYPE_EVENT</name>
+    <value>
+      SELECT ID_AUR,
+      TYPE_AUR,
+      TYPE_NOTIFY
+      FROM DPA_EVENT_TYPE_ASSERTIONS
+      WHERE ID_TYPE_EVENT =@idTypeEvent@ AND
+      ID_AMM = @idAmm@ AND
+      IS_EXERCISE = '1'
+    </value>
+  </query>
+  <query>
+    <name>S_AGGREGATORS_ROLE</name>
+    <value>
+      SELECT C.ID_AMM,
+      C.ID_TIPO_RUOLO,
+      C.ID_UO,
+      C.ID_GRUPPO,
+      RR.ID_REGISTRO AS ID_RF
+      FROM DPA_CORR_GLOBALI C LEFT JOIN DPA_L_RUOLO_REG RR ON
+      C.SYSTEM_ID = RR.ID_RUOLO_IN_UO AND RR.CHA_PREFERITO IS NOT NULL
+      WHERE C.ID_GRUPPO = @idRole@
+    </value>
+  </query>
+  <query>
+    <name>S_USER_RECIPIENT_TASK</name>
+    <value>
+      SELECT c.id_gruppo as ID_GRUPPO,
+      u.id_people as ID_PEOPLE
+      FROM dpa_trasm_singola s
+      JOIN dpa_trasm_utente u
+      ON U.ID_TRASM_SINGOLA  = @idSpecializedObject@
+      AND u.id_trasm_singola = s.system_id AND U.DTA_ACCETTATA IS NOT NULL
+      LEFT JOIN dpa_corr_globali c
+      ON S.ID_CORR_GLOBALE = C.SYSTEM_ID
+    </value>
+  </query>
+  <query>
+    <name>S_ITEMS_SPECIALIZED_GENERIC_DOCUMENT</name>
+    <value>
+      SELECT p.var_prof_oggetto AS DESC_OBJECT,
+      ta.var_desc_atto        AS TIPO_ATTO,
+      l.var_desc_oggetto      AS DESCRIZIONE_EVENTO,
+      docsadm.getsender(l.id_oggetto) as DESC_SENDER
+      FROM PROFILE p
+      JOIN DPA_LOG l
+      ON p.system_id  = l.id_oggetto
+      AND l.system_id = @idEvent@
+      LEFT JOIN DPA_TIPO_ATTO ta
+      ON p.id_tipo_atto = ta.system_id
+    </value>
+  </query>
+  <query>
+    <name>S_ITEMS_SPECIALIZED_GENERIC_FOLDER</name>
+    <value>
+      SELECT p.description AS DESC_OBJECT,
+      ta.var_desc_atto        AS TIPO_ATTO,
+      l.var_desc_oggetto      AS DESCRIZIONE_EVENTO,
+      docsadm.getsender(l.id_oggetto) as DESC_SENDER
+      FROM PROJECT p
+      JOIN DPA_LOG l
+      ON p.system_id  = l.id_oggetto
+      AND l.system_id = @idEvent@
+      LEFT JOIN DPA_TIPO_ATTO ta
+      ON p.id_tipo_fasc = ta.system_id
+    </value>
+  </query>
+</listeQuery>

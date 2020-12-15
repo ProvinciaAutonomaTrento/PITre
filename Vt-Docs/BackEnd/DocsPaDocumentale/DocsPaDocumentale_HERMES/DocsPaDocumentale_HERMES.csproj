@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6B2DC4E4-7A37-4513-832B-E12F9C168F93}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DocsPaDocumentale_CONN_HERMES</RootNamespace>
+    <AssemblyName>DocsPaDocumentale_CONN_HERMES</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocsPaDB">
+      <HintPath>..\..\..\DLL_TERZE_PARTI\NTTData\DocsPaDB.dll</HintPath>
+    </Reference>
+    <Reference Include="DocsPaPwdServices, Version=3.25.0.30743, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DocsPaDocumentale_PITRE\bin\Debug\DocsPaPwdServices.dll</HintPath>
+    </Reference>
+    <Reference Include="DocsPaUtils, Version=3.25.0.30739, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DocsPaDocumentale_PITRE\bin\Debug\DocsPaUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="DocsPaVO, Version=3.25.0.30732, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DocsPaDocumentale_PITRE\bin\Debug\DocsPaVO.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DocsPaDocumentale_PITRE\bin\Debug\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Documentale\AclEventListener.cs" />
+    <Compile Include="Documentale\AdminPasswordConfig.cs" />
+    <Compile Include="Documentale\AmministrazioneManager.cs" />
+    <Compile Include="Documentale\CheckInOutAdminDocumentManager.cs" />
+    <Compile Include="Documentale\CheckInOutDocumentManager.cs" />
+    <Compile Include="Documentale\DocumentManager.cs" />
+    <Compile Include="Documentale\FullTextSearchManager.cs" />
+    <Compile Include="Documentale\OrganigrammaManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documentale\ProjectManager.cs" />
+    <Compile Include="Documentale\SSOLogin.cs" />
+    <Compile Include="Documentale\TitolarioManager.cs" />
+    <Compile Include="Documentale\UserManager.cs" />
+    <Compile Include="Migrazione\Amministrazione.cs" />
+    <Compile Include="Migrazione\Documento.cs" />
+    <Compile Include="Migrazione\Fascicolo.cs" />
+    <Compile Include="Migrazione\Log.cs" />
+    <Compile Include="Migrazione\LoginServices.cs" />
+    <Compile Include="Migrazione\Organigramma.cs" />
+    <Compile Include="Migrazione\StatoMigrazione.cs" />
+    <Compile Include="Migrazione\Titolario.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DocsPaLdapServices\DocsPaLdapServices.csproj">
+      <Project>{83A164ED-DE16-44F2-9C69-2BEBE32ACCB8}</Project>
+      <Name>DocsPaLdapServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DocsPaDocumentale_HERMES_HB\DocsPaDocumentale_HERMES_HB.csproj">
+      <Project>{654B0A7B-1A2D-4A81-AFCF-C0151066D840}</Project>
+      <Name>DocsPaDocumentale_HERMES_HB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DocsPaDocumentale_Interfaces\DocsPaDocumentale_Interfaces.csproj">
+      <Project>{CD584E33-6EE7-4C62-B465-3A2A3A320C88}</Project>
+      <Name>DocsPaDocumentale_Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

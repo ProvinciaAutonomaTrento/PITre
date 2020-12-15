@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://nttdata.com/2012/Pi3" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="http://tempuri.org/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Token" targetNamespace="http://nttdata.com/2012/Pi3" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://tempuri.org/" location="http://aula51-pc/Vt-Docs/DocsPaWS/VtDocsWS/WebServices/Token.svc?wsdl=wsdl0" />
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://nttdata.com/2012/Pi3/Imports">
+      <xsd:import schemaLocation="http://aula51-pc/Vt-Docs/DocsPaWS/VtDocsWS/WebServices/Token.svc?xsd=xsd0" namespace="http://nttdata.com/2012/Pi3" />
+      <xsd:import schemaLocation="http://aula51-pc/Vt-Docs/DocsPaWS/VtDocsWS/WebServices/Token.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://aula51-pc/Vt-Docs/DocsPaWS/VtDocsWS/WebServices/Token.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Token.GetAuthenticationToken" />
+      <xsd:import schemaLocation="http://aula51-pc/Vt-Docs/DocsPaWS/VtDocsWS/WebServices/Token.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IToken_GetAuthenticationToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthenticationToken" />
+  </wsdl:message>
+  <wsdl:message name="IToken_GetAuthenticationToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthenticationTokenResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IToken">
+    <wsdl:operation name="GetAuthenticationToken">
+      <wsdl:input wsaw:Action="http://nttdata.com/2012/Pi3/IToken/GetAuthenticationToken" message="tns:IToken_GetAuthenticationToken_InputMessage" />
+      <wsdl:output wsaw:Action="http://nttdata.com/2012/Pi3/IToken/GetAuthenticationTokenResponse" message="tns:IToken_GetAuthenticationToken_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:service name="Token">
+    <wsdl:port name="BasicHttpBinding_IToken" binding="i0:BasicHttpBinding_IToken">
+      <soap:address location="http://aula51-pc/Vt-Docs/DocsPaWS/VtDocsWS/WebServices/Token.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

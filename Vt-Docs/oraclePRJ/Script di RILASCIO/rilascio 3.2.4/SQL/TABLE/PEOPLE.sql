@@ -1,0 +1,1 @@
+alter table people add cha_tipo_firma varchar(1);

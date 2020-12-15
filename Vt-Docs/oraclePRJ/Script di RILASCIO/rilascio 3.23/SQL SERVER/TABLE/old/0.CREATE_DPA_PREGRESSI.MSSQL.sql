@@ -1,0 +1,19 @@
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects 
+				WHERE id = OBJECT_ID(N'[@db_user].[DPA_PREGRESSI]') 
+					AND OBJECTPROPERTY(id, N'IsUserTable') = 1
+					)
+begin
+CREATE TABLE @db_user.DPA_PREGRESSI ( 
+            SYSTEM_ID 	INTEGER NOT NULL , 
+            ID_AMM 			INTEGER , 
+			ID_UTENTE_CREATORE INTEGER , 
+			ID_RUOLO_CREATORE 	INTEGER , 
+			DATA_ESECUZIONE 	DATE, 
+			DATA_FINE 			DATE, 
+			NUM_DOC 			INTEGER , 
+			DESCRIZIONE		VARCHAR(1000), 
+            CONSTRAINT PK_DPA_PREGRESSI PRIMARY KEY (SYSTEM_ID) 
+            )
+end
+GO
+

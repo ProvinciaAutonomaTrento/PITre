@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="queryListStyle.xsl"?>
+<listeQuery>
+  <query>
+    <name>DO_GET_IDPROFILE_BY_DATA_DOC_GRIGIO</name>
+    <value>
+      SELECT SYSTEM_ID FROM PROFILE P WITH(NOLOCK) WHERE P.DOCNUMBER = @ID_DOC@
+      AND ISNULL(P.CHA_IN_CESTINO, '0') = '0'
+      --and (@dbuser@.checkSecurityDocumento(P.SYSTEM_ID, @idPeople@, @idGruppo@,'D') > 0)
+    </value>
+  </query>
+  <query>
+    <name>DO_GET_IDPROFILE_BY_DATA</name>
+    <value>
+      SELECT SYSTEM_ID FROM PROFILE P WITH(NOLOCK) WHERE P.ID_REGISTRO = @IDREGISTRO@
+      AND P.NUM_ANNO_PROTO = @ANNOPROTO@ AND P.NUM_PROTO = @NUMPROTO@
+      --and (@dbuser@.checkSecurityDocumento(P.SYSTEM_ID, @idPeople@, @idGruppo@,'D') > 0)
+    </value>
+  </query>
+</listeQuery>

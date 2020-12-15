@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             android:background="@color/colorWhite">
+
+    <ImageView
+            android:id="@+id/imageView_close"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:padding="24dp"
+            android:src="@drawable/ic_ico_arrow_modali"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/textView_title"
+            app:layout_constraintTop_toTopOf="@+id/textView_title"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_title"
+            app:layout_constraintHorizontal_bias="0"/>
+
+    <TextView
+            android:id="@+id/textView_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_open_dossier_title"
+            style="@style/modale_title"
+            android:layout_marginTop="@dimen/margin_40px"
+            android:layout_marginBottom="@dimen/margin_40px"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <InformaticaTrentinaPCL.Droid.Search.CustomEditText
+            android:id="@+id/customEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_40px"
+            android:layout_marginLeft="@dimen/apri_fascicolo_left_right_padding"
+            android:layout_marginRight="@dimen/apri_fascicolo_left_right_padding"
+            app:layout_constraintTop_toBottomOf="@+id/textView_title"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:scrollbars="vertical"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:choiceMode="singleChoice"
+            android:background="@color/colorWhite"
+            android:divider="@null"
+            android:layout_marginTop="@dimen/margin_20px"
+            app:layout_constraintTop_toBottomOf="@+id/customEditText"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

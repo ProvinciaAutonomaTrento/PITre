@@ -1,0 +1,1170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://adlibsoftware.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://adlibsoftware.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://adlibsoftware.com/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="BeginJobTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="adminScopeId" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="jobKey" type="tns:JobKey" />
+            <s:element minOccurs="0" maxOccurs="1" name="rulesRequest" type="tns:ProcessRulesRequest" />
+            <s:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfMetadata" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="JobKey">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserDefinedId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RepositoryId" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="SubmitterComponentId" type="s1:guid" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProcessRulesRequest">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseRulesRequest">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="RulesDefinitions" type="tns:ArrayOfRulesetDefinition" />
+              <s:element minOccurs="1" maxOccurs="1" name="MergeRulesetsResults" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BaseRulesRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MetadataInputs" type="tns:ArrayOfMetadata" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnableRulesTrace" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfMetadata">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Metadata" nillable="true" type="tns:Metadata" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Metadata">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="XmlSchema" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:MetadataType" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="MetadataType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Unknown" />
+          <s:enumeration value="XML" />
+          <s:enumeration value="String" />
+          <s:enumeration value="Integer" />
+          <s:enumeration value="Double" />
+          <s:enumeration value="Boolean" />
+          <s:enumeration value="Guid" />
+          <s:enumeration value="ReplacementVariables" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfRulesetDefinition">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RulesetDefinition" nillable="true" type="tns:RulesetDefinition" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RulesetDefinition">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="WorkspaceId" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorkspaceVersionId" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConfigurableEntityName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BeginJobTransactionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BeginJobTransactionResult" type="tns:BeginJobTransactionResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BeginJobTransactionResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:JobResponse">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="BeginJobTransactionAccepted" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="RulesResponse" type="tns:ProcessRulesResponse" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="JobResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseResponse">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="JobId" type="s1:guid" />
+              <s:element minOccurs="1" maxOccurs="1" name="JobStatus" type="tns:JobStatus" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BaseResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ResultCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Metadata" type="tns:ArrayOfMetadata" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RulesetResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseResponse">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="WorkspaceVersionId" type="s1:guid" />
+              <s:element minOccurs="1" maxOccurs="1" name="RulesetId" type="s1:guid" />
+              <s:element minOccurs="1" maxOccurs="1" name="WorkspaceId" type="s1:guid" />
+              <s:element minOccurs="0" maxOccurs="1" name="ConfigurableEntityName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="RulesFound" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="RulesRun" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="StartTime" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="EndTime" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="ExceptionCode" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ExceptionMessage" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="RuleResults" type="tns:ArrayOfRuleResult" />
+              <s:element minOccurs="0" maxOccurs="1" name="MetadataOutputs" type="tns:ArrayOfMetadata" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfRuleResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RuleResult" nillable="true" type="tns:RuleResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RuleResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RuleId" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="RuleName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExceptionCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExceptionMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Condition" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExitOnConditionTrue" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExitOnConditionFalse" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConditionPostProcessed" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConditionEvaluated" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="RuleMetadataOutputs" type="tns:ArrayOfMetadata" />
+          <s:element minOccurs="0" maxOccurs="1" name="CumulativeMetadataOutput" type="tns:ArrayOfMetadata" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProcessRulesResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="MetadataOutputs" type="tns:ArrayOfMetadata" />
+              <s:element minOccurs="0" maxOccurs="1" name="RulesetResults" type="tns:ArrayOfRulesetResult" />
+              <s:element minOccurs="1" maxOccurs="1" name="ExceptionCode" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ExceptionMessage" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfRulesetResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RulesetResult" nillable="true" type="tns:RulesetResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="JobStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="UnInitialized" />
+          <s:enumeration value="Initialized" />
+          <s:enumeration value="Committed" />
+          <s:enumeration value="Ready" />
+          <s:enumeration value="Processing" />
+          <s:enumeration value="CompletedSuccessful" />
+          <s:enumeration value="CompletedFailed" />
+          <s:enumeration value="CompletedCancelled" />
+          <s:enumeration value="CompletedResubmissionFailed" />
+          <s:enumeration value="CompletedUncommitted" />
+          <s:enumeration value="CompletedJarRejected" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="DefineJobFiles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="jobId" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="jobDocumentsInfo" type="tns:JobDocumentsInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfMetadata" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="JobDocumentsInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentInputs" type="tns:ArrayOfDocumentInput" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentOutputs" type="tns:ArrayOfDocumentOutput" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDocumentInput">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DocumentInput" nillable="true" type="tns:DocumentInput" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DocumentInput">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Document">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Folder" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Uri" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Document">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="FileLength" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="HashType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileHash" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Metadata" type="tns:ArrayOfMetadata" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DocumentOutput">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Document">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Destinations" type="tns:ArrayOfDestination" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfDestination">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Destination" nillable="true" type="tns:Destination" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Destination">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:OutputDestinationType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Folder" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="OutputDestinationType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Folder" />
+          <s:enumeration value="Uri" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfDocumentOutput">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DocumentOutput" nillable="true" type="tns:DocumentOutput" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DefineJobFilesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DefineJobFilesResult" type="tns:JobFilesResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="JobFilesResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:JobResponse">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="SendJobFilesSuccessful" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="PutJobFiles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="jobId" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="jobFiles" type="tns:ArrayOfJobFile" />
+            <s:element minOccurs="0" maxOccurs="1" name="jobFileBuffers" type="tns:ArrayOfBase64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfMetadata" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfJobFile">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="JobFile" nillable="true" type="tns:JobFile" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="JobFile">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BytesRead" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Offset" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RelativeFolder" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBase64Binary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="base64Binary" nillable="true" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PutJobFilesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PutJobFilesResult" type="tns:JobFilesResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CommitJobTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="jobId" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfMetadata" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CommitJobTransactionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CommitJobTransactionResult" type="tns:JobResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteCommand">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="commandName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfMetadata" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteCommandResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExecuteCommandResult" type="tns:ExecuteCommandResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ExecuteCommandResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseResponse">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CommandSuccessful" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetJobsId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="adminScopeId" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="jobKey" type="tns:JobKey" />
+            <s:element minOccurs="0" maxOccurs="1" name="jobStatus" type="tns:ArrayOfJobStatus" />
+            <s:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfMetadata" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfJobStatus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="JobStatus" type="tns:JobStatus" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetJobsIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetJobsIdResult" type="tns:ArrayOfGuid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfGuid">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="guid" type="s1:guid" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetJobsDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jobIds" type="tns:ArrayOfGuid" />
+            <s:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfMetadata" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetJobsDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetJobsDetailResult" type="tns:ArrayOfJobDetailResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfJobDetailResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="JobDetailResponse" nillable="true" type="tns:JobDetailResponse" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="JobDetailResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:JobResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="EWSJobId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="JobKey" type="tns:JobKey" />
+              <s:element minOccurs="0" maxOccurs="1" name="JobDocumentsInfo" type="tns:JobDocumentsInfo" />
+              <s:element minOccurs="1" maxOccurs="1" name="TransformationEngineComponentId" type="s1:guid" />
+              <s:element minOccurs="0" maxOccurs="1" name="TransformationEngineMachineName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TransformationEngineNetworkName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="SystemManagerComponentId" type="s1:guid" />
+              <s:element minOccurs="1" maxOccurs="1" name="JobQueuePosition" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="TransformationEngineCompletedOnIso8601Utc" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="TransformationEngineStartedOnIso8601Utc" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="JobManagementServiceCompletedOnIso8601Utc" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="JobManagementServiceStartedOnIso8601Utc" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="TransformationEngineJobDetail" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="WorkflowCount" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="WorkflowsCompleted" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ResubmissionCount" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="JobGroup" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="JobPriority" type="s:double" />
+              <s:element minOccurs="0" maxOccurs="1" name="TransformationEngineJobDefinitionXml" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="JobCompletionClientComponentFailureCount" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="TransformationEngineConversionTimeSec" type="s:double" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetJobFiles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="jobId" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="jobFiles" type="tns:ArrayOfJobFile" />
+            <s:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfMetadata" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetJobFilesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetJobFilesResult" type="tns:ArrayOfBase64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelJobs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jobIds" type="tns:ArrayOfGuid" />
+            <s:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfMetadata" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelJobsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CancelJobsResult" type="tns:ArrayOfJobResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfJobResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="JobResponse" nillable="true" type="tns:JobResponse" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ReleaseCompletedJobs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jobIds" type="tns:ArrayOfGuid" />
+            <s:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfArrayOfMetadata" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfArrayOfMetadata">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ArrayOfMetadata" nillable="true" type="tns:ArrayOfMetadata" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ReleaseCompletedJobsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReleaseCompletedJobsResult" type="tns:ArrayOfReleaseCompletedJobResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfReleaseCompletedJobResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ReleaseCompletedJobResponse" nillable="true" type="tns:ReleaseCompletedJobResponse" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ReleaseCompletedJobResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:JobResponse">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="JobReleaseSuccessful" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ProcessRules">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="adminScopeId" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="rulesRequest" type="tns:ProcessRulesRequest" />
+            <s:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfMetadata" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessRulesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcessRulesResult" type="tns:ProcessRulesResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessInitRules">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rulesRequest" type="tns:InitRulesRequest" />
+            <s:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfMetadata" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InitRulesRequest">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseRulesRequest">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ConfigurableEntityName" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ProcessInitRulesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcessInitRulesResult" type="tns:ProcessRulesResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AcquireObjectLock">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objectHashSource" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="installedComponentId" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfMetadata" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AcquireObjectLockResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AcquireObjectLockResult" type="tns:ObjectLockResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObjectLockResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseResponse">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s1:guid" />
+              <s:element minOccurs="1" maxOccurs="1" name="InstalledComponentId" type="s1:guid" />
+              <s:element minOccurs="1" maxOccurs="1" name="ObjectLockId" type="s1:guid" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ReleaseObjectLock">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="objectLockId" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfMetadata" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReleaseObjectLockResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReleaseObjectLockResult" type="tns:ObjectLockResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterComponent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:RegisterComponentRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RegisterComponentRequest">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseRequest">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Component" type="tns:ComponentInfo" />
+              <s:element minOccurs="0" maxOccurs="1" name="Machine" type="tns:MachineInfo" />
+              <s:element minOccurs="0" maxOccurs="1" name="UserDetails" type="tns:UserDetails" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BaseRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MetadataInputs" type="tns:ArrayOfMetadata" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ComponentInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InstallPath" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ComponentType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MachineInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Ip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NetworkName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s1:guid" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UserDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SessionTimeoutMinutes" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegisterComponentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegisterComponentResult" type="tns:RegisterComponentResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RegisterComponentResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseResponse">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="AdministrativeScopeId" type="s1:guid" />
+              <s:element minOccurs="1" maxOccurs="1" name="MachineId" type="s1:guid" />
+              <s:element minOccurs="1" maxOccurs="1" name="ComponentId" type="s1:guid" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="UnregisterComponent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:UnregisterComponentRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UnregisterComponentRequest">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseRequest">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="AdministrativeScopeId" type="s1:guid" />
+              <s:element minOccurs="1" maxOccurs="1" name="ComponentId" type="s1:guid" />
+              <s:element minOccurs="0" maxOccurs="1" name="UserDetails" type="tns:UserDetails" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="UnregisterComponentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UnregisterComponentResult" type="tns:UnregisterComponentResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UnregisterComponentResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseResponse" />
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="BeginJobTransactionSoapIn">
+    <wsdl:part name="parameters" element="tns:BeginJobTransaction" />
+  </wsdl:message>
+  <wsdl:message name="BeginJobTransactionSoapOut">
+    <wsdl:part name="parameters" element="tns:BeginJobTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="DefineJobFilesSoapIn">
+    <wsdl:part name="parameters" element="tns:DefineJobFiles" />
+  </wsdl:message>
+  <wsdl:message name="DefineJobFilesSoapOut">
+    <wsdl:part name="parameters" element="tns:DefineJobFilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="PutJobFilesSoapIn">
+    <wsdl:part name="parameters" element="tns:PutJobFiles" />
+  </wsdl:message>
+  <wsdl:message name="PutJobFilesSoapOut">
+    <wsdl:part name="parameters" element="tns:PutJobFilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CommitJobTransactionSoapIn">
+    <wsdl:part name="parameters" element="tns:CommitJobTransaction" />
+  </wsdl:message>
+  <wsdl:message name="CommitJobTransactionSoapOut">
+    <wsdl:part name="parameters" element="tns:CommitJobTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteCommandSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteCommand" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteCommandSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteCommandResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetJobsIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetJobsId" />
+  </wsdl:message>
+  <wsdl:message name="GetJobsIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetJobsIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetJobsDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetJobsDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetJobsDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetJobsDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetJobFilesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetJobFiles" />
+  </wsdl:message>
+  <wsdl:message name="GetJobFilesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetJobFilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelJobsSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelJobs" />
+  </wsdl:message>
+  <wsdl:message name="CancelJobsSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelJobsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReleaseCompletedJobsSoapIn">
+    <wsdl:part name="parameters" element="tns:ReleaseCompletedJobs" />
+  </wsdl:message>
+  <wsdl:message name="ReleaseCompletedJobsSoapOut">
+    <wsdl:part name="parameters" element="tns:ReleaseCompletedJobsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessRulesSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessRules" />
+  </wsdl:message>
+  <wsdl:message name="ProcessRulesSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessRulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessInitRulesSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessInitRules" />
+  </wsdl:message>
+  <wsdl:message name="ProcessInitRulesSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessInitRulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AcquireObjectLockSoapIn">
+    <wsdl:part name="parameters" element="tns:AcquireObjectLock" />
+  </wsdl:message>
+  <wsdl:message name="AcquireObjectLockSoapOut">
+    <wsdl:part name="parameters" element="tns:AcquireObjectLockResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReleaseObjectLockSoapIn">
+    <wsdl:part name="parameters" element="tns:ReleaseObjectLock" />
+  </wsdl:message>
+  <wsdl:message name="ReleaseObjectLockSoapOut">
+    <wsdl:part name="parameters" element="tns:ReleaseObjectLockResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterComponentSoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterComponent" />
+  </wsdl:message>
+  <wsdl:message name="RegisterComponentSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterComponentResponse" />
+  </wsdl:message>
+  <wsdl:message name="UnregisterComponentSoapIn">
+    <wsdl:part name="parameters" element="tns:UnregisterComponent" />
+  </wsdl:message>
+  <wsdl:message name="UnregisterComponentSoapOut">
+    <wsdl:part name="parameters" element="tns:UnregisterComponentResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DirectorWSASoap">
+    <wsdl:operation name="BeginJobTransaction">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Begins a job transaction (must be called before CommitJobTransaction); will return a valid JobId and whether the Job was accepted.</wsdl:documentation>
+      <wsdl:input message="tns:BeginJobTransactionSoapIn" />
+      <wsdl:output message="tns:BeginJobTransactionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DefineJobFiles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">When not calling SendJobFiles, this allows the client to define the inputs and/or outputs.</wsdl:documentation>
+      <wsdl:input message="tns:DefineJobFilesSoapIn" />
+      <wsdl:output message="tns:DefineJobFilesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PutJobFiles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Puts the job files required on the IIS folder; allows for sending part or all of files in byte array buffers using MTOM.</wsdl:documentation>
+      <wsdl:input message="tns:PutJobFilesSoapIn" />
+      <wsdl:output message="tns:PutJobFilesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitJobTransaction">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Commits the job to be queued for processing (must be called after BeginJobTransaction).</wsdl:documentation>
+      <wsdl:input message="tns:CommitJobTransactionSoapIn" />
+      <wsdl:output message="tns:CommitJobTransactionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteCommand">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Executes internal commands and returns a response.</wsdl:documentation>
+      <wsdl:input message="tns:ExecuteCommandSoapIn" />
+      <wsdl:output message="tns:ExecuteCommandSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobsId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets a list of JobIds based on JobKey, jobstatuses and queryable metadata (all fields can be null, which will return all jobs)</wsdl:documentation>
+      <wsdl:input message="tns:GetJobsIdSoapIn" />
+      <wsdl:output message="tns:GetJobsIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobsDetail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an array of Job Detail information for the given Job ids</wsdl:documentation>
+      <wsdl:input message="tns:GetJobsDetailSoapIn" />
+      <wsdl:output message="tns:GetJobsDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobFiles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets all or part of the job files required from the IIS folder; allows for getting part of files in a byte array buffer (for large files).</wsdl:documentation>
+      <wsdl:input message="tns:GetJobFilesSoapIn" />
+      <wsdl:output message="tns:GetJobFilesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelJobs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Attempts to cancel the jobs in the list.  Returns a list of JobResponse objects with new Job Status and any errors.</wsdl:documentation>
+      <wsdl:input message="tns:CancelJobsSoapIn" />
+      <wsdl:output message="tns:CancelJobsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseCompletedJobs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Releases the list of completed job ids.</wsdl:documentation>
+      <wsdl:input message="tns:ReleaseCompletedJobsSoapIn" />
+      <wsdl:output message="tns:ReleaseCompletedJobsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessRules">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Process a rule set via Rules Engine</wsdl:documentation>
+      <wsdl:input message="tns:ProcessRulesSoapIn" />
+      <wsdl:output message="tns:ProcessRulesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessInitRules">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Process a Init rule set via Rules Engine</wsdl:documentation>
+      <wsdl:input message="tns:ProcessInitRulesSoapIn" />
+      <wsdl:output message="tns:ProcessInitRulesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AcquireObjectLock">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Acquire a lock for a specified object</wsdl:documentation>
+      <wsdl:input message="tns:AcquireObjectLockSoapIn" />
+      <wsdl:output message="tns:AcquireObjectLockSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseObjectLock">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Release a lock for a specified object</wsdl:documentation>
+      <wsdl:input message="tns:ReleaseObjectLockSoapIn" />
+      <wsdl:output message="tns:ReleaseObjectLockSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterComponent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Register new component</wsdl:documentation>
+      <wsdl:input message="tns:RegisterComponentSoapIn" />
+      <wsdl:output message="tns:RegisterComponentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterComponent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Unregister existing component</wsdl:documentation>
+      <wsdl:input message="tns:UnregisterComponentSoapIn" />
+      <wsdl:output message="tns:UnregisterComponentSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="DirectorWSAHttpGet" />
+  <wsdl:portType name="DirectorWSAHttpPost" />
+  <wsdl:binding name="DirectorWSASoap" type="tns:DirectorWSASoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BeginJobTransaction">
+      <soap:operation soapAction="http://adlibsoftware.com/BeginJobTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DefineJobFiles">
+      <soap:operation soapAction="http://adlibsoftware.com/DefineJobFiles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutJobFiles">
+      <soap:operation soapAction="http://adlibsoftware.com/PutJobFiles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitJobTransaction">
+      <soap:operation soapAction="http://adlibsoftware.com/CommitJobTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteCommand">
+      <soap:operation soapAction="http://adlibsoftware.com/ExecuteCommand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobsId">
+      <soap:operation soapAction="http://adlibsoftware.com/GetJobsId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobsDetail">
+      <soap:operation soapAction="http://adlibsoftware.com/GetJobsDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobFiles">
+      <soap:operation soapAction="http://adlibsoftware.com/GetJobFiles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelJobs">
+      <soap:operation soapAction="http://adlibsoftware.com/CancelJobs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseCompletedJobs">
+      <soap:operation soapAction="http://adlibsoftware.com/ReleaseCompletedJobs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessRules">
+      <soap:operation soapAction="http://adlibsoftware.com/ProcessRules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessInitRules">
+      <soap:operation soapAction="http://adlibsoftware.com/ProcessInitRules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcquireObjectLock">
+      <soap:operation soapAction="http://adlibsoftware.com/AcquireObjectLock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseObjectLock">
+      <soap:operation soapAction="http://adlibsoftware.com/ReleaseObjectLock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterComponent">
+      <soap:operation soapAction="http://adlibsoftware.com/RegisterComponent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterComponent">
+      <soap:operation soapAction="http://adlibsoftware.com/UnregisterComponent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DirectorWSASoap12" type="tns:DirectorWSASoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BeginJobTransaction">
+      <soap12:operation soapAction="http://adlibsoftware.com/BeginJobTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DefineJobFiles">
+      <soap12:operation soapAction="http://adlibsoftware.com/DefineJobFiles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutJobFiles">
+      <soap12:operation soapAction="http://adlibsoftware.com/PutJobFiles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitJobTransaction">
+      <soap12:operation soapAction="http://adlibsoftware.com/CommitJobTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteCommand">
+      <soap12:operation soapAction="http://adlibsoftware.com/ExecuteCommand" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobsId">
+      <soap12:operation soapAction="http://adlibsoftware.com/GetJobsId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobsDetail">
+      <soap12:operation soapAction="http://adlibsoftware.com/GetJobsDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobFiles">
+      <soap12:operation soapAction="http://adlibsoftware.com/GetJobFiles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelJobs">
+      <soap12:operation soapAction="http://adlibsoftware.com/CancelJobs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseCompletedJobs">
+      <soap12:operation soapAction="http://adlibsoftware.com/ReleaseCompletedJobs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessRules">
+      <soap12:operation soapAction="http://adlibsoftware.com/ProcessRules" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessInitRules">
+      <soap12:operation soapAction="http://adlibsoftware.com/ProcessInitRules" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcquireObjectLock">
+      <soap12:operation soapAction="http://adlibsoftware.com/AcquireObjectLock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseObjectLock">
+      <soap12:operation soapAction="http://adlibsoftware.com/ReleaseObjectLock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterComponent">
+      <soap12:operation soapAction="http://adlibsoftware.com/RegisterComponent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterComponent">
+      <soap12:operation soapAction="http://adlibsoftware.com/UnregisterComponent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DirectorWSAHttpGet" type="tns:DirectorWSAHttpGet">
+    <http:binding verb="GET" />
+  </wsdl:binding>
+  <wsdl:binding name="DirectorWSAHttpPost" type="tns:DirectorWSAHttpPost">
+    <http:binding verb="POST" />
+  </wsdl:binding>
+  <wsdl:service name="DirectorWSA">
+    <wsdl:port name="DirectorWSASoap" binding="tns:DirectorWSASoap">
+      <soap:address location="http://localhost/Adlib/DirectorWSA/DirectorWSA.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DirectorWSASoap12" binding="tns:DirectorWSASoap12">
+      <soap12:address location="http://localhost/Adlib/DirectorWSA/DirectorWSA.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DirectorWSAHttpGet" binding="tns:DirectorWSAHttpGet">
+      <http:address location="http://localhost/Adlib/DirectorWSA/DirectorWSA.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DirectorWSAHttpPost" binding="tns:DirectorWSAHttpPost">
+      <http:address location="http://localhost/Adlib/DirectorWSA/DirectorWSA.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

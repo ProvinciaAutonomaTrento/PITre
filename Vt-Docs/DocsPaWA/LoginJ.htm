@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+<HTML>
+	<HEAD>
+		<TITLE>DocsPA</TITLE>
+		<META content="Microsoft Visual Studio 7.0" name="GENERATOR">
+		<script language="javascript">
+		    function redirectToLogin() {
+		        var version = getInternetExplorerVersion();
+		        var pageAddress = 'login.aspx?useStaticPath=true';
+		        var newUrl = pageAddress;
+
+		        if (version > -1 && version < 7) {
+		            var newWindow = window.open(newUrl, '_blank', 'location=0');
+		            window.opener = null;
+		            window.close()
+		            return;
+		        }
+
+		        if (version > -1 && version >= 7) {
+		            window.open(null, '_self', null);
+		            window.close();
+		            window.open(newUrl, '_blank', 'location=0');
+		            return;
+		        }
+
+		        //Browser che non è Explorer
+		        document.location.href = 'SitoAccessibile/login.aspx';
+		    }
+
+		    function getInternetExplorerVersion() {
+		        var rv = -1;
+		        if (navigator.appName.lastIndexOf('Explorer') != -1) {
+		            var ua = navigator.userAgent;
+		            var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+		            if (re.exec(ua) != null)
+		                rv = parseFloat(RegExp.$1);
+		        }
+		        return rv;
+		    }     
+			/*			
+			redirectToLogin();
+			function redirectToLogin()
+			{										
+				if(navigator.appName.lastIndexOf('Explorer')!= -1)
+				{
+					var pageAddress='login.aspx?useStaticPath=true';					
+				
+					var newUrl=pageAddress;
+					
+					//var newWindow=window.open(newUrl,'_blank','fullscreen=no,toolbar=no,directories=no,statusbar=no,menubar=no,resizable=yes,scrollbars=auto');
+					//IE7
+					var newWindow=window.open(newUrl,'_blank','location=0');
+										
+					window.opener=null;
+					window.close();
+				}
+				else
+				{
+					document.location.href = 'SitoAccessibile/login.aspx';
+				}										
+			}
+			*/			
+		</script>
+	</HEAD>
+	<body onload="redirectToLogin();">
+    </body>
+</HTML>

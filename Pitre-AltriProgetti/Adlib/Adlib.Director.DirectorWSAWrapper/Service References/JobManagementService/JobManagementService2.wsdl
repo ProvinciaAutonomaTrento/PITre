@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://adlibsoftware.com/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://adlibsoftware.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://adlibsoftware.com/Imports">
+      <xsd:import schemaLocation="http://vmsasha18.adlibsys.com/Adlib/JobManagementService/JobManagementService.svc?xsd=xsd0" namespace="http://adlibsoftware.com/" />
+      <xsd:import schemaLocation="http://vmsasha18.adlibsys.com/Adlib/JobManagementService/JobManagementService.svc?xsd=xsd1" namespace="http://microsoft.com/wsdl/types/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IJobManagementService_BeginJobTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:BeginJobTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_BeginJobTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BeginJobTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_DefineJobFiles_InputMessage">
+    <wsdl:part name="parameters" element="tns:DefineJobFiles" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_DefineJobFiles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DefineJobFilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_PutJobFiles_InputMessage">
+    <wsdl:part name="parameters" element="tns:PutJobFiles" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_PutJobFiles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PutJobFilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_CommitJobTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:CommitJobTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_CommitJobTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CommitJobTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_SubmitReadyJob_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitReadyJob" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_SubmitReadyJob_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitReadyJobResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_GetJobsStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobsStatus" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_GetJobsStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobsStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_GetJobsCompletionInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobsCompletionInfo" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_GetJobsCompletionInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobsCompletionInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_ExecuteCommand_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteCommand" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_ExecuteCommand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteCommandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_GetJobsId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobsId" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_GetJobsId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobsIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_GetJobsDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobsDetail" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_GetJobsDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobsDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_GetJobFiles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobFiles" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_GetJobFiles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobFilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_CancelJobs_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelJobs" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_CancelJobs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelJobsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReleaseCompletedJobsRequest">
+    <wsdl:part name="parameters" element="tns:ReleaseCompletedJobs" />
+  </wsdl:message>
+  <wsdl:message name="ReleaseCompletedJobsResponse">
+    <wsdl:part name="parameters" element="tns:ReleaseCompletedJobsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_ProcessRules_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessRules" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_ProcessRules_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessRulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_ProcessInitRules_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessInitRules" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_ProcessInitRules_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessInitRulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_AcquireObjectLock_InputMessage">
+    <wsdl:part name="parameters" element="tns:AcquireObjectLock" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_AcquireObjectLock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AcquireObjectLockResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_ReleaseObjectLock_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReleaseObjectLock" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_ReleaseObjectLock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReleaseObjectLockResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_RegisterComponent_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterComponent" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_RegisterComponent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterComponentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_UnregisterComponent_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnregisterComponent" />
+  </wsdl:message>
+  <wsdl:message name="IJobManagementService_UnregisterComponent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnregisterComponentResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IJobManagementService">
+    <wsdl:operation name="BeginJobTransaction">
+      <wsdl:input wsaw:Action="http://adlibsoftware.com/IJobManagementService/BeginJobTransaction" message="tns:IJobManagementService_BeginJobTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://adlibsoftware.com/IJobManagementService/BeginJobTransactionResponse" message="tns:IJobManagementService_BeginJobTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DefineJobFiles">
+      <wsdl:input wsaw:Action="http://adlibsoftware.com/IJobManagementService/DefineJobFiles" message="tns:IJobManagementService_DefineJobFiles_InputMessage" />
+      <wsdl:output wsaw:Action="http://adlibsoftware.com/IJobManagementService/DefineJobFilesResponse" message="tns:IJobManagementService_DefineJobFiles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PutJobFiles">
+      <wsdl:input wsaw:Action="http://adlibsoftware.com/IJobManagementService/PutJobFiles" message="tns:IJobManagementService_PutJobFiles_InputMessage" />
+      <wsdl:output wsaw:Action="http://adlibsoftware.com/IJobManagementService/PutJobFilesResponse" message="tns:IJobManagementService_PutJobFiles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitJobTransaction">
+      <wsdl:input wsaw:Action="http://adlibsoftware.com/IJobManagementService/CommitJobTransaction" message="tns:IJobManagementService_CommitJobTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://adlibsoftware.com/IJobManagementService/CommitJobTransactionResponse" message="tns:IJobManagementService_CommitJobTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitReadyJob">
+      <wsdl:input wsaw:Action="http://adlibsoftware.com/IJobManagementService/SubmitReadyJob" message="tns:IJobManagementService_SubmitReadyJob_InputMessage" />
+      <wsdl:output wsaw:Action="http://adlibsoftware.com/IJobManagementService/SubmitReadyJobResponse" message="tns:IJobManagementService_SubmitReadyJob_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobsStatus">
+      <wsdl:input wsaw:Action="http://adlibsoftware.com/IJobManagementService/GetJobsStatus" message="tns:IJobManagementService_GetJobsStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://adlibsoftware.com/IJobManagementService/GetJobsStatusResponse" message="tns:IJobManagementService_GetJobsStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobsCompletionInfo">
+      <wsdl:input wsaw:Action="http://adlibsoftware.com/IJobManagementService/GetJobsCompletionInfo" message="tns:IJobManagementService_GetJobsCompletionInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://adlibsoftware.com/IJobManagementService/GetJobsCompletionInfoResponse" message="tns:IJobManagementService_GetJobsCompletionInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteCommand">
+      <wsdl:input wsaw:Action="http://adlibsoftware.com/IJobManagementService/ExecuteCommand" message="tns:IJobManagementService_ExecuteCommand_InputMessage" />
+      <wsdl:output wsaw:Action="http://adlibsoftware.com/IJobManagementService/ExecuteCommandResponse" message="tns:IJobManagementService_ExecuteCommand_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobsId">
+      <wsdl:input wsaw:Action="http://adlibsoftware.com/IJobManagementService/GetJobsId" message="tns:IJobManagementService_GetJobsId_InputMessage" />
+      <wsdl:output wsaw:Action="http://adlibsoftware.com/IJobManagementService/GetJobsIdResponse" message="tns:IJobManagementService_GetJobsId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobsDetail">
+      <wsdl:input wsaw:Action="http://adlibsoftware.com/IJobManagementService/GetJobsDetail" message="tns:IJobManagementService_GetJobsDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://adlibsoftware.com/IJobManagementService/GetJobsDetailResponse" message="tns:IJobManagementService_GetJobsDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobFiles">
+      <wsdl:input wsaw:Action="http://adlibsoftware.com/IJobManagementService/GetJobFiles" message="tns:IJobManagementService_GetJobFiles_InputMessage" />
+      <wsdl:output wsaw:Action="http://adlibsoftware.com/IJobManagementService/GetJobFilesResponse" message="tns:IJobManagementService_GetJobFiles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelJobs">
+      <wsdl:input wsaw:Action="http://adlibsoftware.com/IJobManagementService/CancelJobs" message="tns:IJobManagementService_CancelJobs_InputMessage" />
+      <wsdl:output wsaw:Action="http://adlibsoftware.com/IJobManagementService/CancelJobsResponse" message="tns:IJobManagementService_CancelJobs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseCompletedJobs">
+      <wsdl:input wsaw:Action="http://adlibsoftware.com/IJobManagementService/ReleaseCompletedJobs" name="ReleaseCompletedJobsRequest" message="tns:ReleaseCompletedJobsRequest" />
+      <wsdl:output wsaw:Action="http://adlibsoftware.com/IJobManagementService/ReleaseCompletedJobsResponse" name="ReleaseCompletedJobsResponse" message="tns:ReleaseCompletedJobsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessRules">
+      <wsdl:input wsaw:Action="http://adlibsoftware.com/IJobManagementService/ProcessRules" message="tns:IJobManagementService_ProcessRules_InputMessage" />
+      <wsdl:output wsaw:Action="http://adlibsoftware.com/IJobManagementService/ProcessRulesResponse" message="tns:IJobManagementService_ProcessRules_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessInitRules">
+      <wsdl:input wsaw:Action="http://adlibsoftware.com/IJobManagementService/ProcessInitRules" message="tns:IJobManagementService_ProcessInitRules_InputMessage" />
+      <wsdl:output wsaw:Action="http://adlibsoftware.com/IJobManagementService/ProcessInitRulesResponse" message="tns:IJobManagementService_ProcessInitRules_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AcquireObjectLock">
+      <wsdl:input wsaw:Action="http://adlibsoftware.com/IJobManagementService/AcquireObjectLock" message="tns:IJobManagementService_AcquireObjectLock_InputMessage" />
+      <wsdl:output wsaw:Action="http://adlibsoftware.com/IJobManagementService/AcquireObjectLockResponse" message="tns:IJobManagementService_AcquireObjectLock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseObjectLock">
+      <wsdl:input wsaw:Action="http://adlibsoftware.com/IJobManagementService/ReleaseObjectLock" message="tns:IJobManagementService_ReleaseObjectLock_InputMessage" />
+      <wsdl:output wsaw:Action="http://adlibsoftware.com/IJobManagementService/ReleaseObjectLockResponse" message="tns:IJobManagementService_ReleaseObjectLock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterComponent">
+      <wsdl:input wsaw:Action="http://adlibsoftware.com/IJobManagementService/RegisterComponent" message="tns:IJobManagementService_RegisterComponent_InputMessage" />
+      <wsdl:output wsaw:Action="http://adlibsoftware.com/IJobManagementService/RegisterComponentResponse" message="tns:IJobManagementService_RegisterComponent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterComponent">
+      <wsdl:input wsaw:Action="http://adlibsoftware.com/IJobManagementService/UnregisterComponent" message="tns:IJobManagementService_UnregisterComponent_InputMessage" />
+      <wsdl:output wsaw:Action="http://adlibsoftware.com/IJobManagementService/UnregisterComponentResponse" message="tns:IJobManagementService_UnregisterComponent_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

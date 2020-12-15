@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocumentFilters" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.GetDocumentFilters" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" />
+  <xs:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd26" namespace="http://nttdata.com/2012/Pi3/Filter" />
+  <xs:complexType name="GetDocumentFiltersRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q1:Request">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetDocumentFiltersRequest" nillable="true" type="tns:GetDocumentFiltersRequest" />
+  <xs:complexType name="GetDocumentFiltersResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q2:Response">
+        <xs:sequence>
+          <xs:element xmlns:q3="http://nttdata.com/2012/Pi3/Filter" minOccurs="0" name="Filters" nillable="true" type="q3:ArrayOfFilter" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetDocumentFiltersResponse" nillable="true" type="tns:GetDocumentFiltersResponse" />
+</xs:schema>

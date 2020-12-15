@@ -1,0 +1,6 @@
+BEGIN
+ execute  docsadm.Utl_Add_Column '3.23','@db_user','DPA_AREA_CONSERVAZIONE','VALIDATION_MASK', 'INTEGER',0,NULL,NULL,NULL
+END
+GO
+
+

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorWhite"
+    android:layout_width="match_parent"
+    android:focusableInTouchMode="true"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/textView_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/activity_filter_title"
+        style="@style/modale_title"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/modale_tabbar_margin_top"
+        android:layout_marginBottom="@dimen/modale_tabbar_margin_top"
+        android:layout_alignParentTop="true" />
+    <ImageView
+        android:id="@+id/imageView_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="24dp"
+        android:paddingLeft="@dimen/modale_tabbar_margin_top"
+        android:src="@drawable/ic_ico_arrow_modali" />
+    <Button
+        android:id="@+id/button_confirm"
+        android:text="@string/activity_filter_confirm"
+        style="@style/blue_button"
+        android:enabled="false"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true" />
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_above="@+id/button_confirm"
+        android:layout_below="@+id/textView_header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="@color/colorWhite">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/linearLayout_choose_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/textView_choose_type"
+                    android:text="@string/activity_filter_choose_type"
+                    android:layout_marginLeft="@dimen/filtra_left_right_padding"
+                    android:layout_marginRight="@dimen/filtra_left_right_padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_40px"
+                    style="@style/details_page_label"
+                    android:layout_marginTop="@dimen/filtra_title_margin_top"
+                    android:paddingBottom="@dimen/filtra_title_margin_bottom" />
+                <RadioGroup
+                    android:id="@+id/radioGroup_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_40px"
+                    android:layout_marginEnd="@dimen/margin_40px">
+                    <RadioButton
+                        android:id="@+id/radioButton_documents"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/activity_filter_type_documents"
+                        style="@style/link_to_page"
+                        android:layout_marginBottom="@dimen/filtra_item_margin_bottom" />
+                    <RadioButton
+                        android:id="@+id/radioButton_dossiers"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/activity_filter_type_dossiers"
+                        style="@style/link_to_page"
+                        android:layout_marginBottom="@dimen/filtra_item_margin_bottom" />
+                    <RadioButton
+                        android:id="@+id/radioButton_all"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/activity_filter_type_all"
+                        style="@style/link_to_page"
+                        android:layout_marginBottom="@dimen/filtra_item_margin_bottom" />
+                </RadioGroup>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearLayout_selection_period_and_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/textView_period"
+                    android:text="@string/activity_filter_period"
+                    android:layout_marginLeft="@dimen/filtra_left_right_padding"
+                    android:layout_marginRight="@dimen/filtra_left_right_padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_40px"
+                    style="@style/details_page_label"
+                    android:layout_marginTop="@dimen/filtra_title_margin_top"
+                    android:paddingBottom="@dimen/filtra_title_margin_bottom" />
+                <Button
+                    android:id="@+id/button_today"
+                    android:text="@string/activity_filter_today"
+                    android:layout_marginLeft="@dimen/filtra_left_right_padding"
+                    android:layout_marginRight="@dimen/filtra_left_right_padding"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_40px"
+                    style="@style/link_to_page"
+                    android:minHeight="@dimen/filtra_button_min_height"
+                    android:paddingBottom="@dimen/filtra_item_margin_bottom" />
+                <Button
+                    android:id="@+id/button_last7days"
+                    android:text="@string/activity_filter_last_7_days"
+                    android:layout_marginLeft="@dimen/filtra_left_right_padding"
+                    android:layout_marginRight="@dimen/filtra_left_right_padding"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_40px"
+                    style="@style/link_to_page"
+                    android:minHeight="@dimen/filtra_button_min_height"
+                    android:paddingBottom="@dimen/filtra_item_margin_bottom" />
+                <Button
+                    android:id="@+id/button_last30days"
+                    android:text="@string/activity_filter_last_30_days"
+                    android:layout_marginLeft="@dimen/filtra_left_right_padding"
+                    android:layout_marginRight="@dimen/filtra_left_right_padding"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_40px"
+                    style="@style/link_to_page"
+                    android:minHeight="@dimen/filtra_button_min_height"
+                    android:paddingBottom="@dimen/filtra_item_margin_bottom" />
+                <InformaticaTrentinaPCL.Droid.CustomDateRange.CustomDateRangeView
+                    android:id="@+id/custom_date_range_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/filtra_left_right_padding"
+                    android:layout_marginRight="@dimen/filtra_left_right_padding"
+                    android:layout_marginTop="@dimen/margin_40px"
+                    app:fromLabel="@string/activity_filter_date_from"
+                    app:endLabel="@string/activity_filter_date_to" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/textView_section_document_title"
+                    android:layout_marginLeft="@dimen/filtra_left_right_padding"
+                    android:layout_marginRight="@dimen/filtra_left_right_padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_40px"
+                    style="@style/details_page_label"
+                    android:text="DOCUMENTO"
+                    android:layout_marginTop="@dimen/filtra_title_margin_top"
+                    android:paddingBottom="@dimen/filtra_title_margin_bottom" />
+                <EditText
+                    android:id="@+id/editText_document_id"
+                    style="@style/details_page_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/filtra_left_right_padding"
+                    android:layout_marginRight="@dimen/filtra_left_right_padding" />
+                <InformaticaTrentinaPCL.Droid.CustomDateRange.CustomDateRangeView
+                    android:id="@+id/custom_range_date_document"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:visibilityTitle="true"
+					customTitleText="Selòeziona Date Documento"
+                    android:layout_marginLeft="@dimen/filtra_left_right_padding"
+                    android:layout_marginRight="@dimen/filtra_left_right_padding"
+                    android:layout_marginTop="@dimen/filtra_margin_date_top"
+                    app:fromLabel="@string/activity_filter_date_from"
+                    app:endLabel="@string/activity_filter_date_to" />
+                <TextView
+                    android:id="@+id/textView_section_protocol_title"
+                    android:layout_marginLeft="@dimen/filtra_left_right_padding"
+                    android:layout_marginRight="@dimen/filtra_left_right_padding"
+                    android:layout_width="match_parent"
+                    android:text="protocollo"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_40px"
+                    style="@style/details_page_label"
+                    android:layout_marginTop="@dimen/filtra_title_margin_top" />
+                <EditText
+                    android:id="@+id/editText_protocol_number"
+                    style="@style/details_page_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/filtra_left_right_padding"
+                    android:layout_marginRight="@dimen/filtra_left_right_padding"
+                    android:layout_marginTop="@dimen/filtra_title_margin_top" />
+                <EditText
+                    android:id="@+id/editText_year_protocol"
+                    style="@style/details_page_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/filtra_left_right_padding"
+                    android:layout_marginRight="@dimen/filtra_left_right_padding" />
+                <InformaticaTrentinaPCL.Droid.CustomDateRange.CustomDateRangeView
+                    android:id="@+id/custom_range_date_protocol"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:visibilityTitle="true"
+                    android:layout_marginLeft="@dimen/filtra_left_right_padding"
+                    android:layout_marginRight="@dimen/filtra_left_right_padding"
+                    android:layout_marginTop="@dimen/filtra_margin_date_top"
+                    app:fromLabel="@string/activity_filter_date_from"
+                    app:endLabel="@string/activity_filter_date_to" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,2 @@
+CREATE OR REPLACE TYPE @db_user.DocUoTable IS OBJECT         (UO varchar(100),         TOT_PROT varchar(20),         ARRIVO varchar(20),         PERC_ARRIVO varchar(20),         PARTENZA varchar(20),         PERC_PARTENZA varchar(20),         INTERNI varchar(20),         PERC_INTERNI varchar(20),         ANNULL varchar(20),         PERC_ANNULL varchar(20),         PROFILI varchar(20),         PERC_PROFILI varchar(20),         CLASSIFICATI varchar(20),         PERC_CLASSIFICATI varchar(20))
+/

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+	File di configurazione contenente tutti i convertitori in pdf disponibili.
+	Ciascun nodo "PdfConverter" identifica il tipo concreto, 
+	che implementa l'interfaccia "DPA.Web.IPdfConverter",
+	utilizzato per effettuare la conversione in pdf
+-->
+<configuration>
+	<PdfConverters current="Acrobat6Converter">
+		<PdfConverter	id="EZTwainConverter"
+						description="Convertitore in PDF EZTwain" 
+						type="DPA.EZTwain.PdfConverter" 
+						assembly="DPA.EZTwain.PdfConverter.dll" />
+
+		<PdfConverter	id="Acrobat7Converter"
+						description="Convertitore in PDF Adobe Acrobat 7" 
+						type="DPA.Acrobat7.PdfConverter" 
+						assembly="Acrobat7/DPA.Acrobat7.PdfConverter.dll" />
+						
+		<PdfConverter	id="Acrobat6Converter"
+						description="Convertitore in PDF Adobe Acrobat 6" 
+						type="DPA.Acrobat6.PdfConverter" 
+						assembly="Acrobat6/DPA.Acrobat6.PdfConverter.dll" />						
+	</PdfConverters>
+</configuration>

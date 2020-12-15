@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://nttdata.com/2013/HSMRsSvc" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://nttdata.com/2013/HSMRsSvc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://nttdata.com/2013/HSMRsSvc">
+      <s:element name="RichiediOTP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="aliasCertificato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dominioCertificato" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RichiediOTPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RichiediOTPResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCertificatoHSM">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="aliasCertificato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dominioCertificato" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCertificatoHSMResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCertificatoHSMResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FirmaFilePADES">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileDafirmare" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="aliasCertificato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dominioCertificato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pinCertificato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="otpFirma" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="marcaTemporale" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FirmaFilePADESResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FirmaFilePADESResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FirmaFilePADES_Firmatario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileDafirmare" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="aliasCertificato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dominioCertificato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pinCertificato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="otpFirma" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="marcaTemporale" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmatario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hsmPadesSignerCoords" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hsmPadesSignerText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FirmaFilePADES_FirmatarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FirmaFilePADES_FirmatarioResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FirmaFileCADES">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileDafirmare" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="aliasCertificato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dominioCertificato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pinCertificato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="otpFirma" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="marcaTemporale" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="cofirma" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FirmaFileCADESResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FirmaFileCADESResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ControFirmaFileCADES">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileDafirmare" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="aliasCertificatoDaControfirmare" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="aliasCertificato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dominioCertificato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pinCertificato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="otpFirma" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="marcaTemporale" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ControFirmaFileCADESResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ControFirmaFileCADESResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Session_OpenMultiSign">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cosign" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="timestamp" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:SignType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="SignType">
+        <s:restriction base="s:string">
+          <s:enumeration value="CADES" />
+          <s:enumeration value="PADES" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="Session_OpenMultiSignResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Session_OpenMultiSignResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Session_CloseMultiSign">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionToken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Session_CloseMultiSignResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Session_CloseMultiSignResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Session_GetSessions">
+        <s:complexType />
+      </s:element>
+      <s:element name="Session_GetSessionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Session_GetSessionsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Session_GetManifest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionToken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Session_GetManifestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Session_GetManifestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Session_RemoteSign">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="aliasCertificato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dominioCertificato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pinCertificato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="otpFirma" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Session_RemoteSignResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Session_RemoteSignResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Session_RemoteSignDummy">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="aliasCertificato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dominioCertificato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pinCertificato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="otpFirma" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Session_RemoteSignDummyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Session_RemoteSignDummyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Session_PutFileToSign">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileDafirmare" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Session_PutFileToSignResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Session_PutFileToSignResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Session_GetSignedFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hashFileDaFirmare" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Session_GetSignedFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Session_GetSignedFileResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConnessioneServizio">
+        <s:complexType />
+      </s:element>
+      <s:element name="ConnessioneServizioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConnessioneServizioResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RichiediOTPSoapIn">
+    <wsdl:part name="parameters" element="tns:RichiediOTP" />
+  </wsdl:message>
+  <wsdl:message name="RichiediOTPSoapOut">
+    <wsdl:part name="parameters" element="tns:RichiediOTPResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificatoHSMSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCertificatoHSM" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificatoHSMSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCertificatoHSMResponse" />
+  </wsdl:message>
+  <wsdl:message name="FirmaFilePADESSoapIn">
+    <wsdl:part name="parameters" element="tns:FirmaFilePADES" />
+  </wsdl:message>
+  <wsdl:message name="FirmaFilePADESSoapOut">
+    <wsdl:part name="parameters" element="tns:FirmaFilePADESResponse" />
+  </wsdl:message>
+  <wsdl:message name="FirmaFilePADES_FirmatarioSoapIn">
+    <wsdl:part name="parameters" element="tns:FirmaFilePADES_Firmatario" />
+  </wsdl:message>
+  <wsdl:message name="FirmaFilePADES_FirmatarioSoapOut">
+    <wsdl:part name="parameters" element="tns:FirmaFilePADES_FirmatarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="FirmaFileCADESSoapIn">
+    <wsdl:part name="parameters" element="tns:FirmaFileCADES" />
+  </wsdl:message>
+  <wsdl:message name="FirmaFileCADESSoapOut">
+    <wsdl:part name="parameters" element="tns:FirmaFileCADESResponse" />
+  </wsdl:message>
+  <wsdl:message name="ControFirmaFileCADESSoapIn">
+    <wsdl:part name="parameters" element="tns:ControFirmaFileCADES" />
+  </wsdl:message>
+  <wsdl:message name="ControFirmaFileCADESSoapOut">
+    <wsdl:part name="parameters" element="tns:ControFirmaFileCADESResponse" />
+  </wsdl:message>
+  <wsdl:message name="Session_OpenMultiSignSoapIn">
+    <wsdl:part name="parameters" element="tns:Session_OpenMultiSign" />
+  </wsdl:message>
+  <wsdl:message name="Session_OpenMultiSignSoapOut">
+    <wsdl:part name="parameters" element="tns:Session_OpenMultiSignResponse" />
+  </wsdl:message>
+  <wsdl:message name="Session_CloseMultiSignSoapIn">
+    <wsdl:part name="parameters" element="tns:Session_CloseMultiSign" />
+  </wsdl:message>
+  <wsdl:message name="Session_CloseMultiSignSoapOut">
+    <wsdl:part name="parameters" element="tns:Session_CloseMultiSignResponse" />
+  </wsdl:message>
+  <wsdl:message name="Session_GetSessionsSoapIn">
+    <wsdl:part name="parameters" element="tns:Session_GetSessions" />
+  </wsdl:message>
+  <wsdl:message name="Session_GetSessionsSoapOut">
+    <wsdl:part name="parameters" element="tns:Session_GetSessionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Session_GetManifestSoapIn">
+    <wsdl:part name="parameters" element="tns:Session_GetManifest" />
+  </wsdl:message>
+  <wsdl:message name="Session_GetManifestSoapOut">
+    <wsdl:part name="parameters" element="tns:Session_GetManifestResponse" />
+  </wsdl:message>
+  <wsdl:message name="Session_RemoteSignSoapIn">
+    <wsdl:part name="parameters" element="tns:Session_RemoteSign" />
+  </wsdl:message>
+  <wsdl:message name="Session_RemoteSignSoapOut">
+    <wsdl:part name="parameters" element="tns:Session_RemoteSignResponse" />
+  </wsdl:message>
+  <wsdl:message name="Session_RemoteSignDummySoapIn">
+    <wsdl:part name="parameters" element="tns:Session_RemoteSignDummy" />
+  </wsdl:message>
+  <wsdl:message name="Session_RemoteSignDummySoapOut">
+    <wsdl:part name="parameters" element="tns:Session_RemoteSignDummyResponse" />
+  </wsdl:message>
+  <wsdl:message name="Session_PutFileToSignSoapIn">
+    <wsdl:part name="parameters" element="tns:Session_PutFileToSign" />
+  </wsdl:message>
+  <wsdl:message name="Session_PutFileToSignSoapOut">
+    <wsdl:part name="parameters" element="tns:Session_PutFileToSignResponse" />
+  </wsdl:message>
+  <wsdl:message name="Session_GetSignedFileSoapIn">
+    <wsdl:part name="parameters" element="tns:Session_GetSignedFile" />
+  </wsdl:message>
+  <wsdl:message name="Session_GetSignedFileSoapOut">
+    <wsdl:part name="parameters" element="tns:Session_GetSignedFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConnessioneServizioSoapIn">
+    <wsdl:part name="parameters" element="tns:ConnessioneServizio" />
+  </wsdl:message>
+  <wsdl:message name="ConnessioneServizioSoapOut">
+    <wsdl:part name="parameters" element="tns:ConnessioneServizioResponse" />
+  </wsdl:message>
+  <wsdl:portType name="HSMServiceSoap">
+    <wsdl:operation name="RichiediOTP">
+      <wsdl:input message="tns:RichiediOTPSoapIn" />
+      <wsdl:output message="tns:RichiediOTPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificatoHSM">
+      <wsdl:input message="tns:GetCertificatoHSMSoapIn" />
+      <wsdl:output message="tns:GetCertificatoHSMSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FirmaFilePADES">
+      <wsdl:input message="tns:FirmaFilePADESSoapIn" />
+      <wsdl:output message="tns:FirmaFilePADESSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FirmaFilePADES_Firmatario">
+      <wsdl:input message="tns:FirmaFilePADES_FirmatarioSoapIn" />
+      <wsdl:output message="tns:FirmaFilePADES_FirmatarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FirmaFileCADES">
+      <wsdl:input message="tns:FirmaFileCADESSoapIn" />
+      <wsdl:output message="tns:FirmaFileCADESSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ControFirmaFileCADES">
+      <wsdl:input message="tns:ControFirmaFileCADESSoapIn" />
+      <wsdl:output message="tns:ControFirmaFileCADESSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Session_OpenMultiSign">
+      <wsdl:input message="tns:Session_OpenMultiSignSoapIn" />
+      <wsdl:output message="tns:Session_OpenMultiSignSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Session_CloseMultiSign">
+      <wsdl:input message="tns:Session_CloseMultiSignSoapIn" />
+      <wsdl:output message="tns:Session_CloseMultiSignSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Session_GetSessions">
+      <wsdl:input message="tns:Session_GetSessionsSoapIn" />
+      <wsdl:output message="tns:Session_GetSessionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Session_GetManifest">
+      <wsdl:input message="tns:Session_GetManifestSoapIn" />
+      <wsdl:output message="tns:Session_GetManifestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Session_RemoteSign">
+      <wsdl:input message="tns:Session_RemoteSignSoapIn" />
+      <wsdl:output message="tns:Session_RemoteSignSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Session_RemoteSignDummy">
+      <wsdl:input message="tns:Session_RemoteSignDummySoapIn" />
+      <wsdl:output message="tns:Session_RemoteSignDummySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Session_PutFileToSign">
+      <wsdl:input message="tns:Session_PutFileToSignSoapIn" />
+      <wsdl:output message="tns:Session_PutFileToSignSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Session_GetSignedFile">
+      <wsdl:input message="tns:Session_GetSignedFileSoapIn" />
+      <wsdl:output message="tns:Session_GetSignedFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConnessioneServizio">
+      <wsdl:input message="tns:ConnessioneServizioSoapIn" />
+      <wsdl:output message="tns:ConnessioneServizioSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="HSMServiceSoap" type="tns:HSMServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RichiediOTP">
+      <soap:operation soapAction="http://nttdata.com/2013/HSMRsSvc/RichiediOTP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificatoHSM">
+      <soap:operation soapAction="http://nttdata.com/2013/HSMRsSvc/GetCertificatoHSM" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FirmaFilePADES">
+      <soap:operation soapAction="http://nttdata.com/2013/HSMRsSvc/FirmaFilePADES" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FirmaFilePADES_Firmatario">
+      <soap:operation soapAction="http://nttdata.com/2013/HSMRsSvc/FirmaFilePADES_Firmatario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FirmaFileCADES">
+      <soap:operation soapAction="http://nttdata.com/2013/HSMRsSvc/FirmaFileCADES" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ControFirmaFileCADES">
+      <soap:operation soapAction="http://nttdata.com/2013/HSMRsSvc/ControFirmaFileCADES" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Session_OpenMultiSign">
+      <soap:operation soapAction="http://nttdata.com/2013/HSMRsSvc/Session_OpenMultiSign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Session_CloseMultiSign">
+      <soap:operation soapAction="http://nttdata.com/2013/HSMRsSvc/Session_CloseMultiSign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Session_GetSessions">
+      <soap:operation soapAction="http://nttdata.com/2013/HSMRsSvc/Session_GetSessions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Session_GetManifest">
+      <soap:operation soapAction="http://nttdata.com/2013/HSMRsSvc/Session_GetManifest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Session_RemoteSign">
+      <soap:operation soapAction="http://nttdata.com/2013/HSMRsSvc/Session_RemoteSign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Session_RemoteSignDummy">
+      <soap:operation soapAction="http://nttdata.com/2013/HSMRsSvc/Session_RemoteSignDummy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Session_PutFileToSign">
+      <soap:operation soapAction="http://nttdata.com/2013/HSMRsSvc/Session_PutFileToSign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Session_GetSignedFile">
+      <soap:operation soapAction="http://nttdata.com/2013/HSMRsSvc/Session_GetSignedFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConnessioneServizio">
+      <soap:operation soapAction="http://nttdata.com/2013/HSMRsSvc/ConnessioneServizio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="HSMServiceSoap12" type="tns:HSMServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RichiediOTP">
+      <soap12:operation soapAction="http://nttdata.com/2013/HSMRsSvc/RichiediOTP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificatoHSM">
+      <soap12:operation soapAction="http://nttdata.com/2013/HSMRsSvc/GetCertificatoHSM" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FirmaFilePADES">
+      <soap12:operation soapAction="http://nttdata.com/2013/HSMRsSvc/FirmaFilePADES" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FirmaFilePADES_Firmatario">
+      <soap12:operation soapAction="http://nttdata.com/2013/HSMRsSvc/FirmaFilePADES_Firmatario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FirmaFileCADES">
+      <soap12:operation soapAction="http://nttdata.com/2013/HSMRsSvc/FirmaFileCADES" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ControFirmaFileCADES">
+      <soap12:operation soapAction="http://nttdata.com/2013/HSMRsSvc/ControFirmaFileCADES" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Session_OpenMultiSign">
+      <soap12:operation soapAction="http://nttdata.com/2013/HSMRsSvc/Session_OpenMultiSign" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Session_CloseMultiSign">
+      <soap12:operation soapAction="http://nttdata.com/2013/HSMRsSvc/Session_CloseMultiSign" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Session_GetSessions">
+      <soap12:operation soapAction="http://nttdata.com/2013/HSMRsSvc/Session_GetSessions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Session_GetManifest">
+      <soap12:operation soapAction="http://nttdata.com/2013/HSMRsSvc/Session_GetManifest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Session_RemoteSign">
+      <soap12:operation soapAction="http://nttdata.com/2013/HSMRsSvc/Session_RemoteSign" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Session_RemoteSignDummy">
+      <soap12:operation soapAction="http://nttdata.com/2013/HSMRsSvc/Session_RemoteSignDummy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Session_PutFileToSign">
+      <soap12:operation soapAction="http://nttdata.com/2013/HSMRsSvc/Session_PutFileToSign" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Session_GetSignedFile">
+      <soap12:operation soapAction="http://nttdata.com/2013/HSMRsSvc/Session_GetSignedFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConnessioneServizio">
+      <soap12:operation soapAction="http://nttdata.com/2013/HSMRsSvc/ConnessioneServizio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HSMService">
+    <wsdl:port name="HSMServiceSoap" binding="tns:HSMServiceSoap">
+      <soap:address location="http://localhost/Connectors/ArubaConnector/HSMService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="HSMServiceSoap12" binding="tns:HSMServiceSoap12">
+      <soap12:address location="http://localhost/Connectors/ArubaConnector/HSMService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

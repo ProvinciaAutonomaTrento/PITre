@@ -1,0 +1,190 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MassiveMasterPage.master.cs" Inherits="DocsPAWA.MassiveOperation.MassiveMasterPage" %>
+<%@ Register TagPrefix="cc3" Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" %>
+<%@ Register Src="../UserControls/AppTitleProvider.ascx" TagName="AppTitleProvider" TagPrefix="uct" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <base target="_self" />
+    <link href="../CSS/docspa_30.css" type="text/css" rel="stylesheet" />
+    <style type="text/css">
+        .modalBackground
+        {
+            background-color: Gray;
+            filter: alpha(opacity=50);
+            opacity: 0.5;
+        }
+        
+        .tabAlert
+        {
+            margin: 0px;
+            padding: 0px;
+            border-collapse: collapse;
+            border-left: 3px solid #666666;
+            border-right: 3px solid #666666;
+            border-bottom: 3px solid #666666;
+            background-color: #ffffff;
+        }
+        .tabAlert td
+        {
+            padding: 2px;
+        }
+        .tabAlert caption
+        {
+            font-size: 14px;
+            text-align: center;
+            background-color: #3399FF;
+            border-left: 3px solid #666666;
+            border-right: 3px solid #666666;
+            border-top: 3px solid #666666;
+            padding: 2px;
+            border-bottom: 1px solid #666666;
+        }
+    </style>
+    <script language="javascript" type="text/javascript">
+
+        function showWait(sender, args) {
+            // Viene visualizzato il popup di wait    
+            this._popup = $find('mdlPopupWait');
+            this._popup.show();
+
+        }
+
+        function closeAlert(sender, args) {
+            this._alert = $find('mpeMessage');
+            this._alert.hide();
+        }
+
+        // Funzione per l'apertura della finestra del report
+        function openReport() {
+            var report = dialogArguments.window.open('../Import/ReportGenerator/ExportReport.aspx', 'report', null, null);
+            report.opener = window;
+            report.focus();
+        }
+
+        function resize() {
+            var maxWidth = "420px";
+            var maxHeight = "400px";
+            window.dialogHeight = maxHeight;
+            window.showModalDialog;
+        }
+    </script>
+    <asp:ContentPlaceHolder ID="Head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager" runat="server" AsyncPostBackTimeout="360000"></asp:ScriptManager>
+    <uct:AppTitleProvider ID="appTitleProvider" runat="server"/>
+    <table width="100%" height="100%">
+        <tr align="center">
+            <td valign="top">
+              <asp:UpdatePanel ID="upForm" runat="server" UpdateMode="Conditional">
+                 <ContentTemplate>
+                    <asp:ContentPlaceHolder ID="Form" runat="server">
+                       <table ID="tblForm" class="info_grigio" cellspacing="5" cellpadding="5" width="100%" align="center" border="0">
+                          <tr>
+                             <td class="titolo_scheda" valign="middle" align="center">
+                               Sei sicuro di voler procedere con l'operazione?
+                             </td>
+                          </tr>
+                          <tr>
+                             <td>&nbsp;</td>
+                          </tr>
+                      </table>
+                    </asp:ContentPlaceHolder>
+                 </ContentTemplate>
+                 <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="btnConferma" EventName="Click" />
+              </Triggers>
+              </asp:UpdatePanel>
+            </td>
+       </tr>
+       <tr align="center">
+          <td>
+             <asp:UpdatePanel ID="upReport" runat="server" UpdateMode="Conditional">
+                    <ContentTemplate>
+                        <asp:Panel ID="pnlReport" runat="server" Height="300px" BorderStyle="Solid" BorderColor="#810d06"
+                            BorderWidth="1px" ScrollBars="Auto" Visible="false">
+                            <asp:DataGrid id="grdReport" SkinID="datagrid" runat="server" Width="100%" BorderWidth="1px" ShowHeader="true" CellPadding="1" BorderColor="Gray" AutoGenerateColumns="False">         
+                                <SelectedItemStyle CssClass="bg_grigioS"></SelectedItemStyle>
+		                            <AlternatingItemStyle CssClass="bg_grigioA"></AlternatingItemStyle>
+		                            <ItemStyle CssClass="bg_grigioN"></ItemStyle>
+                                    <HeaderStyle HorizontalAlign="Center" CssClass="testo_grigio_scuro"></HeaderStyle>
+                                    <Columns>
+                                    <asp:BoundColumn DataField="ObjId">
+                                       <HeaderStyle HorizontalAlign="Center" Width="30%" />
+                                    </asp:BoundColumn>
+                                    <asp:BoundColumn HeaderText="Esito" DataField="Result">
+                                       <HeaderStyle HorizontalAlign="Center" Width="30%" />
+                                    </asp:BoundColumn>
+                                    <asp:BoundColumn HeaderText="Dettagli" DataField="Details">
+                                       <HeaderStyle HorizontalAlign="Center" Width="30%" />
+                                    </asp:BoundColumn>
+                                    </Columns>
+                            </asp:DataGrid>
+                        </asp:Panel>
+                    </ContentTemplate>
+                   <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="btnConferma" EventName="Click" />
+                    </Triggers>
+                </asp:UpdatePanel>
+            </td>
+       </tr>
+       <tr>
+            <td align="center">
+                <asp:UpdatePanel ID="upButtons" runat="server" UpdateMode="Conditional">
+                    <ContentTemplate>
+                        <asp:Button ID="btnConferma" CssClass="pulsante99" runat="server" Text="Conferma"
+                            ToolTip="Conferma" OnClick="btnConfermaMP_Click" OnClientClick="showWait();" />
+                        <asp:Button ID="btnChiudi" CssClass="pulsante69" runat="server" Text="Annulla" ToolTip="Annulla"
+                            OnClientClick="self.close();" />
+                        <asp:Button ID="btnExportReport" runat="server" Text="Esporta report" CssClass="pulsante127" OnClientClick="openReport();"
+                            ToolTip="Esporta report" Enabled="false" />
+                    </ContentTemplate>
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="btnConferma" EventName="Click" />
+                    </Triggers>
+                </asp:UpdatePanel>
+            </td>
+        </tr>
+    </table>
+    <!-- PopUp Wait-->
+    <cc3:ModalPopupExtender ID="mdlPopupWait" BehaviorID="mdlPopupWait" runat="server" TargetControlID="Wait" PopupControlID="Wait"
+        BackgroundCssClass="modalBackground" />
+    <div id="Wait" runat="server" style="display: none; font-weight: bold; font-size: xx-large;
+        font-family: Arial;">
+        Attendere prego ...
+    </div>
+    <!--Popup Messaggi-->
+    <cc3:ModalPopupExtender ID="mpeMessage" BehaviorID="mpeMessage" runat="server" TargetControlID="Message"
+        PopupControlID="Message" BackgroundCssClass="modalBackground" PopupDragHandleControlID="Message"
+        CancelControlID="btnCloseAlert" OnCancelScript="closeAlert();" />
+    <div id="Message" runat="server" style="width: 450px; height: 350px;">
+        <table class="tabAlert" width="100%">
+            <caption>
+                Attenzione!
+            </caption>
+            <tr>
+                <td align="justify">
+                    <asp:UpdatePanel ID="upMessage" runat="server" UpdateMode="Conditional">
+                        <ContentTemplate>
+                            <asp:Literal ID="ltlMessage" runat="server"></asp:Literal>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </td>
+            </tr>
+            <tr>
+                <td style="height: 3px;">
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <asp:Button ID="btnCloseAlert" runat="server" Text="Chiudi" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

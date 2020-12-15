@@ -1,0 +1,25 @@
+1) script 01_3.28 ci sono due update da verificare non ne so il senso e soprattutto vanno controllati i dati sul db di CDC
+
+
+begin
+  execute immediate
+          'UPDATE  DPA_OGGETTI_CUSTOM_fasc D SET RICERCA_CORR=''INTERNI/ESTERNI''  WHERE NVL(RICERCA_CORR,''0'') =''0'' AND ID_TIPO_OGGETTO=7';
+end;
+/
+
+-- occorre verificare che il system_id del campo Corrispondente della dpa_oggetti_custom sia 1
+
+
+begin
+  execute immediate
+          'UPDATE  DPA_OGGETTI_CUSTOM D SET RICERCA_CORR=''INTERNI/ESTERNI''  WHERE NVL(RICERCA_CORR,''0'') =''0'' AND ID_TIPO_OGGETTO=1';
+end;
+/
+
+
+
+2) script 03_3.30 attenzione c'è il nome dello schema parametrizzato @db_user@  , attenzione agli indici e ai tablespace
+
+
+3) script 04.4.00 script per ma modifica dellee store procedure relative allo smistamento , per la gestione del centro notifiche ---
+forse conviene lasciare le SP che ci sono !!!

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetRDettaglio" targetNamespace="http://tempuri.org/DataSetRDettaglio.xsd" xmlns:mstns="http://tempuri.org/DataSetRDettaglio.xsd" xmlns="http://tempuri.org/DataSetRDettaglio.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetRDettaglio" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetRDettaglio" msprop:Generator_UserDSName="DataSetRDettaglio">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dt_dettaglio_cons" msprop:Generator_UserTableName="dt_dettaglio_cons" msprop:Generator_RowEvArgName="dt_dettaglio_consRowChangeEvent" msprop:Generator_TableVarName="tabledt_dettaglio_cons" msprop:Generator_TablePropName="dt_dettaglio_cons" msprop:Generator_RowDeletingName="dt_dettaglio_consRowDeleting" msprop:Generator_RowChangingName="dt_dettaglio_consRowChanging" msprop:Generator_RowDeletedName="dt_dettaglio_consRowDeleted" msprop:Generator_TableClassName="dt_dettaglio_consDataTable" msprop:Generator_RowChangedName="dt_dettaglio_consRowChanged" msprop:Generator_RowEvHandlerName="dt_dettaglio_consRowChangeEventHandler" msprop:Generator_RowClassName="dt_dettaglio_consRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="docNumber" msprop:Generator_ColumnVarNameInTable="columndocNumber" msprop:Generator_ColumnPropNameInRow="docNumber" msprop:Generator_ColumnPropNameInTable="docNumberColumn" msprop:Generator_UserColumnName="docNumber" type="xs:string" minOccurs="0" />
+              <xs:element name="idProfile" msprop:Generator_ColumnVarNameInTable="columnidProfile" msprop:Generator_ColumnPropNameInRow="idProfile" msprop:Generator_ColumnPropNameInTable="idProfileColumn" msprop:Generator_UserColumnName="idProfile" type="xs:string" minOccurs="0" />
+              <xs:element name="tipo_doc" msprop:Generator_ColumnVarNameInTable="columntipo_doc" msprop:Generator_ColumnPropNameInRow="tipo_doc" msprop:Generator_ColumnPropNameInTable="tipo_docColumn" msprop:Generator_UserColumnName="tipo_doc" type="xs:string" minOccurs="0" />
+              <xs:element name="oggetto" msprop:Generator_ColumnVarNameInTable="columnoggetto" msprop:Generator_ColumnPropNameInRow="oggetto" msprop:Generator_ColumnPropNameInTable="oggettoColumn" msprop:Generator_UserColumnName="oggetto" type="xs:string" minOccurs="0" />
+              <xs:element name="codice_fasc" msprop:Generator_ColumnVarNameInTable="columncodice_fasc" msprop:Generator_ColumnPropNameInRow="codice_fasc" msprop:Generator_ColumnPropNameInTable="codice_fascColumn" msprop:Generator_UserColumnName="codice_fasc" type="xs:string" minOccurs="0" />
+              <xs:element name="data_ins" msprop:Generator_ColumnVarNameInTable="columndata_ins" msprop:Generator_ColumnPropNameInRow="data_ins" msprop:Generator_ColumnPropNameInTable="data_insColumn" msprop:Generator_UserColumnName="data_ins" type="xs:string" minOccurs="0" />
+              <xs:element name="data_prot_or_crea" msprop:Generator_ColumnVarNameInTable="columndata_prot_or_crea" msprop:Generator_ColumnPropNameInRow="data_prot_or_crea" msprop:Generator_ColumnPropNameInTable="data_prot_or_creaColumn" msprop:Generator_UserColumnName="data_prot_or_crea" type="xs:string" minOccurs="0" />
+              <xs:element name="size" msprop:Generator_ColumnVarNameInTable="columnsize" msprop:Generator_ColumnPropNameInRow="size" msprop:Generator_ColumnPropNameInTable="sizeColumn" msprop:Generator_UserColumnName="size" type="xs:string" minOccurs="0" />
+              <xs:element name="num_prot" msprop:Generator_ColumnVarNameInTable="columnnum_prot" msprop:Generator_ColumnPropNameInRow="num_prot" msprop:Generator_ColumnPropNameInTable="num_protColumn" msprop:Generator_UserColumnName="num_prot" type="xs:string" minOccurs="0" />
+              <xs:element name="tipoFile" msprop:Generator_ColumnVarNameInTable="columntipoFile" msprop:Generator_ColumnPropNameInRow="tipoFile" msprop:Generator_ColumnPropNameInTable="tipoFileColumn" msprop:Generator_UserColumnName="tipoFile" type="xs:string" minOccurs="0" />
+              <xs:element name="numAllegati" msprop:Generator_ColumnVarNameInTable="columnnumAllegati" msprop:Generator_ColumnPropNameInRow="numAllegati" msprop:Generator_ColumnPropNameInTable="numAllegatiColumn" msprop:Generator_UserColumnName="numAllegati" type="xs:string" minOccurs="0" />
+              <xs:element name="invalidFileFormat" msprop:Generator_ColumnVarNameInTable="columninvalidFileFormat" msprop:Generator_ColumnPropNameInRow="invalidFileFormat" msprop:Generator_ColumnPropNameInTable="invalidFileFormatColumn" msprop:Generator_UserColumnName="invalidFileFormat" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="esitoValidazioneFirma" msprop:Generator_ColumnVarNameInTable="columnesitoValidazioneFirma" msprop:Generator_ColumnPropNameInRow="esitoValidazioneFirma" msprop:Generator_ColumnPropNameInTable="esitoValidazioneFirmaColumn" msprop:Generator_UserColumnName="esitoValidazioneFirma" type="xs:string" minOccurs="0" />
+              <xs:element name="policyValida" msprop:Generator_ColumnVarNameInTable="columnpolicyValida" msprop:Generator_ColumnPropNameInRow="policyValida" msprop:Generator_ColumnPropNameInTable="policyValidaColumn" msprop:Generator_UserColumnName="policyValida" type="xs:string" minOccurs="0" />
+              <xs:element name="totalSize" msprop:Generator_ColumnVarNameInTable="columntotalSize" msprop:Generator_ColumnPropNameInRow="totalSize" msprop:Generator_ColumnPropNameInTable="totalSizeColumn" msprop:Generator_UserColumnName="totalSize" type="xs:string" minOccurs="0" />
+              <xs:element name="checkMaskPolicy" msprop:Generator_ColumnVarNameInTable="columncheckMaskPolicy" msprop:Generator_ColumnPropNameInRow="checkMaskPolicy" msprop:Generator_ColumnPropNameInTable="checkMaskPolicyColumn" msprop:Generator_UserColumnName="checkMaskPolicy" type="xs:string" minOccurs="0" />
+              <xs:element name="idProject" msprop:Generator_ColumnVarNameInTable="columnidProject" msprop:Generator_ColumnPropNameInRow="idProject" msprop:Generator_ColumnPropNameInTable="idProjectColumn" msprop:Generator_UserColumnName="idProject" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

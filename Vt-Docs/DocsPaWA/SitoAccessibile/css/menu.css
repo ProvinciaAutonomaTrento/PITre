@@ -1,0 +1,95 @@
+/* DocsPA Accessibile - css del menu principale */
+
+#navbar {
+	margin: 0;
+	padding: 0;
+	color: #ECFCEF;
+	background: #810D06;
+	position: relative;
+	border-bottom: 1px solid #9E9E9E;
+}
+
+#navbar ul {  
+	color: #000000;
+	background-color: inherit;
+}
+
+#menu {
+	padding: 0;
+	color: #ECFCEF;
+	background: #810D06;
+	list-style-type: none;
+	margin: 0% 0% 0% 16%;
+}
+
+#menu li { display: inline; }
+
+.submenu {
+	color: #064481;
+	background-color: #F7F3F7;
+	
+	list-style-type: none;
+	position: absolute;
+	top: 2.5em;
+	padding-left: 0;
+	
+}
+
+* html .submenu { top: 2.7em; margin-left: 0;} 
+
+.docs { left: 19%; }
+.search { left: 18%;}
+.gestione {}
+.opzioni {}
+
+* html .search { left: 2.3%; }
+* html .docs { left: -1%; }
+
+.submenu li+li {
+	border-left: 1px solid #9E9E9E;
+}
+
+#navbar ul#menu li input,
+#navbar ul#menu li input:hover {
+	color: #ECFCEF;
+	border: 1px solid #9E9E9E;
+	background: #064481;
+	margin: -1px;
+	font: bold 1.2em Verdana,Arial,sans-serif;
+	padding: 0.1em .80em;
+	width: auto;
+	overflow: visible;
+	cursor: pointer;
+}
+
+* html #navbar ul#menu li input { border-top-width: 2px; }
+
+#navbar ul#menu li input:hover {
+	color: #000000;
+	background-color: #F7F3F7;
+	border-bottom-color: #F7F3F7;
+}
+
+* html #navbar ul#menu li input:hover { border: none; }
+
+#navbar ul#menu li.selected input {
+	color: #000000;
+	background-color: #F7F3F7;
+	border-bottom-color: #F7F3F7;
+}
+
+#navbar ul#menu li ul.submenu input {
+	border: none;
+	color: #064481;
+	background: #F7F3F7;
+	font: bold 1.2em Verdana,Arial,sans-serif;
+	padding: 0em .30em;
+	width: auto;
+	overflow: visible;
+}
+
+#navbar ul#menu li ul.submenu li.selected input {
+	color: #810D06;
+	background: #F7F3F7;
+	text-decoration: underline;
+}

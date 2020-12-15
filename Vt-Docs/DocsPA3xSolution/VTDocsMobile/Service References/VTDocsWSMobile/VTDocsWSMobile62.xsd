@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DocsPaVO.documento" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DocsPaVO.documento" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="TSInfo">
+    <xs:sequence>
+      <xs:element name="TSANameIssuer" nillable="true" type="xs:string" />
+      <xs:element name="TSANameSubject" nillable="true" type="xs:string" />
+      <xs:element name="TSType" type="tns:TsType" />
+      <xs:element name="TSdateTime" type="xs:dateTime" />
+      <xs:element name="TSimprint" nillable="true" type="xs:string" />
+      <xs:element name="TSserialNumber" nillable="true" type="xs:string" />
+      <xs:element name="dataFineValiditaCert" type="xs:dateTime" />
+      <xs:element name="dataInizioValiditaCert" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TSInfo" nillable="true" type="tns:TSInfo" />
+  <xs:simpleType name="TsType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="UNKNOWN" />
+      <xs:enumeration value="TSR" />
+      <xs:enumeration value="TSD" />
+      <xs:enumeration value="M7M" />
+      <xs:enumeration value="PADES" />
+      <xs:enumeration value="PKCS" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TsType" nillable="true" type="tns:TsType" />
+</xs:schema>

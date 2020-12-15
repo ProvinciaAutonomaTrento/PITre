@@ -1,0 +1,13 @@
+--------------------------------------------------------
+--  DDL for Table DPA_DISSERVIZI
+--------------------------------------------------------
+
+  CREATE TABLE "ITCOLL_6GIU12"."DPA_DISSERVIZI" 
+   (	"SYSTEM_ID" NUMBER, 
+	"STATO" VARCHAR2(32 BYTE), 
+	"TESTO_NOTIFICA" VARCHAR2(1024 BYTE), 
+	"TESTO_EMAIL_NOTIFICA" VARCHAR2(1024 BYTE), 
+	"TESTO_PAG_CORTESIA" VARCHAR2(1024 BYTE), 
+	"TESTO_EMAIL_RIPRESA" VARCHAR2(4 BYTE), 
+	"NOTIFICATO" NUMBER(10,0)
+   ) ;

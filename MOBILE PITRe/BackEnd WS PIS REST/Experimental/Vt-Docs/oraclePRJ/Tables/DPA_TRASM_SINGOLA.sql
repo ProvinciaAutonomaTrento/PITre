@@ -1,0 +1,17 @@
+--------------------------------------------------------
+--  DDL for Table DPA_TRASM_SINGOLA
+--------------------------------------------------------
+
+  CREATE TABLE "ITCOLL_6GIU12"."DPA_TRASM_SINGOLA" 
+   (	"SYSTEM_ID" NUMBER(10,0), 
+	"ID_RAGIONE" NUMBER(10,0), 
+	"ID_TRASMISSIONE" NUMBER(10,0), 
+	"CHA_TIPO_DEST" VARCHAR2(1 BYTE), 
+	"ID_CORR_GLOBALE" NUMBER(10,0), 
+	"VAR_NOTE_SING" VARCHAR2(250 BYTE), 
+	"CHA_TIPO_TRASM" VARCHAR2(1 BYTE), 
+	"DTA_SCADENZA" DATE, 
+	"ID_TRASM_UTENTE" NUMBER(10,0), 
+	"CHA_SET_EREDITA" CHAR(1 BYTE) DEFAULT 1, 
+	"HIDE_DOC_VERSIONS" CHAR(1 BYTE)
+   ) ;

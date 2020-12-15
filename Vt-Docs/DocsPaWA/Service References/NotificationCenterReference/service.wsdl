@@ -1,0 +1,414 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="NotificationServiceOperations" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_INotificationServiceOperations_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/NotificationsCenter.Domain" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="INotificationServiceOperations_InsertChannel_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertChannel" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_InsertChannel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertChannelResponse" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_LoadChannels_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadChannels" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_LoadChannels_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadChannelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_LoadChannelByLabel_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadChannelByLabel" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_LoadChannelByLabel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadChannelByLabelResponse" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_AssociateChannelToInstance_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssociateChannelToInstance" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_AssociateChannelToInstance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AssociateChannelToInstanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_LoadChannelsRelatedToInstance_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadChannelsRelatedToInstance" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_LoadChannelsRelatedToInstance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadChannelsRelatedToInstanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_LoadChannelRelatedToItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadChannelRelatedToItem" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_LoadChannelRelatedToItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadChannelRelatedToItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_InsertUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUser" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_InsertUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_SetItemViewed_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetItemViewed" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_SetItemViewed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetItemViewedResponse" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_InsertItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertItem" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_InsertItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_AssociateItemToChannel_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssociateItemToChannel" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_AssociateItemToChannel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AssociateItemToChannelResponse" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_LoadItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadItem" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_LoadItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_InsertInstance_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertInstance" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_InsertInstance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertInstanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_LoadInstances_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadInstances" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_LoadInstances_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadInstancesResponse" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_LoadInstanceByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadInstanceByName" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_LoadInstanceByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadInstanceByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_SearchItemByChannelId_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchItemByChannelId" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_SearchItemByChannelId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchItemByChannelIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_SearchItemByDateRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchItemByDateRange" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_SearchItemByDateRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchItemByDateRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_SearchItemByMessageIdRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchItemByMessageIdRange" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_SearchItemByMessageIdRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchItemByMessageIdRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_SearchItemsNotViewedByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchItemsNotViewedByUser" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_SearchItemsNotViewedByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchItemsNotViewedByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_CountNotViewedItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:CountNotViewedItems" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_CountNotViewedItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CountNotViewedItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_SearchItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchItem" />
+  </wsdl:message>
+  <wsdl:message name="INotificationServiceOperations_SearchItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchItemResponse" />
+  </wsdl:message>
+  <wsdl:portType name="INotificationServiceOperations">
+    <wsdl:operation name="InsertChannel">
+      <wsdl:input wsaw:Action="http://tempuri.org/INotificationServiceOperations/InsertChannel" message="tns:INotificationServiceOperations_InsertChannel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INotificationServiceOperations/InsertChannelResponse" message="tns:INotificationServiceOperations_InsertChannel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadChannels">
+      <wsdl:input wsaw:Action="http://tempuri.org/INotificationServiceOperations/LoadChannels" message="tns:INotificationServiceOperations_LoadChannels_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INotificationServiceOperations/LoadChannelsResponse" message="tns:INotificationServiceOperations_LoadChannels_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadChannelByLabel">
+      <wsdl:input wsaw:Action="http://tempuri.org/INotificationServiceOperations/LoadChannelByLabel" message="tns:INotificationServiceOperations_LoadChannelByLabel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INotificationServiceOperations/LoadChannelByLabelResponse" message="tns:INotificationServiceOperations_LoadChannelByLabel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssociateChannelToInstance">
+      <wsdl:input wsaw:Action="http://tempuri.org/INotificationServiceOperations/AssociateChannelToInstance" message="tns:INotificationServiceOperations_AssociateChannelToInstance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INotificationServiceOperations/AssociateChannelToInstanceResponse" message="tns:INotificationServiceOperations_AssociateChannelToInstance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadChannelsRelatedToInstance">
+      <wsdl:input wsaw:Action="http://tempuri.org/INotificationServiceOperations/LoadChannelsRelatedToInstance" message="tns:INotificationServiceOperations_LoadChannelsRelatedToInstance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INotificationServiceOperations/LoadChannelsRelatedToInstanceResponse" message="tns:INotificationServiceOperations_LoadChannelsRelatedToInstance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadChannelRelatedToItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/INotificationServiceOperations/LoadChannelRelatedToItem" message="tns:INotificationServiceOperations_LoadChannelRelatedToItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INotificationServiceOperations/LoadChannelRelatedToItemResponse" message="tns:INotificationServiceOperations_LoadChannelRelatedToItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/INotificationServiceOperations/InsertUser" message="tns:INotificationServiceOperations_InsertUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INotificationServiceOperations/InsertUserResponse" message="tns:INotificationServiceOperations_InsertUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetItemViewed">
+      <wsdl:input wsaw:Action="http://tempuri.org/INotificationServiceOperations/SetItemViewed" message="tns:INotificationServiceOperations_SetItemViewed_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INotificationServiceOperations/SetItemViewedResponse" message="tns:INotificationServiceOperations_SetItemViewed_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/INotificationServiceOperations/InsertItem" message="tns:INotificationServiceOperations_InsertItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INotificationServiceOperations/InsertItemResponse" message="tns:INotificationServiceOperations_InsertItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssociateItemToChannel">
+      <wsdl:input wsaw:Action="http://tempuri.org/INotificationServiceOperations/AssociateItemToChannel" message="tns:INotificationServiceOperations_AssociateItemToChannel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INotificationServiceOperations/AssociateItemToChannelResponse" message="tns:INotificationServiceOperations_AssociateItemToChannel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/INotificationServiceOperations/LoadItem" message="tns:INotificationServiceOperations_LoadItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INotificationServiceOperations/LoadItemResponse" message="tns:INotificationServiceOperations_LoadItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertInstance">
+      <wsdl:input wsaw:Action="http://tempuri.org/INotificationServiceOperations/InsertInstance" message="tns:INotificationServiceOperations_InsertInstance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INotificationServiceOperations/InsertInstanceResponse" message="tns:INotificationServiceOperations_InsertInstance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadInstances">
+      <wsdl:input wsaw:Action="http://tempuri.org/INotificationServiceOperations/LoadInstances" message="tns:INotificationServiceOperations_LoadInstances_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INotificationServiceOperations/LoadInstancesResponse" message="tns:INotificationServiceOperations_LoadInstances_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadInstanceByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/INotificationServiceOperations/LoadInstanceByName" message="tns:INotificationServiceOperations_LoadInstanceByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INotificationServiceOperations/LoadInstanceByNameResponse" message="tns:INotificationServiceOperations_LoadInstanceByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchItemByChannelId">
+      <wsdl:input wsaw:Action="http://tempuri.org/INotificationServiceOperations/SearchItemByChannelId" message="tns:INotificationServiceOperations_SearchItemByChannelId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INotificationServiceOperations/SearchItemByChannelIdResponse" message="tns:INotificationServiceOperations_SearchItemByChannelId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchItemByDateRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/INotificationServiceOperations/SearchItemByDateRange" message="tns:INotificationServiceOperations_SearchItemByDateRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INotificationServiceOperations/SearchItemByDateRangeResponse" message="tns:INotificationServiceOperations_SearchItemByDateRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchItemByMessageIdRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/INotificationServiceOperations/SearchItemByMessageIdRange" message="tns:INotificationServiceOperations_SearchItemByMessageIdRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INotificationServiceOperations/SearchItemByMessageIdRangeResponse" message="tns:INotificationServiceOperations_SearchItemByMessageIdRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchItemsNotViewedByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/INotificationServiceOperations/SearchItemsNotViewedByUser" message="tns:INotificationServiceOperations_SearchItemsNotViewedByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INotificationServiceOperations/SearchItemsNotViewedByUserResponse" message="tns:INotificationServiceOperations_SearchItemsNotViewedByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CountNotViewedItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/INotificationServiceOperations/CountNotViewedItems" message="tns:INotificationServiceOperations_CountNotViewedItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INotificationServiceOperations/CountNotViewedItemsResponse" message="tns:INotificationServiceOperations_CountNotViewedItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/INotificationServiceOperations/SearchItem" message="tns:INotificationServiceOperations_SearchItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INotificationServiceOperations/SearchItemResponse" message="tns:INotificationServiceOperations_SearchItem_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_INotificationServiceOperations" type="tns:INotificationServiceOperations">
+    <wsp:PolicyReference URI="#WSHttpBinding_INotificationServiceOperations_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertChannel">
+      <soap12:operation soapAction="http://tempuri.org/INotificationServiceOperations/InsertChannel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadChannels">
+      <soap12:operation soapAction="http://tempuri.org/INotificationServiceOperations/LoadChannels" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadChannelByLabel">
+      <soap12:operation soapAction="http://tempuri.org/INotificationServiceOperations/LoadChannelByLabel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssociateChannelToInstance">
+      <soap12:operation soapAction="http://tempuri.org/INotificationServiceOperations/AssociateChannelToInstance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadChannelsRelatedToInstance">
+      <soap12:operation soapAction="http://tempuri.org/INotificationServiceOperations/LoadChannelsRelatedToInstance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadChannelRelatedToItem">
+      <soap12:operation soapAction="http://tempuri.org/INotificationServiceOperations/LoadChannelRelatedToItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUser">
+      <soap12:operation soapAction="http://tempuri.org/INotificationServiceOperations/InsertUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetItemViewed">
+      <soap12:operation soapAction="http://tempuri.org/INotificationServiceOperations/SetItemViewed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertItem">
+      <soap12:operation soapAction="http://tempuri.org/INotificationServiceOperations/InsertItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssociateItemToChannel">
+      <soap12:operation soapAction="http://tempuri.org/INotificationServiceOperations/AssociateItemToChannel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadItem">
+      <soap12:operation soapAction="http://tempuri.org/INotificationServiceOperations/LoadItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertInstance">
+      <soap12:operation soapAction="http://tempuri.org/INotificationServiceOperations/InsertInstance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadInstances">
+      <soap12:operation soapAction="http://tempuri.org/INotificationServiceOperations/LoadInstances" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadInstanceByName">
+      <soap12:operation soapAction="http://tempuri.org/INotificationServiceOperations/LoadInstanceByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchItemByChannelId">
+      <soap12:operation soapAction="http://tempuri.org/INotificationServiceOperations/SearchItemByChannelId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchItemByDateRange">
+      <soap12:operation soapAction="http://tempuri.org/INotificationServiceOperations/SearchItemByDateRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchItemByMessageIdRange">
+      <soap12:operation soapAction="http://tempuri.org/INotificationServiceOperations/SearchItemByMessageIdRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchItemsNotViewedByUser">
+      <soap12:operation soapAction="http://tempuri.org/INotificationServiceOperations/SearchItemsNotViewedByUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountNotViewedItems">
+      <soap12:operation soapAction="http://tempuri.org/INotificationServiceOperations/CountNotViewedItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchItem">
+      <soap12:operation soapAction="http://tempuri.org/INotificationServiceOperations/SearchItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NotificationServiceOperations">
+    <wsdl:port name="WSHttpBinding_INotificationServiceOperations" binding="tns:WSHttpBinding_INotificationServiceOperations">
+      <soap12:address location="http://itww9n/PAT_CN/NotificationServiceOperations.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://itww9n/PAT_CN/NotificationServiceOperations.svc</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

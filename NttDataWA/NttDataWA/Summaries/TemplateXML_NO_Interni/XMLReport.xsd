@@ -1,0 +1,158 @@
+<?xml version="1.0" ?>
+<xs:schema id="report" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+	attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:element name="report">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="pagina">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="dta_stampa" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute name="align" form="unqualified" type="xs:string" />
+                      <xs:attribute name="target" form="unqualified" type="xs:string" />
+                      <xs:attribute name="font" form="unqualified" type="xs:string" />
+                      <xs:attribute name="size" form="unqualified" type="xs:string" />
+                      <xs:attribute name="style" form="unqualified" type="xs:string" />
+                      <xs:attribute name="color" form="unqualified" type="xs:string" />
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="num_pagine" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute name="align" form="unqualified" type="xs:string" />
+                      <xs:attribute name="target" form="unqualified" type="xs:string" />
+                      <xs:attribute name="font" form="unqualified" type="xs:string" />
+                      <xs:attribute name="size" form="unqualified" type="xs:string" />
+                      <xs:attribute name="style" form="unqualified" type="xs:string" />
+                      <xs:attribute name="color" form="unqualified" type="xs:string" />
+                      <xs:attribute name="total" form="unqualified" type="xs:string" />
+                      <xs:attribute name="separator" form="unqualified" type="xs:string" />
+                      <xs:attribute name="widthTot" type="xs:string" />
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="formato" form="unqualified" type="xs:string" />
+            <xs:attribute name="orientamento" form="unqualified" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="header" nillable="false" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:string">
+                <xs:attribute name="align" form="unqualified" type="xs:string" />
+                <xs:attribute name="font" form="unqualified" type="xs:string" />
+                <xs:attribute name="size" form="unqualified" type="xs:string" />
+                <xs:attribute name="style" form="unqualified" type="xs:string" />
+                <xs:attribute name="color" form="unqualified" type="xs:string" />
+                <xs:attribute name="bgcolor" form="unqualified" type="xs:string" />
+                <xs:attribute name="border" form="unqualified" type="xs:string" />
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="logo" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:attribute name="align" form="unqualified" type="xs:string" />
+            <xs:attribute name="file" form="unqualified" type="xs:string" />
+            <xs:attribute name="bgcolor" form="unqualified" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dati" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:choice>
+              <xs:element name="paragrafo" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute name="align" form="unqualified" type="xs:string" />
+                      <xs:attribute name="font" form="unqualified" type="xs:string" />
+                      <xs:attribute name="size" form="unqualified" type="xs:string" />
+                      <xs:attribute name="style" form="unqualified" type="xs:string" />
+                      <xs:attribute name="color" form="unqualified" type="xs:string" />
+                      <xs:attribute name="bgcolor" form="unqualified" type="xs:string" />
+                      <xs:attribute name="target" form="unqualified" type="xs:string" />
+                      <xs:attribute name="indentationLeft" form="unqualified" type="xs:string" />
+                      <xs:attribute name="indentationRight" form="unqualified" type="xs:string" />
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="tabella" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="header_tabella" minOccurs="0" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:attribute name="align" form="unqualified" type="xs:string" />
+                        <xs:attribute name="valign" form="unqualified" type="xs:string" />
+                        <xs:attribute name="font" form="unqualified" type="xs:string" />
+                        <xs:attribute name="size" form="unqualified" type="xs:string" />
+                        <xs:attribute name="style" form="unqualified" type="xs:string" />
+                        <xs:attribute name="color" form="unqualified" type="xs:string" />
+                        <xs:attribute name="bgcolor" form="unqualified" type="xs:string" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="dati_tabella" minOccurs="0" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:attribute name="align" form="unqualified" type="xs:string" />
+                        <xs:attribute name="valign" form="unqualified" type="xs:string" />
+                        <xs:attribute name="font" form="unqualified" type="xs:string" />
+                        <xs:attribute name="size" form="unqualified" type="xs:string" />
+                        <xs:attribute name="style" form="unqualified" type="xs:string" />
+                        <xs:attribute name="color" form="unqualified" type="xs:string" />
+                        <xs:attribute name="bgcolor" form="unqualified" type="xs:string" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="colonne" minOccurs="0" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="colonna" minOccurs="1" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:attribute name="name" form="unqualified" type="xs:string" />
+                              <xs:attribute name="alias" form="unqualified" type="xs:string" />
+                              <xs:attribute name="visible" form="unqualified" type="xs:string" />
+                              <xs:attribute name="width" form="unqualified" type="xs:string" />
+                              <xs:attribute name="align" form="unqualified" type="xs:string" />
+                              <xs:attribute name="valign" form="unqualified" type="xs:string" />
+                              <xs:attribute name="bgColor" type="xs:string" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="showBorder" form="unqualified" type="xs:string" />
+                  <xs:attribute name="target" form="unqualified" type="xs:string" />
+                  <xs:attribute name="padding" type="xs:string" />
+                  <xs:attribute name="spacing" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:choice>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="footer" nillable="false" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:string">
+                <xs:attribute name="align" form="unqualified" type="xs:string" />
+                <xs:attribute name="font" form="unqualified" type="xs:string" />
+                <xs:attribute name="size" form="unqualified" type="xs:string" />
+                <xs:attribute name="style" form="unqualified" type="xs:string" />
+                <xs:attribute name="color" form="unqualified" type="xs:string" />
+                <xs:attribute name="bgcolor" form="unqualified" type="xs:string" />
+                <xs:attribute name="border" form="unqualified" type="xs:string" />
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

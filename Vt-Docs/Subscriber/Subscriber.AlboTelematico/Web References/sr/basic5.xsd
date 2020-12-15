@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.UploadFileToDocument" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services.Documents.UploadFileToDocument" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd6" namespace="http://nttdata.com/2012/Pi3/File" />
+  <xs:import schemaLocation="http://172.20.15.28/infotn_coll-be/VtDocsWS/WebServices/Documents.svc/basic?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" />
+  <xs:complexType name="UploadFileToDocumentRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q1:Request">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CovertToPDFA" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CreateAttachment" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element xmlns:q2="http://nttdata.com/2012/Pi3/File" minOccurs="0" name="File" nillable="true" type="q2:File" />
+          <xs:element minOccurs="0" name="IdDocument" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UploadFileToDocumentRequest" nillable="true" type="tns:UploadFileToDocumentRequest" />
+  <xs:complexType name="UploadFileToDocumentResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/VtDocsWS.Services" base="q3:Response">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UploadFileToDocumentResponse" nillable="true" type="tns:UploadFileToDocumentResponse" />
+</xs:schema>

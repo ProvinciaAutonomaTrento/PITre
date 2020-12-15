@@ -1,0 +1,19 @@
+--------------------------------------------------------
+--  DDL for Table DPA_TIPO_FASC
+--------------------------------------------------------
+
+  CREATE TABLE "ITCOLL_6GIU12"."DPA_TIPO_FASC" 
+   (	"SYSTEM_ID" NUMBER(*,0), 
+	"VAR_DESC_FASC" VARCHAR2(255 BYTE), 
+	"ID_AMM" NUMBER(*,0), 
+	"ABILITATO_SI_NO" NUMBER(*,0), 
+	"IN_ESERCIZIO" VARCHAR2(255 BYTE), 
+	"PATH_MOD_1" VARCHAR2(255 BYTE), 
+	"EXT_MOD_1" VARCHAR2(10 BYTE), 
+	"PATH_MOD_2" VARCHAR2(255 BYTE), 
+	"EXT_MOD_2" VARCHAR2(10 BYTE), 
+	"GG_SCADENZA" NUMBER(*,0), 
+	"GG_PRE_SCADENZA" NUMBER(*,0), 
+	"CHA_PRIVATO" VARCHAR2(1 BYTE), 
+	"IPERFASCICOLO" NUMBER
+   ) ;

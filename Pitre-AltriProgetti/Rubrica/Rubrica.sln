@@ -1,0 +1,89 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rubrica.Library", "Rubrica.Library\Rubrica.Library.csproj", "{416C16A0-8847-4DCF-9B56-7FCBA483BCAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dpa.DataAccess", "Dpa.DataAccess\Dpa.DataAccess.csproj", "{BFFACF0B-0326-417B-9BE6-2F96AA2E2DFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rubrica.Services", "Rubrica.Services\Rubrica.Services.csproj", "{75671EA5-0F4F-4B41-AC53-A3791EC2737A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rubrica.WinClient", "Rubrica.WinClient\Rubrica.WinClient.csproj", "{61689117-37A7-4290-B129-6DF00E24115B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{75671EA5-0F4F-4B41-AC53-A3791EC2737A} = {75671EA5-0F4F-4B41-AC53-A3791EC2737A}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rubrica.ClientProxy", "Rubrica.ClientProxy\Rubrica.ClientProxy.csproj", "{397AB3CA-7CAE-4DC5-B727-FED12B44C871}"
+	ProjectSection(ProjectDependencies) = postProject
+		{75671EA5-0F4F-4B41-AC53-A3791EC2737A} = {75671EA5-0F4F-4B41-AC53-A3791EC2737A}
+	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Rubrica.Setup", "Rubrica.Setup\Rubrica.Setup.vdproj", "{F098702B-3977-4E4D-AB2F-4A5EB9710D35}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rubrica.ConfigCustomAction", "Rubrica.ConfigCustomAction\Rubrica.ConfigCustomAction.csproj", "{7FC34BEB-0109-4161-B04B-4AE6A75B9984}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{416C16A0-8847-4DCF-9B56-7FCBA483BCAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{416C16A0-8847-4DCF-9B56-7FCBA483BCAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{416C16A0-8847-4DCF-9B56-7FCBA483BCAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{416C16A0-8847-4DCF-9B56-7FCBA483BCAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFFACF0B-0326-417B-9BE6-2F96AA2E2DFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFFACF0B-0326-417B-9BE6-2F96AA2E2DFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFFACF0B-0326-417B-9BE6-2F96AA2E2DFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFFACF0B-0326-417B-9BE6-2F96AA2E2DFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75671EA5-0F4F-4B41-AC53-A3791EC2737A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75671EA5-0F4F-4B41-AC53-A3791EC2737A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75671EA5-0F4F-4B41-AC53-A3791EC2737A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75671EA5-0F4F-4B41-AC53-A3791EC2737A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61689117-37A7-4290-B129-6DF00E24115B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61689117-37A7-4290-B129-6DF00E24115B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61689117-37A7-4290-B129-6DF00E24115B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61689117-37A7-4290-B129-6DF00E24115B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{397AB3CA-7CAE-4DC5-B727-FED12B44C871}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{397AB3CA-7CAE-4DC5-B727-FED12B44C871}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{397AB3CA-7CAE-4DC5-B727-FED12B44C871}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{397AB3CA-7CAE-4DC5-B727-FED12B44C871}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F098702B-3977-4E4D-AB2F-4A5EB9710D35}.Debug|Any CPU.ActiveCfg = Debug
+		{F098702B-3977-4E4D-AB2F-4A5EB9710D35}.Release|Any CPU.ActiveCfg = Release
+		{7FC34BEB-0109-4161-B04B-4AE6A75B9984}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FC34BEB-0109-4161-B04B-4AE6A75B9984}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FC34BEB-0109-4161-B04B-4AE6A75B9984}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FC34BEB-0109-4161-B04B-4AE6A75B9984}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://10.166.27.85:9090/tfs/progetti_vtdocs
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Dpa.DataAccess\\Dpa.DataAccess.csproj
+		SccProjectName1 = Dpa.DataAccess
+		SccLocalPath1 = Dpa.DataAccess
+		SccProjectUniqueName2 = Rubrica.ClientProxy\\Rubrica.ClientProxy.csproj
+		SccProjectName2 = Rubrica.ClientProxy
+		SccLocalPath2 = Rubrica.ClientProxy
+		SccProjectUniqueName3 = Rubrica.ConfigCustomAction\\Rubrica.ConfigCustomAction.csproj
+		SccProjectName3 = Rubrica.ConfigCustomAction
+		SccLocalPath3 = Rubrica.ConfigCustomAction
+		SccProjectUniqueName4 = Rubrica.Library\\Rubrica.Library.csproj
+		SccProjectName4 = Rubrica.Library
+		SccLocalPath4 = Rubrica.Library
+		SccProjectUniqueName5 = Rubrica.Services\\Rubrica.Services.csproj
+		SccProjectName5 = Rubrica.Services
+		SccLocalPath5 = Rubrica.Services
+		SccProjectUniqueName6 = Rubrica.Setup\\Rubrica.Setup.vdproj
+		SccProjectName6 = Rubrica.Setup
+		SccLocalPath6 = Rubrica.Setup
+		SccProjectUniqueName7 = Rubrica.WinClient\\Rubrica.WinClient.csproj
+		SccProjectName7 = Rubrica.WinClient
+		SccLocalPath7 = Rubrica.WinClient
+	EndGlobalSection
+EndGlobal

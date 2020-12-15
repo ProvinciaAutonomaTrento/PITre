@@ -1,0 +1,15 @@
+BEGIN
+declare cntcol int;
+ 
+begin
+select count(*) into cntcol from cols
+                where table_name='DPA_TIPO_ATTO' and column_name='PATH_XSD_ASSOCIATO';
+ 
+if cntcol = 0 then
+                execute immediate
+                'alter table DPA_TIPO_ATTO add (PATH_XSD_ASSOCIATO VARCHAR2(2000))';
+end if;
+ 
+end;
+END;
+/

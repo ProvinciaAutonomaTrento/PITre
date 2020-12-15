@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XMLReport.xsd">
+	<pagina formato="A4" orientamento="ORIZZONTALE">
+		<dta_stampa align="RIGHT" target="footer" font="Arial" size="10" style="PLAIN" color="#000000">Stampa effettuata il: </dta_stampa>
+		<num_pagine align="CENTER" target="footer" font="Arial" size="8" style="PLAIN" color="#000000" total="1" separator="/" widthTot="5">Pag. </num_pagine>
+	</pagina>
+	<!--<header align="RIGHT" font="Arial" size="8" style="PLAIN" color="#000000" bgcolor="#FFFFFF" border="1">Report automatico generato da DocsPA</header>-->
+	<!--<logo align="LEFT" file="logo.jpg" bgcolor="#FFFFFF"></logo>-->
+  <header/>
+  <logo/>
+	<dati>
+		<paragrafo align="CENTER" font="Arial" size="12" style="BOLD" color="#000000" bgcolor="#FFFFFF" target="">Elenco trasmissioni FASCICOLI effettuate e ricevute dalla struttura: @param1</paragrafo>
+		<paragrafo align="CENTER" font="Arial" size="12" style="BOLD" color="#000000" bgcolor="#FFFFFF" target="">@param2</paragrafo>
+	</dati>
+	<dati>
+		<paragrafo align="LEFT" font="Arial" size="10" style="BOLD" color="#000000" bgcolor="#FFFFFF" target="E_P">EFFETTUATE</paragrafo>
+	</dati>
+	<dati>
+		<tabella showBorder="true" target="E_T" padding="2" spacing="0">
+			<header_tabella align="CENTER" font="Arial" size="8" style="BOLD" color="#000000" bgcolor="#C0C0C0" valign="middle"></header_tabella>
+			<dati_tabella align="LEFT" font="Arial" size="7" style="PLAIN" color="#000000" bgcolor="#FFFFFF" valign="bottom"></dati_tabella>
+			<colonne>
+				<colonna name="ID" alias="Cod. Fascicolo" visible="true" width="60" align="center" valign="top"></colonna>
+				<colonna name="DESCR" alias="Descrizione" visible="true" width="150" align="left" valign="top"></colonna>
+				<colonna name="DATA_INVIO" alias="Trasmesso il" visible="true" width="60" align="center" valign="top"></colonna>
+				<colonna name="MITT_UT" alias="Mittente Trasm. ; (Ruolo)" visible="true" width="120" align="left" valign="top"></colonna>
+				<colonna name="DEST" alias="Dest." visible="true" width="150" align="left" valign="top"></colonna>
+				<colonna name="RAGIONE" alias="Ragione" visible="true" width="60" align="left" valign="top"></colonna>
+				<colonna name="NOTE_GENER" alias="Note Generali" visible="true" width="130" align="left" valign="top"></colonna>
+			</colonne>
+		</tabella>
+	</dati>
+	<dati>
+		<paragrafo align="LEFT" font="Arial" size="10" style="BOLD" color="#000000" bgcolor="#FFFFFF" target="R_P">RICEVUTE</paragrafo>
+	</dati>
+	<dati>
+		<tabella showBorder="true" target="R_T" padding="2" spacing="0">
+			<header_tabella align="CENTER" font="Arial" size="8" style="BOLD" color="#000000" bgcolor="#C0C0C0" valign="middle"></header_tabella>
+			<dati_tabella align="LEFT" font="Arial" size="7" style="PLAIN" color="#000000" bgcolor="#FFFFFF" valign="bottom"></dati_tabella>
+			<colonne>
+				<colonna name="ID" alias="Cod. Fascicolo" visible="true" width="60" align="center" valign="top"></colonna>
+				<colonna name="DESCR" alias="Descrizione" visible="true" width="150" align="left" valign="top"></colonna>
+				<colonna name="DATA_INVIO" alias="Trasmesso il" visible="true" width="60" align="center" valign="top"></colonna>
+				<colonna name="MITT_UT" alias="Utente Mitt." visible="true" width="120" align="left" valign="top"></colonna>
+				<colonna name="DEST" alias="Ruolo Dest." visible="true" width="150" align="left" valign="top"></colonna>
+				<colonna name="RAGIONE" alias="Ragione" visible="true" width="60" align="left" valign="top"></colonna>
+				<colonna name="NOTE_GENER" alias="Note Generali" visible="true" width="130" align="left" valign="top"></colonna>
+			</colonne>
+		</tabella>
+	</dati>
+	<footer align="LEFT" font="Arial" size="8" style="PLAIN" color="#000000" bgcolor="#FFFFFF" border="1"></footer>
+</report>

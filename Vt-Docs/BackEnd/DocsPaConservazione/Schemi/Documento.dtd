@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT Documento (SoggettoProduttore, Registrazione?, ContestoArchivistico?, Tipologia?, Allegati?, Eventi?, File)>
+<!ATTLIST Documento
+	IDdocumento CDATA #REQUIRED
+	DataCreazione CDATA #REQUIRED
+	Oggetto CDATA #REQUIRED
+	Tipo CDATA #REQUIRED
+	LivelloRiservatezza CDATA #IMPLIED
+>
+<!ELEMENT SoggettoProduttore (Amministrazione, GerarchiaUO, Creatore)>
+<!ELEMENT Amministrazione EMPTY>
+<!ATTLIST Amministrazione
+	CodiceAmministrazione CDATA #REQUIRED
+	DescrizioneAmministrazione CDATA #REQUIRED
+>
+<!ELEMENT GerarchiaUO (UnitàOrganizzativa)+>
+<!ELEMENT UnitàOrganizzativa (UnitàOrganizzativa)*>
+<!ATTLIST UnitàOrganizzativa
+	CodiceUO CDATA #REQUIRED
+	DescrizioneUO CDATA #REQUIRED
+	Livello CDATA #REQUIRED
+>
+<!ELEMENT Creatore EMPTY>
+<!ATTLIST Creatore
+	CodiceRuolo CDATA #REQUIRED
+	DescrizioneRuolo CDATA #REQUIRED
+	CodiceUtente CDATA #REQUIRED	
+	DescrizioneUtente CDATA #REQUIRED
+>
+<!ELEMENT Registrazione (Mittente*, Destinatario*, ProtocolloMittente?, Protocollista)>
+<!ATTLIST Registrazione
+	CodiceAOO CDATA #REQUIRED
+	DescrizioneAOO CDATA #REQUIRED
+	CodiceRF CDATA #IMPLIED
+	DescrizioneRF CDATA #IMPLIED
+	SegnaturaProtocollo CDATA #REQUIRED
+	NumeroProtocollo CDATA #REQUIRED
+	TipoProtocollo CDATA #REQUIRED
+	DataProtocollo CDATA #REQUIRED
+	OraProtocollo CDATA #REQUIRED
+	SegnaturaEmergenza CDATA #IMPLIED
+	NumeroProtocolloEmergenza CDATA #IMPLIED
+	DataProtocolloEmergenza CDATA #IMPLIED
+>
+<!ELEMENT Mittente EMPTY>
+<!ATTLIST Mittente
+    Codice CDATA #REQUIRED
+	Descrizione CDATA #REQUIRED
+	DataArrivo CDATA #IMPLIED
+	ProtocolloMittente CDATA #IMPLIED
+	DataProtocolloMittente CDATA #IMPLIED
+	IndirizzoMail CDATA #IMPLIED
+>
+<!ELEMENT Destinatario EMPTY>
+<!ATTLIST Destinatario
+	Codice CDATA #REQUIRED	
+	Descrizione CDATA #REQUIRED
+	MezzoSpedizione CDATA #IMPLIED
+	IndirizzoMail CDATA #IMPLIED
+>
+
+<!ELEMENT ProtocolloMittente EMPTY>
+<!ATTLIST ProtocolloMittente
+	Protocollo CDATA #IMPLIED
+	Data CDATA #IMPLIED
+	MezzoSpedizione CDATA #IMPLIED
+>
+
+<!ELEMENT Protocollista EMPTY>
+<!ATTLIST Protocollista
+	CodiceUtente CDATA #REQUIRED
+	DescrizioneUtente CDATA #REQUIRED
+	CodiceRuolo CDATA #REQUIRED
+	DescrizioneRuolo CDATA #REQUIRED
+	UOAppartenenza CDATA #REQUIRED
+>
+<!ELEMENT ContestoArchivistico (Classificazione*, Fascicolazione*, DocumentoCollegato*)>
+<!ELEMENT Classificazione EMPTY>
+<!ATTLIST Classificazione
+	CodiceClassificazione CDATA #REQUIRED
+	TitolarioDiRiferimento CDATA #REQUIRED
+>
+<!ELEMENT Fascicolazione EMPTY>
+<!ATTLIST Fascicolazione
+	CodiceFascicolo CDATA #REQUIRED
+	DescrizioneFascicolo CDATA #REQUIRED
+	TitolarioDiRierimento CDATA #REQUIRED
+	CodiceSottofascicolo CDATA #IMPLIED
+	DescrizioneSottofascicolo CDATA #IMPLIED
+>
+<!ELEMENT DocumentoCollegato EMPTY>
+<!ATTLIST DocumentoCollegato
+	IDdocumento CDATA #REQUIRED
+	DataCreazione CDATA #REQUIRED
+	Oggetto CDATA #REQUIRED
+	SegnaturaProtocollo CDATA #REQUIRED
+	NumeroProtocollo CDATA #REQUIRED
+	DataProtocollo CDATA #REQUIRED
+>
+<!ELEMENT Tipologia (CampoTipologia)+>
+<!ELEMENT CampoTipologia EMPTY>
+<!ATTLIST Tipologia
+	NomeTipologia CDATA #REQUIRED
+>
+<!ATTLIST CampoTipologia
+	NomeCampo CDATA #REQUIRED
+	ValoreCampo CDATA #REQUIRED
+>
+<!ELEMENT Allegati (Allegato+)>
+<!ELEMENT Allegato (File)>
+<!ATTLIST Allegato
+	Tipo CDATA #REQUIRED
+	ID CDATA #REQUIRED
+	Descrizione CDATA #REQUIRED
+>
+<!ELEMENT Eventi (Evento+)>
+<!ATTLIST Evento
+	Tipo CDATA #REQUIRED
+	Data CDATA #REQUIRED
+	Attore CDATA #REQUIRED
+>
+<!ELEMENT File (FirmaDigitale?, MarcaTemporale?)>
+<!ATTLIST File
+	Formato CDATA #REQUIRED
+	Dimensione CDATA #REQUIRED
+	Impronta CDATA #REQUIRED
+	AlgoritmoHash CDATA #REQUIRED
+>
+<!ELEMENT FirmaDigitale (Titolare, Certificato, DatiFirma)>
+<!ELEMENT Titolare EMPTY>
+<!ATTLIST Titolare
+	Nome CDATA #REQUIRED
+	Cognome CDATA #REQUIRED
+	CodiceFiscale CDATA #REQUIRED
+>
+<!ELEMENT Certifiato EMPTY>
+<!ATTLIST Certificato
+	AlgoritmoCertificato CDATA #REQUIRED
+	SNCertificato CDATA #REQUIRED
+	DataInizioValidità CDATA #REQUIRED
+	DataFineValidità CDATA #REQUIRED
+	KeyUsage CDATA #REQUIRED
+	ChiavePubblica CDATA #REQUIRED
+	CertificationAuthority CDATA #REQUIRED
+>
+<!ELEMENT Firma EMPTY>
+<!ATTLIST Firma
+	DatiFirma CDATA #REQUIRED
+	AlgoritmoFirma CDATA #REQUIRED
+>
+<!ELEMENT MarcaTemporale EMPTY>
+<!ATTLIST MarcaTemporale
+	NumeroSerie CDATA #REQUIRED
+	Data CDATA #REQUIRED
+	Ora CDATA #REQUIRED
+	SNCertificato CDATA #REQUIRED
+	DataInizioValidità CDATA #REQUIRED
+	DataFineValidità CDATA #REQUIRED
+	ImprontaDocumentoAssociato CDATA #REQUIRED
+	TimeStampingAuthority CDATA #REQUIRED
+	CodiceFiscale CDATA #REQUIRED
+>

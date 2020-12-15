@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.ApplicationInsights.Telemetry.Web</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.ApplicationInsights.ConfigurationReader">
+            <summary>
+            This class reads the ApplicationInsights.config file and provides read access to
+            the configuration for the active profile.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.ConfigurationReader.LoadConfigurationFile(System.String)">
+            <summary>
+            Loads the specified configuration file.
+            </summary>
+            <param name="configFile">The full path to the ApplicationInsights.config file.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.ConfigurationReader.GetConfiguration(Microsoft.ApplicationInsights.ConfigurationSections)">
+            <summary>
+            Gets the configuration for the corresponding configuration section.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.ConfigurationReader.GetProfileNames">
+            <summary>
+            Get the names of the configuration profiles.
+            </summary>
+            <returns>A collection of configuration names.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.ConfigurationReader.GetActiveProfileValue">
+            <summary>
+            Get the value specified in the ActiveProfile element.
+            </summary>
+            <returns>The name of the active profile.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.ConfigurationReader.GetDebugBuildProfileValue">
+            <summary>
+            Gets the value specified in the DebugBuildProfile element.
+            </summary>
+            <returns>The name of the profile to be used for debug builds.</returns>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.ConfigurationSections">
+            <summary>
+            ConfigurationSections enumeration used to access ApplicationInsights.config file.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.ConfigurationSections.None">
+            <summary>
+            Accessing None.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.ConfigurationSections.ServerAnalytics">
+            <summary>
+            Accessing ServerAnalytics section.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.ConfigurationSections.MMAOutputChannels">
+            <summary>
+            Accessing MMAOutputChannels section.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.ConfigurationSections.APMSettings">
+            <summary>
+            Accessing APMSettings section.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.ConfigurationSections.MemoryEventSettings">
+            <summary>
+            Accessing MemoryEventSettings section.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.ConfigurationSections.PerformanceCounters">
+            <summary>
+            Accessing PerformanceCounters section.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.ConfigurationSections.ClientAnalytics">
+            <summary>
+            Accessing ClientAnalytics section.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.ConfigurationSections.MonitoringAgent">
+            <summary>
+            Accessing MonitoringAgent section.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.Telemetry.Web.ApplicationInsightsModule">
+            <summary>
+            This http module will automatically load ApplicationInsights into your web application.
+            It will configure app insights to use your component id and will automatically start
+            logging calls for you without any additional configuration.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.Web.ApplicationInsightsModule.Init(System.Web.HttpApplication)">
+            <summary>
+            Initializes the module.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.Web.ApplicationInsightsModule.Dispose">
+            <summary>
+            Disposes of the module.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.Telemetry.Web.ConfigurationHandler">
+            <summary>
+            An ASP.NET handler that reads ApplicationInsights.config for configuration and responds with a JavaScript configuration
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.Web.ConfigurationHandler.ProcessRequest(System.Web.HttpContext)">
+            <summary>
+            Process the request to get configuration
+            </summary>
+            <param name="context">The request context</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.Web.ConfigurationHandler.GetCurrentConfiguration(System.String)">
+            <summary>
+            Get the current configuration from the given ApplicationInsights.config file
+            </summary>
+            <param name="configurationPath">Path to ApplicationInsights.config file</param>
+            <returns>Current active configuration</returns>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Web.ConfigurationHandler.IsReusable">
+            <summary>
+            Cannot be reused
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.Telemetry.Web.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Web.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Web.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.Web.Resources.GeneratedConfig">
+             <summary>
+               Looks up a localized string similar to var appInsights = appInsights || {{}};
+            
+            appInsights.configuration = {{
+                activeProfile: &quot;generated&quot;,
+                profiles: {{
+                    generated: {{
+                        componentId: &quot;{0}&quot;,
+                        sendToRawStream: {1}
+                    }}
+                }}
+            }};
+            .
+             </summary>
+        </member>
+    </members>
+</doc>

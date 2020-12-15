@@ -1,0 +1,9 @@
+--------------------------------------------------------
+--  Constraints for Table DPA_ASS_DOC_MAIL_INTEROP
+--------------------------------------------------------
+
+  ALTER TABLE "ITCOLL_6GIU12"."DPA_ASS_DOC_MAIL_INTEROP" MODIFY ("SYSTEM_ID" NOT NULL ENABLE);
+ 
+  ALTER TABLE "ITCOLL_6GIU12"."DPA_ASS_DOC_MAIL_INTEROP" MODIFY ("ID_PROFILE" NOT NULL ENABLE);
+ 
+  ALTER TABLE "ITCOLL_6GIU12"."DPA_ASS_DOC_MAIL_INTEROP" MODIFY ("ID_REGISTRO" NOT NULL ENABLE);

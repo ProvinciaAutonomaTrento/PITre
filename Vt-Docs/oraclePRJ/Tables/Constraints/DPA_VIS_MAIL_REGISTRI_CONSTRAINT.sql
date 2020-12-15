@@ -1,0 +1,9 @@
+--------------------------------------------------------
+--  Constraints for Table DPA_VIS_MAIL_REGISTRI
+--------------------------------------------------------
+
+  ALTER TABLE "ITCOLL_6GIU12"."DPA_VIS_MAIL_REGISTRI" MODIFY ("SYSTEM_ID" NOT NULL ENABLE);
+ 
+  ALTER TABLE "ITCOLL_6GIU12"."DPA_VIS_MAIL_REGISTRI" MODIFY ("ID_REGISTRO" NOT NULL ENABLE);
+ 
+  ALTER TABLE "ITCOLL_6GIU12"."DPA_VIS_MAIL_REGISTRI" MODIFY ("ID_RUOLO_IN_UO" NOT NULL ENABLE);

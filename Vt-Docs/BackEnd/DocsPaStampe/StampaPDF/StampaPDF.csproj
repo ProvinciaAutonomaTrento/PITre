@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B541E965-8EC1-419C-8550-1BB5E30D26C8}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>StampaPDF</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>StampaPDF</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <SccAuxPath>SAK</SccAuxPath>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccProvider>SAK</SccProvider>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <PublishUrl>http://localhost/StampaPDF/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <Name>ICSharpCode.SharpZipLib</Name>
+      <HintPath>..\..\..\DLL_TERZE_PARTI\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp, Version=4.1.6.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\DLL_TERZE_PARTI\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <ProjectReference Include="..\..\DocsPaVO\DocsPaVO.csproj">
+      <Name>DocsPaVO</Name>
+      <Project>{A8BA40A6-AB86-4DF7-8C0F-8A9BBB7EE885}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\VersionInfo.cs">
+      <Link>VersionInfo.cs</Link>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DocumentPDF.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ErrorCode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Report.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StampaBustePdf\PdfArea.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StampaBustePdf\PdfDocument.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StampaBustePdf\PdfDocumentFormat.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StampaBustePdf\PDFObject\PdfCatalog.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StampaBustePdf\PDFObject\PdfCircle.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StampaBustePdf\PDFObject\PdfFont.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StampaBustePdf\PDFObject\PdfHeader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StampaBustePdf\PDFObject\PdfImage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StampaBustePdf\PDFObject\PdfImageContent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StampaBustePdf\PDFObject\PdfLine.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StampaBustePdf\PDFObject\PdfObject.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StampaBustePdf\PDFObject\PdfPage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StampaBustePdf\PDFObject\PdfRectangle.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StampaBustePdf\PDFObject\PdfRoot.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StampaBustePdf\PDFObject\PdfTextArea.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StampaBustePdf\StampaBustePdf.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StampaBustePdf\Table Object\BorderTypes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StampaBustePdf\Table Object\PdfCell.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StampaBustePdf\Table Object\PdfCellRange.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StampaBustePdf\Table Object\PdfColumn.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StampaBustePdf\Table Object\PdfRow.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StampaBustePdf\Table Object\PdfTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StampaBustePdf\Table Object\PdfTablePage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StampaBustePdf\Utility.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StampaOrganigramma.cs" />
+    <Compile Include="StampaPDF.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StampaRisRicerca.cs" />
+    <Compile Include="StampaVO.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StampaXML.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AUTENTICAZIONE_FALLITA" xml:space="preserve">
+    <value>Autenticazione fallita: {0}</value>
+  </data>
+  <data name="CAMPO_PROFILO_NON_TROVATO" xml:space="preserve">
+    <value>Campo del profilo non trovato: {0}</value>
+  </data>
+  <data name="CLASSIFICAZIONE_FALLITA" xml:space="preserve">
+    <value>Errore nella classificazione del documento</value>
+  </data>
+  <data name="CONTENUTO_FILE_NON_CONFORME" xml:space="preserve">
+    <value>Il contenuto del file non è conforme al suo formato</value>
+  </data>
+  <data name="CREAZIONE_DOCUMENTO_FALLITA" xml:space="preserve">
+    <value>Errore nella creazione del documento: {0}</value>
+  </data>
+  <data name="CREAZIONE_FASCICOLO_FALLITA" xml:space="preserve">
+    <value>Errore nella creazione del fascicolo:{0}</value>
+  </data>
+  <data name="CREAZIONE_SOTTOFASCICOLO_FALLITA" xml:space="preserve">
+    <value>Errore nella creazione del sottofascicolo: {0}</value>
+  </data>
+  <data name="DOCUMENTO_NON_CANCELLABILE" xml:space="preserve">
+    <value>Documento non cancellabile: {0}</value>
+  </data>
+  <data name="DOCUMENTO_NON_TROVATO" xml:space="preserve">
+    <value>Documento non trovato</value>
+  </data>
+  <data name="DOCUMENTO_NON_TROVATO_IN_ISTANZA" xml:space="preserve">
+    <value>Documento non presente nell'istanza</value>
+  </data>
+  <data name="DOWNLOAD_FILE_FALLITO" xml:space="preserve">
+    <value>Errore nel download del file per il documento in conservazione</value>
+  </data>
+  <data name="FASCICOLAZIONE_FALLITA" xml:space="preserve">
+    <value>Errore nella fascicolazione del documento</value>
+  </data>
+  <data name="FASCICOLO_NON_TROVATO" xml:space="preserve">
+    <value>Fascicolo non trovato</value>
+  </data>
+  <data name="INSERIMENTO_IN_ISTANZA_FALLITO" xml:space="preserve">
+    <value>Errore nell'inserimento del documento nell'istanza di conservazione</value>
+  </data>
+  <data name="INVIO_CENTRO_SERVIZI_FALLITO" xml:space="preserve">
+    <value>Errore nell'invio del documento al Centro Servizi</value>
+  </data>
+  <data name="ISTANZA_NON_CANCELLABILE" xml:space="preserve">
+    <value>Istanza non cancellabile: {0}</value>
+  </data>
+  <data name="ISTANZA_NON_TROVATA" xml:space="preserve">
+    <value>Istanza non trovata</value>
+  </data>
+  <data name="NODO_TITOLARIO_NON_TROVATO" xml:space="preserve">
+    <value>Nodo di titolario non trovato</value>
+  </data>
+  <data name="PARAMETRO_MANCANTE" xml:space="preserve">
+    <value>Parametro mancante: {0}</value>
+  </data>
+  <data name="PROFILO_NON_TROVATO" xml:space="preserve">
+    <value>Profilo non trovato</value>
+  </data>
+  <data name="SUPPORTI_NON_TROVATI" xml:space="preserve">
+    <value>Supporti non trovati per l'istanza</value>
+  </data>
+  <data name="TOKEN_NON_VALIDO" xml:space="preserve">
+    <value>Token di autenticazione non valido o scaduto</value>
+  </data>
+  <data name="UPLOAD_FILE_FALLITO" xml:space="preserve">
+    <value>Errore nell'upload del file per il documento in conservazione: {0}</value>
+  </data>
+  <data name="VALORE_CAMPO_PROFILO_OBBLIGATORIO" xml:space="preserve">
+    <value>Campo del profilo obbligatorio: {0}</value>
+  </data>
+</root>

@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{654B0A7B-1A2D-4A81-AFCF-C0151066D840}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DocsPaDocumentale_HERMES</RootNamespace>
+    <AssemblyName>DocsPaDocumentale_HERMES</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocsPaDB, Version=3.25.0.30741, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DocsPaDocumentale_DOCUMENTUM\bin\Debug\DocsPaDB.dll</HintPath>
+    </Reference>
+    <Reference Include="DocsPaDocumentale_Interfaces, Version=3.25.0.30739, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DocsPaDocumentale_DOCUMENTUM\bin\Debug\DocsPaDocumentale_Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="DocsPaLdapServices, Version=3.25.0.30742, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DocsPaDocumentale_DOCUMENTUM\bin\Debug\DocsPaLdapServices.dll</HintPath>
+    </Reference>
+    <Reference Include="DocsPaUtils, Version=3.25.0.30739, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DocsPaDocumentale_DOCUMENTUM\bin\Debug\DocsPaUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="DocsPaVO, Version=3.25.0.30732, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DocsPaDocumentale_DOCUMENTUM\bin\Debug\DocsPaVO.dll</HintPath>
+    </Reference>
+    <Reference Include="Emc.Documentum.FS.DataModel.Core, Version=6.7.0.222, Culture=neutral, PublicKeyToken=f7c256ad97a54f3d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DocsPaDocumentale_DOCUMENTUM\bin\Debug\Emc.Documentum.FS.DataModel.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Emc.Documentum.FS.DataModel.Shared, Version=6.7.0.222, Culture=neutral, PublicKeyToken=f7c256ad97a54f3d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DocsPaDocumentale_DOCUMENTUM\bin\Debug\Emc.Documentum.FS.DataModel.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Emc.Documentum.FS.Runtime, Version=6.7.0.222, Culture=neutral, PublicKeyToken=f7c256ad97a54f3d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DocsPaDocumentale_DOCUMENTUM\bin\Debug\Emc.Documentum.FS.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Emc.Documentum.FS.Services.Core, Version=6.7.0.222, Culture=neutral, PublicKeyToken=f7c256ad97a54f3d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DocsPaDocumentale_DOCUMENTUM\bin\Debug\Emc.Documentum.FS.Services.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Emc.Documentum.FS.Services.Search, Version=6.7.0.222, Culture=neutral, PublicKeyToken=f7c256ad97a54f3d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DocsPaDocumentale_DOCUMENTUM\bin\Debug\Emc.Documentum.FS.Services.Search.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DocsPaDocumentale_DOCUMENTUM\bin\Debug\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Hummingbird.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\DMFileOperation\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="Service References\DMFileOperation\DMFileOperation.wsdl" />
+    <None Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\DMFileOperation\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DMFileOperation\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DMFileOperation\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DMFileOperation\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,40 @@
+--------------------------------------------------------
+--  DDL for View DPA_V_LOGS
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "ITCOLL_6GIU12"."DPA_V_LOGS" ("UTENTE", "RUOLO", "RF", "TOT_AZIONE", "TIPO_AZIONE") AS 
+  select UTENTE,RUOLO,RF,count(*)TOT_AZIONE,TIPO_AZIONE from (
+select 
+l.USERID_OPERATORE USER_ID,
+getpeoplename(l.ID_PEOPLE_OPERATORE) UTENTE,
+l.ID_GRUPPO_OPERATORE+1 ID_RUOLO,
+getdescruolo(l.ID_GRUPPO_OPERATORE) RUOLO,
+CODRFAPPARTENZARUOLO(l.ID_GRUPPO_OPERATORE+1) RF,
+l.VAR_COD_AZIONE CODICE_TIPO_AZIONE,
+l.VAR_DESC_AZIONE TIPO_AZIONE,
+l.DTA_AZIONE DATA_AZIONE
+ from dpa_log l where
+l.DTA_AZIONE between 
+to_date('01/03/2010 00:00:00','dd/mm/yyyy HH24:mi:ss') 
+and to_date('01/05/2010 23:59:59','dd/mm/yyyy HH24:mi:ss')
+and l.VAR_COD_AZIONE not in('LOGIN','LOGOFF')
+--
+union
+select 
+l.USERID_OPERATORE USER_ID,
+getpeoplename(l.ID_PEOPLE_OPERATORE) UTENTE,
+l.ID_GRUPPO_OPERATORE+1 ID_RUOLO,
+getdescruolo(l.ID_GRUPPO_OPERATORE) RUOLO,
+CODRFAPPARTENZARUOLO(l.ID_GRUPPO_OPERATORE+1) RF,
+l.VAR_COD_AZIONE CODICE_TIPO_AZIONE,
+l.VAR_DESC_AZIONE TIPO_AZIONE,
+l.DTA_AZIONE DATA_AZIONE
+ from dpa_log_storico l where
+l.DTA_AZIONE between 
+to_date('01/03/2010 00:00:00','dd/mm/yyyy HH24:mi:ss') 
+and to_date('01/05/2010 23:59:59','dd/mm/yyyy HH24:mi:ss')
+and l.VAR_COD_AZIONE not in('LOGIN','LOGOFF')
+--and  CODRFAPPARTENZARUOLO(l.ID_GRUPPO_OPERATORE+1)='RFS112'
+)
+group by UTENTE,RUOLO,RF,TIPO_AZIONE
+order by UTENTE,RUOLO,RF,TIPO_AZIONE;

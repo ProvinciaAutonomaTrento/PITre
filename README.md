@@ -5,7 +5,7 @@
 PITre è un applicativo web che consente la tenuta del registro di protocollo, la gestione dei flussi documentali nonché le attività di fascicolazione e archiviazione della documentazione amministrativa 
 
 ## Versione 
-3.2.16
+3.2.19
 
 ## Licenza
 Il software è rilasciato con licenza aperta ai sensi dell'art. 69 comma 1 del [Codice dell’Amministrazione Digitale](https://cad.readthedocs.io/) con una licenza EUPL 1.2

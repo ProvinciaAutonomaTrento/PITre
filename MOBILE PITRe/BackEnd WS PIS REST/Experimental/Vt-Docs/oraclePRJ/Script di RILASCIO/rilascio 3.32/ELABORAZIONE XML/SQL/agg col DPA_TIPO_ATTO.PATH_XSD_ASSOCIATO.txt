@@ -1,0 +1,10 @@
+if not exists (
+			   SELECT * FROM syscolumns
+			   WHERE name='PATH_XSD_ASSOCIATO' and id in
+			   (SELECT id FROM sysobjects
+			   WHERE id = OBJECT_ID(N'[@db_user].[DPA_TIPO_ATTO]') and xtype='U')
+			   )
+BEGIN
+       ALTER TABLE [@db_user].[DPA_TIPO_ATTO] ADD PATH_XSD_ASSOCIATO VARCHAR(2000)
+END
+GO

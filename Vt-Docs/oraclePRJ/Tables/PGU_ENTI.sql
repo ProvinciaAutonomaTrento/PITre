@@ -1,0 +1,13 @@
+--------------------------------------------------------
+--  DDL for Table PGU_ENTI
+--------------------------------------------------------
+
+  CREATE TABLE "ITCOLL_6GIU12"."PGU_ENTI" 
+   (	"ID" NUMBER(*,0), 
+	"NOME" VARCHAR2(50 BYTE), 
+	"URLAPPCONSPROTOCOLLO" VARCHAR2(2000 BYTE), 
+	"URLAPPCONSALTREAPP" VARCHAR2(2000 BYTE), 
+	"URLWSCONSPROTOCOLLO" VARCHAR2(2000 BYTE), 
+	"URLWSCONSALTREAPP" VARCHAR2(2000 BYTE), 
+	"DESCRIZIONE" NVARCHAR2(255)
+   ) ;

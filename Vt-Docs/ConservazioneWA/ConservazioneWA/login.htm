@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Untitled Page</title>
+    <META content="Microsoft Visual Studio 7.0" name="GENERATOR">
+    <script language="javascript">
+    redirectToLogin();
+
+        function redirectToLogin() {
+
+				if(navigator.appName.lastIndexOf('Explorer')!= -1) {
+				    var qs = getQSParam('token');
+
+				    var pageAddress;
+
+				    if (qs != null && qs != "") {
+				        pageAddress = 'Login.aspx?token=' + qs;
+				    }
+				    else {
+				        pageAddress = 'Login.aspx';
+				    }
+				
+					var newUrl=pageAddress;
+					
+				//	var newWindow=window.open(newUrl,'_blank','fullscreen=no,toolbar=no,directories=no,statusbar=no,menubar=no,resizable=yes,scrollbars=auto');
+				//IE7
+					var newWindow=window.open(newUrl,'_blank','location=0');
+										
+					window.opener=null;
+					window.close();
+				}
+				else {
+				    document.location.href = 'Login.aspx?token=' + getQSParam('token');
+				}
+            }
+
+            function getQSParam(ParamName) {
+                // Memorizzo tutta la QueryString in una variabile
+                var QS = window.location.toString();
+                // Posizione di inizio della variabile richiesta
+                var indSta = QS.indexOf(ParamName);
+                // Se la variabile passata non esiste o il parametro è vuoto, restituisco null
+                if (indSta == -1 || ParamName == "") return null;
+                // Posizione finale, determinata da una eventuale &amp; che serve per concatenare più variabili
+                var indEnd = QS.indexOf('&amp;', indSta);
+                // Se non c'è una &amp;, il punto di fine è la fine della QueryString
+                if (indEnd == -1) indEnd = QS.length;
+                // Ottengo il solore valore del parametro, ripulito dalle sequenze di escape
+                var valore = unescape(QS.substring(indSta + ParamName.length + 1, indEnd));
+                // Restituisco il valore associato al parametro 'ParamName'
+                return valore;
+            }
+
+    </script>
+</head>
+</html>

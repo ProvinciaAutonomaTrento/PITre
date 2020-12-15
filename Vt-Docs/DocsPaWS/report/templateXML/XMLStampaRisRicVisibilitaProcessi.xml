@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XMLReport.xsd">
+  <pagina formato="A4" orientamento="ORIZZONTALE">
+    <dta_stampa align="RIGHT" target="HEADER" font="Arial" size="10" style="PLAIN" color="#000000">Stampa Visibilita processi di firma effettuata il: </dta_stampa>
+    <num_pagine align="CENTER" target="FOOTER" font="Arial" size="8" style="PLAIN" color="#000000" total="1" separator="/" widthTot="5">Pag. </num_pagine>
+  </pagina>
+  <header align="RIGHT" font="Arial" size="8" style="PLAIN" color="#000000" bgcolor="#FFFFFF" border="0">
+  </header>
+  <!--<logo align="LEFT" file="" bgcolor="#FFFFFF"/>-->
+  <logo/>
+  <dati>
+    <paragrafo align="LEFT" font="Arial" size="14" style="BOLD" color="#000000" bgcolor="#FFFFFF" target="PAR_AMM">@amm</paragrafo>
+    <paragrafo align="LEFT" font="Arial" size="14" style="BOLD" color="#000000" bgcolor="#FFFFFF" target="PAR_TITLE">@title</paragrafo>
+  </dati>
+  <dati>
+    <tabella showBorder="true" target="TABLE" padding="2" spacing="0">
+      <header_tabella align="CENTER" font="Arial" size="8" style="BOLD" color="#000000" bgcolor="#C0C0C0" valign="middle"/>
+      <dati_tabella align="LEFT" font="Arial" size="7" style="PLAIN" color="#000000" bgcolor="#C0C0C0" valign="bottom"/>
+      <colonne>
+        <colonna name="NOME PROCESSO" alias="Nome processo" visible="true" width="100" align="left" valign="top" bgColor="#FFFFFF" />
+        <colonna name="CODICE RUOLO" alias="Codice ruolo" visible="true" width="100" align="left" valign="top" bgColor="#FFFFFF" />
+        <colonna name="DESCRIZIONE RUOLO" alias="Descrizione ruolo" visible="true" width="100" align="left" valign="top" bgColor="#FFFFFF" />
+        <colonna name="TIPO VISIBILITA" alias="Tipo visibilità" visible="true" width="100" align="center" valign="top" bgColor="#FFFFFF" />
+        <colonna name="NOTIFICA CONCLUSIONE" alias="Notifica conclusione" visible="true" width="100" align="center" valign="top" bgColor="#FFFFFF" />
+        <colonna name="NOTIFICA INTERRUZIONE" alias="Notifica interruzione" visible="true" width="100" align="center" valign="top" bgColor="#FFFFFF" />
+        <colonna name="NOTIFICA ERRORE" alias="Notifica errore" visible="true" width="100" align="center" valign="top" bgColor="#FFFFFF" />
+      </colonne>
+    </tabella>
+  </dati>
+  <footer align="LEFT" font="Arial" size="8" style="PLAIN" color="#000000" bgcolor="#FFFFFF" border="0">
+
+  </footer>
+</report>

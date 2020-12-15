@@ -1,0 +1,75 @@
+<?xml version="1.0" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <xsd:element name="tipoProtocollo" type="elenco" />
+
+   <xsd:complexType name="elenco">
+      <xsd:sequence>
+         <xsd:element name="protocollo" type="tipop" minOccurs="1" maxOccurs="unbounded" />
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="tipop">
+      <xsd:all>
+         <xsd:element name="num" type="xsd:string" />
+
+         <xsd:element name="numeroProtocollo" type="xsd:string" />
+
+         <xsd:element name="operazione" type="xsd:string" minOccurs="0" />
+
+         <xsd:element name="protocolloMittente" type="xsd:string" minOccurs="0" />
+
+         <xsd:element name="settore" type="xsd:string" minOccurs="0" />
+         
+         <xsd:element name="operatore" type="xsd:string" minOccurs="0" />
+         
+          <xsd:element name="arrivoPartenza"  minOccurs="0">
+          	<xsd:simpleType>
+          		<xsd:restriction base="xsd:string">
+          			<xsd:maxLength	value="1" />
+          			<xsd:pattern value="[\n]" />
+          			<xsd:pattern value="[A]" />
+          			<xsd:pattern value="[a]" />
+          			<xsd:pattern value="[P]" />
+          			<xsd:pattern value="[p]" />
+          		</xsd:restriction>
+          	</xsd:simpleType>
+          </xsd:element>
+         
+         <xsd:element name="dataProtocollo" minOccurs="0">
+            <xsd:simpleType>
+               <xsd:restriction base="xsd:string">
+                <xsd:pattern value="([0-3][0-9][/][0-1][0-9][/][1-2][0-9][0-9][0-9])?" />
+                 <xsd:pattern value="[\n]" />
+               </xsd:restriction>
+            </xsd:simpleType>
+         </xsd:element>
+
+         <xsd:element name="fascicolazione" type="xsd:string" minOccurs="0" />
+
+         <xsd:element name="mittente" type="xsd:string" minOccurs="0" />
+
+         <xsd:element name="dataMittente" minOccurs="0">
+            <xsd:simpleType>
+               <xsd:restriction base="xsd:string">
+                  <xsd:pattern value="([0-3][0-9][/][0-1][0-9][/][1-2][0-9][0-9][0-9])?" />
+                <xsd:pattern value="[\n]" />
+               </xsd:restriction>
+            </xsd:simpleType>
+         </xsd:element>
+
+         <xsd:element name="oggetto" type="xsd:string" minOccurs="0" />
+
+         <xsd:element name="note" type="xsd:string" minOccurs="0" />
+
+         <xsd:element name="dataTrasmissione" minOccurs="0">
+            <xsd:simpleType>
+               <xsd:restriction base="xsd:string">
+                  <xsd:pattern value="([0-3][0-9][/][0-1][0-9][/][1-2][0-9][0-9][0-9])?" />
+                  <xsd:pattern value="[\n]" />
+               </xsd:restriction>
+            </xsd:simpleType>
+         </xsd:element>
+         <xsd:element name="ambito" type="xsd:string" minOccurs="0" />
+      </xsd:all>
+   </xsd:complexType>
+</xsd:schema>

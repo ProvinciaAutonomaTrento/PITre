@@ -1,0 +1,25 @@
+INSERT INTO DPA_RAGIONE_TRASM
+      ( SYSTEM_ID, VAR_DESC_RAGIONE, CHA_TIPO_RAGIONE, CHA_VIS, CHA_TIPO_DIRITTI,
+      CHA_TIPO_DEST, CHA_RISPOSTA, VAR_NOTE, CHA_EREDITA, CHA_TIPO_RISPOSTA, ID_AMM,
+      VAR_NOTIFICA_TRASM, CHA_CEDE_DIRITTI, CHA_MANTIENI_LETT, CHA_MANTIENI_SCRITT,
+	  CHA_RAG_SISTEMA
+      )
+      VALUES
+      (
+      seq.nextval, 
+      'COMPETENZA_SIST_ESTERNI',
+      'W',
+      '0',
+      'W',
+      'T',
+      '0',
+      'Ragione di trasmissione specifica per i Sistemi Esterni.',
+      '1',
+      'C',
+      361,
+      Null,
+      'N',
+      0,
+      0,
+	  '1'
+      )

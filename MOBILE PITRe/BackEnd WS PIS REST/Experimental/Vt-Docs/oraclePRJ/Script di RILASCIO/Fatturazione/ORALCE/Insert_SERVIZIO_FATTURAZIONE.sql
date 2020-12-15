@@ -1,0 +1,23 @@
+INSERT INTO DPA_PARAMETRO_SERVIZI
+           (SYSTEM_ID,
+            DESCRIZIONE
+           ,TIPO_VALORE)
+     VALUES
+           (1,
+           'DOCNUMBER', 'STRING');
+
+INSERT INTO DPA_SERVIZI_ESTERNI
+           (SYSTEM_ID,
+           DESCRIZIONE
+           ,SERVIZIO)
+     VALUES
+           (1,
+           'SERVIZIO FATTURAZIONE'
+           ,'http://sp5t.it.nttdata-emea.com');
+           
+INSERT INTO DPA_PARAMETRI_SERVIZIO
+           (ID_SERVIZIO
+           ,ID_PARAMETRO)
+     VALUES
+           ((SELECT SYSTEM_ID FROM DPA_SERVIZI_ESTERNI WHERE DESCRIZIONE = 'SERVIZIO FATTURAZIONE')
+           ,(SELECT SYSTEM_ID FROM DPA_PARAMETRO_SERVIZI WHERE DESCRIZIONE = 'DOCNUMBER'))

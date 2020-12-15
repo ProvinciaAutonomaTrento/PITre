@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorWhite"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <InformaticaTrentinaPCL.Droid.Search.CustomEditText
+        android:id="@+id/customEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_40px"
+        android:layout_marginLeft="@dimen/cerca_padding"
+        android:layout_marginRight="@dimen/cerca_padding"
+        app:customHint="@string/document_search_hint"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+    <InformaticaTrentinaPCL.Droid.Utils.SwipeRecyclerView.RecyclerSwipeListView
+        android:id="@+id/recyclerView_documentList"
+        android:scrollbars="vertical"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:choiceMode="singleChoice"
+        android:background="@color/colorWhite"
+        android:divider="@null"
+        android:layout_marginTop="@dimen/margin_20px"
+        app:layout_constraintTop_toBottomOf="@+id/customEditText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+</android.support.constraint.ConstraintLayout>

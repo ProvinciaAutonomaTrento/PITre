@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetFirmatari" targetNamespace="http://tempuri.org/DataSetFirmatari.xsd" xmlns:mstns="http://tempuri.org/DataSetFirmatari.xsd" xmlns="http://tempuri.org/DataSetFirmatari.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetFirmatari" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetFirmatari" msprop:Generator_UserDSName="DataSetFirmatari">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="element1" msprop:Generator_TableClassName="element1DataTable" msprop:Generator_TableVarName="tableelement1" msprop:Generator_TablePropName="element1" msprop:Generator_RowDeletingName="element1RowDeleting" msprop:Generator_UserTableName="element1" msprop:Generator_RowChangingName="element1RowChanging" msprop:Generator_RowEvHandlerName="element1RowChangeEventHandler" msprop:Generator_RowDeletedName="element1RowDeleted" msprop:Generator_RowEvArgName="element1RowChangeEvent" msprop:Generator_RowChangedName="element1RowChanged" msprop:Generator_RowClassName="element1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Nome" msprop:Generator_ColumnVarNameInTable="columnNome" msprop:Generator_ColumnPropNameInRow="Nome" msprop:Generator_ColumnPropNameInTable="NomeColumn" msprop:Generator_UserColumnName="Nome" type="xs:string" minOccurs="0" />
+              <xs:element name="Cognome" msprop:Generator_ColumnVarNameInTable="columnCognome" msprop:Generator_ColumnPropNameInRow="Cognome" msprop:Generator_ColumnPropNameInTable="CognomeColumn" msprop:Generator_UserColumnName="Cognome" type="xs:string" minOccurs="0" />
+              <xs:element name="CodiceFiscale" msprop:Generator_ColumnVarNameInTable="columnCodiceFiscale" msprop:Generator_ColumnPropNameInRow="CodiceFiscale" msprop:Generator_ColumnPropNameInTable="CodiceFiscaleColumn" msprop:Generator_UserColumnName="CodiceFiscale" type="xs:string" minOccurs="0" />
+              <xs:element name="DataNascita" msprop:Generator_ColumnVarNameInTable="columnDataNascita" msprop:Generator_ColumnPropNameInRow="DataNascita" msprop:Generator_ColumnPropNameInTable="DataNascitaColumn" msprop:Generator_UserColumnName="DataNascita" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

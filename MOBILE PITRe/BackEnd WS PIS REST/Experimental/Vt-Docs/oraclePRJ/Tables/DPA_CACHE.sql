@@ -1,0 +1,18 @@
+--------------------------------------------------------
+--  DDL for Table DPA_CACHE
+--------------------------------------------------------
+
+  CREATE TABLE "ITCOLL_6GIU12"."DPA_CACHE" 
+   (	"DOCNUMBER" NUMBER(*,0), 
+	"PATHCACHE" VARCHAR2(500 BYTE), 
+	"IDAMMINISTRAZIONE" VARCHAR2(100 BYTE), 
+	"AGGIORNATO" NUMBER(*,0), 
+	"VERSION_ID" NUMBER(*,0), 
+	"LOCKED" VARCHAR2(1 BYTE), 
+	"COMPTYPE" VARCHAR2(3 BYTE), 
+	"FILE_SIZE" NUMBER(*,0), 
+	"ALTERNATE_PATH" VARCHAR2(128 BYTE), 
+	"VAR_IMPRONTA" VARCHAR2(64 BYTE), 
+	"EXT" VARCHAR2(7 BYTE), 
+	"LAST_ACCESS" VARCHAR2(50 BYTE)
+   ) ;

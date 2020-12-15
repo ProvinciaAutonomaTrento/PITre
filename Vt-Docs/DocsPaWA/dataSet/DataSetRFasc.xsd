@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetRFasc" targetNamespace="http://tempuri.org/DataSetRFasc.xsd" xmlns:mstns="http://tempuri.org/DataSetRFasc.xsd" xmlns="http://tempuri.org/DataSetRFasc.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetRFasc" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetRFasc" msprop:Generator_UserDSName="DataSetRFasc">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="element1" msprop:Generator_TableClassName="element1DataTable" msprop:Generator_TableVarName="tableelement1" msprop:Generator_TablePropName="element1" msprop:Generator_RowDeletingName="element1RowDeleting" msprop:Generator_UserTableName="element1" msprop:Generator_RowChangingName="element1RowChanging" msprop:Generator_RowEvHandlerName="element1RowChangeEventHandler" msprop:Generator_RowDeletedName="element1RowDeleted" msprop:Generator_RowEvArgName="element1RowChangeEvent" msprop:Generator_RowChangedName="element1RowChanged" msprop:Generator_RowClassName="element1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Stato" msprop:Generator_ColumnVarNameInTable="columnStato" msprop:Generator_ColumnPropNameInRow="Stato" msprop:Generator_ColumnPropNameInTable="StatoColumn" msprop:Generator_UserColumnName="Stato" type="xs:string" minOccurs="0" />
+              <xs:element name="Descrizione" msprop:Generator_ColumnVarNameInTable="columnDescrizione" msprop:Generator_ColumnPropNameInRow="Descrizione" msprop:Generator_ColumnPropNameInTable="DescrizioneColumn" msprop:Generator_UserColumnName="Descrizione" type="xs:string" minOccurs="0" />
+              <xs:element name="Apertura" msprop:Generator_ColumnVarNameInTable="columnApertura" msprop:Generator_ColumnPropNameInRow="Apertura" msprop:Generator_ColumnPropNameInTable="AperturaColumn" msprop:Generator_UserColumnName="Apertura" type="xs:string" minOccurs="0" />
+              <xs:element name="Chiusura" msprop:Generator_ColumnVarNameInTable="columnChiusura" msprop:Generator_ColumnPropNameInRow="Chiusura" msprop:Generator_ColumnPropNameInTable="ChiusuraColumn" msprop:Generator_UserColumnName="Chiusura" type="xs:string" minOccurs="0" />
+              <xs:element name="Tipo" msprop:Generator_ColumnVarNameInTable="columnTipo" msprop:Generator_ColumnPropNameInRow="Tipo" msprop:Generator_ColumnPropNameInTable="TipoColumn" msprop:Generator_UserColumnName="Tipo" type="xs:string" minOccurs="0" />
+              <xs:element name="Chiave" msprop:Generator_ColumnVarNameInTable="columnChiave" msprop:Generator_ColumnPropNameInRow="Chiave" msprop:Generator_ColumnPropNameInTable="ChiaveColumn" msprop:Generator_UserColumnName="Chiave" type="xs:int" />
+              <xs:element name="CodClass" msprop:Generator_ColumnVarNameInTable="columnCodClass" msprop:Generator_ColumnPropNameInRow="CodClass" msprop:Generator_ColumnPropNameInTable="CodClassColumn" msprop:Generator_UserColumnName="CodClass" type="xs:string" minOccurs="0" />
+              <xs:element name="Codice" msprop:Generator_ColumnVarNameInTable="columnCodice" msprop:Generator_ColumnPropNameInRow="Codice" msprop:Generator_ColumnPropNameInTable="CodiceColumn" msprop:Generator_UserColumnName="Codice" type="xs:string" minOccurs="0" />
+              <xs:element name="IdLegislatura" msprop:Generator_ColumnVarNameInTable="columnIdLegislatura" msprop:Generator_ColumnPropNameInRow="IdLegislatura" msprop:Generator_ColumnPropNameInTable="IdLegislaturaColumn" msprop:Generator_UserColumnName="IdLegislatura" type="xs:string" minOccurs="0" />
+              <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:string" minOccurs="0" />
+              <xs:element name="contatore" msprop:Generator_ColumnVarNameInTable="columncontatore" msprop:Generator_ColumnPropNameInRow="contatore" msprop:Generator_ColumnPropNameInTable="contatoreColumn" msprop:Generator_UserColumnName="contatore" type="xs:string" minOccurs="0" />
+              <xs:element name="inConservazione" msprop:Generator_ColumnVarNameInTable="columninConservazione" msprop:Generator_ColumnPropNameInRow="inConservazione" msprop:Generator_ColumnPropNameInTable="inConservazioneColumn" msprop:Generator_UserColumnName="inConservazione" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="DataSetRFascKey1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:element1" />
+      <xs:field xpath="mstns:Chiave" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

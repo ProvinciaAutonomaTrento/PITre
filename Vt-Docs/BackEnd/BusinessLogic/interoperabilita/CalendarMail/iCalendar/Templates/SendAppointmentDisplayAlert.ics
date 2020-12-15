@@ -1,0 +1,25 @@
+﻿BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//hacksw/handcal//NONSGML v1.0//EN
+METHOD:{method}
+BEGIN:VEVENT
+UID:{uid}
+CLASS:PUBLIC
+DTSTAMP:{dtstamp}
+ORGANIZER;CN={organizerName}:MAILTO:{organizerMail}
+DTSTART:{dtstart}
+DTEND:{dtend}
+STATUS:{status}
+PRIORITY:5
+SEQUENCE:{sequence}
+DESCRIPTION:{description}
+SUMMARY:{summary}
+LOCATION:{location}
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+TRIGGER:{trigger}
+ACTION:DISPLAY
+DESCRIPTION:{alertDescription}
+END:VALARM
+END:VEVENT
+END:VCALENDAR

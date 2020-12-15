@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="SecurityWS.asmx.cs" Class="Security.Core.Host.SecurityWS" %>

@@ -1,0 +1,1 @@
+"C:\Program Files\Java\jdk1.6.0_33\bin\jarsigner" -keystore "E:\DEV\Eclipse\FsoApplet\dist\Sign_Applet\keystore.jks" E:\DEV\Eclipse\FsoApplet\dist\FsoApplet.nosign.jar integrasistemi

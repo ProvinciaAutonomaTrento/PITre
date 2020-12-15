@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://nttdata.com/2012/Pi3/Register" elementFormDefault="qualified" targetNamespace="http://nttdata.com/2012/Pi3/Register" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Register">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsRF" type="xs:boolean" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Register" nillable="true" type="tns:Register" />
+</xs:schema>

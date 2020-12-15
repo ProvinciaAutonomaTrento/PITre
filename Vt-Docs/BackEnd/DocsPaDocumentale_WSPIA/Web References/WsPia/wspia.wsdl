@@ -1,0 +1,1944 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.inps.it" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" targetNamespace="http://www.inps.it" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.inps.it">
+      <s:element name="protocollaCICS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codApp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codAMM" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codAOO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codUtente" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="protocollaCICSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="protocollaCICSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getRegistroProtocolloSoapIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="DataDa" type="s:string" />
+    <wsdl:part name="DataA" type="s:string" />
+    <wsdl:part name="progressivo" type="s:string" />
+    <wsdl:part name="numeroMax" type="s:int" />
+  </wsdl:message>
+  <wsdl:message name="getRegistroProtocolloSoapOut">
+    <wsdl:part name="getRegistroProtocolloResult" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ricercaDocumentiProtocollatiSoapIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+    <wsdl:part name="progressivo" type="s:string" />
+    <wsdl:part name="numeroMax" type="s:int" />
+  </wsdl:message>
+  <wsdl:message name="ricercaDocumentiProtocollatiSoapOut">
+    <wsdl:part name="ricercaDocumentiProtocollatiResult" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getRicevutaProtocolloSoapIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+    <wsdl:part name="bilinguismo" type="s:string" />
+    <wsdl:part name="outputMode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getRicevutaProtocolloSoapOut">
+    <wsdl:part name="getRicevutaProtocolloResult" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getTitolarioSoapIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="PSTipoAOO" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getTitolarioSoapOut">
+    <wsdl:part name="getTitolarioResult" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getProcessoDestinatarioSoapIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getProcessoDestinatarioSoapOut">
+    <wsdl:part name="getProcessoDestinatarioResult" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getVersioneBCSoapIn" />
+  <wsdl:message name="getVersioneBCSoapOut">
+    <wsdl:part name="getVersioneBCResult" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getDocumentoEXSoapIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+    <wsdl:part name="livelloDettaglio" type="s:int" />
+  </wsdl:message>
+  <wsdl:message name="getDocumentoEXSoapOut">
+    <wsdl:part name="getDocumentoEXResult" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getDocumentoSoapIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getDocumentoSoapOut">
+    <wsdl:part name="getDocumentoResult" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getSegnaturaPerifericaSoapIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getSegnaturaPerifericaSoapOut">
+    <wsdl:part name="getSegnaturaPerifericaResult" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="associaAllegatoSoapIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="associaAllegatoSoapOut">
+    <wsdl:part name="associaAllegatoResult" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="associaImmagineSoapIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="associaImmagineSoapOut">
+    <wsdl:part name="associaImmagineResult" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getImmagineSoapIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getImmagineSoapOut">
+    <wsdl:part name="getImmagineResult" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getAllegatiSoapIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getAllegatiSoapOut">
+    <wsdl:part name="getAllegatiResult" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="protocollaCICSSoapIn">
+    <wsdl:part name="parameters" element="tns:protocollaCICS" />
+  </wsdl:message>
+  <wsdl:message name="protocollaCICSSoapOut">
+    <wsdl:part name="parameters" element="tns:protocollaCICSResponse" />
+  </wsdl:message>
+  <wsdl:message name="protocollaSoapIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="protocollaSoapOut">
+    <wsdl:part name="protocollaResult" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="modificaDocumentoSoapIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="modificaDocumentoSoapOut">
+    <wsdl:part name="modificaDocumentoResult" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SettaStatoGDPSoapIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="matricola" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+    <wsdl:part name="stato" type="s:string" />
+    <wsdl:part name="codSedeTrasf" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SettaStatoGDPSoapOut">
+    <wsdl:part name="SettaStatoGDPResult" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SettaStatoGDP2SoapIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+    <wsdl:part name="stato" type="s:string" />
+    <wsdl:part name="GDPoEXT" type="s:int" />
+  </wsdl:message>
+  <wsdl:message name="SettaStatoGDP2SoapOut">
+    <wsdl:part name="SettaStatoGDP2Result" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetStatoGDP2SoapIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetStatoGDP2SoapOut">
+    <wsdl:part name="GetStatoGDP2Result" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SettaMapGDP2SoapIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="statoExt" type="s:string" />
+    <wsdl:part name="descStatoExt" type="s:string" />
+    <wsdl:part name="statoGDP" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SettaMapGDP2SoapOut">
+    <wsdl:part name="SettaMapGDP2Result" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMapGDP2SoapIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="statoExt" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMapGDP2SoapOut">
+    <wsdl:part name="GetMapGDP2Result" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMappingGDP2SoapIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMappingGDP2SoapOut">
+    <wsdl:part name="GetMappingGDP2Result" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="protocollaConImmagineSoapIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="protocollaConImmagineSoapOut">
+    <wsdl:part name="protocollaConImmagineResult" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="interopUscitaSoapIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="indTelRisposta" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="interopUscitaSoapOut">
+    <wsdl:part name="interopUscitaResult" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="interopEntrataSoapIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="interopEntrataSoapOut">
+    <wsdl:part name="interopEntrataResult" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getAllegatiContestualiSoapIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getAllegatiContestualiSoapOut">
+    <wsdl:part name="getAllegatiContestualiResult" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getRegistroProtocolloHttpGetIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="DataDa" type="s:string" />
+    <wsdl:part name="DataA" type="s:string" />
+    <wsdl:part name="progressivo" type="s:string" />
+    <wsdl:part name="numeroMax" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getRegistroProtocolloHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ricercaDocumentiProtocollatiHttpGetIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+    <wsdl:part name="progressivo" type="s:string" />
+    <wsdl:part name="numeroMax" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ricercaDocumentiProtocollatiHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getRicevutaProtocolloHttpGetIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+    <wsdl:part name="bilinguismo" type="s:string" />
+    <wsdl:part name="outputMode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getRicevutaProtocolloHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getTitolarioHttpGetIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="PSTipoAOO" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getTitolarioHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getProcessoDestinatarioHttpGetIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getProcessoDestinatarioHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getVersioneBCHttpGetIn" />
+  <wsdl:message name="getVersioneBCHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getDocumentoEXHttpGetIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+    <wsdl:part name="livelloDettaglio" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getDocumentoEXHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getDocumentoHttpGetIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getDocumentoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getSegnaturaPerifericaHttpGetIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getSegnaturaPerifericaHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="associaAllegatoHttpGetIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="associaAllegatoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="associaImmagineHttpGetIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="associaImmagineHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getImmagineHttpGetIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getImmagineHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getAllegatiHttpGetIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getAllegatiHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="protocollaCICSHttpGetIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="protocollaCICSHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="protocollaHttpGetIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="protocollaHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="modificaDocumentoHttpGetIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="modificaDocumentoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SettaStatoGDPHttpGetIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="matricola" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+    <wsdl:part name="stato" type="s:string" />
+    <wsdl:part name="codSedeTrasf" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SettaStatoGDPHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SettaStatoGDP2HttpGetIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+    <wsdl:part name="stato" type="s:string" />
+    <wsdl:part name="GDPoEXT" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SettaStatoGDP2HttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetStatoGDP2HttpGetIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetStatoGDP2HttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SettaMapGDP2HttpGetIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="statoExt" type="s:string" />
+    <wsdl:part name="descStatoExt" type="s:string" />
+    <wsdl:part name="statoGDP" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SettaMapGDP2HttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMapGDP2HttpGetIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="statoExt" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMapGDP2HttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMappingGDP2HttpGetIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMappingGDP2HttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="protocollaConImmagineHttpGetIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="protocollaConImmagineHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="interopUscitaHttpGetIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="indTelRisposta" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="interopUscitaHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="interopEntrataHttpGetIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="interopEntrataHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getAllegatiContestualiHttpGetIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getAllegatiContestualiHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getRegistroProtocolloHttpPostIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="DataDa" type="s:string" />
+    <wsdl:part name="DataA" type="s:string" />
+    <wsdl:part name="progressivo" type="s:string" />
+    <wsdl:part name="numeroMax" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getRegistroProtocolloHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ricercaDocumentiProtocollatiHttpPostIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+    <wsdl:part name="progressivo" type="s:string" />
+    <wsdl:part name="numeroMax" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ricercaDocumentiProtocollatiHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getRicevutaProtocolloHttpPostIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+    <wsdl:part name="bilinguismo" type="s:string" />
+    <wsdl:part name="outputMode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getRicevutaProtocolloHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getTitolarioHttpPostIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="PSTipoAOO" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getTitolarioHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getProcessoDestinatarioHttpPostIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getProcessoDestinatarioHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getVersioneBCHttpPostIn" />
+  <wsdl:message name="getVersioneBCHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getDocumentoEXHttpPostIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+    <wsdl:part name="livelloDettaglio" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getDocumentoEXHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getDocumentoHttpPostIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getDocumentoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getSegnaturaPerifericaHttpPostIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getSegnaturaPerifericaHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="associaAllegatoHttpPostIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="associaAllegatoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="associaImmagineHttpPostIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="associaImmagineHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getImmagineHttpPostIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getImmagineHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getAllegatiHttpPostIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getAllegatiHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="protocollaCICSHttpPostIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="protocollaCICSHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="protocollaHttpPostIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="protocollaHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="modificaDocumentoHttpPostIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="modificaDocumentoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SettaStatoGDPHttpPostIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="matricola" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+    <wsdl:part name="stato" type="s:string" />
+    <wsdl:part name="codSedeTrasf" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SettaStatoGDPHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SettaStatoGDP2HttpPostIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+    <wsdl:part name="stato" type="s:string" />
+    <wsdl:part name="GDPoEXT" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SettaStatoGDP2HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetStatoGDP2HttpPostIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetStatoGDP2HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SettaMapGDP2HttpPostIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="statoExt" type="s:string" />
+    <wsdl:part name="descStatoExt" type="s:string" />
+    <wsdl:part name="statoGDP" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SettaMapGDP2HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMapGDP2HttpPostIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="statoExt" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMapGDP2HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMappingGDP2HttpPostIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMappingGDP2HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="protocollaConImmagineHttpPostIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="protocollaConImmagineHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="interopUscitaHttpPostIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="indTelRisposta" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="interopUscitaHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="interopEntrataHttpPostIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="interopEntrataHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getAllegatiContestualiHttpPostIn">
+    <wsdl:part name="codApp" type="s:string" />
+    <wsdl:part name="codAMM" type="s:string" />
+    <wsdl:part name="codAOO" type="s:string" />
+    <wsdl:part name="codUtente" type="s:string" />
+    <wsdl:part name="segnatura" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getAllegatiContestualiHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="Service1Soap">
+    <wsdl:operation name="getRegistroProtocollo">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il recupero del registro di protocollo in un dato periodo.</documentation>
+      <wsdl:input message="tns:getRegistroProtocolloSoapIn" />
+      <wsdl:output message="tns:getRegistroProtocolloSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ricercaDocumentiProtocollati">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il recupero del registro di protocollo.</documentation>
+      <wsdl:input message="tns:ricercaDocumentiProtocollatiSoapIn" />
+      <wsdl:output message="tns:ricercaDocumentiProtocollatiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getRicevutaProtocollo">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il recupero della ricevuta di protocollo(pdf, foglio di stile - dati xml - barcode in formato tif).</documentation>
+      <wsdl:input message="tns:getRicevutaProtocolloSoapIn" />
+      <wsdl:output message="tns:getRicevutaProtocolloSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTitolario">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il recupero del titolario associato alle sedi.</documentation>
+      <wsdl:input message="tns:getTitolarioSoapIn" />
+      <wsdl:output message="tns:getTitolarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getProcessoDestinatario">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il recupero del Processo Destinatatio associato alle singole sedi.</documentation>
+      <wsdl:input message="tns:getProcessoDestinatarioSoapIn" />
+      <wsdl:output message="tns:getProcessoDestinatarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getVersioneBC">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il recupero della versione del client di acquisizione massiva.</documentation>
+      <wsdl:input message="tns:getVersioneBCSoapIn" />
+      <wsdl:output message="tns:getVersioneBCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDocumento">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il recupero del documento associato alla segnatura con dati di dettaglio.</documentation>
+      <wsdl:input name="getDocumentoEX" message="tns:getDocumentoEXSoapIn" />
+      <wsdl:output name="getDocumentoEX" message="tns:getDocumentoEXSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDocumento">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il recupero del documento associato alla segnatura.</documentation>
+      <wsdl:input message="tns:getDocumentoSoapIn" />
+      <wsdl:output message="tns:getDocumentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSegnaturaPeriferica">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il recupero della segnatura su server periferico.</documentation>
+      <wsdl:input message="tns:getSegnaturaPerifericaSoapIn" />
+      <wsdl:output message="tns:getSegnaturaPerifericaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="associaAllegato">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per associare un allegato.</documentation>
+      <wsdl:input message="tns:associaAllegatoSoapIn" />
+      <wsdl:output message="tns:associaAllegatoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="associaImmagine">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per l'associazione di una immagine a un documento protocollato.</documentation>
+      <wsdl:input message="tns:associaImmagineSoapIn" />
+      <wsdl:output message="tns:associaImmagineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getImmagine">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il retrieval dell'immagine associata ad un documento.</documentation>
+      <wsdl:input message="tns:getImmagineSoapIn" />
+      <wsdl:output message="tns:getImmagineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllegati">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per la consultazione dei documenti allegati.</documentation>
+      <wsdl:input message="tns:getAllegatiSoapIn" />
+      <wsdl:output message="tns:getAllegatiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="protocollaCICS">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per la protocollazione semplice di un documento.</documentation>
+      <wsdl:input message="tns:protocollaCICSSoapIn" />
+      <wsdl:output message="tns:protocollaCICSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="protocolla">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per la protocollazione semplice di un documento.</documentation>
+      <wsdl:input message="tns:protocollaSoapIn" />
+      <wsdl:output message="tns:protocollaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="modificaDocumento">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per la modifica di un documento.</documentation>
+      <wsdl:input message="tns:modificaDocumentoSoapIn" />
+      <wsdl:output message="tns:modificaDocumentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SettaStatoGDP">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il settaggio dello stato in GDP.</documentation>
+      <wsdl:input message="tns:SettaStatoGDPSoapIn" />
+      <wsdl:output message="tns:SettaStatoGDPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SettaStatoGDP2">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il settaggio dello stato in GDP2.</documentation>
+      <wsdl:input message="tns:SettaStatoGDP2SoapIn" />
+      <wsdl:output message="tns:SettaStatoGDP2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatoGDP2">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Il metodo restituisce, se l’operazione è andata a buon fine, un Arraylist che descrive lo stato del documento in GDP2, nel formato idsStato-DescStato.</documentation>
+      <wsdl:input message="tns:GetStatoGDP2SoapIn" />
+      <wsdl:output message="tns:GetStatoGDP2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SettaMapGDP2">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Imposta una tabella di corrispondenza tra gli stati di una applicazione esterna ed gli stati del GDP2</documentation>
+      <wsdl:input message="tns:SettaMapGDP2SoapIn" />
+      <wsdl:output message="tns:SettaMapGDP2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMapGDP2">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Recupera lo stato di corrispondenza tra un'applicazione esterna ed uno stato GDP2</documentation>
+      <wsdl:input message="tns:GetMapGDP2SoapIn" />
+      <wsdl:output message="tns:GetMapGDP2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMappingGDP2">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Recupera la lista di stati di corrispondenza tra un'applicazione esterna ed uno stato GDP2.</documentation>
+      <wsdl:input message="tns:GetMappingGDP2SoapIn" />
+      <wsdl:output message="tns:GetMappingGDP2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="protocollaConImmagine">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per la protocollazione con immagine.</documentation>
+      <wsdl:input message="tns:protocollaConImmagineSoapIn" />
+      <wsdl:output message="tns:protocollaConImmagineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="interopUscita">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per la protocollazione interoperabilità in uscita</documentation>
+      <wsdl:input message="tns:interopUscitaSoapIn" />
+      <wsdl:output message="tns:interopUscitaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="interopEntrata">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per la protocollazione interoperabilità in entrata.</documentation>
+      <wsdl:input message="tns:interopEntrataSoapIn" />
+      <wsdl:output message="tns:interopEntrataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllegatiContestuali">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il recupero degli allegati contestuali a un documento protocollato.</documentation>
+      <wsdl:input message="tns:getAllegatiContestualiSoapIn" />
+      <wsdl:output message="tns:getAllegatiContestualiSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="Service1HttpGet">
+    <wsdl:operation name="getRegistroProtocollo">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il recupero del registro di protocollo in un dato periodo.</documentation>
+      <wsdl:input message="tns:getRegistroProtocolloHttpGetIn" />
+      <wsdl:output message="tns:getRegistroProtocolloHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ricercaDocumentiProtocollati">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il recupero del registro di protocollo.</documentation>
+      <wsdl:input message="tns:ricercaDocumentiProtocollatiHttpGetIn" />
+      <wsdl:output message="tns:ricercaDocumentiProtocollatiHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getRicevutaProtocollo">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il recupero della ricevuta di protocollo(pdf, foglio di stile - dati xml - barcode in formato tif).</documentation>
+      <wsdl:input message="tns:getRicevutaProtocolloHttpGetIn" />
+      <wsdl:output message="tns:getRicevutaProtocolloHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTitolario">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il recupero del titolario associato alle sedi.</documentation>
+      <wsdl:input message="tns:getTitolarioHttpGetIn" />
+      <wsdl:output message="tns:getTitolarioHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getProcessoDestinatario">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il recupero del Processo Destinatatio associato alle singole sedi.</documentation>
+      <wsdl:input message="tns:getProcessoDestinatarioHttpGetIn" />
+      <wsdl:output message="tns:getProcessoDestinatarioHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getVersioneBC">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il recupero della versione del client di acquisizione massiva.</documentation>
+      <wsdl:input message="tns:getVersioneBCHttpGetIn" />
+      <wsdl:output message="tns:getVersioneBCHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDocumento">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il recupero del documento associato alla segnatura con dati di dettaglio.</documentation>
+      <wsdl:input name="getDocumentoEX" message="tns:getDocumentoEXHttpGetIn" />
+      <wsdl:output name="getDocumentoEX" message="tns:getDocumentoEXHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDocumento">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il recupero del documento associato alla segnatura.</documentation>
+      <wsdl:input message="tns:getDocumentoHttpGetIn" />
+      <wsdl:output message="tns:getDocumentoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSegnaturaPeriferica">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il recupero della segnatura su server periferico.</documentation>
+      <wsdl:input message="tns:getSegnaturaPerifericaHttpGetIn" />
+      <wsdl:output message="tns:getSegnaturaPerifericaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="associaAllegato">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per associare un allegato.</documentation>
+      <wsdl:input message="tns:associaAllegatoHttpGetIn" />
+      <wsdl:output message="tns:associaAllegatoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="associaImmagine">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per l'associazione di una immagine a un documento protocollato.</documentation>
+      <wsdl:input message="tns:associaImmagineHttpGetIn" />
+      <wsdl:output message="tns:associaImmagineHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getImmagine">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il retrieval dell'immagine associata ad un documento.</documentation>
+      <wsdl:input message="tns:getImmagineHttpGetIn" />
+      <wsdl:output message="tns:getImmagineHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllegati">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per la consultazione dei documenti allegati.</documentation>
+      <wsdl:input message="tns:getAllegatiHttpGetIn" />
+      <wsdl:output message="tns:getAllegatiHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="protocollaCICS">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per la protocollazione semplice di un documento.</documentation>
+      <wsdl:input message="tns:protocollaCICSHttpGetIn" />
+      <wsdl:output message="tns:protocollaCICSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="protocolla">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per la protocollazione semplice di un documento.</documentation>
+      <wsdl:input message="tns:protocollaHttpGetIn" />
+      <wsdl:output message="tns:protocollaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="modificaDocumento">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per la modifica di un documento.</documentation>
+      <wsdl:input message="tns:modificaDocumentoHttpGetIn" />
+      <wsdl:output message="tns:modificaDocumentoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SettaStatoGDP">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il settaggio dello stato in GDP.</documentation>
+      <wsdl:input message="tns:SettaStatoGDPHttpGetIn" />
+      <wsdl:output message="tns:SettaStatoGDPHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SettaStatoGDP2">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il settaggio dello stato in GDP2.</documentation>
+      <wsdl:input message="tns:SettaStatoGDP2HttpGetIn" />
+      <wsdl:output message="tns:SettaStatoGDP2HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatoGDP2">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Il metodo restituisce, se l’operazione è andata a buon fine, un Arraylist che descrive lo stato del documento in GDP2, nel formato idsStato-DescStato.</documentation>
+      <wsdl:input message="tns:GetStatoGDP2HttpGetIn" />
+      <wsdl:output message="tns:GetStatoGDP2HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SettaMapGDP2">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Imposta una tabella di corrispondenza tra gli stati di una applicazione esterna ed gli stati del GDP2</documentation>
+      <wsdl:input message="tns:SettaMapGDP2HttpGetIn" />
+      <wsdl:output message="tns:SettaMapGDP2HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMapGDP2">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Recupera lo stato di corrispondenza tra un'applicazione esterna ed uno stato GDP2</documentation>
+      <wsdl:input message="tns:GetMapGDP2HttpGetIn" />
+      <wsdl:output message="tns:GetMapGDP2HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMappingGDP2">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Recupera la lista di stati di corrispondenza tra un'applicazione esterna ed uno stato GDP2.</documentation>
+      <wsdl:input message="tns:GetMappingGDP2HttpGetIn" />
+      <wsdl:output message="tns:GetMappingGDP2HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="protocollaConImmagine">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per la protocollazione con immagine.</documentation>
+      <wsdl:input message="tns:protocollaConImmagineHttpGetIn" />
+      <wsdl:output message="tns:protocollaConImmagineHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="interopUscita">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per la protocollazione interoperabilità in uscita</documentation>
+      <wsdl:input message="tns:interopUscitaHttpGetIn" />
+      <wsdl:output message="tns:interopUscitaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="interopEntrata">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per la protocollazione interoperabilità in entrata.</documentation>
+      <wsdl:input message="tns:interopEntrataHttpGetIn" />
+      <wsdl:output message="tns:interopEntrataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllegatiContestuali">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il recupero degli allegati contestuali a un documento protocollato.</documentation>
+      <wsdl:input message="tns:getAllegatiContestualiHttpGetIn" />
+      <wsdl:output message="tns:getAllegatiContestualiHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="Service1HttpPost">
+    <wsdl:operation name="getRegistroProtocollo">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il recupero del registro di protocollo in un dato periodo.</documentation>
+      <wsdl:input message="tns:getRegistroProtocolloHttpPostIn" />
+      <wsdl:output message="tns:getRegistroProtocolloHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ricercaDocumentiProtocollati">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il recupero del registro di protocollo.</documentation>
+      <wsdl:input message="tns:ricercaDocumentiProtocollatiHttpPostIn" />
+      <wsdl:output message="tns:ricercaDocumentiProtocollatiHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getRicevutaProtocollo">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il recupero della ricevuta di protocollo(pdf, foglio di stile - dati xml - barcode in formato tif).</documentation>
+      <wsdl:input message="tns:getRicevutaProtocolloHttpPostIn" />
+      <wsdl:output message="tns:getRicevutaProtocolloHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTitolario">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il recupero del titolario associato alle sedi.</documentation>
+      <wsdl:input message="tns:getTitolarioHttpPostIn" />
+      <wsdl:output message="tns:getTitolarioHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getProcessoDestinatario">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il recupero del Processo Destinatatio associato alle singole sedi.</documentation>
+      <wsdl:input message="tns:getProcessoDestinatarioHttpPostIn" />
+      <wsdl:output message="tns:getProcessoDestinatarioHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getVersioneBC">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il recupero della versione del client di acquisizione massiva.</documentation>
+      <wsdl:input message="tns:getVersioneBCHttpPostIn" />
+      <wsdl:output message="tns:getVersioneBCHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDocumento">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il recupero del documento associato alla segnatura con dati di dettaglio.</documentation>
+      <wsdl:input name="getDocumentoEX" message="tns:getDocumentoEXHttpPostIn" />
+      <wsdl:output name="getDocumentoEX" message="tns:getDocumentoEXHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDocumento">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il recupero del documento associato alla segnatura.</documentation>
+      <wsdl:input message="tns:getDocumentoHttpPostIn" />
+      <wsdl:output message="tns:getDocumentoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSegnaturaPeriferica">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il recupero della segnatura su server periferico.</documentation>
+      <wsdl:input message="tns:getSegnaturaPerifericaHttpPostIn" />
+      <wsdl:output message="tns:getSegnaturaPerifericaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="associaAllegato">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per associare un allegato.</documentation>
+      <wsdl:input message="tns:associaAllegatoHttpPostIn" />
+      <wsdl:output message="tns:associaAllegatoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="associaImmagine">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per l'associazione di una immagine a un documento protocollato.</documentation>
+      <wsdl:input message="tns:associaImmagineHttpPostIn" />
+      <wsdl:output message="tns:associaImmagineHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getImmagine">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il retrieval dell'immagine associata ad un documento.</documentation>
+      <wsdl:input message="tns:getImmagineHttpPostIn" />
+      <wsdl:output message="tns:getImmagineHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllegati">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per la consultazione dei documenti allegati.</documentation>
+      <wsdl:input message="tns:getAllegatiHttpPostIn" />
+      <wsdl:output message="tns:getAllegatiHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="protocollaCICS">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per la protocollazione semplice di un documento.</documentation>
+      <wsdl:input message="tns:protocollaCICSHttpPostIn" />
+      <wsdl:output message="tns:protocollaCICSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="protocolla">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per la protocollazione semplice di un documento.</documentation>
+      <wsdl:input message="tns:protocollaHttpPostIn" />
+      <wsdl:output message="tns:protocollaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="modificaDocumento">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per la modifica di un documento.</documentation>
+      <wsdl:input message="tns:modificaDocumentoHttpPostIn" />
+      <wsdl:output message="tns:modificaDocumentoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SettaStatoGDP">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il settaggio dello stato in GDP.</documentation>
+      <wsdl:input message="tns:SettaStatoGDPHttpPostIn" />
+      <wsdl:output message="tns:SettaStatoGDPHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SettaStatoGDP2">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il settaggio dello stato in GDP2.</documentation>
+      <wsdl:input message="tns:SettaStatoGDP2HttpPostIn" />
+      <wsdl:output message="tns:SettaStatoGDP2HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatoGDP2">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Il metodo restituisce, se l’operazione è andata a buon fine, un Arraylist che descrive lo stato del documento in GDP2, nel formato idsStato-DescStato.</documentation>
+      <wsdl:input message="tns:GetStatoGDP2HttpPostIn" />
+      <wsdl:output message="tns:GetStatoGDP2HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SettaMapGDP2">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Imposta una tabella di corrispondenza tra gli stati di una applicazione esterna ed gli stati del GDP2</documentation>
+      <wsdl:input message="tns:SettaMapGDP2HttpPostIn" />
+      <wsdl:output message="tns:SettaMapGDP2HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMapGDP2">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Recupera lo stato di corrispondenza tra un'applicazione esterna ed uno stato GDP2</documentation>
+      <wsdl:input message="tns:GetMapGDP2HttpPostIn" />
+      <wsdl:output message="tns:GetMapGDP2HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMappingGDP2">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Recupera la lista di stati di corrispondenza tra un'applicazione esterna ed uno stato GDP2.</documentation>
+      <wsdl:input message="tns:GetMappingGDP2HttpPostIn" />
+      <wsdl:output message="tns:GetMappingGDP2HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="protocollaConImmagine">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per la protocollazione con immagine.</documentation>
+      <wsdl:input message="tns:protocollaConImmagineHttpPostIn" />
+      <wsdl:output message="tns:protocollaConImmagineHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="interopUscita">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per la protocollazione interoperabilità in uscita</documentation>
+      <wsdl:input message="tns:interopUscitaHttpPostIn" />
+      <wsdl:output message="tns:interopUscitaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="interopEntrata">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per la protocollazione interoperabilità in entrata.</documentation>
+      <wsdl:input message="tns:interopEntrataHttpPostIn" />
+      <wsdl:output message="tns:interopEntrataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllegatiContestuali">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo pubblico per il recupero degli allegati contestuali a un documento protocollato.</documentation>
+      <wsdl:input message="tns:getAllegatiContestualiHttpPostIn" />
+      <wsdl:output message="tns:getAllegatiContestualiHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getRegistroProtocollo">
+      <soap:operation soapAction="http://www.inps.it/getRegistroProtocollo" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ricercaDocumentiProtocollati">
+      <soap:operation soapAction="http://www.inps.it/ricercaDocumentiProtocollati" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRicevutaProtocollo">
+      <soap:operation soapAction="http://www.inps.it/getRicevutaProtocollo" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTitolario">
+      <soap:operation soapAction="http://www.inps.it/getTitolario" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProcessoDestinatario">
+      <soap:operation soapAction="http://www.inps.it/getProcessoDestinatario" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersioneBC">
+      <soap:operation soapAction="http://www.inps.it/getVersioneBC" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDocumento">
+      <soap:operation soapAction="http://www.inps.it/getDocumentoEX" style="rpc" />
+      <wsdl:input name="getDocumentoEX">
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getDocumentoEX">
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDocumento">
+      <soap:operation soapAction="http://www.inps.it/getDocumento" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSegnaturaPeriferica">
+      <soap:operation soapAction="http://www.inps.it/getSegnaturaPeriferica" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="associaAllegato">
+      <soap:operation soapAction="http://www.inps.it/associaAllegato" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="associaImmagine">
+      <soap:operation soapAction="http://www.inps.it/associaImmagine" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImmagine">
+      <soap:operation soapAction="http://www.inps.it/getImmagine" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllegati">
+      <soap:operation soapAction="http://www.inps.it/getAllegati" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="protocollaCICS">
+      <soap:operation soapAction="http://www.inps.it/protocollaCICS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="protocolla">
+      <soap:operation soapAction="http://www.inps.it/protocolla" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificaDocumento">
+      <soap:operation soapAction="http://www.inps.it/modificaDocumento" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SettaStatoGDP">
+      <soap:operation soapAction="http://www.inps.it/SettaStatoGDP" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SettaStatoGDP2">
+      <soap:operation soapAction="http://www.inps.it/SettaStatoGDP2" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatoGDP2">
+      <soap:operation soapAction="http://www.inps.it/GetStatoGDP2" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SettaMapGDP2">
+      <soap:operation soapAction="http://www.inps.it/SettaMapGDP2" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMapGDP2">
+      <soap:operation soapAction="http://www.inps.it/GetMapGDP2" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMappingGDP2">
+      <soap:operation soapAction="http://www.inps.it/GetMappingGDP2" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="protocollaConImmagine">
+      <soap:operation soapAction="http://www.inps.it/protocollaConImmagine" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="interopUscita">
+      <soap:operation soapAction="http://www.inps.it/interopUscita" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="interopEntrata">
+      <soap:operation soapAction="http://www.inps.it/interopEntrata" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllegatiContestuali">
+      <soap:operation soapAction="http://www.inps.it/getAllegatiContestuali" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.inps.it" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1HttpGet" type="tns:Service1HttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="getRegistroProtocollo">
+      <http:operation location="/getRegistroProtocollo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ricercaDocumentiProtocollati">
+      <http:operation location="/ricercaDocumentiProtocollati" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRicevutaProtocollo">
+      <http:operation location="/getRicevutaProtocollo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTitolario">
+      <http:operation location="/getTitolario" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProcessoDestinatario">
+      <http:operation location="/getProcessoDestinatario" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersioneBC">
+      <http:operation location="/getVersioneBC" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDocumento">
+      <http:operation location="/getDocumentoEX" />
+      <wsdl:input name="getDocumentoEX">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="getDocumentoEX">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDocumento">
+      <http:operation location="/getDocumento" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSegnaturaPeriferica">
+      <http:operation location="/getSegnaturaPeriferica" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="associaAllegato">
+      <http:operation location="/associaAllegato" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="associaImmagine">
+      <http:operation location="/associaImmagine" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImmagine">
+      <http:operation location="/getImmagine" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllegati">
+      <http:operation location="/getAllegati" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="protocollaCICS">
+      <http:operation location="/protocollaCICS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="protocolla">
+      <http:operation location="/protocolla" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificaDocumento">
+      <http:operation location="/modificaDocumento" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SettaStatoGDP">
+      <http:operation location="/SettaStatoGDP" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SettaStatoGDP2">
+      <http:operation location="/SettaStatoGDP2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatoGDP2">
+      <http:operation location="/GetStatoGDP2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SettaMapGDP2">
+      <http:operation location="/SettaMapGDP2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMapGDP2">
+      <http:operation location="/GetMapGDP2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMappingGDP2">
+      <http:operation location="/GetMappingGDP2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="protocollaConImmagine">
+      <http:operation location="/protocollaConImmagine" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="interopUscita">
+      <http:operation location="/interopUscita" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="interopEntrata">
+      <http:operation location="/interopEntrata" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllegatiContestuali">
+      <http:operation location="/getAllegatiContestuali" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1HttpPost" type="tns:Service1HttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="getRegistroProtocollo">
+      <http:operation location="/getRegistroProtocollo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ricercaDocumentiProtocollati">
+      <http:operation location="/ricercaDocumentiProtocollati" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRicevutaProtocollo">
+      <http:operation location="/getRicevutaProtocollo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTitolario">
+      <http:operation location="/getTitolario" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProcessoDestinatario">
+      <http:operation location="/getProcessoDestinatario" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersioneBC">
+      <http:operation location="/getVersioneBC" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDocumento">
+      <http:operation location="/getDocumentoEX" />
+      <wsdl:input name="getDocumentoEX">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="getDocumentoEX">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDocumento">
+      <http:operation location="/getDocumento" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSegnaturaPeriferica">
+      <http:operation location="/getSegnaturaPeriferica" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="associaAllegato">
+      <http:operation location="/associaAllegato" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="associaImmagine">
+      <http:operation location="/associaImmagine" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImmagine">
+      <http:operation location="/getImmagine" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllegati">
+      <http:operation location="/getAllegati" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="protocollaCICS">
+      <http:operation location="/protocollaCICS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="protocolla">
+      <http:operation location="/protocolla" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificaDocumento">
+      <http:operation location="/modificaDocumento" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SettaStatoGDP">
+      <http:operation location="/SettaStatoGDP" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SettaStatoGDP2">
+      <http:operation location="/SettaStatoGDP2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatoGDP2">
+      <http:operation location="/GetStatoGDP2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SettaMapGDP2">
+      <http:operation location="/SettaMapGDP2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMapGDP2">
+      <http:operation location="/GetMapGDP2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMappingGDP2">
+      <http:operation location="/GetMappingGDP2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="protocollaConImmagine">
+      <http:operation location="/protocollaConImmagine" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="interopUscita">
+      <http:operation location="/interopUscita" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="interopEntrata">
+      <http:operation location="/interopEntrata" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllegatiContestuali">
+      <http:operation location="/getAllegatiContestuali" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="Service1Soap" binding="tns:Service1Soap">
+      <soap:address location="http://gedoc.inps/wspia/wspia.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1HttpGet" binding="tns:Service1HttpGet">
+      <http:address location="http://gedoc.inps/wspia/wspia.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1HttpPost" binding="tns:Service1HttpPost">
+      <http:address location="http://gedoc.inps/wspia/wspia.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

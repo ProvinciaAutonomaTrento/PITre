@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.adlibsoftware.com/UserManagement/" elementFormDefault="qualified" targetNamespace="http://schemas.adlibsoftware.com/UserManagement/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/Adlib/Services/UserManagement/UserManagementService.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost/Adlib/Services/UserManagement/UserManagementService.svc?xsd=xsd2" namespace="http://schemas.adlibsoftware.com/Common/" />
+  <xs:import schemaLocation="http://localhost/Adlib/Services/UserManagement/UserManagementService.svc?xsd=xsd3" namespace="http://schemas.adlibsoftware.com/GlobalClasses/" />
+  <xs:complexType name="UserCredentials">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="AdministrativeScopes" nillable="true" type="tns:ArrayOfAdministrativeScope" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrefferedCultureCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastActivityOnUtc" type="xs:long" />
+      <xs:element minOccurs="0" name="Hash" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SessionTimeoutMinutes" type="xs:long" />
+      <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserCredentials" nillable="true" type="tns:UserCredentials" />
+  <xs:complexType name="ArrayOfAdministrativeScope">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AdministrativeScope" nillable="true" type="tns:AdministrativeScope" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAdministrativeScope" nillable="true" type="tns:ArrayOfAdministrativeScope" />
+  <xs:complexType name="AdministrativeScope">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Role" nillable="true" type="tns:UserRole" />
+      <xs:element xmlns:q1="http://schemas.adlibsoftware.com/Common/" name="PendingChanges" type="q1:PendingChangesType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AdministrativeScope" nillable="true" type="tns:AdministrativeScope" />
+  <xs:complexType name="UserRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.adlibsoftware.com/Common/" name="PendingChanges" type="q2:PendingChangesType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserRole" nillable="true" type="tns:UserRole" />
+  <xs:complexType name="LoginUserRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UserCredentials" nillable="true" type="tns:UserCredentials" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LoginUserRequest" nillable="true" type="tns:LoginUserRequest" />
+  <xs:complexType name="LoginUserResponse">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.adlibsoftware.com/GlobalClasses/" minOccurs="0" name="ServiceException" nillable="true" type="q3:DetailException" />
+      <xs:element minOccurs="0" name="UserCredentials" nillable="true" type="tns:UserCredentials" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LoginUserResponse" nillable="true" type="tns:LoginUserResponse" />
+  <xs:complexType name="LogoutUserRequest">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="LogoutUserRequest" nillable="true" type="tns:LogoutUserRequest" />
+  <xs:complexType name="LogoutUserResponse">
+    <xs:sequence>
+      <xs:element xmlns:q4="http://schemas.adlibsoftware.com/GlobalClasses/" minOccurs="0" name="ServiceException" nillable="true" type="q4:DetailException" />
+      <xs:element minOccurs="0" name="UserCredentials" nillable="true" type="tns:UserCredentials" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LogoutUserResponse" nillable="true" type="tns:LogoutUserResponse" />
+  <xs:complexType name="RefreshUserCredentialsRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UserCredentials" nillable="true" type="tns:UserCredentials" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RefreshUserCredentialsRequest" nillable="true" type="tns:RefreshUserCredentialsRequest" />
+  <xs:complexType name="RefreshUserCredentialsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UserCredentials" nillable="true" type="tns:UserCredentials" />
+      <xs:element xmlns:q5="http://schemas.adlibsoftware.com/GlobalClasses/" minOccurs="0" name="ServiceException" nillable="true" type="q5:DetailException" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RefreshUserCredentialsResponse" nillable="true" type="tns:RefreshUserCredentialsResponse" />
+  <xs:complexType name="User">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedInScopeId" type="ser:guid" />
+      <xs:element minOccurs="0" name="CreatedOnUtc" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PasswordSetOnUtc" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FailedLoginCount" type="xs:long" />
+      <xs:element minOccurs="0" name="PrefferedCultureCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AdministrativeScopes" nillable="true" type="tns:ArrayOfAdministrativeScope" />
+      <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="ArrayOfCreateUsersRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CreateUsersRequest" nillable="true" type="tns:CreateUsersRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCreateUsersRequest" nillable="true" type="tns:ArrayOfCreateUsersRequest" />
+  <xs:complexType name="CreateUsersRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UserCredentials" nillable="true" type="tns:UserCredentials" />
+      <xs:element minOccurs="0" name="AdministrativeScopeId" type="ser:guid" />
+      <xs:element minOccurs="0" name="AdministrativeScopeUserRoleId" type="ser:guid" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleId" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreateUsersRequest" nillable="true" type="tns:CreateUsersRequest" />
+  <xs:complexType name="ArrayOfCreateUsersResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CreateUsersResponse" nillable="true" type="tns:CreateUsersResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCreateUsersResponse" nillable="true" type="tns:ArrayOfCreateUsersResponse" />
+  <xs:complexType name="CreateUsersResponse">
+    <xs:sequence>
+      <xs:element xmlns:q6="http://schemas.adlibsoftware.com/GlobalClasses/" minOccurs="0" name="ServiceException" nillable="true" type="q6:DetailException" />
+      <xs:element minOccurs="0" name="UserCredentials" nillable="true" type="tns:UserCredentials" />
+      <xs:element minOccurs="0" name="CreatedUser" nillable="true" type="tns:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreateUsersResponse" nillable="true" type="tns:CreateUsersResponse" />
+  <xs:complexType name="ArrayOfGetUsersRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GetUsersRequest" nillable="true" type="tns:GetUsersRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGetUsersRequest" nillable="true" type="tns:ArrayOfGetUsersRequest" />
+  <xs:complexType name="GetUsersRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UserCredentials" nillable="true" type="tns:UserCredentials" />
+      <xs:element minOccurs="0" name="UserId" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetUsersRequest" nillable="true" type="tns:GetUsersRequest" />
+  <xs:complexType name="ArrayOfGetUsersResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GetUsersResponse" nillable="true" type="tns:GetUsersResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGetUsersResponse" nillable="true" type="tns:ArrayOfGetUsersResponse" />
+  <xs:complexType name="GetUsersResponse">
+    <xs:sequence>
+      <xs:element xmlns:q7="http://schemas.adlibsoftware.com/GlobalClasses/" minOccurs="0" name="ServiceException" nillable="true" type="q7:DetailException" />
+      <xs:element minOccurs="0" name="UserCredentials" nillable="true" type="tns:UserCredentials" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetUsersResponse" nillable="true" type="tns:GetUsersResponse" />
+  <xs:complexType name="ArrayOfGetUsersByAdministrativeScopeRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GetUsersByAdministrativeScopeRequest" nillable="true" type="tns:GetUsersByAdministrativeScopeRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGetUsersByAdministrativeScopeRequest" nillable="true" type="tns:ArrayOfGetUsersByAdministrativeScopeRequest" />
+  <xs:complexType name="GetUsersByAdministrativeScopeRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdministrativeScopeId" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserCredentials" nillable="true" type="tns:UserCredentials" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetUsersByAdministrativeScopeRequest" nillable="true" type="tns:GetUsersByAdministrativeScopeRequest" />
+  <xs:complexType name="ArrayOfGetUsersByAdministrativeScopeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GetUsersByAdministrativeScopeResponse" nillable="true" type="tns:GetUsersByAdministrativeScopeResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGetUsersByAdministrativeScopeResponse" nillable="true" type="tns:ArrayOfGetUsersByAdministrativeScopeResponse" />
+  <xs:complexType name="GetUsersByAdministrativeScopeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Users" nillable="true" type="tns:ArrayOfUser" />
+      <xs:element minOccurs="0" name="UserCredentials" nillable="true" type="tns:UserCredentials" />
+      <xs:element xmlns:q8="http://schemas.adlibsoftware.com/GlobalClasses/" minOccurs="0" name="ServiceException" nillable="true" type="q8:DetailException" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetUsersByAdministrativeScopeResponse" nillable="true" type="tns:GetUsersByAdministrativeScopeResponse" />
+  <xs:complexType name="ArrayOfUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUser" nillable="true" type="tns:ArrayOfUser" />
+  <xs:complexType name="ArrayOfUpdateUsersRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UpdateUsersRequest" nillable="true" type="tns:UpdateUsersRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUpdateUsersRequest" nillable="true" type="tns:ArrayOfUpdateUsersRequest" />
+  <xs:complexType name="UpdateUsersRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+      <xs:element minOccurs="0" name="UserCredentials" nillable="true" type="tns:UserCredentials" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateUsersRequest" nillable="true" type="tns:UpdateUsersRequest" />
+  <xs:complexType name="ArrayOfUpdateUsersResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UpdateUsersResponse" nillable="true" type="tns:UpdateUsersResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUpdateUsersResponse" nillable="true" type="tns:ArrayOfUpdateUsersResponse" />
+  <xs:complexType name="UpdateUsersResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UpdatedUser" nillable="true" type="tns:User" />
+      <xs:element xmlns:q9="http://schemas.adlibsoftware.com/GlobalClasses/" minOccurs="0" name="ServiceException" nillable="true" type="q9:DetailException" />
+      <xs:element minOccurs="0" name="UserCredentials" nillable="true" type="tns:UserCredentials" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateUsersResponse" nillable="true" type="tns:UpdateUsersResponse" />
+  <xs:complexType name="ArrayOfDeleteUsersRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DeleteUsersRequest" nillable="true" type="tns:DeleteUsersRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDeleteUsersRequest" nillable="true" type="tns:ArrayOfDeleteUsersRequest" />
+  <xs:complexType name="DeleteUsersRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UserCredentials" nillable="true" type="tns:UserCredentials" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeleteUsersRequest" nillable="true" type="tns:DeleteUsersRequest" />
+  <xs:complexType name="ArrayOfDeleteUsersResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DeleteUsersResponse" nillable="true" type="tns:DeleteUsersResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDeleteUsersResponse" nillable="true" type="tns:ArrayOfDeleteUsersResponse" />
+  <xs:complexType name="DeleteUsersResponse">
+    <xs:sequence>
+      <xs:element xmlns:q10="http://schemas.adlibsoftware.com/GlobalClasses/" minOccurs="0" name="ServiceException" nillable="true" type="q10:DetailException" />
+      <xs:element minOccurs="0" name="UserCredentials" nillable="true" type="tns:UserCredentials" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeleteUsersResponse" nillable="true" type="tns:DeleteUsersResponse" />
+  <xs:complexType name="ArrayOfGetUserRolesRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GetUserRolesRequest" nillable="true" type="tns:GetUserRolesRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGetUserRolesRequest" nillable="true" type="tns:ArrayOfGetUserRolesRequest" />
+  <xs:complexType name="GetUserRolesRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UserCredentials" nillable="true" type="tns:UserCredentials" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetUserRolesRequest" nillable="true" type="tns:GetUserRolesRequest" />
+  <xs:complexType name="ArrayOfGetUserRolesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GetUserRolesResponse" nillable="true" type="tns:GetUserRolesResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGetUserRolesResponse" nillable="true" type="tns:ArrayOfGetUserRolesResponse" />
+  <xs:complexType name="GetUserRolesResponse">
+    <xs:sequence>
+      <xs:element xmlns:q11="http://schemas.adlibsoftware.com/GlobalClasses/" minOccurs="0" name="ServiceException" nillable="true" type="q11:DetailException" />
+      <xs:element minOccurs="0" name="UserCredentials" nillable="true" type="tns:UserCredentials" />
+      <xs:element minOccurs="0" name="UserRoles" nillable="true" type="tns:ArrayOfUserRole" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetUserRolesResponse" nillable="true" type="tns:GetUserRolesResponse" />
+  <xs:complexType name="ArrayOfUserRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserRole" nillable="true" type="tns:UserRole" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserRole" nillable="true" type="tns:ArrayOfUserRole" />
+  <xs:complexType name="ArrayOfGetAdministrativeScopesRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GetAdministrativeScopesRequest" nillable="true" type="tns:GetAdministrativeScopesRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGetAdministrativeScopesRequest" nillable="true" type="tns:ArrayOfGetAdministrativeScopesRequest" />
+  <xs:complexType name="GetAdministrativeScopesRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UserCredentials" nillable="true" type="tns:UserCredentials" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetAdministrativeScopesRequest" nillable="true" type="tns:GetAdministrativeScopesRequest" />
+  <xs:complexType name="ArrayOfGetAdministrativeScopesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GetAdministrativeScopesResponse" nillable="true" type="tns:GetAdministrativeScopesResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGetAdministrativeScopesResponse" nillable="true" type="tns:ArrayOfGetAdministrativeScopesResponse" />
+  <xs:complexType name="GetAdministrativeScopesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdministrativeScopes" nillable="true" type="tns:ArrayOfAdministrativeScope" />
+      <xs:element xmlns:q12="http://schemas.adlibsoftware.com/GlobalClasses/" minOccurs="0" name="ServiceException" nillable="true" type="q12:DetailException" />
+      <xs:element minOccurs="0" name="UserCredentials" nillable="true" type="tns:UserCredentials" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetAdministrativeScopesResponse" nillable="true" type="tns:GetAdministrativeScopesResponse" />
+</xs:schema>

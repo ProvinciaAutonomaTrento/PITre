@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile.Requests" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://efis638/Vt-Docs/DocsPaWS/Mobile/VTDocsWSMobile.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" />
+  <xs:complexType name="LoginRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LoginRequest" nillable="true" type="tns:LoginRequest" />
+  <xs:complexType name="LogoutRequest">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="UserInfo" nillable="true" type="q1:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LogoutRequest" nillable="true" type="tns:LogoutRequest" />
+  <xs:complexType name="ToDoListRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FascId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdCorrGlobali" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdGruppo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PageSize" type="xs:int" />
+      <xs:element minOccurs="0" name="ParentFolderId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Registri" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestedPage" type="xs:int" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="UserInfo" nillable="true" type="q2:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ToDoListRequest" nillable="true" type="tns:ToDoListRequest" />
+  <xs:complexType name="GetDocInfoRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IdCorrGlobali" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdDoc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdGruppo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdTrasm" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="UserInfo" nillable="true" type="q3:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetDocInfoRequest" nillable="true" type="tns:GetDocInfoRequest" />
+  <xs:complexType name="GetFileRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IdCorrGlobali" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdDoc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdGruppo" nillable="true" type="xs:string" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="UserInfo" nillable="true" type="q4:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetFileRequest" nillable="true" type="tns:GetFileRequest" />
+  <xs:complexType name="GetPreviewRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DimX" type="xs:int" />
+      <xs:element minOccurs="0" name="DimY" type="xs:int" />
+      <xs:element minOccurs="0" name="IdCorrGlobali" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdDoc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdGruppo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestedPage" type="xs:int" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="UserInfo" nillable="true" type="q5:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetPreviewRequest" nillable="true" type="tns:GetPreviewRequest" />
+  <xs:complexType name="ADLActionRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdlAction" type="tns:ADLActionRequest.ADLActions" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="DocInfo" nillable="true" type="q6:DocInfo" />
+      <xs:element minOccurs="0" name="IdCorrGlobali" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdGruppo" nillable="true" type="xs:string" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="UserInfo" nillable="true" type="q7:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ADLActionRequest" nillable="true" type="tns:ADLActionRequest" />
+  <xs:simpleType name="ADLActionRequest.ADLActions">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ADD" />
+      <xs:enumeration value="REMOVE" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ADLActionRequest.ADLActions" nillable="true" type="tns:ADLActionRequest.ADLActions" />
+  <xs:complexType name="GetFascInfoRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IdCorrGlobali" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdFasc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdGruppo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdTrasm" nillable="true" type="xs:string" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="UserInfo" nillable="true" type="q8:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetFascInfoRequest" nillable="true" type="tns:GetFascInfoRequest" />
+  <xs:complexType name="RicercaRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EnableProfilazione" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EnableUfficioRef" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FascId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdCorrGlobali" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdGruppo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdRicercaSalvata" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PageSize" type="xs:int" />
+      <xs:element minOccurs="0" name="ParentFolderId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestedPage" type="xs:int" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="TypeRicerca" type="q9:RicercaType" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="TypeRicercaSalvata" type="q10:RicercaSalvataType" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="UserInfo" nillable="true" type="q11:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RicercaRequest" nillable="true" type="tns:RicercaRequest" />
+  <xs:complexType name="GetRicSalvateRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IdGruppo" nillable="true" type="xs:string" />
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="UserInfo" nillable="true" type="q12:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetRicSalvateRequest" nillable="true" type="tns:GetRicSalvateRequest" />
+  <xs:complexType name="CountDelegheAttiveRequest">
+    <xs:sequence>
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="UserInfo" nillable="true" type="q13:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CountDelegheAttiveRequest" nillable="true" type="tns:CountDelegheAttiveRequest" />
+  <xs:complexType name="DelegheRequest">
+    <xs:sequence>
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="StatoDelega" type="q14:StatoDelega" />
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="TipoDelega" type="q15:TipoDelega" />
+      <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="UserInfo" nillable="true" type="q16:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DelegheRequest" nillable="true" type="tns:DelegheRequest" />
+  <xs:complexType name="ListaModelliDelegaRequest">
+    <xs:sequence>
+      <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="UserInfo" nillable="true" type="q17:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListaModelliDelegaRequest" nillable="true" type="tns:ListaModelliDelegaRequest" />
+  <xs:complexType name="CreaDelegaDaModelloRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataFine" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DataInizio" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IdModelloDelega" nillable="true" type="xs:string" />
+      <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="UserInfo" nillable="true" type="q18:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreaDelegaDaModelloRequest" nillable="true" type="tns:CreaDelegaDaModelloRequest" />
+  <xs:complexType name="CreaDelegaRequest">
+    <xs:sequence>
+      <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="Delega" nillable="true" type="q19:Delega" />
+      <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="UserInfo" nillable="true" type="q20:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreaDelegaRequest" nillable="true" type="tns:CreaDelegaRequest" />
+  <xs:complexType name="AccettaDelegaRequest">
+    <xs:sequence>
+      <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="Delega" nillable="true" type="q21:DelegaInfo" />
+      <xs:element minOccurs="0" name="IpAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SessionId" nillable="true" type="xs:string" />
+      <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="UserInfo" nillable="true" type="q22:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AccettaDelegaRequest" nillable="true" type="tns:AccettaDelegaRequest" />
+  <xs:complexType name="DismettiDelegaRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IdDelegante" nillable="true" type="xs:string" />
+      <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="UserInfo" nillable="true" type="q23:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DismettiDelegaRequest" nillable="true" type="tns:DismettiDelegaRequest" />
+  <xs:complexType name="RevocaDelegheRequest">
+    <xs:sequence>
+      <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="Deleghe" nillable="true" type="q24:ArrayOfDelega" />
+      <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="UserInfo" nillable="true" type="q25:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RevocaDelegheRequest" nillable="true" type="tns:RevocaDelegheRequest" />
+  <xs:complexType name="RicercaUtentiRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descrizione" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumMaxResults" type="xs:int" />
+      <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="Ruolo" nillable="true" type="q26:RuoloInfo" />
+      <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="UserInfo" nillable="true" type="q27:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RicercaUtentiRequest" nillable="true" type="tns:RicercaUtentiRequest" />
+  <xs:complexType name="ListaTipiRuoloRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IdAmministrazione" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListaTipiRuoloRequest" nillable="true" type="tns:ListaTipiRuoloRequest" />
+  <xs:complexType name="ListaUtentiRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodiceTipoRuolo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdAmministrazione" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListaUtentiRequest" nillable="true" type="tns:ListaUtentiRequest" />
+  <xs:complexType name="AccettaRifiutaTrasmRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Action" type="tns:AccettaRifiutaAction" />
+      <xs:element minOccurs="0" name="IdGruppo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdTrasmissione" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdTrasmissioneUtente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="UserInfo" nillable="true" type="q28:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AccettaRifiutaTrasmRequest" nillable="true" type="tns:AccettaRifiutaTrasmRequest" />
+  <xs:simpleType name="AccettaRifiutaAction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ACCETTA" />
+      <xs:enumeration value="RIFIUTA" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AccettaRifiutaAction" nillable="true" type="tns:AccettaRifiutaAction" />
+  <xs:complexType name="ListaModelliTrasmRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IdCorrGlobali" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TrasmFasc" type="xs:boolean" />
+      <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="UserInfo" nillable="true" type="q29:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListaModelliTrasmRequest" nillable="true" type="tns:ListaModelliTrasmRequest" />
+  <xs:complexType name="EseguiTrasmRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IdCorrGlobali" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdDoc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdFasc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdModelloTrasm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Path" nillable="true" type="xs:string" />
+      <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="UserInfo" nillable="true" type="q30:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EseguiTrasmRequest" nillable="true" type="tns:EseguiTrasmRequest" />
+  <xs:complexType name="RicercaSmistamentoRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descrizione" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumMaxResults" type="xs:int" />
+      <xs:element minOccurs="0" name="Ragione" nillable="true" type="xs:string" />
+      <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="Ruolo" nillable="true" type="q31:RuoloInfo" />
+      <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="UserInfo" nillable="true" type="q32:UserInfo" />
+      <xs:element minOccurs="0" name="numMaxResultsForCategory" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RicercaSmistamentoRequest" nillable="true" type="tns:RicercaSmistamentoRequest" />
+  <xs:complexType name="GetSmistamentoTreeRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IdUO" nillable="true" type="xs:string" />
+      <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="Ruolo" nillable="true" type="q33:RuoloInfo" />
+      <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="UserInfo" nillable="true" type="q34:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetSmistamentoTreeRequest" nillable="true" type="tns:GetSmistamentoTreeRequest" />
+  <xs:complexType name="GetSmistamentoElementsRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IdCorrGlobali" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdGruppo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PageSize" type="xs:int" />
+      <xs:element minOccurs="0" name="Registri" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestedPage" type="xs:int" />
+      <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="UserInfo" nillable="true" type="q35:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetSmistamentoElementsRequest" nillable="true" type="tns:GetSmistamentoElementsRequest" />
+  <xs:complexType name="EseguiSmistamentoRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Elements" nillable="true" type="tns:ArrayOfEseguiSmistamentoElement" />
+      <xs:element minOccurs="0" name="IdDocumento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdTrasmissione" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdTrasmissioneSingola" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdTrasmissioneUtente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NoteGenerali" nillable="true" type="xs:string" />
+      <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="Ruolo" nillable="true" type="q36:RuoloInfo" />
+      <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="UserInfo" nillable="true" type="q37:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EseguiSmistamentoRequest" nillable="true" type="tns:EseguiSmistamentoRequest" />
+  <xs:complexType name="ArrayOfEseguiSmistamentoElement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EseguiSmistamentoElement" nillable="true" type="tns:EseguiSmistamentoElement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEseguiSmistamentoElement" nillable="true" type="tns:ArrayOfEseguiSmistamentoElement" />
+  <xs:complexType name="EseguiSmistamentoElement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Competenza" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Conoscenza" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IdRuolo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdUO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdUtente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NoteIndividuali" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isRicerca" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EseguiSmistamentoElement" nillable="true" type="tns:EseguiSmistamentoElement" />
+  <xs:complexType name="HSMSignRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AliasCertificato" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ConvertPdf" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DominioCertificato" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdCorrGlobali" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdDoc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdGruppo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OtpFirma" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PinCertificato" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoFirma" nillable="true" type="xs:string" />
+      <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/DocsPaVO.Mobile" minOccurs="0" name="UserInfo" nillable="true" type="q38:UserInfo" />
+      <xs:element minOccurs="0" name="cofirma" type="xs:boolean" />
+      <xs:element minOccurs="0" name="timestamp" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HSMSignRequest" nillable="true" type="tns:HSMSignRequest" />
+</xs:schema>

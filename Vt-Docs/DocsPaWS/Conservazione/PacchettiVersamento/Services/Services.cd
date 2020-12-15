@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DocsPaWS.Conservazione.PacchettiVersamento.Services.Response">
+    <Position X="8.5" Y="1.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Conservazione\PacchettiVersamento\Services\Response.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DocsPaWS.Conservazione.PacchettiVersamento.Services.Request">
+    <Position X="0.5" Y="1.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Conservazione\PacchettiVersamento\Services\Request.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DocsPaWS.Conservazione.PacchettiVersamento.Services.GetSupporti.GetSupportiRequest">
+    <Position X="0.5" Y="3.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Conservazione\PacchettiVersamento\Services\GetSupporti\GetSupportiRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DocsPaWS.Conservazione.PacchettiVersamento.Services.GetSupporti.GetSupportiResponse">
+    <Position X="8.5" Y="3.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Conservazione\PacchettiVersamento\Services\GetSupporti\GetSupportiResponse.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Supporto" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DocsPaWS.Conservazione.PacchettiVersamento.Dominio.Supporto">
+    <Position X="8.5" Y="5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAIEAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Conservazione\PacchettiVersamento\Dominio\Supporto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="DocsPaWS.Conservazione.PacchettiVersamento.Services.IServices">
+    <Position X="4.5" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ARAAAAAAAAAwAAAAQAQAAAAgAFAAABAAAAgBEAMAAAA=</HashCode>
+      <FileName>Conservazione\PacchettiVersamento\Services\IServices.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GetSupportiResponse" />
+      <Property Name="GetSupportiRequest" />
+    </ShowAsAssociation>
+  </Interface>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

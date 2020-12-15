@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5FE8D8B6-A43C-428D-80CE-141068EB1B5F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Subscriber.Pat</RootNamespace>
+    <AssemblyName>Subscriber.Pat</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\..\DLL_TERZE_PARTI\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\BackEnd\VersionInfo.cs">
+      <Link>VersionInfo.cs</Link>
+    </Compile>
+    <Compile Include="Avvocatura\Rules\ContenziosoTributarioRule.cs" />
+    <Compile Include="Avvocatura\Rules\GiurisdizioneContabileRule.cs" />
+    <Compile Include="Avvocatura\Rules\ProcedimentoPenaleRule.cs" />
+    <Compile Include="Avvocatura\Rules\RicorsoCorteCostituzionaleRule.cs" />
+    <Compile Include="ErrorCodes.cs" />
+    <Compile Include="ErrorDescriptions.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErrorDescriptions.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Avvocatura\Rules\AvvocaturaBaseRule.cs" />
+    <Compile Include="Avvocatura\Rules\CommonFields.cs" />
+    <Compile Include="Dummy.cs" />
+    <Compile Include="Avvocatura\Rules\PignoramentoPressoTerziRule.cs" />
+    <Compile Include="Avvocatura\Rules\RimborsoSpeseLegaliExArt92Rule.cs" />
+    <Compile Include="Avvocatura\Rules\PareriRule.cs" />
+    <Compile Include="Avvocatura\Rules\RicorsoStraordinarioPresRepRule.cs" />
+    <Compile Include="Avvocatura\Rules\RitoLavoro1gr2grRule.cs" />
+    <Compile Include="Avvocatura\Rules\ProcessoCognizioneOrd1GrRule.cs" />
+    <Compile Include="Avvocatura\Rules\ProceduraConcorsualeRule.cs" />
+    <Compile Include="Avvocatura\Rules\RicorsoAmministrativo1GrRule.cs" />
+    <Compile Include="Avvocatura\Rules\AvvocaturaBaseRuleOptions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\HolidayChecker\HolidayChecker.csproj">
+      <Project>{92C4AAB6-1717-456D-83C3-628E28DBF167}</Project>
+      <Name>HolidayChecker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Subscriber.Core\Subscriber.Core.csproj">
+      <Project>{E81DF348-8137-4835-A3AF-08CB461585F1}</Project>
+      <Name>Subscriber.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ErrorDescriptions.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorDescriptions.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
