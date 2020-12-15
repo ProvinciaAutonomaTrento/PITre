@@ -6,5 +6,6 @@ In questa parte del repository è raccolta la documentazione messa a disposizion
 * Documentazione Pis
 * Manuali d'uso 
 
+
 # Altri files
 Inoltre viene messo a disposizione un documento in formato CHM (Compiled HTML file format) che documenta l'object model di PiTre
