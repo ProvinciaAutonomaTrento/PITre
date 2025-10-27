@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Pi3.Core</RootNamespace>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>1.3.3</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pi3.Core.CorrispondenteAggregate\Pi3.Core.CorrispondenteAggregate.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AggregateModels\RuoloCorrispondenteAggregate\Entities\" />
+    <Folder Include="AggregateModels\RuoloCorrispondenteAggregate\Exceptions\" />
+    <Folder Include="AggregateModels\RuoloCorrispondenteAggregate\Factories\" />
+    <Folder Include="AggregateModels\RuoloCorrispondenteAggregate\Resources\" />
+    <Folder Include="AggregateModels\RuoloCorrispondenteAggregate\ValueObjects\" />
+  </ItemGroup>
+</Project>

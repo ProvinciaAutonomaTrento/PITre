@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="DocumentoInformatico">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="IdDoc">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Impronta" type="xs:base64Binary" />
+              <xs:element name="Algoritmo" type="xs:string" default="SHA-256"/>
+              <xs:element name="Identificativo" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ModalitaDiFormazione">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="creazione tramite utilizzo di strumenti software che assicurino la produzione di documenti nei formati previsti in allegato 2"/>
+              <xs:enumeration value="acquisizione di un documento informatico per via telematica o su supporto informatico, acquisizione della copia per immagine su supporto informatico di un documento analogico, acquisizione della copia informatica di un documento analogico"/>
+              <xs:enumeration value="memorizzazione su supporto informatico in formato digitale delle informazioni risultanti da transazioni o processi informatici o dalla presentazione telematica di dati attraverso moduli o formulari resi disponibili ad utente"/>
+              <xs:enumeration value="generazione o raggruppamento anche in via automatica di un insieme di dati o registrazioni, provenienti da una o più banche dati, anche appartenenti a più soggetti interoperanti, secondo una struttura logica predeterminata e memorizzata in forma statica"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="TipologiaDocumentale" type="xs:string" />
+        <xs:element name="DatiDiRegistrazione">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TipologiaDiFlusso">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="In entrata"/>
+                    <xs:enumeration value="In uscita"/>
+                    <xs:enumeration value="Interno"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TipoRegistro">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="Nessuno"/>
+                    <xs:enumeration value="Protocollo Ordinario/Protocollo Emergenza"/>
+                    <xs:enumeration value="Repertorio/Registro"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DataRegistrazione" type="xs:dateTime"/>
+              <xs:element name="NumeroDocumento" type="xs:string" />
+              <xs:element name="IdRegistro" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ChiaveDescrittiva">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Oggetto" type="xs:string" />
+              <xs:element name="ParoleChiave" type="xs:string" minOccurs="0" maxOccurs="5" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Soggetti" minOccurs="1" maxOccurs="unbounded" >
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Ruolo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="Autore"/>
+                    <xs:enumeration value="Mittente"/>
+                    <xs:enumeration value="Destinatario"/>
+                    <xs:enumeration value="Assegnatario"/>
+                    <xs:enumeration value="Operatore"/>
+                    <xs:enumeration value="Altro"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TipoSoggetto">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="PF"/>
+                    <xs:enumeration value="PG"/>
+                    <xs:enumeration value="PA"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nominativo" type="xs:string" />
+              <xs:element name="Codice" type="xs:string" />
+              <xs:element name="UOR" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Allegati">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NumeroAllegati" >
+                <xs:simpleType>
+                  <xs:restriction base="xs:integer">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="999"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IndiceAllegati" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="IdDoc">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element
+                          name="Impronta" type="xs:base64Binary" />
+                          <xs:element
+                          name="Algoritmo" type="xs:string" default="SHA-256"/>
+                          <xs:element
+                          name="Identificativo" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Descrizione" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Classificazione" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IndiceDiClassificazione" type="xs:string" />
+              <xs:element name="Descrizione" type="xs:string" />
+              <xs:element name="PianoDiClassificazione" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Riservato" type="xs:boolean" />
+        <xs:element name="IdentificativoDelFormato">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Formato" type="xs:string" />
+              <xs:element name="ProdottoSoftware" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="NomeProdotto" type="xs:string"
+                    minOccurs="0" />
+                    <xs:element name="VersioneProdotto" type="xs:string"
+                    minOccurs="0" />
+                    <xs:element name="Produttore" type="xs:string"
+                    minOccurs="0" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Verifica" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FirmatoDigitalmente" type="xs:boolean" />
+              <xs:element name="SigillatoElettronicamente" type="xs:boolean" />
+              <xs:element name="MarcaturaTemporale" type="xs:boolean" />
+              <xs:element name="ConformitaCopieImmagineSuSupportoInformatico" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="IdAgg" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TipoAggregazione">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="Fascicolo"/>
+                    <xs:enumeration value="Serie Documentale"/>
+                    <xs:enumeration value="Serie Di Fascicoli"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdAggregazione" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="IdIdentificativoDocumentoPrincipale" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Impronta" type="xs:base64Binary" />
+              <xs:element name="Algoritmo" type="xs:string" default="SHA-256"/>
+              <xs:element name="Identificativo" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="VersioneDelDocumento" type="xs:string" />
+        <xs:element name="TracciatureModificheDocumento" minOccurs="0" >
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TipoModifica">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="Annullamento"/>
+                    <xs:enumeration value="Rettifica"/>
+                    <xs:enumeration value="Integrazione"/>
+                    <xs:enumeration value="Annotazione"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CodiceFiscaleAutoreDellaModifica">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string" >
+                    <xs:pattern value="[A-Z]{6}[0-9LMNPQRSTUV]{2}[ABCDEHLMPRST][0-9LMNPQRSTUV]{2}[A-Z][0-9LMNPQRSTUV]{3}[A-Z]"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DataModifica" type="xs:dateTime"/>
+              <xs:element name="IdDocVersionePrecedente">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Impronta" type="xs:base64Binary" />
+                    <xs:element name="Algoritmo" type="xs:string"
+                    default="SHA-256"/>
+                    <xs:element name="Identificativo" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TempoDiConservazione" minOccurs="0">
+          <xs:simpleType>
+            <xs:restriction base="xs:integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="9999"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="Note" type="xs:string" minOccurs="0" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

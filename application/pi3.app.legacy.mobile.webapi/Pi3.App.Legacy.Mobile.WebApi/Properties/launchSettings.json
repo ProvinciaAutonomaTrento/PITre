@@ -1,0 +1,47 @@
+{
+  "profiles": {
+    "http": {
+      "commandName": "Project",
+      "launchBrowser": false,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_BASEPATH": "",
+        "API_VERSION": "v1",
+        "RABBITMQ_USER": "rabbitmqPitreTest",
+        "RABBITMQ_PASSWORD": "5!f30e$b5yBX",
+        "RABBITMQ_HOST": "pitre-rabbitmq",
+        "RABBITMQ_PORT": "5672",
+        "ConnectionStrings__PAT_INSTANCE": "User id=pat_prod; Password=patprod15072013; Data Source=exa-x1t01-scan.intra.infotn.it:1521/X1T01SRV1;"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "http://localhost:7000"
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": false,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
+      "environmentVariables": {
+        "ASPNETCORE_HTTP_PORTS": "8080"
+      },
+      "publishAllPorts": true
+    }
+  },
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:50051",
+      "sslPort": 0
+    }
+  }
+}

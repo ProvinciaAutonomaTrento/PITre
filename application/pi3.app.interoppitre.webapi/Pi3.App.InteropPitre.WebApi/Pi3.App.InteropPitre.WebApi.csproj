@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>24ae57e6-6818-47d6-b315-13b89a39102e</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Core\**" />
+    <Content Remove="Core\**" />
+    <EmbeddedResource Remove="Core\**" />
+    <None Remove="Core\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Asp.Versioning.Mvc" Version="6.4.1" />
+    <PackageReference Include="Elastic.Apm.NetCoreAll" Version="1.30.1" />
+    <PackageReference Include="MediatR" Version="12.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.24" />
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="8.0.3" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+    <PackageReference Include="prometheus-net.AspNetCore" Version="8.2.1" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.8.1" />
+    <PackageReference Include="Refit" Version="8.0.0" />
+    <PackageReference Include="Refit.HttpClientFactory" Version="7.0.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="7.0.0" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="7.0.1" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.aac-main\Pi3.Infrastructure.AAC\Pi3.Infrastructure.AAC.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.bouncycastle-main\Pi3.Infrastructure.BouncyCastle\Pi3.Infrastructure.BouncyCastle.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.chilkat-main\Pi3.Infrastructure.Chilkat\Pi3.Infrastructure.Chilkat.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.graph-main\Pi3.Infrastructure.Graph\Pi3.Infrastructure.Graph.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.DocumentFSRepository\Pi3.Infrastructure.Legacy.DocumentFSRepository.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.DocumentoAmministrativo\Pi3.Infrastructure.Legacy.EF.DocumentoAmministrativoAggregate.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.NoteAggregate\Pi3.Infrastructure.Legacy.EF.NotaAggregate.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.Oracle\Pi3.Infrastructure.Legacy.EF.Oracle.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.Services\Pi3.Infrastructure.Legacy.EF.Services.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.TrasmissioneAggregate\Pi3.Infrastructure.Legacy.EF.TrasmissioneAggregate.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.UOCorrispondenteAggregate\Pi3.Infrastructure.Legacy.EF.UOCorrispondenteAggregate.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Application\DomainEventHandlers\" />
+    <Folder Include="Application\Queries\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Application\Commands\InteroperabilityService\AnalyzeDocumentReceivedProof\LoggerDescriptions.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>LoggerDescriptions.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Application\Commands\InteroperabilityService\AnalyzeDocumentDroppedOrErrorMessageProof\LoggerDescriptions.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>LoggerDescriptions.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\ErrorDescriptions.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ErrorDescriptions.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Application\Commands\InteroperabilityService\AnalyzeDocumentReceivedProof\LoggerDescriptions.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LoggerDescriptions.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Application\Commands\InteroperabilityService\AnalyzeDocumentDroppedOrErrorMessageProof\LoggerDescriptions.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LoggerDescriptions.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\ErrorDescriptions.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorDescriptions.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Pi3.App.InteropPitre.WebApi.Tests" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="appsettings.Development.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>

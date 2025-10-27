@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Pi3.Infrastructure.Legacy.EF" Version="1.1.124" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
+    <ProjectReference Include="..\..\..\core\pi3.core-main\Pi3.Core.DocumentBlobAggregate\Pi3.Core.DocumentBlobAggregate.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.Oracle\Pi3.Infrastructure.Legacy.EF.Oracle.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.Services\Pi3.Infrastructure.Legacy.EF.Services.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.DelegaAggregate\Pi3.Infrastructure.Legacy.EF.DelegaAggregate.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.tibco-main\pi3.infrastructure.tibco-main\Pi3.Infrastructure.Tibco\Pi3.Infrastructure.Tibco.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pi3.App.Legacy.Mobile.Models\Pi3.App.Legacy.Mobile.Models.csproj" />
+    <ProjectReference Include="..\Pi3.App.Legacy.Mobile.Shared\Pi3.App.Legacy.Mobile.Shared.csproj" />
+  </ItemGroup>
+</Project>

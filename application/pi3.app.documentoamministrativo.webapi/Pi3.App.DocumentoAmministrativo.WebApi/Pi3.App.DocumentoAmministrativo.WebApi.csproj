@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>$(MSBuildProjectName)</RootNamespace>
+    <UserSecretsId>195d6c7c-a7b4-465f-b743-dc945505b3de</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Resources\Examples\**" />
+    <Content Remove="Resources\Examples\**" />
+    <EmbeddedResource Remove="Resources\Examples\**" />
+    <None Remove="Resources\Examples\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="DocumentBlobFakeRepository.cs" />
+    <Compile Remove="Infrastructure\Services\RabbitMQ\IMessageQueuePublisherService.cs" />
+    <Compile Remove="Infrastructure\Services\RabbitMQ\IMessageQueueSubscriberService.cs" />
+    <Compile Remove="Infrastructure\Services\RabbitMQ\MessageQueueBaseNotification.cs" />
+    <Compile Remove="Infrastructure\Services\RabbitMQ\MessageQueueBaseNotificationHandler.cs" />
+    <Compile Remove="Infrastructure\Services\RabbitMQ\RabbitMessageQueuePublisherService.cs" />
+    <Compile Remove="Infrastructure\Services\RabbitMQ\RabbitMessageQueueSubscriberService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\swagger-ui\cors.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="..\Pi3.App.DocumentoAmministrativo.WebApi.Tests\Resources\AddDestinatariCCTest-Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.DocumentoAmministrativo.WebApi.Tests\Resources\AddDestinatariTest-Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.DocumentoAmministrativo.WebApi.Tests\Resources\AddDocumentoCollegatoTest-Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.DocumentoAmministrativo.WebApi.Tests\Resources\AddKeywordTest-Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.DocumentoAmministrativo.WebApi.Tests\Resources\AddNoteTest-Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.DocumentoAmministrativo.WebApi.Tests\Resources\AggiungiAggregazioneTest-Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.DocumentoAmministrativo.WebApi.Tests\Resources\AggiungiClassificazioneTest-Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.DocumentoAmministrativo.WebApi.Tests\Resources\AnnullamentoTest-Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.DocumentoAmministrativo.WebApi.Tests\Resources\CambiaOggettoTest-Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.DocumentoAmministrativo.WebApi.Tests\Resources\CambioMittenteMultiploTest-Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.DocumentoAmministrativo.WebApi.Tests\Resources\CambioMittenteTest-Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.DocumentoAmministrativo.WebApi.Tests\Resources\ConsolidamentoTest-Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.DocumentoAmministrativo.WebApi.Tests\Resources\CreaEntrataTest-Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.DocumentoAmministrativo.WebApi.Tests\Resources\CreaEntrataUploadTest-Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.DocumentoAmministrativo.WebApi.Tests\Resources\CreaInternoTest-Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.DocumentoAmministrativo.WebApi.Tests\Resources\CreaNonProtocollatoTest-Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.DocumentoAmministrativo.WebApi.Tests\Resources\CreaUscitaTest-Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.DocumentoAmministrativo.WebApi.Tests\Resources\DeleteDocumentoTest-Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.DocumentoAmministrativo.WebApi.Tests\Resources\PredisponiProtocolloTest-Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.DocumentoAmministrativo.WebApi.Tests\Resources\ProfiloPut_Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.DocumentoAmministrativo.WebApi.Tests\Resources\ProtocolloEmergenzaTest-Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.DocumentoAmministrativo.WebApi.Tests\Resources\ProtocolloMittenteTest-Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.DocumentoAmministrativo.WebApi.Tests\Resources\RegistrazioneProtocolloTest-Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.DocumentoAmministrativo.WebApi.Tests\Resources\SpedizioneTest-Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.DocumentoAmministrativo.WebApi.Tests\Resources\TrasmissioniPost_Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.DocumentoAmministrativo.WebApi.Tests\Resources\TrasmissioniPut_Actual.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\Pi3.App.DocumentoAmministrativo.WebApi.Tests\Resources\CreaInternoTest-Actual.txt" Link="CreaInternoTest-Actual.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
+    <PackageReference Include="Elastic.Apm.NetCoreAll" Version="1.31.0" />
+    <PackageReference Include="MediatR" Version="12.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="8.0.3" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
+    <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="3.21.90" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.8.1" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="8.0.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="8.0.2" />
+    <PackageReference Include="System.Formats.Asn1" Version="6.0.1" />
+    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="6.0.3" />
+    <PackageReference Include="System.Text.Json" Version="8.0.5" />
+    <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
+    <ProjectReference Include="..\..\..\core\pi3.core-main\Pi3.Core\Pi3.Core.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.aac-main\Pi3.Infrastructure.AAC\Pi3.Infrastructure.AAC.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.adobe-main\Pi3.Infrastructure.Adobe\Pi3.Infrastructure.Adobe.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.DocumentFSRepository\Pi3.Infrastructure.Legacy.DocumentFSRepository.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.DocumentoAmministrativo\Pi3.Infrastructure.Legacy.EF.DocumentoAmministrativoAggregate.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.ModelloTrasmissioneAggregate\Pi3.Infrastructure.Legacy.EF.ModelloTrasmissioneAggregate.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.NoteAggregate\Pi3.Infrastructure.Legacy.EF.NotaAggregate.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.Oracle\Pi3.Infrastructure.Legacy.EF.Oracle.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.Services\Pi3.Infrastructure.Legacy.EF.Services.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.TrasmissioneAggregate\Pi3.Infrastructure.Legacy.EF.TrasmissioneAggregate.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.UploaderFS\Pi3.Infrastructure.Legacy.UploaderFS.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Application\Commands\ConvertVersionToPdf\Descriptions.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Descriptions.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Application\Commands\ConvertVersionToPdf\ErrorDescriptions.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ErrorDescriptions.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Application\DomainEventHandlers\ErrorDescriptions.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ErrorDescriptions.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Application\DomainEventHandlers\Logs.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Logs.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Application\Exceptions\ErrorDescriptions.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ErrorDescriptions.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Infrastructure\Services\RabbitMQ\ErrorDescriptions.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ErrorDescriptions.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Documentation.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Documentation.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\ErrorDescriptions.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ErrorDescriptions.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Examples.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Examples.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Files.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Files.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Application\Commands\ConvertVersionToPdf\Descriptions.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Descriptions.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Application\Commands\ConvertVersionToPdf\ErrorDescriptions.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorDescriptions.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Application\DomainEventHandlers\ErrorDescriptions.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorDescriptions.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Application\DomainEventHandlers\Logs.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Logs.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Application\Exceptions\ErrorDescriptions.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorDescriptions.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Infrastructure\Services\RabbitMQ\ErrorDescriptions.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorDescriptions.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Documentation.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Documentation.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\ErrorDescriptions.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorDescriptions.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Examples.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Examples.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Files.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Files.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Pi3.App.DocumentoAmministrativo.WebApi.Tests" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\swagger-ui\cors.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties appsettings_1json__JsonSchema="" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

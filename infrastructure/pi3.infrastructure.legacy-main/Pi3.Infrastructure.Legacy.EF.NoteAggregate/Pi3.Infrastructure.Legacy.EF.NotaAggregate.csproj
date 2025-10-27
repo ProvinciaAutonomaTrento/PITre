@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>1.3.6</Version>
+    <RootNamespace>Pi3.Infrastructure.Legacy.EF</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\pi3.core-main\Pi3.Core.NoteAggregate\Pi3.Core.NotaAggregate.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pi3.Infrastructure.Legacy.EF.Entities\Pi3.Infrastructure.Legacy.EF.Entities.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="AggregateModels\NotaAggregate\Resources\Descriptions.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Descriptions.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="AggregateModels\NotaAggregate\Resources\ErrorDescriptions.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorDescriptions.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="AggregateModels\NotaAggregate\Resources\Descriptions.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Descriptions.resx</DependentUpon>
+    </Compile>
+    <Compile Update="AggregateModels\NotaAggregate\Resources\ErrorDescriptions.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ErrorDescriptions.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,2681 @@
+{
+  "principalContext": {
+    "authenticationType": "PiTRE",
+    "claims": [
+      {
+        "name": "http://pi3core/identity/claims/idUser",
+        "value": "132977073",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/userId",
+        "value": "TESTSYS",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/userName",
+        "value": "TESTSYS",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/userSurname",
+        "value": "test",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/idGroup",
+        "value": "132736",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/idRole",
+        "value": "132737",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/groupCode",
+        "value": "A029SEG",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/groupDescription",
+        "value": "Segreteria Ufficio di Gabinetto Assessore all'industria, artigianato, commercio e cooperazione",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/idTenant",
+        "value": "361",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/admin",
+        "value": "False",
+        "valueType": "Bool",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_DEST_MODIFICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_DESTCC_MODIFICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DEL_MOD_TRASM",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_INVIO_RICEVUTE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "PRAUISP",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "PRAUISNP",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "NOTIFICATION_CENTER",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_ALL_RIMUOVI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_RIC_VISIBILITA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_ANNULLA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_ALLEGATI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_ALL_AGGIUNGI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_ALL_MODIFICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_ALL_RIMUOVI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_ALL_SOSTITUISCI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_CLA_INSERISCI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_CLA_TITOLARIO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_CLA_VIS_PROC",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DEL_DOC_FASC",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DOC_ACQUISISCI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DOC_ADD_PAROLA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PRO_SELEZIONA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_VERSIONI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_CANCELLA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_MOD_FASCICOLO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_MOD_FOLDER",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_NUOVO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_APRICHIUDI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_MODIFICA_MIT_TRASM",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_SMISTA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_TRA_MODIFICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_TRA_NUOVA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_TRA_TRASMETTI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "TRAS_NUOVA_DA_TEMPL",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "TRAS_SALVA_TEMPL",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_REGISTRI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_REG_STAMPA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "STAMPA_REG_UO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_PROSPETTI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_RUBRICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_ADD_ADL",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_ALLEGATI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_CERCA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_CLASSIFICAZIONE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_CLA_GET_ADL",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_CLA_INSERISCI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_CLA_TITOLARIO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_CLA_VIS_PROC",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DOC_SE_GRIGIO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DOC_VISUALIZZA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DOC_VISUALIZZAZOOM",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_GET_ADL",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_IN_MIT_DETTAGLI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_IN_MIT_STORIA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_OUT_DES_DETTAGLI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_OUT_DES_STORIA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_OUT_DES_TIPO_INVIO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROFILO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROTOCOLLA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_OG_STORIA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_SE_STAMPA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PRO_STAMPASCHEDA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PRO_VISIBILITA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_TRASMISSIONI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_TRASM_SET_VISTE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_TRA_STAMPA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_VERSIONI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_ADD_ADL",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_GESTIONE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_INS_DOC",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_TAB_DOCUMENTO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_TAB_TRASMISSIONI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_AREA_LAV",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_ORGANIGRAMMA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "MENU_DOCUMENTI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "MENU_FASCICOLI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "MENU_GESTIONE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "MENU_LOGOUT",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "MENU_OPZIONI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "MENU_RICERCA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "MENU_TRASMISSIONI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "OPZIONI_CAMBIA_PWD",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "STAMPA_REG_UO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "TRAS_CERCA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DOC_ACQUISISCI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DOC_ADD_PAROLA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_IN_PRO_VERIFICAPREC",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_NUOVOPROT",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_PROTOCOLLA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_RIPROPONI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_SALVA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_SE_STAMPA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PRO_SELEZIONA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "PROTO_IN",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "PROTO_IN_SEMPL",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DOC_ACQUISISCI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DOC_ADD_PAROLA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_NUOVOPROT",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_OUT_DES_DETTAGLI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_OUT_DES_PIU",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_OUT_DES_RUBRICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_OUT_DES_TIPO_INVIO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_OUT_SPEDISCI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PRED_ANNULLA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_PROTOCOLLA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_RIPROPONI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_SALVA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_SE_STAMPA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PRO_PREDISPONI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PRO_SELEZIONA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "PROTO_OUT",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "PROTO_OUT_SEMPL",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "PROTO_OWN",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DOC_ACQUISISCI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DOC_ADD_PAROLA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_NUOVODOC",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PRO_ELIMINAPAROLE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PRO_OGGETTARIO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PRO_SALVA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PRO_SELEZIONA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_STAMPE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_SALVA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PRO_ELIMINAPAROLE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PRO_SALVA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "EXPORT_RUBRICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "IMPORT_RUBRICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_NUOVO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_IN_MIT_MODIFICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_OUT_DES_ELIMINA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_OUT_DES_MODIFICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_DTA_MODIFICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_MIT_MODIFICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_OG_MODIFICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_OG_STORIA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PRO_RIMUOVI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_INVIO_RICEVUTE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_MOD_FASCICOLO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_VIS_ORIG",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_CASELLA_IST_RF",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_INS_CORR_RF",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_CASELLA_IST_RF",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_MOD_CORR_RF",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "ELENCO_NOTE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "MENU_GESTIONE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DIRITTO_DELEGA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_DELEGHE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_SMISTA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "IMPORT_ELENCO_NOTE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "RICERCA_NOTE_ELENCO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "INSERIMENTO_NOTERF",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FILTRO_FASC_EXCEL",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "MASSIVE_TRANSMISSION",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GRID_PERSONALIZATION",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "EXP_DOC_MASSIVA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_DEST_MODIFICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DOC_RIPROPONI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_VIS_ORIG",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DOC_RIPROPONI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_VIS_ORIG",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_VIS_ORIG",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_DATA_ORA_MODIFICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_DATA_ORA_STORIA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PRED_ANNULLA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_ANNULLA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_OUT_DES_ELIMINA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "SALVA_TRASM",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "MASSIVE_CLASSIFICATION",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "IMP_RDE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "IMP_RDE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "IMP_FASC",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "IMP_DOC_PREG",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_OG_MODIFICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_OG_OGGETTARIO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_OG_STORIA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DOC_MAI_TRASMESSI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_STRUCTURE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "CERCA_DOC_ADV",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "CERCA_DOC_ADV",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_REP_SPED",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DEL_DOC_FASC",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_INS_DOC",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DELETE_NOTIFY",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DELETE_NOTIFY",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_MOD_CORR_TUTTI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_MODIFICA_MIT_TRASM",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_ADL_ROLE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "CERCA_DOC_ADV",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_ADL_ROLE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_STRUCTURE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_REP_SPED",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_INS_DOC",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DEL_DOC_FASC",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_NEW_FOLDER",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_MOD_FOLDER",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_DEL_FOLDER",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_SEARCH_TRASM_NO_LAVORATE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DOC_PREDISPONI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "PROTO_OUT",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_ANNULLA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "ABILITA_CEDI_DIRITTI_DOC",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "ABILITA_CEDI_DIRITTI_FASC",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "ACL_RIMUOVI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "CERCA_DOC_ADV",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "CLIENT_BIG_FILE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "CREA_PASSO_CAMBIO_STATO_AUTO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "CREA_PASSO_PROTO_AUTO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "CREA_PASSO_REPERTORIAZIONE_AUTO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "CREA_PASSO_SPEDIZIONE_AUTO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DELPREDIS",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DIRITTO_DELEGA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DOWNLOAD_BIG_FILE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_ADD_ADL",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_ADL_ROLE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_ALLEGATI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_ALL_AGGIUNGI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_ALL_MODIFICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_ALL_RIMUOVI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_ALL_SOSTITUISCI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_AMM_CONSERVAZIONE_WA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_CANCELLA_OGGETTARIO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_CERCA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_CLASSIFICAZIONE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_CLA_GET_ADL",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_CLA_INSERISCI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_CLA_TITOLARIO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_CLA_VIS_PROC",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_CONDIVIDI_MOBILE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_CONS",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_CONSOLIDAMENTO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_CONSOLIDAMENTO_METADATI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_CREATE_MODEL_PROCESS",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_CREA_PERSONALE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_CREA_PRIVATO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DELETE_NOTIFY",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DEL_DOC_FASC",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DEL_MOD_TRASM",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DOC_ACQUISISCI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DOC_ADD_PAROLA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DOC_AVANZAMENTO_ITER",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DOC_FIRMA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DOC_FIRMA_256",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DOC_FIRMA_ELETTRONICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DOC_MAI_SPEDITI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DOC_MAI_TRASMESSI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DOC_PREDISPONI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DOC_RIPROPONI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DOC_SE_GRIGIO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DOC_VISUALIZZA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_DOC_VISUALIZZAZOOM",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_ENABLE_BIGFILE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_ENABLE_FORMAZIONE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_FASC_PRIVATO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_GET_ADL",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_INSERISCI_OGGETTARIO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_INS_CORR_REG",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_INS_CORR_RF",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_INS_CORR_TUTTI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_INVIO_RICEVUTE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_IN_MII_DETTAGLI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_IN_MII_MODIFICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_IN_MII_RUBRICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_IN_MII_STORIA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_IN_MIT_DETTAGLI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_IN_MIT_MODIFICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_IN_MIT_RUBRICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_IN_MIT_STORIA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_IN_PRO_VERIFICAPREC",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_LIBRO_FIRMA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_MODIFICA_MIT_TRASM",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_MODIFICA_OGGETTARIO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_MOD_CORR_REG",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_MOD_CORR_RF",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_MOD_CORR_TUTTI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_NUOVODOC",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_NUOVOPROT",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_OCC_IN_K1",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_OUT_DES_DETTAGLI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_OUT_DES_ELIMINA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_OUT_DES_MODIFICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_OUT_DES_PIU",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_OUT_DES_RUBRICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_OUT_DES_STORIA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_OUT_DES_TIPO_INVIO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_OUT_SPEDISCI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_OUT_SPEDISCI_AUTOMATICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PRED_ANNULLA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROFILO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROTOCOLLA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROTO_PRIVATO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROTO_PRIVATO_SEMPL",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "MENU_FASCICOLI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "MENU_GESTIONE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "MENU_LOGOUT",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "MENU_OPZIONI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "MENU_RICERCA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "MENU_TRASMISSIONI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "NOTIFICATION_CENTER",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "OPZIONI_CAMBIA_PWD",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "PRAUISNP",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "PRAUISP",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "PROTO_EME",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "PROTO_IN",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "PROTO_IN_SEMPL",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "PROTO_OUT",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "PROTO_OUT_SEMPL",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "PROTO_OWN",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "RICERCA_NOTE_ELENCO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "SALVA_TRASM",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "STAMPA_REG_NO_SEC",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "STAMPA_REG_UO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "SVUOTA_CESTINO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "TO_GET_OTP",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "TRAS_CERCA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "TRAS_NUOVA_DA_TEMPL",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "TRAS_SALVA_TEMPL",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "HOME_NOTES",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_TAB_ARCHIVIO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_TAB_ARCHIVIO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_DATA_ORA_MODIFICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_DATA_ORA_STORIA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_DESTCC_MODIFICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_DEST_MODIFICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_DTA_MODIFICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_MIT_INT_MODIFICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_MIT_MODIFICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_OG_MODIFICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_OG_OGGETTARIO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_OG_STORIA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_PROTOCOLLA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_PROTOCOLLAG",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_PROTOCOLLA_AUTOMATICO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_RIPROPONI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_SALVA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PROT_SE_STAMPA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PRO_ELIMINAPAROLE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PRO_OGGETTARIO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PRO_PREDISPONI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PRO_RIMUOVI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PRO_SALVA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PRO_SELEZIONA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PRO_STAMPASCHEDA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_PRO_VISIBILITA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_REGISTRO_ACCESSI_EXPORT",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_REGISTRO_ACCESSI_PUBLISH",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_REPERTORIAZIONE_ATOMATICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_RICERCHE_LIMITATE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_RIC_CAMPI_COMUNI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_RIC_VISIBILITA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_RUBRICA_ESTERNA_IPA_AJAX",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_SACER_RECUPERO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_SACER_VERSAMENTO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_SEARCH_TRASM_NO_LAVORATE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_SMISTA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_START_SIGNATURE_PROCESS",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_STATE_SIGNATURE_PROCESS",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_TAB_ARCHIVIO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_TIMESTAMP",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_TITOLARIO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_TODOLIST_RIMUOVI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_TRASMISSIONI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_TRASM_SET_VISTE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_TRA_MODIFICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_TRA_NUOVA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_TRA_STAMPA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_TRA_TRASMETTI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_VERSIONI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_VER_MODIFICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_VER_NUOVA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_VER_RIMUOVI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_VIS_ORIG",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "DO_WA_CONS",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "ELENCO_NOTE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "ELIMINA_TIPOLOGIA_DOC",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "EXPORT_RUBRICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "EXP_DOC_MASSIVA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "EXP_FASC_COUNT",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_ADD_ADL",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_APRICHIUDI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_CANCELLA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_CONTROLLATO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_DEL_FOLDER",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_GESTIONE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_INS_DOC",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_MOD_FASCICOLO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_MOD_FOLDER",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_NEW_FOLDER",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_NUOVO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_NUOVO_PRIVATO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_SMISTA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_STRUCTURE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_TAB_DOCUMENTO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FASC_TAB_TRASMISSIONI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FILTRO_FASC_EXCEL",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FIRMA_HSM",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "FIRMA_HSM_MASSIVA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_ARCHIVIO_CARTACEO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_AREA_LAV",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_CASELLA_IST",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_CASELLA_IST_RF",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_DELEGHE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_DOC_CESTINO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_ORGANIGRAMMA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_PROCESSI_DI_FIRMA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_PROSPETTI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_REGISTRI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_REGISTRO_REPERTORIO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_REG_C_STATO",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_REG_MODIFICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_REG_STAMPA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_REP_SPED",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_RUBRICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_SERVIZI_SBC",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_STAMPE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GEST_SU",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "GRID_PERSONALIZATION",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "HOME_EXPAND_ALL",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "HOME_NOTES",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "IMPORT_ELENCO_NOTE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "IMPORT_RUBRICA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "IMP_DOCS",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "IMP_DOC_MASSIVA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "IMP_DOC_PREG",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "IMP_FASC",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "IMP_RDE",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "INSERIMENTO_NOTERF",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "INST_ACC",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "IPA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "MASSIVE_CLASSIFICATION",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "MASSIVE_CONVERSION",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "MASSIVE_INOLTRA",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "MASSIVE_REMOVE_VERSIONS",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "MASSIVE_SIGN",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "MASSIVE_TIMESTAMP",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "MASSIVE_TRANSMISSION",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      },
+      {
+        "name": "http://pi3core/identity/claims/authorization",
+        "value": "MENU_DOCUMENTI",
+        "valueType": "String",
+        "issuer": "PiTRE"
+      }
+    ]
+  },
+  "requestContext": {
+    "type": "DocumentoGetDettaglioDocumento",
+    "asJson": "{\"infoutente\":{\"idCorrGlobali\":\"132737\",\"idPeople\":\"132977073\",\"userId\":\"TESTSYS\",\"email\":null,\"dst\":\"804c25ebdc6e4734a4813721561e5bfb\",\"idGruppo\":\"132736\",\"idAmministrazione\":\"361\",\"sede\":null,\"urlWA\":\"http://localhost/PiTreFE\",\"delegato\":null,\"extApplications\":null,\"codWorkingApplication\":\"PITRE\",\"matricola\":null,\"diSistema\":null},\"idProfile\":\"132977448\",\"docNumber\":\"132977448\"}"
+  }
+}

@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="qualified">
+
+  <!--  -->
+  <xs:complexType name="IntestazioneType">
+    <xs:sequence>
+      <xs:element name="Versione" type="StringNVMax100Type"/>
+      <xs:element name="Versatore" type="VersatoreType"/>
+      <xs:element name="Chiave" type="ChiaveType"/>
+      <xs:element name="TipologiaUnitaDocumentaria" type="TokenNonVuotoType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="IntestazioneAggAllType">
+    <xs:sequence>
+      <xs:element name="Versione" type="StringNVMax100Type"/>
+      <xs:element name="Versatore" type="VersatoreType"/>
+      <xs:element name="Chiave" type="ChiaveType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="ConfigType">
+    <xs:sequence>
+      <xs:element name="TipoConservazione" type="TipoConservazioneType" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="SistemaDiMigrazione" type="TokenNVMax100Type" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="ForzaAccettazione" type="xs:boolean" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="ForzaConservazione" type="xs:boolean" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="ForzaCollegamento" type="xs:boolean" maxOccurs="1" minOccurs="0"/>
+	  <xs:element name="ForzaHash" type="xs:boolean" maxOccurs="1" minOccurs="0"/>
+	  <xs:element name="ForzaFormatoNumero" type="xs:boolean" maxOccurs="1" minOccurs="0"/>
+	  <xs:element name="ForzaFormatoFile" type="xs:boolean" maxOccurs="1" minOccurs="0"/>	 
+      <xs:element name="SimulaSalvataggioDatiInDB" type="xs:boolean" maxOccurs="1" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="ConfigAggAllType">
+    <xs:sequence>
+      <xs:element name="TipoConservazione" type="TipoConservazioneType" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="SistemaDiMigrazione" type="StringNVMax100Type" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="ForzaAccettazione" type="xs:boolean" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="ForzaConservazione" type="xs:boolean" maxOccurs="1" minOccurs="0"/>
+	  <xs:element name="ForzaHash" type="xs:boolean" maxOccurs="1" minOccurs="0"/>
+	  <xs:element name="ForzaFormatoFile" type="xs:boolean" maxOccurs="1" minOccurs="0"/>	 
+	  <xs:element name="ForzaAggiuntaDocumento" type="xs:boolean" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="SimulaSalvataggioDatiInDB" type="xs:boolean" maxOccurs="1" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!-- PARTE COMUNE -->
+
+  <!--  -->
+  <xs:complexType  name="VersatoreType">
+    <xs:sequence>
+      <xs:element name="Ambiente" type="StringNVMax100Type"/>
+      <xs:element name="Ente" type="StringNVMax100Type"/>
+      <xs:element name="Struttura" type="StringNVMax100Type"/>
+      <xs:element name="UserID" type="StringNVMax100Type"/>
+      <xs:element name="Utente" type="StringNonVuotoType" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="ChiaveType">
+    <xs:sequence>
+      <xs:element name="Numero" type="StringNVMax100Type"/>
+      <xs:element name="Anno" type="IntMax4DgtType"/>
+      <xs:element name="TipoRegistro" type="StringNVMax100Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+
+  <!--  -->
+  <xs:complexType name="ProfiloArchivisticoType">
+    <xs:sequence>
+      <xs:element name="FascicoloPrincipale" type="CamiciaFascicoloType"/>
+      <xs:element name="FascicoliSecondari"  maxOccurs="1" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="FascicoloSecondario" type="CamiciaFascicoloType" minOccurs="1" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="CamiciaFascicoloType">
+    <xs:sequence>
+      <xs:element name="Classifica" type="StringNVMax254Type" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="Fascicolo" type="FascicoloType" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="SottoFascicolo" type="FascicoloType" maxOccurs="1" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="FascicoloType">
+    <xs:sequence>
+      <xs:element name="Identificativo"  type="StringNVMax4000Type" />
+      <xs:element name="Oggetto" type="StringMax4000Type"  nillable="true" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="ProfiloUnitaDocumentariaType">
+    <xs:sequence>
+      <xs:element name="Oggetto" type="StringMax4000Type" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Data" type="ShortDateType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Cartaceo" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="DatiSpecificiType">
+    <xs:sequence>
+      <xs:element name="VersioneDatiSpecifici" type="StringNVMax1024Type"/>
+      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="DocumentoCollegatoType">
+    <xs:sequence>
+      <xs:element name="DocumentoCollegato"  minOccurs="1" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ChiaveCollegamento" type="ChiaveType"/>
+            <xs:element name="DescrizioneCollegamento" type="StringMax254Type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <!--  -->
+  <xs:complexType name="DocumentoType">
+    <xs:sequence>
+      <xs:element name="IDDocumento" type="StringNVMax100Type"/>
+      <xs:element name="TipoDocumento" type="TokenNonVuotoType"/>
+      <xs:element name="ProfiloDocumento" type="ProfiloDocumentoType" minOccurs="0" maxOccurs="1" nillable="false"/>
+      <xs:element name="DatiSpecifici" type="DatiSpecificiType" maxOccurs="1" minOccurs="0" nillable="true"/>
+      <xs:element name="DatiSpecificiMigrazione" type="DatiSpecificiType" maxOccurs="1" minOccurs="0" nillable="true"/>
+      <xs:element name="DatiFiscali" type="DatiFiscaliType" minOccurs="0" maxOccurs="1" nillable="false"/>
+      <xs:element name="StrutturaOriginale" type="StrutturaType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="ProfiloDocumentoType">
+    <xs:sequence>
+      <xs:element name="Descrizione" type="StringMax4000Type" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="Autore" type="StringMax4000Type" maxOccurs="1" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="DatiFiscaliType">
+    <xs:sequence>
+      <xs:element name="Denominazione" type="StringMax254Type"  maxOccurs="1" minOccurs="0"/>
+      <xs:element name="Nome" type="StringMax100Type"  maxOccurs="1" minOccurs="0"/>
+      <xs:element name="Cognome" type="StringMax100Type"  maxOccurs="1" minOccurs="0"/>
+      <xs:element name="CF" maxOccurs="1" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:length value="16"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="PIVA" maxOccurs="1" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:length value="11"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="DataEmissione" type="xs:date"/>
+      <xs:element name="NumeroProgressivo" type="PosIntMax12DgtType"/>
+      <xs:element name="Registro" type="StringMax100Type"/>
+      <xs:element name="PeriodoFiscale" type="StringMax100Type"/>
+      <xs:element name="DataTermineEmissione" type="xs:date"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="StrutturaType">
+    <xs:sequence>
+      <xs:element name="TipoStruttura" type="TokenNonVuotoType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Componenti">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Componente" type="ComponenteType" minOccurs="1" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="ComponenteType">
+    <xs:sequence>
+      <xs:element name="ID" type="StringNVMax254Type"/>
+      <xs:element name="OrdinePresentazione" type="IntMax5DgtType"/>
+      <xs:element name="TipoComponente" type="TokenNonVuotoType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="TipoSupportoComponente" type="TipoSupportoType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Riferimento" type="ChiaveType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="TipoRappresentazioneComponente" type="TokenNonVuotoType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="NomeComponente" type="StringNVMax254Type" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="FormatoFileVersato" type="TokenNonVuotoType"  minOccurs="0" maxOccurs="1"/>
+      <xs:element name="HashVersato" type="TokenNVMax254Type" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="UrnVersato" type="TokenNVMax1024Type" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="IDComponenteVersato" type="TokenNVMax254Type" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="DatiSpecifici" type="DatiSpecificiType" maxOccurs="1" minOccurs="0" nillable="true"/>
+      <xs:element name="DatiSpecificiMigrazione" type="DatiSpecificiType" maxOccurs="1" minOccurs="0" nillable="true"/>
+      <xs:element name="UtilizzoDataFirmaPerRifTemp" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="RiferimentoTemporale" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="DescrizioneRiferimentoTemporale" type="StringMax254Type" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="SottoComponenti" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="SottoComponente" type="SottoComponenteType"  minOccurs="1" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="SottoComponenteType">
+    <xs:sequence>
+      <xs:element name="ID" type="StringNVMax254Type"/>
+      <xs:element name="OrdinePresentazione" type="IntMax5DgtType"/>
+      <xs:element name="TipoComponente" type="TokenNonVuotoType"/>
+      <xs:element name="TipoSupportoComponente" type="TipoSupportoType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Riferimento" type="ChiaveType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="NomeComponente" type="StringNVMax254Type" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="FormatoFileVersato" type="TokenNonVuotoType"  minOccurs="0" maxOccurs="1"/>
+      <xs:element name="UrnVersato" type="TokenNVMax1024Type" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="IDComponenteVersato" type="TokenNVMax254Type" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="DatiSpecifici" type="DatiSpecificiType" maxOccurs="1" minOccurs="0" nillable="true"/>
+      <xs:element name="DatiSpecificiMigrazione" type="DatiSpecificiType" maxOccurs="1" minOccurs="0" nillable="true"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="ProfiloNormativoType">
+    <xs:sequence>
+      <xs:any processContents="skip" />
+    </xs:sequence>
+    <xs:attribute name="versione" type="StringNVMax1024Type" use="required" />
+  </xs:complexType>
+  <!--  -->
+  <xs:simpleType name="TipoConservazioneType">
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="SOSTITUTIVA"/>
+      <xs:enumeration value="FISCALE"/>
+      <xs:enumeration value="MIGRAZIONE"/>
+        <xs:enumeration value="VERSAMENTO_ANTICIPATO"/>
+<!--        <xs:enumeration value="VERSAMENTO_IN_ARCHIVIO"/> -->
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+  <xs:simpleType name="TipoSupportoType">
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="FILE"/>
+      <xs:enumeration value="RIFERIMENTO"/>
+      <xs:enumeration value="METADATI"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+                                  <!-- TIPI DATO GENERICI -->
+  <!--  -->
+  <xs:simpleType name="TokenNonVuotoType">
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+  <xs:simpleType name="TokenNVMax100Type">
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+  <xs:simpleType name="TokenNVMax254Type">
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="254"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+  <xs:simpleType name="TokenNVMax1024Type">
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="1024"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+  <xs:simpleType name="TokenNVMax4000Type">
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="4000"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+  <xs:simpleType name="StringNonVuotoType">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+  <xs:simpleType name="StringNVMax100Type">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+  <xs:simpleType name="StringNVMax254Type">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="254"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+  <xs:simpleType name="StringNVMax1024Type">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="1024"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+  <xs:simpleType name="StringNVMax4000Type">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="4000"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+  <xs:simpleType name="StringMax100Type">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+  <xs:simpleType name="StringMax254Type">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="254"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+  <xs:simpleType name="StringMax1024Type">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1024"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+  <xs:simpleType name="StringMax4000Type">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="4000"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+  <xs:simpleType name="IntMax4DgtType">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="9999"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+  <xs:simpleType name="IntMax5DgtType">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="99999"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+  <xs:simpleType name="PosIntMax12DgtType">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="999999999999"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+  <xs:simpleType name="ShortDateType">
+      <xs:union memberTypes="xs:date xs:dateTime" />
+  </xs:simpleType>
+  <!--  -->
+
+                                  <!-- ELEMENTI -->
+  <!--  -->
+  <xs:element name="UnitaDocumentaria">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Intestazione" type="IntestazioneType"  maxOccurs="1" minOccurs="1" />
+        <xs:element name="Configurazione" type="ConfigType" maxOccurs="1" minOccurs="0"/>
+        <xs:element name="ProfiloArchivistico" type="ProfiloArchivisticoType" maxOccurs="1" minOccurs="0"/>
+        <xs:element name="ProfiloUnitaDocumentaria" type="ProfiloUnitaDocumentariaType" maxOccurs="1" minOccurs="0"/>
+        <xs:element name="ProfiloNormativo" type="ProfiloNormativoType" minOccurs="0" maxOccurs="1" />
+        <!--  -->
+        <xs:element name="DatiSpecifici" type="DatiSpecificiType" maxOccurs="1" minOccurs="0" nillable="true"/>
+        <xs:element name="DatiSpecificiMigrazione" type="DatiSpecificiType" maxOccurs="1" minOccurs="0" nillable="true"/>
+        <!--  -->
+        <xs:element name="DocumentiCollegati" type="DocumentoCollegatoType" maxOccurs="1" minOccurs="0"/>
+        <!--  -->
+        <xs:element name="NumeroAllegati" type="IntMax4DgtType" maxOccurs="1" minOccurs="0"/>
+        <xs:element name="NumeroAnnessi" type="IntMax4DgtType" maxOccurs="1" minOccurs="0"/>
+        <xs:element name="NumeroAnnotazioni" type="IntMax4DgtType" maxOccurs="1" minOccurs="0"/>
+        <!--  -->
+        <xs:element name="DocumentoPrincipale" type="DocumentoType" maxOccurs="1" minOccurs="1"/>
+        <xs:element name="Allegati" maxOccurs="1" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Allegato" type="DocumentoType" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Annessi" maxOccurs="1" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Annesso" type="DocumentoType" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Annotazioni" maxOccurs="1" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Annotazione" type="DocumentoType" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--  -->
+
+  <!--  -->
+  <xs:element name="UnitaDocAggAllegati">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Intestazione" type="IntestazioneAggAllType"  maxOccurs="1" minOccurs="1" />
+        <xs:element name="Configurazione" type="ConfigAggAllType" maxOccurs="1" minOccurs="0"/>
+        <xs:choice>
+          <xs:element name="Allegato" type="DocumentoType" maxOccurs="1" minOccurs="1"/>
+          <xs:element name="Annesso" type="DocumentoType" maxOccurs="1" minOccurs="1"/>
+          <xs:element name="Annotazione" type="DocumentoType" maxOccurs="1" minOccurs="1"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--  -->
+</xs:schema>

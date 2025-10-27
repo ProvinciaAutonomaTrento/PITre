@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Pi3.Infrastructure.Legacy.EF</RootNamespace>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>1.3.22</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Services\FileValidator\Compliance\**" />
+    <EmbeddedResource Remove="Services\FileValidator\Compliance\**" />
+    <None Remove="Services\FileValidator\Compliance\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="File.TypeChecker" Version="4.1.1" />
+    <PackageReference Include="itext7" Version="8.0.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pi3.Infrastructure.Legacy.EF.Entities\Pi3.Infrastructure.Legacy.EF.Entities.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Services\Configuration\Resources\ErrorDescriptions.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ErrorDescriptions.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Services\WebMethodLogger\Resources\Descriptions.Designer.cs">
+      <DependentUpon>Descriptions.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Services\Configuration\Resources\ErrorDescriptions.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorDescriptions.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Services\WebMethodLogger\Resources\Descriptions.resx">
+      <LastGenOutput>Descriptions.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

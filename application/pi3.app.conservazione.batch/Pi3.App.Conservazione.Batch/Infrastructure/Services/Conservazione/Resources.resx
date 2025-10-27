@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ReportFileName" xml:space="preserve">
+    <value>Report_{0}_{1}.pdf</value>
+  </data>
+  <data name="ReportHeaderDate" xml:space="preserve">
+    <value>Data creazione / protocollazione</value>
+  </data>
+  <data name="ReportHeaderErrorMessage" xml:space="preserve">
+    <value>Messaggio di rifiuto</value>
+  </data>
+  <data name="ReportHeaderId" xml:space="preserve">
+    <value>Id Doc. / Num. Protocollo</value>
+  </data>
+  <data name="ReportHeaderLastSendingDate" xml:space="preserve">
+    <value>Data ultimo versamento</value>
+  </data>
+  <data name="ReportHeaderPolicyCode" xml:space="preserve">
+    <value>Codice policy</value>
+  </data>
+  <data name="ReportHeaderPolicyExecutionNumber" xml:space="preserve">
+    <value>N. esecuzione policy</value>
+  </data>
+  <data name="ReportHeaderRegister" xml:space="preserve">
+    <value>Tipo registro / RF</value>
+  </data>
+  <data name="ReportHeaderSubject" xml:space="preserve">
+    <value>Oggetto</value>
+  </data>
+  <data name="ReportHeaderType" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="ReportPolicyDocCounter" xml:space="preserve">
+    <value>Documenti inseriti in coda di versamento: {0}</value>
+  </data>
+  <data name="ReportPolicyExecutionCounter" xml:space="preserve">
+    <value>Numero esecuzioni: {0}</value>
+  </data>
+  <data name="ReportPolicyExecutionDate" xml:space="preserve">
+    <value>Data di esecuzione: {0}</value>
+  </data>
+  <data name="ReportPolicyFailedDocuments" xml:space="preserve">
+    <value>Stato conservazione: versamenti falliti</value>
+  </data>
+  <data name="ReportPolicyNewDocuments" xml:space="preserve">
+    <value>Stato conservazione: documenti non versati</value>
+  </data>
+  <data name="ReportPolicyNextExecutionDate" xml:space="preserve">
+    <value>Data di prossima esecuzione: {0}</value>
+  </data>
+  <data name="ReportPolicyRejectedDocuments" xml:space="preserve">
+    <value>Stato conservazione: documenti rifiutati</value>
+  </data>
+  <data name="ReportSubject" xml:space="preserve">
+    <value>Report esecuzione policy {0} del {1}</value>
+  </data>
+  <data name="ReportSubtitleAmm" xml:space="preserve">
+    <value>AMMINISTRAZIONE: Codice: {0}, Descrizione {1}</value>
+  </data>
+  <data name="ReportSubtitlePolicy" xml:space="preserve">
+    <value>POLICY: Codice: {0}, Descrizione: {1}</value>
+  </data>
+  <data name="ReportTextNoData" xml:space="preserve">
+    <value>Nessun documento soddisfa i criteri di selezione configurati nella policy.</value>
+  </data>
+  <data name="ReportTextTooManyItems" xml:space="preserve">
+    <value>La policy non è stata eseguita a causa del superamento dei limiti impostati in termini di numero di documenti versabili tramite una singola operazione.\r\n A seguito della mancata esecuzione la policy è stata disattivata.</value>
+  </data>
+  <data name="ReportTitle" xml:space="preserve">
+    <value>Report di esecuzione della Policy</value>
+  </data>
+  <data name="ReportTransmissionLog" xml:space="preserve">
+    <value>Trasmesso documento: {0}</value>
+  </data>
+  <data name="ReportTransmissionNotesForFailure" xml:space="preserve">
+    <value>Report di mancata esecuzione della policy {0} ("{1}") del {2}</value>
+  </data>
+  <data name="ReportTransmissionNotesForSuccess" xml:space="preserve">
+    <value>Report di esecuzione della policy {0} ("{1}") del {2}</value>
+  </data>
+  <data name="ReportVersamentiDescription" xml:space="preserve">
+    <value>Report versamenti {0} del {1}</value>
+  </data>
+  <data name="ReportVersamentiSubtitleFailed" xml:space="preserve">
+    <value>I seguenti documenti risultano essere in stato "Versamento fallito" alla data del {0}</value>
+  </data>
+  <data name="ReportVersamentiSubtitleRejected" xml:space="preserve">
+    <value>I seguenti documenti versati in conservazione il giorno {0} sono stati rifiutati dal sistema di conservazione.</value>
+  </data>
+  <data name="ReportVersamentiTitle" xml:space="preserve">
+    <value>Report sui documenti in stato "{0}"</value>
+  </data>
+  <data name="SIPFailed" xml:space="preserve">
+    <value>Versamento fallito</value>
+  </data>
+  <data name="SIPRejected" xml:space="preserve">
+    <value>Rifiutato</value>
+  </data>
+  <data name="SIPsFailed" xml:space="preserve">
+    <value>Falliti</value>
+  </data>
+  <data name="SIPsRejected" xml:space="preserve">
+    <value>Rifiutati</value>
+  </data>
+  <data name="TypeDocA" xml:space="preserve">
+    <value>Arrivo</value>
+  </data>
+  <data name="TypeDocC" xml:space="preserve">
+    <value>Stampa reg. repertorio</value>
+  </data>
+  <data name="TypeDocG" xml:space="preserve">
+    <value>Non protocollato</value>
+  </data>
+  <data name="TypeDocI" xml:space="preserve">
+    <value>Interno</value>
+  </data>
+  <data name="TypeDocP" xml:space="preserve">
+    <value>Partenza</value>
+  </data>
+  <data name="TypeDocR" xml:space="preserve">
+    <value>Stampa reg. protocollo</value>
+  </data>
+  <data name="VersamentoDocumento" xml:space="preserve">
+    <value>Versamento documento ID={0}</value>
+  </data>
+</root>

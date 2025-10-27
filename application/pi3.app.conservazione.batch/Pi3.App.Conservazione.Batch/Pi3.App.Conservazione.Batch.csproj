@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="LinqKit" Version="1.3.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+    <PackageReference Include="Serilog.AspNetCore" Version="6.1.0" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="8.0.1" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.itext-main\Pi3.Infrastructure.IText.ReportGenerator\Pi3.Infrastructure.IText.ReportGenerator.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.DocumentFSRepository\Pi3.Infrastructure.Legacy.DocumentFSRepository.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.DocumentoAmministrativo\Pi3.Infrastructure.Legacy.EF.DocumentoAmministrativoAggregate.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.Oracle\Pi3.Infrastructure.Legacy.EF.Oracle.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.Services\Pi3.Infrastructure.Legacy.EF.Services.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.TrasmissioneAggregate\Pi3.Infrastructure.Legacy.EF.TrasmissioneAggregate.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.parer-main\Pi3.Infrastructure.ParER\Pi3.Infrastructure.ParER.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Infrastructure\AggregateModels\DocumentBlobAggregate\Files.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Files.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Infrastructure\Services\Conservazione\ErrorDescriptions.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ErrorDescriptions.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Infrastructure\Services\Conservazione\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Infrastructure\Services\OracleDbContextFactory\ErrorDescriptions.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ErrorDescriptions.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Infrastructure\AggregateModels\DocumentBlobAggregate\Files.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Files.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Infrastructure\Services\Conservazione\ErrorDescriptions.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorDescriptions.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Infrastructure\Services\Conservazione\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Infrastructure\Services\OracleDbContextFactory\ErrorDescriptions.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorDescriptions.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="AppSettings.Development.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="AppSettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="AppSettings.Test.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

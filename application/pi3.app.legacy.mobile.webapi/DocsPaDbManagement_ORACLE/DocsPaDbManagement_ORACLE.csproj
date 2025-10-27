@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <AssemblyKeyContainerName></AssemblyKeyContainerName>
+    <AssemblyOriginatorKeyFile></AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>DocsPaDbManagement</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject></StartupObject>
+    <PublishUrl>http://localhost/DocsPaDbManagement_ORACLE/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <BaseAddress>285212672</BaseAddress>
+    <ConfigurationOverrideFile></ConfigurationOverrideFile>
+    <DefineConstants></DefineConstants>
+    <DocumentationFile></DocumentationFile>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn></NoWarn>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <BaseAddress>285212672</BaseAddress>
+    <ConfigurationOverrideFile></ConfigurationOverrideFile>
+    <DefineConstants></DefineConstants>
+    <DocumentationFile></DocumentationFile>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn></NoWarn>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <DebugType>none</DebugType>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="StoredProc\classcat.sql" />
+    <Content Include="StoredProc\corrcat.sql" />
+    <Content Include="StoredProc\createDocSP.sql" />
+    <Content Include="StoredProc\CREATE_NEW_NODO_TITOLARIO.sql" />
+    <Content Include="StoredProc\Del_Rec_Dupl_In_Security.sql" />
+    <Content Include="StoredProc\I_Smistamento_DocVisto.sql" />
+    <Content Include="StoredProc\I_Smistamento_Setvisibsup.sql" />
+    <Content Include="StoredProc\I_Smistamento_Smistadoc.sql" />
+    <Content Include="StoredProc\I_Smistamento_Smistadoc_R.sql" />
+    <Content Include="StoredProc\I_Smistamento_Smistadoc_R_2.sql" />
+    <Content Include="StoredProc\I_Smistamento_SmistaDoc_U.sql" />
+    <Content Include="StoredProc\pkgRubrica.sql" />
+    <Content Include="StoredProc\SPSetDataVista.sql" />
+    <Content Include="StoredProc\SPSetDataVistaSmistamento.sql" />
+    <Content Include="StoredProc\SP_CLEAN_DPA_T_CANALE_CORR.sql" />
+    <Content Include="StoredProc\SP_DELETE_CORR_ESTERNO.sql" />
+    <Content Include="StoredProc\Sp_Dpa_Uo_Reg.sql" />
+    <Content Include="StoredProc\SP_EREDITA_VIS_DOC.sql" />
+    <Content Include="StoredProc\SP_EREDITA_VIS_FASC.sql" />
+    <Content Include="StoredProc\SP_FILL_DPA_UO_REG.sql" />
+    <Content Include="StoredProc\SP_IMPOSTA_UO_CONTENITORE.sql" />
+    <Content Include="StoredProc\SP_INSERT_DPA_DETT_GLOBALI.sql" />
+    <Content Include="StoredProc\SP_MODIFY_CORR_ESTERNO.sql" />
+    <Content Include="StoredProc\SP_RIMUOVI_DOCUMENTI.sql" />
+    <Content Include="StoredProc\SP_TRASM_RIF_TORNA_MITT.sql" />
+    <Content Include="StoredProc\update_codliv1.sql" />
+    <Content Include="StoredProc\update_liv1_ORACLE.sql" />
+    <Content Include="StoredProc\update_liv_ORACLE.sql" />
+    <EmbeddedResource Include="StoredProc\dpa3_get_children.sql" />
+    <EmbeddedResource Include="StoredProc\dpa3_get_hierarchy.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="3.21.150" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DocsPaDB.Transactions\DocsPaDB.Transactions.csproj" />
+    <ProjectReference Include="..\DocsPaUtils\DocsPaUtils.csproj" />
+    <ProjectReference Include="..\DocsPaVO\DocsPaVO.csproj" />
+  </ItemGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AssemblyTitle>DocsPaDbManagement_ORACLE</AssemblyTitle>
+    <Description>Pacchetto per la gestione degli accessi a database Oracle.</Description>
+    <Company>Etnoteam S.p.A.</Company>
+    <Product>DocsPA 3.0</Product>
+    <Copyright>Copyright 2005 by Etnoteam S.p.A.</Copyright>
+  </PropertyGroup>
+</Project>

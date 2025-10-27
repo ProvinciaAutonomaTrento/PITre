@@ -1,0 +1,66 @@
+// SPDX-FileCopyrightText: 2025 Provincia Autonoma di Trento <https://www.provincia.tn.it>
+// SPDX-License-Identifier: EUPL-1.2
+using System;
+using System.Runtime.Serialization;
+
+namespace DocsPaVO.Validations
+{
+	/// <summary>
+	/// Codice, descrizione e livello di gravita di una "BusinessRule" non validata
+	/// </summary>
+    [Serializable()]
+	[DataContract]
+	public class BrokenRule
+	{
+		public BrokenRule()
+		{
+		}
+
+		public BrokenRule(string id,string description) : this(id,description,BrokenRule.BrokenRuleLevelEnum.Error)
+		{	
+		}
+
+		public BrokenRule(string id,string description,BrokenRule.BrokenRuleLevelEnum level)
+		{
+			this.ID=id;
+			this.Description=description;
+			this.Level=level;
+		}
+
+		/// <summary>
+		/// Codice della "BusinessRule" non validata
+		/// </summary>
+		[DataMember]
+		public string ID { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Descrizione della "BusinessRule" non validata
+        /// </summary>
+        [DataMember]
+        public string Description { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Livello di gravit� della "BusinessRule" non validata
+        /// </summary>
+        [DataMember]
+        public BrokenRule.BrokenRuleLevelEnum Level { get; set; } = BrokenRule.BrokenRuleLevelEnum.Error;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return this.Description;
+        }
+
+		/// <summary>
+		/// Enumerazione, tipi di livelli di gravit� della "BusinessRule" non validata
+		/// </summary>
+		public enum BrokenRuleLevelEnum
+		{
+			Error,
+			Warning
+		}
+	}
+}

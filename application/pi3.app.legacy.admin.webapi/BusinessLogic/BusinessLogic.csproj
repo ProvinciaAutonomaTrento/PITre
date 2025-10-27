@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="ExportDati\Resource1.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DocsPaAS400\DocsPaAS400.csproj" />
+    <ProjectReference Include="..\DocsPaDB\DocsPaDB.csproj" />
+    <ProjectReference Include="..\DocsPaDigitalSignature\DocsPaDigitalSignature.csproj" />
+    <ProjectReference Include="..\DocsPaDocumentale\DocsPaDocumentale.csproj" />
+    <ProjectReference Include="..\DocsPaLdapServices\DocsPaLdapServices.csproj" />
+    <ProjectReference Include="..\DocsPaPwdServices\DocsPaPwdServices.csproj" />
+    <ProjectReference Include="..\DocsPaUtils\DocsPaUtils.csproj" />
+    <ProjectReference Include="..\DocsPaVO\DocsPaVO.csproj" />
+    <ProjectReference Include="..\StampaPDF\StampaPDF.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interoperabilita\MS Graph\" />
+    <Folder Include="Reporting\Behaviors\DataExtraction\Exceptions\" />
+    <Folder Include="Reporting\Behaviors\ReportGenerator\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="ChilkatDnCore" Version="9.5.0.86" />
+    <PackageReference Include="DocumentFormat.OpenXml" Version="3.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Refit" Version="8.0.0" />
+    <PackageReference Include="Refit.HttpClientFactory" Version="8.0.0" />
+    <PackageReference Include="Serilog" Version="4.0.0" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.documentformat.openxml-main\Pi3.Infrastructure.DocumentFormat.OpenXml\Pi3.Infrastructure.DocumentFormat.OpenXml.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="ExportDati\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="ExportDati\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

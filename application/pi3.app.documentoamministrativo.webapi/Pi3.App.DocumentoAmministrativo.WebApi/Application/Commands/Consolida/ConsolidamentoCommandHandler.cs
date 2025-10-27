@@ -1,0 +1,76 @@
+// SPDX-FileCopyrightText: 2025 Provincia Autonoma di Trento <https://www.provincia.tn.it>
+// SPDX-License-Identifier: EUPL-1.2
+using AutoMapper;
+using MediatR;
+using Pi3.App.DocumentoAmministrativo.WebApi.Application.Queries;
+using Pi3.Core.AggregateModels.DocumentoAmministrativoAggregate.Repositories;
+using Pi3.Core.SeedWork;
+using Pi3.Core.Services.Principal;
+using Pi3.Infrastructure.Legacy.EF.AggregateModels.DocumentoAmministrativoAggregate.Repositories;
+using Pi3.Infrastructure.Legacy.EF.Entities;
+
+namespace Pi3.App.DocumentoAmministrativo.WebApi.Application.Commands.Consolida
+{
+    public class ConsolidamentoCommandHandler : IRequestHandler<ConsolidamentoCommand, ConsolidamentoCommandResponse>
+    {
+        private readonly IPi3DbContext _context;
+        private readonly IDocumentoAmministrativoRepository _repository;
+        private readonly IClaimsPrincipalService _claimsPrincipalService;
+
+        public ConsolidamentoCommandHandler(IPi3DbContext context,
+            IDocumentoAmministrativoRepository repository,
+            IClaimsPrincipalService claimsPrincipalService) {
+            this._context = context;
+            this._repository = repository;
+            this._claimsPrincipalService = claimsPrincipalService;
+
+            InitializeMapper();
+        }
+
+        public async Task<ConsolidamentoCommandResponse> Handle(ConsolidamentoCommand request, CancellationToken cancellationToken)
+        {
+            var idTenant = _claimsPrincipalService.Current.GetPi3ClaimValue<string>(Pi3ClaimTypes.IdTenant, true);
+
+            var aggregate = await _repository.Get(idTenant, request.Id,
+                new ILoadBehavior[1]
+                {
+                    new GetDocumentoAmministrativoLoadBehavior()
+                    {
+                        LoadProfiles = true,
+                        LoadClassifications = true,
+                        LoadAllegati = true,
+                        LoadAggregazioni = true,
+                        LoadVersions = true,
+                        LoadPermissions = true,
+                        LoadMittentiDestinatari = true
+                    }
+                });
+            var consolidamento = new Pi3.Core.AggregateModels.DocumentoAmministrativoAggregate.ValueObjects.Consolidamento() {
+              Stato = request.Stato,
+              Data = request.Data,
+              Autore = new Core.AggregateModels.DocumentoAmministrativoAggregate.ValueObjects.Autore(request.IdAutore)
+            };
+
+            aggregate.Consolida(consolidamento);
+            await _repository.Update(aggregate);
+
+            return new ConsolidamentoCommandResponse
+            {
+                DocumentoAmministrativo = _mapper.Map<Documento>(aggregate)
+            };
+        }
+
+        protected IMapper _mapper = null;
+
+        protected virtual void InitializeMapper()
+        {
+            var configuration = new MapperConfiguration(cfg =>
+            {
+                cfg.AddDocumentoMapping();
+            });
+            _mapper = configuration.CreateMapper();
+
+        }
+
+    }
+}

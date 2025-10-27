@@ -1,0 +1,26 @@
+// SPDX-FileCopyrightText: 2025 Provincia Autonoma di Trento <https://www.provincia.tn.it>
+// SPDX-License-Identifier: EUPL-1.2
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Pi3.App.RubricaComune.Core.AggregateModels.CorrispondenteAggregate.Repositories;
+using Pi3.App.RubricaComune.Infrastructure.EF.AggregateModels.CorrispondenteAggregate.Repositories;
+using Pi3.App.RubricaComune.Infrastructure.EF.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Pi3.App.RubricaComune.Infrastructure.EF
+{
+    public static class ServiceCollectionExtensions
+    {
+        public static IServiceCollection AddInfrastructureLegacyRubricaComuneEF(this IServiceCollection services)
+        {
+            services.RemoveAll<ICorrispondenteRepository>().AddScoped<ICorrispondenteRepository, CorrispondenteEFRepository>();
+
+            return services;
+        }
+    }
+
+}

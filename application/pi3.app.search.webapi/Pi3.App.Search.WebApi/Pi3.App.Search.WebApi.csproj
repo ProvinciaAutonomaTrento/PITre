@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Pi3.App.Search.WebApi</RootNamespace>
+    <UserSecretsId>a9cc8f97-2d24-4d1d-a4e0-460f33315ccb</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Application\Commands\**" />
+    <Compile Remove="Application\DomainEventHandlers\**" />
+    <Compile Remove="Application\Exceptions\**" />
+    <Content Remove="Application\Commands\**" />
+    <Content Remove="Application\DomainEventHandlers\**" />
+    <Content Remove="Application\Exceptions\**" />
+    <EmbeddedResource Remove="Application\Commands\**" />
+    <EmbeddedResource Remove="Application\DomainEventHandlers\**" />
+    <EmbeddedResource Remove="Application\Exceptions\**" />
+    <None Remove="Application\Commands\**" />
+    <None Remove="Application\DomainEventHandlers\**" />
+    <None Remove="Application\Exceptions\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Lucene.Net" Version="4.8.0-beta00016" />
+    <PackageReference Include="Lucene.Net.Analysis.Common" Version="4.8.0-beta00016" />
+    <PackageReference Include="Lucene.Net.Queries" Version="4.8.0-beta00016" />
+    <PackageReference Include="Lucene.Net.QueryParser" Version="4.8.0-beta00016" />
+    <PackageReference Include="MediatR" Version="11.1.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="6.1.0" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="3.4.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.aac-main\Pi3.Infrastructure.AAC\Pi3.Infrastructure.AAC.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.DocumentoAmministrativo\Pi3.Infrastructure.Legacy.EF.DocumentoAmministrativoAggregate.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.Oracle\Pi3.Infrastructure.Legacy.EF.Oracle.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.Services\Pi3.Infrastructure.Legacy.EF.Services.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Application\Queries\Elements\GetElements\ErrorDescriptions.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ErrorDescriptions.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\ErrorDescriptions.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ErrorDescriptions.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Application\Queries\Elements\GetElements\ErrorDescriptions.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorDescriptions.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\ErrorDescriptions.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorDescriptions.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties appsettings_1json__JsonSchema="" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Pi3.App.Search.WebApi.Tests" />
+  </ItemGroup>
+</Project>

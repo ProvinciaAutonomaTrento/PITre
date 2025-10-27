@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ProjectType>Local</ProjectType>
+    <AssemblyKeyContainerName></AssemblyKeyContainerName>
+    <AssemblyOriginatorKeyFile></AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject></StartupObject>
+    <PublishUrl>http://localhost/DocsPaVO/</PublishUrl>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <BaseAddress>285212672</BaseAddress>
+    <ConfigurationOverrideFile></ConfigurationOverrideFile>
+    <DocumentationFile></DocumentationFile>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn></NoWarn>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <BaseAddress>285212672</BaseAddress>
+    <ConfigurationOverrideFile></ConfigurationOverrideFile>
+    <DocumentationFile></DocumentationFile>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn></NoWarn>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <DebugType>none</DebugType>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="addressbook\DettagliCorrispondente.cs">
+      <DependentUpon>DettagliCorrispondente.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="DocumentMetadata\AggregazioniDocumentaliInformatiche.cs">
+      <DependentUpon>AggregazioniDocumentaliInformatiche.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="DocumentMetadata\DocumentoAmministrativoInformatico.cs">
+      <DependentUpon>DocumentoAmministrativoInformatico.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="DocumentMetadata\DocumentoInformatico.cs">
+      <DependentUpon>DocumentoInformatico.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="Interoperabilita\SegnaturaProtocollo\pec_message.cs">
+      <DependentUpon>pec_message.xsd</DependentUpon>
+    </Compile>
+    <None Update="addressbook\DettagliCorrispondente.xsc">
+      <DependentUpon>DettagliCorrispondente.xsd</DependentUpon>
+    </None>
+    <None Update="addressbook\DettagliCorrispondente.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DettagliCorrispondente.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="addressbook\DettagliCorrispondente.xss">
+      <DependentUpon>DettagliCorrispondente.xsd</DependentUpon>
+    </None>
+    <None Update="DocumentMetadata\AggregazioniDocumentaliInformatiche.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="DocumentMetadata\DocumentoAmministrativoInformatico.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="DocumentMetadata\DocumentoInformatico.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="Interoperabilita\SegnaturaProtocollo\pec_message.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="Interoperabilita\SegnaturaProtocollo\Segnatura.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="Interoperabilita\SegnaturaProtocollo\xmldsig-core-schema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters" Version="1.4.0" />
+    <PackageReference Include="System.ServiceModel.Primitives" Version="6.2.0" />
+    <PackageReference Include="System.ServiceModel.Http" Version="6.2.0" />
+    <PackageReference Include="System.ServiceModel.Duplex" Version="6.0.0" />
+    <PackageReference Include="System.ServiceModel.NetTcp" Version="6.2.0" />
+    <PackageReference Include="System.ServiceModel.Security" Version="6.0.0" />
+    <PackageReference Include="System.ServiceModel.Federation" Version="6.2.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="DiagrammaStato\documento\Allegato.cs" />
+    <Compile Remove="DiagrammaStato\documento\AnelloDocumentale.cs" />
+    <Compile Remove="DiagrammaStato\documento\Applicazione.cs" />
+    <Compile Remove="DiagrammaStato\documento\BaseInfoDoc.cs" />
+    <Compile Remove="DiagrammaStato\documento\CessioneDocumento.cs" />
+    <Compile Remove="DiagrammaStato\documento\CreatoreDocumento.cs" />
+    <Compile Remove="DiagrammaStato\documento\DatiEmergenza.cs" />
+    <Compile Remove="DiagrammaStato\documento\DirittoOggetto.cs" />
+    <Compile Remove="DiagrammaStato\documento\DocumentConsolidation.cs" />
+    <Compile Remove="DiagrammaStato\documento\Documento.cs" />
+    <Compile Remove="DiagrammaStato\documento\DocumentoStoricoDataArrivo.cs" />
+    <Compile Remove="DiagrammaStato\documento\EtichettaInfo.cs" />
+    <Compile Remove="DiagrammaStato\documento\FileDocumento.cs" />
+    <Compile Remove="DiagrammaStato\documento\FileRequest.cs" />
+    <Compile Remove="DiagrammaStato\documento\FirmaResult.cs" />
+    <Compile Remove="DiagrammaStato\documento\Firmatario.cs" />
+    <Compile Remove="DiagrammaStato\documento\InfoDocumento.cs" />
+    <Compile Remove="DiagrammaStato\documento\InfoDocumentoExport.cs" />
+    <Compile Remove="DiagrammaStato\documento\InfoProtocolloDuplicato.cs" />
+    <Compile Remove="DiagrammaStato\documento\labelPdf.cs" />
+    <Compile Remove="DiagrammaStato\documento\LogDocumento.cs" />
+    <Compile Remove="DiagrammaStato\documento\ObjServerPdfConversion.cs" />
+    <Compile Remove="DiagrammaStato\documento\Oggetto.cs" />
+    <Compile Remove="DiagrammaStato\documento\ParolaChiave.cs" />
+    <Compile Remove="DiagrammaStato\documento\Protocollatore.cs" />
+    <Compile Remove="DiagrammaStato\documento\Protocollo.cs" />
+    <Compile Remove="DiagrammaStato\documento\ProtocolloAnnullato.cs" />
+    <Compile Remove="DiagrammaStato\documento\ProtocolloDestinatario.cs" />
+    <Compile Remove="DiagrammaStato\documento\ProtocolloEmergenza.cs" />
+    <Compile Remove="DiagrammaStato\documento\ProtocolloEmergenzaGrigi.cs" />
+    <Compile Remove="DiagrammaStato\documento\ProtocolloEntrata.cs" />
+    <Compile Remove="DiagrammaStato\documento\ProtocolloInterno.cs" />
+    <Compile Remove="DiagrammaStato\documento\ProtocolloUscita.cs" />
+    <Compile Remove="DiagrammaStato\documento\QueryOggetto.cs" />
+    <Compile Remove="DiagrammaStato\documento\ResultProtocollazione.cs" />
+    <Compile Remove="DiagrammaStato\documento\RicercaDuplicati.cs" />
+    <Compile Remove="DiagrammaStato\documento\SchedaDocumento.cs" />
+    <Compile Remove="DiagrammaStato\documento\SessionRepositoryContext.cs" />
+    <Compile Remove="DiagrammaStato\documento\StampaRegistroResult.cs" />
+    <Compile Remove="DiagrammaStato\documento\StatoDocumento.cs" />
+    <Compile Remove="DiagrammaStato\documento\StoriaDirittoDocumento.cs" />
+    <Compile Remove="DiagrammaStato\documento\Storico.cs" />
+    <Compile Remove="DiagrammaStato\documento\StoricoMittente.cs" />
+    <Compile Remove="DiagrammaStato\documento\StoricoOggetto.cs" />
+    <Compile Remove="DiagrammaStato\documento\TimestampDoc.cs" />
+    <Compile Remove="DiagrammaStato\documento\TipoDiritto.cs" />
+    <Compile Remove="DiagrammaStato\documento\TipologiaAtto.cs" />
+    <Compile Remove="DiagrammaStato\documento\TipologiaCanale.cs" />
+    <Compile Remove="DiagrammaStato\documento\VerifySignatureResult.cs" />
+    <Compile Remove="documento\ElectronicSignature.cs" />
+    <Compile Remove="LibroFirma\StatoElementoInLF.cs" />
+    <Compile Remove="Mobile\ModelloSmistamento.cs" />
+    <Compile Remove="Mobile\Requests\ListaModelliSmistamentoRequest.cs" />
+    <Compile Remove="Mobile\Responses\ListaModelliSmistamentoResponse.cs" />
+    <Compile Remove="trasmissione\TipoAzioneRichiesta.cs" />
+    <Compile Remove="utente\GetRegisteredRegistriRepertorioRequest.cs" />
+    <Compile Remove="utente\GetRegisteredRegistriRepertorioResponse.cs" />
+    <Compile Remove="utente\RegistroRepertorio.cs" />
+    <Compile Remove="utente\RegistroRepertorioDetailsRequest.cs" />
+    <Compile Remove="utente\RegistroRepertorioDetailsResponse.cs" />
+  </ItemGroup>
+  <PropertyGroup>
+    <AssemblyTitle>DocsPaVO</AssemblyTitle>
+    <Description>Oggetti per il controllo dei dati utilizzati dalle funzionalità di DocsPA.</Description>
+    <Company>Etnoteam S.p.A.</Company>
+    <Product>DocsPA 3.0</Product>
+    <Copyright>Copyright 2005 by Etnoteam S.p.A.</Copyright>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Pi3.Infrastructure.Legacy.EF</RootNamespace>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>1.3.4</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\pi3.core-main\Pi3.Core.DelegaAggregate\Pi3.Core.DelegaAggregate.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pi3.Infrastructure.Legacy.EF.Entities\Pi3.Infrastructure.Legacy.EF.Entities.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="AggregateModels\DelegaAggregate\Resources\ErrorDescriptions.Designer.cs">
+      <DependentUpon>ErrorDescriptions.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="AggregateModels\DelegaAggregate\Resources\ErrorDescriptions.resx">
+      <LastGenOutput>ErrorDescriptions.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

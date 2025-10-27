@@ -1,0 +1,2649 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:ps="http://www.impresainungiorno.gov.it/schema/suap/pratica" 
+	xmlns:pi="http://www.impresainungiorno.gov.it/schema/base" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.impresainungiorno.gov.it/schema/suap/pratica" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0.1">
+	<xs:import namespace="http://www.impresainungiorno.gov.it/schema/base" schemaLocation="impresainungiorno.gov_tipi_elementari-1.0.0.xsd"/>
+	<!-- 
+        Modello di riepilogo della pratica SUAP
+    -->
+	<xs:element name="riepilogo-pratica-suap" type="ps:RiepilogoPraticaSUAP"/>
+	<!-- 
+    
+        Definizione della Pratica
+        
+    -->
+	<xs:complexType name="RiepilogoPraticaSUAP">
+		<xs:sequence>
+			<xs:element name="info-schema" type="ps:VersioneSchema"/>
+			<xs:element name="intestazione" type="ps:Intestazione"/>
+			<xs:element name="struttura" type="ps:Struttura"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- 
+        
+        Definizione dei componenti dell'intestazione
+        
+    -->
+	<xs:complexType name="Intestazione">
+		<xs:sequence>
+			<xs:element name="ufficio-destinatario" type="ps:EstremiSuap"/>
+			<xs:element name="impresa" type="ps:AnagraficaImpresa"/>
+			<xs:element name="oggetto-comunicazione" type="ps:OggettoComunicazione">
+				<xs:annotation>
+					<xs:documentation>Questo elemento viene tipicamente utilizzato nella registrazione di protocollo come oggetto
+                    della protocollazione.
+                    Il contenuto puo' essere definito ad esempio concatenando il tipo-procedimento (SCIA o Procedimento Ordinario) con il 
+                    tipo-intervento e l'indicazione dell'impresa cui si riferisce. Di seguito un esempio: SCIA di SUBENTRO impresa MARIO ROSSI.
+                </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="codice-pratica" type="pi:Stringa" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Questo elemento, se presente, e' un codice identificativo univoco della pratica valido nel dominio del SUAP competente.
+                        Si suggerisce di utilizzare la codifica dello stardar naming dei file CF-GGMMAAAA-HHMM.NNN
+                        Es: DPRTNT00A01A012T-08072010-173                     
+                    </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="procura-speciale" type="ps:ProcuraSpeciale" minOccurs="0"/>
+			<xs:element name="dichiarante" type="ps:EstremiDichiarante"/>
+			<xs:element name="domicilio-elettronico" type="pi:EMailIndirizzo" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+                    Solo nel caso di SCIA in comunica la PEC puo' non esserci perche' l'impresa  richiede di farsi assegnare  la PEC
+                    d'ufficio dalla CCIAA. In questo caso la PEC verra' comunicata al SUAP con la successiva comunicazione SUAPRI..XML. Nel caso di pratica SUAP non contestuale e' invece necessaria. 
+                </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="impianto-produttivo" type="ps:ImpiantoProduttivo" minOccurs="0"/>
+			<xs:element name="protocollo" type="ps:ProtocolloSUAP" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Questo elemento e' previsto per inserire un eventuale numero di protocollo SUAP di riferimento legato 
+                                      a pratiche SUAP pregresse o a pratiche di integrazione.
+                    </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!--  
+    -->
+	<xs:complexType name="EstremiSuap">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="codice-amministrazione" type="ps:CodiceAmministrazione" use="required"/>
+				<xs:attribute name="codice-aoo" type="ps:CodiceAOO" use="required"/>
+				<xs:attribute name="identificativo-suap" type="xs:positiveInteger" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--  
+    -->
+	<!--  
+    -->
+	<xs:complexType name="EstremiEnte">
+		<xs:simpleContent>
+			<xs:extension base="pi:Stringa">
+				<xs:attribute name="codice-amministrazione" type="ps:CodiceAmministrazione"/>
+				<xs:attribute name="codice-aoo" type="ps:CodiceAOO"/>
+				<xs:attribute name="pec" type="pi:EMailIndirizzo"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--  
+    -->
+	<xs:complexType name="AnagraficaImpresa">
+		<xs:annotation>
+			<xs:documentation>
+            Dati relativi alla sede legale dell'impresa
+        </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="forma-giuridica" type="ps:FormaGiuridica"/>
+			<xs:element name="ragione-sociale" type="pi:Stringa"/>
+			<xs:element name="codice-fiscale" type="pi:CodiceFiscale" minOccurs="0"/>
+			<xs:element name="partita-iva" type="pi:PartitaIVA" minOccurs="0"/>
+			<xs:element name="codice-REA" type="pi:CodiceREA" minOccurs="0"/>
+			<xs:element name="indirizzo" type="pi:IndirizzoConRecapiti"/>
+			<xs:element name="legale-rappresentante" type="ps:AnagraficaRappresentante"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--  
+    -->
+	<xs:complexType name="AnagraficaRappresentante">
+		<xs:complexContent>
+			<xs:extension base="pi:Anagrafica">
+				<xs:sequence>
+					<xs:element name="carica" type="ps:Carica"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!--  
+    -->
+	<xs:complexType name="EstremiDichiarante">
+		<xs:complexContent>
+			<xs:extension base="pi:Anagrafica">
+				<xs:sequence>
+					<xs:element name="pec" type="pi:EMailIndirizzo" minOccurs="0"/>
+					<xs:element name="telefono" type="pi:NumeroTelefono" minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="qualifica" use="required">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="ALTRO PREVISTO DALLA VIGENTE NORMATIVA"/>
+							<xs:enumeration value="AMMINISTRATORE"/>
+							<xs:enumeration value="ASSOCIAZIONE DI CATEGORIA"/>
+							<xs:enumeration value="CENTRO ELABORAZIONE DATI"/>
+							<xs:enumeration value="COMMISSARIO GIUDIZIARIO"/>
+							<xs:enumeration value="CONSULENTE"/>
+							<xs:enumeration value="CURATORE FALLIMENTARE"/>
+							<xs:enumeration value="DELEGATO"/>
+							<xs:enumeration value="LEGALE RAPPRESENTANTE"/>
+							<xs:enumeration value="LIQUIDATORE"/>
+							<xs:enumeration value="NOTAIO"/>
+							<xs:enumeration value="PROFESSIONISTA INCARICATO"/>
+							<xs:enumeration value="SOCIO"/>
+							<xs:enumeration value="STUDIO ASSOCIATO"/>
+							<xs:enumeration value="TITOLARE"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!--  
+    -->
+	<xs:complexType name="ImpiantoProduttivo">
+		<xs:sequence>
+			<xs:element name="indirizzo" type="pi:Indirizzo"/>
+			<xs:element name="dati-catastali" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="sezione" minOccurs="0">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="pi:Stringa">
+										<xs:attribute name="tipo">
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:enumeration value="amministrativa"/>
+													<xs:enumeration value="censuaria"/>
+													<xs:enumeration value="urbana"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:attribute>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="foglio" type="pi:Stringa"/>
+						<xs:element name="mappale" type="pi:Stringa" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>particella o mappale o numero di mappa, rappresenta all'interno del foglio, una porzione di terreno, o il fabbricato e 
+                                l'eventuale area di pertinenza, e viene contrassegnata, tranne rare eccezioni, da un numero.        
+                                </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="subalterno" type="pi:Stringa" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+					<xs:attribute name="tipo">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="fabbricati"/>
+								<xs:enumeration value="terreni"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+					<xs:attribute name="comune-catastale">
+						<xs:annotation>
+							<xs:documentation>Ordinariamente, per ciascun comune, il confine territoriale individuato catastalmente e' coincidente con il
+                                corrispondente confine amministrativo comunale. Il codice comune e' composto da 4 caratteri.
+                                Ci sono casi in cui il comune-catastale puo' essere diverso dal codice catastale associato al comune indicato 
+                                nell'indirizzo</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="pi:Stringa">
+								<xs:pattern value="[A-Z]{1}\d{3}"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="disponibilita-immobile" type="pi:Stringa" minOccurs="0"/>
+			<xs:element name="destinazione-uso" type="pi:Stringa" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--  
+    -->
+	<xs:complexType name="ProtocolloSUAP">
+		<xs:complexContent>
+			<xs:extension base="ps:FormatoProtocollo">
+				<xs:sequence>
+					<xs:element name="riferimento" type="ps:FormatoProtocollo" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!--  
+    -->
+	<xs:complexType name="FormatoProtocollo">
+		<xs:annotation>
+			<xs:documentation>
+            Dati di protocollo. Corrisponde al tipo Identificatore nella specifica del 
+            protocollo informatico (si veda documentazione DigitPA
+        </xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="codice-amministrazione" type="ps:CodiceAmministrazione" use="required"/>
+		<xs:attribute name="codice-aoo" type="ps:CodiceAOO" use="required"/>
+		<xs:attribute name="data-registrazione" type="xs:date" use="required"/>
+		<xs:attribute name="numero-registrazione" use="required">
+			<xs:annotation>
+				<xs:documentation>
+                Il NumeroRegistrazione deve essere sempre formato da sette
+                cifre decimali, con giustificazione mediante zero (e.g. il numero 1
+                deve essere codificato come 0000001)
+            </xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:pattern value="\d{7}"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<!--  
+    -->
+	<xs:complexType name="ProtocolloRI">
+		<xs:attribute name="ufficio-ri" type="ps:SiglaProvincia" use="required"/>
+		<xs:attribute name="anno" type="xs:gYear" use="required"/>
+		<xs:attribute name="numero-protocollo-ri" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:nonNegativeInteger">
+					<xs:maxInclusive value="999999999"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="sotto-numero-protocollo-ri" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:nonNegativeInteger">
+					<xs:maxInclusive value="9999"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="data-protocollo-ri" type="xs:date" use="required"/>
+	</xs:complexType>
+	<!-- 
+        
+        Definizione dei componenti della struttura della pratica suap
+        
+    -->
+	<xs:complexType name="Struttura">
+		<xs:annotation>
+			<xs:documentation>
+            Struttura e composizione della pratica
+        </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="modulo" type="ps:AdempimentoSUAP" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+                    L'adempimento principale (Domanda Unica o SCIA) e' sempre il primo della lista
+                </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!--  
+    -->
+	<xs:complexType name="AdempimentoSUAP">
+		<xs:annotation>
+			<xs:documentation>
+            Singolo endoprocedimento (adempimento)
+        </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ente-coinvolto" type="ps:EstremiEnte" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+                    Lista degli enti coinvolti ai quali inviare l'endoprocedimento (adempimento)
+                </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="distinta-modello-attivita" type="ps:ModelloAttivita">
+				<xs:annotation>
+					<xs:documentation>
+                    Documento o modulo principale dell'endoprocedimento. Puo' non essere presente come in caso di domanda unica
+                </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="documento-allegato" type="ps:AllegatoGenerico" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Eventuali documenti secondari</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="nome" type="pi:Stringa" use="required"/>
+		<xs:attribute name="cod" type="pi:Stringa"/>
+	</xs:complexType>
+	<!--  
+    -->
+	<xs:complexType name="BaseAllegatoSUAP" abstract="true">
+		<xs:annotation>
+			<xs:documentation>
+            Descrive il singolo file allegato. Tipo astratto, non istanziabile
+        </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="descrizione" type="pi:Stringa" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+                    Descrizione opzionale del documento
+                </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="nome-file-originale" type="pi:Stringa" minOccurs="0"/>
+			<xs:element name="mime" type="ps:MimeType"/>
+			<xs:element name="mime-base" type="ps:MimeType" minOccurs="0"/>
+			<xs:element name="dimensione" type="xs:positiveInteger" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--  
+    -->
+	<xs:complexType name="ModelloAttivita">
+		<xs:annotation>
+			<xs:documentation>
+            Descrive un file di tipo modello-attivita
+        </xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ps:BaseAllegatoSUAP">
+				<xs:sequence>
+					<xs:element name="tracciato-xml" minOccurs="0">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="ps:BaseAllegatoSUAP">
+									<xs:attribute name="nome-file" type="ps:TipoFileAllegatoModelloAttivita" use="required"/>
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="nome-file" type="ps:TipoFileAllegatoDistintaModelloAttivita" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!--  
+    -->
+	<xs:complexType name="ProcuraSpeciale">
+		<xs:annotation>
+			<xs:documentation>
+            Descrive un file di tipo procura speciale
+        </xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ps:BaseAllegatoSUAP">
+				<xs:sequence>
+					<xs:element name="tracciato-xml" minOccurs="0">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="ps:BaseAllegatoSUAP">
+									<xs:attribute name="nome-file" type="ps:TipoFileAllegatoXML" use="required"/>
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="nome-file" type="ps:TipoFileAllegatoDistinta" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!--  
+    -->
+	<xs:complexType name="AllegatoGenerico">
+		<xs:complexContent>
+			<xs:extension base="ps:BaseAllegatoSUAP">
+				<xs:attribute name="nome-file" type="ps:TipoFileAllegatoGenerico" use="required"/>
+				<xs:attribute name="cod" type="pi:Stringa"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 
+        
+        Definizione dei tipi complessi
+        
+    -->
+	<xs:complexType name="FormaGiuridica">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:annotation>
+					<xs:documentation>
+                    La descrizione dell'elemeto forma giridica e' quella corrispondente all'annotation del valore possibile dell'atributo. Ai fini dei controlli fa fede il valore dell'attributo codice
+                </xs:documentation>
+				</xs:annotation>
+				<xs:attribute name="codice" use="required">
+					<xs:annotation>
+						<xs:documentation>
+                        Id della forma giuridica. Campo valorizzato secondo la codifica del Registro Imprese
+                    </xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="XX">
+								<xs:annotation>
+									<xs:documentation>NON PRECISATA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SZ">
+								<xs:annotation>
+									<xs:documentation>SOCIETA' NON PREVISTA DALLA LEGISLAZIONE ITALIANA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SV">
+								<xs:annotation>
+									<xs:documentation>SOCIETA' TRA AVVOCATI</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SU">
+								<xs:annotation>
+									<xs:documentation>SOCIETA' A RESPONSABILITA' LIMITATA CON UNICO SOCIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="ST">
+								<xs:annotation>
+									<xs:documentation>SOGGETTO ESTERO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SS">
+								<xs:annotation>
+									<xs:documentation>SOCIETA' COSTITUITA IN BASE A LEGGI DI ALTRO STATO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SR">
+								<xs:annotation>
+									<xs:documentation>SOCIETA' A RESPONSABILITA' LIMITATA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SP">
+								<xs:annotation>
+									<xs:documentation>SOCIETA' PER AZIONI</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SO">
+								<xs:annotation>
+									<xs:documentation>SOCIETA' CONSORTILE PER AZIONI</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SN">
+								<xs:annotation>
+									<xs:documentation>SOCIETA' IN NOME COLLETTIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SM">
+								<xs:annotation>
+									<xs:documentation>SOCIETA' DI MUTUO SOCCORSO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SL">
+								<xs:annotation>
+									<xs:documentation>SOCIETA' CONSORTILE A RESPONSABILITA' LIMITATA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SI">
+								<xs:annotation>
+									<xs:documentation>SOCIETA' IRREGOLARE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SG">
+								<xs:annotation>
+									<xs:documentation>SOCIETA' COOPERATIVA EUROPEA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SF">
+								<xs:annotation>
+									<xs:documentation>SOCIETA' DI FATTO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SE">
+								<xs:annotation>
+									<xs:documentation>SOCIETA' SEMPLICE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SD">
+								<xs:annotation>
+									<xs:documentation>SOCIETA' EUROPEA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SC">
+								<xs:annotation>
+									<xs:documentation>SOCIETA' COOPERATIVA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SA">
+								<xs:annotation>
+									<xs:documentation>SOCIETA' ANONIMA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="RS">
+								<xs:annotation>
+									<xs:documentation>SOCIETA' A RESPONSABILITA' LIMITATA SEMPLIFICATA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="RR">
+								<xs:annotation>
+									<xs:documentation>SOCIETA' A RESPONSABILITA' LIMITATA A CAPITALE RIDOTTO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PS">
+								<xs:annotation>
+									<xs:documentation>PICCOLA SOCIETA' COOPERATIVA A RESPONSABILITA' LIMITATA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PC">
+								<xs:annotation>
+									<xs:documentation>PICCOLA SOCIETA' COOPERATIVA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PA">
+								<xs:annotation>
+									<xs:documentation>ASSOCIAZIONE IN PARTECIPAZIONE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="OS">
+								<xs:annotation>
+									<xs:documentation>SOCIETA' CONSORTILE COOPERATIVA A RESPONSABILITA' LIMITATA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="OO">
+								<xs:annotation>
+									<xs:documentation>COOPERATIVA SOCIALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="OC">
+								<xs:annotation>
+									<xs:documentation>SOCIETA' COOPERATIVA CONSORTILE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="MA">
+								<xs:annotation>
+									<xs:documentation>MUTUA ASSICURAZIONE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="LL">
+								<xs:annotation>
+									<xs:documentation>AZIENDA SPECIALE DI CUI AL DLGS 267/2000</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="IR">
+								<xs:annotation>
+									<xs:documentation>ISTITUTO RELIGIOSO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="IF">
+								<xs:annotation>
+									<xs:documentation>IMPRESA FAMILIARE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="ID">
+								<xs:annotation>
+									<xs:documentation>ISTITUTO DI CREDITO DI DIRITTO PUBBLICO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="IC">
+								<xs:annotation>
+									<xs:documentation>ISTITUTO DI CREDITO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="GE">
+								<xs:annotation>
+									<xs:documentation>GRUPPO EUROPEO DI INTERESSE ECONOMICO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="FO">
+								<xs:annotation>
+									<xs:documentation>FONDAZIONE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="FI">
+								<xs:annotation>
+									<xs:documentation>FONDAZIONE IMPRESA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="ES">
+								<xs:annotation>
+									<xs:documentation>ENTE DI CUI ALLA L.R. 21-12-93</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="ER">
+								<xs:annotation>
+									<xs:documentation>ENTE ECCLESIASTICO CIVILMENTE RICONOSCIUTO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="EP">
+								<xs:annotation>
+									<xs:documentation>ENTE PUBBLICO ECONOMICO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="EN">
+								<xs:annotation>
+									<xs:documentation>ENTE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="EM">
+								<xs:annotation>
+									<xs:documentation>ENTE MORALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="EL">
+								<xs:annotation>
+									<xs:documentation>ENTE SOCIALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="EI">
+								<xs:annotation>
+									<xs:documentation>ENTE IMPRESA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="EE">
+								<xs:annotation>
+									<xs:documentation>ENTE ECCLESIASTICO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="ED">
+								<xs:annotation>
+									<xs:documentation>ENTE DIRITTO PUBBLICO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="EC">
+								<xs:annotation>
+									<xs:documentation>ENTE PUBBLICO COMMERCIALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="DI">
+								<xs:annotation>
+									<xs:documentation>IMPRESA INDIVIDUALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CZ">
+								<xs:annotation>
+									<xs:documentation>CONSORZIO DI CUI AL DLGS 267/2000</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CS">
+								<xs:annotation>
+									<xs:documentation>CONSORZIO SENZA ATTIVITA' ESTERNA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CR">
+								<xs:annotation>
+									<xs:documentation>CONSORZIO INTERCOMUNALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CO">
+								<xs:annotation>
+									<xs:documentation>CONSORZIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CN">
+								<xs:annotation>
+									<xs:documentation>SOCIETA' CONSORTILE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CM">
+								<xs:annotation>
+									<xs:documentation>CONSORZIO MUNICIPALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CL">
+								<xs:annotation>
+									<xs:documentation>SOCIETA' COOPERATIVA A RESPONSABILITA LIMITATA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CI">
+								<xs:annotation>
+									<xs:documentation>SOCIETA' COOPERATIVA A RESPONSABILITA ILLIMITATA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CF">
+								<xs:annotation>
+									<xs:documentation>CONSORZIO FIDI</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CE">
+								<xs:annotation>
+									<xs:documentation>COMUNIONE EREDITARIA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CC">
+								<xs:annotation>
+									<xs:documentation>CONSORZIO CON ATTIVITA' ESTERNA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="AZ">
+								<xs:annotation>
+									<xs:documentation>AZIENDA SPECIALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="AU">
+								<xs:annotation>
+									<xs:documentation>SOCIETA'  PER AZIONI CON SOCIO UNICO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="AT">
+								<xs:annotation>
+									<xs:documentation>AZIENDA AUTONOMA STATALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="AS">
+								<xs:annotation>
+									<xs:documentation>SOCIETA' IN ACCOMANDITA SEMPLICE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="AR">
+								<xs:annotation>
+									<xs:documentation>AZIENDA REGIONALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="AP">
+								<xs:annotation>
+									<xs:documentation>AZIENDA PROVINCIALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="AN">
+								<xs:annotation>
+									<xs:documentation>SOCIETA' CONSORTILE IN NOME COLLETTIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="AM">
+								<xs:annotation>
+									<xs:documentation>AZIENDA MUNICIPALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="AL">
+								<xs:annotation>
+									<xs:documentation>AZIENDA SPECIALE DI ENTE LOCALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="AI">
+								<xs:annotation>
+									<xs:documentation>ASSOCIAZIONE IMPRESA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="AF">
+								<xs:annotation>
+									<xs:documentation>ALTRE FORME</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="AE">
+								<xs:annotation>
+									<xs:documentation>SOCIETA' CONSORTILE IN ACCOMANDITA SEMPLICE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="AC">
+								<xs:annotation>
+									<xs:documentation>ASSOCIAZIONE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="AA">
+								<xs:annotation>
+									<xs:documentation>SOCIETA' IN ACCOMANDITA PER AZIONI</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="categoria" type="pi:StringaLunga" use="optional">
+					<xs:annotation>
+						<xs:documentation>
+                        Categoria della forma giuridica per classificare le tipologie di forma d'impresa. 
+                        Attualemnte sul portale assume questi valori: SOCIETA, INDIVIDUALE, ACCOMANDITA, COLLETTIVO, SOGGETTO_ESTERO
+                    </xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--  
+    -->
+	<xs:complexType name="Carica">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="codice" use="required">
+					<xs:annotation>
+						<xs:documentation>
+                        codice della carica di una persona fisca all'interno di una impresa valorizzato secondo la codifica Registro Imprese.
+                    </xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="ACP">
+								<xs:annotation>
+									<xs:documentation>AMMINISTRATORE CON POSTILLA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="ACR">
+								<xs:annotation>
+									<xs:documentation>AMMINISTRATORE CON REQUISITI</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="ADP">
+								<xs:annotation>
+									<xs:documentation>AMMINISTRATORE DELEGATO E PREPOSTO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="AF">
+								<xs:annotation>
+									<xs:documentation>AFFITTUARIO O CONDUTTORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="AFF">
+								<xs:annotation>
+									<xs:documentation>AFFITTUARIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="AMD">
+								<xs:annotation>
+									<xs:documentation>AMMINISTRATORE DELEGATO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="AMG">
+								<xs:annotation>
+									<xs:documentation>AMMINISTRATORE GIUDIZIARIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="AMM">
+								<xs:annotation>
+									<xs:documentation>AMMINISTRATORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="AMP">
+								<xs:annotation>
+									<xs:documentation>AMMINISTRATORE PROVVISORIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="AMS">
+								<xs:annotation>
+									<xs:documentation>AMMINISTRATORE STRAORDINARIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="APR">
+								<xs:annotation>
+									<xs:documentation>AMMINISTRATORE E PREPOSTO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="ART">
+								<xs:annotation>
+									<xs:documentation>AMMINISTRATORE E RESPONSABILE TECNICO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="ASO">
+								<xs:annotation>
+									<xs:documentation>SOCIO DELL'IMPRESA ARTIGIANA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="ATI">
+								<xs:annotation>
+									<xs:documentation>TITOLARE DELL'IMPRESA ARTIGIANA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="AUN">
+								<xs:annotation>
+									<xs:documentation>AMMINISTRATORE UNICO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="AUP">
+								<xs:annotation>
+									<xs:documentation>AMMINISTRATORE UNICO E PREPOSTO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CA">
+								<xs:annotation>
+									<xs:documentation>CONDIRETTORE AMMINISTRATIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CAD">
+								<xs:annotation>
+									<xs:documentation>CAPO DELEGAZIONE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CAG">
+								<xs:annotation>
+									<xs:documentation>CAPO AGENZIA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CC">
+								<xs:annotation>
+									<xs:documentation>CONDIRETTORE CENTRALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CCG">
+								<xs:annotation>
+									<xs:documentation>COMITATO DI CONTROLLO GESTIONE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CD">
+								<xs:annotation>
+									<xs:documentation>CONDIRETTORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CDG">
+								<xs:annotation>
+									<xs:documentation>CONSIGLIERE E DIRETTORE GENERALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CDP">
+								<xs:annotation>
+									<xs:documentation>CONSIGLIERE DELEGATO E PREPOSTO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CDS">
+								<xs:annotation>
+									<xs:documentation>CONSIGLIERE DI SORVEGLIANZA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CDT">
+								<xs:annotation>
+									<xs:documentation>CONSIGLIERE DELEGATO E RESPONSABILE TECNICO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CE">
+								<xs:annotation>
+									<xs:documentation>CONDIRETTORE COMMERCIALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CEP">
+								<xs:annotation>
+									<xs:documentation>CONSIGLIERE E PREPOSTO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CES">
+								<xs:annotation>
+									<xs:documentation>COLLABORATORE ESTERNO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CF">
+								<xs:annotation>
+									<xs:documentation>CONDIRETTORE DI FILIALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CG">
+								<xs:annotation>
+									<xs:documentation>CONDIRETTORE GENERALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CGE">
+								<xs:annotation>
+									<xs:documentation>CONSIGLIERE DI GESTIONE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CGS">
+								<xs:annotation>
+									<xs:documentation>CONSIGLIO DI GESTIONE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CI">
+								<xs:annotation>
+									<xs:documentation>CONDIRETTORE INTERINALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CLD">
+								<xs:annotation>
+									<xs:documentation>COLLAUDATORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CLR">
+								<xs:annotation>
+									<xs:documentation>CONSIGLIERE E LEGALE RAPPRESENTANTE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CLT">
+								<xs:annotation>
+									<xs:documentation>COLTIVATORE DIRETTO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CM">
+								<xs:annotation>
+									<xs:documentation>COMMISSARIO MINISTERIALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CMS">
+								<xs:annotation>
+									<xs:documentation>COMMISSARIO STRAORDINARIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CNG">
+								<xs:annotation>
+									<xs:documentation>CONIUGE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="COA">
+								<xs:annotation>
+									<xs:documentation>COAMMINISTRATORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="COD">
+								<xs:annotation>
+									<xs:documentation>CONSIGLIERE DELEGATO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="COE">
+								<xs:annotation>
+									<xs:documentation>COEREDE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="COF">
+								<xs:annotation>
+									<xs:documentation>COLLABORATORE FAMILIARE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="COG">
+								<xs:annotation>
+									<xs:documentation>COMMISSARIO GIUDIZIARIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="COL">
+								<xs:annotation>
+									<xs:documentation>COMMISSARIO LIQUIDATORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="COM">
+								<xs:annotation>
+									<xs:documentation>SOCIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CON">
+								<xs:annotation>
+									<xs:documentation>CONSIGLIERE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="COO">
+								<xs:annotation>
+									<xs:documentation>CONSIGLIERE ONORARIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="COP">
+								<xs:annotation>
+									<xs:documentation>COMMISSARIO PREFETTIZIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="COS">
+								<xs:annotation>
+									<xs:documentation>CONSIGLIERE SEGRETARIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="COT">
+								<xs:annotation>
+									<xs:documentation>CONDUTTORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="COV">
+								<xs:annotation>
+									<xs:documentation>COMMISSARIO GOVERNATIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CPC">
+								<xs:annotation>
+									<xs:documentation>CAPOCANTIERE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CPR">
+								<xs:annotation>
+									<xs:documentation>SOCIO COMPROPRIETARIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CRT">
+								<xs:annotation>
+									<xs:documentation>CURATORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CS">
+								<xs:annotation>
+									<xs:documentation>CONDIRETTORE DI STABILIMENTO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CSA">
+								<xs:annotation>
+									<xs:documentation>CAPO SERVIZIO AMMINISTRATIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CSG">
+								<xs:annotation>
+									<xs:documentation>CUSTODE SEQUESTRO GIUDIZIARIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CSS">
+								<xs:annotation>
+									<xs:documentation>CONSIGLIERE DI SORVEGLIANZA SUPPLENTE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CST">
+								<xs:annotation>
+									<xs:documentation>COMMISSARIO STRAORDINARIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CT">
+								<xs:annotation>
+									<xs:documentation>CONDIRETTORE TECNICO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CTE">
+								<xs:annotation>
+									<xs:documentation>CONSIGLIERE E RESPONSABILE TECNICO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CU">
+								<xs:annotation>
+									<xs:documentation>CAPO UFFICIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CUE">
+								<xs:annotation>
+									<xs:documentation>CURATORE DELLO EMANCIPATO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CUF">
+								<xs:annotation>
+									<xs:documentation>CURATORE FALLIMENTARE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CUM">
+								<xs:annotation>
+									<xs:documentation>CURATORE SPECIALE DI MINORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CUV">
+								<xs:annotation>
+									<xs:documentation>CAPUFFICIO VENDITE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CVE">
+								<xs:annotation>
+									<xs:documentation>CONSIGLIO DI SORVEGLIANZA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CZ">
+								<xs:annotation>
+									<xs:documentation>CONDIRETTORE DI ESERCIZIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="C01">
+								<xs:annotation>
+									<xs:documentation>NOMINA AD AMMINISTRATORE DELEGATO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="C02">
+								<xs:annotation>
+									<xs:documentation>NOMINA AD AMMINISTRATORE GIUDIZIARIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="C03">
+								<xs:annotation>
+									<xs:documentation>NOMINA AD AMMINISTRATORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="C07">
+								<xs:annotation>
+									<xs:documentation>NOMINA AD AMMINISTRATORE UNICO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="C08">
+								<xs:annotation>
+									<xs:documentation>NOMINA A CONSIGLIERE DELEGATO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="C09">
+								<xs:annotation>
+									<xs:documentation>NOMINA A COMMISSARIO GIUDIZIARIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="C11">
+								<xs:annotation>
+									<xs:documentation>NOMINA A COMMISSARIO LIQUIDATORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="C12">
+								<xs:annotation>
+									<xs:documentation>NOMINA A CONSIGLIERE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="C13">
+								<xs:annotation>
+									<xs:documentation>NOMINA A LEGALE RAPPRESENTANTE DI SOCIETA'</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="C14">
+								<xs:annotation>
+									<xs:documentation>NOMINA A LIQUIDATORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="C15">
+								<xs:annotation>
+									<xs:documentation>NOMINA A LIQUIDATORE GIUDIZIARIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="C16">
+								<xs:annotation>
+									<xs:documentation>NOMINA A LIQUIDATORE DI UNITA' LOCALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="C17">
+								<xs:annotation>
+									<xs:documentation>NOMINA A MEMBRO COMITATO DIRETTIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="C18">
+								<xs:annotation>
+									<xs:documentation>NOMINA A MEMBRO COMITATO ESECUTIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="C19">
+								<xs:annotation>
+									<xs:documentation>NOMINA A PRESIDENTE CONSIGLIO AMMINISTRAZIONE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="C20">
+								<xs:annotation>
+									<xs:documentation>NOMINA A PRESIDENTE COMITATO DIRETTIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="C21">
+								<xs:annotation>
+									<xs:documentation>NOMINA A PRESIDENTE COMITATO ESECUTIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="C22">
+								<xs:annotation>
+									<xs:documentation>NOMINA A PRESIDENTE DEL COLLEGIO SINDACALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="C23">
+								<xs:annotation>
+									<xs:documentation>NOMINA A PREPOSTO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="C26">
+								<xs:annotation>
+									<xs:documentation>NOMINA A RAPPRESENTANTE LEGALE DELLE SEDI SECONDARIE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="C28">
+								<xs:annotation>
+									<xs:documentation>NOMINA A SINDACO EFFETTIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="C29">
+								<xs:annotation>
+									<xs:documentation>NOMINA A SINDACO SUPPLENTE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="C32">
+								<xs:annotation>
+									<xs:documentation>NOMINA A VICE AMMINISTRATORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="C34">
+								<xs:annotation>
+									<xs:documentation>NOMINA A VICE PRESIDENTE CONSIGLIO AMMINISTRAZIONE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="DA">
+								<xs:annotation>
+									<xs:documentation>DIRETTORE AMMINISTRATIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="DAM">
+								<xs:annotation>
+									<xs:documentation>DIRIGENTE AMMINISTRATIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="DC">
+								<xs:annotation>
+									<xs:documentation>DIRETTORE CENTRALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="DCO">
+								<xs:annotation>
+									<xs:documentation>DIRIGENTE COMMERCIALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="DCP">
+								<xs:annotation>
+									<xs:documentation>DIRIGENTE CON POTERE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="DE">
+								<xs:annotation>
+									<xs:documentation>DIRETTORE COMMERCIALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="DES">
+								<xs:annotation>
+									<xs:documentation>DELEGATO ALLA SOMMINISTRAZIONE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="DF">
+								<xs:annotation>
+									<xs:documentation>DIRETTORE DI FILIALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="DFI">
+								<xs:annotation>
+									<xs:documentation>DIRETTORE FINANZE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="DG">
+								<xs:annotation>
+									<xs:documentation>DIRETTORE GENERALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="DI">
+								<xs:annotation>
+									<xs:documentation>DIRETTORE INTERINALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="DIA">
+								<xs:annotation>
+									<xs:documentation>DIRETTORE ARTISTICO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="DIM">
+								<xs:annotation>
+									<xs:documentation>DIMISSIONARIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="DIP">
+								<xs:annotation>
+									<xs:documentation>DIPENDENTE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="DIR">
+								<xs:annotation>
+									<xs:documentation>DIRIGENTE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="DLF">
+								<xs:annotation>
+									<xs:documentation>DELEGATO ALLA FIRMA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="DL2">
+								<xs:annotation>
+									<xs:documentation>DELEGATO DI CUI ART. 2 LEGGE 25/8/91 N.287</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="DMK">
+								<xs:annotation>
+									<xs:documentation>DIRETTORE MARKETING</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="DNC">
+								<xs:annotation>
+									<xs:documentation>DIP. DI IMPRESA AUTORIZ. AL SERV. NOLEG. CON CONDUCENTE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="DP">
+								<xs:annotation>
+									<xs:documentation>DIRETTORE DEL PERSONALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="DR">
+								<xs:annotation>
+									<xs:documentation>DIRETTORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="DRE">
+								<xs:annotation>
+									<xs:documentation>DELEGATO ISCRIZIONE REC</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="DRG">
+								<xs:annotation>
+									<xs:documentation>DIRETTORE REGIONALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="DRR">
+								<xs:annotation>
+									<xs:documentation>DIRETTORE RESPONSABILE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="DS">
+								<xs:annotation>
+									<xs:documentation>DIRETTORE DI STABILIMENTO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="DSA">
+								<xs:annotation>
+									<xs:documentation>DELEGATO DI CUI ALL'ART. 2 DELLA LEGGE 287 DEL 25.8.1991</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="DT">
+								<xs:annotation>
+									<xs:documentation>DIRETTORE TECNICO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="DTD">
+								<xs:annotation>
+									<xs:documentation>DELEGATO AL RITIRO CAPITALE VERSATO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="DZ">
+								<xs:annotation>
+									<xs:documentation>DIRETTORE DI ESERCIZIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="ELE">
+								<xs:annotation>
+									<xs:documentation>ELETTORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="EXS">
+								<xs:annotation>
+									<xs:documentation>EX SOCIO DI SOCIETA' DI PERSONE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="FAT">
+								<xs:annotation>
+									<xs:documentation>FATTORE DI CAMPAGNA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="FC">
+								<xs:annotation>
+									<xs:documentation>FAMILIARE COMPONENTE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="FU">
+								<xs:annotation>
+									<xs:documentation>FUNZIONARIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="GE">
+								<xs:annotation>
+									<xs:documentation>GESTORE DELL' ESERCIZIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="GER">
+								<xs:annotation>
+									<xs:documentation>GERENTE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="GID">
+								<xs:annotation>
+									<xs:documentation>GIUDICE DELEGATO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="GOV">
+								<xs:annotation>
+									<xs:documentation>GOVERNATORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="GSG">
+								<xs:annotation>
+									<xs:documentation>GESTORE SEQUESTRO GIUDIZIARIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="IG">
+								<xs:annotation>
+									<xs:documentation>ISPETTORE GENERALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="IMN">
+								<xs:annotation>
+									<xs:documentation>IMPRESA MANDANTE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="IMR">
+								<xs:annotation>
+									<xs:documentation>IMPRESA MANDATARIA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="IN">
+								<xs:annotation>
+									<xs:documentation>INSTITORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="IS">
+								<xs:annotation>
+									<xs:documentation>ISPETTORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="LER">
+								<xs:annotation>
+									<xs:documentation>LEGALE RAPPRESENTANTE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="LGR">
+								<xs:annotation>
+									<xs:documentation>LEGALE RAPPRESENTANTE DI SOCIETA'</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="LGT">
+								<xs:annotation>
+									<xs:documentation>LEGALE RAPPRESENTANTE INTESTATARIO DEL TESSERINO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="LI">
+								<xs:annotation>
+									<xs:documentation>LIQUIDATORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="LIG">
+								<xs:annotation>
+									<xs:documentation>LIQUIDATORE GIUDIZIARIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="LRF">
+								<xs:annotation>
+									<xs:documentation>LEGALE RAPPRESENTANTE / FIRMATARIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="LRT">
+								<xs:annotation>
+									<xs:documentation>LEGALE RAPPRESENTANTE E RESPONSABILE TECNICO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="LR2">
+								<xs:annotation>
+									<xs:documentation>LEGALE RAPPRESENTANTE ART.2 L. 25/8/91 N.287</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="LSA">
+								<xs:annotation>
+									<xs:documentation>LEGALE RAPPRESENTANTE DI CUI ALL'ART. 2 DELLA LEGGE 287 DEL 25.8.1991</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="LUL">
+								<xs:annotation>
+									<xs:documentation>LIQUIDATORE DI UNITA' LOCALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="MA">
+								<xs:annotation>
+									<xs:documentation>MANDATARIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="MCA">
+								<xs:annotation>
+									<xs:documentation>MEMBRO COMMISS. AMMINISTRATIVA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="MCD">
+								<xs:annotation>
+									<xs:documentation>MEMBRO COMITATO DIRETTIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="MCE">
+								<xs:annotation>
+									<xs:documentation>MEMBRO COMITATO ESECUTIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="MCG">
+								<xs:annotation>
+									<xs:documentation>MEMBRO COMITATO DI GESTIONE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="MCS">
+								<xs:annotation>
+									<xs:documentation>MEMBRO COMITATO DI SORVEGLIANZA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="MCT">
+								<xs:annotation>
+									<xs:documentation>MEMBRO DEL COMITATO STRATEGICO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="MDC">
+								<xs:annotation>
+									<xs:documentation>MEMBRO DI COMUNIONE EREDITARIA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="MED">
+								<xs:annotation>
+									<xs:documentation>MEMBRO EFFETTIVO CONSIGLIO DIRETTIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="MGD">
+								<xs:annotation>
+									<xs:documentation>MEMBRO CONSIGLIO DIRETTIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="MGE">
+								<xs:annotation>
+									<xs:documentation>MEMBRO GIUNTA ESECUTIVA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="MGS">
+								<xs:annotation>
+									<xs:documentation>MEMBRO DEL COMITATO DI CONTROLLO SULLA GESTIONE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="MI">
+								<xs:annotation>
+									<xs:documentation>MINORE RAPPRESENTATO DAL TUTORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="MP">
+								<xs:annotation>
+									<xs:documentation>TIT*TMI*TPS*</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="MPP">
+								<xs:annotation>
+									<xs:documentation>MADRE ESERCENTE LA PATRIA POTESTA'</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="MS">
+								<xs:annotation>
+									<xs:documentation>MANDATO SPECIALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="MSD">
+								<xs:annotation>
+									<xs:documentation>MEMBRO SUPPLENTE CONSIGLIO DIRETTIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="NE">
+								<xs:annotation>
+									<xs:documentation>NON ELETTORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="OAS">
+								<xs:annotation>
+									<xs:documentation>ACCOMANDATARIO DI SAPA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="OCA">
+								<xs:annotation>
+									<xs:documentation>CONSIGLIO D'AMMINISTRAZIONE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="OCO">
+								<xs:annotation>
+									<xs:documentation>CONSIGLIO DIRETTIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="ODI">
+								<xs:annotation>
+									<xs:documentation>COMITATO DIRETTIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="OES">
+								<xs:annotation>
+									<xs:documentation>COMITATO ESECUTIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="OPA">
+								<xs:annotation>
+									<xs:documentation>PIU' AMMINISTRATORI</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="OPC">
+								<xs:annotation>
+									<xs:documentation>PERSONA OPERANTE PER CONTO DELLA SOCIETA'</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="OPN">
+								<xs:annotation>
+									<xs:documentation>PRESIDENTE DI CONSORZIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PA">
+								<xs:annotation>
+									<xs:documentation>PROCURATORE AMMINISTRATIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PAD">
+								<xs:annotation>
+									<xs:documentation>PRESIDENTE E AMMINISTRATORE DELEGATO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PAF">
+								<xs:annotation>
+									<xs:documentation>PERSONA AUTORIZZATA ALLA FIRMA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PB">
+								<xs:annotation>
+									<xs:documentation>PROCURATORE DI BORSA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PC">
+								<xs:annotation>
+									<xs:documentation>PROCURATORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PCA">
+								<xs:annotation>
+									<xs:documentation>PRESIDENTE CONSIGLIO AMMINISTRAZIONE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PCD">
+								<xs:annotation>
+									<xs:documentation>PRESIDENTE COMITATO DIRETTIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PCE">
+								<xs:annotation>
+									<xs:documentation>PRESIDENTE COMITATO ESECUTIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PCG">
+								<xs:annotation>
+									<xs:documentation>PRESIDENTE DEL COMITATO DI GESTIONE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PCM">
+								<xs:annotation>
+									<xs:documentation>PRESIDENTE COMMISS. AMMINISTRATIVA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PCO">
+								<xs:annotation>
+									<xs:documentation>PRESIDENTE CONSORZIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PCP">
+								<xs:annotation>
+									<xs:documentation>PROCURATORE CON POSTILLA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PCS">
+								<xs:annotation>
+									<xs:documentation>PRESIDENTE DEL COLLEGIO SINDACALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PCT">
+								<xs:annotation>
+									<xs:documentation>PRESIDENTE DEL COMITATO DI CONTROLLO SULLA GESTIONE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PCV">
+								<xs:annotation>
+									<xs:documentation>PRESIDENTE DEL CONSIGLIO DI SORVEGLIANZA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PDC">
+								<xs:annotation>
+									<xs:documentation>PRESIDENTE E CONSIGLIERE DELEGATO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PDI">
+								<xs:annotation>
+									<xs:documentation>RAPPRESENTANTE PREPOSTO ALLA DIPENDENZA IN ITALIA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PDS">
+								<xs:annotation>
+									<xs:documentation>PROCURATORE DI SOCIETA' CON SOMMINISTRAZIONE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PE">
+								<xs:annotation>
+									<xs:documentation>PROCURATORE COMMERCIALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PED">
+								<xs:annotation>
+									<xs:documentation>PRESIDENTE EFFETTIVO CONSIGLIO DIRETTIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PEO">
+								<xs:annotation>
+									<xs:documentation>PRESIDENTE E PREPOSTO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PEP">
+								<xs:annotation>
+									<xs:documentation>PERSONA PREPOSTA UN DIPEND.</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PES">
+								<xs:annotation>
+									<xs:documentation>PREPOSTO ESERCIZIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PF">
+								<xs:annotation>
+									<xs:documentation>PROCURATORE DI FILIALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PG">
+								<xs:annotation>
+									<xs:documentation>PROCURATORE GENERALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PGC">
+								<xs:annotation>
+									<xs:documentation>PREPOSTO AL COMMERCIO INGROSSO SETTORE ALIMENTARE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PGD">
+								<xs:annotation>
+									<xs:documentation>PRESIDENTE CONSIGLIO DIRETTIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PGE">
+								<xs:annotation>
+									<xs:documentation>PRESIDENTE GIUNTA ESECUTIVA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PGF">
+								<xs:annotation>
+									<xs:documentation>PREPOSTO ALLA GESTIONE TECNICA (D.M. N.221/2003)</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PGS">
+								<xs:annotation>
+									<xs:documentation>PRESIDENTE DEL CONSIGLIO DI GESTIONE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PGT">
+								<xs:annotation>
+									<xs:documentation>PREPOSTO ALLA GESTIONE TECNICA AI SENSI DEL D.M. 274/97</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PL">
+								<xs:annotation>
+									<xs:documentation>PROCURATORE CENTRALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PM">
+								<xs:annotation>
+									<xs:documentation>PADRE O MADRE ESERCENTE LA PATRIA POTESTA'</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PN">
+								<xs:annotation>
+									<xs:documentation>PROCURATORE AD NEGOTIA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PP">
+								<xs:annotation>
+									<xs:documentation>PROCURATORE SPECIALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PPP">
+								<xs:annotation>
+									<xs:documentation>PADRE ESERCENTE LA PATRIA POTESTA'</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PPR">
+								<xs:annotation>
+									<xs:documentation>PRESIDE PROTEMPORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PR">
+								<xs:annotation>
+									<xs:documentation>PROTUTORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PRA">
+								<xs:annotation>
+									<xs:documentation>PRESIDENTE AGGIUNTO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PRC">
+								<xs:annotation>
+									<xs:documentation>PRESIDENTE DEI REVISORI DEI CONTI</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PRE">
+								<xs:annotation>
+									<xs:documentation>PRESIDENTE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PRO">
+								<xs:annotation>
+									<xs:documentation>PRESIDENTE ONORARIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PRP">
+								<xs:annotation>
+									<xs:documentation>PROPRIETARIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PRQ">
+								<xs:annotation>
+									<xs:documentation>PROPRIETARIO AUTORIZZATO A RISCUOTERE E QUIETANZARE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PRS">
+								<xs:annotation>
+									<xs:documentation>PREPOSTO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PRT">
+								<xs:annotation>
+									<xs:documentation>PROCURATORE RESPONSABILE TECNICO SETTORE SPEDIZIONE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PS">
+								<xs:annotation>
+									<xs:documentation>PROCURATORE SUPERIORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PSD">
+								<xs:annotation>
+									<xs:documentation>PRESIDENTE SUPPLENTE CONSIGLIO DIRETTIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PSE">
+								<xs:annotation>
+									<xs:documentation>RAPPRESENTANTE PREPOSTO A SEDE SECONDARIA IN ITALIA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PSS">
+								<xs:annotation>
+									<xs:documentation>PREPOSTO DELLA SEDE SECONDARIA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PT">
+								<xs:annotation>
+									<xs:documentation>PROCURATORE TECNICO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PTE">
+								<xs:annotation>
+									<xs:documentation>PRESIDENTE E RESPONSABILE TECNICO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="PTR">
+								<xs:annotation>
+									<xs:documentation>PREPOSTO ALLA GESTIONE TECNICA AI SENSI DELL'ART. 7</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="RA">
+								<xs:annotation>
+									<xs:documentation>RESPONSABILE AGLI ACQUISTI</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="RAF">
+								<xs:annotation>
+									<xs:documentation>RAPPRESENTATE LEGALE DI CUI ALL'ART. 93 DEL R.D. 18/6/1931 N. 773</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="RAP">
+								<xs:annotation>
+									<xs:documentation>RAPPRESENTANTE LEGALE DI CUI ALL'ART. 93 DEL R.D. 18/6/1931 N. 773</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="RAS">
+								<xs:annotation>
+									<xs:documentation>RAPPRESENTANTE STABILE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="RAZ">
+								<xs:annotation>
+									<xs:documentation>RAPPRESENTANTE DEGLI AZIONISTI</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="RC">
+								<xs:annotation>
+									<xs:documentation>REVISORE DEI CONTI</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="RCD">
+								<xs:annotation>
+									<xs:documentation>RECEDUTO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="RCF">
+								<xs:annotation>
+									<xs:documentation>RAPPRESENTANTE COMUNE PATRIMONI/FINANZIAMENTI</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="RCO">
+								<xs:annotation>
+									<xs:documentation>RAPPRESENTANTE COMUNE OBBLIGAZIONISTI</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="RCS">
+								<xs:annotation>
+									<xs:documentation>REVISORE DEI CONTI SUPPLENTE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="RDF">
+								<xs:annotation>
+									<xs:documentation>RESPONSABILE DI FILIALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="RE">
+								<xs:annotation>
+									<xs:documentation>RESPONSABILE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="RES">
+								<xs:annotation>
+									<xs:documentation>RAPPRESENTANTE SOCIETA' ESTERA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="RFM">
+								<xs:annotation>
+									<xs:documentation>LEGALE RAPPRESENTANTE FIGLIO MINORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="RG">
+								<xs:annotation>
+									<xs:documentation>RAPPRESENTANTE ALLE GRIDA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="RIN">
+								<xs:annotation>
+									<xs:documentation>LEGALE RAPPRESENTANTE DI INCAPACE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="RIT">
+								<xs:annotation>
+									<xs:documentation>RAPPRESENTANTE IN ITALIA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="RPS">
+								<xs:annotation>
+									<xs:documentation>RAPPRESENTANTE LEGGE P.S.</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="RSS">
+								<xs:annotation>
+									<xs:documentation>RAPPRESENTANTE LEGALE DELLE SEDI SECONDARIE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="RSU">
+								<xs:annotation>
+									<xs:documentation>REVISORE UNICO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="RTC">
+								<xs:annotation>
+									<xs:documentation>RESPONSABILE TECNICO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="RV">
+								<xs:annotation>
+									<xs:documentation>RESPONSABILE ALLE VENDITE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SA">
+								<xs:annotation>
+									<xs:documentation>SOCIO ACCOMANDATARIO D'OPERA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SAB">
+								<xs:annotation>
+									<xs:documentation>SOCIO ABILITATO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SAO">
+								<xs:annotation>
+									<xs:documentation>SOCIO ACCOMANDATARIO D'OPERA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SAP">
+								<xs:annotation>
+									<xs:documentation>SOCIO ACCOMANDATARIO E PREPOSTO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SCA">
+								<xs:annotation>
+									<xs:documentation>SEGRETARIO DEL CONSIGLIO DI AMMINISTRAZIONE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SCR">
+								<xs:annotation>
+									<xs:documentation>SOCIO RAPPRESENTANTE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SD">
+								<xs:annotation>
+									<xs:documentation>SOCIETA' EUROPEA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SDR">
+								<xs:annotation>
+									<xs:documentation>SOCIETA'DI REVISIONE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SEP">
+								<xs:annotation>
+									<xs:documentation>SOCIO E PREPOSTO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SFC">
+								<xs:annotation>
+									<xs:documentation>SOCIO CON FIRMA CONGIUNTA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SFI">
+								<xs:annotation>
+									<xs:documentation>SOCIO FINANZIATORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SG">
+								<xs:annotation>
+									<xs:documentation>SOCIETA' COOPERATIVA EUROPEA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SGE">
+								<xs:annotation>
+									<xs:documentation>SEGRETARIO GENERALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SIE">
+								<xs:annotation>
+									<xs:documentation>SINDACO EFFETTIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SIP">
+								<xs:annotation>
+									<xs:documentation>SINDACO PROTEMPORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SIS">
+								<xs:annotation>
+									<xs:documentation>SINDACO SUPPLENTE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SLA">
+								<xs:annotation>
+									<xs:documentation>SOCIO LAVORANTE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SLR">
+								<xs:annotation>
+									<xs:documentation>SOCIO E LEGALE RAPPRESENTANTE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SNA">
+								<xs:annotation>
+									<xs:documentation>SOCIO NON ABILITATO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SNC">
+								<xs:annotation>
+									<xs:documentation>SOST. DIP. DI IMPRESA AUTORIZ. AL SERV. NOLEG. CON CONDUCENTE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SNP">
+								<xs:annotation>
+									<xs:documentation>SOCIO CHE NON PARTECIPA ALLE LAVORAZIONI</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SNQ">
+								<xs:annotation>
+									<xs:documentation>SOCIO NON QUALIFICATO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SOA">
+								<xs:annotation>
+									<xs:documentation>SOCIO AMMINISTRATORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SOC">
+								<xs:annotation>
+									<xs:documentation>SOCIO ACCOMANDANTE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SOF">
+								<xs:annotation>
+									<xs:documentation>SOCIO DI SOCIETA' DI FATTO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SOL">
+								<xs:annotation>
+									<xs:documentation>SOCIO ACCOMANDATARIO E RAPPRESENTANTE LEGALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SON">
+								<xs:annotation>
+									<xs:documentation>SOCIO DI SOCIETA' IN NOME COLLETTIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SOP">
+								<xs:annotation>
+									<xs:documentation>SOCIO DI OPERA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SOR">
+								<xs:annotation>
+									<xs:documentation>SOCIO ACCOMANDATARIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SOS">
+								<xs:annotation>
+									<xs:documentation>SOSTITUTO DEL TITOLARE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SOT">
+								<xs:annotation>
+									<xs:documentation>SOCIO CONTITOLARE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SOU">
+								<xs:annotation>
+									<xs:documentation>SOCIO UNICO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SPR">
+								<xs:annotation>
+									<xs:documentation>SOCIO DI SOCIETA' DI PERSONE RAPPRES.</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SQ">
+								<xs:annotation>
+									<xs:documentation>SEQUESTRATARIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SQU">
+								<xs:annotation>
+									<xs:documentation>SOCIO QUALIFICATO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="STE">
+								<xs:annotation>
+									<xs:documentation>SOCIO E RESPONSABILE TECNICO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="SVR">
+								<xs:annotation>
+									<xs:documentation>SOVRINTENDENTE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="TES">
+								<xs:annotation>
+									<xs:documentation>TESORIERE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="TI">
+								<xs:annotation>
+									<xs:documentation>TITOLARE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="TIT">
+								<xs:annotation>
+									<xs:documentation>TITOLARE FIRMATARIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="TI2">
+								<xs:annotation>
+									<xs:documentation>TITOLARE DI CUI ART. 2 LEGGE 25/8/91 N.287</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="TMI">
+								<xs:annotation>
+									<xs:documentation>TITOLARE MARCHIO IDENTIFICATIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="TPS">
+								<xs:annotation>
+									<xs:documentation>TITOLARE DI LICENZA P.S.</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="TTE">
+								<xs:annotation>
+									<xs:documentation>TITOLARE E RESPONSABILE TECNICO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="TU">
+								<xs:annotation>
+									<xs:documentation>TUTORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="UM1">
+								<xs:annotation>
+									<xs:documentation>RAPPRESENTANTE LEGALE DI CUI ALL'ART. 2 LEGGE REG. N. 37 DEL 30/8/1988</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="UM2">
+								<xs:annotation>
+									<xs:documentation>PREPOSTO DI CUI ALL'ART. 2 LEGGE RE. N. 37 DEL 30/8/1988</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="US">
+								<xs:annotation>
+									<xs:documentation>USUFRUTTUARIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="VAD">
+								<xs:annotation>
+									<xs:documentation>VICE AMMINISTRATORE DELEGATO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="VCA">
+								<xs:annotation>
+									<xs:documentation>VICE AMMINISTRATORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="VCD">
+								<xs:annotation>
+									<xs:documentation>VICE CONSIGLIERE DELEGATO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="VCG">
+								<xs:annotation>
+									<xs:documentation>VICE COMMISSARIO GOVERNATIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="VCO">
+								<xs:annotation>
+									<xs:documentation>VICE COMMISSARIO STRAORDINARIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="VDA">
+								<xs:annotation>
+									<xs:documentation>VICE DIRETTORE AMMINISTRATIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="VDC">
+								<xs:annotation>
+									<xs:documentation>VICE DIRETTORE CENTRALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="VDE">
+								<xs:annotation>
+									<xs:documentation>VICE DIRETTORE COMMERCIALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="VDF">
+								<xs:annotation>
+									<xs:documentation>VICE DIRETTORE DI FILIALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="VDG">
+								<xs:annotation>
+									<xs:documentation>VICE DIRETTORE GENERALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="VDI">
+								<xs:annotation>
+									<xs:documentation>VICE DIRETTORE INTERINALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="VDS">
+								<xs:annotation>
+									<xs:documentation>VICE DIRETTORE DI STABILIMENTO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="VDT">
+								<xs:annotation>
+									<xs:documentation>VICE DIRETTORE TECNICO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="VDZ">
+								<xs:annotation>
+									<xs:documentation>VICE DIRETTORE DI ESERCIZIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="VED">
+								<xs:annotation>
+									<xs:documentation>VICEPRESIDENTE EFFETTIVO CONSIGLIO DIRETTIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="VGD">
+								<xs:annotation>
+									<xs:documentation>VICEPRESIDENTE CONSIGLIO DIRETTIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="VGE">
+								<xs:annotation>
+									<xs:documentation>VICE GERENTE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="VGO">
+								<xs:annotation>
+									<xs:documentation>VICE GOVERNATORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="VIC">
+								<xs:annotation>
+									<xs:documentation>VICE PRESIDENTE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="VID">
+								<xs:annotation>
+									<xs:documentation>VICE DIRETTORE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="VIV">
+								<xs:annotation>
+									<xs:documentation>VICE PRESIDENTE VICARIO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="VPA">
+								<xs:annotation>
+									<xs:documentation>VICE PRESIDENTE CONSIGLIO AMMINISTRAZIONE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="VPC">
+								<xs:annotation>
+									<xs:documentation>VICE PRESIDENTE E CONSIGLIERE DELEGATO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="VPE">
+								<xs:annotation>
+									<xs:documentation>VICE PRESID. GIUNTA ESECUTIVA</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="VPP">
+								<xs:annotation>
+									<xs:documentation>VICE PRESIDENTE E PREPOSTO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="VSD">
+								<xs:annotation>
+									<xs:documentation>VICEPRESIDENTE SUPPLENTE CONSIGLIO DIRETTIVO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="VSG">
+								<xs:annotation>
+									<xs:documentation>VICE SEGRETARIO GENERALE</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="992">
+								<xs:annotation>
+									<xs:documentation>POTERI DI AMMINISTRAZIONE E RAPPRESENTANZA DEI SOCI</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="996">
+								<xs:annotation>
+									<xs:documentation>RIPARTIZIONE DEGLI UTILI E DELLE PERDITE TRA I SOCI</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="997">
+								<xs:annotation>
+									<xs:documentation>LIMITAZIONE DI RESPONSABILITA' DEI SOCI</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="998">
+								<xs:annotation>
+									<xs:documentation>POTERI DA STATUTO O DA PATTI SOCIALI</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="999">
+								<xs:annotation>
+									<xs:documentation>POTERI DA STATUTO</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--  
+    -->
+	<xs:complexType name="OggettoComunicazione">
+		<xs:simpleContent>
+			<xs:extension base="pi:Stringa">
+				<xs:attribute name="tipo-procedimento">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="SCIA">
+								<xs:annotation>
+									<xs:documentation>
+                                    Tipologia di procedimento automatizzato previsto dal Capo Terzo dpr 160
+                                </xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="silenzio-assenso">
+								<xs:annotation>
+									<xs:documentation>
+                                    Tipologia di procedimento automatizzato previsto dal Capo Terzo dpr 160
+                                </xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="ordinario"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="tipo-intervento" type="ps:TipoIntervento"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!-- 
+        
+        Definizione dei tipi base
+        
+    -->
+	<xs:simpleType name="TipoIntervento">
+		<xs:annotation>
+			<xs:documentation>Questo attributo serve a caratterizzare la pratica suap nel complesso. Nel caso di pratiche SUAP che 
+            coinvolgano piu' tipi di intervento (esempio subentro di una attivita' con modifiche, il tipo-intervento viene valorizzato
+            con il valore associato all'intervento princilpale, nel caso dell'esempio "subentro".
+            </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="apertura">
+				<xs:annotation>
+					<xs:documentation>Nuova apertura attivita'</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="subentro">
+				<xs:annotation>
+					<xs:documentation>Subentro nell'esercizio dell'attivita'</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="trasformazione">
+				<xs:annotation>
+					<xs:documentation>Realizzazione o modifiche di locali e/o impianti</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="modifiche">
+				<xs:annotation>
+					<xs:documentation>qualsiasi tipo di variazione, richiesta di autorizzazione, trasferimento, sospensione, ...</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="cessazione">
+				<xs:annotation>
+					<xs:documentation>Cessazione dell'attivita'</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="altro">
+				<xs:annotation>
+					<xs:documentation>Altre esigenze non riconducibili ai casi precedenti
+                    
+                    </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--  
+    -->
+	<xs:simpleType name="CodiceAmministrazione">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Za-z0-9\-_]{1,16}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--  
+    -->
+	<xs:simpleType name="CodiceAOO">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Za-z0-9\-_]{1,16}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--  
+    -->
+	<xs:simpleType name="MimeType">
+		<xs:restriction base="pi:Stringa"/>
+	</xs:simpleType>
+	<!--  
+    -->
+	<xs:simpleType name="SiglaProvincia">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Z]{2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--  
+    -->
+	<xs:simpleType name="TipoFileAllegatoModelloAttivita">
+		<xs:annotation>
+			<xs:documentation>
+            CF-GGMMAAAA-HHMM.NNN.MDA.xml
+            Es: DPRTNT00A01A012T-08072010-1733.0001.mDa.XML
+        </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(([A-Z]{6}[0-9A-Z][0-9LMNPQRSTUV][ABCDEHLMPRST][0-9LMNPQRSTUV]{2}[A-Z][0-9LMNPQRSTUV]{3}[A-Z])|([0-9]{11}))-[0-3]\d[0-1]\d\d{4}-[0-2]\d[0-5]\d\.\d+\.[Mm][Dd][Aa]\.[Xx][Mm][Ll]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--  
+    -->
+	<xs:simpleType name="TipoFileAllegatoDistintaModelloAttivita">
+		<xs:annotation>
+			<xs:documentation>
+            CF-GGMMAAAA-HHMM.NNN.MDA.PDF.P7M   o   CF-GGMMAAAA-HHMM.NNN.MDA.PDF 
+            Es: DPRTNT00A01A012T-08072010-1733.00023.mDa.pdf.p7m
+        </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(([A-Z]{6}[0-9A-Z][0-9LMNPQRSTUV][ABCDEHLMPRST][0-9LMNPQRSTUV]{2}[A-Z][0-9LMNPQRSTUV]{3}[A-Z])|([0-9]{11}))-[0-3]\d[0-1]\d\d{4}-[0-2]\d[0-5]\d\.\d+\.[Mm][Dd][Aa]\.[Pp][Dd][Ff](\.[Pp]7[Mm])?"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--  
+    -->
+	<xs:simpleType name="TipoFileAllegatoXML">
+		<xs:annotation>
+			<xs:documentation>
+            CF-GGMMAAAA-HHMM.NNN.xml
+            Es: DPRTNT00A01A012T-08072010-1733.0123.XML
+        </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(([A-Z]{6}[0-9A-Z][0-9LMNPQRSTUV][ABCDEHLMPRST][0-9LMNPQRSTUV]{2}[A-Z][0-9LMNPQRSTUV]{3}[A-Z])|([0-9]{11}))-[0-3]\d[0-1]\d\d{4}-[0-2]\d[0-5]\d\.\d+\.[Xx][Mm][Ll]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--  
+    -->
+	<xs:simpleType name="TipoFileAllegatoDistinta">
+		<xs:annotation>
+			<xs:documentation>
+            CF-GGMMAAAA-HHMM.NNN.PDF.P7M   o   CF-GGMMAAAA-HHMM.NNN.PDF 
+            Es: DPRTNT00A01A012T-08072010-1733.01243.pdf.p7m
+        </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(([A-Z]{6}[0-9A-Z][0-9LMNPQRSTUV][ABCDEHLMPRST][0-9LMNPQRSTUV]{2}[A-Z][0-9LMNPQRSTUV]{3}[A-Z])|([0-9]{11}))-[0-3]\d[0-1]\d\d{4}-[0-2]\d[0-5]\d\.\d+\.[Pp][Dd][Ff](\.[Pp]7[Mm])?"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--  
+    -->
+	<xs:simpleType name="TipoFileAllegatoGenerico">
+		<xs:annotation>
+			<xs:documentation>
+            CF-GGMMAAAA-HHMM.NNN.PDF.P7M   o   CF-GGMMAAAA-HHMM.NNN.PDF 
+            Es: DPRTNT00A01A012T-08072010-1733.01243.pdf.p7m
+            Formati ammessi: pdf; pdf.p7m; xml; dwf; dwf.p7m; svg; svg.p7m; jpg; jpg.p7m
+        </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(([A-Z]{6}[0-9A-Z][0-9LMNPQRSTUV][ABCDEHLMPRST][0-9LMNPQRSTUV]{2}[A-Z][0-9LMNPQRSTUV]{3}[A-Z])|([0-9]{11}))-[0-3]\d[0-1]\d\d{4}-[0-2]\d[0-5]\d\.\d+\.(([Pp][Dd][Ff])|([Pp][Dd][Ff]\.[Pp]7[Mm])|([Xx][Mm][Ll])|([Dd][Ww][Ff])|([Dd][Ww][Ff]\.[Pp]7[Mm])|([Ss][Vv][Gg])|([Ss][Vv][Gg]\.[Pp]7[Mm])|([Jj][Pp][Gg])|([Jj][Pp][Gg]\.[Pp]7[Mm]))"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--  
+    -->
+	<xs:complexType name="VersioneSchema">
+		<xs:attribute name="versione" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:pattern value="(\d+.)?\d+.\d+(-beta)?"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="data" type="xs:date" use="required"/>
+	</xs:complexType>
+</xs:schema>

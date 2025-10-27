@@ -1,0 +1,6 @@
+﻿{
+    "Summary": "recupero di un aggregato esistente",
+    "Description": "<p>Carica l'aggregato e i dati collegati in base ai parametri impostati.</p><p> I parametri Salta e Prendi in paginazione Documenti e fascicoli permettono di indicare l'offset di inizio caricamento dati e il numero di record da caricare.</p><p><b>Esempio</b>: <i>/api/v1/{instance}/AggregazioniDocumentali/{idAggregato}/?permessi=true&profili=true&sottoFascicoli=true&paginazioneSottoFascicoli={Salta:0,Prendi:10}&documenti=true&paginazioneDocumenti={Salta:0,Prendi:10}&note=true</i></p>",
+    "OperationId": "CaricaAggregazione",
+    "Tags": ["Aggregazioni"]
+}

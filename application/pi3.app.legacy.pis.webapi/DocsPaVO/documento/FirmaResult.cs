@@ -1,0 +1,26 @@
+// SPDX-FileCopyrightText: 2025 Provincia Autonoma di Trento <https://www.provincia.tn.it>
+// SPDX-License-Identifier: EUPL-1.2
+using System;
+using System.Collections;
+using System.Xml.Serialization;
+
+namespace DocsPaVO.documento 
+{
+	/// <summary>
+	/// </summary>
+    [Serializable()]
+	public class FirmaResult
+	{
+		public FileRequest fileRequest;
+        public EsitoFirma esito;
+        public string errore;
+	}
+
+    [Serializable()]
+    public class EsitoFirma
+    {
+        public string Id;
+        public string Codice;
+        public string Messaggio;
+    }
+}

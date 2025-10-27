@@ -1,0 +1,184 @@
+// SPDX-FileCopyrightText: 2025 Provincia Autonoma di Trento <https://www.provincia.tn.it>
+// SPDX-License-Identifier: EUPL-1.2
+using MediatR;
+using Pi3.Infrastructure.Legacy.EF.Entities;
+using DocsPaVO.Modelli_Trasmissioni;
+using Pi3.Core.Extensions;
+using AutoMapper;
+using Pi3.Core.Services.Principal;
+using Microsoft.EntityFrameworkCore;
+
+namespace Pi3.App.Legacy.Pis.WebApi.Application.Commands.Transmissions.GetModelliPerTrasmLite
+{
+    public class GetModelliPerTrasmLiteCommandHandler : IRequestHandler<GetModelliPerTrasmLiteCommand, GetModelliPerTrasmLiteCommandResponse>
+    {
+        public GetModelliPerTrasmLiteCommandHandler(
+            ILogger<GetModelliPerTrasmLiteCommandHandler> logger,
+            IClaimsPrincipalService claimsPrincipalService,
+            IMediator mediator,
+            IPi3DbContext dbContext)
+        {
+            this._logger = logger;
+            this._claimsPrincipalService = claimsPrincipalService;
+            this._mediator = mediator;
+            this._dbContext = dbContext;
+
+            this.InitializeMapper();
+        }
+
+        public async Task<GetModelliPerTrasmLiteCommandResponse> Handle(GetModelliPerTrasmLiteCommand request, CancellationToken cancellationToken)
+        {
+            ModelloTrasmissione[] output = null;
+            List<ModelloTrasmEntity> modelloTrasmEntities = new List<ModelloTrasmEntity>();
+            var idTenant = request.IdAmm.AsLong();
+            var idPeople = request.IdPeople.AsLong();
+            var idCorrGlobali = request.IdCorrGlobali.AsLong();
+
+            try
+            {
+                var modelliTrasmQueryable = this._dbContext.ModelloTrasmEntities.AsNoTracking().Where(m => m.ID_AMM == idTenant && m.CHA_TIPO_OGGETTO == request.ChaTipoOggetto);
+
+                modelliTrasmQueryable = modelliTrasmQueryable.Where(m =>
+                this._dbContext.ModelloMittDestEntities.AsNoTracking()
+                .Join(this._dbContext.CorrGlobaliEntities.AsNoTracking(), d => d.ID_CORR_GLOBALI, c => c.SYSTEM_ID, (d, c) => new { d, c })
+                .Count(j => j.d.ID_MODELLO == m.SYSTEM_ID && j.d.CHA_TIPO_URP == "R" && j.d.CHA_TIPO_MITT_DEST == "D" && (j.c.CHA_DISABLED_TRASM == "1" || j.c.DTA_FINE != null)) == 0);
+
+                if (request.Registri != null && request.Registri.Length != 0)
+                {
+                    List<long> idRegistri = new List<long>();
+                    for (int i = 0; i < request.Registri.Length; i++)
+                        idRegistri.Add(request.Registri[i].systemId.AsLong());
+
+                    if (request.AllReg)
+                        idRegistri.Add(0);
+
+                    modelliTrasmQueryable = modelliTrasmQueryable.Where(m => idRegistri.Contains(m.ID_REGISTRO ?? 0));
+                }
+                if (!string.IsNullOrEmpty(request.SystemId))
+                {
+                    if (request.accessrights == "45")
+                    {
+                        modelliTrasmQueryable = modelliTrasmQueryable.Where(m => this._dbContext.ModelloMittDestEntities.AsNoTracking()
+                        .Join(this._dbContext.RagioneTrasmissioneEntities.AsNoTracking(), d => d.ID_RAGIONE, r => r.SYSTEM_ID, (d, r) => new { d, r })
+                        .First(j => j.d.ID_MODELLO == m.SYSTEM_ID && j.r.CHA_TIPO_DIRITTI != "R" && j.r.CHA_TIPO_DIRITTI != "C") == null
+                        );
+                    }
+                }
+                else
+                {
+                    if (request.ChaTipoOggetto == "D")
+                    {
+                        modelliTrasmQueryable = modelliTrasmQueryable.Where(m => this._dbContext.ModelloMittDestEntities.AsNoTracking().Count(d => d.ID_MODELLO == m.SYSTEM_ID && d.HIDE_DOC_VERSIONS == "1") == 0);
+                    }
+                }
+
+                var modelliTrasmQueryable_1 = modelliTrasmQueryable.Where(m => m.SINGLE == "1" && !this._dbContext.AssDiagrammiEntities.AsNoTracking().Any(d => d.ID_MOD_TRASM == m.SYSTEM_ID));
+
+                var modelliTrasmQueryable_2 = modelliTrasmQueryable.Join(this._dbContext.ModelloMittDestEntities, m => m.SYSTEM_ID, d => d.ID_MODELLO, (m, d) => new { m, d })
+                    .Where(j => !this._dbContext.AssDiagrammiEntities.AsNoTracking().Any(d => d.ID_MOD_TRASM == j.m.SYSTEM_ID)
+                            && (j.m.ID_PEOPLE == idPeople || j.m.ID_PEOPLE == null)
+                            && (j.d.ID_CORR_GLOBALI == 0 || j.d.ID_CORR_GLOBALI == idCorrGlobali)
+                            && j.d.CHA_TIPO_MITT_DEST == "M" && j.m.SINGLE == "0");
+
+                modelloTrasmEntities.AddRange(await modelliTrasmQueryable_1.OrderBy(m => m.NOME).ToListAsync());
+
+                modelloTrasmEntities.AddRange(await modelliTrasmQueryable_2.OrderBy(j => j.m.NOME).Select(j => j.m).ToListAsync());
+
+                if (!string.IsNullOrEmpty(request.IdTipoDoc))
+                {
+                    var modelliTrasmQueryable_3 = modelliTrasmQueryable.Where(m => m.SINGLE == "1");
+
+                    var modelliTrasmQueryable_4 = modelliTrasmQueryable.Join(this._dbContext.ModelloMittDestEntities, m => m.SYSTEM_ID, d => d.ID_MODELLO, (m, d) => new { m, d })
+                        .Where(j => (j.m.ID_PEOPLE == idPeople || j.m.ID_PEOPLE == null)
+                           && (j.d.ID_CORR_GLOBALI == 0 || j.d.ID_CORR_GLOBALI == idCorrGlobali)
+                           && j.d.CHA_TIPO_MITT_DEST == "M" && j.m.SINGLE == "0");
+
+                    var idTipoDoc = request.IdTipoDoc.AsLong();
+                    long? idDiagramma = !string.IsNullOrEmpty(request.IdDiagramma) ? request.IdDiagramma.AsLong() : null;
+                    long? idStato = !string.IsNullOrEmpty(request.IdStato) ? request.IdStato.AsLong() : null;
+                    if (idDiagramma != null && idStato != null)
+                    {
+                        modelliTrasmQueryable_3 = modelliTrasmQueryable_3.Where(m => !this._dbContext.AssDiagrammiEntities.AsNoTracking()
+                        .Any(d => d.ID_MOD_TRASM == m.SYSTEM_ID && d.ID_TIPO_DOC == idTipoDoc && d.ID_DIAGRAMMA == idDiagramma && d.ID_STATO == idStato));
+
+                        modelliTrasmQueryable_4 = modelliTrasmQueryable_4.Where(j => !this._dbContext.AssDiagrammiEntities.AsNoTracking()
+                        .Any(d => d.ID_MOD_TRASM == j.m.SYSTEM_ID && d.ID_TIPO_DOC == idTipoDoc && d.ID_DIAGRAMMA == idDiagramma && d.ID_STATO == idStato));
+                    }
+                    else
+                    {
+                        if (idDiagramma != null)
+                        {
+                            modelliTrasmQueryable_3 = modelliTrasmQueryable_3.Where(m => !this._dbContext.AssDiagrammiEntities.AsNoTracking()
+                                .Any(d => d.ID_MOD_TRASM == m.SYSTEM_ID && d.ID_TIPO_DOC == idTipoDoc && d.ID_DIAGRAMMA == idDiagramma));
+
+                            modelliTrasmQueryable_4 = modelliTrasmQueryable_4.Where(j => !this._dbContext.AssDiagrammiEntities.AsNoTracking()
+                                .Any(d => d.ID_MOD_TRASM == j.m.SYSTEM_ID && d.ID_TIPO_DOC == idTipoDoc && d.ID_DIAGRAMMA == idDiagramma));
+                        }
+                        if (idStato != null)
+                        {
+                            modelliTrasmQueryable_3 = modelliTrasmQueryable_3.Where(m => !this._dbContext.AssDiagrammiEntities.AsNoTracking()
+                                .Any(d => d.ID_MOD_TRASM == m.SYSTEM_ID && d.ID_TIPO_DOC == idTipoDoc && d.ID_STATO == idStato));
+
+                            modelliTrasmQueryable_4 = modelliTrasmQueryable_4.Where(j => !this._dbContext.AssDiagrammiEntities.AsNoTracking()
+                                .Any(d => d.ID_MOD_TRASM == j.m.SYSTEM_ID && d.ID_TIPO_DOC == idTipoDoc && d.ID_STATO == idStato));
+                        }
+
+                        if (idStato == null && idDiagramma == null)
+                        {
+                            modelliTrasmQueryable_3 = modelliTrasmQueryable_3.Where(m => this._dbContext.AssDiagrammiEntities.AsNoTracking()
+                                .Any(d => d.ID_MOD_TRASM == m.SYSTEM_ID && d.ID_TIPO_DOC == idTipoDoc));
+
+                            modelliTrasmQueryable_4 = modelliTrasmQueryable_4.Where(j => this._dbContext.AssDiagrammiEntities.AsNoTracking()
+                                .Any(d => d.ID_MOD_TRASM == j.m.SYSTEM_ID && d.ID_TIPO_DOC == idTipoDoc));
+                        }
+                    }
+
+                    modelloTrasmEntities.AddRange(await modelliTrasmQueryable_3.OrderBy(m => m.NOME).ToListAsync());
+
+                    modelloTrasmEntities.AddRange(await modelliTrasmQueryable_4.OrderBy(j => j.m.NOME).Select(j => j.m).ToListAsync());
+                }
+
+
+                output = this._mapper.Map<ModelloTrasmissione[]>(modelloTrasmEntities);
+            }
+            catch (Exception ex)
+            {
+                this._logger.LogError(exception:ex, message :ex.Message);
+                output = null;
+            }
+
+            return new()
+            {
+                Output = output
+            };
+        }
+
+        #region Private Members
+        protected readonly ILogger<GetModelliPerTrasmLiteCommandHandler> _logger;
+        protected readonly IClaimsPrincipalService _claimsPrincipalService;
+        protected readonly IMediator _mediator;
+        protected readonly IPi3DbContext _dbContext;
+
+        protected IMapper _mapper = null;
+
+        protected virtual void InitializeMapper()
+        {
+            var configuration = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<ModelloTrasmEntity, ModelloTrasmissione>()
+                     .ForMember(dest => dest.SYSTEM_ID, opt => opt.MapFrom(src => src.SYSTEM_ID))
+                     .ForMember(dest => dest.NOME, opt => opt.MapFrom(src => src.NOME))
+                     .ForMember(dest => dest.CODICE, opt => opt.MapFrom(src => "MT_" + src.SYSTEM_ID))
+                     .ForMember(dest => dest.CEDE_DIRITTI, opt => opt.MapFrom(src => src.CHA_CEDE_DIRITTI))
+                     .ForMember(dest => dest.ID_PEOPLE_NEW_OWNER, opt => opt.MapFrom(src => src.ID_PEOPLE_NEW_OWNER))
+                     .ForMember(dest => dest.ID_GROUP_NEW_OWNER, opt => opt.MapFrom(src => src.ID_GROUP_NEW_OWNER))
+                     .ForMember(dest => dest.NO_NOTIFY, opt => opt.MapFrom(src => src.NO_NOTIFY))
+                     .ForMember(dest => dest.MANTIENI_LETTURA, opt => opt.MapFrom(src => src.CHA_MANTIENI_LETTURA))
+                     .ForMember(dest => dest.MANTIENI_SCRITTURA, opt => opt.MapFrom(src => src.CHA_MANTIENI_SCRITTURA));
+            });
+
+            _mapper = configuration.CreateMapper();
+        }
+        #endregion
+    }
+}

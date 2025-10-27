@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="BouncyCastle.Crypto.dll" Version="1.8.1" />
+    <PackageReference Include="ChilkatDnCore" Version="9.5.0.86" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.tibco-main\pi3.infrastructure.tibco-main\Pi3.Infrastructure.Tibco\Pi3.Infrastructure.Tibco.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DocsPaDB\DocsPaDB.csproj" />
+    <ProjectReference Include="..\DocsPaVO\DocsPaVO.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Bouncy_extra\" />
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

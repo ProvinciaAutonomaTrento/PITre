@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DOCSPA>
+	<TIPIFUNZIONE>
+		<TIPO [MODE='created'|'deleted'|'modified']>
+			<DATI>
+				<DESCRIZIONE></DESCRIZIONE>
+				<CODICE></CODICE>	<!-- campo chiave per deleted e modified -->
+			</DATI>
+			<FUNZIONI>
+				<FUNZIONE>
+					<DESCRIZIONE></DESCRIZIONE>
+					<CODICE></CODICE>
+					<ACCESSO>Read/Write/Full</ACCESSO> <!-- Se omesso si intende 'Full' -->
+				</FUNZIONE>
+			</FUNZIONI>
+		</TIPO>
+	</TIPIFUNZIONE>
+	<AMMINISTRAZIONE [MODE='created'|'deleted'|'modified']>
+		<DATI>
+			<CODICE></CODICE>	<!-- campo chiave per deleted e modified -->
+			<DESCRIZIONE></DESCRIZIONE>
+			<LIBRERIA></LIBRERIA>
+			<SEGNATURA></SEGNATURA>
+			<FASCICOLATURA></FASCICOLATURA>
+			<DOMINIO></DOMINIO>
+			<SERVERSMTP></SERVERSMTP>
+			<PORTASMTP></PORTASMTP>
+			<PROTOCOLLO_INTERNO></PROTOCOLLO_INTERNO>
+			<RAGIONE_TO></RAGIONE_TO>
+			<RAGIONE_CC></RAGIONE_CC>
+		</DATI>
+		<RAGIONITRASMISSIONE>
+			<RAGIONE [MODE='created'|'deleted'|'modified']>
+				<CODICE></CODICE>	<!-- campo chiave per deleted e modified -->
+				<TIPO></TIPO>
+				<VISIBILITA></VISIBILITA>
+				<DIRITTI></DIRITTI>
+				<DESTINATARIO></DESTINATARIO>
+				<RISPOSTA></RISPOSTA>
+				<TIPORISPOSTA></TIPORISPOSTA>
+				<EREDITA></EREDITA>
+				<NOTE></NOTE>
+			</RAGIONE>
+		</RAGIONITRASMISSIONE>
+		<REGISTRI>
+			<REGISTRO [MODE='created'|'deleted'|'modified']>
+				<DESCRIZIONE></DESCRIZIONE>
+				<CODICE></CODICE>  <!-- campo chiave per deleted e modified -->
+				<AUTOMATICO></AUTOMATICO>
+				<EMAIL>
+					<INDIRIZZO></INDIRIZZO>
+					<UTENTE></UTENTE>
+					<PASSWORD></PASSWORD>
+					<SMTP></SMTP>
+					<POP></POP>
+					<PORTA></PORTA>
+				</EMAIL>
+				<RUO_RIF></RUO_RIF>
+				<UT_RIF></UT_RIF>
+			</REGISTRO>
+		</REGISTRI>
+		<RUOLI>
+			<RUOLO [MODE='created'|'deleted'|'modified']>
+				<DESCRIZIONE></DESCRIZIONE>
+				<CODICE></CODICE>	<!-- campo chiave per deleted e modified -->
+				<LIVELLO></LIVELLO>
+			</RUOLO>
+		</RUOLI>
+		<UTENTI>
+			<UTENTE [MODE='created'|'deleted'|'modified']>
+				<USERID></USERID>	<!-- campo chiave per deleted e modified -->
+				<PASSWORD></PASSWORD>
+				<NOME></NOME>
+				<COGNOME></COGNOME>
+				<RUBRICA></RUBRICA>
+				<REGISTRO></REGISTRO>
+				<AMMINISTRATORE></AMMINISTRATORE>
+				<EMAIL></EMAIL>
+				<SMTP></SMTP>
+				<PORTA_SMTP></PORTA_SMTP>
+				<ABILITATO></ABILITATO>
+				<DOMINIO></DOMINIO>
+				<NOTIFICA></NOTIFICA>
+				<SEDE></SEDE>
+			</UTENTE>
+		</UTENTI>
+		<ORGANIGRAMMA>
+			<UO [MODE='created'|'deleted'|'modified']>
+				<DATI>
+					<DESCRIZIONE></DESCRIZIONE>
+					<CODICE></CODICE>	<!-- campo chiave per deleted e modified -->
+					<RUBRICA></RUBRICA>
+					<AOO></AOO>
+				</DATI>
+				<UOS></UOS>
+				<RUOLI>
+					<RUOLO [MODE='created'|'deleted'|'modified']>
+						<DATI>
+							<CODICESTRUTTURA></CODICESTRUTTURA>
+							<CODICE></CODICE>	<!-- campo chiave per deleted e modified -->
+							<DESCRIZIONE></DESCRIZIONE>
+							<RUBRICA></RUBRICA>
+							<RIFERIMENTO></RIFERIMENTO>
+						</DATI>
+						<UTENTI>
+							<UTENTE [RUOLOPREFERITO='true'] [MODE='created']></UTENTE>
+							<UTENTE></UTENTE>
+							<UTENTE></UTENTE>
+						</UTENTI>
+						<TIPIFUNZIONE>
+							<CODICE></CODICE>
+						</TIPIFUNZIONE>
+						<REGISTRI>
+							<CODICE></CODICE>
+						</REGISTRI>
+					</RUOLO>
+				</RUOLI>
+			</UO>
+		</ORGANIGRAMMA>
+	</AMMINISTRAZIONE>
+</UTENTI>

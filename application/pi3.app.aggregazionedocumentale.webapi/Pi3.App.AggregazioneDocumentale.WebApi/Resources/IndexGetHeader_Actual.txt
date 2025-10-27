@@ -1,0 +1,107 @@
+﻿[ 
+	{
+		"url": "/api/v1/{instance}/AggregazioniDocumentali/",
+		"rel": "/linkrels/aggregato/aggiungi",
+		"type": "POST"
+	}, {
+		"url": "/api/v1/{instance}/AggregazioniDocumentali/{idAggregato}/?permessi=true&profili=true&sottoFascicoli=true&paginazioneSottoFascicoli={Salta:0,Prendi:10}&documenti=true&paginazioneDocumenti={Salta:0,Prendi:10}&note=true",
+		"rel": "/linkrels/aggregato/mostra/",
+		"type": "GET"
+	}, {
+		"url": "/api/v1/{instance}/AggregazioniDocumentali/{idAggregato}/aperto",
+		"rel": "/linkrels/aggregato/apri/",
+		"type": "PUT"
+	},{
+		"url": "/api/v1/{instance}/AggregazioniDocumentali/{idAggregato}/chiuso",
+		"rel": "/linkrels/aggregato/chiudi/",
+		"type": "PUT"
+	},{
+		"url": "/api/v1/{instance}/AggregazioniDocumentali/{idAggregato}/CollocazioneFisica",
+		"rel": "/linkrels/aggregato/collocazione fisica/imposta",
+		"type": "PUT"
+	}, {
+		"url": "/api/v1/{instance}/AggregazioniDocumentali/{idAggregato}/Descrizione",
+		"rel": "/linkrels/aggregato/descrizione/imposta",
+		"type": "PUT"
+	}, {
+		"url": "/api/v1/{instance}/AggregazioniDocumentali/{idAggregato}/Documenti/{idDocumento}",
+		"rel": "/linkrels/aggregato/documenti/aggiungi",
+		"type": "PUT"
+	},{
+		"url": "/api/v1/{instance}/AggregazioniDocumentali/{idAggregato}/Documenti/{idDocumento}",
+		"rel": "/linkrels/aggregato/documenti/cancella",
+		"type": "DELETE"
+	},{
+		"url": "/api/v1/{instance}/AggregazioniDocumentali/{idAggregato}/Sottofascicoli/{idSottofascicolo}",
+		"rel": "/linkrels/aggregato/fascicolo/cancella",
+		"type": "DELETE"
+	}, {
+		"url": "/api/v1/{instance}/AggregazioniDocumentali/{idAggregato}/Sottofascicoli/{idSottofascicolo}/Documenti/{idDocumento}",
+		"rel": "/linkrels/aggregato/fascicolo/documento/cancella",
+		"type": "DELETE"
+	}, {
+		"url": "/api/v1/{instance}/AggregazioniDocumentali/{idAggregato}/Sottofascicoli/{idSottofascicolo}/Documenti/{idDocumento}",
+		"rel": "/linkrels/aggregato/fascicolo/documento/aggiungi",
+		"type": "PUT"
+	}, {
+		"url": "/api/v1/{instance}/AggregazioniDocumentali/{idAggregato}/Sottofascicoli",
+		"rel": "/linkrels/aggregato/fascicolo/aggiungi",
+		"type": "POST"
+	}, {
+		"url": "/api/v1/{instance}/AggregazioniDocumentali/{idAggregato}/Note",
+		"rel": "/linkrels/aggregato/note/aggiungi",
+		"type": "POST"
+	}, {
+		"url": "/api/v1/{instance}/AggregazioniDocumentali/{idAggregato}/Note/{idNota}",
+		"rel": "/linkrels/aggregato/note/cancella",
+		"type": "DELETE"
+	}, {
+		"url": "/api/v1/{instance}/AggregazioniDocumentali/{idAggregato}/Trasmissioni",
+		"rel": "/linkrels/aggregato/trasmissioni/aggiungi",
+		"type": "POST"
+	}, {
+		"url": "/api/v1/{instance}/AggregazioniDocumentali/{idAggregato}/Trasmissioni/{idTrasmissione}",
+		"rel": "/linkrels/aggregato/trasmissioni/modifica",
+		"type": "PUT"
+	}, {
+		"url": "/api/v1/{instance}/AggregazioniDocumentali/{idAggregato}/Trasmissioni/Infos",
+		"rel": "/linkrels/aggregato/trasmissioni/lista",
+		"type": "PUT"
+	}, {
+		"url": "/api/v1/{instance}/AggregazioniDocumentali/{idAggregato}/Trasmissioni/{idTrasmissione}",
+		"rel": "/linkrels/aggregato/trasmissioni/mostra",
+		"type": "GET"
+	}, {
+		"url": "/api/v1/{instance}/AggregazioniDocumentali/{idAggregato}/Trasmissioni/{idTrasmissione}/invio",
+		"rel": "/linkrels/aggregato/trasmissioni/invia",
+		"type": "PUT"
+	}, {
+		"url": "/api/v1/{instance}/AggregazioniDocumentali/{idAggregato}/Trasmissioni/{idTrasmissione}/Accettazione",
+		"rel": "/linkrels/aggregato/trasmissioni/accetta",
+		"type": "PUTT"
+	}, {
+		"url": "/api/v1/{instance}/AggregazioniDocumentali/{idAggregato}/Trasmissioni/{idTrasmissione}/Rifiuto",
+		"rel": "/linkrels/aggregato/trasmissioni/rifiuta",
+		"type": "PUT"
+	}, {
+		"url": "/api/v1/{instance}/AggregazioniDocumentali/{idAggregato}/Trasmissioni/{idTrasmissione}/Visto",
+		"rel": "/linkrels/aggregato/trasmissioni/visto",
+		"type": "PUT"
+	}, {
+		"url": "/api/v1/{instance}/AggregazioniDocumentali/{idAggregato}/Trasmissioni/{idTrasmissione}",
+		"rel": "/linkrels/aggregato/trasmissioni/cancella",
+		"type": "DELETE"
+	}, {
+		"url": "/api/v1/{instance}/AggregazioniDocumentali/{idAggregato}/Trasmissioni/Modello/{codiceModello}",
+		"rel": "/linkrels/aggregato/trasmissioni/invia/modello",
+		"type": "POST"
+	}, {
+		"url": "/api/v1/{instance}/AggregazioniDocumentali/{idAggregato}/Profilo",
+		"rel": "/linkrels/aggregato/profilo/imposta",
+		"type": "POST"
+	}, {
+		"url": "/api/v1/{instance}/Ricerche/RicercaPerRegistro/?anno=2024&codRegistro=PAT&paginazione={Salta:0,Prendi:100}",
+		"rel": "/linkrels/ricerche/aggregato/registro",
+		"type": "POST"
+	}, 
+]

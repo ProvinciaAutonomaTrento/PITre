@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XML Spy by Alessandro Volta -->
+<!-- rewritten with XMLPad Pro by Francesco Fioravanti  -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:complexType name="ECEsitoXSDType">
+    <xs:sequence>
+      <xs:element name="CodiceEsito" type="ECEsitoPosNegType"/>
+      <xs:sequence>
+        <xs:element name="ControlloStrutturaXML" type="xs:string" minOccurs="0"/>
+        <xs:element name="UnivocitaIDComponenti" type="xs:string" minOccurs="0"/>
+        <xs:element name="UnivocitaIDDocumenti" type="xs:string" minOccurs="0"/>
+        <xs:element name="CorrispondenzaAllegatiDichiarati" type="ECEsitoPosNegType" minOccurs="0"/>
+        <xs:element name="CorrispondenzaAnnessiDichiarati" type="ECEsitoPosNegType" minOccurs="0"/>
+        <xs:element name="CorrispondenzaAnnotazioniDichiarate" type="ECEsitoPosNegType" minOccurs="0"/>
+      </xs:sequence>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="ECEsitoXSDAggAllType">
+    <xs:sequence>
+      <xs:element name="CodiceEsito" type="ECEsitoPosNegType"/>
+      <xs:sequence>
+        <xs:element name="ControlloStrutturaXML" type="xs:string" minOccurs="0"/>
+        <xs:element name="UnivocitaIDComponenti" type="xs:string" minOccurs="0"/>
+      </xs:sequence>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <!--  -->
+  <xs:complexType name="ECUnitaDocType">
+    <xs:sequence>
+      <xs:element name="Versatore" type="SCVersatoreType" minOccurs="0"/>
+      <xs:element name="Chiave" type="SCChiaveType" minOccurs="0"/>
+      <xs:element name="DataVersamento" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="StatoConservazione" type="ECStatoConsType" minOccurs="0"/>
+      <xs:element name="FirmatoDigitalmente" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="EsitoUnitaDocumentaria" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="CodiceEsito" type="ECEsitoPosNegWarType" minOccurs="0"/>
+            <xs:element name="IdentificazioneVersatore" type="xs:string" minOccurs="0"/>
+            <xs:element name="UnivocitaChiave" type="ECEsitoPosNegType" minOccurs="0"/>
+            <xs:element name="VerificaTipologiaUD" type="ECEsitoPosNegType" minOccurs="0"/>
+            <xs:element name="CorrispondenzaDatiSpecifici" type="ECEsitoPosNegType" minOccurs="0"/>
+            <xs:element name="CorrispondenzaProfiloNormativo" type="ECEsitoPosNegType" minOccurs="0"/>
+            <xs:element name="PresenzaUDCollegate" type="ECEsitoPosNegWarDisType" minOccurs="0"/>
+            <xs:element name="VerificaFirmeUnitaDocumentaria" type="ECEsitoPosNegWarDisType" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DocumentoPrincipale" type="ECDocumentoType" minOccurs="0"/>
+      <xs:element name="Allegati" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Allegato" type="ECDocumentoType" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Annessi" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Annesso" type="ECDocumentoType" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Annotazioni" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Annotazione" type="ECDocumentoType" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="ECUnitaDocAggAllType">
+    <xs:sequence>
+      <xs:element name="Versatore" type="SCVersatoreType" minOccurs="0"/>
+      <xs:element name="Chiave" type="SCChiaveType" minOccurs="0"/>
+      <xs:element name="DataVersamento" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="StatoConservazione" type="ECStatoConsType" minOccurs="0"/>
+      <xs:element name="FirmatoDigitalmente" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="EsitoUnitaDocumentaria" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="CodiceEsito" type="ECEsitoPosNegWarType" minOccurs="0"/>
+            <xs:element name="IdentificazioneVersatore" type="xs:string" minOccurs="0"/>
+            <xs:element name="IdentificazioneChiave" type="ECEsitoPosNegType" minOccurs="0"/>
+            <xs:element name="DocumentoUnivocoInUD" type="ECEsitoPosNegType" minOccurs="0"/>
+            <xs:element name="VerificaFirmeUnitaDocumentaria" type="ECEsitoPosNegWarDisType" minOccurs="0"/>
+            <xs:element name="VerificaStatoConservazione" type="ECEsitoPosNegWarType" minOccurs="0"/>        
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:choice minOccurs="0" maxOccurs="1">
+        <xs:element name="Allegato" type="ECDocumentoType" maxOccurs="1" minOccurs="1"/>
+        <xs:element name="Annesso" type="ECDocumentoType" maxOccurs="1" minOccurs="1"/>
+        <xs:element name="Annotazione" type="ECDocumentoType" maxOccurs="1" minOccurs="1"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <!-- ************************************************************************** -->
+  <!--  -->
+  <xs:complexType  name="ECEsitoGeneraleType">
+    <xs:sequence>
+      <xs:element name="CodiceEsito" type="ECEsitoExtType"/>
+      <xs:element name="CodiceErrore" type="xs:string" minOccurs="0"/>
+      <xs:element name="MessaggioErrore" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType  name="ECErroriSecondariType" >
+    <xs:sequence>
+      <xs:element name="Errore" type="ECErroreType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType  name="ECWarningSecondariType">
+    <xs:sequence>
+      <xs:element name="Warning" type="ECWarningType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="ECErroreType">
+    <xs:sequence>
+      <xs:element name="CodiceErrore" type="xs:string" minOccurs="0"/>
+      <xs:element name="MessaggioErrore" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="ECWarningType">
+    <xs:sequence>
+      <xs:element name="CodiceWarning" type="xs:string" minOccurs="0"/>
+      <xs:element name="MessaggioWarning" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="ECEsitoChiamataWSType">
+    <xs:sequence>
+      <xs:element name="VersioneWSCorretta" type="ECEsitoPosNegType"/>
+      <xs:element name="CredenzialiOperatore" type="ECEsitoPosNegType"/>
+      <xs:element name="FileAttesiRicevuti" type="ECEsitoPosNegType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="ECConfigurazioneType">
+    <xs:sequence>
+      <xs:element name="TipoConservazione" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="SOSTITUTIVA"/>
+            <xs:enumeration value="FISCALE"/>
+            <xs:enumeration value="MIGRAZIONE"/>
+            <xs:enumeration value="VERSAMENTO_ANTICIPATO"/>
+            <xs:enumeration value="VERSAMENTO_IN_ARCHIVIO"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="SistemaDiMigrazione" type="xs:string" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="ForzaAccettazione" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ForzaConservazione" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ForzaCollegamento" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ForzaHash" type="xs:boolean" minOccurs="0"/>
+	  <xs:element name="ForzaFormatoNumero" type="xs:boolean" minOccurs="0"/>
+	  <xs:element name="ForzaFormatoFile" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ForzaAggiuntaDocumento" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AbilitaControlloCrittografico" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AbilitaControlloTrust" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AbilitaControlloCertificato" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AbilitaControlloCRL" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AbilitaControlloRevoca" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AbilitaControlloFormato" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AbilitaControlloCollegamento" type="xs:boolean" minOccurs="0"/>
+	  <xs:element name="AbilitaControlloHash" type="xs:boolean" minOccurs="0"/>
+	  <xs:element name="AbilitaControlloFormatoNumero" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AbilitaForzaAggiuntaDocumento" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AccettaFirmaSconosciuta" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AccettaFirmaNonConforme" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AccettaFirmaNoDelibera45" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AccettaMarcaSconosciuta" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AccettaControlloCrittograficoNegativo" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AccettaControlloTrustNegativo" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AccettaControlloCertificatoScaduto" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AccettaControlloCertificatoNoValido" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AccettaControlloCertificatoNoFirma" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AccettaControlloCRLNegativo" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AccettaControlloCRLScaduta" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AccettaControlloCRLNoValida" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AccettaControlloCRLNoScaric" type="xs:boolean" minOccurs="0"/>
+	  <xs:element name="AccettaControlloOCSPNegativo" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AccettaControlloOCSPNoValido" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AccettaControlloOCSPNoScaric" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AccettaControlloFormatoNegativo" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AccettaControlloHashNegativo" type="xs:boolean" minOccurs="0"/>
+	  <xs:element name="AccettaControlloFormatoNumeroNegativo" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AccettaControlloDocumentoAggiuntoNegativo" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AccettaControlloCollegamentiNegativo" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="DataObbligatorio" type="xs:boolean" minOccurs="0"/>    
+      <xs:element name="OggettoObbligatorio" type="xs:boolean" minOccurs="0"/>     
+      <xs:element name="AbilitaVerificaFirma" type="xs:boolean" minOccurs="0"/>     
+      <xs:element name="AbilitaVerificaFirmaSoloCrypto" type="xs:boolean" minOccurs="0"/>    
+      <xs:element name="AbilitaConservazioneNonFirmati" type="xs:boolean" minOccurs="0"/>     
+      <xs:element name="AccettaConservazioneNonFirmatiNegativa" type="xs:boolean" minOccurs="0"/>  
+      <xs:element name="ForzaControlloRevoca" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ForzaControlloTrust" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ForzaControlloCertificato" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ForzaControlloCrittografico" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ForzaControlloNonConformita" type="xs:boolean" minOccurs="0"/>
+</xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType  name="SCVersatoreType">
+    <xs:sequence>
+      <xs:element name="Ambiente" type="xs:string"/>
+      <xs:element name="Ente" type="xs:string"/>
+      <xs:element name="Struttura" type="xs:string"/>
+      <xs:element name="UserID" type="xs:string"/>
+      <xs:element name="Utente" type="xs:string" minOccurs="0"/>
+      <xs:element name="IndirizzoIp" type="xs:string" minOccurs="0"/>   
+      <xs:element name="SistemaVersante" type="xs:string" minOccurs="0"/>               
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="SCChiaveType">
+    <xs:sequence>
+      <xs:element name="Numero" type="xs:token"/>
+      <xs:element name="Anno" type="xs:token" nillable="true"/>
+      <xs:element name="TipoRegistro" type="xs:token" nillable="true"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="ECDocumentoType">
+    <xs:sequence>
+      <xs:element name="ChiaveDoc" type="xs:string"/>
+      <xs:element name="IDDocumento" type="xs:string" minOccurs="0"/>
+      <xs:element name="TipoDocumento" type="xs:string" minOccurs="0"/>
+      <xs:element name="FirmatoDigitalmente" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="EsitoDocumento">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="CodiceEsito" type="ECEsitoPosNegWarType"/>
+            <xs:sequence>
+              <xs:element name="VerificaTipoDocumento" type="ECEsitoPosNegType"/>
+              <xs:element name="CorrispondenzaDatiSpecifici" type="ECEsitoPosNegType" minOccurs="0"/>
+              <xs:element name="CorrispondenzaDatiFiscali" type="ECEsitoPosNegType" minOccurs="0"/>
+              <xs:element name="NumerazioneFiscale" type="ECEsitoPosNegType" minOccurs="0"/>
+              <xs:element name="VerificaTipoStruttura" type="ECEsitoPosNegType" minOccurs="0"/>
+              <xs:element name="VerificaFirmeDocumento" type="ECEsitoPosNegWarType" minOccurs="0"/>
+              <xs:element name="UnivocitaOrdinePresentazione" type="ECEsitoPosNegType" minOccurs="0"/>
+            </xs:sequence>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Componenti" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Componente" type="ECComponenteType" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="ECComponenteType">
+    <xs:sequence>
+      <xs:element name="OrdinePresentazione" type="xs:positiveInteger" minOccurs="0"/>
+      <xs:element name="TipoComponente" type="xs:string" minOccurs="0"/>
+      <xs:element name="URN" type="xs:token" minOccurs="0"/>
+      <xs:element name="Hash" type="xs:hexBinary" minOccurs="0"/>
+      <xs:element name="AlgoritmoHash" type="xs:token" minOccurs="0"/>
+      <xs:element name="Encoding" type="xs:token" minOccurs="0"/>
+      <xs:element name="FormatoRappresentazione" type="xs:string" minOccurs="0"/>
+      <xs:element name="FormatoRappresentazioneEsteso" type="xs:string" minOccurs="0"/>
+      <xs:element name="IdoneitaFormato" type="ECEsitoIdonFormatoType" minOccurs="0"/>
+      <xs:element name="DimensioneFile" type="xs:nonNegativeInteger" minOccurs="0"/>
+      <xs:element name="FirmatoDigitalmente" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="NomeComponente" type="xs:string" minOccurs="0"/>
+      <xs:element name="UrnVersato" type="xs:string" minOccurs="0"/>        
+      <xs:element name="HashVersato" type="xs:string" minOccurs="0"/> 
+      <xs:element name="IDComponenteVersato" type="xs:string" minOccurs="0"/>  
+      
+      <xs:element name="EsitoComponente">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="CodiceEsito" type="ECEsitoPosNegWarType"/>
+            <xs:sequence>
+              <xs:element name="VerificaTipoComponente" type="ECEsitoPosNegType" minOccurs="0"/>
+              <xs:element name="CorrispondenzaDatiSpecifici" type="ECEsitoPosNegType" minOccurs="0"/>
+              <xs:element name="VerificaTipoSupportoComponente" type="xs:string" minOccurs="0"/>
+              <xs:element name="VerificaTipoRappresentazione" type="ECEsitoPosNegType" minOccurs="0"/>
+              <xs:element name="VerificaSottoComponenteRappresentazione" type="xs:string" minOccurs="0"/>
+              <xs:element name="VerificaNomeComponente" type="ECEsitoPosNegType" minOccurs="0"/>
+              <xs:element name="VerificaAmmissibilitaFormato" type="ECEsitoPosNegType" minOccurs="0"/>
+              <xs:element name="VerificaRiconoscimentoFormato" type="ECEsitoPosNegWarDisType" minOccurs="0"/>
+              <xs:element name="MessaggioRiconoscimentoFormato" type="xs:string" minOccurs="0"/>
+              <xs:element name="VerificaRiferimentoUnitaDocumentaria" type="ECEsitoPosNegType" minOccurs="0"/>
+              <xs:element name="VerificaFirmeComponente" type="ECEsitoPosNegWarType" minOccurs="0"/>
+            </xs:sequence>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Marche" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Marca" type="ECMarcaType" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Firmatari" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Firmatario" type="ECFirmatarioType" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SottoComponenti" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="SottoComponente" type="ECSottoComponenteType" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="ECMarcaType">
+    <xs:sequence>
+      <xs:element name="OrdineMarca" type="xs:positiveInteger" minOccurs="0"/>
+      <xs:element name="FormatoMarca" type="xs:string" minOccurs="0"/>
+      <xs:element name="Timestamp" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="EsitoMarca">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ControlloConformita" minOccurs="0" type="ECEsitoControlloType"/>
+            <xs:element name="DettaglioControlloConformita" minOccurs="0" type="xs:string"/>
+            <xs:element name="VerificaMarca" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="CodiceEsito" type="ECEsitoPosNegWarType"/>
+                  <xs:element name="ControlloCrittografico" minOccurs="0" type="ECEsitoControlloType"/>
+                  <xs:element name="DettaglioControlloCrittografico" minOccurs="0" type="xs:string"/>
+                  <xs:element name="ControlloCatenaTrusted" minOccurs="0" type="ECEsitoControlloType"/>
+                  <xs:element name="DettaglioControlloCatenaTrusted" minOccurs="0" type="xs:string"/>
+                  <xs:element name="ControlloCertificato" minOccurs="0" type="ECEsitoControlloType"/>
+                  <xs:element name="DettaglioControlloCertificato" minOccurs="0" type="xs:string"/>
+                  <xs:element name="ControlloCRL" minOccurs="0" type="ECEsitoControlloType"/>
+                  <xs:element name="DettaglioControlloCRL" minOccurs="0" type="xs:string"/>
+ 				  <xs:element name="ControlloOCSP" minOccurs="0" type="ECEsitoControlloType"/>
+                  <xs:element name="DettaglioControlloOCSP" minOccurs="0" type="xs:string"/>                  
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="ECFirmatarioType">
+    <xs:sequence>
+      <xs:element name="OrdineFirma" type="xs:positiveInteger" minOccurs="0"/>
+      <xs:element name="CognomeNome" type="xs:string" minOccurs="0"/>
+      <xs:element name="FormatoFirma" type="xs:string" minOccurs="0"/>
+      <xs:element name="RiferimentoTemporaleUsato" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="TipoRiferimentoTemporaleUsato" type="xs:string" minOccurs="0"/>
+      <xs:element name="EsitoFirma">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ControlloConformita" minOccurs="0" type="ECEsitoControlloType"/>
+            <xs:element name="DettaglioControlloConformita" minOccurs="0" type="xs:string"/>
+            <xs:element name="VerificaFirma" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="CodiceEsito" type="ECEsitoPosNegWarType"/>
+                  <xs:element name="ControlloCrittografico" minOccurs="0" type="ECEsitoControlloType"/>
+                  <xs:element name="DettaglioControlloCrittografico" minOccurs="0" type="xs:string"/>
+                  <xs:element name="ControlloCatenaTrusted" minOccurs="0" type="ECEsitoControlloType"/>
+                  <xs:element name="DettaglioControlloCatenaTrusted" minOccurs="0" type="xs:string"/>
+                  <xs:element name="ControlloCertificato" minOccurs="0" type="ECEsitoControlloType"/>
+                  <xs:element name="DettaglioControlloCertificato" minOccurs="0" type="xs:string"/>
+                  <xs:element name="ControlloCRL" minOccurs="0" type="ECEsitoControlloType"/>
+                  <xs:element name="DettaglioControlloCRL" minOccurs="0" type="xs:string"/>
+                  <xs:element name="ControlloOCSP" minOccurs="0" type="ECEsitoControlloType"/>
+                  <xs:element name="DettaglioControlloOCSP" minOccurs="0" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="ECSottoComponenteType">
+    <xs:sequence>
+      <xs:element name="OrdinePresentazione" type="xs:positiveInteger" minOccurs="0"/>
+      <xs:element name="TipoComponente" type="xs:string" minOccurs="0"/>
+      <xs:element name="URN" type="xs:token" minOccurs="0"/>
+      <xs:element name="Hash" type="xs:hexBinary" minOccurs="0"/>
+      <xs:element name="AlgoritmoHash" type="xs:token" minOccurs="0"/>
+      <xs:element name="Encoding" type="xs:token" minOccurs="0"/>
+      <xs:element name="FormatoRappresentazione" type="xs:string" minOccurs="0"/>
+      <xs:element name="FormatoRappresentazioneEsteso" type="xs:string" minOccurs="0"/>
+      <xs:element name="IdoneitaFormato" type="ECEsitoIdonFormatoType" minOccurs="0"/>
+      <xs:element name="DimensioneFile" type="xs:nonNegativeInteger" minOccurs="0"/>
+      <xs:element name="NomeComponente" type="xs:string" minOccurs="0"/>
+      <xs:element name="UrnVersato" type="xs:string" minOccurs="0"/>      
+      <xs:element name="IDComponenteVersato" type="xs:string" minOccurs="0"/>  
+      
+      <xs:element name="EsitoSottoComponente">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="CodiceEsito" type="ECEsitoPosNegWarType"/>
+            <xs:sequence>
+              <xs:element name="VerificaTipoComponente" type="ECEsitoPosNegType" minOccurs="0"/>
+              <xs:element name="CorrispondenzaDatiSpecifici" type="xs:string" minOccurs="0"/>
+              <xs:element name="VerificaTipoSupportoComponente" type="xs:string" minOccurs="0"/>
+              <xs:element name="VerificaNomeComponente" type="ECEsitoPosNegType" minOccurs="0"/>
+              <xs:element name="VerificaAmmissibilitaFormato" type="ECEsitoPosNegType" minOccurs="0"/>
+              <xs:element name="VerificaRiconoscimentoFormato" type="ECEsitoPosNegWarDisType" minOccurs="0"/>
+              <xs:element name="MessaggioRiconoscimentoFormato" type="xs:string" minOccurs="0"/>
+              <xs:element name="VerificaRiferimentoUnitaDocumentaria" type="ECEsitoPosNegType" minOccurs="0"/>
+            </xs:sequence>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <!-- ************************************************************************** -->
+  <!--  -->
+  <xs:simpleType name="ECEsitoExtType">
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="POSITIVO"/>
+      <xs:enumeration value="NEGATIVO"/>
+      <xs:enumeration value="WARNING"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+  <xs:simpleType name="ECStatoConsType">
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="IN_ATTESA_MEMORIZZAZIONE"/>
+      <xs:enumeration value="IN_ATTESA_SCHED"/>
+      <xs:enumeration value="IN_VOLUME_APERTO"/>
+      <xs:enumeration value="IN_VOLUME_CHIUSO"/>
+      <xs:enumeration value="IN_VOLUME_DA_CHIUDERE"/>
+      <xs:enumeration value="IN_VOLUME_IN_ERRORE"/>
+      <xs:enumeration value="NON_SELEZ_SCHED"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+  <xs:simpleType name="ECEsitoPosNegType">
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="POSITIVO"/>
+      <xs:enumeration value="NEGATIVO"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+  <xs:simpleType name="ECEsitoPosNegWarType">
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="POSITIVO"/>
+      <xs:enumeration value="NEGATIVO"/>
+      <xs:enumeration value="WARNING"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+  <xs:simpleType name="ECEsitoPosNegWarDisType">
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="POSITIVO"/>
+      <xs:enumeration value="NEGATIVO"/>
+      <xs:enumeration value="WARNING"/>
+      <xs:enumeration value="DISABILITATO"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+  <xs:simpleType name="ECEsitoIdonFormatoType">
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="IDONEO"/>
+      <xs:enumeration value="GESTITO"/>
+      <xs:enumeration value="DEPRECATO"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+  <xs:simpleType name="ECEsitoControlloType">
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="POSITIVO"/>
+      <xs:enumeration value="NEGATIVO"/>
+      <xs:enumeration value="WARNING"/>
+      <xs:enumeration value="NON_ESEGUITO"/>
+      <xs:enumeration value="FORMATO_NON_CONOSCIUTO"/>
+      <xs:enumeration value="FORMATO_NON_CONFORME"/>
+      <xs:enumeration value="NON_AMMESSO_DELIB_45_CNIPA"/>
+      <xs:enumeration value="DISABILITATO"/>
+      <xs:enumeration value="NON_NECESSARIO"/>
+      <xs:enumeration value="ERRORE"/>
+      <xs:enumeration value="CERTIFICATO_ERRATO"/>
+      <xs:enumeration value="CERTIFICATO_NON_VALIDO"/>
+      <xs:enumeration value="CERTIFICATO_REVOCATO"/>
+      <xs:enumeration value="CERTIFICATO_SCADUTO"/>
+      <xs:enumeration value="CERTIFICATO_SCADUTO_3_12_2009"/>
+      <xs:enumeration value="CRL_NON_SCARICABILE"/>
+      <xs:enumeration value="CRL_NON_VALIDA"/>
+      <xs:enumeration value="CRL_SCADUTA"/>
+      <xs:enumeration value="OCSP_NON_SCARICABILE"/>
+      <xs:enumeration value="OCSP_SCONOSCIUTO"/>
+      <xs:enumeration value="OCSP_VALIDO"/>
+      <xs:enumeration value="OCSP_NON_AGGIORNATO"/>
+      <xs:enumeration value="OCSP_REVOCATO"/>
+      <xs:enumeration value="REVOCHE_NON_CONSISTENTI"/>      
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- ************************************************************************** -->
+  <xs:element name="RapportoVersamento">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Versione" type="xs:string" minOccurs="0"/>
+        <xs:element name="URNRapportoVersamento" type="xs:string"/>
+        <xs:element name="DataRapportoVersamento" type="xs:dateTime"/>
+        <xs:element name="EsitoGenerale" type="ECEsitoGeneraleType"/>
+        <xs:element name="WarningUlteriori" type="ECWarningSecondariType" minOccurs="0"/>
+        <xs:element name="Versatore" type="SCVersatoreType" minOccurs="0"/>
+        <xs:element name="SIP" type="SIPType" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--  -->
+  <xs:complexType name="SIPType">
+    <xs:sequence>
+      <xs:element name="URNSIP" type="xs:string" minOccurs="0"/>
+      <xs:element name="URNIndiceSIP" type="xs:string" minOccurs="0"/>
+      <xs:element name="HashIndiceSIP" type="xs:string" minOccurs="0"/>
+      <xs:element name="AlgoritmoHashIndiceSIP" type="xs:token" minOccurs="0"/>
+      <xs:element name="EncodingHashIndiceSIP" type="xs:token" minOccurs="0"/>
+      <xs:element name="URNPISIP" type="xs:string" minOccurs="0"/>
+      <xs:element name="HashPISIP" type="xs:string" minOccurs="0"/>
+      <xs:element name="AlgoritmoHashPISIP" type="xs:token" minOccurs="0"/>
+      <xs:element name="EncodingHashPISIP" type="xs:token" minOccurs="0"/>
+      <xs:element name="DataVersamento" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="UnitaDocumentaria" type="UnitaDocumentariaSIPType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="UnitaDocumentariaSIPType">
+    <xs:sequence>
+      <xs:element name="Chiave" type="SCChiaveType" minOccurs="0"/>
+      <xs:element name="TipologiaUnitaDocumentaria" type="xs:string" minOccurs="0"/>
+      <xs:element name="DocumentoPrincipale" type="DocumentoSIPType" minOccurs="0"/>
+      <xs:element name="Allegato" type="DocumentoSIPType" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="Annesso" type="DocumentoSIPType" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="Annotazione" type="DocumentoSIPType" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="DocumentoSIPType">
+    <xs:sequence>
+      <xs:element name="ChiaveDoc" type="xs:string"/>
+      <xs:element name="IDDocumento" type="xs:string" minOccurs="0"/>
+      <xs:element name="TipoDocumento" type="xs:string" minOccurs="0"/>
+      <xs:element name="FirmatoDigitalmente" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="Componenti" minOccurs="0">
+    <xs:complexType>
+      <xs:sequence>
+            <xs:element name="Componente" type="ComponenteSIPType" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="ComponenteSIPType">
+    <xs:sequence>
+      <xs:element name="URN" type="xs:string"/>
+      <xs:element name="Hash" type="xs:string"/>
+      <xs:element name="AlgoritmoHash" type="xs:token" minOccurs="0"/>
+      <xs:element name="Encoding" type="xs:token" minOccurs="0"/>
+      <xs:element name="NomeComponente" type="xs:string" minOccurs="0"/>
+      <xs:element name="UrnVersato" type="xs:string" minOccurs="0"/>        
+      <xs:element name="HashVersato" type="xs:string" minOccurs="0"/> 
+      <xs:element name="IDComponenteVersato" type="xs:string" minOccurs="0"/>  
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <!--  -->
+  <!--  -->
+  <!-- ************************************************************************** -->
+  <xs:element name="EsitoVersamento">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Versione" type="xs:string" minOccurs="0"/>
+        <xs:element name="VersioneXMLChiamata" type="xs:string" minOccurs="0"/>
+        <xs:element name="URNSIP" type="xs:string" minOccurs="0"/>
+        <xs:element name="DataVersamento" type="xs:dateTime" minOccurs="0"/>
+        <xs:element name="EsitoGenerale" type="ECEsitoGeneraleType"/>
+        <xs:element name="ErroriUlteriori" type="ECErroriSecondariType" minOccurs="0"/>
+        <xs:element name="WarningUlteriori" type="ECWarningSecondariType" minOccurs="0"/>
+        <xs:element name="EsitoChiamataWS" type="ECEsitoChiamataWSType"/>
+        <xs:element name="EsitoXSD" type="ECEsitoXSDType"/>
+        <xs:element name="Configurazione" type="ECConfigurazioneType" minOccurs="0"/>
+        <xs:element name="UnitaDocumentaria" type="ECUnitaDocType" minOccurs="0"/>
+        <xs:element name="RapportoVersamento" type="xs:string" minOccurs="0"/>
+        <xs:element name="XMLVersamento" type="xs:string" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--  -->
+  <xs:element name="EsitoVersAggAllegati">
+    <xs:complexType>
+        <xs:sequence>
+          <xs:element name="Versione" type="xs:string" minOccurs="0"/>
+          <xs:element name="VersioneXMLChiamata" type="xs:string" minOccurs="0"/>
+          <xs:element name="URNSIP" type="xs:string" minOccurs="0"/>
+          <xs:element name="DataVersamento" type="xs:dateTime"/>
+          <xs:element name="EsitoGenerale" type="ECEsitoGeneraleType"/>
+          <xs:element name="ErroriUlteriori" type="ECErroriSecondariType" minOccurs="0"/>
+          <xs:element name="WarningUlteriori" type="ECWarningSecondariType" minOccurs="0"/>
+          <xs:element name="EsitoChiamataWS" type="ECEsitoChiamataWSType"/>
+          <xs:element name="EsitoXSD" type="ECEsitoXSDAggAllType"/>
+          <xs:element name="Configurazione" type="ECConfigurazioneType" minOccurs="0"/>
+          <xs:element name="UnitaDocumentaria" type="ECUnitaDocAggAllType" minOccurs="0"/>
+          <xs:element name="RapportoVersamento" type="xs:string" minOccurs="0"/>
+          <xs:element name="XMLVersamento" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+  </xs:element>
+</xs:schema>

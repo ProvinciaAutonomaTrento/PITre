@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AMMINISTRAZIONE" xml:space="preserve">
+    <value>Amministrazione</value>
+  </data>
+  <data name="CAP_UO_CREATORE" xml:space="preserve">
+    <value>Cap uo creatore</value>
+  </data>
+  <data name="CAP_UO_PADRE" xml:space="preserve">
+    <value>Cap uo superiore</value>
+  </data>
+  <data name="CAP_UO_PROT" xml:space="preserve">
+    <value>Cap uo prot</value>
+  </data>
+  <data name="CITTA_UO_CREATORE" xml:space="preserve">
+    <value>Citta' uo creatore</value>
+  </data>
+  <data name="CITTA_UO_PADRE" xml:space="preserve">
+    <value>Citta' uo superiore</value>
+  </data>
+  <data name="CITTA_UO_PROT" xml:space="preserve">
+    <value>Citta' uo prot</value>
+  </data>
+  <data name="CLASSIFICHE" xml:space="preserve">
+    <value>Classifiche</value>
+  </data>
+  <data name="CODICE_REGISTRO" xml:space="preserve">
+    <value>Codice registro</value>
+  </data>
+  <data name="COD_RESP_UO" xml:space="preserve">
+    <value>Codice Responsabile UO</value>
+  </data>
+  <data name="COD_UO_PADRE" xml:space="preserve">
+    <value>Codice Uo superiore</value>
+  </data>
+  <data name="CREATORE" xml:space="preserve">
+    <value>Creatore</value>
+  </data>
+  <data name="DATA_CREAZIONE" xml:space="preserve">
+    <value>Data creazione</value>
+  </data>
+  <data name="DATA_ORA_PROTOCOLLO" xml:space="preserve">
+    <value>Data Ora Protocollo</value>
+  </data>
+  <data name="DATA_PROTOCOLLO" xml:space="preserve">
+    <value>Data protocollo</value>
+  </data>
+  <data name="DESC_RESP_UO" xml:space="preserve">
+    <value>Descrizione Responsabile UO</value>
+  </data>
+  <data name="DESTINATARI" xml:space="preserve">
+    <value>Destinatari</value>
+  </data>
+  <data name="DESTINATARI_CC" xml:space="preserve">
+    <value>Destinatari CC</value>
+  </data>
+  <data name="DESTINATARI_CC_INDIRIZZO" xml:space="preserve">
+    <value>Destinatari CC$indirizzo</value>
+  </data>
+  <data name="DESTINATARI_CC_INDIRIZZO_TELEFONO" xml:space="preserve">
+    <value>Destinatari CC$indirizzo$telefono</value>
+  </data>
+  <data name="DESTINATARI_CC_TELEFONO" xml:space="preserve">
+    <value>Destinatari CC$telefono</value>
+  </data>
+  <data name="DESTINATARI_INDIRIZZO" xml:space="preserve">
+    <value>Destinatari$indirizzo</value>
+  </data>
+  <data name="DESTINATARI_INDIRIZZO_TELEFONO" xml:space="preserve">
+    <value>Destinatari$indirizzo$telefono</value>
+  </data>
+  <data name="DESTINATARI_TELEFONO" xml:space="preserve">
+    <value>Destinatari$telefono</value>
+  </data>
+  <data name="FAX_UO_CREATORE" xml:space="preserve">
+    <value>Fax uo creatore</value>
+  </data>
+  <data name="FAX_UO_PADRE" xml:space="preserve">
+    <value>Fax uo superiore</value>
+  </data>
+  <data name="FAX_UO_PROT" xml:space="preserve">
+    <value>Fax uo prot</value>
+  </data>
+  <data name="ID_DOCUMENTO" xml:space="preserve">
+    <value>ID Documento</value>
+  </data>
+  <data name="INDIRIZZO_UO_CREATORE" xml:space="preserve">
+    <value>Indirizzo uo creatore</value>
+  </data>
+  <data name="INDIRIZZO_UO_PADRE" xml:space="preserve">
+    <value>Indirizzo uo superiore</value>
+  </data>
+  <data name="INDIRIZZO_UO_PROT" xml:space="preserve">
+    <value>Indirizzo uo prot</value>
+  </data>
+  <data name="LISTA_UTENTE_RESP_UO" xml:space="preserve">
+    <value>Lista Utenti Ruolo Responsabile UO</value>
+  </data>
+  <data name="MITTENTE" xml:space="preserve">
+    <value>Mittente</value>
+  </data>
+  <data name="MITTENTE_INDIRIZZO" xml:space="preserve">
+    <value>Mittente$indirizzo</value>
+  </data>
+  <data name="MITTENTE_INDIRIZZO_TELEFONO" xml:space="preserve">
+    <value>Mittente$indirizzo$telefono</value>
+  </data>
+  <data name="MITTENTE_TELEFONO" xml:space="preserve">
+    <value>Mittente$telefono</value>
+  </data>
+  <data name="MITTENTI_MULTIPLI" xml:space="preserve">
+    <value>Mittenti_multipli</value>
+  </data>
+  <data name="MITTENTI_MULTIPLI_INDIRIZZO" xml:space="preserve">
+    <value>Mittenti_multipli$indirizzo</value>
+  </data>
+  <data name="MITTENTI_MULTIPLI_INIDIRIZZO_TELEFONO" xml:space="preserve">
+    <value>Mittenti_multipli$indirizzo$telefono</value>
+  </data>
+  <data name="MITTENTI_MULTIPLI_TELEFONO" xml:space="preserve">
+    <value>Mittenti_multipli$telefono</value>
+  </data>
+  <data name="NAZIONE_UO_CREATORE" xml:space="preserve">
+    <value>Nazione uo creatore</value>
+  </data>
+  <data name="NAZIONE_UO_PROT" xml:space="preserve">
+    <value>Nazione uo prot</value>
+  </data>
+  <data name="NOTE" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="NUM_ALLEGATI" xml:space="preserve">
+    <value>Numero Allegati</value>
+  </data>
+  <data name="NUM_PROTOCOLLO" xml:space="preserve">
+    <value>Numero protocollo</value>
+  </data>
+  <data name="OGGETTO" xml:space="preserve">
+    <value>Oggetto</value>
+  </data>
+  <data name="PROTOCOLLATORE" xml:space="preserve">
+    <value>Protocollatore</value>
+  </data>
+  <data name="PROVINCIA_UO_CREATORE" xml:space="preserve">
+    <value>Provincia uo creatore</value>
+  </data>
+  <data name="PROVINCIA_UO_PADRE" xml:space="preserve">
+    <value>Provincia uo superiore</value>
+  </data>
+  <data name="PROVINCIA_UO_PROT" xml:space="preserve">
+    <value>Provincia uo prot</value>
+  </data>
+  <data name="REGISTRO" xml:space="preserve">
+    <value>Registro</value>
+  </data>
+  <data name="RUOLO_CREATORE" xml:space="preserve">
+    <value>Ruolo creatore</value>
+  </data>
+  <data name="RUOLO_PROTOCOLLATORE" xml:space="preserve">
+    <value>Ruolo protocollatore</value>
+  </data>
+  <data name="SEGNATURA" xml:space="preserve">
+    <value>Segnatura</value>
+  </data>
+  <data name="te" xml:space="preserve">
+    <value />
+  </data>
+  <data name="te2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TEL1_UO_CREATORE" xml:space="preserve">
+    <value>Telefono1 uo creatore</value>
+  </data>
+  <data name="TEL1_UO_PADRE" xml:space="preserve">
+    <value>Telefono1 uo superiore</value>
+  </data>
+  <data name="TEL1_UO_PROT" xml:space="preserve">
+    <value>Telefono1 uo prot</value>
+  </data>
+  <data name="TEL2_UO_CREATORE" xml:space="preserve">
+    <value>Telefono2 uo creatore</value>
+  </data>
+  <data name="TEL2_UO_PADRE" xml:space="preserve">
+    <value>Telefono2 uo superiore</value>
+  </data>
+  <data name="TEL2_UO_PROT" xml:space="preserve">
+    <value>Telefono2 uo prot</value>
+  </data>
+  <data name="TIPOLOGIA" xml:space="preserve">
+    <value>Tipologia</value>
+  </data>
+  <data name="UFF_REF_COD" xml:space="preserve">
+    <value>Codice Ufficio Referente</value>
+  </data>
+  <data name="UFF_REF_DESC" xml:space="preserve">
+    <value>Descrizione Ufficio Referente</value>
+  </data>
+  <data name="UO_CREATORE" xml:space="preserve">
+    <value>UO creatore</value>
+  </data>
+  <data name="UO_PADRE" xml:space="preserve">
+    <value>Uo superiore</value>
+  </data>
+  <data name="UO_PROTOCOLLATORE" xml:space="preserve">
+    <value>UO protocollatore</value>
+  </data>
+</root>

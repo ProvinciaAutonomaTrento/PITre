@@ -1,0 +1,1953 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="queryListStyle.xsl"?>
+
+<!-- 
+	elenco query per le funzioni di loader / export / import /amministrazione
+
+	versione : 3.0
+-->
+
+<listeQuery>
+	
+	<!-- SELECT -->
+	<query>
+		<name>GET_CONTA_RUOLI</name>
+		<value>
+			SELECT COUNT(*) AS TOT	
+			FROM PEOPLEGROUPS
+			WHERE PEOPLE_SYSTEM_ID = @param1@
+			@param2@
+		</value>
+	</query>
+  <query>
+    <name>GET_EX_RUOLI</name>
+    <value>
+      select var_codice||' - '||var_desc_corr as res
+      from dpa_corr_globali c, peoplegroups p
+      where p.PEOPLE_SYSTEM_ID = @param1@
+      and p.DTA_FINE is not null
+      and c.ID_GRUPPO = p.GROUPS_SYSTEM_ID
+    </value>
+  </query>
+  <query>
+		<name>GET_RUOLIUTENTE_E_ALTRIUTENTI</name>
+		<value>
+			SELECT 
+				A.GROUPS_SYSTEM_ID AS IDGRUPPO,
+				CG.SYSTEM_ID AS IDCORRGRUPPO, 
+				G.GROUP_NAME AS GRUPPO,
+				(SELECT 
+					COUNT(b.people_system_id) 
+				FROM 
+					PEOPLEGROUPS b
+				WHERE 
+					b.groups_system_id = a.groups_system_id AND 
+					b.dta_fine IS NULL AND 
+					b.people_system_id NOT IN (@param1@)) AS ALTRIUTENTI
+			FROM 
+				PEOPLEGROUPS A,
+				GROUPS G,
+				DPA_CORR_GLOBALI CG
+			WHERE 
+				A.PEOPLE_SYSTEM_ID = @param1@
+				AND A.GROUPS_SYSTEM_ID = G.SYSTEM_ID
+				AND CG.ID_GRUPPO = G.SYSTEM_ID
+        AND A.DTA_FINE is null
+		</value>
+	</query>
+	<query>
+		<name>GET_CONTA_LOG</name>
+		<value>
+			SELECT COUNT(*) AS TOT 
+			FROM DPA_LOG 
+			WHERE ID_AMM = @param1@
+		</value>
+	</query>
+	
+	<query>
+		<name>GET_ID_UO_PARENT</name>
+		<value>
+			select id_uo from DPA_CORR_GLOBALI where system_id = @param1@
+		</value>
+	</query>
+	
+	<query>
+		<name>GET_IDTIPORUOLO_BY_IDCORR</name>
+		<value>
+			select id_tipo_ruolo from DPA_CORR_GLOBALI where system_id = @param1@
+		</value>
+	</query>
+
+	<query>
+		<name>GET_COD_TIPO_RUOLO_BY_ID</name>
+		<value>
+			select var_codice from DPA_TIPO_RUOLO where system_id = @param1@
+		</value>
+	</query>
+	
+	<query>
+		<name>GET_DESC_TIPO_RUOLO_BY_ID</name>
+		<value>
+			select var_desc_ruolo from DPA_TIPO_RUOLO where system_id = @param1@
+		</value>
+	</query>
+	
+	<query>
+		<name>CHECK_TRASMISSIONI_UTENTE</name>
+		<value>
+			SELECT COUNT(*) AS TOT FROM	DPA_DOC_ARRIVO_PAR, DPA_CORR_GLOBALI 
+			WHERE 
+			DPA_DOC_ARRIVO_PAR.id_mitt_dest = DPA_CORR_GLOBALI.SYSTEM_ID
+			AND	DPA_CORR_GLOBALI.ID_PEOPLE=@param1@
+		</value>
+	</query>
+	
+	<query>
+		<name>CHECK_TODOLIST_UTENTE</name>
+		<value>
+			<!--
+			SELECT COUNT(*) AS TOT 
+				FROM DPA_TRASM_UTENTE tu, DPA_TRASMISSIONE t, DPA_TRASM_SINGOLA ts
+			WHERE tu.id_people = @param1@ 
+				AND tu.cha_vista = '0'
+				AND tu.id_trasm_singola = ts.system_id
+				AND ts.id_trasmissione = t.system_id
+				AND t.id_ruolo_in_uo = @param2@
+			-->
+			SELECT COUNT(C.SYSTEM_ID) AS TOT
+			FROM DPA_TRASMISSIONE A, DPA_TRASM_SINGOLA B, DPA_TRASM_UTENTE C, DPA_RAGIONE_TRASM D
+			WHERE A.SYSTEM_ID = B.ID_TRASMISSIONE 
+				  AND B.SYSTEM_ID = C.ID_TRASM_SINGOLA 
+				  AND C.CHA_VALIDA = '1' 
+				  AND A.DTA_INVIO IS NOT NULL AND ((B.ID_CORR_GLOBALE = @param1@ AND C.ID_PEOPLE = @param2@) OR B.ID_CORR_GLOBALE = @param1@) 
+				  AND (A.CHA_TIPO_OGGETTO = 'D' OR A.CHA_TIPO_OGGETTO = 'F')
+				  AND B.ID_RAGIONE = D.SYSTEM_ID 
+				  AND ((D.CHA_TIPO_RAGIONE = 'W' AND C.CHA_ACCETTATA='0' AND C.CHA_RIFIUTATA = '0' AND C.CHA_VALIDA = '1') OR ((D.CHA_TIPO_RAGIONE = 'N' OR D.CHA_TIPO_RAGIONE = 'I') AND C.CHA_VISTA = '0'))
+		</value>
+	</query>
+
+	<query>
+		<name>CHECK_TODOLIST_UTENTE2</name>
+		<value>			
+			SELECT COUNT(C.SYSTEM_ID) AS TOT
+			FROM DPA_TRASMISSIONE A, DPA_TRASM_SINGOLA B, DPA_TRASM_UTENTE C, DPA_RAGIONE_TRASM D
+			WHERE A.SYSTEM_ID = B.ID_TRASMISSIONE 
+				  AND B.SYSTEM_ID = C.ID_TRASM_SINGOLA 
+				  AND C.CHA_VALIDA = '1' 
+				  AND A.DTA_INVIO IS NOT NULL 
+				  AND C.ID_PEOPLE = @param1@
+				  AND (A.CHA_TIPO_OGGETTO = 'D' OR A.CHA_TIPO_OGGETTO = 'F')
+				  AND B.ID_RAGIONE = D.SYSTEM_ID 
+				  AND ((D.CHA_TIPO_RAGIONE = 'W' AND C.CHA_ACCETTATA='0' AND C.CHA_RIFIUTATA = '0' AND C.CHA_VALIDA = '1') OR ((D.CHA_TIPO_RAGIONE = 'N' OR D.CHA_TIPO_RAGIONE = 'I') AND C.CHA_VISTA = '0'))
+		</value>
+	</query>
+	
+	<query>
+		<name>CHECK_TODOLIST_RUOLO</name>
+		<value>			
+			SELECT COUNT(B.SYSTEM_ID) AS TOT
+			FROM DPA_TRASMISSIONE A, DPA_TRASM_SINGOLA B, DPA_TRASM_UTENTE C, DPA_RAGIONE_TRASM D
+			WHERE A.SYSTEM_ID = B.ID_TRASMISSIONE 
+				  AND B.SYSTEM_ID = C.ID_TRASM_SINGOLA 
+				  AND C.CHA_VALIDA = '1' 
+				  AND A.DTA_INVIO IS NOT NULL 
+				  AND B.ID_CORR_GLOBALE = @param1@
+				  AND (A.CHA_TIPO_OGGETTO = 'D' OR A.CHA_TIPO_OGGETTO = 'F')
+				  AND B.ID_RAGIONE = D.SYSTEM_ID 
+				  AND ((D.CHA_TIPO_RAGIONE = 'W' AND C.CHA_ACCETTATA='0' AND C.CHA_RIFIUTATA = '0' AND C.CHA_VALIDA = '1') OR ((D.CHA_TIPO_RAGIONE = 'N' OR D.CHA_TIPO_RAGIONE = 'I') AND C.CHA_VISTA = '0'))			
+
+		</value>
+	</query>
+	
+	<query>
+		<name>CHECK_TODOLIST_RUOLO2</name>
+		<value>			
+			SELECT DISTINCT B.SYSTEM_ID AS ID
+			FROM DPA_TRASMISSIONE A, DPA_TRASM_SINGOLA B, DPA_TRASM_UTENTE C, DPA_RAGIONE_TRASM D
+			WHERE A.SYSTEM_ID = B.ID_TRASMISSIONE 
+				  AND B.SYSTEM_ID = C.ID_TRASM_SINGOLA 
+				  AND C.CHA_VALIDA = '1' 
+				  AND A.DTA_INVIO IS NOT NULL 
+				  AND B.ID_CORR_GLOBALE = @param1@
+				  AND (A.CHA_TIPO_OGGETTO = 'D' OR A.CHA_TIPO_OGGETTO = 'F')
+				  AND B.ID_RAGIONE = D.SYSTEM_ID 
+				  AND ((D.CHA_TIPO_RAGIONE = 'W' AND C.CHA_ACCETTATA='0' AND C.CHA_RIFIUTATA = '0' AND C.CHA_VALIDA = '1') OR ((D.CHA_TIPO_RAGIONE = 'N' OR D.CHA_TIPO_RAGIONE = 'I') AND C.CHA_VISTA = '0'))			
+				  AND C.ID_PEOPLE NOT IN (@param2@)
+		</value>
+	</query>
+	
+	<query>
+		<name>CHECK_ADL_UTENTE</name>
+		<value>
+			SELECT COUNT(*) AS TOT FROM DPA_AREA_LAVORO WHERE id_people = @param1@ AND 
+			(id_profile IS NOT NULL	OR id_project IS NOT NULL)
+		</value>
+	</query>
+
+	<query>
+		<name>CHECK_VISIBILITA_UTENTE</name>
+		<value>
+			SELECT COUNT(*) AS TOT,THING
+			FROM         
+			SECURITY
+			WHERE     
+			THING IN (SELECT THING FROM SECURITY WHERE (PERSONORGROUP = @param1@)) 
+			AND (ACCESSRIGHTS > 0)
+			GROUP BY THING
+			ORDER BY TOT
+		</value>
+	</query>
+
+	<query>
+		<name>GET_NETWORK_ALIASES</name>
+		<value>
+			SELECT NETWORK_ID FROM NETWORK_ALIASES WHERE PERSONORGROUP=@param1@
+		</value>
+	</query>
+	
+	<query>
+		<name>GET_UTENTE_RIF</name>
+		<value>
+			SELECT 
+				A.USER_ID AS CODICE 
+			FROM 
+				PEOPLE A, PEOPLEGROUPS B, GROUPS C 
+			WHERE 
+				B.GROUPS_SYSTEM_ID = C.SYSTEM_ID 
+				AND B.PEOPLE_SYSTEM_ID = A.SYSTEM_ID 
+				AND	UPPER(C.GROUP_ID) = UPPER('@param1@') 
+				AND B.CHA_UTENTE_RIF = '1' 
+				AND B.DTA_FINE IS NULL
+				AND A.ID_AMM = @param2@
+		</value>
+	</query>
+	
+	<query>
+		<name>GET_RUOLO_RIF</name>
+		<value>
+			SELECT B.VAR_CODICE AS CODICE FROM DPA_L_RUOLO_REG A, DPA_CORR_GLOBALI B WHERE 
+			B.SYSTEM_ID=A.ID_RUOLO_IN_UO AND A.ID_REGISTRO=@param1@ AND A.CHA_RIFERIMENTO='1'
+			AND B.ID_AMM=@param2@
+		</value>
+	</query>
+	
+	<query>
+		<name>GET_TIPO_ATTO</name>
+		<value>
+			SELECT SYSTEM_ID FROM DPA_TIPO_ATTO WHERE UPPER(VAR_DESC_ATTO)=UPPER('@param1@')
+		</value>
+	</query>
+	
+	<query>
+		<name>GET_TIPO_DOCUMENTO</name>
+		<value>
+			SELECT SYSTEM_ID FROM DOCUMENTTYPES WHERE UPPER(TYPE_ID)=UPPER('@param1@')
+		</value>
+	</query>
+	
+	<query>
+		<name>GET_USER_BY_NAME</name>
+		<value>
+			SELECT system_id FROM PEOPLE WHERE UPPER(user_id)=UPPER('@param1@')
+		</value>
+	</query>
+	
+	<query>
+		<name>GET_USER_BY_NAME_AND_ID_AMM</name>
+		<value>
+			SELECT system_id FROM PEOPLE WHERE UPPER(user_id)=UPPER('@param1@') AND ID_AMM=@param2@
+		</value>
+	</query>
+			
+	<query>
+		<name>GET_ROLE_BY_NAME</name>
+		<value>
+			SELECT system_id FROM Groups WHERE UPPER(Group_Id)=UPPER('@param1@')
+		</value>
+	</query>	
+	
+	<query>
+		<name>GET_USER_ROLE</name>
+		<value>
+			SELECT 
+				GROUP_ID 
+			FROM 
+				GROUPS, PEOPLEGROUPS, PEOPLE 
+			WHERE 
+				GROUPS.SYSTEM_ID = PEOPLEGROUPS.GROUPS_SYSTEM_ID 
+				AND PEOPLE.SYSTEM_ID = PEOPLEGROUPS.PEOPLE_SYSTEM_ID 
+				AND PEOPLEGROUPS.DTA_FINE IS NULL
+				AND UPPER(USER_ID) = UPPER('@param1@')
+		</value>
+	</query>	
+		
+	<query>
+		<name>GET_REG_BY_NAME</name>
+		<value>
+			SELECT system_id FROM DPA_EL_REGISTRI WHERE UPPER(var_codice)=UPPER('@param1@')
+		</value>
+	</query>
+	
+	<query>	
+		<name>GET_ADMIN_BY_NAME</name>
+		<value>
+			SELECT system_id FROM DPA_AMMINISTRA WHERE UPPER(var_codice_amm)=UPPER('@param1@')
+		</value>
+	</query>
+	
+	<query>			
+		<name>SELECT_PEOPLEGROUPS</name>
+		<value>
+			SELECT 
+				PEOPLE_SYSTEM_ID
+			FROM 
+				PEOPLEGROUPS 
+			WHERE 				
+				GROUPS_SYSTEM_ID = @param1@
+				AND DTA_FINE IS NULL
+		</value>
+	</query>
+	
+	<query>			
+		<name>CHECK_SECURITY</name>
+		<value>
+			SELECT COUNT(*) AS TOT FROM SECURITY WHERE THING=@param1@ AND PERSONORGROUP=@param2@
+		</value>
+	</query>
+	
+	<query>			
+		<name>GET_TIPO_FUNZIONE_BY_NAME</name>
+		<value>
+			SELECT SYSTEM_ID FROM DPA_TIPO_FUNZIONE WHERE UPPER(VAR_COD_TIPO)=UPPER('@param1@')
+		</value>
+	</query>
+	
+	<query>			
+		<name>GET_TIPO_RUOLO</name>
+		<value>
+			SELECT SYSTEM_ID FROM DPA_TIPO_RUOLO WHERE UPPER(VAR_CODICE)=UPPER('@param1@') AND ID_AMM=@param2@
+		</value>
+	</query>
+
+	<query>			
+		<name>GET_CORR_BY_NAME</name>
+		<value>
+			SELECT system_id FROM DPA_Corr_Globali WHERE UPPER(VAR_CODICE)=UPPER('@param1@') AND ID_AMM=@param2@ @param3@
+		</value>
+	</query>
+	
+	<query>			
+		<name>GET_DESC_CORR_BY_NAME</name>
+		<value>
+			SELECT var_desc_corr FROM DPA_Corr_Globali WHERE UPPER(VAR_CODICE)=UPPER('@param1@') AND ID_AMM=@param2@ @param3@
+		</value>
+	</query>
+	
+	<query>			
+		<name>GET_DESC_CORR_BY_ID</name>
+		<value>
+			SELECT var_desc_corr FROM DPA_Corr_Globali WHERE system_id = @param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>GET_GROUP_BY_NAME</name>
+		<value>
+			SELECT     
+				a.SYSTEM_ID
+			FROM 
+				GROUPS a,
+				DPA_CORR_GLOBALI b
+			WHERE
+				a.GROUP_ID = b.VAR_CODICE
+				AND
+				a.GROUP_ID = '@param1@'
+				AND
+				b.ID_AMM = @param2@
+				AND
+				b.CHA_TIPO_URP = 'R'
+		</value>
+	</query>
+	
+	<query>			
+		<name>GET_DPA_FUNZIONI_BY_NAME</name>
+		<value>
+			SELECT system_id FROM DPA_Funzioni WHERE UPPER(COD_FUNZIONE)=UPPER('@param1@')
+		</value>
+	</query>
+	
+	<query>			
+		<name>GET_LASTKEY</name>
+		<value>
+			SELECT LASTKEY FROM DOCS_UNIQUE_KEYS WHERE TBNAME='SYSTEMKEY'
+		</value>
+	</query>
+	
+	<query>			
+		<name>GET_NODO_TITOLARIO</name>
+		<value>
+			SELECT system_id FROM Project WHERE cha_tipo_proj IN ('T', 'F', 'C')
+		</value>
+	</query>
+	
+	<query>			
+		<name>GET_DPA_CORR_GRUPPO</name>
+		<value>
+			SELECT DISTINCT id_gruppo FROM DPA_Corr_Globali WHERE cha_tipo_urp='R'
+		</value>
+	</query>
+	
+	<query>			
+		<name>GET_UO_PARENT</name>
+		<value>
+			SELECT Id_Parent FROM DPA_Corr_Globali WHERE System_Id=@param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>GET_SECURITY</name>
+		<value>
+			SELECT DISTINCT PERSONORGROUP FROM SECURITY WHERE THING=@param1@
+		</value>
+	</query>
+
+	<query>			
+		<name>CHECK_UNIQUE_CODE</name>
+		<value>
+			SELECT COUNT(*) AS TOT FROM @param1@ WHERE @param2@='@param3@' @param4@
+		</value>
+	</query>
+	
+	<query>			
+		<name>CHECK_COUNT_CONDITION</name>
+		<value>
+			SELECT COUNT(*) AS TOT FROM @param1@ WHERE @param2@
+		</value>
+	</query>
+	
+	<query>			
+		<name>GET_SEGNATURA_FASCICOLATURA</name>
+		<value>
+			SELECT VAR_FORMATO_SEGNATURA, VAR_FORMATO_FASCICOLATURA FROM DPA_AMMINISTRA WHERE SYSTEM_ID = @param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>CHECK_ADMIN_LOGIN</name>
+		<value>
+			SELECT COUNT(*) AS TOT FROM PEOPLE WHERE UPPER(USER_ID)=UPPER('@param1@') AND USER_PASSWORD='@param2@' AND CHA_AMMINISTRATORE='1' AND DISABLED='N'
+		</value>
+	</query>
+	
+	<query>			
+		<name>GET_ADMIN_LOGIN</name>
+		<value>
+			SELECT VAR_SEMAFORO FROM DPA_LOCK WHERE VAR_SEMAFORO LIKE 'AMMINISTRAZIONE/%'
+		</value>
+	</query>
+	
+	<query>			
+		<name>CHECK_UNIQUE_ADMIN</name>
+		<value>
+			SELECT COUNT(*) AS TOT FROM DPA_LOCK WHERE VAR_SEMAFORO @param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>GET_ID_FASC_GEN</name>
+		<value>
+			SELECT SYSTEM_ID FROM PROJECT WHERE ID_PARENT=@param1@ AND CHA_TIPO_PROJ='F' AND CHA_TIPO_FASCICOLO='G'
+		</value>
+	</query>
+	
+	<query>			
+		<name>GET_FASC_FOLDER</name>
+		<value>
+			SELECT DISTINCT SYSTEM_ID FROM PROJECT WHERE ID_FASCICOLO=@param1@ AND CHA_TIPO_PROJ='C'
+		</value>
+	</query>
+		
+	<!-- INSERT -->		
+
+	<query>			
+		<name>INSERT_NETWORK_ALIASES</name>
+		<value>
+			INSERT INTO NETWORK_ALIASES (@param1@ PERSONORGROUP,NETWORK_TYPE,NETWORK_ID) VALUES (@param2@ @param3@,8,'@param4@')
+		</value>
+	</query>
+	
+	<query>			
+		<name>INSERT_UNIQUE_ADMIN</name>
+		<value>
+			INSERT INTO DPA_LOCK (VAR_SEMAFORO,NUM_STATO) VALUES('@param1@',@param2@)
+		</value>
+	</query>
+		
+	<query>			
+		<name>INSERT_SECURITY</name>
+		<value>
+			INSERT INTO Security (THING, PERSONORGROUP, ACCESSRIGHTS, CHA_TIPO_DIRITTO) VALUES (@param1@, @param2@, 255, 'P')
+		</value>
+	</query>
+	
+	<query>			
+		<name>NEW_AMMINISTRAZIONE</name>
+		<value>
+			INSERT INTO DPA_Amministra 
+			(@param1@ VAR_CODICE_AMM, VAR_DESC_AMM, VAR_LIBRERIA, VAR_FORMATO_SEGNATURA, VAR_FORMATO_FASCICOLATURA,
+			VAR_DOMINIO,VAR_SMTP,NUM_PORTA_SMTP,VAR_RAGIONE_TO,VAR_RAGIONE_CC,VAR_USER_SMTP,VAR_PWD_SMTP) 
+			VALUES 
+			(@param2@'@param3@', '@param4@', '@param5@', '@param6@', '@param7@', '@param8@','@param9@',@param10@,
+			'@param12@','@param13@','@param14@','@param15@')
+		</value>
+	</query>
+	
+	<query>			
+		<name>NEW_REGISTRO</name>
+		<value>
+			INSERT INTO DPA_EL_Registri (@param1@ ID_AMM, VAR_CODICE, VAR_DESC_REGISTRO, VAR_EMAIL_REGISTRO,
+			VAR_USER_MAIL, VAR_PWD_MAIL, NUM_RIF, CHA_STATO, VAR_SERVER_SMTP, NUM_PORTA_SMTP, VAR_SERVER_POP,
+			NUM_PORTA_POP, DTA_OPEN, DTA_CLOSE, DTA_ULTIMO_PROTO,CHA_AUTOMATICO,VAR_USER_SMTP,VAR_PWD_SMTP) 
+			VALUES (@param2@ 
+					@param3@,
+					'@param4@', 
+					'@param5@',
+					'@param6@',
+					'@param7@',
+					'@param8@', 1, 'A',
+					'@param9@',
+					@param10@,
+					'@param11@',
+					@param12@,
+					@param13@,
+					@param14@,
+					@param15@,
+					'@param16@',
+					'@param17@',
+					'@param18@')
+		</value>
+	</query>
+	
+	<query>			
+		<name>NEW_SERVER_POSTA</name>
+		<value>
+			INSERT INTO DPA_SERVER_POSTA (@param1@ VAR_CODICE,VAR_SERVER_POP,NUM_PORTA_POP,VAR_SERVER_SMTP,NUM_PORTA_SMTP,VAR_DOMINIO,VAR_DESCRIZIONE)  
+			VALUES (@param2@
+					'@param3@', 
+					'@param4@',
+					'@param5@', 
+					'@param6@',
+					'@param7@',
+					'@param8@',
+					'@param9@')
+		</value>
+	</query>
+	
+	<query>			
+		<name>NEW_REGISTRO_PROTO</name>
+		<value>
+			INSERT INTO DPA_REG_PROTO (@param1@ NUM_RIF, ID_REGISTRO) VALUES (@param2@ @param3@, @param4@)
+		</value>
+	</query>
+	
+	<query>			
+		<name>NEW_UTENTE_RUOLO</name>
+		<value>
+			INSERT INTO PEOPLEGROUPS (GROUPS_SYSTEM_ID, PEOPLE_SYSTEM_ID @param3@) VALUES (@param1@, @param2@ @param4@)
+		</value>
+	</query>
+	
+	<query>			
+		<name>NEW_RUOLO_REGISTRO</name>
+		<value>
+			INSERT INTO DPA_L_RUOLO_REG (@param1@ ID_REGISTRO, ID_RUOLO_IN_UO) VALUES (@param2@ @param3@, @param4@)
+		</value>
+	</query>
+	
+	<query>			
+		<name>NEW_TIPO_FUNZIONE_RUOLO</name>
+		<value>
+			INSERT INTO DPA_TIPO_F_RUOLO (@param1@ ID_TIPO_FUNZ, ID_RUOLO_IN_UO) VALUES (@param2@ @param3@, @param4@)
+		</value>
+	</query>
+	
+	<query>			
+		<name>NEW_TIPO_RUOLO</name>
+		<value>
+			INSERT INTO DPA_Tipo_Ruolo (@param1@ ID_AMM, ID_PARENT, VAR_CODICE, NUM_LIVELLO, VAR_DESC_RUOLO) VALUES (
+					@param2@ 
+					@param3@, 0, 
+					'@param4@',
+					@param5@,
+					'@param6@')
+		</value>
+	</query>
+	
+	<query>			
+		<name>NEW_DPA_CORR_UO</name>
+		<value>
+            INSERT INTO DPA_Corr_Globali
+            (
+            @param1@
+            ID_AMM,
+            VAR_COD_RUBRICA,
+            VAR_DESC_CORR,
+            ID_PARENT,
+            NUM_LIVELLO,
+            VAR_CODICE,
+            CHA_TIPO_IE,
+            CHA_TIPO_URP,
+            CHA_TIPO_CORR,
+            ID_OLD,
+            CHA_PA,
+            VAR_CODICE_AOO,
+            VAR_CODICE_AMM,
+            VAR_EMAIL,
+            DTA_INIZIO,
+            InteropRegistryId,
+            InteropRfId
+            )
+            VALUES
+            (
+            @param2@
+            @param3@,
+            '@param4@',
+            '@param5@',
+            @param6@,
+            @param7@,
+            '@param8@',
+            'I',
+            'U',
+            'S',
+            0,
+            '@param9@',
+            '@param10@',
+            @param11@,
+            @param12@,
+            @param13@,
+            @param14@,
+            @param15@
+            )
+        </value>
+	</query>
+	
+	<query>			
+		<name>NEW_GROUP</name>
+		<value>
+			INSERT INTO Groups (@param1@ GROUP_ID, GROUP_NAME, DISABLED, ALLOW_LOGIN) VALUES (@param2@ '@param3@', '@param4@', 'N', 'Y')
+		</value>
+	</query>
+	
+	<query>			
+		<name>NEW_DPA_CORR_RUOLO</name>
+		<value>
+			INSERT INTO DPA_Corr_Globali (@param1@ ID_AMM, VAR_COD_RUBRICA, VAR_DESC_CORR, VAR_CODICE, 
+			ID_TIPO_RUOLO, ID_UO, CHA_TIPO_IE, CHA_TIPO_URP, CHA_TIPO_CORR, ID_GRUPPO,CHA_RIFERIMENTO) 
+			VALUES (
+					@param2@ 
+					@param3@,
+					'@param4@',
+					'@param5@',
+					'@param6@',
+					@param7@,
+					@param8@, 'I', 'R', 'S',
+				    @param9@,
+				    '@param10@')
+		</value>
+	</query>
+	
+	<query>			
+		<name>NEW_PEOPLE</name>
+		<value>
+      INSERT INTO People
+      (@param1@
+      USER_ID,
+      FULL_NAME,
+      DISABLED,
+      USER_PASSWORD,
+      ALLOW_LOGIN,
+      TARGET_DOCSRVR,
+      PRIMARY_GROUP,
+      PRIMARY_LIB,
+      ID_AMM,
+      VAR_COGNOME,
+      VAR_NOME,
+      CHA_AMMINISTRATORE,
+      CHA_NOTIFICA,
+      EMAIL_ADDRESS,
+      VAR_SEDE,
+      CHA_NOTIFICA_CON_ALLEGATO,
+      FROM_EMAIL_ADDRESS,
+      LDAP_NEVER_SYNC,
+      LDAP_ID_SYNC,
+      ID_CLIENT_MODEL_PROCESSOR,
+      IS_ENABLED_SMART_CLIENT,
+      SMART_CLIENT_PDF_CONV_ON_SCAN,
+      LDAP_AUTHENTICATED,
+      ID_DISPOSITIVO_STAMPA,
+      ABILITATO_CENTRO_SERVIZI,
+      MATRICOLA,
+      CHA_TIPO_COMPONENTI,
+      ABILITATO_ESIBIZIONE,
+      CHA_AUTOMATICO
+      )
+      VALUES
+      (@param2@
+      '@param3@',
+      '@param4@',
+      '@param11@',
+      '@param5@',
+      'Y',
+      0,
+      0,
+      0,
+      @param6@,
+      '@param7@',
+      '@param8@',
+      '@param9@',
+      '@param12@',
+      '@param10@',
+      '@param13@',
+      '@param14@',
+      '@param15@',
+      '@param16@',
+      '@param17@',
+      @param18@,
+      '@param19@',
+      '@param20@',
+      '@param21@',
+      @param22@,
+      '@param23@',
+      '@param24@',
+      '@param25@',
+      '@param26@',
+      '@param27@'
+      )
+    </value>
+	</query>
+	
+	<query>			
+		<name>NEW_DPA_CORR_UTENTE</name>
+		<value>
+			INSERT INTO DPA_Corr_Globali (@param1@ ID_AMM, VAR_COD_RUBRICA, VAR_DESC_CORR, DTA_INIZIO, VAR_CODICE, VAR_COGNOME, VAR_NOME, ID_PEOPLE, CHA_TIPO_CORR, CHA_TIPO_IE, CHA_TIPO_URP, VAR_EMAIL, VAR_SMTP, NUM_PORTA_SMTP @param2@ ) VALUES ( 
+					@param3@ 
+					@param4@,
+					'@param5@',
+					'@param6@',
+					@param61@,
+					'@param7@',
+					'@param8@',
+					'@param9@',
+					@param10@, 'S', 'I', 'P','@param11@','@param13@',@param14@ @param12@)
+		</value>
+	</query>
+	
+	<query>			
+		<name>NEW_TIPO_FUNZIONE</name>
+		<value>
+			INSERT INTO DPA_Tipo_Funzione (@param1@ VAR_COD_TIPO, VAR_DESC_TIPO_FUN, CHA_VIS) VALUES (@param2@ '@param3@', '@param4@', 1)
+		</value>
+	</query>
+	
+	<query>			
+		<name>NEW_DPA_RAGIONE_TRASM</name>
+		<value>
+			INSERT INTO DPA_Ragione_Trasm (@param1@ VAR_DESC_RAGIONE, CHA_TIPO_RAGIONE, CHA_VIS, CHA_TIPO_DIRITTI, CHA_TIPO_DEST, CHA_RISPOSTA, VAR_NOTE, CHA_EREDITA, CHA_TIPO_RISPOSTA, ID_AMM, VAR_NOTIFICA_TRASM) VALUES (
+					@param2@
+					'@param3@',
+					'@param4@',
+					'@param5@',
+					'@param6@',
+					'@param7@',
+					'@param8@',
+					'@param9@', 
+					'@param10@',
+					'@param11@',
+					@param12@,
+					@param13@)
+		</value>
+	</query>
+	
+	<query>			
+		<name>NEW_DPA_FUNZIONI</name>
+		<value>
+			INSERT INTO DPA_Funzioni (@param1@ COD_FUNZIONE, VAR_DESC_FUNZIONE, CHA_TIPO_FUNZ, ID_TIPO_FUNZIONE) VALUES (
+					@param2@
+					'@param4@',
+					'@param5@',
+					@param6@,
+					@param7@)
+		</value>
+	</query>
+	
+	<!-- UPDATE -->
+
+	<query>			
+		<name>UPDATE_UTENTE_DTA_FINE</name>
+		<value>
+			UPDATE DPA_CORR_GLOBALI SET DTA_FINE=@param1@ WHERE ID_PEOPLE=@param2@
+		</value>
+	</query>
+	
+	<query>			
+		<name>UPDATE_UTENTE_RIF</name>
+		<value>
+			UPDATE PEOPLEGROUPS SET CHA_UTENTE_RIF='@param1@' WHERE @param2@ @param3@
+		</value>
+	</query>
+	
+	<query>			
+		<name>REMOVE_UTENTE_RIF</name>
+		<value>
+			UPDATE PEOPLEGROUPS SET CHA_UTENTE_RIF='' WHERE CHA_UTENTE_RIF='1' AND 
+			PEOPLE_SYSTEM_ID IN (SELECT ID_PEOPLE FROM DPA_CORR_GLOBALI WHERE ID_AMM=@param1@)
+		</value>
+	</query>
+	
+	<query>			
+		<name>UPDATE_RUOLO_RIF</name>
+		<value>
+			UPDATE DPA_L_RUOLO_REG SET CHA_RIFERIMENTO='@param1@' WHERE ID_REGISTRO=@param2@ @param3@
+		</value>
+	</query>
+	
+	<query>			
+		<name>UPDATE_ORDERING</name>
+		<value>
+			UPDATE PROJECT SET VAR_COD_LIV1='@param2@' WHERE SYSTEM_ID='@param1@'
+		</value>
+	</query>
+	
+	<query>			
+		<name>UPDATE_ADMIN_PWD</name>
+		<value>
+			UPDATE PEOPLE SET USER_PASSWORD='@param1@' WHERE UPPER(USER_ID)='@param2@'
+		</value>
+	</query>
+	
+	<query>			
+		<name>UPDATE_AMMINISTRAZIONE</name>
+		<value>
+			UPDATE DPA_Amministra SET VAR_DESC_AMM='@param1@', VAR_LIBRERIA='@param2@', VAR_FORMATO_SEGNATURA='@param3@', 
+			VAR_FORMATO_FASCICOLATURA='@param4@',VAR_DOMINIO='@param5@',
+			VAR_SMTP='@param7@',NUM_PORTA_SMTP=@param8@,
+			VAR_RAGIONE_TO='@param10@',VAR_RAGIONE_CC='@param11@',
+			VAR_USER_SMTP='@param12@',VAR_PWD_SMTP='@param13@'
+			WHERE UPPER(VAR_CODICE_AMM)=UPPER('@param6@')
+		</value>
+	</query>
+	
+	<query>			
+		<name>UPDATE_REGISTRO</name>
+		<value>
+			UPDATE DPA_EL_Registri SET VAR_DESC_REGISTRO='@param1@', 
+			VAR_EMAIL_REGISTRO='@param2@', VAR_USER_MAIL='@param3@', VAR_PWD_MAIL='@param4@', 
+			VAR_SERVER_SMTP='@param5@', NUM_PORTA_SMTP=@param6@, VAR_SERVER_POP='@param7@',
+			NUM_PORTA_POP=@param8@, CHA_AUTOMATICO='@param11@', VAR_USER_SMTP='@param12@', VAR_PWD_SMTP='@param13@' WHERE UPPER(VAR_CODICE)=UPPER('@param9@') AND ID_AMM=@param10@ 
+		</value>
+	</query>
+	
+	<query>			
+		<name>UPDATE_SERVER_POSTA</name>
+		<value>
+			UPDATE DPA_SERVER_POSTA SET VAR_SERVER_POP='@param1@',NUM_PORTA_POP='@param2@',
+			VAR_SERVER_SMTP='@param3@',NUM_PORTA_SMTP='@param4@',VAR_DOMINIO='@param5@',
+			VAR_DESCRIZIONE='@param6@' WHERE UPPER(VAR_CODICE)=UPPER('@param7@')
+		</value>
+	</query>
+	
+	<query>			
+		<name>UPDATE_GROUPS_SPOSTA_RUOLO</name>
+		<value>
+			UPDATE GROUPS 
+				SET GROUP_ID = '@param1@', 
+				GROUP_NAME = '@param2@'
+			WHERE SYSTEM_ID = @param3@
+		</value>
+	</query>
+	
+	<query>			
+		<name>UPDATE_CORR_GLOB_SPOSTA_RUOLO</name>
+		<value>
+			UPDATE DPA_CORR_GLOBALI 
+				SET VAR_CODICE = '@param1@', 
+				VAR_COD_RUBRICA = '@param1@',
+				VAR_DESC_CORR = '@param2@',
+				ID_UO = @param3@,
+				CHA_RIFERIMENTO = ''
+			WHERE SYSTEM_ID = @param4@
+		</value>
+	</query>
+	
+	<query>			
+		<name>UPDATE_TIPO_RUOLO</name>
+		<value>
+			UPDATE DPA_Tipo_Ruolo SET NUM_LIVELLO=@param1@, VAR_DESC_RUOLO='@param2@'
+			WHERE ID_AMM=@param3@ AND UPPER(VAR_CODICE)=UPPER('@param4@')
+		</value>
+	</query>
+	
+	<query>			
+		<name>UPDATE_DPA_CORR_UO</name>
+		<value>
+			UPDATE DPA_Corr_Globali SET VAR_DESC_CORR='@param1@', VAR_COD_RUBRICA='@param2@', CHA_PA='@param5@', VAR_CODICE_AOO='@param6@'
+			WHERE ID_AMM=@param3@ AND UPPER(VAR_CODICE)=UPPER('@param4@')
+		</value>
+	</query>
+	
+	<query>			
+		<name>UPDATE_DPA_CORR_RUOLO</name>
+		<value>
+			UPDATE DPA_Corr_Globali SET VAR_DESC_CORR='@param1@', VAR_COD_RUBRICA='@param2@',
+			CHA_RIFERIMENTO='@param3@'
+			WHERE ID_AMM=@param4@ AND UPPER(VAR_CODICE)=UPPER('@param5@') AND CHA_TIPO_URP='R'
+		</value>
+	</query>
+	
+	<query>			
+		<name>UPDATE_PEOPLE</name>
+		<value>
+			UPDATE 
+				People 
+			SET 
+				FULL_NAME='@param1@', 
+				USER_PASSWORD='@param2@', 
+				VAR_COGNOME='@param3@', 
+				VAR_NOME='@param4@', 
+				CHA_AMMINISTRATORE='@param7@', 
+				EMAIL_ADDRESS='@param8@',
+				CHA_NOTIFICA='@param9@',
+				VAR_SEDE='@param10@',
+				CHA_NOTIFICA_CON_ALLEGATO='@param11@'
+			WHERE UPPER(USER_ID)=UPPER('@param5@') 
+				AND ID_AMM=@param6@
+		</value>
+	</query>
+	
+	<query>			
+		<name>DISABLE_PEOPLE</name>
+		<value>
+			UPDATE People SET DISABLED='Y' WHERE UPPER(USER_ID)=UPPER('@param1@') AND ID_AMM=@param2@
+		</value>
+	</query>
+	
+	<query>			
+		<name>DISABLE_PEOPLE_BY_ID</name>
+		<value>
+			UPDATE People SET DISABLED='Y' WHERE SYSTEM_ID = @param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>ENABLE_PEOPLE</name>
+		<value>
+			UPDATE People SET DISABLED='N' WHERE UPPER(USER_ID)=UPPER('@param1@') AND ID_AMM=@param2@
+		</value>
+	</query>
+	
+	<query>			
+		<name>UPDATE_DPA_CORR_UTENTE</name>
+		<value>
+			UPDATE DPA_Corr_Globali SET VAR_COD_RUBRICA='@param1@', VAR_DESC_CORR='@param2@', 
+			VAR_COGNOME='@param3@', VAR_NOME='@param4@', VAR_EMAIL='@param8@' @param5@
+			WHERE UPPER(VAR_CODICE)=UPPER('@param6@') AND ID_AMM=@param7@ AND CHA_TIPO_URP='P'
+		</value>
+	</query>
+	
+	<query>			
+		<name>UPDATE_DPA_CORR_GLOBALI</name>
+		<value>
+			UPDATE DPA_Corr_Globali SET CHA_DETTAGLI='@param1@'
+			WHERE SYSTEM_ID=@param2@
+		</value>
+	</query>
+	
+	<query>			
+		<name>UPDATE_TIPO_FUNZIONE</name>
+		<value>
+			UPDATE DPA_Tipo_Funzione SET VAR_DESC_TIPO_FUN='@param1@' WHERE UPPER(VAR_COD_TIPO)=UPPER('@param2@')
+		</value>
+	</query>
+	
+	<query>			
+		<name>UPDATE_DPA_RAGIONE_TRASM</name>
+		<value>
+			UPDATE DPA_Ragione_Trasm SET CHA_TIPO_RAGIONE='@param1@',
+			                             CHA_VIS='@param2@', 
+			                             CHA_TIPO_DIRITTI='@param3@', 
+			                             CHA_TIPO_DEST='@param4@', 
+			                             CHA_RISPOSTA='@param5@', 
+			                             VAR_NOTE='@param6@', 
+			                             CHA_EREDITA='@param7@', 
+			                             CHA_TIPO_RISPOSTA='@param8@',
+			                             VAR_NOTIFICA_TRASM=@param11@
+			                             WHERE VAR_DESC_RAGIONE='@param9@' AND ID_AMM=@param10@
+		</value>
+	</query>
+	
+	<query>			
+		<name>UPDATE_LASTKEY</name>
+		<value>
+			UPDATE DOCS_UNIQUE_KEYS SET LASTKEY=(LASTKEY+1) WHERE TBNAME='SYSTEMKEY'
+		</value>
+	</query>
+	
+	<query>			
+		<name>REMOVE_CHA_PREFERITO_UTENTE</name>
+		<value>
+			UPDATE PEOPLEGROUPS SET CHA_PREFERITO = NULL WHERE PEOPLE_SYSTEM_ID=@param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>SET_CHA_PREFERITO_UTENTE</name>
+		<value>
+			UPDATE PEOPLEGROUPS SET CHA_PREFERITO = '1' WHERE PEOPLE_SYSTEM_ID=@param1@ AND GROUPS_SYSTEM_ID=@param2@
+		</value>
+	</query>
+	
+	<!-- DELETE -->
+	
+	<query>			
+		<name>DELETE_NETWORK_ALIASES</name>
+		<value>
+			DELETE FROM NETWORK_ALIASES WHERE PERSONORGROUP=@param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>DELETE_UNIQUE_ADMIN</name>
+		<value>
+			DELETE FROM DPA_LOCK WHERE VAR_SEMAFORO LIKE 'AMMINISTRAZIONE%'
+		</value>
+	</query>
+	
+	<query>			
+		<name>DELETE_TIPO_RUOLO</name>
+		<value>
+			DELETE FROM DPA_Tipo_Ruolo WHERE ID_AMM=@param1@ AND UPPER(VAR_CODICE)=UPPER('@param2@')
+		</value>
+	</query>
+	
+	<query>			
+		<name>DELETE_TIPO_FUNZIONE</name>
+		<value>
+			DELETE FROM DPA_Tipo_Funzione WHERE UPPER(VAR_COD_TIPO)=UPPER('@param1@')
+		</value>
+	</query>
+	
+	<query>			
+		<name>DELETE_SERVER_POSTA</name>
+		<value>
+			DELETE FROM DPA_SERVER_POSTA WHERE UPPER(VAR_CODICE)=UPPER('@param1@')
+		</value>
+	</query>
+	
+	<query>			
+		<name>DELETE_RUOLO_REGISTRO</name>
+		<value>
+			DELETE FROM DPA_L_RUOLO_REG WHERE ID_RUOLO_IN_UO=@param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>DELETE_TIPO_FUNZIONE_RUOLO</name>
+		<value>
+			DELETE FROM DPA_TIPO_F_RUOLO WHERE ID_RUOLO_IN_UO=@param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>DELETE_DPA_RAGIONE_TRASM</name>
+		<value>
+			DELETE FROM DPA_Ragione_Trasm WHERE VAR_DESC_RAGIONE='@param1@' AND ID_AMM=@param2@
+		</value>
+	</query>
+	
+	<query>			
+		<name>DELETE_DPA_FUNZIONI</name>
+		<value>
+			DELETE FROM DPA_Funzioni WHERE ID_TIPO_FUNZIONE=@param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>DELETE_SECURITY</name>
+		<value>
+			DELETE FROM Security WHERE thing=@param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>DELETE_NODI_TITOLARIO</name>
+		<value>
+			DELETE FROM Project WHERE cha_tipo_proj IN ('T', 'F', 'C')
+		</value>
+	</query>
+	
+	<query>			
+		<name>DELETE_PEOPLE</name>
+		<value>
+			DELETE FROM People WHERE NOT (var_nome IS NULL) OR NOT (var_cognome IS NULL)
+		</value>
+	</query>
+	
+	<query>			
+		<name>DELETE_SINGLE_PEOPLE</name>
+		<value>
+			DELETE FROM People WHERE @param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>DELETE_DPA_CORR</name>
+		<value>
+			DELETE FROM dpa_corr_globali WHERE cha_tipo_urp='@param1@'
+		</value>
+	</query>
+	
+	<query>			
+		<name>DELETE_DPA_CORR_SINGOLO</name>
+		<value>
+			DELETE FROM dpa_corr_globali WHERE UPPER(VAR_CODICE)=UPPER('@param1@') AND ID_AMM=@param2@
+		</value>
+	</query>
+	
+	<query>			
+		<name>DELETE_PEOPLEGROUPS</name>
+		<value>
+			DELETE FROM PeopleGroups WHERE groups_system_id=@param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>DELETE_PEOPLEGROUPS_FROM_IDPEOPLE_IDRUOLO</name>
+		<value>
+			DELETE FROM PeopleGroups WHERE people_system_id = @param1@ AND groups_system_id = @param2@
+		</value>
+	</query>
+	
+	<query>			
+		<name>DELETE_PEOPLEGROUPS_FROM_IDPEOPLE</name>
+		<value>
+			DELETE FROM PeopleGroups WHERE people_system_id = @param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>DELETE_GROUPS</name>
+		<value>
+			DELETE FROM Groups WHERE system_id=@param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>DELETE_GROUPS_BY_NAME</name>
+		<value>
+			DELETE FROM Groups WHERE UPPER(group_id)=UPPER('@param1@')
+		</value>
+	</query>
+	
+	<query>			
+		<name>DELETE_TABLE</name>
+		<value>
+			DELETE FROM @param1@
+		</value>
+	</query>
+	
+	
+	<!-- 
+	elenco delle query utilizzate per l'esportazione dei dati: versione: 3.0
+	-->	
+	
+	<query>	
+		<name>EXP_GET_ADMIN_BY_ID</name>
+		<value>
+			SELECT * FROM DPA_AMMINISTRA WHERE SYSTEM_ID=@param1@
+		</value>
+	</query>
+	
+	<query>	
+		<name>EXP_GET_AMMINISTRAZIONI</name>
+		<value>
+			SELECT * FROM DPA_AMMINISTRA
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_FUNZIONI_BY_TIPO</name>
+		<value>
+			SELECT * FROM DPA_FUNZIONI WHERE ID_TIPO_FUNZIONE=@param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_UTENTI_RUOLO_UO</name>
+		<value>
+			SELECT 
+				USER_ID, CHA_PREFERITO 
+			FROM 
+				GROUPS G, PEOPLEGROUPS PG, PEOPLE P 
+			WHERE 
+				PG.GROUPS_SYSTEM_ID = G.SYSTEM_ID 
+				AND PG.PEOPLE_SYSTEM_ID = P.SYSTEM_ID 
+				AND UPPER(G.GROUP_ID) = UPPER('@param1@')
+				--AND PG.DTA_FINE IS NULL
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_FUNZIONI_RUOLO_UO</name>
+		<value>
+			SELECT TR.VAR_COD_TIPO AS CODICE FROM DPA_TIPO_F_RUOLO TF,DPA_TIPO_FUNZIONE TR WHERE TR.SYSTEM_ID=TF.ID_TIPO_FUNZ AND TF.ID_RUOLO_IN_UO=@param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_NODI_TITOLARIO_AMM</name>
+		<value>
+			SELECT SYSTEM_ID,CHA_TIPO_PROJ,ID_PARENT,ID_FASCICOLO,DESCRIPTION,ID_REGISTRO,VAR_CODICE FROM PROJECT WHERE ID_AMM=@param1@ AND ID_PARENT=@param2@ @param3@ ORDER BY VAR_COD_LIV1
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_NODI_TITOLARIO</name>
+		<value>
+			<!--
+			SELECT system_id, var_codice, description, id_parent, num_livello
+				FROM PROJECT
+			WHERE cha_tipo_proj = 'T' AND id_amm = @param1@
+			START WITH id_parent = 0
+			CONNECT BY PRIOR system_id = id_parent
+			-->
+			SELECT system_id, var_codice, description, id_parent, num_livello
+				FROM PROJECT 
+			WHERE cha_tipo_proj = 'T' AND id_amm = @param1@
+			ORDER BY var_cod_liv1
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_RAGIONE_TRASM</name>
+		<value>
+			SELECT * FROM DPA_RAGIONE_TRASM WHERE ID_AMM=@param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_RAGIONE_TRASM_NULL</name>
+		<value>
+			SELECT * FROM DPA_RAGIONE_TRASM WHERE ID_AMM IS NULL
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_REGISTRI_BY_AMM</name>
+		<value>
+			SELECT * FROM DPA_EL_REGISTRI WHERE ID_AMM=@param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_REGISTRO_BY_ID</name>
+		<value>
+			SELECT VAR_CODICE FROM DPA_EL_REGISTRI WHERE SYSTEM_ID=@param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_REGISTRI_RUOLO_UO</name>
+		<value>
+			SELECT R.VAR_CODICE AS CODICE FROM DPA_L_RUOLO_REG RR,DPA_EL_REGISTRI R WHERE R.SYSTEM_ID=RR.ID_REGISTRO AND RR.ID_RUOLO_IN_UO=@param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_RUOLI_BY_AMM</name>
+		<value>
+			SELECT * FROM DPA_TIPO_RUOLO WHERE ID_AMM=@param1@ ORDER BY NUM_LIVELLO ASC
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_RUOLI_UO_BY_AMM</name>
+		<value>
+			SELECT A.SYSTEM_ID AS ID,A.VAR_CODICE AS CODICE,B.VAR_CODICE AS CODICESTRUTTURA, A.VAR_DESC_CORR AS DESCRIZIONE,A.VAR_COD_RUBRICA AS RUBRICA,A.CHA_RIFERIMENTO AS RIFERIMENTO FROM DPA_CORR_GLOBALI A,DPA_TIPO_RUOLO B WHERE B.SYSTEM_ID=A.ID_TIPO_RUOLO AND CHA_TIPO_URP='R' AND A.ID_AMM=@param1@ AND ID_UO=@param2@
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_TIPO_FUNZIONE</name>
+		<value>
+			SELECT * FROM DPA_TIPO_FUNZIONE
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_FUNZIONI_ELEMENTARI</name>
+		<value>
+			SELECT * FROM DPA_ANAGRAFICA_FUNZIONI WHERE (CHA_TIPO_FUNZ NOT IN ('E') OR CHA_TIPO_FUNZ IS NULL) AND DISABLED = 'N'
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_UO_BY_AMM</name>
+		<value>
+			SELECT * FROM DPA_CORR_GLOBALI WHERE CHA_TIPO_URP='U' AND ID_AMM=@param1@ AND ID_PARENT=@param2@ AND CHA_TIPO_IE='I'
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_UTENTI_BY_AMM</name>
+		<value>
+			<!--SELECT * FROM PEOPLE,DPA_CORR_GLOBALI WHERE DPA_CORR_GLOBALI.ID_PEOPLE=PEOPLE.SYSTEM_ID AND PEOPLE.ID_AMM=@param1@-->
+			SELECT
+				a.USER_ID,a.USER_PASSWORD,a.VAR_NOME,a.VAR_COGNOME,b.VAR_COD_RUBRICA,b.VAR_EMAIL,a.CHA_AMMINISTRATORE,a.SYSTEM_ID,a.DISABLED,a.CHA_NOTIFICA,a.VAR_SEDE,a.CHA_NOTIFICA_CON_ALLEGATO
+			FROM PEOPLE a,DPA_CORR_GLOBALI b
+				WHERE b.ID_PEOPLE = a.SYSTEM_ID 
+				AND a.ID_AMM = @param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_CORRISPONDENTI</name>
+		<value>
+			SELECT DPA_CORR_GLOBALI.SYSTEM_ID AS ID,* FROM DPA_CORR_GLOBALI LEFT OUTER JOIN DPA_DETT_GLOBALI ON DPA_DETT_GLOBALI.ID_CORR_GLOBALI=DPA_CORR_GLOBALI.SYSTEM_ID WHERE ID_AMM=@param1@ AND (CHA_TIPO_URP='P' OR CHA_TIPO_CORR='O')
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_DOCUMENTI</name>
+		<value>
+			SELECT * FROM PROFILE WHERE DOCNUMBER>@param1@ ORDER BY DOCNUMBER
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_OGGETTO</name>
+		<value>
+			SELECT * FROM DPA_OGGETTARIO WHERE SYSTEM_ID=@param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_CORRISPONDENTI_DOCUMENTO</name>
+		<value>
+			SELECT * FROM DPA_DOC_ARRIVO_PAR WHERE ID_PROFILE=@param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_CODICE_CORRISPONDENTE</name>
+		<value>
+			SELECT VAR_COD_RUBRICA FROM DPA_CORR_GLOBALI WHERE SYSTEM_ID=@param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_CODICE_PEOPLE</name>
+		<value>
+			SELECT USER_ID FROM PEOPLE WHERE SYSTEM_ID=@param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_CODICE_RUOLO_UO</name>
+		<value>
+			SELECT VAR_CODICE FROM DPA_CORR_GLOBALI WHERE SYSTEM_ID=@param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_PAROLE_DOCUMENTO</name>
+		<value>
+			SELECT VAR_DESC_PAROLA FROM DPA_PAROLE,DPA_PROF_PAROLE WHERE DPA_PROF_PAROLE.ID_PROFILE=@param1@ AND DPA_PAROLE.SYSTEM_ID=DPA_PROF_PAROLE.ID_PAROLA
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_VERSIONI_DOCUMENTO</name>
+		<value>
+			SELECT * FROM VERSIONS,COMPONENTS WHERE COMPONENTS.VERSION_ID=VERSIONS.VERSION_ID AND VERSIONS.DOCNUMBER=@param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_TRASMISSIONI_DOCUMENTO</name>
+		<value>
+			SELECT * FROM DPA_TRASMISSIONE WHERE ID_PROFILE=@param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_TRASMISSIONI_SINGOLE</name>
+		<value>
+			SELECT * FROM DPA_TRASM_SINGOLA WHERE ID_TRASMISSIONE=@param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_TRASMISSIONI_UTENTE</name>
+		<value>
+			SELECT * FROM DPA_TRASM_UTENTE WHERE ID_TRASM_SINGOLA=@param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_DESC_RAGIONE_TRASM</name>
+		<value>
+			SELECT VAR_DESC_RAGIONE FROM DPA_RAGIONE_TRASM WHERE SYSTEM_ID=@param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_VISIBILITA_DOC_UTENTE</name>
+		<value>
+			SELECT * FROM SECURITY,PEOPLE WHERE PEOPLE.SYSTEM_ID=SECURITY.PERSONORGROUP AND THING=@param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_VISIBILITA_DOC_RUOLO</name>
+		<value>
+			SELECT DISTINCT GROUP_ID FROM SECURITY,GROUPS WHERE GROUPS.SYSTEM_ID=SECURITY.PERSONORGROUP AND THING=@param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_VISIBILITA_DOC_RUOLO_REG</name>
+		<value>
+			SELECT s.THING, g.GROUP_ID, r.var_codice, a.var_codice_amm
+			FROM PROJECT p, SECURITY s, GROUPS g, DPA_EL_REGISTRI r, DPA_AMMINISTRA a
+			WHERE p.cha_tipo_proj = 'T' 
+			AND p.id_amm = a.system_id
+			AND p.id_registro = r.system_id
+			AND p.system_id = s.THING
+			AND g.SYSTEM_ID = s.PERSONORGROUP
+		</value>
+	</query>
+	
+	<query>			
+		<name>EXP_GET_SERVER_POSTA</name>
+		<value>
+			SELECT * FROM DPA_SERVER_POSTA
+		</value>
+	</query>
+	
+	<!-- 
+	elenco delle query utilizzate per l'importazione dei dati: versione: 3.0
+	-->	
+	
+	<query>	
+		<name>IMP_NEW_CORRISPONDENTE</name>
+		<value>
+			INSERT INTO DPA_CORR_GLOBALI (
+				@param1@ 
+				ID_REGISTRO,
+				VAR_COD_RUBRICA,
+				VAR_DESC_CORR,
+				DTA_INIZIO,
+				DTA_FINE,
+				VAR_CODICE,
+				VAR_COGNOME,
+				VAR_NOME,
+				CHA_TIPO_CORR,
+				CHA_TIPO_IE,				
+				VAR_CODICE_AOO,
+				CHA_PA,
+				VAR_EMAIL,
+				VAR_SMTP,
+				NUM_PORTA_SMTP,
+				ID_AMM,
+				CHA_TIPO_URP,
+				NUM_LIVELLO,
+				ID_PARENT
+			) VALUES (
+				@param2@ 
+				@param3@,
+				'@param4@',
+				'@param5@',
+				@param6@,
+				@param7@,
+				'@param8@',
+				'@param9@',
+				'@param10@',
+				'@param11@',
+				'@param12@',
+				'@param13@',
+				'@param14@',
+				'@param15@',
+				'@param16@',
+				@param17@,
+				@param18@,
+				'@param19@',
+				@param20@,
+				@param21@
+				)
+		</value>
+	</query>
+	
+	<query>	
+		<name>IMP_NEW_CORR_DETTAGLI</name>
+		<value>
+			INSERT INTO DPA_DETT_GLOBALI (@param1@ ID_CORR_GLOBALI,VAR_INDIRIZZO,VAR_CITTA,VAR_CAP,VAR_PROVINCIA,
+			VAR_NAZIONE,VAR_COD_FISCALE,VAR_TELEFONO,VAR_TELEFONO2,VAR_FAX,VAR_NOTE) VALUES (@param2@
+			@param3@,'@param4@','@param5@','@param6@','@param7@','@param8@','@param9@','@param10@','@param11@',
+			'@param12@','@param13@')
+		</value>
+	</query>
+	
+	<query>	
+		<name>IMP_GET_CORR_BY_CODE</name>
+		<value>
+			SELECT SYSTEM_ID FROM DPA_CORR_GLOBALI WHERE @param1@ = @param2@
+		</value>
+	</query>
+	
+	<query>	
+		<name>IMP_NEW_TIPODOCUMENTO</name>
+		<value>
+			INSERT INTO DOCUMENTTYPES (@param1@ TYPE_ID,DESCRIPTION,CHA_TIPO_CANALE) VALUES (@param2@ '@param3@','@param4@','@param5@')
+		</value>
+	</query>
+	
+	<query>	
+		<name>IMP_NEW_TIPOATTO</name>
+		<value>
+			INSERT INTO DPA_TIPO_ATTO (@param1@ VAR_DESC_ATTO) VALUES (@param2@ '@param3@')
+		</value>
+	</query>
+	
+	<query>	
+		<name>IMP_NEW_DOCUMENTO</name>
+		<value>
+			INSERT INTO PROFILE (@param1@
+			DOCNUMBER,
+			CHA_TIPO_PROTO,
+			CHA_IMG,
+			CHA_INVIO_CONFERMA,
+			CHA_CONGELATO,
+			CHA_CONSOLIDATO,
+			CHA_PRIVATO,
+			CHA_ASSEGNATO,
+			CHA_FASCICOLATO,
+			DOCUMENTTYPE,
+			ID_TIPO_ATTO,
+			CREATION_DATE,
+			ID_OGGETTO,
+			VAR_NOTE ,
+			CHA_DA_PROTO @param17@
+			) VALUES (
+			@param2@
+			'@param3@',
+			'@param4@',
+			'@param5@',
+			'@param6@',
+			'@param7@',
+			'@param8@',
+			'@param9@',
+			'@param10@',
+			'@param11@',
+			@param12@,
+			@param13@,
+			@param14@,
+			@param15@,
+			'@param16@',
+			'@param19@' @param18@
+			)
+		</value>
+	</query>
+	
+	<query>			
+		<name>IMP_GET_ID_PEOPLE</name>
+		<value>
+			SELECT SYSTEM_ID FROM PEOPLE WHERE UPPER(USER_ID)=UPPER('@param1@')
+		</value>
+	</query>
+	
+	<query>			
+		<name>IMP_GET_ID_CORR_BY_COD_RUBRICA</name>
+		<value>
+			SELECT SYSTEM_ID FROM DPA_CORR_GLOBALI WHERE UPPER(VAR_COD_RUBRICA)=UPPER('@param1@')
+		</value>
+	</query>
+	
+	<query>			
+		<name>IMP_GET_ID_PEOPLE_BY_COD_RUBRICA</name>
+		<value>
+			SELECT ID_PEOPLE FROM DPA_CORR_GLOBALI WHERE VAR_COD_RUBRICA='@param1@'
+		</value>
+	</query>
+	
+	<query>			
+		<name>IMP_GET_ID_GROUP_BY_COD_RUBRICA</name>
+		<value>
+			SELECT ID_GRUPPO FROM DPA_CORR_GLOBALI WHERE VAR_COD_RUBRICA='@param1@'
+		</value>
+	</query>
+	
+	<query>			
+		<name>IMP_GET_PEOPLE_IN_GROUP</name>
+		<value>
+			SELECT 
+				PEOPLE_SYSTEM_ID 
+			FROM 
+				PEOPLEGROUPS 
+			WHERE 
+				GROUPS_SYSTEM_ID=@param1@
+				AND DTA_FINE IS NULL
+		</value>
+	</query>
+	
+	<query>	
+		<name>IMP_NEW_OGGETTO</name>
+		<value>
+			INSERT INTO DPA_OGGETTARIO (@param1@ ID_REGISTRO,ID_AMM,VAR_DESC_OGGETTO,CHA_OCCASIONALE) VALUES 
+			(@param2@ @param3@,@param4@,'@param5@','@param6@')
+		</value>
+	</query>
+	
+	<query>	
+		<name>IMP_GET_OGGETTO</name>
+		<value>
+			SELECT SYSTEM_ID FROM DPA_OGGETTARIO WHERE VAR_DESC_OGGETTO='@param1@' ORDER BY SYSTEM_ID DESC
+		</value>
+	</query>
+	
+	<query>	
+		<name>IMP_GET_ID_DOCUMENTO</name>
+		<value>
+			SELECT SYSTEM_ID FROM PROFILE WHERE DOCNUMBER='@param1@'
+		</value>
+	</query>
+	
+	<query>	
+		<name>IMP_NEW_CORRISPONDENTE_DOC</name>
+		<value>
+			INSERT INTO DPA_DOC_ARRIVO_PAR (@param1@ ID_MITT_DEST,ID_PROFILE,CHA_TIPO_MITT_DEST) VALUES
+			(@param2@ @param3@,@param4@,'@param5@')
+		</value>
+	</query>
+	
+	<query>	
+		<name>IMP_NEW_VERSIONE</name>
+		<value>
+			INSERT INTO VERSIONS (@param1@
+			DOCNUMBER,
+			VERSION,
+			SUBVERSION,
+			VERSION_LABEL,
+			AUTHOR,
+			TYPIST,
+			DTA_CREAZIONE,
+			DTA_ARRIVO,
+			CHA_DA_INVIARE,
+			COMMENTS
+			) VALUES (
+			@param2@
+			@param3@,
+			'@param4@',
+			'@param5@',
+			'@param6@',
+			@param7@,
+			@param8@,
+			@param9@,
+			@param10@,
+			'@param11@',
+			'@param12@'
+			)
+		</value>
+	</query>
+	
+	<query>	
+		<name>IMP_GET_VERSIONE</name>
+		<value>
+			SELECT VERSION_ID FROM VERSIONS WHERE DOCNUMBER=@param1@ AND VERSION='@param2@' AND SUBVERSION @param3@ ORDER BY VERSION_ID DESC
+		</value>
+	</query>
+	
+	<query>	
+		<name>IMP_NEW_COMPONENT</name>
+		<value>
+			INSERT INTO COMPONENTS (
+			PATH,
+			VERSION_ID,
+			DOCNUMBER,
+			FILE_SIZE,
+			VAR_IMPRONTA
+			) VALUES (
+			'@param1@',
+			@param2@,
+			@param3@,
+			@param4@,
+			'@param5@'
+			)
+		</value>
+	</query>
+	
+	<query>	
+		<name>IMP_NEW_FASCICOLO_DOC</name>
+		<value>
+			INSERT INTO PROJECT_COMPONENTS (
+			TYPE,
+			PROJECT_ID,
+			LINK
+			) VALUES (
+			'@param1@',
+			@param2@,
+			@param3@
+			)
+		</value>
+	</query>	
+	
+	<query>	
+		<name>GET_RUOLI_LIVELLO_SUPERIORE</name>
+		<value>
+			SELECT id_parent FROM dpa_corr_globali
+			WHERE system_id = @param1@
+			AND cha_tipo_urp = 'R'
+		</value>
+	</query>
+	
+	<query>	
+		<name>IMP_NEW_SICUREZZA</name>
+		<value>
+			INSERT INTO SECURITY (
+			THING,
+			PERSONORGROUP,
+			CHA_TIPO_DIRITTO,
+			ACCESSRIGHTS
+			) VALUES (
+			'@param1@',
+			@param2@,
+			'@param3@',
+			255
+			)
+		</value>
+	</query>
+	
+	<query>	
+		<name>IMP_NEW_TRASMISSIONE</name>
+		<value>
+			INSERT INTO DPA_TRASMISSIONE (
+			@param1@
+			ID_RUOLO_IN_UO,
+			ID_PEOPLE,
+			CHA_TIPO_OGGETTO,
+			ID_PROFILE,
+			DTA_INVIO,
+			VAR_NOTE_GENERALI
+			) VALUES (
+			@param2@
+			@param3@,
+			@param4@,
+			'@param5@',
+			@param6@,
+			'@param7@',
+			'@param8@'
+			)
+		</value>
+	</query>
+	
+	<!--
+	<RAGIONE></RAGIONE>
+	<TIPO_DEST></TIPO_DEST>
+	<CORRISPONDENTE></CORRISPONDENTE>
+	<NOTE_SING></NOTE_SING>
+	<TIPO></TIPO>
+	<DATA_SCADENZA></DATA_SCADENZA>
+	-->
+	
+	<query>	
+		<name>IMP_NEW_TRASMISSIONESINGOLA</name>
+		<value>
+			INSERT INTO DPA_TRASM_SINGOLA (
+			@param1@
+			ID_RAGIONE,
+			CHA_TIPO_DEST,
+			ID_CORR_GLOBALE,
+			VAR_NOTE_SING,
+			CHA_TIPO_TRASM,
+			DTA_SCADENZA,
+			ID_TRASMISSIONE,
+			) VALUES (
+			@param2@
+			@param3@,
+			'@param4@',
+			@param5@,
+			'@param6@',
+			'S',
+			'@param7@',
+			@param8@
+			)
+		</value>
+	</query>
+	
+	<query>	
+		<name>IMP_NEW_TRASMISSIONEUTENTE</name>
+		<value>
+			INSERT INTO DPA_TRASM_UTENTE (
+			@param1@
+			ID_TRASM_SINGOLA,
+			ID_PEOPLE,
+			DTA_VISTA,
+			DTA_ACCETTATA,
+			DTA_RIFIUTATA,
+			DTA_RISPOSTA,
+			CHA_VISTA,
+			CHA_ACCETTATA,
+			CHA_RIFIUTATA,
+			VAR_NOTE_ACC,
+			VAR_NOTE_RIF,
+			CHA_VALIDA
+			) VALUES (
+			@param2@
+			@param3@,
+			@param4@,
+			'@param5@',
+			'@param6@',
+			'@param7@',
+			'@param8@',
+			'@param9@',
+			'@param10@',
+			'@param11@',
+			'@param12@',
+			'@param13@',
+			'@param14@'
+			)
+		</value>
+	</query>
+	
+	<query>	
+		<name>IMP_GET_LAST_TRASMISSIONESINGOLA</name>
+		<value>
+			SELECT SYSTEM_ID FROM DPA_TRASM_SINGOLA ORDER BY SYSTEM_ID DESC
+		</value>
+	</query>
+	
+	<query>	
+		<name>IMP_GET_LAST_TRASMISSIONE</name>
+		<value>
+			SELECT SYSTEM_ID FROM DPA_TRASMISSIONE ORDER BY SYSTEM_ID DESC
+		</value>
+	</query>
+	
+	<query>	
+		<name>IMP_GET_RAGIONE_TRASMISSIONE</name>
+		<value>
+			SELECT SYSTEM_ID FROM DPA_RAGIONE_TRASM WHERE VAR_DESC_RAGIONE='@param1@'
+		</value>
+	</query>
+	
+	<query>	
+		<name>GET_UTENTI_RUOLI</name>
+		<value>
+			SELECT 
+				GROUPS_SYSTEM_ID AS GROUP_ID, PEOPLE_SYSTEM_ID AS USER_ID 
+			FROM 
+				PEOPLEGROUPS, PEOPLE 
+			WHERE 
+				PEOPLE.SYSTEM_ID = PEOPLEGROUPS.PEOPLE_SYSTEM_ID 
+				AND PEOPLEGROUPS.DTA_FINE IS NULL
+				AND PEOPLE.ID_AMM = @param1@				
+		</value>
+	</query>
+	<query>	
+		<name>GET_UTENTE</name>
+		<value>
+			SELECT USER_ID AS NAME, USER_PASSWORD AS PASSWORD FROM PEOPLE WHERE SYSTEM_ID=@param1@
+		</value>
+	</query>
+	<query>	
+		<name>GET_RUOLO</name>
+		<value>
+			SELECT GROUP_ID FROM GROUPS WHERE SYSTEM_ID=@param1@
+		</value>
+	</query>
+	
+	<query>			
+		<name>IMP_GET_PROJECT_BY_CODE</name>
+		<value>
+			SELECT SYSTEM_ID FROM PROJECT WHERE VAR_CODICE='@param1@' AND ID_AMM=@param2@ @param3@
+		</value>
+	</query>
+	
+	<query>			
+		<name>IMP_GET_ROOT_FOLDER</name>
+		<value>
+			SELECT SYSTEM_ID FROM PROJECT WHERE ID_FASCICOLO=@param1@ AND ID_PARENT=@param1@ AND CHA_TIPO_PROJ='C'
+		</value>
+	</query>
+	
+	<query>			
+		<name>COPY_VISIBILITA</name>
+		<value>
+			INSERT INTO SECURITY(thing,personorgroup,accessrights,id_gruppo_trasm,cha_tipo_DIRITTO)
+			SELECT @param1@,personorgroup,accessrights,id_gruppo_trasm,cha_tipo_DIRITTO FROM SECURITY WHERE thing=@param2@
+		</value>
+	</query>
+
+
+
+
+	<!-- **** Importazione STORICO OGGETTARIO *** -->
+	
+		<!--1. seleziona l'id documento -->
+		<query>			
+			<name>GET_ID_DOCUMENTO</name>
+			<value>
+				select system_id 
+				from profile 
+				where docnumber=@param1@
+			</value>
+		</query>
+
+		<!-- 2. seleziona l'ID_UTENTE -->
+		<query>			
+			<name>GET_ID_UTENTE</name>
+			<value>
+			select system_id 
+			from people 
+			where UPPER(user_id)='@param1@'
+			</value>
+		</query>
+
+
+		<!-- 3. seleziona l'ID_RUOLO_IN_UO -->
+		<query>			
+			<name>GET_ID_RUOLO_IN_UO</name>
+			<value>
+			select system_id 
+			from dpa_corr_globali 
+			where UPPER(var_cod_rubrica)='@param1@'
+			</value>
+		</query>
+		
+		<!-- 4. seleziona l'ID_OGGETTO -->
+		<query>			
+			<name>GET_ID_OGGETTO</name>
+			<value>
+			select system_id 
+			from dpa_oggettario 
+			where UPPER(var_desc_oggetto)='@param1@'
+			</value>
+		</query>
+
+		<query>			
+			<name>SET_OGGETTO_STORICO</name>
+			<value>
+			INSERT INTO dpa_oggetti_sto(@param1@ dta_modifica, id_profile, id_oggetto, id_people, id_ruolo_in_uo)
+			VALUES(@param2@ @param3@, @param4@, @param5@, @param6@, @param7@)
+			</value>
+		</query>
+
+		<query>			
+			<name>INSERT_IN_DPA_OGGETTARIO</name>
+			<value>
+			INSERT INTO dpa_oggettario(@param1@ id_registro,id_amm,var_desc_oggetto,cha_occasionale)
+			VALUES(@param2@ @param3@, @param4@,@param5@)
+			</value>
+		</query>
+
+</listeQuery>
+

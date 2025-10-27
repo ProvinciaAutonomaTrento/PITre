@@ -1,0 +1,864 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CambioMittente" xml:space="preserve">
+    <value>dati relativi al cambiamento di mittente del documento</value>
+  </data>
+  <data name="CambioMittente_Mittente" xml:space="preserve">
+    <value>codice del nuovo mittente da assegnare al documento</value>
+  </data>
+  <data name="codiceGruppo" xml:space="preserve">
+    <value>codice del gruppo in cui è presente l'utente che sta invocando il servizio</value>
+  </data>
+  <data name="idDocumento" xml:space="preserve">
+    <value>id del documento da modificare</value>
+  </data>
+  <data name="idDocumentoNota" xml:space="preserve">
+    <value>id del documento a cui la nota fa riferimento</value>
+  </data>
+  <data name="idDocumentoTrasmissione" xml:space="preserve">
+    <value>id del documento a cui la trasmissione fa riferimento</value>
+  </data>
+  <data name="idIstanza" xml:space="preserve">
+    <value>identificativo dell'istanza per cui viene fatta la richiesta</value>
+  </data>
+  <data name="idTenant" xml:space="preserve">
+    <value>identificativo del tenant per cui viene fatta la richiesta (indicare il codice dell'amministrazione)</value>
+  </data>
+  <data name="idTrasmissione" xml:space="preserve">
+    <value>id della trasmissione da modificare</value>
+  </data>
+  <data name="userId" xml:space="preserve">
+    <value>userId che sta invocando il servizio</value>
+  </data>
+  <data name="annoProtocollazioneRicerca" xml:space="preserve">
+    <value>anno di protocollazione di riferimento della ricerca</value>
+  </data>
+  <data name="registroRicerca" xml:space="preserve">
+    <value>codice registro di riferimento</value>
+  </data>
+  <data name="piuDati" xml:space="preserve">
+    <value>se true sono presenti altre pagine dati dopo la presente, se false questa è l'ultima pagina dati</value>
+  </data>
+  <data name="listaDocumentiRicerca" xml:space="preserve">
+    <value>lista documenti riportati dalla ricerca</value>
+  </data>
+  <data name="listaServiziApi" xml:space="preserve">
+    <value>lista delle chiamate api presenti nel servizio</value>
+  </data>
+  <data name="RicercaDocumentiQueryResponse" xml:space="preserve">
+    <value>dati inviati alla richiesta di ricerca sulla base dati documenti</value>
+  </data>
+  <data name="datiDocumentoInserimento" xml:space="preserve">
+    <value>dati del documento da inserire</value>
+  </data>
+  <data name="codiceRegistroRicerca" xml:space="preserve">
+    <value>codice del registro in cui effettuare la ricerca</value>
+  </data>
+  <data name="uploadId" xml:space="preserve">
+    <value>id in formato Guid che identifica la sessione di upload di un file. L'id deve essere generato dal chiamante e ripetuto inviando tutti i chunk del file</value>
+  </data>
+  <data name="totalChunks" xml:space="preserve">
+    <value>numero di chunk che verranno inviati per completare l'upload</value>
+  </data>
+  <data name="totalFileSize" xml:space="preserve">
+    <value>dimensione totale del file da uploadare</value>
+  </data>
+  <data name="chunkNumber" xml:space="preserve">
+    <value>numero del chunk corrente in fase di invio. I valori possono andare da 1 a totalChunks</value>
+  </data>
+  <data name="chunkContent" xml:space="preserve">
+    <value>contenuto binario del chunk da inviare. Il file deve essere inserito in un campo di nome chunkContent</value>
+  </data>
+  <data name="IdDocumentoGenerato" xml:space="preserve">
+    <value>id del documento generato dalla chiamata, se completata correttamente</value>
+  </data>
+  <data name="codiceRegistro" xml:space="preserve">
+    <value>codice del registro a cui il documento è associato</value>
+  </data>
+  <data name="DataProtocollazioneRegistrazione" xml:space="preserve">
+    <value>Data di protocollazione se presente, di registrazione altrimenti</value>
+  </data>
+  <data name="NumeroProtocolloInserimento" xml:space="preserve">
+    <value>Numero protocollo se presente, numero registrazione altrimenti</value>
+  </data>
+  <data name="Segnatura" xml:space="preserve">
+    <value>Segnatura del protocollo del documento</value>
+  </data>
+  <data name="oggettoDocumento" xml:space="preserve">
+    <value>oggetto del documento</value>
+  </data>
+  <data name="Documento_idDoc" xml:space="preserve">
+    <value>Dati del file uploadato da associare al documento</value>
+  </data>
+  <data name="Riservato" xml:space="preserve">
+    <value>Flag che cambia la visibilità del documento a privata</value>
+  </data>
+  <data name="Classificazioni" xml:space="preserve">
+    <value>Lista delle classificazioni. Inserire il codice della classificazione</value>
+  </data>
+  <data name="Aggregazioni" xml:space="preserve">
+    <value>Lista degli aggregati documentali associati. Inserire direttamente l'id degli aggregati stessi</value>
+  </data>
+  <data name="CodiceMittente" xml:space="preserve">
+    <value>Codice del mittente del documento</value>
+  </data>
+  <data name="MittentiMultipli" xml:space="preserve">
+    <value>In caso di mittenti multipli inserire la lista dei codici mittenti</value>
+  </data>
+  <data name="CreaDocumentoEntrata" xml:space="preserve">
+    <value>insieme dei dati necessari per la creazione di un documento in entrata, inviati tramite post</value>
+  </data>
+  <data name="CreaDocumentoUscita" xml:space="preserve">
+    <value>insieme dei dati necessari per la creazione di un documento in uscita, inviati tramite post</value>
+  </data>
+  <data name="CreaDocumentoInterno" xml:space="preserve">
+    <value>insieme dei dati necessari per la creazione di un documento interno, inviati tramite post</value>
+  </data>
+  <data name="MezzoSpedizione" xml:space="preserve">
+    <value>Inserire la descrizione del mezzo di spedizione. Deve corrispondere ai dati in tabella</value>
+  </data>
+  <data name="Link" xml:space="preserve">
+    <value>informazioni relative ad un servizio utilizzabile</value>
+  </data>
+  <data name="Link_Url" xml:space="preserve">
+    <value>indirizzo del servizio</value>
+  </data>
+  <data name="Link_Rel" xml:space="preserve">
+    <value>indicazioni sul tipo di servizio espletato</value>
+  </data>
+  <data name="Link_Type" xml:space="preserve">
+    <value>verbo http da utilizzare nella chiamata</value>
+  </data>
+  <data name="Link_OperationId" xml:space="preserve">
+    <value>operationId da utilizzare sulla pagina swagger per trovare ulteriori informazioni</value>
+  </data>
+  <data name="IdDoc" xml:space="preserve">
+    <value>Dati per associare al documento digitale un documento caricato nel sistema di archiviazione a cui è stato associato un upload id</value>
+  </data>
+  <data name="IdDoc_UploadId" xml:space="preserve">
+    <value>id dell'upload del file caricato nel sistema di archiviazione. non è possibile utilizzare lo stesso id per più documenti</value>
+  </data>
+  <data name="IdDoc_Descrizione" xml:space="preserve">
+    <value>descrizione associata al documento caricato</value>
+  </data>
+  <data name="Command_ProtocolloMittente" xml:space="preserve">
+    <value>Dati del protocollo mittente del documento</value>
+  </data>
+  <data name="Command_ProtocolloEmergenza" xml:space="preserve">
+    <value>Dati del protocollo di emergenza</value>
+  </data>
+  <data name="Command_Profilo" xml:space="preserve">
+    <value>Dati relativi al profilo del documento</value>
+  </data>
+  <data name="Command_Keywords" xml:space="preserve">
+    <value>Lista parole chiave associate al documento. Non ci sono vincoli particolare alle parole utilizzabili</value>
+  </data>
+  <data name="Command_Predisponi" xml:space="preserve">
+    <value>Predisponi la registrazione del documento nel registro indicato</value>
+  </data>
+  <data name="Classification" xml:space="preserve">
+    <value>dati necessari per l'associazione di una classificazione ad un documento</value>
+  </data>
+  <data name="CodiceClassificazione" xml:space="preserve">
+    <value>codice della classificazione, non l'id</value>
+  </data>
+  <data name="TipologiaFascicolo" xml:space="preserve">
+    <value>tipologia di fascicolo a cui associare la classificazione</value>
+  </data>
+  <data name="TipiAggregazioneEnum" xml:space="preserve">
+    <value>tipo di aggregato che viene collegato</value>
+  </data>
+  <data name="Aggregazione" xml:space="preserve">
+    <value>dati relativi ad un aggregato documento da collegare al documento in lavorazione. E' necessario conoscere l'id ed il tipo aggregato dell'aggregazione da aggiungere</value>
+  </data>
+  <data name="Aggregazione_Id" xml:space="preserve">
+    <value>id dell'aggregato da caricare</value>
+  </data>
+  <data name="Aggregazione_Tipo" xml:space="preserve">
+    <value>tipo di aggregato che viene caricato</value>
+  </data>
+  <data name="ProtocolloMittente" xml:space="preserve">
+    <value>dati relativi al protocollo mittente del documento ricevuto. Questo campo è utilizzabile nei soli documenti in entrata.</value>
+  </data>
+  <data name="DataProtocollazioneMittente" xml:space="preserve">
+    <value>data di protocollazione da parte del mittente</value>
+  </data>
+  <data name="DataArrivo" xml:space="preserve">
+    <value>data di ricezione del documento</value>
+  </data>
+  <data name="ProtocolloEmergenza" xml:space="preserve">
+    <value>dati relativi al protocollo emergenza</value>
+  </data>
+  <data name="ProtocolloEmergenza_Segnatura" xml:space="preserve">
+    <value>codice del protocollo emergenza</value>
+  </data>
+  <data name="ProtocolloEmergenza_Data" xml:space="preserve">
+    <value>data di ricezione del documento</value>
+  </data>
+  <data name="Profilo" xml:space="preserve">
+    <value>configurazione del profilo da associare al documento. è possibile indicare il tipo documento e valorizzare i campi ad esso associati</value>
+  </data>
+  <data name="Profilo_Nome" xml:space="preserve">
+    <value>Nome del profilo da associare, da prendere dalla procedura di amministrazione</value>
+  </data>
+  <data name="Profilo_Campi" xml:space="preserve">
+    <value>Lista dei campi del profilo da valorizzare, utilizzare i nomi campi da anagrafica</value>
+  </data>
+  <data name="Campo_Profilo" xml:space="preserve">
+    <value>dati relativi al campo del profilo da aggiungere per valorizzare un profilo. I nome dei campi devono corrispondere al nome del campo nel profilo. A seconda del tipo dato valorizza il campo nome... relativo e il campo Valore. nel caso di campi che accettano valori multipli valorizzare Valori</value>
+  </data>
+  <data name="Campo_NomeCampo" xml:space="preserve">
+    <value>nome campo da utilizzare con un campo di testo</value>
+  </data>
+  <data name="Campo_NomeCasella" xml:space="preserve">
+    <value>nome campo da utilizzare con un campo di selezione</value>
+  </data>
+  <data name="Campo_NomeEsclusiva" xml:space="preserve">
+    <value>nome campo da utilizzare con un campo di selezione esclusiva</value>
+  </data>
+  <data name="Campo_NomeMenu" xml:space="preserve">
+    <value>nome campo da utilizzare con un campo menù</value>
+  </data>
+  <data name="Campo_NomeCorrispondente" xml:space="preserve">
+    <value>nome campo da utilizzare con un campo di tipo corrispondente</value>
+  </data>
+  <data name="Campo_NomeContatore" xml:space="preserve">
+    <value>nome campo da utilizzare con un campo di tipo contatore</value>
+  </data>
+  <data name="Campo_NomeData" xml:space="preserve">
+    <value>nome campo da utilizzare con un campo solo data</value>
+  </data>
+  <data name="Campo_NomeOrario" xml:space="preserve">
+    <value>nome campo da utilizzare con un campo data+ ore e minuti</value>
+  </data>
+  <data name="Campo_NomeOrarioSecondi" xml:space="preserve">
+    <value>nome campo da utilizzare con un campo data e ora compreso secondi</value>
+  </data>
+  <data name="Campo_Valore" xml:space="preserve">
+    <value>valore da associare al campo indicato, se la tipologia di campo ammette un solo valore</value>
+  </data>
+  <data name="Campo_Valori" xml:space="preserve">
+    <value>lista valori da associare al campo indicato, se la tipologia di campo lo ammette</value>
+  </data>
+  <data name="Command_Destinatari" xml:space="preserve">
+    <value>lista di userId dei mittenti destinatari</value>
+  </data>
+  <data name="Command_DestinatariCC" xml:space="preserve">
+    <value>lista di userId dei mittenti destinatari in CC</value>
+  </data>
+  <data name="CreaDocumentoResponse" xml:space="preserve">
+    <value>corpo della risposta reinviata al client al termine della operazione</value>
+  </data>
+  <data name="CreaDocumentoNonProtocollato" xml:space="preserve">
+    <value>Insieme dei dati necessari per la creazione di un documento non protocollato, inviati tramite post</value>
+  </data>
+  <data name="IdVersione_NonUsato" xml:space="preserve">
+    <value>id della versione. al momento non gestito</value>
+  </data>
+  <data name="UploadVersion" xml:space="preserve">
+    <value>dati necessari per il caricamento di una nuova versione</value>
+  </data>
+  <data name="UploadVersionRequestResponse" xml:space="preserve">
+    <value>dati mandati al client in risposta alla creazione di una nuova versione, se l'operazione è andata a buon fine</value>
+  </data>
+  <data name="UploadVersion_Object" xml:space="preserve">
+    <value>corpo della richiesta di archiviazione di un file caricato come nuova versione</value>
+  </data>
+  <data name="UploadVersion_UploadId" xml:space="preserve">
+    <value>uploadId del file caricato a sistema e da associare al documento e alla versione</value>
+  </data>
+  <data name="UploadVersion_Descrizione" xml:space="preserve">
+    <value>descrizione da associare al documento</value>
+  </data>
+  <data name="IdVersionePdf" xml:space="preserve">
+    <value>id, non numero versione, che si vuole convertire a pdf</value>
+  </data>
+  <data name="RequestConvertToPdfCommandResponse" xml:space="preserve">
+    <value>riposta alla richiesta di conversione a pdf di un documento</value>
+  </data>
+  <data name="IdDocumentoScaricare" xml:space="preserve">
+    <value>id del documento da scaricare</value>
+  </data>
+  <data name="Abilitazione_Versioni" xml:space="preserve">
+    <value>abilitazione caricamento versioni</value>
+  </data>
+  <data name="Abilitazione_Classificazioni" xml:space="preserve">
+    <value>abilitazione caricamento classificazioni</value>
+  </data>
+  <data name="Abilitazione_Aggregazioni" xml:space="preserve">
+    <value>abilitazione caricamento aggregazioni</value>
+  </data>
+  <data name="Abilitazione_Permessi" xml:space="preserve">
+    <value>abilitazione caricamento permessi</value>
+  </data>
+  <data name="Abilitazione_Profili" xml:space="preserve">
+    <value>abilitazione caricamento profili</value>
+  </data>
+  <data name="Abilitazione_Allegati" xml:space="preserve">
+    <value>abilitazione caricamento allegati</value>
+  </data>
+  <data name="Abilitazione_Soggetti" xml:space="preserve">
+    <value>abilitazione caricamento soggetti</value>
+  </data>
+  <data name="Abilitazione_Note" xml:space="preserve">
+    <value>abilitazione caricamento note</value>
+  </data>
+  <data name="Abilitazione_Keywords" xml:space="preserve">
+    <value>abilitazione caricamento parole chiave</value>
+  </data>
+  <data name="DocumentoAmministrativo" xml:space="preserve">
+    <value>documento richiesto, completo dei dati aggragati richiesti nella chiamata</value>
+  </data>
+  <data name="GetDocumentoAmministrativoQueryResult" xml:space="preserve">
+    <value>dati inviati in risposta ad una richiesta di documento esistente, in caso di id corretto</value>
+  </data>
+  <data name="IdDocumentoRiferimento" xml:space="preserve">
+    <value>id del documenti di riferimento</value>
+  </data>
+  <data name="IdVersioneDownload" xml:space="preserve">
+    <value>eventuale id della versione da scarica, altrimenti quella corrente</value>
+  </data>
+  <data name="DimensioneBuffer" xml:space="preserve">
+    <value>dimensione del buffer di download del file</value>
+  </data>
+  <data name="PredisponiProtocollazione_Body" xml:space="preserve">
+    <value>dati necessari per la predisposizione alla protocollazione</value>
+  </data>
+  <data name="RegistrazioneProtocollazione_Body" xml:space="preserve">
+    <value>dati necessari per la protocollazione</value>
+  </data>
+  <data name="RegistrazioneProtocollo" xml:space="preserve">
+    <value>per poter proseguire con la registrazione protocollo è necessario indicare il codice registro</value>
+  </data>
+  <data name="AggiungiClassificazione_Body" xml:space="preserve">
+    <value>dati relativi alla classificazione da aggiungere</value>
+  </data>
+  <data name="Aggregazione_Body" xml:space="preserve">
+    <value>dati relativi alla aggregazione da aggiungere</value>
+  </data>
+  <data name="Oggetto_Body" xml:space="preserve">
+    <value>dati relativi al nuovo oggetto del documento</value>
+  </data>
+  <data name="Mittente_Body" xml:space="preserve">
+    <value>dati relativi al nuovo mittente da impostare</value>
+  </data>
+  <data name="Aggregazione_Head" xml:space="preserve">
+    <value>dati da inviare per la richiesta di aggiunta di un aggregato al documento</value>
+  </data>
+  <data name="TipoAggregazione" xml:space="preserve">
+    <value>tipo di aggregazione documentale da aggiungere</value>
+  </data>
+  <data name="IdAggrazione" xml:space="preserve">
+    <value>Id della aggregazione documentale da aggiungere</value>
+  </data>
+  <data name="OggettoDocumento_Head" xml:space="preserve">
+    <value>dati necessari per impostazione oggetto</value>
+  </data>
+  <data name="OggettoDocumento_Descrizione" xml:space="preserve">
+    <value>descrizione testuale dell'oggetto</value>
+  </data>
+  <data name="CambioMittenteCommandResponse" xml:space="preserve">
+    <value>dati relativi al documento aggiornato</value>
+  </data>
+  <data name="MittentiMultipli_Body" xml:space="preserve">
+    <value>dati relativi al mittente da aggiungere alla lista</value>
+  </data>
+  <data name="CambioMittentiMultipliCommandResponse" xml:space="preserve">
+    <value>dati in risposta alla richiesta di cambiamento</value>
+  </data>
+  <data name="AddDestinatariCommandResponse" xml:space="preserve">
+    <value>dati mandati al client in risposta alla richiesta di aggiunta aggregazione</value>
+  </data>
+  <data name="Destinatari_Body" xml:space="preserve">
+    <value>dati relativi al destinatario da aggiungere</value>
+  </data>
+  <data name="DestinatariCC_Body" xml:space="preserve">
+    <value>dati relativi al nuovo destinatario in CC da aggiungere</value>
+  </data>
+  <data name="AddDestinatariCCCommandResponse" xml:space="preserve">
+    <value>dati inviati in risposta alla richiesta di aggiunta destinatario CC</value>
+  </data>
+  <data name="AddKeywords_Body" xml:space="preserve">
+    <value>dati relativi alla parola chiave da aggiungere</value>
+  </data>
+  <data name="AggiungiKeyWordCommandResponse" xml:space="preserve">
+    <value>dati in risposta alla richiesta di aggiunta di una parola chiave</value>
+  </data>
+  <data name="RemoveKeywords_Word" xml:space="preserve">
+    <value>parola chiave da aggiungere</value>
+  </data>
+  <data name="ConsolidamentoCommandResponse" xml:space="preserve">
+    <value>dati in risposta alla richiesta di consolidamento del documento</value>
+  </data>
+  <data name="Consolidamento_Body" xml:space="preserve">
+    <value>dati relativi alla richiesta di consolidamento</value>
+  </data>
+  <data name="AggiungiClassificazioneCommandResponse" xml:space="preserve">
+    <value>dati mandati in risposta alla richiesta</value>
+  </data>
+  <data name="AggiungiAggregazioneCommandResponse" xml:space="preserve">
+    <value>dati necessari per effettuare una richiesta di aggiunta di una aggregazione al documento</value>
+  </data>
+  <data name="OggettoDocumentoCommandResponse" xml:space="preserve">
+    <value>dati inviati al client in risposta alla richiesta di impostazione dell'oggetto del documento</value>
+  </data>
+  <data name="CambioMittentiMultipli_Head" xml:space="preserve">
+    <value>dati necessari per aggiungere un mittente alla lista dei mittenti del documento</value>
+  </data>
+  <data name="CambioMittentiMultipli_Mittente" xml:space="preserve">
+    <value>codice del mittente</value>
+  </data>
+  <data name="DestinatarioAdd_Head" xml:space="preserve">
+    <value>dati necessario per la richiesta di aggiunta destinatario</value>
+  </data>
+  <data name="DestinatarioAdd_Codice" xml:space="preserve">
+    <value>userId del destinatario</value>
+  </data>
+  <data name="DestinatarioCC_Head" xml:space="preserve">
+    <value>dati necessari per effettuare la richiesta di aggiunta destinatario CC</value>
+  </data>
+  <data name="DestinatarioCC_Codice" xml:space="preserve">
+    <value>userId utente da aggiungere alla lista</value>
+  </data>
+  <data name="AggiungiKeyWord_Head" xml:space="preserve">
+    <value>dati necessari per aggiungere una parola chiave al documento</value>
+  </data>
+  <data name="AggiungiKeyWord_Valore" xml:space="preserve">
+    <value>parola  chiave da aggiungere</value>
+  </data>
+  <data name="RimuoviKeyWordCommandResponse" xml:space="preserve">
+    <value>dati inviati in risposta al client alla richiesta di rimozione della parola chiave</value>
+  </data>
+  <data name="Consolidamento_Head" xml:space="preserve">
+    <value>dati necessari per la richiesta di consolidamento del documento</value>
+  </data>
+  <data name="Consolidamento_Stato" xml:space="preserve">
+    <value>stato del documento</value>
+  </data>
+  <data name="Consolidamento_Data" xml:space="preserve">
+    <value>data della richiesta di consolidamento</value>
+  </data>
+  <data name="Consolidamento_IdAutore" xml:space="preserve">
+    <value>id dell'autore da associare alla richiesta</value>
+  </data>
+  <data name="SpedizioneCommandResponse" xml:space="preserve">
+    <value>dati in risposta alla richiesta di impostazione dati spedizione</value>
+  </data>
+  <data name="Spedizione_Head" xml:space="preserve">
+    <value>dati richiesti per effettuare l'impostazione del mezzo di spedizione</value>
+  </data>
+  <data name="Spedizione_Mezzo" xml:space="preserve">
+    <value>descrizione del mezzo di spedizione come da tabella</value>
+  </data>
+  <data name="MezzoSpedizione_Body" xml:space="preserve">
+    <value>dati relativi alla richiesta aggiornamento mezzo spedizione</value>
+  </data>
+  <data name="AggiungiNotaCommandResponse" xml:space="preserve">
+    <value>dati in risposta alla richiesta di inserimento nuova nota</value>
+  </data>
+  <data name="IdNotaCreata" xml:space="preserve">
+    <value>id della nota creata</value>
+  </data>
+  <data name="AutoreNota" xml:space="preserve">
+    <value>dati relativi a un utente autore di una nota</value>
+  </data>
+  <data name="IdUtenteNota" xml:space="preserve">
+    <value>id dell'utente</value>
+  </data>
+  <data name="idRuoloNota" xml:space="preserve">
+    <value>ruolo utente</value>
+  </data>
+  <data name="PostNota_Body" xml:space="preserve">
+    <value>dati relativi alla nota da inserire</value>
+  </data>
+  <data name="NuovaNota_Head" xml:space="preserve">
+    <value>dati richiesti per inserire una nuova nota</value>
+  </data>
+  <data name="Nota_Nome" xml:space="preserve">
+    <value>nome della nota</value>
+  </data>
+  <data name="Nota_Descrizione" xml:space="preserve">
+    <value>descrizione della nota</value>
+  </data>
+  <data name="NuovaNota_Autore" xml:space="preserve">
+    <value>dati relativi all'autore</value>
+  </data>
+  <data name="NuovaNota_TipoAccesso" xml:space="preserve">
+    <value>tipo di accesso documento</value>
+  </data>
+  <data name="CancellaNotaCommandResponse" xml:space="preserve">
+    <value>dati inviati in risposta alla richiesta di cancellazione della nota</value>
+  </data>
+  <data name="IdNotaCancellare" xml:space="preserve">
+    <value>id della nota da cancellare</value>
+  </data>
+  <data name="ProtocolloMittenteCommandResponse" xml:space="preserve">
+    <value>dati inviati in risposta alla richiesta di impostazione del protocollo mittente</value>
+  </data>
+  <data name="PutProtocolloMittente_Body" xml:space="preserve">
+    <value>dati relativi al protocollo mittente da registrare</value>
+  </data>
+  <data name="ProtocolloMittente_Head" xml:space="preserve">
+    <value>dati necessari per la registrazione del protocollo utente</value>
+  </data>
+  <data name="DataArrivoDocumento" xml:space="preserve">
+    <value>data di arrivo del documento</value>
+  </data>
+  <data name="PutProtocolloEmergenza_Body" xml:space="preserve">
+    <value>dati relativi al protocollo emrgenza da registrare</value>
+  </data>
+  <data name="ProtocolloEmergenzaCommandResponse" xml:space="preserve">
+    <value>dati inviati in risposta alla richiesta di impostazione del protocollo emergenza</value>
+  </data>
+  <data name="ProtocolloEmergenza_Head" xml:space="preserve">
+    <value>dati richiesta per la impostazione del protocollo emergenza</value>
+  </data>
+  <data name="DataProtocolloEmergenza" xml:space="preserve">
+    <value>Data protocollo emergenza</value>
+  </data>
+  <data name="PutAddDocumentoCollegato_Body" xml:space="preserve">
+    <value>dati relativi documento da collegare</value>
+  </data>
+  <data name="AddDocumentoCollegatoCommandResponse" xml:space="preserve">
+    <value>dati inviati in risposta alla richiesta di aggiunta di documento collegato</value>
+  </data>
+  <data name="AddDocumentoCollegato_Head" xml:space="preserve">
+    <value>dati richiesti per la aggiunta di un documento collegato</value>
+  </data>
+  <data name="AddDocumentoCollegato_IdDocumento" xml:space="preserve">
+    <value>id del documento</value>
+  </data>
+  <data name="AddDocumentoCollegato_DocumentoPadre" xml:space="preserve">
+    <value>mettere true se il documento collegato è padre del documento modificato, false se è un documento figlio</value>
+  </data>
+  <data name="DelDocumentoCollegatoCommandResponse" xml:space="preserve">
+    <value>dati inviati al client al termine della elaborazione della richiesta di cancellazione di documento collegato</value>
+  </data>
+  <data name="IdDocumentoCollegatoCancellare" xml:space="preserve">
+    <value>id del documento da togliere dalla lista</value>
+  </data>
+  <data name="StoreProfiloCommandResponse" xml:space="preserve">
+    <value>dati inviati in risposta alla richiesta di impostazione del profilo</value>
+  </data>
+  <data name="PutAnnullamento_Body" xml:space="preserve">
+    <value>dati relativi alla richiesta di annullamento</value>
+  </data>
+  <data name="AnnullamentoCommandResponse" xml:space="preserve">
+    <value>dati inviati in risposta alla richiesta di annullamento del documento</value>
+  </data>
+  <data name="Annullamento_Head" xml:space="preserve">
+    <value>dati richiesti per effettuare una richiesta di annullamento documento</value>
+  </data>
+  <data name="Annullamento_IdAutore" xml:space="preserve">
+    <value>id dell'autore della richiesta</value>
+  </data>
+  <data name="Annullamento_Motivo" xml:space="preserve">
+    <value>descrizione del motivo dell'annullamento</value>
+  </data>
+  <data name="Annullamento_Data" xml:space="preserve">
+    <value>data della richiesta di annullamento</value>
+  </data>
+  <data name="CancellaCommandResponse" xml:space="preserve">
+    <value>risposta inviata alla richiesta di cancellazione del documento</value>
+  </data>
+  <data name="IdDocumentoCancellare" xml:space="preserve">
+    <value>id del documento da cancellare</value>
+  </data>
+  <data name="CancellaDTO" xml:space="preserve">
+    <value>dati necessari per la richiesta di cancellazione</value>
+  </data>
+  <data name="CancellaDTO_NoteCancellazione" xml:space="preserve">
+    <value>note esplicative da associare alla cancellazione del documento</value>
+  </data>
+  <data name="RipristinaCommandResponse" xml:space="preserve">
+    <value>dati inviati in risposta alla richiesta di ripristino di un documento</value>
+  </data>
+  <data name="AggiungiTrasmissioneCommandResponse" xml:space="preserve">
+    <value>riposta inviata alla richiesta di creazione di una nuova nota</value>
+  </data>
+  <data name="IdTrasmissioneCreata" xml:space="preserve">
+    <value>id della trasmissione creata</value>
+  </data>
+  <data name="PostTrasmissione_Body" xml:space="preserve">
+    <value>documento della trasmissione da registrare</value>
+  </data>
+  <data name="Trasmissione_Head" xml:space="preserve">
+    <value>dati necessari per la creazione di una nuova nota</value>
+  </data>
+  <data name="Trasmissione_Append" xml:space="preserve">
+    <value> true se si vuole aggiungere i dati esistenti ai gruppi o utenti già associati al documento, mettere false per cancellare i vecchi dati ed associare questi</value>
+  </data>
+  <data name="Trasmissione_NoteTrasmisssione" xml:space="preserve">
+    <value>note relative alla trasmissione</value>
+  </data>
+  <data name="GruppiDestinatari" xml:space="preserve">
+    <value>lista dei gruppi destinatari della comunicazione. Non possono essere settati contemporaneamente utenti e gruppi</value>
+  </data>
+  <data name="UtentiDestinatari" xml:space="preserve">
+    <value>lista degli utenti destinatari. Non possono essere settati contemporaneamente utenti e gruppi</value>
+  </data>
+  <data name="GruppoDestinatario" xml:space="preserve">
+    <value>dati relativi al gruppo destinatario della comunicazione. All'interno dello stesso documento. non possono essere inseriti sia utenti destinatari che utente destinatari</value>
+  </data>
+  <data name="CodiceGruppoDestinatario" xml:space="preserve">
+    <value>codice del gruppo</value>
+  </data>
+  <data name="UserIdDestinatario" xml:space="preserve">
+    <value>userId del destinatario</value>
+  </data>
+  <data name="RagioneTrasmissione" xml:space="preserve">
+    <value>descrizione della ragione trasmissione presa dalla descrizione in tabella</value>
+  </data>
+  <data name="TipoTrasmissione" xml:space="preserve">
+    <value>tipo di trasmissione: valori ammessi "TUTTI" e "UNO"</value>
+  </data>
+  <data name="NoteTrasmissione" xml:space="preserve">
+    <value>note relative alla trasmissione</value>
+  </data>
+  <data name="GiorniScadenza" xml:space="preserve">
+    <value>numero di giorni dopo l'inserimento,la quale la trasmissione scade</value>
+  </data>
+  <data name="UtenteDestinatario" xml:space="preserve">
+    <value>dati relativi all'utente destinatario della comunicazione. All'interno dello stesso documento. non possono essere inseriti sia utenti destinatari che utente destinatari</value>
+  </data>
+  <data name="UtentiNotificati" xml:space="preserve">
+    <value>lista di userId degli utenti a cui inviare la notifica</value>
+  </data>
+  <data name="IdDocumentoTrasmissioni" xml:space="preserve">
+    <value>id del documento di cui si vuole vedere le trasmissioni</value>
+  </data>
+  <data name="RicercaTrasmissioniQueryResponse" xml:space="preserve">
+    <value>Dati inviati alla richiesta di ricerca delle trasmissioni del documento</value>
+  </data>
+  <data name="Trasmissioni" xml:space="preserve">
+    <value>lista trasmissioni</value>
+  </data>
+  <data name="NoteGenerali" xml:space="preserve">
+    <value>note generali alla trasmissione</value>
+  </data>
+  <data name="DataInvio" xml:space="preserve">
+    <value>Data Invio Trasmissione</value>
+  </data>
+  <data name="InfoAutore" xml:space="preserve">
+    <value>Autore della trasmissione</value>
+  </data>
+  <data name="Autore_UserId" xml:space="preserve">
+    <value>UserId dell'autore trasmissione</value>
+  </data>
+  <data name="Autore_Nome" xml:space="preserve">
+    <value>Nome dell'autore</value>
+  </data>
+  <data name="Autore_Cognome" xml:space="preserve">
+    <value>Cognome dell'autore</value>
+  </data>
+  <data name="Autore_CodiceGruppo" xml:space="preserve">
+    <value>Codice gruppo dell'autore</value>
+  </data>
+  <data name="DataScadenza" xml:space="preserve">
+    <value>Data scadenza comunicazione</value>
+  </data>
+  <data name="UtenteNotificato_UserId" xml:space="preserve">
+    <value>userId dell'ìutente notificato</value>
+  </data>
+  <data name="UtenteNotificato_Nome" xml:space="preserve">
+    <value>Nome dell'utente notificato</value>
+  </data>
+  <data name="UtenteNotificato_Cognome" xml:space="preserve">
+    <value>Cognome dell'utente notificato</value>
+  </data>
+  <data name="codiceModello" xml:space="preserve">
+    <value>codice del modello da utilizzare nella trasmissione</value>
+  </data>
+  <data name="AggiungiTrasmissioneModelloCommandResponse" xml:space="preserve">
+    <value>ati inviati alla richiesta di inserimento di nota da modello</value>
+  </data>
+  <data name="PutTrasmissione_Body" xml:space="preserve">
+    <value>orpo della trasmissione da aggiornare</value>
+  </data>
+  <data name="IdTrasmissioneCancellare" xml:space="preserve">
+    <value>id della trasmissione da cancellare</value>
+  </data>
+  <data name="CancellaTrasmissioneCommandResponse" xml:space="preserve">
+    <value>risposta inviata in base alla richiesta di cancellazione trasmissione</value>
+  </data>
+  <data name="PutTrasmissioneInvio_Body" xml:space="preserve">
+    <value>dati relativi alla trasmissione da inviare</value>
+  </data>
+  <data name="InvioTrasmissioneCommandResponse" xml:space="preserve">
+    <value>dati inviati in risposta alla richiesta di invio trasmissione</value>
+  </data>
+  <data name="InvioTrasmissioneDTO" xml:space="preserve">
+    <value>dati richiesti per richiedere l'invio della comunicazione</value>
+  </data>
+  <data name="IdTrasmissioneAggiornare" xml:space="preserve">
+    <value>id della trasmissione da aggiornare</value>
+  </data>
+  <data name="RifiutoTrasmissioneCommandResponse" xml:space="preserve">
+    <value>dati inviati in risposta alla richiesta di rifiuto della trasmissione</value>
+  </data>
+  <data name="VistoTrasmissioneCommandResponse" xml:space="preserve">
+    <value>dati inviati alla richiesta di registrazione della presa visione della trasmissione</value>
+  </data>
+  <data name="NomeCampoProfilo" xml:space="preserve">
+    <value>fa riferimento al nome del campo censito in anagrafica</value>
+  </data>
+  <data name="TipoCampoEnum" xml:space="preserve">
+    <value>enumerazione che indica le tipologie di campi supportate</value>
+  </data>
+  <data name="TipoCampoProfilo" xml:space="preserve">
+    <value>tipologia campo</value>
+  </data>
+  <data name="ValoreCampoProfilo" xml:space="preserve">
+    <value>valore da associare al campo, se il campo permette di inserire un solo valore</value>
+  </data>
+  <data name="ValoriCampoProfilo" xml:space="preserve">
+    <value>valori da associare al campo, se il campo permette di inserire più di un valore</value>
+  </data>
+  <data name="CampiProfilo" xml:space="preserve">
+    <value>Lista di campi da valorizzare</value>
+  </data>
+  <data name="CampoProfilo" xml:space="preserve">
+    <value>dati del singolo campo del profilo</value>
+  </data>
+  <data name="NomeProfilo" xml:space="preserve">
+    <value>Nome del profilo da associare all'aggregazione</value>
+  </data>
+  <data name="StoreProfilo" xml:space="preserve">
+    <value>dati relativi al nome profilo da utilizzare e i campi da valorizzare</value>
+  </data>
+  <data name="annoCreazioneRicerca" xml:space="preserve">
+    <value>anno di creazione di riferimento della ricerca</value>
+  </data>
+  <data name="ignora" xml:space="preserve">
+    <value>numero di elementi da ignorare per paginazione</value>
+  </data>
+  <data name="numeroProtocolloFinaleRicerca" xml:space="preserve">
+    <value>numero di protocollo finale</value>
+  </data>
+  <data name="numeroProtocolloRicerca" xml:space="preserve">
+    <value>numero di protocollo iniziale</value>
+  </data>
+  <data name="prendi" xml:space="preserve">
+    <value>numero di elementi da estrarre per paginazione</value>
+  </data>
+  <data name="tipologiaFlussoRicerca" xml:space="preserve">
+    <value>tipologia flusso per ricerca (valori ammessi: E, U, I)</value>
+  </data>
+</root>

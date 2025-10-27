@@ -1,0 +1,61 @@
+// SPDX-FileCopyrightText: 2025 Provincia Autonoma di Trento <https://www.provincia.tn.it>
+// SPDX-License-Identifier: EUPL-1.2
+using System;
+using System.Collections;
+using System.Runtime.Serialization;
+using System.Xml;
+using System.Xml.Serialization;
+using DocsPaVO.utente;
+
+namespace DocsPaVO.amministrazione
+{
+    /// <summary>
+    /// Oggetto contenente i dati di connessione relativi all'utente amministratore
+    /// </summary>
+    [DataContract]
+    public class InfoUtenteAmministratore : InfoUtente
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public InfoUtenteAmministratore()
+        {
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ut"></param>
+        /// <param name="ruo"></param>
+        public InfoUtenteAmministratore(Utente ut, Ruolo ruo)
+            : base(ut, ruo)
+        {
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [DataMember]
+        public string nome { get; set; } = string.Empty;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [DataMember]
+        public string cognome { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Tipo di amministratore
+        /// </summary>
+        [DataMember]
+        public string tipoAmministratore { get; set; } = string.Empty;
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        [XmlArray()]
+        [XmlArrayItem(typeof(DocsPaVO.amministrazione.Menu))]
+        [DataMember]
+        public ArrayList VociMenu { get; set; } = new ArrayList();
+    }
+}

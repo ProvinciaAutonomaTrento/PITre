@@ -1,0 +1,35 @@
+// SPDX-FileCopyrightText: 2025 Provincia Autonoma di Trento <https://www.provincia.tn.it>
+// SPDX-License-Identifier: EUPL-1.2
+using Pi3.Core.SeedWork;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Pi3.Core.Services.File.FirmaRemota
+{
+    public class FirmaCAdESRequest : ValueObject
+    {
+
+        [Required]
+        public byte[] fileDaFirmare { get; init; } = null!;
+
+        [Required(AllowEmptyStrings = false)]
+        public string AliasCertificato { get; init; } = null!;
+
+        [Required(AllowEmptyStrings = false)]
+        public string DominioCertificato { get; init; } = null!;
+
+        [Required(AllowEmptyStrings = false)]
+        public string PinCertificato { get; init; } = null!;
+
+        [Required(AllowEmptyStrings = false)]
+        public string OtpFirma { get; init; } = null!;
+
+        public bool? MarcaTemporale { get; init; } = null;
+
+        public bool? FirmaParallela { get; init; } = null;
+    }
+}

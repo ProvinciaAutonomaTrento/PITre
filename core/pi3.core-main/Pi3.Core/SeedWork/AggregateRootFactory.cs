@@ -1,0 +1,24 @@
+// SPDX-FileCopyrightText: 2025 Provincia Autonoma di Trento <https://www.provincia.tn.it>
+// SPDX-License-Identifier: EUPL-1.2
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Pi3.Core.SeedWork
+{
+    internal static class AggregateRootFactory
+    {
+        public static A Create<A, K>() where A : AggregateRoot<K>
+        {
+            var type = typeof(A);
+            var constructor = type.GetConstructor(BindingFlags.Instance | BindingFlags.NonPublic, Array.Empty<Type>());
+            if (constructor == null)
+                throw new NotSupportedPi3Exception();
+
+            return (A)constructor.Invoke(null);
+        }
+    }
+}

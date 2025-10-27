@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AggregateDescriptionNotFound" xml:space="preserve">
+    <value>Descrizione Aggregato mancante</value>
+  </data>
+  <data name="AggregazioneDocumentaleNotFound" xml:space="preserve">
+    <value>Aggregato non trovato</value>
+  </data>
+  <data name="ClassificazioneLookupFailed" xml:space="preserve">
+    <value>Fallito il lookup basato sul nome della classificazione '{0}'</value>
+  </data>
+  <data name="CodiceCollocazioneFisicaNotFound" xml:space="preserve">
+    <value>Codice Collocazione Fisica mancante</value>
+  </data>
+  <data name="CollocazioneFisicaNotFound" xml:space="preserve">
+    <value>Dati Collocazione fisica mancanti</value>
+  </data>
+  <data name="ConnectionStringNotFound" xml:space="preserve">
+    <value>Stringa di connessione non trovata.</value>
+  </data>
+  <data name="FolderHierarchyNotFound" xml:space="preserve">
+    <value>Struttura sottofascicoli non trovata</value>
+  </data>
+  <data name="FolderNotFound" xml:space="preserve">
+    <value>Sottofasciolo non presente nell'aggregato</value>
+  </data>
+  <data name="FormatoModelloNonValido" xml:space="preserve">
+    <value>Formato Modello non valido</value>
+  </data>
+  <data name="IdAggregateNotFound" xml:space="preserve">
+    <value>Id Aggregato non inviato</value>
+  </data>
+  <data name="IdDocNotFound" xml:space="preserve">
+    <value>Documento non trovato nell'aggregato</value>
+  </data>
+  <data name="InstanceNotFound" xml:space="preserve">
+    <value>Istanza non trovata.</value>
+  </data>
+  <data name="InvalidAggregationDescription" xml:space="preserve">
+    <value>Descrizione Aggregato non valido</value>
+  </data>
+  <data name="MissingAuthorizationParameter" xml:space="preserve">
+    <value>Parametro per l'autorizzazione '{0}' mancante.</value>
+  </data>
+  <data name="MissingClassificationCode" xml:space="preserve">
+    <value>Codice Classificazione mancante</value>
+  </data>
+  <data name="MissingTypeOfFile" xml:space="preserve">
+    <value>Tipologia Fascicolo mancante</value>
+  </data>
+  <data name="ModelloTrasmissioneDocumento" xml:space="preserve">
+    <value>Il Modello [0] è per un documento, non un aggregato</value>
+  </data>
+  <data name="NullRequest" xml:space="preserve">
+    <value>Richiesta non pervenuta correttamente</value>
+  </data>
+  <data name="OggettoCustomNotFound" xml:space="preserve">
+    <value>OggettoCustom {0] non trovato</value>
+  </data>
+  <data name="PianoConservazioneLookupFailed" xml:space="preserve">
+    <value>Fallito il lookup basato sul nome della classificazione '{0}' e Tipologia Fascicolo '{1)'</value>
+  </data>
+  <data name="RequestNotAuthorized" xml:space="preserve">
+    <value>Richiesta non autorizzata.</value>
+  </data>
+  <data name="TipoCampoNotFound" xml:space="preserve">
+    <value>Tipo Campo {0} non trovato, controllare i dati immessi</value>
+  </data>
+  <data name="TipoFascicoloNotFound" xml:space="preserve">
+    <value>Tipo Fascicolo {0] non trovato</value>
+  </data>
+  <data name="TrasmisssioneNotFound" xml:space="preserve">
+    <value>Dati Trasmissione non ricevuti</value>
+  </data>
+  <data name="UnhandledError" xml:space="preserve">
+    <value>Si è verificato un errore imprevisto. Contattare l'amministratore.</value>
+  </data>
+  <data name="UsersAndGroupsDefined" xml:space="preserve">
+    <value>Nella trasmissione sono stati indicati sia utenti che gruppi</value>
+  </data>
+</root>

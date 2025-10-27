@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>1.3.50</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="AggregateModels\AggregazioneDocumentaleAggregate\**" />
+    <Compile Remove="AggregateModels\ContentElementAggregate\**" />
+    <Compile Remove="AggregateModels\CorrispondenteAggregate\**" />
+    <Compile Remove="AggregateModels\DelegaAggregate\**" />
+    <Compile Remove="AggregateModels\DocumentAggregate\**" />
+    <Compile Remove="AggregateModels\DocumentBlobAggregate\**" />
+    <Compile Remove="AggregateModels\DocumentFileAggregate\**" />
+    <Compile Remove="AggregateModels\DocumentoAmministrativoAggregate\**" />
+    <Compile Remove="AggregateModels\FunctionGroupAggregate\**" />
+    <Compile Remove="AggregateModels\KeywordAggregate\**" />
+    <Compile Remove="AggregateModels\ListaDistribuzioneAggregate\**" />
+    <Compile Remove="AggregateModels\MezzoSpedizioneAggregate\**" />
+    <Compile Remove="AggregateModels\ModelloTrasmissioneAggregate\**" />
+    <Compile Remove="AggregateModels\NotaRFAggregate\**" />
+    <Compile Remove="AggregateModels\NoteAggregate\**" />
+    <Compile Remove="AggregateModels\OggettoAggregate\**" />
+    <Compile Remove="AggregateModels\OrganizationalUnitAggregate\**" />
+    <Compile Remove="AggregateModels\PersonaCorrispondenteAggregate\**" />
+    <Compile Remove="AggregateModels\RagioneTrasmissioneAggregate\**" />
+    <Compile Remove="AggregateModels\RoleTypeAggregate\**" />
+    <Compile Remove="AggregateModels\RuoloCorrispondenteAggregate\**" />
+    <Compile Remove="AggregateModels\TenantAggregate\**" />
+    <Compile Remove="AggregateModels\TrasmissioneAggregate\**" />
+    <Compile Remove="AggregateModels\UOCorrispondenteAggregate\**" />
+    <Compile Remove="AggregateModels\UserAggregate\**" />
+    <Compile Remove="Commands\**" />
+    <Compile Remove="Filters\**" />
+    <Compile Remove="Middleware\**" />
+    <Compile Remove="Queries\**" />
+    <Compile Remove="Services\File\**" />
+    <EmbeddedResource Remove="AggregateModels\AggregazioneDocumentaleAggregate\**" />
+    <EmbeddedResource Remove="AggregateModels\ContentElementAggregate\**" />
+    <EmbeddedResource Remove="AggregateModels\CorrispondenteAggregate\**" />
+    <EmbeddedResource Remove="AggregateModels\DelegaAggregate\**" />
+    <EmbeddedResource Remove="AggregateModels\DocumentAggregate\**" />
+    <EmbeddedResource Remove="AggregateModels\DocumentBlobAggregate\**" />
+    <EmbeddedResource Remove="AggregateModels\DocumentFileAggregate\**" />
+    <EmbeddedResource Remove="AggregateModels\DocumentoAmministrativoAggregate\**" />
+    <EmbeddedResource Remove="AggregateModels\FunctionGroupAggregate\**" />
+    <EmbeddedResource Remove="AggregateModels\KeywordAggregate\**" />
+    <EmbeddedResource Remove="AggregateModels\ListaDistribuzioneAggregate\**" />
+    <EmbeddedResource Remove="AggregateModels\MezzoSpedizioneAggregate\**" />
+    <EmbeddedResource Remove="AggregateModels\ModelloTrasmissioneAggregate\**" />
+    <EmbeddedResource Remove="AggregateModels\NotaRFAggregate\**" />
+    <EmbeddedResource Remove="AggregateModels\NoteAggregate\**" />
+    <EmbeddedResource Remove="AggregateModels\OggettoAggregate\**" />
+    <EmbeddedResource Remove="AggregateModels\OrganizationalUnitAggregate\**" />
+    <EmbeddedResource Remove="AggregateModels\PersonaCorrispondenteAggregate\**" />
+    <EmbeddedResource Remove="AggregateModels\RagioneTrasmissioneAggregate\**" />
+    <EmbeddedResource Remove="AggregateModels\RoleTypeAggregate\**" />
+    <EmbeddedResource Remove="AggregateModels\RuoloCorrispondenteAggregate\**" />
+    <EmbeddedResource Remove="AggregateModels\TenantAggregate\**" />
+    <EmbeddedResource Remove="AggregateModels\TrasmissioneAggregate\**" />
+    <EmbeddedResource Remove="AggregateModels\UOCorrispondenteAggregate\**" />
+    <EmbeddedResource Remove="AggregateModels\UserAggregate\**" />
+    <EmbeddedResource Remove="Commands\**" />
+    <EmbeddedResource Remove="Filters\**" />
+    <EmbeddedResource Remove="Middleware\**" />
+    <EmbeddedResource Remove="Queries\**" />
+    <EmbeddedResource Remove="Services\File\**" />
+    <None Remove="AggregateModels\AggregazioneDocumentaleAggregate\**" />
+    <None Remove="AggregateModels\ContentElementAggregate\**" />
+    <None Remove="AggregateModels\CorrispondenteAggregate\**" />
+    <None Remove="AggregateModels\DelegaAggregate\**" />
+    <None Remove="AggregateModels\DocumentAggregate\**" />
+    <None Remove="AggregateModels\DocumentBlobAggregate\**" />
+    <None Remove="AggregateModels\DocumentFileAggregate\**" />
+    <None Remove="AggregateModels\DocumentoAmministrativoAggregate\**" />
+    <None Remove="AggregateModels\FunctionGroupAggregate\**" />
+    <None Remove="AggregateModels\KeywordAggregate\**" />
+    <None Remove="AggregateModels\ListaDistribuzioneAggregate\**" />
+    <None Remove="AggregateModels\MezzoSpedizioneAggregate\**" />
+    <None Remove="AggregateModels\ModelloTrasmissioneAggregate\**" />
+    <None Remove="AggregateModels\NotaRFAggregate\**" />
+    <None Remove="AggregateModels\NoteAggregate\**" />
+    <None Remove="AggregateModels\OggettoAggregate\**" />
+    <None Remove="AggregateModels\OrganizationalUnitAggregate\**" />
+    <None Remove="AggregateModels\PersonaCorrispondenteAggregate\**" />
+    <None Remove="AggregateModels\RagioneTrasmissioneAggregate\**" />
+    <None Remove="AggregateModels\RoleTypeAggregate\**" />
+    <None Remove="AggregateModels\RuoloCorrispondenteAggregate\**" />
+    <None Remove="AggregateModels\TenantAggregate\**" />
+    <None Remove="AggregateModels\TrasmissioneAggregate\**" />
+    <None Remove="AggregateModels\UOCorrispondenteAggregate\**" />
+    <None Remove="AggregateModels\UserAggregate\**" />
+    <None Remove="Commands\**" />
+    <None Remove="Filters\**" />
+    <None Remove="Middleware\**" />
+    <None Remove="Queries\**" />
+    <None Remove="Services\File\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="SeedWork\ICommand.cs" />
+    <Compile Remove="SeedWork\ICommandHandler.cs" />
+    <Compile Remove="SeedWork\ITenantCommandHandler.cs" />
+    <Compile Remove="SeedWork\ITenantQuery.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\File\CAdES\ICAdESService.cs" />
+    <Compile Include="Services\File\Converters\ErrorDescriptions.Designer.cs">
+      <DependentUpon>ErrorDescriptions.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Services\File\Converters\Exceptions.cs" />
+    <Compile Include="Services\File\Converters\FileConvertedContent.cs" />
+    <Compile Include="Services\File\Converters\FileConverterOutputFormatsEnum.cs" />
+    <Compile Include="Services\File\Converters\FileConverterServiceProviderFactory.cs" />
+    <Compile Include="Services\File\Converters\IFileConverterFactory.cs" />
+    <Compile Include="Services\File\Converters\IFileConverterService.cs" />
+    <Compile Include="Services\File\Decorators\ErrorDescriptions.Designer.cs">
+      <DependentUpon>ErrorDescriptions.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Services\File\Decorators\FileDecoratedContent.cs" />
+    <Compile Include="Services\File\Decorators\FileDecoratorInstructions.cs" />
+    <Compile Include="Services\File\Decorators\IFileDecoratorService.cs" />
+    <Compile Include="Services\File\FileValidator\FileToValidate.cs" />
+    <Compile Include="Services\File\FileValidator\FileValidationResult.cs" />
+    <Compile Include="Services\File\FileValidator\IFileValidatorService.cs" />
+    <Compile Include="Services\File\FirmaDigitale2\FirmaDigitale2ServiceOptions.cs" />
+    <Compile Include="Services\File\FirmaDigitale2\IFirmaDigitale2Service.cs" />
+    <Compile Include="Services\File\FirmaDigitale2\VerificaRequest.cs" />
+    <Compile Include="Services\File\FirmaDigitale2\VerificaResponse.cs" />
+    <Compile Include="Services\File\FirmaDigitale\DatiFirma.cs" />
+    <Compile Include="Services\File\FirmaDigitale\Documento.cs" />
+    <Compile Include="Services\File\FirmaDigitale\EsitoVerificaFirma.cs" />
+    <Compile Include="Services\File\FirmaDigitale\FirmaDigitaleServiceOptions.cs" />
+    <Compile Include="Services\File\FirmaDigitale\Firmatario.cs" />
+    <Compile Include="Services\File\FirmaDigitale\FirmatarioControfirmatario.cs" />
+    <Compile Include="Services\File\FirmaDigitale\IFirmaDigitaleService.cs" />
+    <Compile Include="Services\File\FirmaDigitale\Marca.cs" />
+    <Compile Include="Services\File\FirmaDigitale\ParteFirmata.cs" />
+    <Compile Include="Services\File\FirmaDigitale\VerificaRequest.cs" />
+    <Compile Include="Services\File\FirmaDigitale\VerificaResponse.cs" />
+    <Compile Include="Services\File\FirmaRemota2\Esito.cs" />
+    <Compile Include="Services\File\FirmaRemota2\FileDaFirmare.cs" />
+    <Compile Include="Services\File\FirmaRemota2\FileFirmato.cs" />
+    <Compile Include="Services\File\FirmaRemota2\FirmaCAdESRequest.cs" />
+    <Compile Include="Services\File\FirmaRemota2\FirmaCAdESResponse.cs" />
+    <Compile Include="Services\File\FirmaRemota2\FirmaPAdESRequest.cs" />
+    <Compile Include="Services\File\FirmaRemota2\FirmaPAdESResponse.cs" />
+    <Compile Include="Services\File\FirmaRemota2\FirmaRemota2ServiceOptions.cs" />
+    <Compile Include="Services\File\FirmaRemota2\FirmaRemotaPi3Exception.cs" />
+    <Compile Include="Services\File\FirmaRemota2\IFirmaRemota2Service.cs" />
+    <Compile Include="Services\File\FirmaRemota2\RichiestaOtpRequest.cs" />
+    <Compile Include="Services\File\FirmaRemota2\RichiestaOtpResponse.cs" />
+    <Compile Include="Services\File\FirmaRemota2\VisualizzaCertificatoRequest.cs" />
+    <Compile Include="Services\File\FirmaRemota2\VisualizzaCertificatoResponse.cs" />
+    <Compile Include="Services\File\FirmaRemota\FileFirmato.cs" />
+    <Compile Include="Services\File\FirmaRemota\FirmaCAdESRequest.cs" />
+    <Compile Include="Services\File\FirmaRemota\FirmaCAdESResponse.cs" />
+    <Compile Include="Services\File\FirmaRemota\FirmaPAdESRequest.cs" />
+    <Compile Include="Services\File\FirmaRemota\FirmaPAdESResponse.cs" />
+    <Compile Include="Services\File\FirmaRemota\FirmaRemotaServiceOptions.cs" />
+    <Compile Include="Services\File\FirmaRemota\IFirmaRemotaService.cs" />
+    <Compile Include="Services\File\FirmaRemota\RichiestaOtpRequest.cs" />
+    <Compile Include="Services\File\FirmaRemota\RichiestaOtpResponse.cs" />
+    <Compile Include="Services\File\MarcaTemporale\FileMarcatura.cs" />
+    <Compile Include="Services\File\MarcaTemporale\HashAlgorithms.cs" />
+    <Compile Include="Services\File\MarcaTemporale\IMarcaTemporaleService.cs" />
+    <Compile Include="Services\File\MarcaTemporale\MarcaTemporaleServiceOptions.cs" />
+    <Compile Include="Services\File\MarcaTemporale\MarcaTsdRequest.cs" />
+    <Compile Include="Services\File\MarcaTemporale\MarcaTsdResponse.cs" />
+    <Compile Include="Services\File\MarcaTemporale\MarcaTsrHashRequest.cs" />
+    <Compile Include="Services\File\MarcaTemporale\MarcaTsrHashResponse.cs" />
+    <Compile Include="Services\File\MarcaTemporale\MarcaTsrRequest.cs" />
+    <Compile Include="Services\File\MarcaTemporale\MarcaTsrResponse.cs" />
+    <Compile Include="Services\File\PAdES\IPAdESService.cs" />
+    <Compile Include="Services\File\ReportGenerator\BreakPageSectionModel.cs" />
+    <Compile Include="Services\File\ReportGenerator\EmptySectionModel.cs" />
+    <Compile Include="Services\File\ReportGenerator\GeneratedReport.cs" />
+    <Compile Include="Services\File\ReportGenerator\GridCellModel.cs" />
+    <Compile Include="Services\File\ReportGenerator\GridCellStyleModel.cs" />
+    <Compile Include="Services\File\ReportGenerator\GridRowModel.cs" />
+    <Compile Include="Services\File\ReportGenerator\GridSectionModel.cs" />
+    <Compile Include="Services\File\ReportGenerator\GridSectionStyleModel.cs" />
+    <Compile Include="Services\File\ReportGenerator\ImageSectionModel.cs" />
+    <Compile Include="Services\File\ReportGenerator\IReportGeneratorService.cs" />
+    <Compile Include="Services\File\ReportGenerator\ISectionModel.cs" />
+    <Compile Include="Services\File\ReportGenerator\Justifications.cs" />
+    <Compile Include="Services\File\ReportGenerator\LineSectionModel.cs" />
+    <Compile Include="Services\File\ReportGenerator\LineStyles.cs" />
+    <Compile Include="Services\File\ReportGenerator\PageNumberSectionModel.cs" />
+    <Compile Include="Services\File\ReportGenerator\PageOrientations.cs" />
+    <Compile Include="Services\File\ReportGenerator\PageSizes.cs" />
+    <Compile Include="Services\File\ReportGenerator\ReportGeneratorCapabilities.cs" />
+    <Compile Include="Services\File\ReportGenerator\ReportModel.cs" />
+    <Compile Include="Services\File\ReportGenerator\ReportOutputTypes.cs" />
+    <Compile Include="Services\File\ReportGenerator\TextContentModel.cs" />
+    <Compile Include="Services\File\ReportGenerator\TestStyleModel.cs" />
+    <Compile Include="Services\File\ReportGenerator\TextSectionModel.cs" />
+    <Compile Include="Services\File\ReportGenerator\TextSectionStyleModel.cs" />
+    <Compile Include="Services\File\ReportGenerator\VerticalAlignments.cs" />
+    <Compile Include="Services\File\SigilloElettronico\ApparenceType.cs" />
+    <Compile Include="Services\File\SigilloElettronico\ISigilloElettronicoService.cs" />
+    <Compile Include="Services\File\SigilloElettronico\SigilloElettronicoServiceOptions.cs" />
+    <Compile Include="Services\File\SigilloElettronico\SignPDFType.cs" />
+    <Compile Include="Services\File\SigilloElettronico\SignResponsePDFType.cs" />
+    <Compile Include="Services\File\SigilloElettronico\SignResponseXMLType.cs" />
+    <Compile Include="Services\File\SigilloElettronico\SignXMLType.cs" />
+    <Compile Include="Services\File\Spreadsheet\CellModel.cs" />
+    <Compile Include="Services\File\Spreadsheet\CellStyleModel.cs" />
+    <Compile Include="Services\File\Spreadsheet\CellTextAlignments.cs" />
+    <Compile Include="Services\File\Spreadsheet\GeneratedSpreadsheet.cs" />
+    <Compile Include="Services\File\Spreadsheet\SheetModel.cs" />
+    <Compile Include="Services\File\Spreadsheet\SpreadsheetModel.cs" />
+    <Compile Include="Services\File\Spreadsheet\ISpreadsheetService.cs" />
+    <Compile Include="Services\File\TextExtractors\ErrorDescriptions.Designer.cs">
+      <DependentUpon>ErrorDescriptions.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Services\File\TextExtractors\Exceptions.cs" />
+    <Compile Include="Services\File\TextExtractors\FileTextExtractionResultsModel.cs" />
+    <Compile Include="Services\File\TextExtractors\FileTextExtractorServiceProviderFactory.cs" />
+    <Compile Include="Services\File\TextExtractors\IFileTextExtractorFactory.cs" />
+    <Compile Include="Services\File\TextExtractors\IFileTextExtractorService.cs" />
+    <Compile Include="Services\File\Uploader\IUploaderService.cs" />
+    <Compile Include="Services\File\Uploader\UploadMetadata.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Services\File\Converters\ErrorDescriptions.resx">
+      <LastGenOutput>ErrorDescriptions.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\File\Decorators\ErrorDescriptions.resx">
+      <LastGenOutput>ErrorDescriptions.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\File\TextExtractors\ErrorDescriptions.resx">
+      <LastGenOutput>ErrorDescriptions.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.8" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Extensions\DateTimeExtensionsResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DateTimeExtensionsResources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="SeedWork\ErrorDescriptions.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ErrorDescriptions.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Services\Factory\ErrorDescriptions.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ErrorDescriptions.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Services\Principal\Claims.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Claims.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Services\Principal\ErrorDescriptions.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ErrorDescriptions.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Extensions\DateTimeExtensionsResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DateTimeExtensionsResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="SeedWork\ErrorDescriptions.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorDescriptions.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Services\Factory\ErrorDescriptions.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorDescriptions.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Services\Principal\Claims.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Claims.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Services\Principal\ErrorDescriptions.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorDescriptions.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

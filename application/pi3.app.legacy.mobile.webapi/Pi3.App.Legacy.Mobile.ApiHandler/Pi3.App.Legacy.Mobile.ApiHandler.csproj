@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Commands\**" />
+    <EmbeddedResource Remove="Commands\**" />
+    <None Remove="Commands\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.2.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pi3.App.Legacy.Mobile.Data\Pi3.App.Legacy.Mobile.Data.csproj" />
+    <ProjectReference Include="..\Pi3.App.Legacy.Mobile.Shared\Pi3.App.Legacy.Mobile.Shared.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="ListaIstanze.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

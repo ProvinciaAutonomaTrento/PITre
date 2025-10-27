@@ -1,0 +1,24 @@
+// SPDX-FileCopyrightText: 2025 Provincia Autonoma di Trento <https://www.provincia.tn.it>
+// SPDX-License-Identifier: EUPL-1.2
+using System;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+using System.Text;
+using DocsPaVO.amministrazione;
+
+namespace DocsPaVO.RubricaComune
+{
+    /// <summary>
+    /// Rappresenta le informazioni di una uo docspa da inserire nella rubrica comune
+    /// </summary>
+    [Serializable()]
+    [DataContract]
+    public class ElementoRubricaUO : ElementoRC
+    {
+        /// <summary>
+        /// Rappresenta l'Uo docspa da inviare in rubrica comune
+        /// </summary>
+        [DataMember]
+        public OrgUO UO { get; set; }
+    }
+}

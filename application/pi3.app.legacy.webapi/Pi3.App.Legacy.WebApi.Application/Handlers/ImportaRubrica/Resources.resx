@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CorrEntry" xml:space="preserve">
+    <value>Corrispondente  inserito - Codice Rubrica: {0}</value>
+  </data>
+  <data name="CorrNotAddedEntry" xml:space="preserve">
+    <value>Corrispondente non inserito - Codice Rubrica: {0}</value>
+  </data>
+  <data name="DefChannel" xml:space="preserve">
+    <value>LETTERA</value>
+  </data>
+  <data name="DelCorr" xml:space="preserve">
+    <value>Corrispondente rimosso - Codice Rubrica: {0}</value>
+  </data>
+  <data name="DelCorrInList" xml:space="preserve">
+    <value>Il corrispondente è presente nella lista di distribuzione e non è possibile rimuoverlo: {0}</value>
+  </data>
+  <data name="DelMailCorr" xml:space="preserve">
+    <value>Corrispondente rimosso correttamente  - Codice Rubrica: {0}</value>
+  </data>
+  <data name="DuplicateMail" xml:space="preserve">
+    <value>\nAttenzione, indirizzo EMAIL duplicato</value>
+  </data>
+  <data name="EndOfImport" xml:space="preserve">
+    <value>Fine importazione utenti</value>
+  </data>
+  <data name="ErrorImport" xml:space="preserve">
+    <value>Errore durante l'importazione della rubrica. Errore: {0}</value>
+  </data>
+  <data name="InImport" xml:space="preserve">
+    <value>Inizio importazione rubrica</value>
+  </data>
+  <data name="InteropChan" xml:space="preserve">
+    <value>\nAttenzione, per CANALE PREFERENZIALE di tipo INTEROPERABILITA occorre specificare i campi MAIL, CODICE AOO e CODICE AMM</value>
+  </data>
+  <data name="InvalidAmmCode" xml:space="preserve">
+    <value>\nAttenzione, il campo CODICE AMMINISTRAZIONE contiene caratteri non validi</value>
+  </data>
+  <data name="InvalidAooCode" xml:space="preserve">
+    <value>\nAttenzione, il campo CODICE AOO contiene caratteri non validi</value>
+  </data>
+  <data name="InvalidCap" xml:space="preserve">
+    <value>\nAttenzione, il campo CAP deve essere numerico</value>
+  </data>
+  <data name="InvalidCF" xml:space="preserve">
+    <value>\nAttenzione, il campo CODICE FISCALE ha caratteri non validi</value>
+  </data>
+  <data name="InvalidCh" xml:space="preserve">
+    <value>\nAttenzione, il CANALE PREFERENZIALE non è valido</value>
+  </data>
+  <data name="InvalidChInternopNoSm" xml:space="preserve">
+    <value>\nAttenzione, per CANALE PREFERENZIALE di tipo INTEROPERABILITA occorre specificare i campi MAIL, CODICE AOO e CODICE AMM</value>
+  </data>
+  <data name="InvalidChInterop" xml:space="preserve">
+    <value>\nAttenzione, il CANALE PREFERENZIALE di tipo INTEROPERABILITA PITRE non è valido</value>
+  </data>
+  <data name="InvalidChNoMail" xml:space="preserve">
+    <value>\nAttenzione, per CANALE PREFERENZIALE di tipo mail occorre specificare il campo MAIL</value>
+  </data>
+  <data name="InvalidCodRub" xml:space="preserve">
+    <value>\nAttenzione, il campo CODICE RUBRICA contiene caratteri non validi.</value>
+  </data>
+  <data name="InvalidCorrType" xml:space="preserve">
+    <value>\nAttenzione, il campo TIPO non è corretto.</value>
+  </data>
+  <data name="InvalidFax" xml:space="preserve">
+    <value>\nAttenzione, il valore inserito nel campo fax non è accettabile</value>
+  </data>
+  <data name="InvalidMail" xml:space="preserve">
+    <value>\nAttenzione, inserire una EMAIL valida</value>
+  </data>
+  <data name="InvalidPIva" xml:space="preserve">
+    <value>\nAttenzione, il campo PARTITA IVA contiene caratteri non validi</value>
+  </data>
+  <data name="InvalidProv" xml:space="preserve">
+    <value>\nAttenzione, il campo PROVINCIA contiene caratteri non validi!</value>
+  </data>
+  <data name="InvalidReg" xml:space="preserve">
+    <value>\nAttenzione, il campo COD. REGISTRO non è corretto.</value>
+  </data>
+  <data name="InvalidTaxCode" xml:space="preserve">
+    <value>\nAttenzione, il campo CODICE FISCALE ha caratteri non validi</value>
+  </data>
+  <data name="InvalidTel1" xml:space="preserve">
+    <value>\nAttenzione, il valore inserito nel campo telefono non è accettabile</value>
+  </data>
+  <data name="InvalidTel2" xml:space="preserve">
+    <value>\nAttenzione, il valore inserito nel campo telefono2 non è accettabile</value>
+  </data>
+  <data name="MailChan" xml:space="preserve">
+    <value>\nAttenzione, per CANALE PREFERENZIALE di tipo mail occorre specificare il campo MAIL</value>
+  </data>
+  <data name="MissingArgs" xml:space="preserve">
+    <value>\nAttenzione, riempire i campi obbligatori prima di effettuare l'inserimento di un nuovo corrispondente.</value>
+  </data>
+  <data name="MissingChannel" xml:space="preserve">
+    <value>attenzione, nel foglio excel manca la colonna Canale preferenziale, quindi viene impostato il canale LETTERA. La colonna Canale preferenziale deve essere ultima nel foglio excel.</value>
+  </data>
+  <data name="NonDelCorr" xml:space="preserve">
+    <value>Corrispondente non rimosso - Codice Rubrica: {0}</value>
+  </data>
+  <data name="NonDelCorrCodReg" xml:space="preserve">
+    <value>Corrispondente non rimosso - Codice Rubrica: {0} . Il codice registro non e' corretto.</value>
+  </data>
+  <data name="NonDelCorrError" xml:space="preserve">
+    <value>Errore durante l'eliminazione di un corrispondente. codice errore: {0}</value>
+  </data>
+  <data name="NonDelMailCorr" xml:space="preserve">
+    <value>Corrispondente non rimosso correttamente - Codice Rubrica: {0}</value>
+  </data>
+  <data name="NonUpdatedCorr" xml:space="preserve">
+    <value>Corrispondente non aggiornato - Codice Rubrica: {0}</value>
+  </data>
+  <data name="ResMessage" xml:space="preserve">
+    <value>Utenti Inseriti: {0} - Utenti Aggiornati: {1} - Utenti Rimossi: {2} - Utenti NON Inseriti: {3} - Utenti NON Aggiornati: {4} - Utenti NON Rimossi: {5}</value>
+  </data>
+  <data name="StorMissing" xml:space="preserve">
+    <value>Nessuna azione specificata: compilare la colonna Storicizza.</value>
+  </data>
+  <data name="UpdateCorr" xml:space="preserve">
+    <value>Corrispondente aggiornato - Codice Rubrica: {0}</value>
+  </data>
+</root>

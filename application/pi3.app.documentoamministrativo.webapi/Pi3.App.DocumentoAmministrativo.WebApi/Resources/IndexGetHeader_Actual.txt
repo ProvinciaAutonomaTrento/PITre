@@ -1,0 +1,238 @@
+﻿[
+	{
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/Entrata",
+		"rel": "/linkrels/documento/aggiungi/entrata",
+		"type": "POST",
+		"operationId": "crea_documento_entrata"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/Uscita",
+		"rel": "/linkrels/documento/aggiungi/uscita",
+		"type": "POST",
+		"operationId": "crea_documento_uscita"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/Interno",
+		"rel": "/linkrels/documento/aggiungi/Interno",
+		"type": "POST",
+		"operationId": "crea_documento_interno"
+	},{
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/NonProtocollato",
+		"rel": "/linkrels/documento/aggiungi/non protocollato",
+		"type": "POST",
+		"operationId": "crea_documento_non_protocollato"
+	},{
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/Versioni",
+		"rel": "/linkrels/documento/versione/nuova con upload",
+		"type": "PUT",
+		"operationId": "upload_versione"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/Contenuti/APdf",
+		"rel": "/linkrels/documento/versione/corrente/a pdf",
+		"type": "PUT",
+		"operationId": "converti_apdf_nuova_versione"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/Versioni/{idVersione}/Contenuti/APdf",
+		"rel": "/linkrels/documento/versione/specifica/a pdf",
+		"type": "PUT",
+		"operationId": "converti_apdf_nuova_versione"
+	},{
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/?versioni=true,classificazioni=true,aggregazioni=true,permessi=true,profili=true,allegati=true,soggetti=true,note=true,keywords=true",
+		"rel": "/linkrels/documento/leggi",
+		"type": "GET",
+		"operationId": "scarica_documento"
+	},{
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/Contenuti",
+		"rel": "/linkrels/documento/allegato/corrente/download",
+		"type": "GET",
+		"operationID": "scarica_allegato_versione"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/Versioni/{idVersione}/Contenuti",
+		"rel": "/linkrels/documento/allegato/versione/download",
+		"type": "GET",
+		"operationID": "scarica_allegato_versione"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/Predisposto",
+		"rel": "/linkrels/documento/protocollazione/predisponi",
+		"type": "PUT",
+		"operationId": "predisponi_protocollazione_documento"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/Registrazione",
+		"rel": "/linkrels/documento/protocollaziuone/registrazione",
+		"type": "PUT",
+		"operationId": "protocolla_documento"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/Classificazioni",
+		"rel": "/linkrels/documento/classificazioni/aggiungi",
+		"type": "PUT",
+		"operationId": "aggiungi_classificazione"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/Aggregazione",
+		"rel": "/linkrels/documento/aggregato/collegato/aggiungi",
+		"type": "PUT",
+		"operationId": "aggiungi_aggregazione"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/Oggetto",
+		"rel": "/linkrels/documento/aggregato/oggetto/imposta",
+		"type": "PUT",
+		"operationId": "imposta_oggetto"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/Mittente",
+		"rel": "/linkrels/documento/mittente/imposta",
+		"type": "PUT",
+		"operationId": "cambia_mittente"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/MittentiMultipli",
+		"rel": "/linkrels/documento/mittenti multipli/aggiungi",
+		"type": "PUT",
+		"operationId": "aggiungi_mittente"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/Destinatari",
+		"rel": "/linkrels/documento/destinatari/aggiungi",
+		"type": "PUT",
+		"operationId": "aggiungi_destinatario"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/DestinatariCC",
+		"rel": "/linkrels/documento/destinatari cc/aggiungi",
+		"type": "PUT",
+		"operationId": "aggiungi_destinatario_cc"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/Keywords",
+		"rel": "/linkrels/documento/parola chiave/aggiungi",
+		"type": "PUT",
+		"operationId": "aggiungi_parola_chiave"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/Keywords/{keyword}",
+		"rel": "/linkrels/documento/parola chiave/cancella",
+		"type": "DELETE",
+		"operationId": "cancella_parola_chiave"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/Consolidamento",
+		"rel": "/linkrels/documento/consolida",
+		"type": "PUT",
+		"operationId": "consolida_documento"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/MezzoSpedizione",
+		"rel": "/linkrels/documento/mezzo spedizione/imposta",
+		"type": "PUT",
+		"operationId": "mezzo_spedizione"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/Note",
+		"rel": "/linkrels/documento/note/aggiungi",
+		"type": "POST",
+		"operationId": "aggiungi_nota"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/Note/{idNota}",
+		"rel": "/linkrels/documento/note/cancella",
+		"type": "DELETE",
+		"operationId": "cancella_nota"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/ProtocolloMittente",
+		"rel": "/linkrels/documento/protocollo mittente/imposta",
+		"type": "PUT",
+		"operationId": "protocollo_mittente"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/ProtocolloEmergenza",
+		"rel": "/linkrels/documento/protocollo emergenza/imposta",
+		"type": "PUT",
+		"operationId": "protocollo_emergenza"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/DocumentiCollegati",
+		"rel": "/linkrels/documento/documento padre-figlio/aggiungi",
+		"type": "PUT",
+		"operationId": "aggiungi_documento_collegato"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/DocumentiCollegati/{idDocumentoCollegato}",
+		"rel": "/linkrels/documento/documento padre-figlio/cancella",
+		"type": "DELETE",
+		"operationId": "cancella_documento_collegato"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/Profili",
+		"rel": "/linkrels/documento/profilo tipo documento/imposta",
+		"type": "PUT",
+		"operationId": "imposta_profilo"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/Annullamento",
+		"rel": "/linkrels/documento/protocollato/annulla",
+		"type": "PUT",
+		"operationId": "annulla_documento"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}",
+		"rel": "/linkrels/documento/non protocollato/cestinare",
+		"type": "DELETE",
+		"operationId":  "cestina_documento"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/Ripristina",
+		"rel": "/linkrels/documento/non protocollato/rimosso/ripristina",
+		"type": "PUT",
+		"operationId": "ripristina_documento"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/Trasmissioni",
+		"rel": "/linkrels/documento/trasmissioni/aggiungi",
+		"type": "POST",
+		"operationId": "aggiungi_trasmissione"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/Trasmissioni",
+		"rel": "/linkrels/documento/trasmissioni/lista",
+		"type": "GET",
+		"operationId": "lista_trasmissioni"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/Trasmissioni/Modello/{codModello}",
+		"rel": "/linkrels/documento/trasmissioni/da modello/aggiungi",
+		"type": "POST",
+		"operationId": "aggiungi_trasmissione_modello"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/Trasmissioni/{idTrasmissione}",
+		"rel": "/linkrels/documento/trasmissioni/modifica",
+		"type": "PUT",
+		"operationId": "aggiorna_trasmissione"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/Trasmissioni/{idTrasmissione}",
+		"rel": "/linkrels/documento/trasmissioni/cancella",
+		"type": "DELETE",
+		"operationId": "cancella_trasmissione"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/Trasmissioni/{idTrasmissione}/Invio",
+		"rel": "/linkrels/documento/trasmissioni/invio",
+		"type": "PUT",
+		"operationId": "invia_trasmissione"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/Trasmissioni/{idTrasmissione}/Accettazione",
+		"rel": "/linkrels/documento/trasmissioni/accetta",
+		"type": "PUT",
+		"operationId": "accetta_trasmissione"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/Trasmissioni/{idTrasmissione}/Rifiuto",
+		"rel": "/linkrels/documento/trasmissioni/rifiuta",
+		"type": "PUT",
+		"operationId": "rifiuta_trasmissione"
+	}, {
+		"url": "/api/v1/{instance}/DocumentiAmministrativi/{idDocumento}/Trasmissioni/{idTrasmissione}/Visto",
+		"rel": "/linkrels/documento/trasmissioni/vista",
+		"type": "PUT",
+		"operationId": "vista_trasmissione"
+	}, {
+		"url": "/api/v1/{instance}/Ricerche/NonProtocollato/?annoCreazione=2024",
+		"rel": "/linkrels/documento/non protocollato/ricerca",
+		"type": "GET",
+		"operationId": "ricerca_non_protocollato"
+	}, {
+		"url": "/api/v1/{instance}/Ricerche/Entrata/?annoCreazione=2024&registro=PAT",
+		"rel": "/linkrels/documento/entrata/ricerca",
+		"type": "GET",
+		"operationId": "ricerca_entrata"
+	}, {
+		"url": "/api/v1/{instance}/Ricerche/Uscita/?annoCreazione=2024&registro=PAT",
+		"rel": "/linkrels/documento/uscita/ricerca",
+		"type": "GET",
+		"operationId": "ricerca_uscita"
+	}, {
+		"url": "/api/v1/{instance}/Ricerche/Interno/?annoCreazione=2024&registro=PAT",
+		"rel": "/linkrels/documento/interno/ricerca",
+		"type": "GET",
+		"operationId": "ricerca_interno"
+	}, {
+		"url": "/api/v1/{instance}/Uploader/Chunk",
+		"rel": "/linkrels/documento/upload parte file",
+		"type": "POST",
+		"operationId": "upload_versione"
+	},
+]

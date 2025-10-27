@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Pi3.Core</RootNamespace>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>1.3.4</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pi3.Core.CorrispondenteAggregate\Pi3.Core.CorrispondenteAggregate.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AggregateModels\PersonaCorrispondenteAggregate\Entities\" />
+    <Folder Include="AggregateModels\PersonaCorrispondenteAggregate\Factories\" />
+    <Folder Include="AggregateModels\PersonaCorrispondenteAggregate\ValueObjects\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="AggregateModels\PersonaCorrispondenteAggregate\Resources\ErrorDescriptions.Designer.cs">
+      <DependentUpon>ErrorDescriptions.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="AggregateModels\PersonaCorrispondenteAggregate\Resources\ErrorDescriptions.resx">
+      <LastGenOutput>ErrorDescriptions.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

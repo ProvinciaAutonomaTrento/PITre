@@ -1,0 +1,17 @@
+// SPDX-FileCopyrightText: 2025 Provincia Autonoma di Trento <https://www.provincia.tn.it>
+// SPDX-License-Identifier: EUPL-1.2
+using Pi3.App.InteropPitre.WebApi.Application.Commands.InteroperabilityService.AnalyzeDocumentReceivedProof;
+using Refit;
+
+namespace Pi3.App.InteropPitre.WebApi.Infrastructure.Services.SendProof
+{
+    public interface IInteroperabilityService
+    {
+        [Put("/{instance}/InteroperabilityService/AnalyzeDocumentReceivedProof")]
+        Task AnalyzeDocumentReceivedProof(
+            string instance,
+            [Authorize("Bearer")] string token,
+            [Header("tenant")] string tenant,
+            [Body] AnalyzeDocumentReceivedProofRequest request);
+    }
+}

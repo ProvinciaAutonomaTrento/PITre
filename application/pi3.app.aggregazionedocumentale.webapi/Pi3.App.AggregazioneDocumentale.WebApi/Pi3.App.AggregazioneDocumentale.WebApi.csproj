@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>30031ca0-cb01-49af-8484-83034ea82146</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="..\Pi3.App.AggregazioneDocumentale.WebApi.Tests\Resources\CollocazioneFisicaPutTest_Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.AggregazioneDocumentale.WebApi.Tests\Resources\DescrizionePutTest_Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.AggregazioneDocumentale.WebApi.Tests\Resources\FoldersPostTest_Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.AggregazioneDocumentale.WebApi.Tests\Resources\IdDocsPutTest_Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.AggregazioneDocumentale.WebApi.Tests\Resources\IndexPostTest_Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.AggregazioneDocumentale.WebApi.Tests\Resources\NotePostTest_Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.AggregazioneDocumentale.WebApi.Tests\Resources\ProfiloPost_Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.AggregazioneDocumentale.WebApi.Tests\Resources\TrasmissioneInvioPutTest_Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.AggregazioneDocumentale.WebApi.Tests\Resources\TrasmissioniAppendPut_Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.AggregazioneDocumentale.WebApi.Tests\Resources\TrasmissioniPost_Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.AggregazioneDocumentale.WebApi.Tests\Resources\TrasmissioniPut_Actual.txt" />
+    <_ContentIncludedByDefault Remove="..\Pi3.App.AggregazioneDocumentale.WebApi.Tests\Resources\TrasmissioniUtentiPost_Actual .txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\Pi3.App.AggregazioneDocumentale.WebApi.Tests\Resources\CollocazioneFisicaPutTest_Actual.txt" Link="Resources\Examples\CollocazioneFisicaPutTest_Actual.txt" />
+    <Content Include="..\Pi3.App.AggregazioneDocumentale.WebApi.Tests\Resources\DescrizionePutTest_Actual.txt" Link="Resources\Examples\DescrizionePutTest_Actual.txt" />
+    <Content Include="..\Pi3.App.AggregazioneDocumentale.WebApi.Tests\Resources\FoldersPostTest_Actual.txt" Link="Resources\Examples\FoldersPostTest_Actual.txt" />
+    <Content Include="..\Pi3.App.AggregazioneDocumentale.WebApi.Tests\Resources\IdDocsPutTest_Actual.txt" Link="Resources\Examples\IdDocsPutTest_Actual.txt" />
+    <Content Include="..\Pi3.App.AggregazioneDocumentale.WebApi.Tests\Resources\IndexPostTest_Actual.txt" Link="Resources\Examples\IndexPostTest_Actual.txt" />
+    <Content Include="..\Pi3.App.AggregazioneDocumentale.WebApi.Tests\Resources\NotePostTest_Actual.txt" Link="Resources\Examples\NotePostTest_Actual.txt" />
+    <Content Include="..\Pi3.App.AggregazioneDocumentale.WebApi.Tests\Resources\ProfiloPost_Actual.txt" Link="Resources\Examples\ProfiloPost_Actual.txt" />
+    <Content Include="..\Pi3.App.AggregazioneDocumentale.WebApi.Tests\Resources\TrasmissioneInvioPutTest_Actual.txt" Link="Resources\Examples\TrasmissioneInvioPutTest_Actual.txt" />
+    <Content Include="..\Pi3.App.AggregazioneDocumentale.WebApi.Tests\Resources\TrasmissioniAppendPut_Actual.txt" Link="Resources\Examples\TrasmissioniAppendPut_Actual.txt" />
+    <Content Include="..\Pi3.App.AggregazioneDocumentale.WebApi.Tests\Resources\TrasmissioniPost_Actual.txt" Link="Resources\Examples\TrasmissioniPost_Actual.txt" />
+    <Content Include="..\Pi3.App.AggregazioneDocumentale.WebApi.Tests\Resources\TrasmissioniPut_Actual.txt" Link="Resources\Examples\TrasmissioniPut_Actual.txt" />
+    <Content Include="..\Pi3.App.AggregazioneDocumentale.WebApi.Tests\Resources\TrasmissioniUtentiPost_Actual .txt" Link="Resources\Examples\TrasmissioniUtentiPost_Actual .txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Elastic.Apm.NetCoreAll" Version="1.31.0" />
+    <PackageReference Include="MediatR" Version="12.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="8.0.3" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="8.0.1-dev-00561" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.1-dev-00972" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="8.0.2" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.aac-main\Pi3.Infrastructure.AAC\Pi3.Infrastructure.AAC.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.AggregazioneDocumentale\Pi3.Infrastructure.Legacy.EF.AggregazioneDocumentaleAggregate.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.ModelloTrasmissioneAggregate\Pi3.Infrastructure.Legacy.EF.ModelloTrasmissioneAggregate.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.NoteAggregate\Pi3.Infrastructure.Legacy.EF.NotaAggregate.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.Oracle\Pi3.Infrastructure.Legacy.EF.Oracle.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.Services\Pi3.Infrastructure.Legacy.EF.Services.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.TrasmissioneAggregate\Pi3.Infrastructure.Legacy.EF.TrasmissioneAggregate.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Application\DomainEventHandlers\" />
+    <Folder Include="Resources\Examples\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources\Documentation.Designer.cs">
+      <DependentUpon>Documentation.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Resources\ErrorDescriptions.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ErrorDescriptions.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Examples.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Examples.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Files.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Files.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Documentation.resx">
+      <LastGenOutput>Documentation.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\ErrorDescriptions.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorDescriptions.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Examples.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Examples.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Files.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Files.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Pi3.App.AggregazioneDocumentale.WebApi.Tests" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="wwwroot\swagger-ui\cors.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>

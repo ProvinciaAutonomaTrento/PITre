@@ -1,0 +1,998 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.firmadigitale.regione.taa.it/FirmaRemota" xmlns:ns0="http://www.firmadigitale.regione.taa.it/FirmaRemota/schemas" xmlns:soap1="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ns1="http://www.regione.taa.it/FaultType/schemas" name="Untitled" targetNamespace="http://www.firmadigitale.regione.taa.it/FirmaRemota" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:tns="http://www.firmadigitale.regione.taa.it/FirmaRemota/schemas" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.firmadigitale.regione.taa.it/FirmaRemota/schemas" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="AliasType">
+        <xs:annotation>
+          <xs:documentation>Dati di alias estratti da query per Codice Fiscale</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="certificationAuthority" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>CertificationAuthority del certificato del firmatario</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="aliasCertificato" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Alias del certificato del firmatario</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="dominioCertificato" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Dominio del certificato del firmatario</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="tipoOTP" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Tipo OTP del certificato del firmatario (SMS, Dispositivo hardware, App, ...)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CertificatoType">
+        <xs:annotation>
+          <xs:documentation>Dati del certificato</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="subject" type="xs:string" />
+          <xs:element minOccurs="0" name="issuer" type="xs:string" />
+          <xs:element minOccurs="0" name="dataInizioValidita" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="dataFineValidita" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="serialNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="dettaglioCertificato" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ControFirmaResponseType">
+        <xs:sequence>
+          <xs:element name="docControFirmati" type="tns:DocumentiControFirmatiType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ControFirmaType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="docDaControFirmare" type="xs:base64Binary">
+            <xs:annotation>
+              <xs:documentation>Rappresenta una lista di file binari in formato Base64 (si veda la RFC 2045)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="aliasDomCertDaControFirmare" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Alias_dominio del certificato da controfirmare. Alias e dominio sono separati da "_".Es ZNECLD00E10H612N_INFOCERT</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="aliasCertificato" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Alias del certificato del firmatario</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="dominioCertificato" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Dominio del certificato del firmatario</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="pinCertificato" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>PIN del certificato del firmatario</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="otpFirma" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>One Time Password per firmare</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="marcaTemporale">
+            <xs:annotation>
+              <xs:documentation>Indica se marcare o meno il file. 0 (default) NO, 1 SI</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:byte">
+                <xs:enumeration value="1" />
+                <xs:enumeration value="0" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DocumentiControFirmatiType">
+        <xs:annotation>
+          <xs:documentation>Elenco documenti controfirmati</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="docControFirmato" type="xs:base64Binary">
+            <xs:annotation>
+              <xs:documentation>Lista di byte array controfirmatie/o marcati</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="controFirmaMarcata" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Indica se la controfirma è marcata. Valore: 0 (default) NO, 1 SI</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="dataControFirma" type="xs:dateTime">
+          <xs:annotation>
+            <xs:documentation>Data ora controfirma</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:complexType>
+      <xs:complexType name="DocumentiFirmatiType">
+        <xs:annotation>
+          <xs:documentation>Elenco documenti firmati</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="documentoFirmato" type="xs:base64Binary">
+            <xs:annotation>
+              <xs:documentation>Rappresenta una lista di documenti firmati in formato Base64 (si veda la RFC 2045)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="dataFirma" type="xs:dateTime">
+          <xs:annotation>
+            <xs:documentation>Data ora del file firmato. </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="fileMarcato" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Indica se il file è marcato. Valore: 0 (default) NO, 1 SI</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="tipoFirma" type="xs:anySimpleType">
+          <xs:annotation>
+            <xs:documentation>P7M o PDF</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:complexType>
+      <xs:complexType name="FileFirmatiType">
+        <xs:annotation>
+          <xs:documentation>Elenco documenti firmati</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="documentoFirmato" type="xs:base64Binary">
+            <xs:annotation>
+              <xs:documentation>Rappresenta una lista di documenti firmati in formato Base64 (si veda la RFC 2045)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="dataFirma" type="xs:dateTime">
+          <xs:annotation>
+            <xs:documentation>Data ora del file firmato. </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="fileMarcato" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Indica se i file sono marcati. Valore: 0 (default) NO, 1 SI</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:complexType>
+      <xs:complexType name="FirmaRemotaMultiplaP7MType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="fileDaFirmare" type="xs:base64Binary">
+            <xs:annotation>
+              <xs:documentation>Rappresenta una lista di file binari in formato Base64 (si veda la RFC 2045)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="aliasCertificato" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Alias del certificato del firmatario</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="dominioCertificato" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Dominio del certificato del firmatario</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="pinCertificato" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>PIN del certificato del firmatario</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="otpFirma" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>One Time Password per firmare</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="marcaTemporale">
+            <xs:annotation>
+              <xs:documentation>Indica se marcare o meno il file. 0 (default) NO, 1 SI</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:byte">
+                <xs:enumeration value="1" />
+                <xs:enumeration value="0" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="firmaParallela">
+            <xs:annotation>
+              <xs:documentation>Se esiste già una firma indica se inserirla parallela (1) o no (0, default)</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:byte">
+                <xs:enumeration value="0" />
+                <xs:enumeration value="1" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="FirmaRemotaMultiplaPDFType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="fileDaFirmare" type="xs:base64Binary">
+            <xs:annotation>
+              <xs:documentation>Rappresenta una lista di file binari in formato Base64 (si veda la RFC 2045)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="aliasCertificato" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Alias del certificato del firmatario</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="dominioCertificato" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Dominio del certificato del firmatario</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="pinCertificato" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>PIN del certificato del firmatario</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="otpFirma" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>One Time Password per firmare</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="marcaTemporale">
+            <xs:annotation>
+              <xs:documentation>Indica se marcare o meno il file. 0 (default) NO, 1 SI</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:byte">
+                <xs:enumeration value="1" />
+                <xs:enumeration value="0" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="FirmaRemotaP7MType">
+        <xs:sequence>
+          <xs:element name="fileDaFirmare" type="xs:base64Binary">
+            <xs:annotation>
+              <xs:documentation>Rappresenta un file binario firmato in formato Base64 (si veda la RFC 2045)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="aliasCertificato" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Alias del certificato del firmatario</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="dominioCertificato" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Dominio del certificato del firmatario</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="pinCertificato" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>PIN del certificato del firmatario</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="otpFirma" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>One Time Password per firmare</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="marcaTemporale">
+            <xs:annotation>
+              <xs:documentation>Indica se marcare o meno il file. 0 (default) NO, 1 SI</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:byte">
+                <xs:enumeration value="1" />
+                <xs:enumeration value="0" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="firmaParallela">
+            <xs:annotation>
+              <xs:documentation>Se esiste già una firma indica se inserirla parallela (1) o no (0, default)</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:byte">
+                <xs:enumeration value="0" />
+                <xs:enumeration value="1" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="FirmaRemotaPDFType">
+        <xs:sequence>
+          <xs:element name="fileDaFirmare" type="xs:base64Binary">
+            <xs:annotation>
+              <xs:documentation>Rappresenta un file binario firmato in formato Base64 (si veda la RFC 2045)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="aliasCertificato" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Alias del certificato del firmatario</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="dominioCertificato" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Dominio del certificato del firmatario</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="pinCertificato" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>PIN del certificato del firmatario</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="otpFirma" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>One Time Password per firmare</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="marcaTemporale">
+            <xs:annotation>
+              <xs:documentation>Indica se marcare o meno il file. 0 (default) NO, 1 SI</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:byte">
+                <xs:enumeration value="1" />
+                <xs:enumeration value="0" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="FirmaRemotaResponseMultiplaP7MType">
+        <xs:sequence>
+          <xs:element name="docFirmatiP7M" type="tns:FileFirmatiType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="FirmaRemotaResponseMultiplaPDFType">
+        <xs:sequence>
+          <xs:element name="docFirmatiPDF" type="tns:FileFirmatiType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="FirmaRemotaResponseP7MType">
+        <xs:sequence>
+          <xs:element ref="tns:fileFirmato">
+            <xs:annotation>
+              <xs:documentation>Rappresenta un file binario firmato in formato Base64 (si veda la RFC 2045)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="FirmaRemotaResponsePDFType">
+        <xs:sequence>
+          <xs:element ref="tns:fileFirmato">
+            <xs:annotation>
+              <xs:documentation>Rappresenta un file binario firmato in formato Base64 (si veda la RFC 2045)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="FirmaRemotaResponseType">
+        <xs:sequence>
+          <xs:element name="documentiFirmati" type="tns:DocumentiFirmatiType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="FirmaRemotaType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="fileDaFirmare" type="xs:base64Binary">
+            <xs:annotation>
+              <xs:documentation>Rappresenta una lista di file binari in formato Base64 (si veda la RFC 2045)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="aliasCertificato" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Alias del certificato del firmatario</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="dominioCertificato" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Dominio del certificato del firmatario</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="pinCertificato" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>PIN del certificato del firmatario</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="otpFirma" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>One Time Password per firmare</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="marcaTemporale">
+            <xs:annotation>
+              <xs:documentation>Indica se marcare o meno il file. 0 (default) NO, 1 SI</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:byte">
+                <xs:enumeration value="1" />
+                <xs:enumeration value="0" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RichiestaOTPResponseType">
+        <xs:annotation>
+          <xs:documentation>Richiesta OTP</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="status" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Richiesta OK  o messaggio di errore</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RichiestaOTPType">
+        <xs:annotation>
+          <xs:documentation>Richiesta OTP</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="aliasCertificato" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Alias del certificato del firmatario</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="dominioCertificato" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Dominio del certificato del firmatario</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="VisualizzaAliasResponseType">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DatiAlias" type="tns:AliasType" />
+          <xs:element name="dataVerifica" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="VisualizzaAliasType">
+        <xs:sequence>
+          <xs:element name="codiceFiscale">
+            <xs:annotation>
+              <xs:documentation>Codice Fiscale del firmatario</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="16" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="VisualizzaCertificatoResponseType">
+        <xs:sequence>
+          <xs:element name="esito" type="tns:CertificatoType" />
+          <xs:element name="dataVerifica" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="VisualizzaCertificatoType">
+        <xs:sequence>
+          <xs:element name="aliasCertificato" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Alias del certificato del firmatario</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="dominioCertificato" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Dominio del certificato del firmatario</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WarningCertType">
+        <xs:annotation>
+          <xs:documentation>Modella la struttura di error del JCertCheck</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="status" type="xs:string" />
+          <xs:element minOccurs="0" name="errorMsg" type="xs:string" />
+          <xs:element minOccurs="0" name="subject" type="xs:string" />
+          <xs:element minOccurs="0" name="issuer" type="xs:string" />
+          <xs:element minOccurs="0" name="dataInizioValidita" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="dataFineValidita" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="serialNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="dettaglioCertificato" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WarningCertificatoType">
+        <xs:annotation>
+          <xs:documentation>Risposta in caso di problemi in verifica certificato</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="WarinigCertificato" type="tns:WarningCertType" />
+          <xs:element minOccurs="0" name="datiCertificato" type="tns:CertificatoType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Alias" type="tns:AliasType">
+        <xs:annotation>
+          <xs:documentation>Dettaglio dati Alias</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Certificato" type="tns:CertificatoType">
+        <xs:annotation>
+          <xs:documentation>Dettaglio certificato</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ControFirma" type="tns:ControFirmaType" />
+      <xs:element name="ControFirmaResponse" type="tns:ControFirmaResponseType" />
+      <xs:element name="FirmaRemota" type="tns:FirmaRemotaType">
+        <xs:annotation>
+          <xs:documentation xml:lang="it">Contiene il file da firmare con le credenziali e l'indicazione se marcare o meno</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="FirmaRemotaMultiplaP7M" type="tns:FirmaRemotaMultiplaP7MType" />
+      <xs:element name="FirmaRemotaMultiplaPDF" type="tns:FirmaRemotaMultiplaPDFType" />
+      <xs:element name="FirmaRemotaP7M" type="tns:FirmaRemotaP7MType">
+        <xs:annotation>
+          <xs:documentation xml:lang="it">Contiene il file P7M da firmare con le credenziali e l'indicazione se marcare o meno</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="FirmaRemotaPDF" type="tns:FirmaRemotaPDFType">
+        <xs:annotation>
+          <xs:documentation xml:lang="it">Contiene il file PDF da firmare con le credenziali e l'indicazione se marcare o meno</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="FirmaRemotaResponse" type="tns:FirmaRemotaResponseType">
+        <xs:annotation>
+          <xs:documentation>File firmato con data firma e se marcato</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="FirmaRemotaResponseMultiplaP7M" type="tns:FirmaRemotaResponseMultiplaP7MType" />
+      <xs:element name="FirmaRemotaResponseMultiplaPDF" type="tns:FirmaRemotaResponseMultiplaPDFType" />
+      <xs:element name="FirmaRemotaResponseP7M" type="tns:FirmaRemotaResponseP7MType">
+        <xs:annotation>
+          <xs:documentation>File firmato P7M con data firma e se marcato</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="FirmaRemotaResponsePDF" type="tns:FirmaRemotaResponsePDFType">
+        <xs:annotation>
+          <xs:documentation>File firmato PDF con data firma e se marcato</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="RichiestaOTP" type="tns:RichiestaOTPType" />
+      <xs:element name="RichiestaOTPResponse" type="tns:RichiestaOTPResponseType" />
+      <xs:element name="VisualizzaAlias" type="tns:VisualizzaAliasType">
+        <xs:annotation>
+          <xs:documentation>Codice fiscale firmatario</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="VisualizzaAliasResponse" type="tns:VisualizzaAliasResponseType">
+        <xs:annotation>
+          <xs:documentation>Estrae lista di alias validi firmatario</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="VisualizzaCertificato" type="tns:VisualizzaCertificatoType">
+        <xs:annotation>
+          <xs:documentation xml:lang="it">Certificato da verificare</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="VisualizzaCertificatoResponse" type="tns:VisualizzaCertificatoResponseType">
+        <xs:annotation>
+          <xs:documentation xml:lang="it">Risposta verifica certificati</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="WarinigCertificato" type="tns:WarningCertType" />
+      <xs:element name="WarningCertificatoResponse" type="tns:WarningCertificatoType">
+        <xs:annotation>
+          <xs:documentation xml:lang="it">Warining verifica certificati</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="documentoFirmato" type="xs:base64Binary">
+        <xs:annotation>
+          <xs:documentation>Rappresenta un documento firmato in formato Base64 (si veda la RFC 2045)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="fileDaFirmare" type="xs:base64Binary">
+        <xs:annotation>
+          <xs:documentation>Rappresenta un file binario in formato Base64 (si veda la RFC 2045)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="fileFirmato">
+        <xs:annotation>
+          <xs:documentation>Rappresenta un file binario firmato in formato Base64 (si veda la RFC 2045)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:base64Binary">
+              <xs:attribute name="dataFirma" type="xs:dateTime">
+                <xs:annotation>
+                  <xs:documentation>Data ora del file firmato. </xs:documentation>
+                </xs:annotation>
+              </xs:attribute>
+              <xs:attribute name="fileMarcato" type="xs:boolean">
+                <xs:annotation>
+                  <xs:documentation>Indica se il file è marcato. Valore: 0 (default) NO, 1 SI</xs:documentation>
+                </xs:annotation>
+              </xs:attribute>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://www.regione.taa.it/FaultType/schemas" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.regione.taa.it/FaultType/schemas" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:annotation>
+        <xs:documentation>Schema contenente tipi ed elementi per la gestione delle eccezioni</xs:documentation>
+      </xs:annotation>
+      <xs:complexType name="FaultType">
+        <xs:annotation>
+          <xs:documentation>Tipo che modella l'eccezione che puo' essere ritornata da una qualsiasi operazione</xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="errorCode" type="xs:integer" use="required" />
+        <xs:attribute name="type" type="tns:TipologiaFaultType" use="required">
+          <xs:annotation>
+            <xs:documentation>La tipologia di eccezione, ovvero se e' un errore utente o di sistema</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="userMessage" type="xs:string" />
+      </xs:complexType>
+      <xs:simpleType name="TipologiaFaultType">
+        <xs:annotation>
+          <xs:documentation>Lista di possibili tipologie di eccezioni: USER_FAULT indica che l'errore e' stato generato dall'utente; SYSTEM_FAULT indica che l'errore e' stato generato dal sistema</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:NMTOKEN">
+          <xs:enumeration value="USER_FAULT" />
+          <xs:enumeration value="SYSTEM_FAULT" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="WSFault">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="error" type="tns:FaultType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ControFirmaRequest">
+    <wsdl:part name="parameters" element="ns0:ControFirma" />
+  </wsdl:message>
+  <wsdl:message name="ControFirmaResponse">
+    <wsdl:part name="parameters" element="ns0:ControFirmaResponse" />
+  </wsdl:message>
+  <wsdl:message name="WSFault">
+    <wsdl:part name="fault" element="ns1:WSFault" />
+  </wsdl:message>
+  <wsdl:message name="RichiestaOTPRequest">
+    <wsdl:part name="parameters" element="ns0:RichiestaOTP" />
+  </wsdl:message>
+  <wsdl:message name="RichiestaOTPResponse">
+    <wsdl:part name="parameters" element="ns0:RichiestaOTPResponse" />
+  </wsdl:message>
+  <wsdl:message name="FirmaRemotaP7MRequest">
+    <wsdl:part name="parameters" element="ns0:FirmaRemotaP7M" />
+  </wsdl:message>
+  <wsdl:message name="FirmaRemotaP7MResponse">
+    <wsdl:part name="parameters" element="ns0:FirmaRemotaResponseP7M" />
+  </wsdl:message>
+  <wsdl:message name="FirmaRemotaRequest">
+    <wsdl:part name="parameters" element="ns0:FirmaRemota" />
+  </wsdl:message>
+  <wsdl:message name="FirmaRemotaResponse">
+    <wsdl:part name="parameters" element="ns0:FirmaRemotaResponse" />
+  </wsdl:message>
+  <wsdl:message name="VisualizzaAliasRequest">
+    <wsdl:part name="parameters" element="ns0:VisualizzaAlias" />
+  </wsdl:message>
+  <wsdl:message name="VisualizzaAliasResponse">
+    <wsdl:part name="parameters" element="ns0:VisualizzaAliasResponse" />
+  </wsdl:message>
+  <wsdl:message name="FirmaRemotaMultiplaP7MRequest">
+    <wsdl:part name="parameters" element="ns0:FirmaRemotaMultiplaP7M" />
+  </wsdl:message>
+  <wsdl:message name="FirmaRemotaMultiplaP7MResponse">
+    <wsdl:part name="parameters" element="ns0:FirmaRemotaResponseMultiplaP7M" />
+  </wsdl:message>
+  <wsdl:message name="FirmaRemotaPDFRequest">
+    <wsdl:part name="parameters" element="ns0:FirmaRemotaPDF" />
+  </wsdl:message>
+  <wsdl:message name="FirmaRemotaPDFResponse">
+    <wsdl:part name="parameters" element="ns0:FirmaRemotaResponsePDF" />
+  </wsdl:message>
+  <wsdl:message name="VisualizzaCertificatoRequest">
+    <wsdl:part name="parameters" element="ns0:VisualizzaCertificato" />
+  </wsdl:message>
+  <wsdl:message name="VisualizzaCertificatoResponse">
+    <wsdl:part name="parameters" element="ns0:VisualizzaCertificatoResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarningCertificatoFault">
+    <wsdl:part name="warning" element="ns0:WarningCertificatoResponse" />
+  </wsdl:message>
+  <wsdl:message name="FirmaRemotaMultiplaPDFRequest">
+    <wsdl:part name="parameters" element="ns0:FirmaRemotaMultiplaPDF" />
+  </wsdl:message>
+  <wsdl:message name="FirmaRemotaMultiplaPDFResponse">
+    <wsdl:part name="parameters" element="ns0:FirmaRemotaResponseMultiplaPDF" />
+  </wsdl:message>
+  <wsdl:portType name="FirmaRemotaPortType">
+    <wsdl:operation name="ControFirma">
+      <wsdl:input message="tns:ControFirmaRequest" />
+      <wsdl:output message="tns:ControFirmaResponse" />
+      <wsdl:fault name="WSFault" message="tns:WSFault" />
+    </wsdl:operation>
+    <wsdl:operation name="RichiestaOTP">
+      <wsdl:input message="tns:RichiestaOTPRequest" />
+      <wsdl:output message="tns:RichiestaOTPResponse" />
+      <wsdl:fault name="WSFault" message="tns:WSFault" />
+    </wsdl:operation>
+    <wsdl:operation name="FirmaRemotaP7M">
+      <wsdl:input message="tns:FirmaRemotaP7MRequest" />
+      <wsdl:output message="tns:FirmaRemotaP7MResponse" />
+      <wsdl:fault name="WSFault" message="tns:WSFault" />
+    </wsdl:operation>
+    <wsdl:operation name="FirmaRemota">
+      <wsdl:input message="tns:FirmaRemotaRequest" />
+      <wsdl:output message="tns:FirmaRemotaResponse" />
+      <wsdl:fault name="WSFault" message="tns:WSFault" />
+    </wsdl:operation>
+    <wsdl:operation name="VisualizzaAlias">
+      <wsdl:input message="tns:VisualizzaAliasRequest" />
+      <wsdl:output message="tns:VisualizzaAliasResponse" />
+      <wsdl:fault name="WSFault" message="tns:WSFault" />
+    </wsdl:operation>
+    <wsdl:operation name="FirmaRemotaMultiplaP7M">
+      <wsdl:input message="tns:FirmaRemotaMultiplaP7MRequest" />
+      <wsdl:output message="tns:FirmaRemotaMultiplaP7MResponse" />
+      <wsdl:fault name="WSFault" message="tns:WSFault" />
+    </wsdl:operation>
+    <wsdl:operation name="FirmaRemotaPDF">
+      <wsdl:input message="tns:FirmaRemotaPDFRequest" />
+      <wsdl:output message="tns:FirmaRemotaPDFResponse" />
+      <wsdl:fault name="WSFault" message="tns:WSFault" />
+    </wsdl:operation>
+    <wsdl:operation name="VisualizzaCertificato">
+      <wsdl:input message="tns:VisualizzaCertificatoRequest" />
+      <wsdl:output message="tns:VisualizzaCertificatoResponse" />
+      <wsdl:fault name="WSFault" message="tns:WSFault" />
+      <wsdl:fault name="WarningCertificatoFault" message="tns:WarningCertificatoFault" />
+    </wsdl:operation>
+    <wsdl:operation name="FirmaRemotaMultiplaPDF">
+      <wsdl:input message="tns:FirmaRemotaMultiplaPDFRequest" />
+      <wsdl:output message="tns:FirmaRemotaMultiplaPDFResponse" />
+      <wsdl:fault name="WSFault" message="tns:WSFault" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FirmaRemotaEndpoint1Binding" type="tns:FirmaRemotaPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ControFirma">
+      <soap:operation soapAction="/ControFirma" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RichiestaOTP">
+      <soap:operation soapAction="/RichiestaOTP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FirmaRemotaP7M">
+      <soap:operation soapAction="/FirmaRemotaP7M" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FirmaRemota">
+      <soap:operation soapAction="/FirmaRemota" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VisualizzaAlias">
+      <soap:operation soapAction="/VisualizzaAlias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FirmaRemotaMultiplaP7M">
+      <soap:operation soapAction="/FirmaRemotaMultiplaP7M" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FirmaRemotaPDF">
+      <soap:operation soapAction="/FirmaRemotaPDF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VisualizzaCertificato">
+      <soap:operation soapAction="/VisualizzaCertificato" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="WarningCertificatoFault">
+        <soap:fault use="literal" name="WarningCertificatoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FirmaRemotaMultiplaPDF">
+      <soap:operation soapAction="/FirmaRemotaMultiplaPDF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FirmaRemotaEndpoint2Binding" type="tns:FirmaRemotaPortType">
+    <soap1:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ControFirma">
+      <soap1:operation soapAction="/ControFirma" style="document" soapActionRequired="true" />
+      <wsdl:input>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap1:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RichiestaOTP">
+      <soap1:operation soapAction="/RichiestaOTP" style="document" soapActionRequired="true" />
+      <wsdl:input>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap1:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FirmaRemotaP7M">
+      <soap1:operation soapAction="/FirmaRemotaP7M" style="document" soapActionRequired="true" />
+      <wsdl:input>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap1:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FirmaRemota">
+      <soap1:operation soapAction="/FirmaRemota" style="document" soapActionRequired="true" />
+      <wsdl:input>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap1:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VisualizzaAlias">
+      <soap1:operation soapAction="/VisualizzaAlias" style="document" soapActionRequired="true" />
+      <wsdl:input>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap1:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FirmaRemotaMultiplaP7M">
+      <soap1:operation soapAction="/FirmaRemotaMultiplaP7M" style="document" soapActionRequired="true" />
+      <wsdl:input>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap1:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FirmaRemotaPDF">
+      <soap1:operation soapAction="/FirmaRemotaPDF" style="document" soapActionRequired="true" />
+      <wsdl:input>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap1:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VisualizzaCertificato">
+      <soap1:operation soapAction="/VisualizzaCertificato" style="document" soapActionRequired="true" />
+      <wsdl:input>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap1:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="WarningCertificatoFault">
+        <soap1:fault use="literal" name="WarningCertificatoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FirmaRemotaMultiplaPDF">
+      <soap1:operation soapAction="/FirmaRemotaMultiplaPDF" style="document" soapActionRequired="true" />
+      <wsdl:input>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap1:body use="literal" parts="parameters" />
+      </wsdl:output>
+      <wsdl:fault name="WSFault">
+        <soap1:fault use="literal" name="WSFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FirmaRemota.serviceagent">
+    <wsdl:port name="FirmaRemotaEndpoint1" binding="tns:FirmaRemotaEndpoint1Binding">
+      <soap:address location="https://ws-s.firmaremota.intra.infotn.it:15618/FirmaRemota/Soap11" />
+    </wsdl:port>
+    <wsdl:port name="FirmaRemotaEndpoint2" binding="tns:FirmaRemotaEndpoint2Binding">
+      <soap1:address location="https://ws-s.firmaremota.intra.infotn.it:15618/FirmaRemota/Soap12" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
