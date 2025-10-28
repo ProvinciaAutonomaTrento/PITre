@@ -1,4 +1,4 @@
-![Screenshot](/images/logo.png "Logo PiTre")
+![Screenshot](./images/logo.png "Logo PiTre")
 
 # *PiTre – cloud transformation*
 
