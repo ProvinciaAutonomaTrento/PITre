@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Pi3.Infrastructure.Legacy.EF</RootNamespace>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>1.3.8</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\pi3.core\Pi3.Core.UOCorrispondenteAggregate\Pi3.Core.UOCorrispondenteAggregate.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pi3.Infrastructure.Legacy.EF.Entities\Pi3.Infrastructure.Legacy.EF.Entities.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="AggregateModels\UOCorrispondenteAggregate\Resources\ErrorDescriptions.Designer.cs">
+      <DependentUpon>ErrorDescriptions.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="AggregateModels\UOCorrispondenteAggregate\Resources\Descriptions.Designer.cs">
+      <DependentUpon>Descriptions.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="AggregateModels\UOCorrispondenteAggregate\Resources\ErrorDescriptions.resx">
+      <LastGenOutput>ErrorDescriptions.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="AggregateModels\UOCorrispondenteAggregate\Resources\Descriptions.resx">
+      <LastGenOutput>Descriptions.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

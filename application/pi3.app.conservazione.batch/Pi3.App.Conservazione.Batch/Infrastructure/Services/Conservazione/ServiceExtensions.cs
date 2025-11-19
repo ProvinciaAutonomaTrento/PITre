@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Provincia Autonoma di Trento <https://www.provincia.tn.it>
-// SPDX-License-Identifier: EUPL-1.2
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using LinqKit;
 using Microsoft.AspNetCore.Mvc.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
@@ -683,7 +683,7 @@ namespace Pi3.App.Conservazione.Batch.Infrastructure.Services.Conservazione
                     Style = new TextStyleModel
                     {
                         FontName = "ARIAL",
-                        FontSize = 10,
+                        FontSize = 8,
                         FontIsBold = false
                     },
                     Value = text

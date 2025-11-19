@@ -21,13 +21,12 @@
     <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
     <PackageReference Include="Serilog.Settings.Configuration" Version="8.0.1" />
     <PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
-    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.chilkat-main\Pi3.Infrastructure.Chilkat\Pi3.Infrastructure.Chilkat.csproj" />
-    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.itext-main\Pi3.Infrastructure.IText.ReportGenerator\Pi3.Infrastructure.IText.ReportGenerator.csproj" />
-    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.DocumentFSRepository\Pi3.Infrastructure.Legacy.DocumentFSRepository.csproj" />
-    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.DocumentoAmministrativo\Pi3.Infrastructure.Legacy.EF.DocumentoAmministrativoAggregate.csproj" />
-    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.Oracle\Pi3.Infrastructure.Legacy.EF.Oracle.csproj" />
-    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy-main\Pi3.Infrastructure.Legacy.EF.Services\Pi3.Infrastructure.Legacy.EF.Services.csproj" />
-    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.parer-main\Pi3.Infrastructure.ParER\Pi3.Infrastructure.ParER.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.chilkat\Pi3.Infrastructure.Chilkat\Pi3.Infrastructure.Chilkat.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.itext\Pi3.Infrastructure.IText.ReportGenerator\Pi3.Infrastructure.IText.ReportGenerator.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy\Pi3.Infrastructure.Legacy.DocumentFSRepository\Pi3.Infrastructure.Legacy.DocumentFSRepository.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy\Pi3.Infrastructure.Legacy.EF.DocumentoAmministrativo\Pi3.Infrastructure.Legacy.EF.DocumentoAmministrativoAggregate.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy\Pi3.Infrastructure.Legacy.EF.Oracle\Pi3.Infrastructure.Legacy.EF.Oracle.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy\Pi3.Infrastructure.Legacy.EF.Services\Pi3.Infrastructure.Legacy.EF.Services.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Infrastructure\AggregateModels\DocumentBlobAggregate\Files.Designer.cs">

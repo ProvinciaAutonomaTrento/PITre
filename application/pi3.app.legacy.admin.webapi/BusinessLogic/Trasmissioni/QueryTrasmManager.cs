@@ -1,8 +1,9 @@
 // SPDX-FileCopyrightText: 2025 Provincia Autonoma di Trento <https://www.provincia.tn.it>
-// SPDX-License-Identifier: EUPL-1.2
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using Serilog;
 using System.Collections;
 using System.Data;
+using System.Globalization;
 
 namespace BusinessLogic.Trasmissioni
 {
@@ -543,7 +544,11 @@ namespace BusinessLogic.Trasmissioni
                 // nuovo campo rimozione dalla todolist
                 if (!dataRow["DTA_RIMOSSA_TDL"].ToString().Equals(string.Empty))
                 {
-                    xdatePost = Convert.ToDateTime(dataRow["DTA_RIMOSSA_TDL"].ToString(), format);
+                   CultureInfo provider = new CultureInfo("en-US");
+
+                    DateTime parsedDate = DateTime.Parse(dataRow["DTA_RIMOSSA_TDL"].ToString(), provider);
+
+                    xdatePost = Convert.ToDateTime(parsedDate.ToString("dd/MM/yyyy HH:mm:ss", new CultureInfo("it-IT")), format);
                     objTrasmUtente.dataRimossaTDL = xdatePost.ToShortDateString();
                 }
                 objTrasmSingola.trasmissioneUtente.Add(objTrasmUtente);

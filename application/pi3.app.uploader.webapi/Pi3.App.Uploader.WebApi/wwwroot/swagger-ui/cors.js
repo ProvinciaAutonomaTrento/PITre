@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Provincia Autonoma di Trento <https://www.provincia.tn.it>
-// SPDX-License-Identifier: EUPL-1.2
+// SPDX-License-Identifier: AGPL-3.0-or-later
 window.fetch = function (fetch) {
         return function () {
             var req = arguments[1];

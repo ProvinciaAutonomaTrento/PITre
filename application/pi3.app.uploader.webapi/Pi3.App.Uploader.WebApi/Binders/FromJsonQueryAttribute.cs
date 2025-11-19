@@ -1,14 +1,14 @@
 // SPDX-FileCopyrightText: 2025 Provincia Autonoma di Trento <https://www.provincia.tn.it>
-// SPDX-License-Identifier: EUPL-1.2
-using Microsoft.AspNetCore.Mvc;
+// SPDX-License-Identifier: AGPL-3.0-or-later
+//using Microsoft.AspNetCore.Mvc;
 
-namespace Pi3.App.Uploader.WebApi.Binders
-{
-    public class FromJsonQueryAttribute : ModelBinderAttribute
-    {
-        public FromJsonQueryAttribute()
-        {
-            BinderType = typeof(JsonQueryBinder);
-        }
-    }
-}
+//namespace Pi3.App.Uploader.WebApi.Binders
+//{
+//    public class FromJsonQueryAttribute : ModelBinderAttribute
+//    {
+//        public FromJsonQueryAttribute()
+//        {
+//            BinderType = typeof(JsonQueryBinder);
+//        }
+//    }
+//}

@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Provincia Autonoma di Trento <https://www.provincia.tn.it>
-// SPDX-License-Identifier: EUPL-1.2
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using iText.Forms.Xfdf;
 using iText.Layout.Font;
 using iText.StyledXmlParser.Jsoup.Nodes;
@@ -78,12 +78,14 @@ namespace Pi3.App.StampaRepertori.Batch.Infrastructure.Services.StampaRepertori
 
             foreach (var r in registriRepertorioEntities)
             {
+                var stateChanged = false;
+                string? idTenant = string.Empty;
                 try
                 {
                     // L'utenza da utilizzare è quella del responsabile della stampa               
                     await this.Impersonate(r.PRINTERUSERRESPID, r.PRINTERROLERESPID);
 
-                    var idTenant = this._claimsPrincipalService.Current.GetPi3ClaimValue<string>(Pi3ClaimTypes.IdTenant, true);
+                    idTenant = this._claimsPrincipalService.Current.GetPi3ClaimValue<string>(Pi3ClaimTypes.IdTenant, true);
 
                     this._logger.LogInformation($"Generazione stampe per il repertorio {r.COUNTERID}.");
 
@@ -91,28 +93,21 @@ namespace Pi3.App.StampaRepertori.Batch.Infrastructure.Services.StampaRepertori
 
                     if (ranges.Any())
                     {
+                        var repertorioEntity = await this.GetRepertorioEntity(r.REGISTRYID, r.RFID, r.COUNTERID);
+                        if (repertorioEntity!.COUNTERSTATE == "O")
+                        {
+                            // Chiusura registro
+                            await this.ChangeState(r.COUNTERID, r.REGISTRYID, r.RFID, idTenant!, "C");
+                            stateChanged = true;
+                        }
+
                         foreach (var range in ranges)
                         {
                             // Log su repertori da stampare
                             this._logger.LogInformation($"Documento con i repertori dal numero {range.FirstNumber} al numero {range.LastNumber} dell'anno {range.Year}.");
 
-                            var stateChanged = false;
-
-                            var repertorioEntity = await this.GetRepertorioEntity(r.REGISTRYID, r.RFID, r.COUNTERID);
-
-                            if (r.COUNTERSTATE == "O")
-                            {
-                                // Chiusura registro
-                                await this.ChangeState(r.COUNTERID, r.REGISTRYID, r.RFID, idTenant!);
-                                stateChanged = true;
-                            }
-
                             // Generazione stampa
                             await this.GeneratePrint(range, repertorioEntity!, idTenant!);
-
-                            // Riapertura registro
-                            if (stateChanged)
-                                await this.ChangeState(r.COUNTERID, r.REGISTRYID, r.RFID, idTenant);
                         }
                     }
                     else
@@ -131,6 +126,10 @@ namespace Pi3.App.StampaRepertori.Batch.Infrastructure.Services.StampaRepertori
                 }
                 finally
                 {
+                    // Riapertura registro
+                    if (stateChanged)
+                        await this.ChangeState(r.COUNTERID, r.REGISTRYID, r.RFID, idTenant, "O");
+
                     var nextPrintDate = this.GetNextPrintDate(r.PRINTFREQ);
 
                     if (r.REGISTRYID is not null && r.RFID is null)
@@ -278,7 +277,7 @@ namespace Pi3.App.StampaRepertori.Batch.Infrastructure.Services.StampaRepertori
             this._claimsPrincipalService.Current.SetClaim(Pi3ClaimTypes.Authorization, "DO_SACER_VERSAMENTO");
         }
 
-        private async Task ChangeState(long? counterId, long? registryId, long? rfId, string idAmm)
+        private async Task ChangeState(long? counterId, long? registryId, long? rfId, string idAmm, string newState)
         {
             var inEsercizio = false;
 
@@ -287,7 +286,7 @@ namespace Pi3.App.StampaRepertori.Batch.Infrastructure.Services.StampaRepertori
             var tipoAttoEntity = await this._dbContext.TipoAttoEntities.FirstOrDefaultAsync(x => x.SYSTEM_ID == repertorioEntity.TIPOLOGYID);
 
             // Cambio dello stato di tutte le istanze del contatore su tutti i registri e gli RF
-            if (repertorioEntity!.COUNTERSTATE == "O")
+            if (newState == "C")
             {
                 await this.UpdateRegistriRepertorio(counterId, "C");
                 tipoAttoEntity!.IN_ESERCIZIO = "NO";
@@ -608,6 +607,11 @@ namespace Pi3.App.StampaRepertori.Batch.Infrastructure.Services.StampaRepertori
                             versamentoEntity.VAR_FILE_RISPOSTA = preservationResult.RequestOutput;
                             break;
 
+                        case Core.Services.DigitalPreservation.DigitalPreservationStatusEnum.Timeout:
+                            versamentoEntity.CHA_STATO = "T";
+                            versamentoEntity.NUM_TENTATIVI_INVIO = 1;
+                            break;
+
                         case Core.Services.DigitalPreservation.DigitalPreservationStatusEnum.InternalError:
                             versamentoEntity.VAR_FILE_RISPOSTA = null;
                             versamentoEntity.NUM_TENTATIVI_INVIO ??= 0;
@@ -774,6 +778,7 @@ namespace Pi3.App.StampaRepertori.Batch.Infrastructure.Services.StampaRepertori
                     && (_dbContext.AssociazioneTemplatesEntities.AsNoTracking()     /*Controllo per bug documenti con contatore non valorizzato */
                         .Any(a => a.ID_DOCNUMBER == x.p.SYSTEM_ID
                                 && a.ID_OGGETTO == counterId
+                                && a.ID_AOO_RF == regRfList.AsLong()
                                 && a.VALORE_OGGETTO_DB != null
                                 && a.DTA_INS != null))
                     && (_dbContext.AssociazioneTemplatesEntities.AsNoTracking()     /*Controllo per bug documenti modificati (in oggetto e nuove versioni) lo stesso giorno della creazione */

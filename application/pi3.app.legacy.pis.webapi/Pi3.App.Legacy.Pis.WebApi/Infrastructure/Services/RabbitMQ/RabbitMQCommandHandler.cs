@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Provincia Autonoma di Trento <https://www.provincia.tn.it>
-// SPDX-License-Identifier: EUPL-1.2
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using MediatR;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -12,12 +12,12 @@ namespace Pi3.App.Legacy.Pis.WebApi.Infrastructure.Services.RabbitMQ
     public sealed class RabbitMQCommandHandler : IRequestHandler<MessageQueueCommandWrapper> 
     {
         private readonly ILogger<RabbitMQCommandHandler> _logger;
-        private readonly RabbitMQService _rabbitMQService;
+        private readonly IRabbitMQService _rabbitMQService;
 
         public RabbitMQCommandHandler(
             ILogger<RabbitMQCommandHandler> logger, 
             IClaimsPrincipalService claimsPrincipalService,
-            RabbitMQService rabbitMQService)
+            IRabbitMQService rabbitMQService)
         {
             _logger = logger;
             _rabbitMQService = rabbitMQService;

@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Provincia Autonoma di Trento <https://www.provincia.tn.it>
-// SPDX-License-Identifier: EUPL-1.2
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using DocsPaUtils;
 using DocsPaUtils.Data;
 using DocsPaUtils.Security;
@@ -4007,7 +4007,7 @@ public class Amministrazione : DBProvider
 					q.setParam("param9", utente.Amministratore);
 					q.setParam("param10", utente.Email);
 					q.setParam("param11", (utente.Abilitato.Equals("1") ? "N" : "Y"));
-					q.setParam("param12", (utente.NotificaTrasm.Equals("null") ? "" : "E"));
+					q.setParam("param12", (utente.NotificaTrasm.ToLower().Equals("null") ? "" : "E"));
 					q.setParam("param13","q'["+ utente.Sede+ "]'");
 					q.setParam("param14", (utente.NotificaTrasm.Equals("ED") ? "1" : ""));
 					q.setParam("param15", (utente.FromEmail.Equals("null") ? "" : utente.FromEmail));

@@ -1,0 +1,16 @@
+// SPDX-FileCopyrightText: 2025 Provincia Autonoma di Trento <https://www.provincia.tn.it>
+// SPDX-License-Identifier: AGPL-3.0-or-later
+using DocsPaVO.documento;
+using DocsPaVO.utente;
+using MediatR;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Pi3.App.Legacy.WebApi.Application.Requests
+{
+    public record GetProjectTabResult(Tab output);
+    public record GetProjectTab(string projectId, InfoUtente infoUser) : IRequest<GetProjectTabResult>;
+}

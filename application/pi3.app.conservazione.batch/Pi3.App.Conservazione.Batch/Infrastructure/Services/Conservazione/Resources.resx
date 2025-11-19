@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="FormatPaginaFrom" xml:space="preserve">
+    <value>Pagina</value>
+  </data>
+  <data name="FormatPaginaTo" xml:space="preserve">
+    <value>di</value>
+  </data>
   <data name="ReportFileName" xml:space="preserve">
     <value>Report_{0}_{1}.pdf</value>
   </data>
@@ -160,13 +166,25 @@
     <value>Stato conservazione: versamenti falliti</value>
   </data>
   <data name="ReportPolicyNewDocuments" xml:space="preserve">
-    <value>Stato conservazione: documenti non versati</value>
+    <value>Stato conservazione: documenti non conservati</value>
   </data>
-  <data name="ReportPolicyNextExecutionDate" xml:space="preserve">
-    <value>Data di prossima esecuzione: {0}</value>
+  <data name="ReportPolicyNextExecutionDateDay" xml:space="preserve">
+    <value>Data di prossima esecuzione: {0} (periodicità giornaliera )</value>
+  </data>
+  <data name="ReportPolicyNextExecutionDateWeek" xml:space="preserve">
+    <value>Data di prossima esecuzione: {0} (periodicità mensile )</value>
+  </data>
+  <data name="ReportPolicyNextExecutionDateYears" xml:space="preserve">
+    <value>Data di prossima esecuzione: {0} (periodicità annuale )</value>
+  </data>
+  <data name="ReportPolicyNextExecutionDateMonth" xml:space="preserve">
+    <value>Data di prossima esecuzione: {0} (periodicità settimanale )</value>
   </data>
   <data name="ReportPolicyRejectedDocuments" xml:space="preserve">
     <value>Stato conservazione: documenti rifiutati</value>
+  </data>
+  <data name="ReportPolicyUnaTantum" xml:space="preserve">
+    <value>Policy configurata per l'esecuzione una tantum.</value>
   </data>
   <data name="ReportSubject" xml:space="preserve">
     <value>Report esecuzione policy {0} del {1}</value>
@@ -181,7 +199,7 @@
     <value>Nessun documento soddisfa i criteri di selezione configurati nella policy.</value>
   </data>
   <data name="ReportTextTooManyItems" xml:space="preserve">
-    <value>La policy non è stata eseguita a causa del superamento dei limiti impostati in termini di numero di documenti versabili tramite una singola operazione.\r\n A seguito della mancata esecuzione la policy è stata disattivata.</value>
+    <value>La policy non è stata eseguita a causa del superamento dei limiti impostati in termini di numero di documenti versabili tramite una singola operazione. A seguito della mancata esecuzione la policy è stata disattivata.</value>
   </data>
   <data name="ReportTitle" xml:space="preserve">
     <value>Report di esecuzione della Policy</value>
@@ -239,5 +257,35 @@
   </data>
   <data name="VersamentoDocumento" xml:space="preserve">
     <value>Versamento documento ID={0}</value>
+  </data>
+  <data name="DescrizioneTipologiaFatturaElettronica" xml:space="preserve">
+    <value>Fattura elettronica</value>
+  </data>
+  <data name="DescrizioneTipologiaFatturaElettronicaAttiva" xml:space="preserve">
+    <value>Fattura elettronica attiva</value>
+  </data>
+  <data name="DescrizioneTipologiaLottoDiFatture" xml:space="preserve">
+    <value>Lotto di fatture</value>
+  </data>
+  <data name="DescrizioneTipologiaLottoDiFattureAttive" xml:space="preserve">
+    <value>Lotto di fatture attive</value>
+  </data>
+  <data name="DescrizioneTipologiaVerbaleDiSedutaOrgani" xml:space="preserve">
+    <value>Verbale di seduta organi</value>
+  </data>
+  <data name="TipoRegistroDocumentoProtocollato" xml:space="preserve">
+    <value>{0} - Protocollo</value>
+  </data>
+  <data name="TipoRegistroStampaRegistroProtocollo" xml:space="preserve">
+    <value>Registro giornale di protocollo - {0}</value>
+  </data>
+  <data name="TipoRegistroStampaRegistroRepertorioAOO" xml:space="preserve">
+    <value>Repertorio - {0} - {1}</value>
+  </data>
+  <data name="TipoRegistroStampaRegistroRepertorioRF" xml:space="preserve">
+    <value>Repertorio - {0}</value>
+  </data>
+  <data name="TipoRegistroDocumentoNonProtocolllato" xml:space="preserve">
+    <value>PITre</value>
   </data>
 </root>

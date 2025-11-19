@@ -87,6 +87,8 @@ La qualità del codice è monitorata tramite SonarQube, con regole di sicurezza 
 
 #### Prerequisiti e dipendenze
 
+**ATTENZIONE: QUESTA SOLUZIONE PREVEDE L'USO DI UNA LICENZA COMMERCIALE PER LE LIBRERIE CHILKAT oppure L'IMPLEMENTAZIONE AUTONOMA DELLE FUNZIONALITA' FORNITE DALLE STESSE **
+
 Per utilizzare e compilare il software, sono richiesti i seguenti prerequisiti:
 
 - **Sistemi operativi supportati**:  
@@ -162,7 +164,7 @@ L'architettura così costruita è predisposta per sostituire le tecnologie sotto
 
 La figura sottostante rappresenta la configurazione di deployment dell'architettura backend del sistema PiTre, strutturata in microservizi per garantire modularità e scalabilità.
 
-![Screenshot](/images/backend-panoramica.png "Panoramica backend")
+![Screenshot](./images/backend-panoramica.png "Panoramica backend")
 
 #### Istruzioni per l'installazione in dev e prod
 1. Procedura di installazione di requisiti e dipendenze:
@@ -217,7 +219,7 @@ Il progetto utilizza un'infrastruttura moderna per semplificare e automatizzare 
 Questo progetto è di proprietà della Provincia Autonoma di Trento.
 
 ### Mantenimento del progetto
-Il progetto è mantenuto da Trentino Digitale Spa.
+Il progetto è mantenuto da TNDIGIT.
 
 ### Segnalazioni di sicurezza
 Per segnalazioni di sicurezza, ti preghiamo di contattare sicurezza@tndigit.it. Si prega di non inviare segnalazioni di sicurezza attraverso l'issue tracker pubblico, ma di inviarle confidenzialmente a questo indirizzo e-mail.

@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Provincia Autonoma di Trento <https://www.provincia.tn.it>
-// SPDX-License-Identifier: EUPL-1.2
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Pi3.Core.AggregateModels.DocumentBlobAggregate;
@@ -431,6 +431,10 @@ namespace Pi3.App.StampaRegistri.Batch.Infrastructure.Services.StampaRegistri
                         case Core.Services.DigitalPreservation.DigitalPreservationStatusEnum.Rejected:
                             versamentoEntity.CHA_STATO = "R";
                             versamentoEntity.VAR_FILE_RISPOSTA = preservationResult.RequestOutput;
+                            break;
+                        case Core.Services.DigitalPreservation.DigitalPreservationStatusEnum.Timeout:
+                            versamentoEntity.CHA_STATO = "T";
+                            versamentoEntity.NUM_TENTATIVI_INVIO = 1;
                             break;
                         case Core.Services.DigitalPreservation.DigitalPreservationStatusEnum.InternalError:
                             versamentoEntity.VAR_FILE_RISPOSTA = null;

@@ -5,7 +5,7 @@ Nell'ambito della nuova architettura del PiTre in cloud, **Pi3.App.DocumentoAmmi
 
 Nella figura seguente, la Web Application è rappresentata dal POD denominato **web-api-documentoamministrativo** all'interno del Cluster Kubernates : 
 
-![Panoramica.drawio.png](Docs/Images/Panoramica.drawio.png "Panoramica")
+![Panoramica.drawio.png](https://gitlab.tndigit.it/tndigit/pitre/pi3.docs/-/blob/main/Images/Panoramica.drawio.png?ref_type=heads "Panoramica")
 
 ## Url Swagger
 

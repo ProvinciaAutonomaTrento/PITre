@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Provincia Autonoma di Trento <https://www.provincia.tn.it>
-// SPDX-License-Identifier: EUPL-1.2
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using Pi3.App.InteropPitre.WebApi.Infrastructure.Services.OracleDbContextFactory;
 using Pi3.App.InteropPitre.WebApi.Infrastructure.Services.Principal;
 using Pi3.Core.Services.Principal;
@@ -28,7 +28,6 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 using MediatR;
 using Pi3.App.InteropPitre.WebApi.Extensions;
 using Pi3.Core.Services;
-using Prometheus;
 using Pi3.Infrastructure.Chilkat;
 using Elastic.Apm.NetCoreAll;
 using Pi3.App.InteropPitre.WebApi.Application.Services.RabbitMQ;
@@ -233,10 +232,8 @@ app.UseWhen(
     builder =>
         builder.UseMiddleware<ClaimsPrincipalActivatorMiddleware>());
 
-app.UseHttpMetrics();
 app.UseEndpoints(endpoints =>
 {
-    endpoints.MapMetrics();
     endpoints.MapControllers();
 });
 

@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="FunctionGroupTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
+    <PackageReference Include="NUnit" Version="3.13.3" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
+    <PackageReference Include="NUnit.Analyzers" Version="3.3.0" />
+    <PackageReference Include="coverlet.collector" Version="3.1.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pi3.Core.AggregazioneDocumentaleAggregate\Pi3.Core.AggregazioneDocumentaleAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Core.CorrispondenteAggregate\Pi3.Core.CorrispondenteAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Core.DelegaAggregate\Pi3.Core.DelegaAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Core.DocumentBlobAggregate\Pi3.Core.DocumentBlobAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Core.DocumentoAmministrativoAggregate\Pi3.Core.DocumentoAmministrativoAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Core.KeywordAggregate\Pi3.Core.KeywordAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Core.ListaDistribuzioneAggregate\Pi3.Core.ListaDistribuzioneAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Core.MezzoSpedizioneAggregate\Pi3.Core.MezzoSpedizioneAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Core.ModelloTrasmissioneAggregate\Pi3.Core.ModelloTrasmissioneAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Core.NotaRFAggregate\Pi3.Core.NotaRFAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Core.NoteAggregate\Pi3.Core.NotaAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Core.OggettoAggregate\Pi3.Core.OggettoAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Core.PersonaCorrispondenteAggregate\Pi3.Core.PersonaCorrispondenteAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Core.RagioneTrasmissioneAggregate\Pi3.Core.RagioneTrasmissioneAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Core.RuoloCorrispondenteAggregate\Pi3.Core.RuoloCorrispondenteAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Core.TrasmissioneAggregate\Pi3.Core.TrasmissioneAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Core.UOCorrispondenteAggregate\Pi3.Core.UOCorrispondenteAggregate.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="OrderAggregate\Resources\ErrorDescriptions.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ErrorDescriptions.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Files.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Files.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="OrderAggregate\Resources\ErrorDescriptions.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorDescriptions.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Files.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Files.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

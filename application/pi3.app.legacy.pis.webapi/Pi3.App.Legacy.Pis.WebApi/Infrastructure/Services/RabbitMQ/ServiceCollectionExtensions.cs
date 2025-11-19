@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Provincia Autonoma di Trento <https://www.provincia.tn.it>
-// SPDX-License-Identifier: EUPL-1.2
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using MediatR;
 using Microsoft.EntityFrameworkCore.Query;
 using Microsoft.Extensions.Configuration;
@@ -25,10 +25,20 @@ namespace Pi3.App.Legacy.Pis.WebApi.Infrastructure.Services.RabbitMQ
 
     public static class ServiceCollectionExtensions
     {
+        public static IServiceCollection AddInfrastructureMockRabbitMQ(this IServiceCollection services)
+        {
+            services.AddScoped<IRabbitMQService, MockRabbitMQService>();
+
+            return services;
+        }
+
         public static IServiceCollection AddInfrastructureRabbitMQ(this IServiceCollection services, IConfiguration configuration)
         {
+            var configName = typeof(RabbitMQOptions).Name;
+            services.Configure<RabbitMQOptions>(configuration.GetSection(configName));
+
             var options = new RabbitMQOptions();
-            configuration.GetSection(typeof(RabbitMQOptions).Name).Bind(options);
+            configuration.GetSection(configName).Bind(options);
 
             services.AddInfrastructureRabbitMQ(cfg =>
             {
@@ -69,7 +79,7 @@ namespace Pi3.App.Legacy.Pis.WebApi.Infrastructure.Services.RabbitMQ
             var channel = connection.CreateModel();
 
             services.AddSingleton(s => channel);
-            services.AddSingleton<RabbitMQService>();
+            services.AddSingleton<IRabbitMQService, RabbitMQService>();
 
             return services;
         }

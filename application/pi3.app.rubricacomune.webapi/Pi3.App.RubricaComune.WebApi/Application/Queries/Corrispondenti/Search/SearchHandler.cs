@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Provincia Autonoma di Trento <https://www.provincia.tn.it>
-// SPDX-License-Identifier: EUPL-1.2
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
@@ -56,7 +56,8 @@ namespace Pi3.App.RubricaComune.WebApi.Application.Queries.Corrispondenti.Search
                 queryable = queryable
                     .Where( e => this._dbContext.EmailEntities.AsNoTracking()
                         .Where(em => e.ID == em.IDELEMENTORUBRICA
-                                && EF.Functions.Like(em.EMAIL.ToUpper(),$"%{emailField.Valore.ToUpper()}%"))
+                                && EF.Functions.Like(em.EMAIL.ToUpper(), emailField.ToSql())
+                                )
                     .Any());
 
             SearchIpaResponse searchIpaResponse = new();

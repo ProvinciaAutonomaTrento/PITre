@@ -1,0 +1,35 @@
+//Modifica template field con Testo semplice, Multivalore, Scelta radioButton, Menu dropdown
+{
+    "Document": {
+        "Id": "137773801",
+        "Object": "Documento per modifica tipologia casella selezione - 202404240958 - modifica 1",
+        "DocumentType": "G",
+        "Template": {
+            "Id": "3445",
+            "Name": "P3Core - tipologia con casella di selezione",
+            "Fields": [
+                {
+                    "Name": "Testo semplice",
+                    "Value": "Inserimento testo - modifica 1"
+                },
+                {
+                    "Name": "Multivalore",
+                    "Value": "Prima scelta",
+                    "MultipleChoice": [
+                        "Prima scelta",
+                        "Seconda scelta",
+                        "Quarta scelta"
+                    ]
+                },
+                {
+                    "Name": "Scelta radioButton",
+                    "Value": "Terzo radio"
+                },
+                {
+                    "Name": "Menu dropdown",
+                    "Value": "Primo"
+                }
+            ]
+        }
+    }
+}

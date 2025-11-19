@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Provincia Autonoma di Trento <https://www.provincia.tn.it>
-// SPDX-License-Identifier: EUPL-1.2
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Org.BouncyCastle.Asn1.Ocsp;
@@ -22,11 +22,14 @@ using Pi3.Core.Services.Principal;
 using Pi3.Core.Services.WebMethodLogger;
 using Pi3.Infrastructure.Legacy.EF.AggregateModels.DocumentoAmministrativoAggregate.Repositories;
 using Pi3.Infrastructure.Legacy.EF.Entities;
+using Pi3.Infrastructure.ParER.Services.DigitalPreservation.Entities;
+using Pi3.Infrastructure.ParER.Services.DigitalPreservation.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Core.Common.CommandTrees;
 using System.IO.Pipelines;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
@@ -110,7 +113,7 @@ namespace Pi3.App.Conservazione.Batch.Infrastructure.Services.Conservazione
                     await this.Impersonate(a.ID_UTENTE_RESP_CONS.Value, a.ID_RUOLO_RESP_CONS.Value, a.VAR_CODICE_AMM);
 
                     // Reportistica
-                    var isEnabledPolicyReport = !(await this._configurationService.GetValue<string?>(idTenant, "BE_ENABLE_REPORT_POLICY_PARER") ?? "0").Equals("0");
+                    var isEnabledPolicyReport = (await this._configurationService.GetValue<string?>(idTenant, "BE_ENABLE_REPORT_POLICY_PARER", false, "1")) != "0";
 
                     // Numero massimo documenti versabili
                     var maxNumDocs = Convert.ToInt32(await this._configurationService.GetValue<string>(idTenant, "FE_MAX_DOC_VERSAMENTO") ?? "-1");
@@ -198,6 +201,7 @@ namespace Pi3.App.Conservazione.Batch.Infrastructure.Services.Conservazione
                                                     ID_PEOPLE = a.ID_UTENTE_RESP_CONS,
                                                     ID_RUOLO = a.ID_RUOLO_RESP_CONS,
                                                     ID_AMM = a.SYSTEM_ID,
+                                                    CHA_STATO = "V",
                                                     VAR_CUSTOM_ENTE = p.VAR_ENTE,
                                                     VAR_CUSTOM_STRUTTURA = p.VAR_STRUTTURA,
                                                     DTA_INVIO = DateTime.Now,
@@ -210,6 +214,7 @@ namespace Pi3.App.Conservazione.Batch.Infrastructure.Services.Conservazione
                                                 await ((DbContext)this._dbContext).SaveChangesAsync();
                                             }
 
+                                            /*
                                             var preservationResult = await this._preservationService.Send(d.SYSTEM_ID.ToString());
 
                                             switch (preservationResult.Status)
@@ -227,6 +232,11 @@ namespace Pi3.App.Conservazione.Batch.Infrastructure.Services.Conservazione
                                                 case Core.Services.DigitalPreservation.DigitalPreservationStatusEnum.InternalError:
                                                     versamentoEntity.NUM_TENTATIVI_INVIO ??= 0;
                                                     versamentoEntity.CHA_STATO = ++versamentoEntity.NUM_TENTATIVI_INVIO >= maxAllowedPreservationRetries ? "F" : "E";
+                                                    break;
+
+                                                case Core.Services.DigitalPreservation.DigitalPreservationStatusEnum.Timeout:
+                                                    versamentoEntity.NUM_TENTATIVI_INVIO ??= 0;
+                                                    versamentoEntity.CHA_STATO = ++versamentoEntity.NUM_TENTATIVI_INVIO >= maxAllowedPreservationRetries ? "F" : "T";
                                                     break;
                                             }
 
@@ -276,6 +286,7 @@ namespace Pi3.App.Conservazione.Batch.Infrastructure.Services.Conservazione
                                                 await this._loggerService.LogKO("VERSAMENTO_DOC", versamentoEntity.ID_PROFILE.ToString(), string.Format(Resources.VersamentoDocumento, versamentoEntity.ID_PROFILE.ToString()));
 
                                             }
+                                            */
 
                                             var versamentiPolicyEntity = new VersamentiPolicyEntity
                                             {
@@ -392,7 +403,7 @@ namespace Pi3.App.Conservazione.Batch.Infrastructure.Services.Conservazione
 
         public async Task ExecuteVersamento()
         {
-            int maxEntries = 1000;
+            int maxEntries = 10000;
 
             //Ricerca id da versare
             var statoVersamento = new string[] { "V", "E", "T" };
@@ -494,6 +505,11 @@ namespace Pi3.App.Conservazione.Batch.Infrastructure.Services.Conservazione
                         case Core.Services.DigitalPreservation.DigitalPreservationStatusEnum.InternalError:
                             versamentoEntity.NUM_TENTATIVI_INVIO ??= 0;
                             versamentoEntity.CHA_STATO = ++versamentoEntity.NUM_TENTATIVI_INVIO >= maxTentativi ? "F" : "E";
+                            break;
+
+                        case Core.Services.DigitalPreservation.DigitalPreservationStatusEnum.Timeout:
+                            versamentoEntity.NUM_TENTATIVI_INVIO ??= 0;
+                            versamentoEntity.CHA_STATO = ++versamentoEntity.NUM_TENTATIVI_INVIO >= maxTentativi ? "F" : "T";
                             break;
                     }
 
@@ -643,17 +659,54 @@ namespace Pi3.App.Conservazione.Batch.Infrastructure.Services.Conservazione
                 var report = new ReportModel
                 {
                     Size = PageSizes.A4,
-                    Orientation = PageOrientations.Landscape
+                    Orientation = PageOrientations.Landscape,
+                    OutputType = ReportOutputTypes.AsPdf
                 };
 
+                report.AddSection(this.GetLineSection());
+
                 report.AddSection(Resources.ReportTitle.AsTitleSection());
-                report.AddSection(string.Format(Resources.ReportSubtitleAmm, amministrazioneEntity.VAR_CODICE_AMM, amministrazioneEntity.VAR_DESC_AMM).AsSubTitleSection());
-                report.AddSection(string.Format(Resources.ReportSubtitlePolicy, policyParerEntity.VAR_CODICE, policyParerEntity.VAR_DESCRIZIONE).AsSubTitleSection());
+                report.AddSection(string.Format(Resources.ReportSubtitleAmm, amministrazioneEntity.VAR_CODICE_AMM, amministrazioneEntity.VAR_DESC_AMM).AsTitleSection());
+                report.AddSection(string.Format(Resources.ReportSubtitlePolicy, policyParerEntity.VAR_CODICE, policyParerEntity.VAR_DESCRIZIONE).AsTitleSection());
 
                 report.AddSection(string.Format(Resources.ReportPolicyExecutionDate, DateTime.Now.ToString("dd/MM/yyyy")).AsSummarySection());
                 report.AddSection(string.Format(Resources.ReportPolicyExecutionCounter, numEsecuzioni).AsSummarySection());
+                
                 // Prossima esecuzione
+                switch(policyParerEntity.CHA_PERIODICITA)
+                {
+                    case "D":
+                        report.AddSection(string.Format(Resources.ReportPolicyNextExecutionDateDay, policyParerEntity.GetDataProssimaEsecuzione().AsDateFormat()).AsSummarySection());
+                        break;
+                    case "W":
+                        report.AddSection(string.Format(Resources.ReportPolicyNextExecutionDateWeek, policyParerEntity.GetDataProssimaEsecuzione().AsDateFormat()).AsSummarySection());
+                        break;
+                    case "M":
+                        report.AddSection(string.Format(Resources.ReportPolicyNextExecutionDateMonth, policyParerEntity.GetDataProssimaEsecuzione().AsDateFormat()).AsSummarySection());
+                        break;
+                    case "Y":
+                        report.AddSection(string.Format(Resources.ReportPolicyNextExecutionDateYears, policyParerEntity.GetDataProssimaEsecuzione().AsDateFormat()).AsSummarySection());
+                        break;
+                    case "O":
+                        report.AddSection(string.Format(Resources.ReportPolicyUnaTantum).AsSummarySection());
+                        break;
+                }
 
+                //Stato versamento
+                switch(policyParerEntity.CHA_STATO_VERSAMENTO)
+                {
+                    case "R":
+                        report.AddSection(string.Format(Resources.ReportPolicyRejectedDocuments).AsSummarySection());
+                        break;
+                    case "F":
+                        report.AddSection(string.Format(Resources.ReportPolicyFailedDocuments).AsSummarySection());
+                        break;
+                    default:
+                        report.AddSection(string.Format(Resources.ReportPolicyNewDocuments).AsSummarySection());
+                        break;
+                }
+
+                report.AddSection(string.Format(Resources.ReportPolicyDocCounter, profileEntities.Count.ToString()).AsSummarySection());
 
                 var reportGrid = new GridSectionModel
                 {
@@ -669,7 +722,8 @@ namespace Pi3.App.Conservazione.Batch.Infrastructure.Services.Conservazione
                         Id = p.NUM_PROTO.HasValue ? $"{p.NUM_PROTO}/{p.NUM_ANNO_PROTO}" : p.SYSTEM_ID.ToString(),
                         Tipo = p.CHA_TIPO_PROTO.AsTipoProto(),
                         Data = p.DTA_PROTO.HasValue ? p.DTA_PROTO.Value : p.CREATION_TIME!.Value,
-                        Oggetto = p.VAR_PROF_OGGETTO!
+                        Oggetto = p.VAR_PROF_OGGETTO!,
+                        Registro = await GetTipoRegistro(p)
                     };
 
                     reportGrid.AddRow(item.AsReportRow());
@@ -677,6 +731,8 @@ namespace Pi3.App.Conservazione.Batch.Infrastructure.Services.Conservazione
                 }
 
                 report.AddSection(reportGrid);
+
+                report.AddFooterSection(this.GetPageNumberSection());
 
                 return await this.CreateAndUploadReport(
                     report, 
@@ -701,9 +757,11 @@ namespace Pi3.App.Conservazione.Batch.Infrastructure.Services.Conservazione
                 var report = new ReportModel
                 {
                     Size = PageSizes.A4,
-                    Orientation = PageOrientations.Landscape
+                    Orientation = PageOrientations.Landscape,
+                    OutputType = ReportOutputTypes.AsPdf
                 };
 
+                report.AddSection(this.GetLineSection());
                 report.AddSection(Resources.ReportTitle.AsTitleSection());
                 report.AddSection(string.Format(Resources.ReportSubtitleAmm, amministrazioneEntity.VAR_CODICE_AMM, amministrazioneEntity.VAR_DESC_AMM).AsSubTitleSection());
                 report.AddSection(string.Format(Resources.ReportSubtitlePolicy, policyParerEntity.VAR_CODICE, policyParerEntity.VAR_DESCRIZIONE).AsSubTitleSection());
@@ -722,6 +780,8 @@ namespace Pi3.App.Conservazione.Batch.Infrastructure.Services.Conservazione
                         break;
                 }
 
+                report.AddFooterSection(this.GetPageNumberSection());
+
                 return await this.CreateAndUploadReport(
                     report,
                     amministrazioneEntity.SYSTEM_ID.ToString(),
@@ -736,8 +796,33 @@ namespace Pi3.App.Conservazione.Batch.Infrastructure.Services.Conservazione
 
                 return null;
             }
+        }
 
+        private PageNumberSectionModel GetPageNumberSection()
+        {
+            return new PageNumberSectionModel()
+            {
+                TextStyle = new TextStyleModel
+                {
+                    FontName = "Arial",
+                    FontSize = 9,
+                    FontIsBold = false,
+                },
 
+                Style = new TextSectionStyleModel
+                {
+                    Justification = Justifications.Right
+                },
+                Format = $"{Resources.FormatPaginaFrom} {{{Pi3.Infrastructure.IText.ReportGenerator.Services.CommandMarkersHelper.GetCurrentPageNumberMarker()}}} {Resources.FormatPaginaTo} {{{Pi3.Infrastructure.IText.ReportGenerator.Services.CommandMarkersHelper.GetNumPagesMarker()}}}"
+            };
+        }
+        private LineSectionModel GetLineSection()
+        {
+            return new LineSectionModel()
+            {
+                Style = LineStyles.Solid,
+                Size = 12
+            };
         }
 
         private async Task<string> CreateAndUploadReport(ReportModel report, string idTenant, string description, string fileName)
@@ -842,8 +927,10 @@ namespace Pi3.App.Conservazione.Batch.Infrastructure.Services.Conservazione
                     false
                     );
             }
-            catch(Exception)
+            catch(Exception ex)
             {
+                _logger.LogCritical(exception: ex, message: ex.Message);
+
                 await this._loggerService.LogKO(
                     $"TRASM_DOC_{ragioneEntity.VAR_DESC_RAGIONE}",
                     idDocument,
@@ -1046,6 +1133,106 @@ namespace Pi3.App.Conservazione.Batch.Infrastructure.Services.Conservazione
 
             return (element is not null) ? element.InnerText.Trim() : string.Empty;
         }
+
+        private async Task<string> GetTipoRegistro(ProfileEntity profileEntity)
+        {
+            var tipoRegistro = string.Empty;
+            if (!string.IsNullOrEmpty(profileEntity.VAR_SEGNATURA))
+            {
+                var codiceRegistro = await _dbContext.RegistroEntities.AsNoTracking().Where(r => r.SYSTEM_ID == profileEntity.ID_REGISTRO).Select(r => r.VAR_CODICE).FirstOrDefaultAsync();
+                tipoRegistro = string.Format(Resources.TipoRegistroDocumentoProtocollato, codiceRegistro);
+                return tipoRegistro;
+            }
+
+            if(profileEntity.CHA_TIPO_PROTO == "R")
+            {
+                var codiceRegistro = await _dbContext.RegistroEntities.AsNoTracking().Where(r => r.SYSTEM_ID == profileEntity.ID_REGISTRO).Select(r => r.VAR_CODICE).FirstOrDefaultAsync();
+                tipoRegistro = string.Format(Resources.TipoRegistroStampaRegistroProtocollo, codiceRegistro);
+                return tipoRegistro;
+            }
+
+            if(profileEntity.CHA_TIPO_PROTO == "C")
+            {
+                var infoStampaRepertorio = await _dbContext.StampaRepertoriEntities.AsNoTracking()
+                                .Where(r => r.DOCNUMBER == profileEntity.SYSTEM_ID)
+                                .FirstAsync();
+
+                var tipologia = await _dbContext.OggettiCustomCompEntities.AsNoTracking()
+                    .Join(_dbContext.TipoAttoEntities.AsNoTracking(),
+                          o => o.ID_TEMPLATE,
+                          t => t.SYSTEM_ID,
+                          (o, t) => new { o, t })
+                    .Where(j => j.o.ID_OGG_CUSTOM == infoStampaRepertorio.ID_REPERTORIO)
+                    .Select(j => j.t.VAR_DESC_ATTO)
+                    .FirstOrDefaultAsync();
+
+                var tipoContatore = await _dbContext.OggettiCustomEntities.AsNoTracking().Where(o => o.SYSTEM_ID == infoStampaRepertorio.ID_REPERTORIO).Select(o => o.CHA_TIPO_TAR).FirstOrDefaultAsync();
+
+                switch (tipoContatore)
+                {
+                    case "A":
+                        var codiceRegistro = await _dbContext.RegistroEntities.AsNoTracking().Where(r => r.SYSTEM_ID == profileEntity.ID_REGISTRO).Select(r => r.VAR_CODICE).FirstOrDefaultAsync();
+                        tipoRegistro = string.Format(Resources.TipoRegistroStampaRegistroRepertorioAOO, codiceRegistro, tipologia);
+                        break;
+                    case "R":
+                        var codiceRegistroRF = await _dbContext.RegistroEntities.AsNoTracking().Where(r => r.SYSTEM_ID == infoStampaRepertorio.REGISTRYID).Select(r => r.VAR_CODICE).FirstOrDefaultAsync();
+                        tipoRegistro = string.Format(Resources.TipoRegistroStampaRegistroRepertorioRF, $"{tipologia} ({codiceRegistroRF})");
+                        break;
+                    default:
+                        tipoRegistro = string.Format(Resources.TipoRegistroStampaRegistroRepertorioRF, tipologia);
+                        break;
+                }
+
+                return tipoRegistro;
+            }
+                
+
+            if(profileEntity.ID_TIPO_ATTO.HasValue)
+            {
+                var tipologia = await this._dbContext.TipoAttoEntities.AsNoTracking()
+                    .Join(this._dbContext.AssociazioneTemplatesEntities.AsNoTracking(),
+                        t => t.SYSTEM_ID,
+                        a => a.ID_TEMPLATE,
+                        (t, a) => new { t, a })
+                    .Join(this._dbContext.OggettiCustomEntities.AsNoTracking(),
+                        j => j.a.ID_OGGETTO,
+                        o => o.SYSTEM_ID,
+                        (j, o) => new { j.t, j.a, o })
+                    .Join(this._dbContext.TipoOggettoEntities.AsNoTracking(),
+                        j => j.o.ID_TIPO_OGGETTO,
+                        to => to.SYSTEM_ID,
+                        (j, to) => new { j.t, j.a, j.o, to })
+                    .Where(j => j.t.SYSTEM_ID == profileEntity.ID_TIPO_ATTO && j.a.ID_DOCNUMBER == profileEntity.SYSTEM_ID
+                            && j.to.TIPO.ToUpper() == "CONTATORE"
+                            && j.t.CHA_INVIO_CONSERVAZIONE == "1"
+                            && j.o.CHA_CONS_REPERTORIO == "1"
+                            && !j.a.DTA_ANNULLAMENTO.HasValue)
+                    .Select(j => new
+                    {
+                        j.t.VAR_DESC_ATTO,
+                        j.o.CHA_TIPO_TAR,
+                        j.a.ID_AOO_RF
+                    })
+                    .FirstOrDefaultAsync();
+
+                if(tipologia != null)
+                {
+                    tipoRegistro = tipologia.VAR_DESC_ATTO;
+                    if(tipologia.CHA_TIPO_TAR == "A")
+                    {
+                        var codiceRegistro = await _dbContext.RegistroEntities.AsNoTracking().Where(r => r.SYSTEM_ID == tipologia.ID_AOO_RF).Select(r => r.VAR_CODICE).FirstOrDefaultAsync();
+                        tipoRegistro = $"{codiceRegistro} - {tipologia.VAR_DESC_ATTO}";
+                    }
+
+                    return tipoRegistro;
+                }
+            }
+
+            tipoRegistro = Resources.TipoRegistroDocumentoNonProtocolllato;
+            return tipoRegistro;
+        }
+
+
 
         #endregion
         #endregion

@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Provincia Autonoma di Trento <https://www.provincia.tn.it>
-// SPDX-License-Identifier: EUPL-1.2
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Asp.Versioning;
 using Elastic.Apm.NetCoreAll;
@@ -157,7 +157,6 @@ if (environment.Equals("Development") || environment.Equals("Test"))
     // Registra configuration service mock, in ambiente di debug
     builder.Services.RemoveAll<IConfigurationService>().AddScoped<IConfigurationService, MockConfigurationService>();
 }
-
 
 builder.Services.AddInfrastructureFSUploaderService();
 

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
+    <PackageReference Include="NUnit" Version="3.13.3" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
+    <PackageReference Include="NUnit.Analyzers" Version="3.3.0" />
+    <PackageReference Include="coverlet.collector" Version="3.1.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pi3.Infrastructure.Legacy.DocumentFSRepository\Pi3.Infrastructure.Legacy.DocumentFSRepository.csproj" />
+    <ProjectReference Include="..\Pi3.Infrastructure.Legacy.EF.AggregazioneDocumentale\Pi3.Infrastructure.Legacy.EF.AggregazioneDocumentaleAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Infrastructure.Legacy.EF.DelegaAggregate\Pi3.Infrastructure.Legacy.EF.DelegaAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Infrastructure.Legacy.EF.DocumentoAmministrativo\Pi3.Infrastructure.Legacy.EF.DocumentoAmministrativoAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Infrastructure.Legacy.EF.Entities\Pi3.Infrastructure.Legacy.EF.Entities.csproj" />
+    <ProjectReference Include="..\Pi3.Infrastructure.Legacy.EF.KeywordAggregate\Pi3.Infrastructure.Legacy.EF.KeywordAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Infrastructure.Legacy.EF.ListaDistribuzioneAggregate\Pi3.Infrastructure.Legacy.EF.ListaDistribuzioneAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Infrastructure.Legacy.EF.MezzoSpedizioneAggregate\Pi3.Infrastructure.Legacy.EF.MezzoSpedizioneAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Infrastructure.Legacy.EF.ModelloTrasmissioneAggregate\Pi3.Infrastructure.Legacy.EF.ModelloTrasmissioneAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Infrastructure.Legacy.EF.NotaRFAggregate\Pi3.Infrastructure.Legacy.EF.NotaRFAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Infrastructure.Legacy.EF.NoteAggregate\Pi3.Infrastructure.Legacy.EF.NotaAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Infrastructure.Legacy.EF.OggettoAggregate\Pi3.Infrastructure.Legacy.EF.OggettoAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Infrastructure.Legacy.EF.Oracle\Pi3.Infrastructure.Legacy.EF.Oracle.csproj" />
+    <ProjectReference Include="..\Pi3.Infrastructure.Legacy.EF.PersonaCorrispondenteAggregate\Pi3.Infrastructure.Legacy.EF.PersonaCorrispondenteAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Infrastructure.Legacy.EF.RagioneTrasmissioneAggregate\Pi3.Infrastructure.Legacy.EF.RagioneTrasmissioneAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Infrastructure.Legacy.EF.RuoloCorrispondenteAggregate\Pi3.Infrastructure.Legacy.EF.RuoloCorrispondenteAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Infrastructure.Legacy.EF.Services\Pi3.Infrastructure.Legacy.EF.Services.csproj" />
+    <ProjectReference Include="..\Pi3.Infrastructure.Legacy.EF.TrasmissioneAggregate\Pi3.Infrastructure.Legacy.EF.TrasmissioneAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Infrastructure.Legacy.EF.UOCorrispondenteAggregate\Pi3.Infrastructure.Legacy.EF.UOCorrispondenteAggregate.csproj" />
+    <ProjectReference Include="..\Pi3.Infrastructure.Legacy.UploaderFS\Pi3.Infrastructure.Legacy.UploaderFS.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

@@ -36917,20 +36917,20 @@
   <query>
     <name>S_GET_POLICY_PARER_BY_ID</name>
     <value>
-      SELECT
-      system_id, var_codice, var_descrizione, id_group_ruolo_resp, cha_tipo_policy, id_amm, cha_attiva,
-      cha_periodicita, cha_esecuzione_giorno, cha_esecuzione_mese, dta_esecuzione_policy, cha_stato_versamento,
-      cha_tipo_proto_a, cha_tipo_proto_p, cha_tipo_proto_i, cha_tipo_proto_g, id_template,id_stato,cha_stato,
-      id_registro,id_rf,id_uo_creatrice,cha_uo_sottoposte,id_titolario,cha_tipo_class,id_fascicolo,
-      cha_doc_digitali,cha_firmato,cha_marcato,cha_scadenza_timestamp,
-      cha_data_creazione_tipo,TO_CHAR(data_creazione_from, 'DD/MM/YYYY') AS DATA_CREAZ_FROM,TO_CHAR(data_creazione_to, 'DD/MM/YYYY') AS DATA_CREAZ_TO,
-      cha_data_proto_tipo,TO_CHAR(data_proto_from, 'DD/MM/YYYY') AS DATA_PROT_FROM,TO_CHAR(data_proto_to, 'DD/MM/YYYY') AS DATA_PROT_TO,
-      cha_tipo_registro_stampa,id_repertorio_stampa,num_anno_stampa,
-      cha_data_stampa_tipo,TO_CHAR(data_stampa_from, 'DD/MM/YYYY') AS DATA_ST_FROM,TO_CHAR (data_stampa_to, 'DD/MM/YYYY') AS DATA_ST_TO,
-      num_giorni_data_creazione,num_giorni_data_proto,num_giorni_data_stampa, cha_escludi_fatture, num_giorni_firma, cha_attiva_notifica, cha_big_files, var_ente, var_struttura
-      FROM DPA_POLICY_PARER
-      WHERE SYSTEM_ID=@idPolicy@
-    </value>
+		SELECT
+		system_id, var_codice, var_descrizione, id_group_ruolo_resp, cha_tipo_policy, id_amm, cha_attiva,
+		cha_periodicita, cha_esecuzione_giorno, cha_esecuzione_mese, TO_CHAR(dta_esecuzione_policy, 'DD/MM/YYYY') as dta_esecuzione_policy, cha_stato_versamento,
+		cha_tipo_proto_a, cha_tipo_proto_p, cha_tipo_proto_i, cha_tipo_proto_g, id_template,id_stato,cha_stato,
+		id_registro,id_rf,id_uo_creatrice,cha_uo_sottoposte,id_titolario,cha_tipo_class,id_fascicolo,
+		cha_doc_digitali,cha_firmato,cha_marcato,cha_scadenza_timestamp,
+		cha_data_creazione_tipo,TO_CHAR(data_creazione_from, 'DD/MM/YYYY') AS DATA_CREAZ_FROM,TO_CHAR(data_creazione_to, 'DD/MM/YYYY') AS DATA_CREAZ_TO,
+		cha_data_proto_tipo,TO_CHAR(data_proto_from, 'DD/MM/YYYY') AS DATA_PROT_FROM,TO_CHAR(data_proto_to, 'DD/MM/YYYY') AS DATA_PROT_TO,
+		cha_tipo_registro_stampa,id_repertorio_stampa,num_anno_stampa,
+		cha_data_stampa_tipo,TO_CHAR(data_stampa_from, 'DD/MM/YYYY') AS DATA_ST_FROM,TO_CHAR (data_stampa_to, 'DD/MM/YYYY') AS DATA_ST_TO,
+		num_giorni_data_creazione,num_giorni_data_proto,num_giorni_data_stampa, cha_escludi_fatture, num_giorni_firma, cha_attiva_notifica, cha_big_files, var_ente, var_struttura
+		FROM DPA_POLICY_PARER
+		WHERE SYSTEM_ID=@idPolicy@
+	</value>
   </query>
   <query>
     <name>I_DPA_POLICY_PARER</name>

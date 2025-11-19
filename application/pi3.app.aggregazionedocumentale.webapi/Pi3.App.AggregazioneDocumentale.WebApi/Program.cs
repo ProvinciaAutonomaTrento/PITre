@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Provincia Autonoma di Trento <https://www.provincia.tn.it>
-// SPDX-License-Identifier: EUPL-1.2
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using Microsoft.AspNetCore.Authentication;
 using Pi3.App.AggregazioneDocumentale.WebApi.Handlers;
 using Pi3.App.AggregazioneDocumentale.WebApi.Infrastructure.Services.Principal;
@@ -21,6 +21,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.OpenApi.Models;
 using Elastic.Apm.NetCoreAll;
+using Asp.Versioning.ApiExplorer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -51,18 +52,20 @@ builder.Services.AddApiVersioning(config =>
     // Advertise the API versions supported for the particular endpoint
     config.ReportApiVersions = true;
     config.AssumeDefaultVersionWhenUnspecified = true;
-});
+})
+.AddApiExplorer(
+    options =>
+    {
+        options.GroupNameFormat = "'v'VVV";
+        options.SubstituteApiVersionInUrl = true;
+        options.AssumeDefaultVersionWhenUnspecified = true;
+    });
+
 
 builder.Services.AddControllers();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddVersionedApiExplorer(options =>
-{
-    options.GroupNameFormat = "'v'VVV";
-    options.SubstituteApiVersionInUrl = true;
-    options.AssumeDefaultVersionWhenUnspecified = true;
-});
 
 if (!isTestEnvironment)
 {
@@ -169,8 +172,6 @@ app.UseRouting();
 
 if (elasticApmEnabled)
     app.UseAllElasticApm(builder.Configuration);
-
-var apiVersionDescriptionProvider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
 
 app.UseMiddleware<ErrorHandlerMiddleware>();
 

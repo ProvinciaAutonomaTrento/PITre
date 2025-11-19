@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>4c17a84b-c729-41da-884b-3838301dab8f</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Services\OracleDbContextFactory\ConnectionStringNotFoundPi3Exception.cs" />
+    <Compile Remove="Services\OracleDbContextFactory\ErrorDescriptions.Designer.cs" />
+    <Compile Remove="Services\OracleDbContextFactory\IOracleDbContextFactoryService.cs" />
+    <Compile Remove="Services\OracleDbContextFactory\OracleDbContextFactoryService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Resources\Tests\AddDocGrigiaTest.json" />
+    <Content Remove="Resources\Tests\AddDocGrigiaWithNotaTest.json" />
+    <Content Remove="Resources\Tests\AddDocGrigiaWithParolaChiaveTest.json" />
+    <Content Remove="Resources\Tests\AddDocGrigiaWithParolaChiave_Nota_Risposta_Test.json" />
+    <Content Remove="Resources\Tests\AddDocGrigiaWithRispostaTest.json" />
+    <Content Remove="Resources\Tests\DocumentoGetDettaglioDocumentoTest.json" />
+    <Content Remove="Resources\Tests\FascicolazioneAddDocClassificazioneTest.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Services\OracleDbContextFactory\ErrorDescriptions.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="Elastic.Apm.NetCoreAll" Version="1.30.1" />
+    <PackageReference Include="Google.Apis.Auth.AspNetCore3" Version="1.68.0" />
+    <PackageReference Include="Google.Apis.Gmail.v1" Version="1.68.0.3427" />
+    <PackageReference Include="MediatR" Version="12.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.24" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="8.0.4" />
+    <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="7.6.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Refit.HttpClientFactory" Version="7.0.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="6.1.0" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="7.0.1" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="6.1.0" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.aac\Pi3.Infrastructure.AAC\Pi3.Infrastructure.AAC.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.bouncycastle\Pi3.Infrastructure.BouncyCastle\Pi3.Infrastructure.BouncyCastle.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.chilkat\Pi3.Infrastructure.Chilkat\Pi3.Infrastructure.Chilkat.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.graph\Pi3.Infrastructure.Graph\Pi3.Infrastructure.Graph.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.itext\Pi3.Infrastructure.IText.Decorator\Pi3.Infrastructure.IText.Decorator.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.itext\Pi3.Infrastructure.IText.ReportGenerator\Pi3.Infrastructure.IText.ReportGenerator.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy\Pi3.Infrastructure.Legacy.DocumentFSRepository\Pi3.Infrastructure.Legacy.DocumentFSRepository.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy\Pi3.Infrastructure.Legacy.EF.AggregazioneDocumentale\Pi3.Infrastructure.Legacy.EF.AggregazioneDocumentaleAggregate.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy\Pi3.Infrastructure.Legacy.EF.DelegaAggregate\Pi3.Infrastructure.Legacy.EF.DelegaAggregate.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy\Pi3.Infrastructure.Legacy.EF.KeywordAggregate\Pi3.Infrastructure.Legacy.EF.KeywordAggregate.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy\Pi3.Infrastructure.Legacy.EF.ListaDistribuzioneAggregate\Pi3.Infrastructure.Legacy.EF.ListaDistribuzioneAggregate.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy\Pi3.Infrastructure.Legacy.EF.MezzoSpedizioneAggregate\Pi3.Infrastructure.Legacy.EF.MezzoSpedizioneAggregate.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy\Pi3.Infrastructure.Legacy.EF.ModelloTrasmissioneAggregate\Pi3.Infrastructure.Legacy.EF.ModelloTrasmissioneAggregate.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy\Pi3.Infrastructure.Legacy.EF.NoteAggregate\Pi3.Infrastructure.Legacy.EF.NotaAggregate.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy\Pi3.Infrastructure.Legacy.EF.NotaRFAggregate\Pi3.Infrastructure.Legacy.EF.NotaRFAggregate.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy\Pi3.Infrastructure.Legacy.EF.OggettoAggregate\Pi3.Infrastructure.Legacy.EF.OggettoAggregate.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy\Pi3.Infrastructure.Legacy.EF.Oracle\Pi3.Infrastructure.Legacy.EF.Oracle.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy\Pi3.Infrastructure.Legacy.EF.PersonaCorrispondenteAggregate\Pi3.Infrastructure.Legacy.EF.PersonaCorrispondenteAggregate.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy\Pi3.Infrastructure.Legacy.EF.RagioneTrasmissioneAggregate\Pi3.Infrastructure.Legacy.EF.RagioneTrasmissioneAggregate.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy\Pi3.Infrastructure.Legacy.EF.RuoloCorrispondenteAggregate\Pi3.Infrastructure.Legacy.EF.RuoloCorrispondenteAggregate.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy\Pi3.Infrastructure.Legacy.EF.Services\Pi3.Infrastructure.Legacy.EF.Services.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy\Pi3.Infrastructure.Legacy.EF.TrasmissioneAggregate\Pi3.Infrastructure.Legacy.EF.TrasmissioneAggregate.csproj" />
+    <ProjectReference Include="..\..\..\infrastructure\pi3.infrastructure.legacy\Pi3.Infrastructure.Legacy.EF.UOCorrispondenteAggregate\Pi3.Infrastructure.Legacy.EF.UOCorrispondenteAggregate.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DocsPaVO\DocsPaVO.csproj" />
+    <ProjectReference Include="..\Pi3.App.Legacy.WebApi.Application\Pi3.App.Legacy.WebApi.Application.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources\ErrorDescriptions.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ErrorDescriptions.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\GmailControllerErrors.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>GmailControllerErrors.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Tests\TestCases.Designer.cs">
+      <DependentUpon>TestCases.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\ErrorDescriptions.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorDescriptions.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\GmailControllerErrors.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>GmailControllerErrors.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Tests\TestCases.resx">
+      <LastGenOutput>TestCases.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Pi3.App.Legacy.WebApi.Tests" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tests\AddDocGrigiaTest.json" />
+    <None Include="Resources\Tests\AddDocGrigiaWithNotaTest.json" />
+    <None Include="Resources\Tests\AddDocGrigiaWithParolaChiaveTest.json" />
+    <None Include="Resources\Tests\AddDocGrigiaWithParolaChiave_Nota_Risposta_Test.json" />
+    <None Include="Resources\Tests\AddDocGrigiaWithRispostaTest.json" />
+    <None Include="Resources\Tests\DocumentoGetDettaglioDocumentoTest.json" />
+    <None Include="Resources\Tests\FascicolazioneAddDocClassificazioneTest.json" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties appsettings_1json__JsonSchema="" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

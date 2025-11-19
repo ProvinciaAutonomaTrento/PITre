@@ -1,0 +1,31 @@
+// SPDX-FileCopyrightText: 2025 Provincia Autonoma di Trento <https://www.provincia.tn.it>
+// SPDX-License-Identifier: AGPL-3.0-or-later
+using Pi3.Core.SeedWork;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Pi3.App.Legacy.WebApi.Application.Handlers.CheckMailBox.StandardCase
+{
+    public class InvalidFileFormatException : Pi3Exception
+    {
+        public InvalidFileFormatException(string fileName)
+            : base(ErrorDescriptions.AttachmentFileFormatNotValid, ErrorDescriptions.ResourceManager, fileName)
+        {
+            this.FileName = fileName;
+        }
+
+        public string FileName { get; init; }
+    }
+
+    public class StandardCaseException : Pi3Exception
+    {
+        public StandardCaseException(string message)
+            : base(message)
+        {
+           
+        }
+    }
+}
