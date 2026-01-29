@@ -108,8 +108,13 @@ Per utilizzare e compilare il software, sono richiesti i seguenti prerequisiti:
   - **Monitoraggio e logging**: `Elastic.Apm`, `Serilog`
   - **Testing**: `NUnit`, `Microsoft.AspNetCore.Mvc.Testing`, `coverlet.collector`
 
-- **Dipendenze esterne**:
-  - Nessuna dipendenza commerciale obbligatoria. Alcune librerie (es. Chilkat) sono già licenziate per l'uso nel contesto PiTre.
+- **Dipendenze esterne e commerciali**:
+  - `Chilkat`: librerie commerciali già licenziate per PAT ma che richiedono una nuova licenza se il software viene preso in riuso;
+  	Le funzionalità di chilkat utilizzate sono contentute nel progetto “Pi3.Infrastructure.Chilkat”:
+	- invio email PEC / PEO
+	- scansione casella di posta PEC / PEO
+	- verifica se un file pdf è firmato digitalmente pades	
+	Se un utilizzatore dovesse trovare librerie alternative valide che facciano questi servizi, potrebbe tranquillamente integrarle nel sistema senza alcuna modifica per le restanti parti.
 
 > L’elenco completo delle dipendenze è disponibile nei file `.csproj` e `packages.config` dei singoli progetti.
 
