@@ -228,7 +228,9 @@ Il progetto utilizza un'infrastruttura moderna per semplificare e automatizzare 
 Questo progetto è di proprietà della Provincia Autonoma di Trento.
 
 ### Mantenimento del progetto
-Il progetto è mantenuto da TNDIGIT.
+Il progetto è mantenuto da Trentino Digitale Spa.
+
+Responsabile Divisione Servizi Piattaforme: Alessandro Celli - <alessandro.celli@tndigit.it>	
 
 ### Segnalazioni di sicurezza
 Per segnalazioni di sicurezza, ti preghiamo di contattare sicurezza@tndigit.it. Si prega di non inviare segnalazioni di sicurezza attraverso l'issue tracker pubblico, ma di inviarle confidenzialmente a questo indirizzo e-mail.
