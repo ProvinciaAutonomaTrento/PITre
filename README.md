@@ -87,7 +87,7 @@ La qualità del codice è monitorata tramite SonarQube, con regole di sicurezza 
 
 #### Prerequisiti e dipendenze
 
-**ATTENZIONE: QUESTA SOLUZIONE PREVEDE L'USO DI UNA LICENZA COMMERCIALE PER LE LIBRERIE CHILKAT oppure L'IMPLEMENTAZIONE AUTONOMA DELLE FUNZIONALITA' FORNITE DALLE STESSE **
+**ATTENZIONE: QUESTA SOLUZIONE PREVEDE L'USO DI UNA LICENZA COMMERCIALE PER LE LIBRERIE CHILKAT oppure L'IMPLEMENTAZIONE AUTONOMA DELLE FUNZIONALITA' FORNITE DALLE STESSE**
 
 Per utilizzare e compilare il software, sono richiesti i seguenti prerequisiti:
 
@@ -109,12 +109,16 @@ Per utilizzare e compilare il software, sono richiesti i seguenti prerequisiti:
   - **Testing**: `NUnit`, `Microsoft.AspNetCore.Mvc.Testing`, `coverlet.collector`
 
 - **Dipendenze esterne e commerciali**:
-  - `Chilkat`: librerie commerciali già licenziate per PAT ma che richiedono una nuova licenza se il software viene preso in riuso;
-  	Le funzionalità di chilkat utilizzate sono contentute nel progetto “Pi3.Infrastructure.Chilkat”:
-	- invio email PEC / PEO
-	- scansione casella di posta PEC / PEO
-	- verifica se un file pdf è firmato digitalmente pades	
-	Se un utilizzatore dovesse trovare librerie alternative valide che facciano questi servizi, potrebbe tranquillamente integrarle nel sistema senza alcuna modifica per le restanti parti.
+	- `Chilkat`: librerie commerciali già licenziate per PAT ma che richiedono una nuova licenza se il software viene preso in riuso;
+  		Le funzionalità di chilkat utilizzate sono contentute nel progetto “Pi3.Infrastructure.Chilkat”:
+		- invio email PEC / PEO
+		- scansione casella di posta PEC / PEO
+		- verifica se un file pdf è firmato digitalmente pades	
+	
+		Se un utilizzatore dovesse trovare librerie alternative valide che facciano questi servizi, potrebbe tranquillamente integrarle nel sistema senza alcuna modifica per le restanti parti.
+
+	- `AutoMapper`e `MediatR`: diventate licenza commerciali dal 2 luglio 2025, rimane gratutita fino alle versioni **AutoMapper 14.x** e **MediatR 12.x**.
+	Attenzione nell'aggiornamento versione. Vale lo stesso discorso fatto sopra per Chilkat, in caso di vulnerabilità sui vecchi pacchetti si dovrà pagare una licenza o implementare in maniera 		alternativa le funzionalità esistenti.
 
 > L’elenco completo delle dipendenze è disponibile nei file `.csproj` e `packages.config` dei singoli progetti.
 
